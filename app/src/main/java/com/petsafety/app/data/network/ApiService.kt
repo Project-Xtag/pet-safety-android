@@ -39,6 +39,9 @@ interface ApiService {
         @Body request: com.petsafety.app.data.model.NotificationPreferences
     ): ApiEnvelope<NotificationPreferencesResponse>
 
+    @GET("users/me/can-delete")
+    suspend fun canDeleteAccount(): ApiEnvelope<CanDeleteAccountResponse>
+
     @DELETE("users/me")
     suspend fun deleteAccount(): ApiEnvelope<EmptyResponse>
 

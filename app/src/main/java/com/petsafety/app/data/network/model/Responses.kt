@@ -168,3 +168,17 @@ data class SuccessStoriesResponse(
 data class BreedsResponse(
     val breeds: List<Breed>
 )
+
+@Serializable
+data class CanDeleteAccountResponse(
+    val canDelete: Boolean,
+    val reason: String? = null,
+    val message: String? = null,
+    val missingPets: List<MissingPetInfo>? = null
+)
+
+@Serializable
+data class MissingPetInfo(
+    val id: String,
+    val name: String
+)

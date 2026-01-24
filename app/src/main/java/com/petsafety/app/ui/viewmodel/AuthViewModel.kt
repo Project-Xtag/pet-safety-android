@@ -3,6 +3,7 @@ package com.petsafety.app.ui.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.petsafety.app.data.model.User
+import com.petsafety.app.data.network.model.CanDeleteAccountResponse
 import com.petsafety.app.data.repository.AuthRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -127,6 +128,20 @@ class AuthViewModel @Inject constructor(
                 onResult(true, null)
             } catch (ex: Exception) {
                 onResult(false, ex.localizedMessage)
+            } finally {
+                _isLoading.value = false
+            }
+        }
+    }
+
+    fun canDeleteAccount(onResult: (CanDeleteAccountResponse?, String?) -> Unit) {
+        viewModelScope.launch {
+            _isLoading.value = true
+            try {
+                val response = authRepository.canDeleteAccount()
+                onResult(response, null)
+            } catch (ex: Exception) {
+                onResult(null, ex.localizedMessage)
             } finally {
                 _isLoading.value = false
             }

@@ -187,6 +187,10 @@
     <string name="type_delete_to_confirm">Type DELETE</string>
     <string name="account_deleted">Account deleted</string>
     <string name="delete_account_failed">Failed to delete account</string>
+    <string name="cannot_delete_account">Cannot Delete Account</string>
+    <string name="cannot_delete_missing_pets">You cannot delete your account while you have pets marked as missing. Please mark them as found first.</string>
+    <string name="missing_pets_label">Missing pets: %1$s</string>
+    <string name="checking_delete_eligibility">Checking...</string>
     <string name="share_your_story">Share Your Story</string>
     <string name="success_story_prompt">Great news! %1$s has been found! Would you like to share your reunion story to help inspire others?</string>
     <string name="your_story">Your Story</string>

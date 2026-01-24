@@ -3,6 +3,7 @@ package com.petsafety.app.data.repository
 import com.petsafety.app.data.local.AuthTokenStore
 import com.petsafety.app.data.model.User
 import com.petsafety.app.data.network.ApiService
+import com.petsafety.app.data.network.model.CanDeleteAccountResponse
 import com.petsafety.app.data.network.model.LoginRequest
 import com.petsafety.app.data.network.model.VerifyOtpRequest
 import kotlinx.serialization.json.JsonNull
@@ -58,6 +59,14 @@ class AuthRepository(
             }
         )
         return apiService.updateUser(json).data?.user ?: error("Missing user")
+    }
+
+    suspend fun canDeleteAccount(): CanDeleteAccountResponse {
+        val response = apiService.canDeleteAccount()
+        if (!response.success) {
+            throw Exception(response.error ?: "Failed to check delete eligibility")
+        }
+        return response.data ?: throw Exception("Missing response data")
     }
 
     suspend fun deleteAccount() {

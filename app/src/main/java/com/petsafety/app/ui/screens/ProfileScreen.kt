@@ -117,11 +117,16 @@ private fun ProfileMain(
     val user by authViewModel.currentUser.collectAsState()
     var showLogoutDialog by remember { mutableStateOf(false) }
     var showDeleteDialog by remember { mutableStateOf(false) }
+    var showDeleteErrorDialog by remember { mutableStateOf(false) }
     var isDeleting by remember { mutableStateOf(false) }
+    var isCheckingDelete by remember { mutableStateOf(false) }
+    var deleteErrorMessage by remember { mutableStateOf("") }
+    var missingPetNames by remember { mutableStateOf<List<String>>(emptyList()) }
 
     // Extract string resources outside lambdas
     val accountDeletedMessage = stringResource(R.string.account_deleted)
     val deleteAccountFailedMessage = stringResource(R.string.delete_account_failed)
+    val cannotDeleteMissingPetsMessage = stringResource(R.string.cannot_delete_missing_pets)
 
     Box(
         modifier = Modifier
@@ -329,7 +334,23 @@ private fun ProfileMain(
                 Spacer(modifier = Modifier.height(12.dp))
 
                 Button(
-                    onClick = { showDeleteDialog = true },
+                    onClick = {
+                        isCheckingDelete = true
+                        authViewModel.canDeleteAccount { response, error ->
+                            isCheckingDelete = false
+                            if (error != null) {
+                                appStateViewModel.showError(error)
+                            } else if (response != null) {
+                                if (response.canDelete) {
+                                    showDeleteDialog = true
+                                } else {
+                                    deleteErrorMessage = response.message ?: cannotDeleteMissingPetsMessage
+                                    missingPetNames = response.missingPets?.map { it.name } ?: emptyList()
+                                    showDeleteErrorDialog = true
+                                }
+                            }
+                        }
+                    },
                     modifier = Modifier
                         .fillMaxWidth()
                         .height(52.dp)
@@ -341,9 +362,9 @@ private fun ProfileMain(
                         ),
                     shape = RoundedCornerShape(16.dp),
                     colors = ButtonDefaults.buttonColors(containerColor = Color.Red),
-                    enabled = !isDeleting
+                    enabled = !isDeleting && !isCheckingDelete
                 ) {
-                    if (isDeleting) {
+                    if (isDeleting || isCheckingDelete) {
                         CircularProgressIndicator(
                             modifier = Modifier.size(18.dp),
                             color = Color.White,
@@ -358,7 +379,11 @@ private fun ProfileMain(
                     }
                     Spacer(modifier = Modifier.width(12.dp))
                     Text(
-                        text = if (isDeleting) "Deleting..." else stringResource(R.string.delete_account),
+                        text = when {
+                            isCheckingDelete -> stringResource(R.string.checking_delete_eligibility)
+                            isDeleting -> "Deleting..."
+                            else -> stringResource(R.string.delete_account)
+                        },
                         style = MaterialTheme.typography.labelLarge.copy(
                             fontSize = 16.sp,
                             fontWeight = FontWeight.SemiBold
@@ -435,6 +460,32 @@ private fun ProfileMain(
             dismissButton = {
                 TextButton(onClick = { showDeleteDialog = false }) {
                     Text(stringResource(R.string.cancel))
+                }
+            }
+        )
+    }
+
+    // Cannot Delete Account (Missing Pets) Dialog
+    if (showDeleteErrorDialog) {
+        AlertDialog(
+            onDismissRequest = { showDeleteErrorDialog = false },
+            title = { Text(stringResource(R.string.cannot_delete_account)) },
+            text = {
+                Column {
+                    Text(deleteErrorMessage)
+                    if (missingPetNames.isNotEmpty()) {
+                        Spacer(modifier = Modifier.height(12.dp))
+                        Text(
+                            text = stringResource(R.string.missing_pets_label, missingPetNames.joinToString(", ")),
+                            style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.SemiBold),
+                            color = Color(0xFFD97706) // Amber color for emphasis
+                        )
+                    }
+                }
+            },
+            confirmButton = {
+                TextButton(onClick = { showDeleteErrorDialog = false }) {
+                    Text("OK")
                 }
             }
         )
