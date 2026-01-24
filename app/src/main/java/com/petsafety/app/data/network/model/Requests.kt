@@ -170,3 +170,10 @@ data class UpdateSuccessStoryRequest(
     @SerialName("is_public") val isPublic: Boolean? = null,
     @SerialName("is_confirmed") val isConfirmed: Boolean? = null
 )
+
+@Serializable
+data class SupportRequest(
+    val category: String,
+    val subject: String,
+    val message: String
+)

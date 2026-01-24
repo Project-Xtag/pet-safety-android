@@ -221,4 +221,14 @@
         <item quantity="other">%d photos failed to upload</item>
     </plurals>
     <string name="pet_deleted">%1$s has been deleted</string>
+    <string name="contact_support">Contact Support</string>
+    <string name="contact_support_category">Category</string>
+    <string name="contact_support_subject">Subject</string>
+    <string name="contact_support_subject_hint">Brief description of your issue</string>
+    <string name="contact_support_message">Message</string>
+    <string name="contact_support_message_hint">Describe your issue in detail…</string>
+    <string name="contact_support_submit">Submit</string>
+    <string name="contact_support_sending">Sending…</string>
+    <string name="contact_support_success">Support request submitted! Ticket ID: %1$s</string>
+    <string name="contact_support_response">We\'ll get back to you within 24 hours.</string>
 </resources>

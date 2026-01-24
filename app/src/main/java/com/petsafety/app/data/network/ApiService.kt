@@ -199,4 +199,8 @@ interface ApiService {
 
     @GET("breeds/cat")
     suspend fun getCatBreeds(): ApiEnvelope<BreedsResponse>
+
+    // Contact Support
+    @POST("contact/support")
+    suspend fun submitSupportRequest(@Body request: SupportRequest): ApiEnvelope<SupportRequestResponse>
 }

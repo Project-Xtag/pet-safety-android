@@ -182,3 +182,9 @@ data class MissingPetInfo(
     val id: String,
     val name: String
 )
+
+@Serializable
+data class SupportRequestResponse(
+    val ticketId: String,
+    val message: String
+)

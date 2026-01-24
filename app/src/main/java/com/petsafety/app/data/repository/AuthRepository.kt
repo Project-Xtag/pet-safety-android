@@ -5,6 +5,7 @@ import com.petsafety.app.data.model.User
 import com.petsafety.app.data.network.ApiService
 import com.petsafety.app.data.network.model.CanDeleteAccountResponse
 import com.petsafety.app.data.network.model.LoginRequest
+import com.petsafety.app.data.network.model.SupportRequest
 import com.petsafety.app.data.network.model.VerifyOtpRequest
 import kotlinx.serialization.json.JsonNull
 import kotlinx.serialization.json.JsonObject
@@ -82,5 +83,15 @@ class AuthRepository(
 
     fun setBiometricEnabled(enabled: Boolean) {
         tokenStore.setBiometricEnabled(enabled)
+    }
+
+    suspend fun submitSupportRequest(category: String, subject: String, message: String): String {
+        val response = apiService.submitSupportRequest(
+            SupportRequest(category = category, subject = subject, message = message)
+        )
+        if (!response.success) {
+            throw Exception(response.error ?: "Failed to submit support request")
+        }
+        return response.data?.ticketId ?: throw Exception("Missing ticket ID")
     }
 }

@@ -1223,6 +1223,8 @@ private fun HelpSupportScreen(
     appStateViewModel: AppStateViewModel,
     onBack: () -> Unit
 ) {
+    var showContactForm by remember { mutableStateOf(false) }
+
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -1258,7 +1260,7 @@ private fun HelpSupportScreen(
                     ProfileMenuRow(
                         icon = Icons.Default.HelpOutline,
                         title = "Contact Support",
-                        onClick = { /* Open contact form */ }
+                        onClick = { showContactForm = true }
                     )
                     HorizontalDivider(color = Color(0xFFF2F2F7))
                     ProfileMenuRow(
@@ -1341,6 +1343,174 @@ private fun HelpSupportScreen(
             }
         }
     }
+
+    // Contact Support Dialog
+    if (showContactForm) {
+        ContactSupportDialog(
+            authViewModel = authViewModel,
+            appStateViewModel = appStateViewModel,
+            onDismiss = { showContactForm = false }
+        )
+    }
+}
+
+@Composable
+private fun ContactSupportDialog(
+    authViewModel: AuthViewModel,
+    appStateViewModel: AppStateViewModel,
+    onDismiss: () -> Unit
+) {
+    var selectedCategory by remember { mutableStateOf("General") }
+    var subject by remember { mutableStateOf("") }
+    var message by remember { mutableStateOf("") }
+    var isSubmitting by remember { mutableStateOf(false) }
+    var showCategoryDropdown by remember { mutableStateOf(false) }
+
+    val categories = listOf("General", "Technical Issue", "Account", "Billing", "Feature Request", "Other")
+
+    AlertDialog(
+        onDismissRequest = { if (!isSubmitting) onDismiss() },
+        title = {
+            Text(
+                text = "Contact Support",
+                style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.Bold)
+            )
+        },
+        text = {
+            Column(
+                modifier = Modifier.fillMaxWidth(),
+                verticalArrangement = Arrangement.spacedBy(16.dp)
+            ) {
+                // Category selector
+                Column {
+                    Text(
+                        text = "Category",
+                        style = MaterialTheme.typography.labelMedium,
+                        color = MutedTextLight
+                    )
+                    Spacer(modifier = Modifier.height(4.dp))
+                    Card(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .clickable { showCategoryDropdown = !showCategoryDropdown },
+                        shape = RoundedCornerShape(8.dp),
+                        colors = CardDefaults.cardColors(containerColor = Color(0xFFF5F5F5))
+                    ) {
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(12.dp),
+                            horizontalArrangement = Arrangement.SpaceBetween,
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Text(text = selectedCategory)
+                            Icon(
+                                imageVector = Icons.Default.ChevronRight,
+                                contentDescription = null,
+                                tint = MutedTextLight
+                            )
+                        }
+                    }
+                    if (showCategoryDropdown) {
+                        Card(
+                            modifier = Modifier.fillMaxWidth(),
+                            shape = RoundedCornerShape(8.dp),
+                            elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
+                        ) {
+                            Column {
+                                categories.forEach { category ->
+                                    Text(
+                                        text = category,
+                                        modifier = Modifier
+                                            .fillMaxWidth()
+                                            .clickable {
+                                                selectedCategory = category
+                                                showCategoryDropdown = false
+                                            }
+                                            .padding(12.dp),
+                                        color = if (category == selectedCategory) TealAccent else Color.Unspecified
+                                    )
+                                }
+                            }
+                        }
+                    }
+                }
+
+                // Subject field
+                OutlinedTextField(
+                    value = subject,
+                    onValueChange = { if (it.length <= 200) subject = it },
+                    label = { Text("Subject") },
+                    placeholder = { Text("Brief description of your issue") },
+                    modifier = Modifier.fillMaxWidth(),
+                    singleLine = true,
+                    enabled = !isSubmitting
+                )
+
+                // Message field
+                OutlinedTextField(
+                    value = message,
+                    onValueChange = { if (it.length <= 5000) message = it },
+                    label = { Text("Message") },
+                    placeholder = { Text("Describe your issue in detail...") },
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(150.dp),
+                    enabled = !isSubmitting
+                )
+
+                Text(
+                    text = "${message.length}/5000 characters",
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MutedTextLight,
+                    modifier = Modifier.align(Alignment.End)
+                )
+            }
+        },
+        confirmButton = {
+            Button(
+                onClick = {
+                    isSubmitting = true
+                    authViewModel.submitSupportRequest(
+                        category = selectedCategory,
+                        subject = subject,
+                        message = message,
+                        onSuccess = { ticketId ->
+                            isSubmitting = false
+                            appStateViewModel.showSuccess("Support request submitted! Ticket ID: $ticketId")
+                            onDismiss()
+                        },
+                        onError = { error ->
+                            isSubmitting = false
+                            appStateViewModel.showError(error)
+                        }
+                    )
+                },
+                enabled = subject.isNotBlank() && message.isNotBlank() && !isSubmitting,
+                colors = ButtonDefaults.buttonColors(containerColor = TealAccent)
+            ) {
+                if (isSubmitting) {
+                    CircularProgressIndicator(
+                        modifier = Modifier.size(16.dp),
+                        color = Color.White,
+                        strokeWidth = 2.dp
+                    )
+                    Spacer(modifier = Modifier.width(8.dp))
+                    Text("Sending...")
+                } else {
+                    Text("Submit")
+                }
+            }
+        },
+        dismissButton = {
+            TextButton(
+                onClick = onDismiss,
+                enabled = !isSubmitting
+            ) {
+                Text("Cancel")
+            }
+        }
+    )
 }
 
 // Helper Composables

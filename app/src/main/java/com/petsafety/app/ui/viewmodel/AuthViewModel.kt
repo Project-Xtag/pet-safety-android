@@ -164,6 +164,23 @@ class AuthViewModel @Inject constructor(
         }
     }
 
+    fun submitSupportRequest(
+        category: String,
+        subject: String,
+        message: String,
+        onSuccess: (String) -> Unit,
+        onError: (String) -> Unit
+    ) {
+        viewModelScope.launch {
+            try {
+                val ticketId = authRepository.submitSupportRequest(category, subject, message)
+                onSuccess(ticketId)
+            } catch (ex: Exception) {
+                onError(ex.localizedMessage ?: "Failed to submit support request")
+            }
+        }
+    }
+
     private suspend fun loadCurrentUser() {
         try {
             _currentUser.value = authRepository.getCurrentUser()
