@@ -1,0 +1,633 @@
+package com.petsafety.app.ui.screens
+
+import android.graphics.Bitmap
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.CameraAlt
+import androidx.compose.material.icons.filled.Close
+import androidx.compose.material.icons.filled.Delete
+import androidx.compose.material.icons.filled.Photo
+import androidx.compose.material.icons.filled.PhotoLibrary
+import androidx.compose.material.icons.filled.Star
+import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.DropdownMenuItem
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.LinearProgressIndicator
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.ModalBottomSheet
+import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
+import androidx.compose.material3.rememberModalBottomSheetState
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import androidx.compose.ui.window.Dialog
+import androidx.compose.ui.window.DialogProperties
+import androidx.hilt.navigation.compose.hiltViewModel
+import coil.compose.AsyncImage
+import com.petsafety.app.R
+import com.petsafety.app.data.model.PetPhoto
+import com.petsafety.app.ui.theme.BackgroundLight
+import com.petsafety.app.ui.theme.BrandOrange
+import com.petsafety.app.ui.theme.MutedTextLight
+import com.petsafety.app.ui.theme.TealAccent
+import com.petsafety.app.ui.viewmodel.AppStateViewModel
+import com.petsafety.app.ui.viewmodel.PetPhotosViewModel
+import java.io.ByteArrayOutputStream
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun PhotoGalleryScreen(
+    petId: String,
+    petName: String = "",
+    appStateViewModel: AppStateViewModel,
+    onBack: () -> Unit
+) {
+    val viewModel: PetPhotosViewModel = hiltViewModel()
+    val photos by viewModel.photos.collectAsState()
+    val isLoading by viewModel.isLoading.collectAsState()
+    val isUploading by viewModel.isUploading.collectAsState()
+    val context = LocalContext.current
+
+    var showSourcePicker by remember { mutableStateOf(false) }
+    var showDeleteDialog by remember { mutableStateOf(false) }
+    var photoToDelete by remember { mutableStateOf<PetPhoto?>(null) }
+    var selectedPhotoForMenu by remember { mutableStateOf<PetPhoto?>(null) }
+    var fullScreenPhoto by remember { mutableStateOf<PetPhoto?>(null) }
+
+    val photoUploadedMessage = stringResource(R.string.photo_uploaded)
+    val uploadFailedMessage = stringResource(R.string.upload_failed)
+    val primaryUpdatedMessage = stringResource(R.string.primary_updated)
+    val primaryFailedMessage = stringResource(R.string.primary_failed)
+    val photoDeletedMessage = stringResource(R.string.photo_deleted)
+    val deletePhotoFailedMessage = stringResource(R.string.delete_photo_failed)
+
+    val pickImages = rememberLauncherForActivityResult(ActivityResultContracts.GetMultipleContents()) { uris ->
+        val bytes = uris.mapNotNull { uri ->
+            context.contentResolver.openInputStream(uri)?.use { it.readBytes() }
+        }
+        viewModel.uploadPhotos(petId, bytes) { succeeded, failed ->
+            if (succeeded > 0) {
+                appStateViewModel.showSuccess(
+                    context.resources.getQuantityString(R.plurals.photos_uploaded, succeeded, succeeded)
+                )
+            }
+            if (failed > 0) {
+                appStateViewModel.showError(
+                    context.resources.getQuantityString(R.plurals.photos_upload_failed, failed, failed)
+                )
+            }
+        }
+    }
+
+    val takePhoto = rememberLauncherForActivityResult(ActivityResultContracts.TakePicturePreview()) { bitmap: Bitmap? ->
+        if (bitmap != null) {
+            val stream = ByteArrayOutputStream()
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 80, stream)
+            viewModel.uploadPhoto(petId, stream.toByteArray(), false) { success, message ->
+                if (success) appStateViewModel.showSuccess(photoUploadedMessage)
+                else appStateViewModel.showError(message ?: uploadFailedMessage)
+            }
+        }
+    }
+
+    LaunchedEffect(Unit) { viewModel.loadPhotos(petId) }
+
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(BackgroundLight)
+    ) {
+        Column(
+            modifier = Modifier.fillMaxSize()
+        ) {
+            // Header with Back Button
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 16.dp, bottom = 16.dp)
+            ) {
+                // Back Button
+                IconButton(
+                    onClick = onBack,
+                    modifier = Modifier
+                        .align(Alignment.CenterStart)
+                        .padding(start = 8.dp)
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.ArrowBack,
+                        contentDescription = "Back",
+                        tint = MaterialTheme.colorScheme.onSurface
+                    )
+                }
+
+                // Title
+                Column(
+                    modifier = Modifier.align(Alignment.Center),
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    Text(
+                        text = if (petName.isNotBlank()) "$petName's Photos" else stringResource(R.string.photo_gallery_title),
+                        style = MaterialTheme.typography.headlineMedium.copy(
+                            fontSize = 24.sp,
+                            fontWeight = FontWeight.Bold
+                        ),
+                        color = MaterialTheme.colorScheme.onSurface
+                    )
+
+                    if (photos.isNotEmpty()) {
+                        Spacer(modifier = Modifier.height(4.dp))
+                        Text(
+                            text = "${photos.size} photo${if (photos.size == 1) "" else "s"}",
+                            style = MaterialTheme.typography.bodyMedium.copy(fontSize = 15.sp),
+                            color = MutedTextLight
+                        )
+                    }
+                }
+            }
+
+            // Add Photos Button
+            Button(
+                onClick = { showSourcePicker = true },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 16.dp)
+                    .height(52.dp)
+                    .shadow(
+                        elevation = 8.dp,
+                        shape = RoundedCornerShape(16.dp),
+                        ambientColor = BrandOrange.copy(alpha = 0.3f),
+                        spotColor = BrandOrange.copy(alpha = 0.3f)
+                    ),
+                enabled = !isUploading,
+                shape = RoundedCornerShape(16.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = BrandOrange)
+            ) {
+                Icon(
+                    imageVector = Icons.Default.Add,
+                    contentDescription = null,
+                    modifier = Modifier.size(20.dp)
+                )
+                Spacer(modifier = Modifier.width(8.dp))
+                Text(
+                    text = "Add Photos",
+                    style = MaterialTheme.typography.labelLarge.copy(
+                        fontSize = 16.sp,
+                        fontWeight = FontWeight.SemiBold
+                    )
+                )
+            }
+
+            // Upload Progress
+            if (isUploading) {
+                Column(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 16.dp, vertical = 12.dp),
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    LinearProgressIndicator(
+                        modifier = Modifier.fillMaxWidth(),
+                        color = BrandOrange
+                    )
+                    Spacer(modifier = Modifier.height(8.dp))
+                    Text(
+                        text = "Uploading photos...",
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MutedTextLight
+                    )
+                }
+            }
+
+            Spacer(modifier = Modifier.height(16.dp))
+
+            // Content
+            when {
+                isLoading && photos.isEmpty() -> {
+                    Box(
+                        modifier = Modifier.fillMaxSize(),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Column(
+                            horizontalAlignment = Alignment.CenterHorizontally,
+                            verticalArrangement = Arrangement.spacedBy(16.dp)
+                        ) {
+                            CircularProgressIndicator(color = TealAccent)
+                            Text(
+                                text = "Loading photos...",
+                                color = MutedTextLight
+                            )
+                        }
+                    }
+                }
+                photos.isEmpty() -> {
+                    EmptyPhotosState(petName = petName)
+                }
+                else -> {
+                    LazyVerticalGrid(
+                        columns = GridCells.Fixed(2),
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .padding(horizontal = 16.dp),
+                        horizontalArrangement = Arrangement.spacedBy(12.dp),
+                        verticalArrangement = Arrangement.spacedBy(12.dp)
+                    ) {
+                        items(photos) { photo ->
+                            PhotoGridItem(
+                                photo = photo,
+                                onClick = { fullScreenPhoto = photo },
+                                onLongClick = { selectedPhotoForMenu = photo },
+                                onSetPrimary = {
+                                    viewModel.setPrimaryPhoto(petId, photo.id) { success, message ->
+                                        if (success) appStateViewModel.showSuccess(primaryUpdatedMessage)
+                                        else appStateViewModel.showError(message ?: primaryFailedMessage)
+                                    }
+                                },
+                                onDelete = {
+                                    photoToDelete = photo
+                                    showDeleteDialog = true
+                                }
+                            )
+                        }
+                        item {
+                            Spacer(modifier = Modifier.height(80.dp))
+                        }
+                    }
+
+                    // Tip
+                    Text(
+                        text = "Tip: Long press a photo to set as primary or delete",
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MutedTextLight,
+                        textAlign = TextAlign.Center,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(16.dp)
+                    )
+                }
+            }
+        }
+    }
+
+    // Source Picker Bottom Sheet
+    if (showSourcePicker) {
+        ModalBottomSheet(
+            onDismissRequest = { showSourcePicker = false },
+            sheetState = rememberModalBottomSheetState()
+        ) {
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(24.dp)
+            ) {
+                Text(
+                    text = "Choose Photo Source",
+                    style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.Bold),
+                    modifier = Modifier.padding(bottom = 24.dp)
+                )
+
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(16.dp)
+                ) {
+                    SourceOption(
+                        icon = Icons.Default.CameraAlt,
+                        label = "Camera",
+                        onClick = {
+                            showSourcePicker = false
+                            takePhoto.launch(null)
+                        },
+                        modifier = Modifier.weight(1f)
+                    )
+                    SourceOption(
+                        icon = Icons.Default.PhotoLibrary,
+                        label = "Library",
+                        onClick = {
+                            showSourcePicker = false
+                            pickImages.launch("image/*")
+                        },
+                        modifier = Modifier.weight(1f)
+                    )
+                }
+
+                Spacer(modifier = Modifier.height(32.dp))
+            }
+        }
+    }
+
+    // Delete Confirmation Dialog
+    if (showDeleteDialog && photoToDelete != null) {
+        AlertDialog(
+            onDismissRequest = {
+                showDeleteDialog = false
+                photoToDelete = null
+            },
+            title = { Text("Delete Photo") },
+            text = { Text("Are you sure you want to delete this photo? This action cannot be undone.") },
+            confirmButton = {
+                TextButton(
+                    onClick = {
+                        photoToDelete?.let { photo ->
+                            viewModel.deletePhoto(petId, photo.id) { success, message ->
+                                if (success) appStateViewModel.showSuccess(photoDeletedMessage)
+                                else appStateViewModel.showError(message ?: deletePhotoFailedMessage)
+                            }
+                        }
+                        showDeleteDialog = false
+                        photoToDelete = null
+                    },
+                    colors = ButtonDefaults.textButtonColors(contentColor = Color.Red)
+                ) {
+                    Text("Delete")
+                }
+            },
+            dismissButton = {
+                TextButton(onClick = {
+                    showDeleteDialog = false
+                    photoToDelete = null
+                }) {
+                    Text(stringResource(R.string.cancel))
+                }
+            }
+        )
+    }
+
+    // Full Screen Photo Dialog
+    fullScreenPhoto?.let { photo ->
+        Dialog(
+            onDismissRequest = { fullScreenPhoto = null },
+            properties = DialogProperties(usePlatformDefaultWidth = false)
+        ) {
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(Color.Black)
+            ) {
+                AsyncImage(
+                    model = photo.photoUrl,
+                    contentDescription = null,
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .align(Alignment.Center),
+                    contentScale = ContentScale.Fit
+                )
+
+                IconButton(
+                    onClick = { fullScreenPhoto = null },
+                    modifier = Modifier
+                        .align(Alignment.TopEnd)
+                        .padding(16.dp)
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.Close,
+                        contentDescription = "Close",
+                        tint = Color.White,
+                        modifier = Modifier.size(32.dp)
+                    )
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun EmptyPhotosState(petName: String) {
+    Box(
+        modifier = Modifier.fillMaxSize(),
+        contentAlignment = Alignment.Center
+    ) {
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.spacedBy(20.dp)
+        ) {
+            Box(
+                modifier = Modifier
+                    .size(100.dp)
+                    .background(Color(0xFFF2F2F7), CircleShape),
+                contentAlignment = Alignment.Center
+            ) {
+                Icon(
+                    imageVector = Icons.Default.Photo,
+                    contentDescription = null,
+                    modifier = Modifier.size(44.dp),
+                    tint = TealAccent
+                )
+            }
+
+            Text(
+                text = "No photos yet",
+                style = MaterialTheme.typography.titleLarge.copy(
+                    fontSize = 20.sp,
+                    fontWeight = FontWeight.Bold
+                ),
+                color = MaterialTheme.colorScheme.onSurface
+            )
+
+            Text(
+                text = if (petName.isNotBlank())
+                    "Add photos to create a gallery for $petName"
+                else
+                    "Add photos to create a gallery",
+                style = MaterialTheme.typography.bodyMedium.copy(fontSize = 15.sp),
+                color = MutedTextLight,
+                textAlign = TextAlign.Center,
+                modifier = Modifier.padding(horizontal = 32.dp)
+            )
+        }
+    }
+}
+
+@Composable
+private fun PhotoGridItem(
+    photo: PetPhoto,
+    onClick: () -> Unit,
+    onLongClick: () -> Unit,
+    onSetPrimary: () -> Unit,
+    onDelete: () -> Unit
+) {
+    var showMenu by remember { mutableStateOf(false) }
+
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(180.dp)
+    ) {
+        Card(
+            modifier = Modifier
+                .fillMaxSize()
+                .clickable(onClick = onClick),
+            shape = RoundedCornerShape(12.dp),
+            colors = CardDefaults.cardColors(containerColor = Color(0xFFF2F2F7))
+        ) {
+            Box(modifier = Modifier.fillMaxSize()) {
+                AsyncImage(
+                    model = photo.photoUrl,
+                    contentDescription = null,
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .clickable(
+                            onClick = onClick,
+                            onClickLabel = "View photo"
+                        ),
+                    contentScale = ContentScale.Crop
+                )
+
+                // Long press menu trigger
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .clickable(
+                            onClick = onClick,
+                            onClickLabel = "View"
+                        )
+                )
+            }
+        }
+
+        // Primary Badge
+        if (photo.isPrimary) {
+            Row(
+                modifier = Modifier
+                    .align(Alignment.TopEnd)
+                    .padding(8.dp)
+                    .background(BrandOrange, RoundedCornerShape(8.dp))
+                    .padding(horizontal = 8.dp, vertical = 4.dp),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(4.dp)
+            ) {
+                Icon(
+                    imageVector = Icons.Default.Star,
+                    contentDescription = null,
+                    modifier = Modifier.size(12.dp),
+                    tint = Color.White
+                )
+                Text(
+                    text = "Primary",
+                    style = MaterialTheme.typography.labelSmall.copy(
+                        fontSize = 10.sp,
+                        fontWeight = FontWeight.SemiBold
+                    ),
+                    color = Color.White
+                )
+            }
+        }
+
+        // Action buttons
+        Row(
+            modifier = Modifier
+                .align(Alignment.BottomEnd)
+                .padding(8.dp),
+            horizontalArrangement = Arrangement.spacedBy(4.dp)
+        ) {
+            if (!photo.isPrimary) {
+                IconButton(
+                    onClick = onSetPrimary,
+                    modifier = Modifier
+                        .size(32.dp)
+                        .background(Color.White.copy(alpha = 0.9f), CircleShape)
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.Star,
+                        contentDescription = "Set as primary",
+                        modifier = Modifier.size(16.dp),
+                        tint = BrandOrange
+                    )
+                }
+            }
+            IconButton(
+                onClick = onDelete,
+                modifier = Modifier
+                    .size(32.dp)
+                    .background(Color.White.copy(alpha = 0.9f), CircleShape)
+            ) {
+                Icon(
+                    imageVector = Icons.Default.Delete,
+                    contentDescription = "Delete",
+                    modifier = Modifier.size(16.dp),
+                    tint = Color.Red
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun SourceOption(
+    icon: androidx.compose.ui.graphics.vector.ImageVector,
+    label: String,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier
+) {
+    Card(
+        onClick = onClick,
+        modifier = modifier.height(100.dp),
+        shape = RoundedCornerShape(16.dp),
+        colors = CardDefaults.cardColors(containerColor = TealAccent.copy(alpha = 0.1f))
+    ) {
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(16.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center
+        ) {
+            Icon(
+                imageVector = icon,
+                contentDescription = null,
+                modifier = Modifier.size(32.dp),
+                tint = TealAccent
+            )
+            Spacer(modifier = Modifier.height(8.dp))
+            Text(
+                text = label,
+                style = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.SemiBold),
+                color = TealAccent
+            )
+        }
+    }
+}
