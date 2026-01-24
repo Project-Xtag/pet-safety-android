@@ -1,8 +1,11 @@
 package com.petsafety.app.ui
 
+import android.content.Intent
+import android.net.Uri
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -17,6 +20,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
+import androidx.compose.foundation.text.ClickableText
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.AlertDialog
@@ -39,15 +43,21 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextDecoration
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.fragment.app.FragmentActivity
 import com.petsafety.app.data.local.BiometricHelper
 import com.petsafety.app.ui.components.BrandButton
 import com.petsafety.app.ui.components.SecondaryButton
 import com.petsafety.app.ui.theme.BackgroundLight
+import com.petsafety.app.ui.theme.BrandOrange
 import com.petsafety.app.ui.theme.MutedTextLight
 import com.petsafety.app.ui.theme.PeachBackground
 import com.petsafety.app.ui.viewmodel.AppStateViewModel
@@ -73,6 +83,9 @@ fun AuthScreen(
     val loginFailedMessage = stringResource(R.string.login_failed)
     val verificationFailedMessage = stringResource(R.string.verification_failed)
     val biometricEnabledMessage = stringResource(R.string.biometric_enabled)
+    val biometricLoginTitle = stringResource(R.string.biometric_login_title)
+    val biometricLoginSubtitle = stringResource(R.string.biometric_login_subtitle)
+    val useEmailText = stringResource(R.string.use_password)
 
     Box(
         modifier = Modifier
@@ -194,6 +207,49 @@ fun AuthScreen(
                         },
                         enabled = email.isNotBlank()
                     )
+
+                    // Biometric Login Option (if enabled and has stored session)
+                    val activity = context as? FragmentActivity
+                    val loginWithBiometricText = stringResource(R.string.login_with_biometric)
+                    if (biometricHelper.canUseBiometric() && biometricEnabled && activity != null) {
+                        Spacer(modifier = Modifier.height(16.dp))
+                        TextButton(
+                            onClick = {
+                                biometricHelper.showBiometricPrompt(
+                                    activity = activity,
+                                    title = biometricLoginTitle,
+                                    subtitle = biometricLoginSubtitle,
+                                    negativeButtonText = useEmailText,
+                                    onSuccess = {
+                                        authViewModel.onBiometricSuccess()
+                                    },
+                                    onFailure = { error ->
+                                        error?.let { appStateViewModel.showError(it) }
+                                    },
+                                    onCancel = {
+                                        // User cancelled, do nothing
+                                    }
+                                )
+                            },
+                            modifier = Modifier.fillMaxWidth()
+                        ) {
+                            Icon(
+                                painter = painterResource(R.drawable.ic_fingerprint),
+                                contentDescription = null,
+                                modifier = Modifier.size(20.dp),
+                                tint = BrandOrange
+                            )
+                            Spacer(modifier = Modifier.width(8.dp))
+                            Text(
+                                text = loginWithBiometricText,
+                                style = MaterialTheme.typography.bodyMedium.copy(
+                                    fontSize = 15.sp,
+                                    fontWeight = FontWeight.Medium
+                                ),
+                                color = BrandOrange
+                            )
+                        }
+                    }
                 } else {
                     // OTP Verification View
                     Text(
@@ -317,6 +373,44 @@ fun AuthScreen(
                         )
                     }
                 }
+
+                Spacer(modifier = Modifier.height(16.dp))
+
+                // T&Cs and Privacy Policy Disclaimer
+                val termsText = buildAnnotatedString {
+                    withStyle(style = SpanStyle(color = MutedTextLight, fontSize = 12.sp)) {
+                        append("By logging in, you agree to our ")
+                    }
+                    pushStringAnnotation(tag = "terms", annotation = "https://pet-er.app/terms")
+                    withStyle(style = SpanStyle(color = BrandOrange, fontSize = 12.sp, fontWeight = FontWeight.Medium)) {
+                        append("Terms of Service")
+                    }
+                    pop()
+                    withStyle(style = SpanStyle(color = MutedTextLight, fontSize = 12.sp)) {
+                        append(" and ")
+                    }
+                    pushStringAnnotation(tag = "privacy", annotation = "https://pet-er.app/privacy")
+                    withStyle(style = SpanStyle(color = BrandOrange, fontSize = 12.sp, fontWeight = FontWeight.Medium)) {
+                        append("Privacy Policy")
+                    }
+                    pop()
+                }
+
+                ClickableText(
+                    text = termsText,
+                    onClick = { offset ->
+                        termsText.getStringAnnotations(tag = "terms", start = offset, end = offset)
+                            .firstOrNull()?.let {
+                                context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(it.item)))
+                            }
+                        termsText.getStringAnnotations(tag = "privacy", start = offset, end = offset)
+                            .firstOrNull()?.let {
+                                context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(it.item)))
+                            }
+                    },
+                    modifier = Modifier.fillMaxWidth(),
+                    style = MaterialTheme.typography.bodySmall.copy(textAlign = TextAlign.Center)
+                )
             }
 
             Spacer(modifier = Modifier.height(40.dp))
