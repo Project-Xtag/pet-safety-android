@@ -82,8 +82,10 @@ fun PhotoCaptureSheet(
     val cameraLauncher = rememberLauncherForActivityResult(
         ActivityResultContracts.TakePicture()
     ) { success ->
-        if (success && tempPhotoUri != null) {
-            val bytes = compressImage(context, tempPhotoUri!!)
+        // Capture in local val for null safety
+        val uri = tempPhotoUri
+        if (success && uri != null) {
+            val bytes = compressImage(context, uri)
             if (bytes != null) {
                 onPhotoSelected(bytes)
             }

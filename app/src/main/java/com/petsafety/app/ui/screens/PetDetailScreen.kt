@@ -270,21 +270,21 @@ fun PetDetailScreen(
             }
 
             // Medical Info
-            if (!pet.medicalNotes.isNullOrBlank()) {
+            pet.medicalNotes?.takeIf { it.isNotBlank() }?.let { medicalNotes ->
                 Spacer(modifier = Modifier.height(16.dp))
                 InfoSection(
                     title = "Medical Information",
-                    content = pet.medicalNotes!!,
+                    content = medicalNotes,
                     icon = Icons.Default.LocalHospital
                 )
             }
 
             // Additional Information
-            if (!pet.notes.isNullOrBlank()) {
+            pet.notes?.takeIf { it.isNotBlank() }?.let { notes ->
                 Spacer(modifier = Modifier.height(16.dp))
                 InfoSection(
                     title = "Additional Information",
-                    content = pet.notes!!,
+                    content = notes,
                     icon = Icons.Default.Info
                 )
             }

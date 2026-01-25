@@ -8,6 +8,7 @@ import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
+import java.util.concurrent.TimeUnit
 
 @kotlinx.serialization.ExperimentalSerializationApi
 object ApiClient {
@@ -23,6 +24,10 @@ object ApiClient {
         val client = OkHttpClient.Builder()
             .addInterceptor(AuthInterceptor(tokenStore))
             .addInterceptor(logging)
+            .authenticator(TokenAuthenticator(tokenStore))
+            .connectTimeout(30, TimeUnit.SECONDS)
+            .readTimeout(30, TimeUnit.SECONDS)
+            .writeTimeout(30, TimeUnit.SECONDS)
             .build()
 
         val json = Json {

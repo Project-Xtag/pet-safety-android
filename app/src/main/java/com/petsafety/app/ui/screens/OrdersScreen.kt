@@ -23,7 +23,6 @@ import androidx.compose.material.icons.filled.ChevronRight
 import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
@@ -48,6 +47,7 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.petsafety.app.R
 import com.petsafety.app.data.model.Order
+import com.petsafety.app.ui.components.OrdersListSkeleton
 import com.petsafety.app.ui.theme.BackgroundLight
 import com.petsafety.app.ui.theme.BrandOrange
 import com.petsafety.app.ui.theme.MutedTextLight
@@ -76,30 +76,22 @@ fun OrdersScreen(onBack: () -> Unit) {
     ) {
         when {
             isLoading && orders.isEmpty() -> {
-                Box(
-                    modifier = Modifier.fillMaxSize(),
-                    contentAlignment = Alignment.Center
-                ) {
-                    Column(
-                        horizontalAlignment = Alignment.CenterHorizontally,
-                        verticalArrangement = Arrangement.spacedBy(16.dp)
-                    ) {
-                        CircularProgressIndicator(color = TealAccent)
-                        Text(
-                            text = "Loading orders...",
-                            color = MutedTextLight
-                        )
-                    }
+                Column(modifier = Modifier.fillMaxSize().padding(top = 16.dp)) {
+                    OrdersListSkeleton(itemCount = 3)
                 }
             }
             orders.isEmpty() -> {
                 EmptyOrdersState()
             }
             selectedOrder != null -> {
-                OrderDetailScreen(
-                    order = selectedOrder!!,
-                    onBack = { selectedOrder = null }
-                )
+                // Capture in local val for smart cast
+                val order = selectedOrder
+                if (order != null) {
+                    OrderDetailScreen(
+                        order = order,
+                        onBack = { selectedOrder = null }
+                    )
+                }
             }
             else -> {
                 PullToRefreshBox(

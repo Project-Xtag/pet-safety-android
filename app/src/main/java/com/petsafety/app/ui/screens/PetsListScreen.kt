@@ -1,5 +1,9 @@
 package com.petsafety.app.ui.screens
 
+import android.Manifest
+import android.content.pm.PackageManager
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -33,7 +37,6 @@ import androidx.compose.material.icons.filled.Warning
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -44,6 +47,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -51,17 +57,24 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.content.ContextCompat
 import coil.compose.AsyncImage
+import com.google.android.gms.location.LocationServices
 import com.petsafety.app.R
+import com.petsafety.app.data.model.LocationCoordinate
 import com.petsafety.app.data.model.Pet
 import com.petsafety.app.ui.components.BrandButton
+import com.petsafety.app.ui.components.MarkFoundSheet
 import com.petsafety.app.ui.components.OfflineIndicator
+import com.petsafety.app.ui.components.PetsListSkeleton
+import com.petsafety.app.ui.components.ReportMissingSheet
 import com.petsafety.app.ui.theme.BackgroundLight
 import com.petsafety.app.ui.theme.BrandOrange
 import com.petsafety.app.ui.theme.MutedTextLight
@@ -88,10 +101,49 @@ fun PetsListScreen(
     val isRefreshing by viewModel.isRefreshing.collectAsState()
     val error by viewModel.errorMessage.collectAsState()
     val isConnected by appStateViewModel.isConnected.collectAsState()
-    val currentUser by authViewModel?.currentUser?.collectAsState() ?: androidx.compose.runtime.remember { androidx.compose.runtime.mutableStateOf(null) }
+    val currentUser by authViewModel?.currentUser?.collectAsState() ?: remember { mutableStateOf(null) }
 
     val hasMissingPets = pets.any { it.isMissing }
+    val missingPets = pets.filter { it.isMissing }
+    val availablePets = pets.filter { !it.isMissing }
     val addPetFirstMessage = stringResource(R.string.add_pet_first_replacement)
+
+    // Bottom sheet states
+    var showMarkFoundSheet by remember { mutableStateOf(false) }
+    var showReportMissingSheet by remember { mutableStateOf(false) }
+
+    // Location handling
+    val context = LocalContext.current
+    val fusedLocationClient = remember { LocationServices.getFusedLocationProviderClient(context) }
+    var locationCallback by remember { mutableStateOf<((LocationCoordinate?) -> Unit)?>(null) }
+
+    val locationPermissionLauncher = rememberLauncherForActivityResult(
+        ActivityResultContracts.RequestPermission()
+    ) { granted ->
+        if (granted) {
+            // Permission granted, try to get location
+            try {
+                fusedLocationClient.lastLocation.addOnSuccessListener { location ->
+                    val coordinate = location?.let { LocationCoordinate(it.latitude, it.longitude) }
+                    locationCallback?.invoke(coordinate)
+                }.addOnFailureListener {
+                    locationCallback?.invoke(null)
+                }
+            } catch (e: SecurityException) {
+                locationCallback?.invoke(null)
+            }
+        } else {
+            locationCallback?.invoke(null)
+        }
+    }
+
+    // Success/error messages
+    val markedFoundMessage = stringResource(R.string.marked_found_message, "%s")
+    val markedMissingMessage = stringResource(R.string.marked_missing_message, "%s")
+    val markFoundFailed = stringResource(R.string.mark_found_failed)
+    val markMissingFailed = stringResource(R.string.mark_missing_failed)
+    val noMissingPetsMessage = stringResource(R.string.no_missing_pets_message)
+    val noPetsToReportMessage = stringResource(R.string.no_pets_to_report_message)
 
     LaunchedEffect(Unit) { viewModel.fetchPets() }
 
@@ -136,7 +188,21 @@ fun PetsListScreen(
                             hasMissingPets = hasMissingPets,
                             onAddPet = onAddPet,
                             onMarkLostOrFound = {
-                                // TODO: Implement mark lost/found sheets
+                                if (hasMissingPets) {
+                                    // Show mark found sheet
+                                    if (missingPets.isNotEmpty()) {
+                                        showMarkFoundSheet = true
+                                    } else {
+                                        appStateViewModel.showError(noMissingPetsMessage)
+                                    }
+                                } else {
+                                    // Show report missing sheet
+                                    if (availablePets.isNotEmpty()) {
+                                        showReportMissingSheet = true
+                                    } else {
+                                        appStateViewModel.showError(noPetsToReportMessage)
+                                    }
+                                }
                             },
                             onOrderTags = onOrderTags,
                             onReplaceTag = {
@@ -160,11 +226,73 @@ fun PetsListScreen(
             }
         }
 
+        // Show skeleton loading on initial load
         if (isLoading && pets.isEmpty()) {
-            CircularProgressIndicator(
-                modifier = Modifier.align(Alignment.Center)
+            PetsListSkeleton(
+                columns = 2,
+                itemCount = 4
             )
         }
+    }
+
+    // Mark Found Bottom Sheet
+    if (showMarkFoundSheet) {
+        MarkFoundSheet(
+            missingPets = missingPets,
+            onDismiss = { showMarkFoundSheet = false },
+            onMarkFound = { pet ->
+                viewModel.markPetFound(pet.id) { success, error ->
+                    showMarkFoundSheet = false
+                    if (success) {
+                        viewModel.refresh()
+                        appStateViewModel.showSuccess(markedFoundMessage.replace("%s", pet.name))
+                    } else {
+                        appStateViewModel.showError(error ?: markFoundFailed)
+                    }
+                }
+            }
+        )
+    }
+
+    // Report Missing Bottom Sheet
+    if (showReportMissingSheet) {
+        ReportMissingSheet(
+            availablePets = availablePets,
+            onDismiss = { showReportMissingSheet = false },
+            onReportMissing = { pet, location, address, description ->
+                viewModel.markPetMissing(pet.id, location, address, description) { success, error ->
+                    showReportMissingSheet = false
+                    if (success) {
+                        viewModel.refresh()
+                        appStateViewModel.showSuccess(markedMissingMessage.replace("%s", pet.name))
+                    } else {
+                        appStateViewModel.showError(error ?: markMissingFailed)
+                    }
+                }
+            },
+            onRequestLocation = { callback ->
+                locationCallback = callback
+                val hasPermission = ContextCompat.checkSelfPermission(
+                    context,
+                    Manifest.permission.ACCESS_FINE_LOCATION
+                ) == PackageManager.PERMISSION_GRANTED
+
+                if (hasPermission) {
+                    try {
+                        fusedLocationClient.lastLocation.addOnSuccessListener { location ->
+                            val coordinate = location?.let { LocationCoordinate(it.latitude, it.longitude) }
+                            callback(coordinate)
+                        }.addOnFailureListener {
+                            callback(null)
+                        }
+                    } catch (e: SecurityException) {
+                        callback(null)
+                    }
+                } else {
+                    locationPermissionLauncher.launch(Manifest.permission.ACCESS_FINE_LOCATION)
+                }
+            }
+        )
     }
 }
 

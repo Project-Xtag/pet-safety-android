@@ -3,11 +3,15 @@ package com.petsafety.app.ui.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.petsafety.app.data.model.User
+import com.petsafety.app.data.network.TokenAuthenticator
 import com.petsafety.app.data.network.model.CanDeleteAccountResponse
 import com.petsafety.app.data.repository.AuthRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -34,6 +38,10 @@ class AuthViewModel @Inject constructor(
     private val _biometricEnabled = MutableStateFlow(authRepository.isBiometricEnabled())
     val biometricEnabled: StateFlow<Boolean> = _biometricEnabled.asStateFlow()
 
+    // Event emitted when session expires and user needs to re-authenticate
+    private val _sessionExpiredEvent = MutableSharedFlow<String>()
+    val sessionExpiredEvent: SharedFlow<String> = _sessionExpiredEvent.asSharedFlow()
+
     init {
         viewModelScope.launch {
             authRepository.isAuthenticated.collect { isAuth ->
@@ -41,6 +49,14 @@ class AuthViewModel @Inject constructor(
                 if (isAuth) {
                     loadCurrentUser()
                 }
+            }
+        }
+        // Listen for auth expiration events from TokenAuthenticator
+        viewModelScope.launch {
+            TokenAuthenticator.authExpiredEvent.collect {
+                _isAuthenticated.value = false
+                _currentUser.value = null
+                _sessionExpiredEvent.emit("Your session has expired. Please log in again.")
             }
         }
         // Check if we should show biometric prompt on startup

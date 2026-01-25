@@ -42,6 +42,7 @@ android {
         }
         release {
             isMinifyEnabled = true
+            isShrinkResources = true
             buildConfigField("String", "API_BASE_URL", "\"https://pet-er.app/api/\"")
             buildConfigField("String", "SSE_BASE_URL", "\"https://pet-er.app/api/sse/events\"")
             proguardFiles(

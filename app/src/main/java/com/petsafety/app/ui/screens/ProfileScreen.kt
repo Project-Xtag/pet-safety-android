@@ -180,10 +180,10 @@ private fun ProfileMain(
                 Spacer(modifier = Modifier.height(16.dp))
 
                 // User Info
-                if (user != null) {
-                    if (user!!.fullName.isNotEmpty()) {
+                user?.let { currentUser ->
+                    if (currentUser.fullName.isNotEmpty()) {
                         Text(
-                            text = user!!.fullName,
+                            text = currentUser.fullName,
                             style = MaterialTheme.typography.headlineMedium.copy(
                                 fontSize = 24.sp,
                                 fontWeight = FontWeight.Bold
@@ -193,7 +193,7 @@ private fun ProfileMain(
                     }
 
                     Text(
-                        text = user!!.email,
+                        text = currentUser.email,
                         style = MaterialTheme.typography.bodyMedium.copy(fontSize = 14.sp),
                         color = MutedTextLight
                     )
