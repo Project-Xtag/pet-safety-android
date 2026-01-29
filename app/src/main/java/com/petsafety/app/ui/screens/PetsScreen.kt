@@ -1,6 +1,7 @@
 package com.petsafety.app.ui.screens
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
@@ -12,12 +13,12 @@ import com.petsafety.app.ui.viewmodel.PetsViewModel
 import com.petsafety.app.ui.viewmodel.SuccessStoriesViewModel
 
 @Composable
-fun PetsScreen(appStateViewModel: AppStateViewModel) {
+fun PetsScreen(appStateViewModel: AppStateViewModel, modifier: Modifier = Modifier) {
     val navController = rememberNavController()
     val viewModel: PetsViewModel = hiltViewModel()
     val successStoriesViewModel: SuccessStoriesViewModel = hiltViewModel()
 
-    NavHost(navController = navController, startDestination = "pets_list") {
+    NavHost(navController = navController, startDestination = "pets_list", modifier = modifier) {
         composable("pets_list") {
             PetsListScreen(
                 viewModel = viewModel,

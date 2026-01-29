@@ -22,6 +22,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
+import com.petsafety.app.ui.util.AdaptiveLayout
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -360,13 +361,15 @@ private fun PetsSection(
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        // Pet Cards Grid (2 columns, max 4 pets shown)
-        val displayPets = pets.take(4)
+        // Pet Cards Grid - adaptive columns for tablets
+        val gridColumns = AdaptiveLayout.gridColumns()
+        val displayPets = pets.take(if (gridColumns >= 3) 6 else 4)
+        val rowCount = (displayPets.size + gridColumns - 1) / gridColumns
         LazyVerticalGrid(
-            columns = GridCells.Fixed(2),
+            columns = GridCells.Fixed(gridColumns),
             modifier = Modifier
-                .padding(horizontal = 24.dp)
-                .height(((displayPets.size + 1) / 2 * 180).dp),
+                .padding(horizontal = AdaptiveLayout.horizontalPadding())
+                .height((rowCount * 180).dp),
             horizontalArrangement = Arrangement.spacedBy(16.dp),
             verticalArrangement = Arrangement.spacedBy(16.dp),
             userScrollEnabled = false

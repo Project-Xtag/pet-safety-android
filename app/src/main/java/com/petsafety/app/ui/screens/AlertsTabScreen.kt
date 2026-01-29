@@ -31,7 +31,8 @@ import com.petsafety.app.ui.viewmodel.SuccessStoriesViewModel
 @Composable
 fun AlertsTabScreen(
     appStateViewModel: AppStateViewModel,
-    authViewModel: AuthViewModel
+    authViewModel: AuthViewModel,
+    modifier: Modifier = Modifier
 ) {
     val alertsViewModel: AlertsViewModel = hiltViewModel()
     val successStoriesViewModel: SuccessStoriesViewModel = hiltViewModel()
@@ -55,7 +56,7 @@ fun AlertsTabScreen(
         permissionLauncher.launch(Manifest.permission.ACCESS_FINE_LOCATION)
     }
 
-    Column(modifier = Modifier.fillMaxWidth().padding(12.dp)) {
+    Column(modifier = modifier.fillMaxWidth().padding(12.dp)) {
         val isConnected by appStateViewModel.isConnected.collectAsState()
         OfflineIndicator(appStateViewModel.syncService, isConnected)
 

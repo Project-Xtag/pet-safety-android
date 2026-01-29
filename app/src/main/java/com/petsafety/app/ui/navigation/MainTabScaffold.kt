@@ -5,6 +5,7 @@ import android.content.pm.PackageManager
 import android.os.Build
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
@@ -16,6 +17,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
@@ -80,6 +82,7 @@ fun MainTabScaffold(
         }
     }
 
+    // Bottom navigation for both phones and tablets
     Scaffold(
         bottomBar = {
             NavigationBar {
@@ -93,16 +96,36 @@ fun MainTabScaffold(
                 }
             }
         }
-    ) {
-        when (selectedTab) {
-            TabItem.Pets -> PetsScreen(appStateViewModel)
-            TabItem.Scan -> QrScannerScreen(
-                appStateViewModel = appStateViewModel,
-                pendingQrCode = pendingQrCode,
-                onQrCodeHandled = onQrCodeHandled
-            )
-            TabItem.Alerts -> AlertsTabScreen(appStateViewModel, authViewModel)
-            TabItem.Profile -> ProfileScreen(appStateViewModel, authViewModel)
-        }
+    ) { innerPadding ->
+        TabContent(
+            selectedTab = selectedTab,
+            appStateViewModel = appStateViewModel,
+            authViewModel = authViewModel,
+            pendingQrCode = pendingQrCode,
+            onQrCodeHandled = onQrCodeHandled,
+            modifier = Modifier.padding(innerPadding)
+        )
+    }
+}
+
+@Composable
+private fun TabContent(
+    selectedTab: TabItem,
+    appStateViewModel: AppStateViewModel,
+    authViewModel: AuthViewModel,
+    pendingQrCode: String?,
+    onQrCodeHandled: () -> Unit,
+    modifier: Modifier = Modifier
+) {
+    when (selectedTab) {
+        TabItem.Pets -> PetsScreen(appStateViewModel, modifier)
+        TabItem.Scan -> QrScannerScreen(
+            appStateViewModel = appStateViewModel,
+            pendingQrCode = pendingQrCode,
+            onQrCodeHandled = onQrCodeHandled,
+            modifier = modifier
+        )
+        TabItem.Alerts -> AlertsTabScreen(appStateViewModel, authViewModel, modifier)
+        TabItem.Profile -> ProfileScreen(appStateViewModel, authViewModel, modifier)
     }
 }

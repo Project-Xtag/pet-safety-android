@@ -17,12 +17,14 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.ClickableText
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -53,6 +55,8 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.fragment.app.FragmentActivity
+import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material.icons.filled.LocalOffer
 import com.petsafety.app.data.local.BiometricHelper
 import com.petsafety.app.ui.components.BrandButton
 import com.petsafety.app.ui.components.SecondaryButton
@@ -60,6 +64,7 @@ import com.petsafety.app.ui.theme.BackgroundLight
 import com.petsafety.app.ui.theme.BrandOrange
 import com.petsafety.app.ui.theme.MutedTextLight
 import com.petsafety.app.ui.theme.PeachBackground
+import com.petsafety.app.ui.util.AdaptiveLayout
 import com.petsafety.app.ui.viewmodel.AppStateViewModel
 import com.petsafety.app.ui.viewmodel.AuthViewModel
 import com.petsafety.app.R
@@ -67,7 +72,8 @@ import com.petsafety.app.R
 @Composable
 fun AuthScreen(
     appStateViewModel: AppStateViewModel,
-    authViewModel: AuthViewModel
+    authViewModel: AuthViewModel,
+    onNavigateToOrderTags: () -> Unit = {}
 ) {
     var email by remember { mutableStateOf("") }
     var otpCode by remember { mutableStateOf("") }
@@ -90,10 +96,12 @@ fun AuthScreen(
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(BackgroundLight)
+            .background(BackgroundLight),
+        contentAlignment = Alignment.TopCenter
     ) {
         Column(
             modifier = Modifier
+                .widthIn(max = AdaptiveLayout.MaxContentWidth)
                 .fillMaxSize()
                 .verticalScroll(rememberScrollState())
         ) {
@@ -411,9 +419,44 @@ fun AuthScreen(
                     modifier = Modifier.fillMaxWidth(),
                     style = MaterialTheme.typography.bodySmall.copy(textAlign = TextAlign.Center)
                 )
+
             }
 
-            Spacer(modifier = Modifier.height(40.dp))
+            // Order Free Tag CTA for new users (outside card)
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 24.dp, bottom = 40.dp),
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                Text(
+                    text = stringResource(R.string.dont_have_account),
+                    style = MaterialTheme.typography.bodyMedium.copy(fontSize = 14.sp),
+                    color = MutedTextLight
+                )
+
+                Spacer(modifier = Modifier.height(8.dp))
+
+                TextButton(
+                    onClick = onNavigateToOrderTags
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.LocalOffer,
+                        contentDescription = null,
+                        modifier = Modifier.size(16.dp),
+                        tint = BrandOrange
+                    )
+                    Spacer(modifier = Modifier.width(6.dp))
+                    Text(
+                        text = stringResource(R.string.start_here_order_free_tag),
+                        style = MaterialTheme.typography.bodyMedium.copy(
+                            fontSize = 14.sp,
+                            fontWeight = FontWeight.SemiBold
+                        ),
+                        color = BrandOrange
+                    )
+                }
+            }
         }
     }
 

@@ -94,7 +94,8 @@ import com.petsafety.app.ui.viewmodel.QrScannerViewModel
 fun QrScannerScreen(
     appStateViewModel: AppStateViewModel,
     pendingQrCode: String?,
-    onQrCodeHandled: () -> Unit
+    onQrCodeHandled: () -> Unit,
+    modifier: Modifier = Modifier
 ) {
     val viewModel: QrScannerViewModel = hiltViewModel()
     val scanResult by viewModel.scanResult.collectAsState()
@@ -123,7 +124,7 @@ fun QrScannerScreen(
         }
     }
 
-    Box(modifier = Modifier.fillMaxSize()) {
+    Box(modifier = modifier.fillMaxSize()) {
         if (hasPermission) {
             // Camera Preview
             CameraPreview(

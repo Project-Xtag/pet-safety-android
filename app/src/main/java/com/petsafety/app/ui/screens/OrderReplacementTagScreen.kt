@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -54,6 +55,7 @@ import com.petsafety.app.ui.theme.BrandOrange
 import com.petsafety.app.ui.theme.MutedTextLight
 import com.petsafety.app.ui.theme.PeachBackground
 import com.petsafety.app.ui.theme.TealAccent
+import com.petsafety.app.ui.util.AdaptiveLayout
 import com.petsafety.app.ui.viewmodel.AppStateViewModel
 import com.petsafety.app.ui.viewmodel.OrdersViewModel
 
@@ -73,262 +75,273 @@ fun OrderReplacementTagScreen(
     val postCode = remember { mutableStateOf("") }
     val country = remember { mutableStateOf("") }
 
-    Column(
+    Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(BackgroundLight)
+            .background(BackgroundLight),
+        contentAlignment = Alignment.TopCenter
     ) {
-        // Header with Pet Info
-        Box(
-            modifier = Modifier
-                .fillMaxWidth()
-                .background(
-                    PeachBackground,
-                    RoundedCornerShape(bottomStart = 28.dp, bottomEnd = 28.dp)
-                )
-                .padding(24.dp)
-        ) {
-            Column(horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier.fillMaxWidth()) {
-                Box(
-                    modifier = Modifier
-                        .size(70.dp)
-                        .background(TealAccent.copy(alpha = 0.15f), CircleShape),
-                    contentAlignment = Alignment.Center
-                ) {
-                    Icon(
-                        imageVector = Icons.Default.Refresh,
-                        contentDescription = null,
-                        modifier = Modifier.size(32.dp),
-                        tint = TealAccent
-                    )
-                }
-
-                Spacer(modifier = Modifier.height(16.dp))
-
-                Text(
-                    text = stringResource(R.string.order_replacement_title),
-                    style = MaterialTheme.typography.headlineMedium.copy(
-                        fontSize = 26.sp,
-                        fontWeight = FontWeight.Bold
-                    ),
-                    color = MaterialTheme.colorScheme.onSurface
-                )
-
-                Text(
-                    text = "Lost or damaged? We'll send you a new one",
-                    style = MaterialTheme.typography.bodyMedium.copy(fontSize = 15.sp),
-                    color = MutedTextLight,
-                    textAlign = TextAlign.Center
-                )
-            }
-        }
-
         Column(
             modifier = Modifier
-                .fillMaxWidth()
-                .weight(1f)
-                .verticalScroll(rememberScrollState())
-                .padding(horizontal = 20.dp)
-                .padding(top = 20.dp, bottom = 100.dp)
+                .widthIn(max = AdaptiveLayout.MaxContentWidth)
+                .fillMaxSize()
         ) {
-            // Pet Info Card
-            Card(
-                modifier = Modifier.fillMaxWidth(),
-                shape = RoundedCornerShape(16.dp),
-                colors = CardDefaults.cardColors(containerColor = Color.White),
-                elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
+            // Header with Pet Info
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .background(
+                        PeachBackground,
+                        RoundedCornerShape(bottomStart = 28.dp, bottomEnd = 28.dp)
+                    )
+                    .padding(24.dp)
             ) {
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(16.dp),
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.spacedBy(16.dp)
+                Column(
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    modifier = Modifier.fillMaxWidth()
                 ) {
-                    // Pet Photo
                     Box(
                         modifier = Modifier
-                            .size(60.dp)
-                            .clip(CircleShape)
-                            .background(TealAccent.copy(alpha = 0.15f)),
+                            .size(70.dp)
+                            .background(TealAccent.copy(alpha = 0.15f), CircleShape),
                         contentAlignment = Alignment.Center
                     ) {
-                        if (!pet.profileImage.isNullOrBlank()) {
-                            AsyncImage(
-                                model = pet.profileImage,
-                                contentDescription = pet.name,
-                                modifier = Modifier.fillMaxSize(),
-                                contentScale = ContentScale.Crop
+                        Icon(
+                            imageVector = Icons.Default.Refresh,
+                            contentDescription = null,
+                            modifier = Modifier.size(32.dp),
+                            tint = TealAccent
+                        )
+                    }
+
+                    Spacer(modifier = Modifier.height(16.dp))
+
+                    Text(
+                        text = stringResource(R.string.order_replacement_title),
+                        style = MaterialTheme.typography.headlineMedium.copy(
+                            fontSize = 26.sp,
+                            fontWeight = FontWeight.Bold
+                        ),
+                        color = MaterialTheme.colorScheme.onSurface
+                    )
+
+                    Text(
+                        text = "Lost or damaged? We'll send you a new one",
+                        style = MaterialTheme.typography.bodyMedium.copy(fontSize = 15.sp),
+                        color = MutedTextLight,
+                        textAlign = TextAlign.Center
+                    )
+                }
+            }
+
+            // Scrollable Content
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .weight(1f)
+                    .verticalScroll(rememberScrollState())
+                    .padding(horizontal = 20.dp)
+                    .padding(top = 20.dp, bottom = 100.dp)
+            ) {
+                // Pet Info Card
+                Card(
+                    modifier = Modifier.fillMaxWidth(),
+                    shape = RoundedCornerShape(16.dp),
+                    colors = CardDefaults.cardColors(containerColor = Color.White),
+                    elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
+                ) {
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(16.dp),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.spacedBy(16.dp)
+                    ) {
+                        // Pet Photo
+                        Box(
+                            modifier = Modifier
+                                .size(60.dp)
+                                .clip(CircleShape)
+                                .background(TealAccent.copy(alpha = 0.15f)),
+                            contentAlignment = Alignment.Center
+                        ) {
+                            if (!pet.profileImage.isNullOrBlank()) {
+                                AsyncImage(
+                                    model = pet.profileImage,
+                                    contentDescription = pet.name,
+                                    modifier = Modifier.fillMaxSize(),
+                                    contentScale = ContentScale.Crop
+                                )
+                            } else {
+                                Icon(
+                                    imageVector = Icons.Default.Pets,
+                                    contentDescription = null,
+                                    modifier = Modifier.size(28.dp),
+                                    tint = TealAccent
+                                )
+                            }
+                        }
+
+                        Column(modifier = Modifier.weight(1f)) {
+                            Text(
+                                text = pet.name,
+                                style = MaterialTheme.typography.titleMedium.copy(
+                                    fontSize = 18.sp,
+                                    fontWeight = FontWeight.SemiBold
+                                ),
+                                color = MaterialTheme.colorScheme.onSurface
                             )
-                        } else {
-                            Icon(
-                                imageVector = Icons.Default.Pets,
-                                contentDescription = null,
-                                modifier = Modifier.size(28.dp),
-                                tint = TealAccent
+                            Text(
+                                text = "${pet.species}${pet.breed?.let { " • $it" } ?: ""}",
+                                style = MaterialTheme.typography.bodyMedium.copy(fontSize = 14.sp),
+                                color = MutedTextLight
                             )
                         }
                     }
+                }
 
-                    Column(modifier = Modifier.weight(1f)) {
-                        Text(
-                            text = pet.name,
-                            style = MaterialTheme.typography.titleMedium.copy(
-                                fontSize = 18.sp,
-                                fontWeight = FontWeight.SemiBold
-                            ),
-                            color = MaterialTheme.colorScheme.onSurface
+                Spacer(modifier = Modifier.height(20.dp))
+
+                // Shipping Address Section
+                Card(
+                    modifier = Modifier.fillMaxWidth(),
+                    shape = RoundedCornerShape(16.dp),
+                    colors = CardDefaults.cardColors(containerColor = Color.White),
+                    elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
+                ) {
+                    Column(modifier = Modifier.padding(16.dp)) {
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.spacedBy(10.dp)
+                        ) {
+                            Icon(
+                                imageVector = Icons.Default.Home,
+                                contentDescription = null,
+                                modifier = Modifier.size(20.dp),
+                                tint = TealAccent
+                            )
+                            Text(
+                                text = "Shipping Address",
+                                style = MaterialTheme.typography.titleMedium.copy(
+                                    fontSize = 17.sp,
+                                    fontWeight = FontWeight.SemiBold
+                                ),
+                                color = MaterialTheme.colorScheme.onSurface
+                            )
+                        }
+
+                        Spacer(modifier = Modifier.height(16.dp))
+
+                        StyledTextField(
+                            value = street1.value,
+                            onValueChange = { street1.value = it },
+                            label = stringResource(R.string.street)
                         )
+
+                        Spacer(modifier = Modifier.height(12.dp))
+
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.spacedBy(12.dp)
+                        ) {
+                            StyledTextField(
+                                value = city.value,
+                                onValueChange = { city.value = it },
+                                label = stringResource(R.string.city),
+                                modifier = Modifier.weight(1f)
+                            )
+                            StyledTextField(
+                                value = postCode.value,
+                                onValueChange = { postCode.value = it },
+                                label = stringResource(R.string.post_code),
+                                modifier = Modifier.weight(1f)
+                            )
+                        }
+
+                        Spacer(modifier = Modifier.height(12.dp))
+
+                        StyledTextField(
+                            value = country.value,
+                            onValueChange = { country.value = it },
+                            label = stringResource(R.string.country)
+                        )
+                    }
+                }
+
+                Spacer(modifier = Modifier.height(20.dp))
+
+                // Info Card
+                Card(
+                    modifier = Modifier.fillMaxWidth(),
+                    shape = RoundedCornerShape(14.dp),
+                    colors = CardDefaults.cardColors(containerColor = TealAccent.copy(alpha = 0.1f))
+                ) {
+                    Column(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(16.dp)
+                    ) {
                         Text(
-                            text = "${pet.species}${pet.breed?.let { " • $it" } ?: ""}",
-                            style = MaterialTheme.typography.bodyMedium.copy(fontSize = 14.sp),
+                            text = "Free Replacement",
+                            style = MaterialTheme.typography.titleSmall.copy(fontWeight = FontWeight.SemiBold),
+                            color = TealAccent
+                        )
+                        Spacer(modifier = Modifier.height(4.dp))
+                        Text(
+                            text = "Your replacement tag will be shipped within 2-3 business days. The QR code remains the same, so existing links will continue to work.",
+                            style = MaterialTheme.typography.bodySmall.copy(fontSize = 13.sp),
                             color = MutedTextLight
                         )
                     }
                 }
             }
 
-            Spacer(modifier = Modifier.height(20.dp))
-
-            // Shipping Address Section
-            Card(
-                modifier = Modifier.fillMaxWidth(),
-                shape = RoundedCornerShape(16.dp),
-                colors = CardDefaults.cardColors(containerColor = Color.White),
-                elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
-            ) {
-                Column(modifier = Modifier.padding(16.dp)) {
-                    Row(
-                        verticalAlignment = Alignment.CenterVertically,
-                        horizontalArrangement = Arrangement.spacedBy(10.dp)
-                    ) {
-                        Icon(
-                            imageVector = Icons.Default.Home,
-                            contentDescription = null,
-                            modifier = Modifier.size(20.dp),
-                            tint = TealAccent
-                        )
-                        Text(
-                            text = "Shipping Address",
-                            style = MaterialTheme.typography.titleMedium.copy(
-                                fontSize = 17.sp,
-                                fontWeight = FontWeight.SemiBold
-                            ),
-                            color = MaterialTheme.colorScheme.onSurface
-                        )
-                    }
-
-                    Spacer(modifier = Modifier.height(16.dp))
-
-                    StyledTextField(
-                        value = street1.value,
-                        onValueChange = { street1.value = it },
-                        label = stringResource(R.string.street)
-                    )
-
-                    Spacer(modifier = Modifier.height(12.dp))
-
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.spacedBy(12.dp)
-                    ) {
-                        StyledTextField(
-                            value = city.value,
-                            onValueChange = { city.value = it },
-                            label = stringResource(R.string.city),
-                            modifier = Modifier.weight(1f)
-                        )
-                        StyledTextField(
-                            value = postCode.value,
-                            onValueChange = { postCode.value = it },
-                            label = stringResource(R.string.post_code),
-                            modifier = Modifier.weight(1f)
-                        )
-                    }
-
-                    Spacer(modifier = Modifier.height(12.dp))
-
-                    StyledTextField(
-                        value = country.value,
-                        onValueChange = { country.value = it },
-                        label = stringResource(R.string.country)
-                    )
-                }
-            }
-
-            Spacer(modifier = Modifier.height(20.dp))
-
-            // Info Card
-            Card(
-                modifier = Modifier.fillMaxWidth(),
-                shape = RoundedCornerShape(14.dp),
-                colors = CardDefaults.cardColors(containerColor = TealAccent.copy(alpha = 0.1f))
-            ) {
-                Column(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(16.dp)
-                ) {
-                    Text(
-                        text = "Free Replacement",
-                        style = MaterialTheme.typography.titleSmall.copy(fontWeight = FontWeight.SemiBold),
-                        color = TealAccent
-                    )
-                    Spacer(modifier = Modifier.height(4.dp))
-                    Text(
-                        text = "Your replacement tag will be shipped within 2-3 business days. The QR code remains the same, so existing links will continue to work.",
-                        style = MaterialTheme.typography.bodySmall.copy(fontSize = 13.sp),
-                        color = MutedTextLight
-                    )
-                }
-            }
-        }
-
-        // Bottom Button
-        Box(
-            modifier = Modifier
-                .fillMaxWidth()
-                .background(BackgroundLight)
-                .padding(20.dp)
-        ) {
-            Button(
-                onClick = {
-                    val request = CreateReplacementOrderRequest(
-                        shippingAddress = AddressDetails(
-                            street1 = street1.value,
-                            city = city.value,
-                            postCode = postCode.value,
-                            country = country.value
-                        )
-                    )
-                    viewModel.createReplacementOrder(pet.id, request) { success, message ->
-                        if (success) {
-                            appStateViewModel.showSuccess(replacementOrderedMessage)
-                            onDone()
-                        } else {
-                            appStateViewModel.showError(message ?: replacementFailedMessage)
-                        }
-                    }
-                },
+            // Bottom Button
+            Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(56.dp)
-                    .shadow(
-                        elevation = 8.dp,
-                        shape = RoundedCornerShape(16.dp),
-                        ambientColor = BrandOrange.copy(alpha = 0.3f),
-                        spotColor = BrandOrange.copy(alpha = 0.3f)
-                    ),
-                shape = RoundedCornerShape(16.dp),
-                colors = ButtonDefaults.buttonColors(containerColor = BrandOrange)
+                    .background(BackgroundLight)
+                    .padding(20.dp)
             ) {
-                Text(
-                    text = stringResource(R.string.order_replacement_button),
-                    style = MaterialTheme.typography.labelLarge.copy(
-                        fontSize = 16.sp,
-                        fontWeight = FontWeight.SemiBold
+                Button(
+                    onClick = {
+                        val request = CreateReplacementOrderRequest(
+                            shippingAddress = AddressDetails(
+                                street1 = street1.value,
+                                city = city.value,
+                                postCode = postCode.value,
+                                country = country.value
+                            )
+                        )
+                        viewModel.createReplacementOrder(pet.id, request) { success, message ->
+                            if (success) {
+                                appStateViewModel.showSuccess(replacementOrderedMessage)
+                                onDone()
+                            } else {
+                                appStateViewModel.showError(message ?: replacementFailedMessage)
+                            }
+                        }
+                    },
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(56.dp)
+                        .shadow(
+                            elevation = 8.dp,
+                            shape = RoundedCornerShape(16.dp),
+                            ambientColor = BrandOrange.copy(alpha = 0.3f),
+                            spotColor = BrandOrange.copy(alpha = 0.3f)
+                        ),
+                    shape = RoundedCornerShape(16.dp),
+                    colors = ButtonDefaults.buttonColors(containerColor = BrandOrange)
+                ) {
+                    Text(
+                        text = stringResource(R.string.order_replacement_button),
+                        style = MaterialTheme.typography.labelLarge.copy(
+                            fontSize = 16.sp,
+                            fontWeight = FontWeight.SemiBold
+                        )
                     )
-                )
+                }
             }
         }
     }

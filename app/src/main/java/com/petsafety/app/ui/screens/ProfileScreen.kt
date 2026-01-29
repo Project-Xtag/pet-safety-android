@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -67,6 +68,7 @@ import com.petsafety.app.ui.theme.BrandOrange
 import com.petsafety.app.ui.theme.MutedTextLight
 import com.petsafety.app.ui.theme.PeachBackground
 import com.petsafety.app.ui.theme.TealAccent
+import com.petsafety.app.ui.util.AdaptiveLayout
 import com.petsafety.app.ui.viewmodel.AppStateViewModel
 import com.petsafety.app.ui.viewmodel.AuthViewModel
 import com.petsafety.app.ui.viewmodel.NotificationPreferencesViewModel
@@ -85,7 +87,8 @@ private enum class ProfileSection {
 @Composable
 fun ProfileScreen(
     appStateViewModel: AppStateViewModel,
-    authViewModel: AuthViewModel
+    authViewModel: AuthViewModel,
+    modifier: Modifier = Modifier
 ) {
     var section by remember { mutableStateOf(ProfileSection.MAIN) }
     val prefsViewModel: NotificationPreferencesViewModel = hiltViewModel()
@@ -95,7 +98,8 @@ fun ProfileScreen(
             authViewModel = authViewModel,
             appStateViewModel = appStateViewModel,
             onNavigate = { section = it },
-            onLogout = { authViewModel.logout() }
+            onLogout = { authViewModel.logout() },
+            modifier = modifier
         )
         ProfileSection.PERSONAL -> PersonalInfoScreen(authViewModel, appStateViewModel) { section = ProfileSection.MAIN }
         ProfileSection.ADDRESS -> AddressScreen(authViewModel, appStateViewModel) { section = ProfileSection.MAIN }
@@ -112,7 +116,8 @@ private fun ProfileMain(
     authViewModel: AuthViewModel,
     appStateViewModel: AppStateViewModel,
     onNavigate: (ProfileSection) -> Unit,
-    onLogout: () -> Unit
+    onLogout: () -> Unit,
+    modifier: Modifier = Modifier
 ) {
     val user by authViewModel.currentUser.collectAsState()
     var showLogoutDialog by remember { mutableStateOf(false) }
@@ -129,12 +134,14 @@ private fun ProfileMain(
     val cannotDeleteMissingPetsMessage = stringResource(R.string.cannot_delete_missing_pets)
 
     Box(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxSize()
-            .background(BackgroundLight)
+            .background(BackgroundLight),
+        contentAlignment = Alignment.TopCenter
     ) {
         Column(
             modifier = Modifier
+                .widthIn(max = AdaptiveLayout.MaxContentWidth)
                 .fillMaxSize()
                 .verticalScroll(rememberScrollState())
         ) {

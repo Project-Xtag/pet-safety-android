@@ -19,6 +19,7 @@ import com.petsafety.app.ui.components.AppSnackbarHost
 import com.petsafety.app.ui.components.LoadingOverlay
 import com.petsafety.app.ui.components.MapAppPickerDialog
 import com.petsafety.app.ui.navigation.MainTabScaffold
+import com.petsafety.app.ui.screens.OrderMoreTagsScreen
 import com.petsafety.app.ui.viewmodel.AuthViewModel
 import com.petsafety.app.ui.viewmodel.AppStateViewModel
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -40,6 +41,9 @@ fun PetSafetyApp(
     var showMapPicker by remember { mutableStateOf(false) }
     var mapPickerLocation by remember { mutableStateOf<Triple<Double, Double, Boolean>?>(null) }
     var mapPickerLabel by remember { mutableStateOf("Pet Location") }
+
+    // State for showing order tags screen from auth screen
+    var showOrderTagsScreen by remember { mutableStateOf(false) }
 
     val context = LocalContext.current
     val biometricHelper = remember { BiometricHelper(context) }
@@ -119,10 +123,16 @@ fun PetSafetyApp(
                 pendingQrCode = pendingQrCode,
                 onQrCodeHandled = onQrCodeHandled
             )
+        } else if (showOrderTagsScreen) {
+            OrderMoreTagsScreen(
+                appStateViewModel = appStateViewModel,
+                onDone = { showOrderTagsScreen = false }
+            )
         } else {
             AuthScreen(
                 appStateViewModel = appStateViewModel,
-                authViewModel = authViewModel
+                authViewModel = authViewModel,
+                onNavigateToOrderTags = { showOrderTagsScreen = true }
             )
         }
 
