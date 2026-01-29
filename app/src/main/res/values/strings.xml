@@ -7,7 +7,7 @@
     <string name="profile">Profile</string>
     <string name="tab_missing">Missing</string>
     <string name="tab_found">Found</string>
-    <string name="tab_success">Success</string>
+    <string name="tab_success">Found pets</string>
     <string name="add_pet">Add Pet</string>
     <string name="pet_name">Pet Name</string>
     <string name="order_number">Order #%1$s</string>
@@ -89,6 +89,12 @@
     <string name="notification_sighting_title">%1$s Sighted!</string>
     <string name="notification_pet_found_title">Great News!</string>
     <string name="notification_channel_name">Pet Safety Alerts</string>
+    <string name="notification_channel_tag_scans">Tag Scans</string>
+    <string name="notification_channel_tag_scans_desc">Notifications when your pet\'s tag is scanned</string>
+    <string name="notification_channel_alerts">Missing Pet Alerts</string>
+    <string name="notification_channel_alerts_desc">Notifications for missing pets in your area</string>
+    <string name="notification_channel_sightings">Sighting Reports</string>
+    <string name="notification_channel_sightings_desc">Notifications when your missing pet is sighted</string>
     <string name="notification_method_required">At least one notification method must be enabled</string>
     <string name="show_list">Show List</string>
     <string name="show_map">Show Map</string>
@@ -231,4 +237,16 @@
     <string name="contact_support_sending">Sending…</string>
     <string name="contact_support_success">Support request submitted! Ticket ID: %1$s</string>
     <string name="contact_support_response">We\'ll get back to you within 24 hours.</string>
+    <string name="mark_pet_found">Mark Pet Found</string>
+    <string name="select_pet_to_mark_found">Select the pet that has been found</string>
+    <string name="report_missing_pet">Report Missing Pet</string>
+    <string name="select_pet_to_report">Select a pet</string>
+    <string name="add_missing_details">Add missing details</string>
+    <string name="enter_address_or_location">Enter address or location description</string>
+    <string name="additional_details">Additional Details</string>
+    <string name="describe_circumstances">Describe circumstances, distinguishing features, etc.</string>
+    <string name="report_missing">Report Missing</string>
+    <string name="change">Change</string>
+    <string name="no_missing_pets_message">You have no pets marked as missing</string>
+    <string name="no_pets_to_report_message">Add a pet first to report them missing</string>
 </resources>

@@ -6,6 +6,7 @@ import androidx.work.WorkManager
 import com.petsafety.app.data.local.AppDatabase
 import com.petsafety.app.data.local.AuthTokenStore
 import com.petsafety.app.data.local.OfflineDataManager
+import com.petsafety.app.data.fcm.FCMRepository
 import com.petsafety.app.data.network.ApiClient
 import com.petsafety.app.data.network.ApiService
 import com.petsafety.app.data.network.SseService
@@ -76,8 +77,9 @@ object AppModule {
     @Singleton
     fun provideAuthRepository(
         apiService: ApiService,
-        tokenStore: AuthTokenStore
-    ): AuthRepository = AuthRepository(apiService, tokenStore)
+        tokenStore: AuthTokenStore,
+        fcmRepository: FCMRepository
+    ): AuthRepository = AuthRepository(apiService, tokenStore, fcmRepository)
 
     @Provides
     @Singleton
@@ -140,4 +142,11 @@ object AppModule {
     fun provideStringProvider(
         @ApplicationContext context: Context
     ): StringProvider = AndroidStringProvider(context)
+
+    @Provides
+    @Singleton
+    fun provideFCMRepository(
+        @ApplicationContext context: Context,
+        apiService: ApiService
+    ): FCMRepository = FCMRepository(context, apiService)
 }

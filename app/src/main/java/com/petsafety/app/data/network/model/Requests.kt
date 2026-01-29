@@ -94,11 +94,39 @@ data class LocationData(
     val lng: Double
 )
 
+/**
+ * Location consent type for 3-tier GDPR compliance
+ */
+@Serializable
+enum class LocationConsentType {
+    @SerialName("approximate") APPROXIMATE,
+    @SerialName("precise") PRECISE
+}
+
+/**
+ * Share location request with 3-tier GDPR consent
+ * - No location: Don't include location field
+ * - Approximate (~500m): consent_type = "approximate", coordinates rounded to 3 decimals
+ * - Precise: consent_type = "precise", exact coordinates
+ */
 @Serializable
 data class ShareLocationRequest(
-    val qrCode: String,
-    val location: LocationData,
-    val address: String? = null
+    @SerialName("qr_code") val qrCode: String,
+    val latitude: Double? = null,
+    val longitude: Double? = null,
+    @SerialName("accuracy_meters") val accuracyMeters: Double? = null,
+    @SerialName("is_approximate") val isApproximate: Boolean? = null,
+    @SerialName("consent_type") val consentType: LocationConsentType? = null
+)
+
+/**
+ * FCM token registration request
+ */
+@Serializable
+data class FCMTokenRequest(
+    val token: String,
+    @SerialName("device_name") val deviceName: String? = null,
+    val platform: String = "android"
 )
 
 @Serializable

@@ -42,10 +42,15 @@ class AlertsViewModel @Inject constructor(
     fun fetchAlerts() {
         viewModelScope.launch {
             _isLoading.value = true
-            val result = repository.fetchAlerts()
-            _alerts.value = result.first
-            _errorMessage.value = result.second
-            _isLoading.value = false
+            try {
+                val result = repository.fetchAlerts()
+                _alerts.value = result.first
+                _errorMessage.value = result.second
+            } catch (ex: Exception) {
+                _errorMessage.value = ex.localizedMessage ?: "Failed to load alerts"
+            } finally {
+                _isLoading.value = false
+            }
         }
     }
 

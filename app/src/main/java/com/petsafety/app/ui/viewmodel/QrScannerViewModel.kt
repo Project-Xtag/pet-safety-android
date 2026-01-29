@@ -3,6 +3,7 @@ package com.petsafety.app.ui.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.petsafety.app.data.model.ScanResponse
+import com.petsafety.app.data.repository.LocationConsent
 import com.petsafety.app.data.repository.QrRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -38,6 +39,45 @@ class QrScannerViewModel @Inject constructor(
         }
     }
 
+    /**
+     * Share location with 3-tier GDPR consent
+     *
+     * @param qrCode The scanned QR code
+     * @param consent The user's location consent choice
+     * @param latitude Current latitude (optional for DECLINE)
+     * @param longitude Current longitude (optional for DECLINE)
+     * @param accuracyMeters GPS accuracy in meters (optional)
+     * @param onResult Callback with success status and optional error message
+     */
+    fun shareLocation(
+        qrCode: String,
+        consent: LocationConsent,
+        latitude: Double? = null,
+        longitude: Double? = null,
+        accuracyMeters: Double? = null,
+        onResult: (Boolean, String?) -> Unit
+    ) {
+        viewModelScope.launch {
+            try {
+                repository.shareLocation(
+                    qrCode = qrCode,
+                    consent = consent,
+                    latitude = latitude,
+                    longitude = longitude,
+                    accuracyMeters = accuracyMeters
+                )
+                onResult(true, null)
+            } catch (ex: Exception) {
+                onResult(false, ex.localizedMessage)
+            }
+        }
+    }
+
+    /**
+     * Legacy method for backward compatibility
+     * @deprecated Use shareLocation with LocationConsent
+     */
+    @Deprecated("Use shareLocation with LocationConsent", ReplaceWith("shareLocation(qrCode, LocationConsent.PRECISE, latitude, longitude)"))
     fun shareLocation(
         qrCode: String,
         latitude: Double,
@@ -45,14 +85,13 @@ class QrScannerViewModel @Inject constructor(
         address: String?,
         onResult: (Boolean, String?) -> Unit
     ) {
-        viewModelScope.launch {
-            try {
-                repository.shareLocation(qrCode, latitude, longitude, address)
-                onResult(true, null)
-            } catch (ex: Exception) {
-                onResult(false, ex.localizedMessage)
-            }
-        }
+        shareLocation(
+            qrCode = qrCode,
+            consent = LocationConsent.PRECISE,
+            latitude = latitude,
+            longitude = longitude,
+            onResult = onResult
+        )
     }
 
     fun reset() {

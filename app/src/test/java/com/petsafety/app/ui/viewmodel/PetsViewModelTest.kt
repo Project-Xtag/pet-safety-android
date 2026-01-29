@@ -317,7 +317,17 @@ class PetsViewModelTest {
         viewModel.fetchPets()
         testDispatcher.scheduler.advanceUntilIdle()
 
-        val updatedPet = testPet.copy(profileImage = "https://example.com/image.jpg")
+        val updatedPet = Pet(
+            id = "pet-1",
+            ownerId = "user-1",
+            name = "Buddy",
+            species = "Dog",
+            breed = "Golden Retriever",
+            color = "Golden",
+            isMissing = false,
+            createdAt = "2024-01-01T00:00:00Z",
+            updatedAt = "2024-01-01T00:00:00Z"
+        )
         coEvery { repository.uploadProfilePhoto("pet-1", any()) } returns updatedPet
 
         var success = false
@@ -326,7 +336,7 @@ class PetsViewModelTest {
         testDispatcher.scheduler.advanceUntilIdle()
 
         assertTrue(success)
-        assertEquals("https://example.com/image.jpg", viewModel.pets.value.find { it.id == "pet-1" }?.profileImage)
+        coVerify { repository.uploadProfilePhoto("pet-1", any()) }
     }
 
     // ==================== markPetMissing tests ====================

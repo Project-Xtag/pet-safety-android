@@ -38,20 +38,30 @@ class PetsViewModel @Inject constructor(
     fun fetchPets() {
         viewModelScope.launch {
             _isLoading.value = true
-            val result = repository.fetchPets()
-            _pets.value = result.first
-            _errorMessage.value = result.second
-            _isLoading.value = false
+            try {
+                val result = repository.fetchPets()
+                _pets.value = result.first
+                _errorMessage.value = result.second
+            } catch (ex: Exception) {
+                _errorMessage.value = ex.localizedMessage ?: "Failed to load pets"
+            } finally {
+                _isLoading.value = false
+            }
         }
     }
 
     fun refresh() {
         viewModelScope.launch {
             _isRefreshing.value = true
-            val result = repository.fetchPets()
-            _pets.value = result.first
-            _errorMessage.value = result.second
-            _isRefreshing.value = false
+            try {
+                val result = repository.fetchPets()
+                _pets.value = result.first
+                _errorMessage.value = result.second
+            } catch (ex: Exception) {
+                _errorMessage.value = ex.localizedMessage ?: "Failed to refresh pets"
+            } finally {
+                _isRefreshing.value = false
+            }
         }
     }
 
@@ -161,6 +171,19 @@ class PetsViewModel @Inject constructor(
                 onResult(false, ex.localizedMessage)
             } finally {
                 _isLoading.value = false
+            }
+        }
+    }
+
+    /**
+     * Update pet's profile image URL locally (used when primary photo changes in gallery)
+     */
+    fun updatePetProfileImage(petId: String, photoUrl: String) {
+        _pets.value = _pets.value.map { pet ->
+            if (pet.id == petId) {
+                pet.copy(profileImageField = photoUrl)
+            } else {
+                pet
             }
         }
     }

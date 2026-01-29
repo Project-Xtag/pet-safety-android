@@ -96,7 +96,9 @@ fun PetFormScreen(
     var capturedPhotoBytes by remember { mutableStateOf<ByteArray?>(null) }
     var showPhotoSheet by remember { mutableStateOf(false) }
     var showDeleteDialog by remember { mutableStateOf(false) }
-    var isNeutered by remember { mutableStateOf(false) }
+    var sex by remember { mutableStateOf(existing?.sex ?: "") }
+    var isNeutered by remember { mutableStateOf(existing?.isNeutered ?: false) }
+    val sexOptions = listOf("", "Male", "Female")
 
     val petCreatedMessage = stringResource(R.string.pet_created)
     val petCreateFailedMessage = stringResource(R.string.pet_create_failed)
@@ -252,12 +254,15 @@ fun PetFormScreen(
                     onValueChange = { microchipNumber = it },
                     placeholder = "Microchip Number (optional)"
                 )
-            }
 
-            Spacer(modifier = Modifier.height(16.dp))
+                FormDropdown(
+                    label = "Sex",
+                    items = sexOptions,
+                    selectedItem = sex,
+                    onItemSelected = { sex = it },
+                    displayTransform = { if (it.isEmpty()) "Not specified" else it }
+                )
 
-            // Physical Details Section
-            FormSection(title = "Physical Details") {
                 FormToggle(
                     label = "Neutered/Spayed",
                     checked = isNeutered,
@@ -302,7 +307,9 @@ fun PetFormScreen(
                                 color = color.ifBlank { null },
                                 microchipNumber = microchipNumber.ifBlank { null },
                                 medicalNotes = medicalNotes.ifBlank { null },
-                                notes = notes.ifBlank { null }
+                                notes = notes.ifBlank { null },
+                                sex = sex.ifBlank { null },
+                                isNeutered = isNeutered
                             )
                         ) { pet, message ->
                             if (pet != null) {
@@ -322,7 +329,9 @@ fun PetFormScreen(
                                 color = color.ifBlank { null },
                                 microchipNumber = microchipNumber.ifBlank { null },
                                 medicalNotes = medicalNotes.ifBlank { null },
-                                notes = notes.ifBlank { null }
+                                notes = notes.ifBlank { null },
+                                sex = sex.ifBlank { null },
+                                isNeutered = isNeutered
                             )
                         ) { success, message ->
                             if (success) {
@@ -539,7 +548,8 @@ private fun FormDropdown(
     label: String,
     items: List<String>,
     selectedItem: String,
-    onItemSelected: (String) -> Unit
+    onItemSelected: (String) -> Unit,
+    displayTransform: ((String) -> String)? = null
 ) {
     Row(
         modifier = Modifier
@@ -558,7 +568,8 @@ private fun FormDropdown(
             selectedItem = selectedItem,
             onItemSelected = onItemSelected,
             label = "",
-            modifier = Modifier.weight(1f)
+            modifier = Modifier.weight(1f),
+            displayTransform = displayTransform
         )
     }
 }

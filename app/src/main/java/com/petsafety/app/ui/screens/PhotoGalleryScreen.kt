@@ -86,7 +86,8 @@ fun PhotoGalleryScreen(
     petId: String,
     petName: String = "",
     appStateViewModel: AppStateViewModel,
-    onBack: () -> Unit
+    onBack: () -> Unit,
+    onPrimaryPhotoChanged: (String) -> Unit = {}
 ) {
     val viewModel: PetPhotosViewModel = hiltViewModel()
     val photos by viewModel.photos.collectAsState()
@@ -284,8 +285,12 @@ fun PhotoGalleryScreen(
                                 onLongClick = { selectedPhotoForMenu = photo },
                                 onSetPrimary = {
                                     viewModel.setPrimaryPhoto(petId, photo.id) { success, message ->
-                                        if (success) appStateViewModel.showSuccess(primaryUpdatedMessage)
-                                        else appStateViewModel.showError(message ?: primaryFailedMessage)
+                                        if (success) {
+                                            appStateViewModel.showSuccess(primaryUpdatedMessage)
+                                            onPrimaryPhotoChanged(photo.photoUrl)
+                                        } else {
+                                            appStateViewModel.showError(message ?: primaryFailedMessage)
+                                        }
                                     }
                                 },
                                 onDelete = {

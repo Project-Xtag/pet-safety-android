@@ -34,7 +34,12 @@ class PetPhotosViewModel @Inject constructor(
         viewModelScope.launch {
             _isLoading.value = true
             try {
-                _photos.value = repository.getPetPhotos(petId).sortedByDescending { it.uploadedAt }
+                // Sort with primary photo first, then by display order, then by upload date
+                _photos.value = repository.getPetPhotos(petId).sortedWith(
+                    compareByDescending<PetPhoto> { it.isPrimary }
+                        .thenBy { it.displayOrder }
+                        .thenByDescending { it.uploadedAt }
+                )
             } catch (ex: Exception) {
                 _errorMessage.value = ex.localizedMessage
             } finally {

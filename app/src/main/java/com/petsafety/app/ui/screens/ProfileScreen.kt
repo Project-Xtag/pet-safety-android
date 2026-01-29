@@ -100,7 +100,7 @@ fun ProfileScreen(
         ProfileSection.PERSONAL -> PersonalInfoScreen(authViewModel, appStateViewModel) { section = ProfileSection.MAIN }
         ProfileSection.ADDRESS -> AddressScreen(authViewModel, appStateViewModel) { section = ProfileSection.MAIN }
         ProfileSection.CONTACTS -> ContactsScreen { section = ProfileSection.MAIN }
-        ProfileSection.PRIVACY -> PrivacyModeScreen { section = ProfileSection.MAIN }
+        ProfileSection.PRIVACY -> PrivacyModeScreen(authViewModel, appStateViewModel) { section = ProfileSection.MAIN }
         ProfileSection.NOTIFICATIONS -> NotificationPreferencesScreen(prefsViewModel) { section = ProfileSection.MAIN }
         ProfileSection.HELP -> HelpSupportScreen(authViewModel, appStateViewModel) { section = ProfileSection.MAIN }
         ProfileSection.ORDERS -> OrdersScreen { section = ProfileSection.MAIN }
@@ -912,11 +912,43 @@ private fun ContactsScreen(onBack: () -> Unit) {
 }
 
 @Composable
-private fun PrivacyModeScreen(onBack: () -> Unit) {
-    var hidePersonalInfo by remember { mutableStateOf(false) }
-    var hideAddress by remember { mutableStateOf(false) }
-    var shareLocationWithFinders by remember { mutableStateOf(true) }
-    var publicProfile by remember { mutableStateOf(false) }
+private fun PrivacyModeScreen(
+    authViewModel: AuthViewModel,
+    appStateViewModel: AppStateViewModel,
+    onBack: () -> Unit
+) {
+    val currentUser by authViewModel.currentUser.collectAsState()
+    val isLoading by authViewModel.isLoading.collectAsState()
+
+    // Initialize state from user's current settings
+    var showPhonePublicly by remember(currentUser?.showPhonePublicly) {
+        mutableStateOf(currentUser?.showPhonePublicly ?: true)
+    }
+    var showEmailPublicly by remember(currentUser?.showEmailPublicly) {
+        mutableStateOf(currentUser?.showEmailPublicly ?: true)
+    }
+    var showAddressPublicly by remember(currentUser?.showAddressPublicly) {
+        mutableStateOf(currentUser?.showAddressPublicly ?: true)
+    }
+
+    // Update function that saves to backend
+    fun updatePrivacySetting(field: String, value: Boolean) {
+        authViewModel.updateProfile(
+            mapOf(field to value)
+        ) { success, error ->
+            if (success) {
+                appStateViewModel.showSuccess("Privacy settings updated")
+            } else {
+                appStateViewModel.showError(error ?: "Failed to update privacy settings")
+                // Revert the toggle on failure
+                when (field) {
+                    "show_phone_publicly" -> showPhonePublicly = !value
+                    "show_email_publicly" -> showEmailPublicly = !value
+                    "show_address_publicly" -> showAddressPublicly = !value
+                }
+            }
+        }
+    }
 
     Column(
         modifier = Modifier
@@ -935,11 +967,17 @@ private fun PrivacyModeScreen(onBack: () -> Unit) {
                 .padding(horizontal = 20.dp)
                 .padding(top = 20.dp, bottom = 100.dp)
         ) {
-            // Privacy Settings
+            // Contact Visibility Section
             Text(
-                text = "Privacy Mode",
+                text = "Contact Visibility",
                 style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.SemiBold),
                 color = MaterialTheme.colorScheme.onSurface
+            )
+            Spacer(modifier = Modifier.height(8.dp))
+            Text(
+                text = "Control what contact information is visible when someone scans your pet's QR tag",
+                style = MaterialTheme.typography.bodySmall.copy(fontSize = 13.sp),
+                color = MutedTextLight
             )
             Spacer(modifier = Modifier.height(12.dp))
 
@@ -951,50 +989,36 @@ private fun PrivacyModeScreen(onBack: () -> Unit) {
             ) {
                 Column(modifier = Modifier.padding(16.dp)) {
                     SettingsToggleRow(
-                        title = "Hide Personal Information",
-                        subtitle = "Your name will not be visible to finders",
-                        checked = hidePersonalInfo,
-                        onCheckedChange = { hidePersonalInfo = it }
+                        title = "Show Phone Number",
+                        subtitle = "Your phone number will be visible to finders",
+                        checked = showPhonePublicly,
+                        onCheckedChange = {
+                            showPhonePublicly = it
+                            updatePrivacySetting("show_phone_publicly", it)
+                        },
+                        enabled = !isLoading
                     )
                     HorizontalDivider(color = Color(0xFFF2F2F7))
                     SettingsToggleRow(
-                        title = "Hide Address Details",
-                        subtitle = "Your address will not be shared",
-                        checked = hideAddress,
-                        onCheckedChange = { hideAddress = it }
+                        title = "Show Email Address",
+                        subtitle = "Your email will be visible to finders",
+                        checked = showEmailPublicly,
+                        onCheckedChange = {
+                            showEmailPublicly = it
+                            updatePrivacySetting("show_email_publicly", it)
+                        },
+                        enabled = !isLoading
                     )
                     HorizontalDivider(color = Color(0xFFF2F2F7))
                     SettingsToggleRow(
-                        title = "Share Location with Finders",
-                        subtitle = "Allow finders to share their location with you",
-                        checked = shareLocationWithFinders,
-                        onCheckedChange = { shareLocationWithFinders = it }
-                    )
-                }
-            }
-
-            Spacer(modifier = Modifier.height(24.dp))
-
-            // Public Profile
-            Text(
-                text = "Public Profile",
-                style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.SemiBold),
-                color = MaterialTheme.colorScheme.onSurface
-            )
-            Spacer(modifier = Modifier.height(12.dp))
-
-            Card(
-                modifier = Modifier.fillMaxWidth(),
-                shape = RoundedCornerShape(16.dp),
-                colors = CardDefaults.cardColors(containerColor = Color.White),
-                elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
-            ) {
-                Column(modifier = Modifier.padding(16.dp)) {
-                    SettingsToggleRow(
-                        title = "Public Profile",
-                        subtitle = "Allow others to see your public profile",
-                        checked = publicProfile,
-                        onCheckedChange = { publicProfile = it }
+                        title = "Show Address",
+                        subtitle = "Your address will be visible to finders",
+                        checked = showAddressPublicly,
+                        onCheckedChange = {
+                            showAddressPublicly = it
+                            updatePrivacySetting("show_address_publicly", it)
+                        },
+                        enabled = !isLoading
                     )
                 }
             }
@@ -1575,7 +1599,8 @@ private fun SettingsToggleRow(
     title: String,
     subtitle: String,
     checked: Boolean,
-    onCheckedChange: (Boolean) -> Unit
+    onCheckedChange: (Boolean) -> Unit,
+    enabled: Boolean = true
 ) {
     Row(
         modifier = Modifier
@@ -1588,7 +1613,7 @@ private fun SettingsToggleRow(
             Text(
                 text = title,
                 style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.Medium),
-                color = MaterialTheme.colorScheme.onSurface
+                color = if (enabled) MaterialTheme.colorScheme.onSurface else MutedTextLight
             )
             Text(
                 text = subtitle,
@@ -1597,6 +1622,6 @@ private fun SettingsToggleRow(
             )
         }
         Spacer(modifier = Modifier.width(12.dp))
-        Switch(checked = checked, onCheckedChange = onCheckedChange)
+        Switch(checked = checked, onCheckedChange = onCheckedChange, enabled = enabled)
     }
 }

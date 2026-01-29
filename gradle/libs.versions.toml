@@ -25,6 +25,8 @@ hilt-navigation-compose = "1.2.0"
  play-services-location = "21.3.0"
  play-services-maps = "18.2.0"
  maps-compose = "4.3.3"
+ firebase-bom = "33.7.0"
+ google-services = "4.4.2"
  junit = "4.13.2"
  androidxtest = "1.6.1"
  espresso = "3.6.1"
@@ -78,6 +80,9 @@ hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", ve
  play-services-maps = { module = "com.google.android.gms:play-services-maps", version.ref = "play-services-maps" }
  maps-compose = { module = "com.google.maps.android:maps-compose", version.ref = "maps-compose" }
 
+ firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebase-bom" }
+ firebase-messaging = { module = "com.google.firebase:firebase-messaging-ktx" }
+
  junit = { module = "junit:junit", version.ref = "junit" }
  androidx-test-core = { module = "androidx.test:core-ktx", version.ref = "androidxtest" }
  androidx-test-runner = { module = "androidx.test:runner", version.ref = "androidxtest" }
@@ -94,3 +99,4 @@ hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", ve
  room = { id = "androidx.room", version.ref = "room" }
  ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
+google-services = { id = "com.google.gms.google-services", version.ref = "google-services" }

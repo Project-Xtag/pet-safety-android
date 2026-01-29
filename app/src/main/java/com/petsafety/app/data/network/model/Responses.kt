@@ -114,9 +114,19 @@ data class PhotoReorderResponse(
 @Serializable
 data class ShareLocationResponse(
     val message: String,
-    val sightingId: String,
-    val sentSMS: Boolean,
-    val sentEmail: Boolean
+    @SerialName("scan_id") val scanId: String? = null,
+    @SerialName("sent_fcm") val sentFcm: Boolean? = null,
+    @SerialName("sent_email") val sentEmail: Boolean? = null,
+    @SerialName("sent_sse") val sentSse: Boolean? = null
+)
+
+/**
+ * FCM token registration response
+ */
+@Serializable
+data class FCMTokenResponse(
+    val message: String,
+    @SerialName("token_count") val tokenCount: Int? = null
 )
 
 @Serializable

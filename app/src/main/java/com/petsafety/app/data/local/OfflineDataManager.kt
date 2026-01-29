@@ -70,7 +70,7 @@ class OfflineDataManager(private val database: AppDatabase) {
                 microchipNumber = entity.microchipNumber,
                 medicalNotes = entity.medicalNotes,
                 notes = entity.notes,
-                profileImage = entity.profileImage,
+                profileImageField = entity.profileImage,
                 isMissing = entity.isMissing,
                 createdAt = entity.createdAt,
                 updatedAt = entity.updatedAt,

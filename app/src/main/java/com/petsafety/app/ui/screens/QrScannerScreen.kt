@@ -81,6 +81,7 @@ import com.google.mlkit.vision.barcode.BarcodeScanning
 import com.google.mlkit.vision.common.InputImage
 import com.petsafety.app.R
 import com.petsafety.app.data.model.ScanResponse
+import com.petsafety.app.data.repository.LocationConsent
 import com.petsafety.app.ui.theme.BackgroundLight
 import com.petsafety.app.ui.theme.BrandOrange
 import com.petsafety.app.ui.theme.MutedTextLight
@@ -289,8 +290,14 @@ fun QrScannerScreen(
         ScannedPetSheet(
             scanResult = result,
             onDismiss = { viewModel.reset() },
-            onShareLocation = { qrCode, lat, lng, address ->
-                viewModel.shareLocation(qrCode, lat, lng, address) { success, message ->
+            onShareLocation = { qrCode, consent, lat, lng, accuracy ->
+                viewModel.shareLocation(
+                    qrCode = qrCode,
+                    consent = consent,
+                    latitude = lat,
+                    longitude = lng,
+                    accuracyMeters = accuracy
+                ) { success, message ->
                     if (success) {
                         appStateViewModel.showSuccess(locationSharedMessage)
                         viewModel.reset()
@@ -368,16 +375,53 @@ private fun CameraPreview(
     )
 }
 
+@SuppressLint("MissingPermission")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun ScannedPetSheet(
     scanResult: ScanResponse,
     onDismiss: () -> Unit,
-    onShareLocation: (String, Double, Double, String?) -> Unit
+    onShareLocation: (String, LocationConsent, Double?, Double?, Double?) -> Unit
 ) {
     val context = LocalContext.current
     val locationProvider = LocationServices.getFusedLocationProviderClient(context)
     val pet = scanResult.pet
+
+    // State for 3-tier location consent
+    var showLocationConsentOptions by remember { mutableStateOf(false) }
+    var selectedConsent by remember { mutableStateOf<LocationConsent?>(null) }
+    var currentLocation by remember { mutableStateOf<android.location.Location?>(null) }
+    var isSubmitting by remember { mutableStateOf(false) }
+
+    // Location permission
+    var hasLocationPermission by remember { mutableStateOf(false) }
+    val locationPermissionLauncher = rememberLauncherForActivityResult(
+        ActivityResultContracts.RequestMultiplePermissions()
+    ) { permissions ->
+        hasLocationPermission = permissions[Manifest.permission.ACCESS_FINE_LOCATION] == true ||
+                permissions[Manifest.permission.ACCESS_COARSE_LOCATION] == true
+
+        if (hasLocationPermission) {
+            // Get current location after permission granted
+            locationProvider.lastLocation.addOnSuccessListener { location ->
+                currentLocation = location
+            }
+        }
+    }
+
+    // Get location when sheet opens (if permission already granted)
+    LaunchedEffect(Unit) {
+        try {
+            locationProvider.lastLocation.addOnSuccessListener { location ->
+                if (location != null) {
+                    currentLocation = location
+                    hasLocationPermission = true
+                }
+            }
+        } catch (_: SecurityException) {
+            // Location permission not granted yet
+        }
+    }
 
     ModalBottomSheet(
         onDismissRequest = onDismiss,
@@ -469,53 +513,196 @@ private fun ScannedPetSheet(
 
             Spacer(modifier = Modifier.height(24.dp))
 
-            // Share Location Button
+            // Location Sharing Section with 3-tier consent
             if (pet.qrCode != null) {
-                Button(
-                    onClick = {
-                        locationProvider.lastLocation.addOnSuccessListener { location ->
-                            if (location != null) {
-                                onShareLocation(
-                                    pet.qrCode,
-                                    location.latitude,
-                                    location.longitude,
-                                    null
+                if (!showLocationConsentOptions) {
+                    // Initial "Share Location" button
+                    Button(
+                        onClick = {
+                            if (!hasLocationPermission) {
+                                locationPermissionLauncher.launch(
+                                    arrayOf(
+                                        Manifest.permission.ACCESS_FINE_LOCATION,
+                                        Manifest.permission.ACCESS_COARSE_LOCATION
+                                    )
                                 )
                             }
-                        }
-                    },
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(52.dp)
-                        .shadow(
-                            elevation = 8.dp,
-                            shape = RoundedCornerShape(16.dp),
-                            ambientColor = BrandOrange.copy(alpha = 0.3f),
-                            spotColor = BrandOrange.copy(alpha = 0.3f)
-                        ),
-                    shape = RoundedCornerShape(16.dp),
-                    colors = ButtonDefaults.buttonColors(containerColor = BrandOrange)
-                ) {
-                    Icon(
-                        imageVector = Icons.Default.LocationOn,
-                        contentDescription = null,
-                        modifier = Modifier.size(20.dp)
-                    )
-                    Spacer(modifier = Modifier.width(8.dp))
+                            showLocationConsentOptions = true
+                        },
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(52.dp)
+                            .shadow(
+                                elevation = 8.dp,
+                                shape = RoundedCornerShape(16.dp),
+                                ambientColor = BrandOrange.copy(alpha = 0.3f),
+                                spotColor = BrandOrange.copy(alpha = 0.3f)
+                            ),
+                        shape = RoundedCornerShape(16.dp),
+                        colors = ButtonDefaults.buttonColors(containerColor = BrandOrange)
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.LocationOn,
+                            contentDescription = null,
+                            modifier = Modifier.size(20.dp)
+                        )
+                        Spacer(modifier = Modifier.width(8.dp))
+                        Text(
+                            text = "Share My Location with Owner",
+                            style = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.SemiBold)
+                        )
+                    }
+
+                    Spacer(modifier = Modifier.height(8.dp))
+
                     Text(
-                        text = "Share My Location with Owner",
-                        style = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.SemiBold)
+                        text = "${pet.name}'s owner will receive a notification with your location",
+                        style = MaterialTheme.typography.bodySmall.copy(fontSize = 12.sp),
+                        color = MutedTextLight,
+                        textAlign = TextAlign.Center
+                    )
+                } else {
+                    // 3-tier Location Consent Options
+                    Text(
+                        text = "Share Your Location",
+                        style = MaterialTheme.typography.titleMedium.copy(
+                            fontSize = 18.sp,
+                            fontWeight = FontWeight.Bold
+                        ),
+                        color = MaterialTheme.colorScheme.onSurface
+                    )
+
+                    Spacer(modifier = Modifier.height(8.dp))
+
+                    Text(
+                        text = "Help ${pet.name}'s owner find them by sharing your location",
+                        style = MaterialTheme.typography.bodySmall.copy(fontSize = 14.sp),
+                        color = MutedTextLight,
+                        textAlign = TextAlign.Center
+                    )
+
+                    Spacer(modifier = Modifier.height(16.dp))
+
+                    // Option 1: Precise Location
+                    LocationConsentOption(
+                        title = "Precise Location",
+                        description = "Share your exact GPS coordinates",
+                        icon = Icons.Default.LocationOn,
+                        isSelected = selectedConsent == LocationConsent.PRECISE,
+                        isRecommended = true,
+                        onClick = { selectedConsent = LocationConsent.PRECISE }
+                    )
+
+                    Spacer(modifier = Modifier.height(12.dp))
+
+                    // Option 2: Approximate Location
+                    LocationConsentOption(
+                        title = "Approximate Location",
+                        description = "Share within ~500m accuracy (GDPR compliant)",
+                        icon = Icons.Default.LocationOn,
+                        isSelected = selectedConsent == LocationConsent.APPROXIMATE,
+                        isRecommended = false,
+                        onClick = { selectedConsent = LocationConsent.APPROXIMATE }
+                    )
+
+                    Spacer(modifier = Modifier.height(12.dp))
+
+                    // Option 3: No Location
+                    LocationConsentOption(
+                        title = "Don't Share Location",
+                        description = "Just notify the owner that their pet was found",
+                        icon = Icons.Default.Warning,
+                        isSelected = selectedConsent == LocationConsent.DECLINE,
+                        isRecommended = false,
+                        onClick = { selectedConsent = LocationConsent.DECLINE }
+                    )
+
+                    Spacer(modifier = Modifier.height(20.dp))
+
+                    // Submit Button
+                    Button(
+                        onClick = {
+                            if (selectedConsent != null && !isSubmitting) {
+                                isSubmitting = true
+                                val consent = selectedConsent!!
+                                val qrCode = pet.qrCode
+
+                                when (consent) {
+                                    LocationConsent.DECLINE -> {
+                                        onShareLocation(qrCode, consent, null, null, null)
+                                    }
+                                    LocationConsent.APPROXIMATE, LocationConsent.PRECISE -> {
+                                        if (currentLocation != null) {
+                                            onShareLocation(
+                                                qrCode,
+                                                consent,
+                                                currentLocation!!.latitude,
+                                                currentLocation!!.longitude,
+                                                currentLocation!!.accuracy.toDouble()
+                                            )
+                                        } else {
+                                            // Try to get location again
+                                            locationProvider.lastLocation.addOnSuccessListener { location ->
+                                                if (location != null) {
+                                                    onShareLocation(
+                                                        qrCode,
+                                                        consent,
+                                                        location.latitude,
+                                                        location.longitude,
+                                                        location.accuracy.toDouble()
+                                                    )
+                                                } else {
+                                                    // Fallback to no location if can't get it
+                                                    onShareLocation(qrCode, LocationConsent.DECLINE, null, null, null)
+                                                }
+                                            }.addOnFailureListener {
+                                                onShareLocation(qrCode, LocationConsent.DECLINE, null, null, null)
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        enabled = selectedConsent != null && !isSubmitting,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(52.dp),
+                        shape = RoundedCornerShape(16.dp),
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = BrandOrange,
+                            disabledContainerColor = BrandOrange.copy(alpha = 0.5f)
+                        )
+                    ) {
+                        if (isSubmitting) {
+                            Text(
+                                text = "Sending...",
+                                style = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.SemiBold)
+                            )
+                        } else {
+                            Text(
+                                text = "Confirm & Notify Owner",
+                                style = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.SemiBold)
+                            )
+                        }
+                    }
+
+                    Spacer(modifier = Modifier.height(8.dp))
+
+                    // Back button
+                    Text(
+                        text = "Cancel",
+                        style = MaterialTheme.typography.bodyMedium.copy(
+                            color = MutedTextLight,
+                            fontWeight = FontWeight.Medium
+                        ),
+                        modifier = Modifier
+                            .clickable {
+                                showLocationConsentOptions = false
+                                selectedConsent = null
+                            }
+                            .padding(8.dp)
                     )
                 }
-
-                Spacer(modifier = Modifier.height(8.dp))
-
-                Text(
-                    text = "${pet.name}'s owner will receive an SMS and email with your location",
-                    style = MaterialTheme.typography.bodySmall.copy(fontSize = 12.sp),
-                    color = MutedTextLight,
-                    textAlign = TextAlign.Center
-                )
             }
 
             Spacer(modifier = Modifier.height(24.dp))
@@ -700,6 +887,129 @@ private fun InfoCard(
                 style = MaterialTheme.typography.bodyMedium.copy(fontSize = 14.sp),
                 color = MaterialTheme.colorScheme.onSurface
             )
+        }
+    }
+}
+
+/**
+ * Location consent option card for 3-tier GDPR consent
+ */
+@Composable
+private fun LocationConsentOption(
+    title: String,
+    description: String,
+    icon: ImageVector,
+    isSelected: Boolean,
+    isRecommended: Boolean,
+    onClick: () -> Unit
+) {
+    val borderColor = if (isSelected) BrandOrange else Color(0xFFE5E5EA)
+    val backgroundColor = if (isSelected) BrandOrange.copy(alpha = 0.1f) else Color(0xFFF2F2F7)
+
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable(onClick = onClick),
+        shape = RoundedCornerShape(14.dp),
+        colors = CardDefaults.cardColors(containerColor = backgroundColor),
+        border = androidx.compose.foundation.BorderStroke(
+            width = if (isSelected) 2.dp else 1.dp,
+            color = borderColor
+        )
+    ) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            // Icon
+            Box(
+                modifier = Modifier
+                    .size(40.dp)
+                    .background(
+                        if (isSelected) BrandOrange.copy(alpha = 0.2f) else Color(0xFFE5E5EA),
+                        CircleShape
+                    ),
+                contentAlignment = Alignment.Center
+            ) {
+                Icon(
+                    imageVector = icon,
+                    contentDescription = null,
+                    modifier = Modifier.size(20.dp),
+                    tint = if (isSelected) BrandOrange else MutedTextLight
+                )
+            }
+
+            Spacer(modifier = Modifier.width(12.dp))
+
+            // Text content
+            Column(modifier = Modifier.weight(1f)) {
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                ) {
+                    Text(
+                        text = title,
+                        style = MaterialTheme.typography.bodyLarge.copy(
+                            fontWeight = FontWeight.SemiBold,
+                            fontSize = 15.sp
+                        ),
+                        color = if (isSelected) BrandOrange else MaterialTheme.colorScheme.onSurface
+                    )
+                    if (isRecommended) {
+                        Text(
+                            text = "Recommended",
+                            style = MaterialTheme.typography.labelSmall.copy(
+                                fontSize = 10.sp,
+                                fontWeight = FontWeight.Medium
+                            ),
+                            color = Color.White,
+                            modifier = Modifier
+                                .background(TealAccent, RoundedCornerShape(4.dp))
+                                .padding(horizontal = 6.dp, vertical = 2.dp)
+                        )
+                    }
+                }
+                Spacer(modifier = Modifier.height(4.dp))
+                Text(
+                    text = description,
+                    style = MaterialTheme.typography.bodySmall.copy(fontSize = 12.sp),
+                    color = MutedTextLight
+                )
+            }
+
+            // Selection indicator
+            Box(
+                modifier = Modifier
+                    .size(24.dp)
+                    .background(
+                        if (isSelected) BrandOrange else Color.Transparent,
+                        CircleShape
+                    )
+                    .then(
+                        if (!isSelected) Modifier.background(
+                            Color.Transparent,
+                            CircleShape
+                        ) else Modifier
+                    ),
+                contentAlignment = Alignment.Center
+            ) {
+                if (isSelected) {
+                    Icon(
+                        imageVector = Icons.Default.ChevronRight,
+                        contentDescription = null,
+                        modifier = Modifier.size(16.dp),
+                        tint = Color.White
+                    )
+                } else {
+                    Box(
+                        modifier = Modifier
+                            .size(24.dp)
+                            .background(Color(0xFFE5E5EA), CircleShape)
+                    )
+                }
+            }
         }
     }
 }

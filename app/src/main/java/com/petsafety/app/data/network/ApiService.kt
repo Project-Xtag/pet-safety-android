@@ -203,4 +203,11 @@ interface ApiService {
     // Contact Support
     @POST("contact/support")
     suspend fun submitSupportRequest(@Body request: SupportRequest): ApiEnvelope<SupportRequestResponse>
+
+    // FCM Token Management
+    @POST("users/fcm-tokens")
+    suspend fun registerFCMToken(@Body request: FCMTokenRequest): ApiEnvelope<FCMTokenResponse>
+
+    @DELETE("users/fcm-tokens/{token}")
+    suspend fun removeFCMToken(@Path("token") token: String): ApiEnvelope<EmptyResponse>
 }

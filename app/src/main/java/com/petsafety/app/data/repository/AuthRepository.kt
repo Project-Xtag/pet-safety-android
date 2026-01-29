@@ -1,5 +1,7 @@
 package com.petsafety.app.data.repository
 
+import android.util.Log
+import com.petsafety.app.data.fcm.FCMRepository
 import com.petsafety.app.data.local.AuthTokenStore
 import com.petsafety.app.data.model.User
 import com.petsafety.app.data.network.ApiService
@@ -15,8 +17,12 @@ import kotlinx.coroutines.flow.map
 
 class AuthRepository(
     private val apiService: ApiService,
-    private val tokenStore: AuthTokenStore
+    private val tokenStore: AuthTokenStore,
+    private val fcmRepository: FCMRepository? = null // Optional for backward compatibility
 ) {
+    companion object {
+        private const val TAG = "AuthRepository"
+    }
     val isAuthenticated: Flow<Boolean> = tokenStore.authToken.map { !it.isNullOrBlank() }
 
     suspend fun login(email: String) {
@@ -36,12 +42,47 @@ class AuthRepository(
         val user = data.user
         tokenStore.saveAuthToken(token)
         tokenStore.saveUserInfo(user.id, user.email)
+
+        // Register FCM token after successful login
+        registerFCMToken()
+
         return user
     }
 
     suspend fun logout() {
+        // Unregister FCM token before clearing auth
+        unregisterFCMToken()
+
         tokenStore.clearAuthToken()
         tokenStore.clearUserInfo()
+    }
+
+    /**
+     * Register FCM token with backend
+     * Called after successful login
+     */
+    private suspend fun registerFCMToken() {
+        try {
+            fcmRepository?.registerToken()
+            Log.d(TAG, "FCM token registered after login")
+        } catch (e: Exception) {
+            // Don't fail login if FCM registration fails
+            Log.e(TAG, "Failed to register FCM token", e)
+        }
+    }
+
+    /**
+     * Unregister FCM token from backend
+     * Called before logout
+     */
+    private suspend fun unregisterFCMToken() {
+        try {
+            fcmRepository?.removeToken()
+            Log.d(TAG, "FCM token unregistered before logout")
+        } catch (e: Exception) {
+            // Don't fail logout if FCM unregistration fails
+            Log.e(TAG, "Failed to unregister FCM token", e)
+        }
     }
 
     suspend fun getCurrentUser(): User =
@@ -71,10 +112,20 @@ class AuthRepository(
     }
 
     suspend fun deleteAccount() {
+        // Unregister FCM token before deleting account
+        unregisterFCMToken()
+
         apiService.deleteAccount()
         tokenStore.clearAuthToken()
         tokenStore.clearUserInfo()
         tokenStore.setBiometricEnabled(false)
+
+        // Also delete FCM instance ID to prevent any further notifications
+        try {
+            fcmRepository?.deleteInstanceId()
+        } catch (e: Exception) {
+            Log.e(TAG, "Failed to delete FCM instance ID", e)
+        }
     }
 
     fun hasStoredToken(): Boolean = tokenStore.hasStoredToken()

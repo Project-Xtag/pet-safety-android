@@ -91,9 +91,11 @@ fun SimpleDropdown(
     onItemSelected: (String) -> Unit,
     label: String,
     modifier: Modifier = Modifier,
-    enabled: Boolean = true
+    enabled: Boolean = true,
+    displayTransform: ((String) -> String)? = null
 ) {
     var expanded by remember { mutableStateOf(false) }
+    val displayText = displayTransform?.invoke(selectedItem) ?: selectedItem
 
     ExposedDropdownMenuBox(
         expanded = expanded,
@@ -101,7 +103,7 @@ fun SimpleDropdown(
         modifier = modifier
     ) {
         OutlinedTextField(
-            value = selectedItem,
+            value = displayText,
             onValueChange = {},
             readOnly = true,
             label = { Text(label) },
@@ -117,8 +119,9 @@ fun SimpleDropdown(
             onDismissRequest = { expanded = false }
         ) {
             items.forEach { item ->
+                val itemDisplay = displayTransform?.invoke(item) ?: item
                 DropdownMenuItem(
-                    text = { Text(item) },
+                    text = { Text(itemDisplay) },
                     onClick = {
                         onItemSelected(item)
                         expanded = false

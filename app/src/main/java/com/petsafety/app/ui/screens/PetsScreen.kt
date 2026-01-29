@@ -33,14 +33,31 @@ fun PetsScreen(appStateViewModel: AppStateViewModel) {
             arguments = listOf(navArgument("petId") { type = NavType.StringType })
         ) { backStackEntry ->
             val petId = backStackEntry.arguments?.getString("petId") ?: return@composable
+            val pet = viewModel.pets.value.firstOrNull { it.id == petId }
             PetDetailScreen(
                 viewModel = viewModel,
                 successStoriesViewModel = successStoriesViewModel,
                 petId = petId,
                 onEditPet = { navController.navigate("pet_form/$petId") },
                 onOpenPhotos = { navController.navigate("pet_photos/$petId") },
+                onViewPublicProfile = {
+                    pet?.qrCode?.let { qrCode ->
+                        navController.navigate("public_profile/$qrCode")
+                    }
+                },
                 onBack = { navController.popBackStack() },
                 appStateViewModel = appStateViewModel
+            )
+        }
+        composable(
+            route = "public_profile/{qrCode}",
+            arguments = listOf(navArgument("qrCode") { type = NavType.StringType })
+        ) { backStackEntry ->
+            val qrCode = backStackEntry.arguments?.getString("qrCode") ?: return@composable
+            PublicPetProfileScreen(
+                qrCode = qrCode,
+                appStateViewModel = appStateViewModel,
+                onBack = { navController.popBackStack() }
             )
         }
         composable("pet_form") {
@@ -67,10 +84,18 @@ fun PetsScreen(appStateViewModel: AppStateViewModel) {
             arguments = listOf(navArgument("petId") { type = NavType.StringType })
         ) { backStackEntry ->
             val petId = backStackEntry.arguments?.getString("petId") ?: return@composable
+            val pet = viewModel.pets.value.firstOrNull { it.id == petId }
             PhotoGalleryScreen(
                 petId = petId,
+                petName = pet?.name ?: "",
                 appStateViewModel = appStateViewModel,
-                onBack = { navController.popBackStack() }
+                onBack = { navController.popBackStack() },
+                onPrimaryPhotoChanged = { photoUrl ->
+                    // Update local state immediately with the new primary photo URL
+                    viewModel.updatePetProfileImage(petId, photoUrl)
+                    // Also try to refresh from server (may fail if offline)
+                    viewModel.refresh()
+                }
             )
         }
         composable("order_more_tags") {

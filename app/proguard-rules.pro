@@ -154,10 +154,21 @@
 -dontwarn io.sentry.**
 
 # ============================================
-# FIREBASE (when added)
+# FIREBASE CLOUD MESSAGING
 # ============================================
 -keep class com.google.firebase.** { *; }
 -dontwarn com.google.firebase.**
+
+# Keep Firebase Messaging Service
+-keep class com.petsafety.app.data.fcm.PetSafetyFirebaseMessagingService { *; }
+
+# Keep FCM-related classes
+-keep class com.google.firebase.messaging.** { *; }
+-keep class com.google.firebase.iid.** { *; }
+
+# Keep notification data classes
+-keep class com.petsafety.app.data.fcm.NotificationLocation { *; }
+-keep class com.petsafety.app.ui.NotificationData { *; }
 
 # ============================================
 # SECURITY HARDENING

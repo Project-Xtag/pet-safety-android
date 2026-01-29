@@ -39,26 +39,28 @@ class SuccessStoriesViewModel @Inject constructor(
     private var lastLongitude: Double = -0.1278
     private var lastRadiusKm: Double = 100.0
 
-    suspend fun fetchStories(
+    fun fetchStories(
         latitude: Double,
         longitude: Double,
         radiusKm: Double,
         page: Int,
         loadMore: Boolean
     ) {
-        lastLatitude = latitude
-        lastLongitude = longitude
-        lastRadiusKm = radiusKm
-        _isLoading.value = true
-        try {
-            val response = repository.fetchPublicStories(latitude, longitude, radiusKm, page, 10)
-            _stories.value = if (loadMore) _stories.value + response.stories else response.stories
-            _currentPage.value = response.page
-            _hasMore.value = response.hasMore
-        } catch (ex: Exception) {
-            _errorMessage.value = ex.localizedMessage
-        } finally {
-            _isLoading.value = false
+        viewModelScope.launch {
+            lastLatitude = latitude
+            lastLongitude = longitude
+            lastRadiusKm = radiusKm
+            _isLoading.value = true
+            try {
+                val response = repository.fetchPublicStories(latitude, longitude, radiusKm, page, 10)
+                _stories.value = if (loadMore) _stories.value + response.stories else response.stories
+                _currentPage.value = response.page
+                _hasMore.value = response.hasMore
+            } catch (ex: Exception) {
+                _errorMessage.value = ex.localizedMessage ?: "Failed to load stories"
+            } finally {
+                _isLoading.value = false
+            }
         }
     }
 
