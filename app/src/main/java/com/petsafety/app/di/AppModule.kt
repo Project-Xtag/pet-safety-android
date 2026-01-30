@@ -3,12 +3,14 @@ package com.petsafety.app.di
 import android.content.Context
 import androidx.room.Room
 import androidx.work.WorkManager
+import com.petsafety.app.data.config.ConfigurationManager
 import com.petsafety.app.data.local.AppDatabase
 import com.petsafety.app.data.local.AuthTokenStore
 import com.petsafety.app.data.local.OfflineDataManager
 import com.petsafety.app.data.fcm.FCMRepository
 import com.petsafety.app.data.network.ApiClient
 import com.petsafety.app.data.network.ApiService
+import com.petsafety.app.data.network.AppCheckInterceptor
 import com.petsafety.app.data.network.SseService
 import com.petsafety.app.data.notifications.NotificationHelper
 import com.petsafety.app.data.repository.AlertsRepository
@@ -42,8 +44,13 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideApiService(tokenStore: AuthTokenStore): ApiService =
-        ApiClient.create(tokenStore)
+    fun provideAppCheckInterceptor(configManager: ConfigurationManager): AppCheckInterceptor =
+        AppCheckInterceptor(configManager)
+
+    @Provides
+    @Singleton
+    fun provideApiService(tokenStore: AuthTokenStore, appCheckInterceptor: AppCheckInterceptor): ApiService =
+        ApiClient.create(tokenStore, appCheckInterceptor)
 
     @Provides
     @Singleton

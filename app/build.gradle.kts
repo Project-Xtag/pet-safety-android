@@ -126,6 +126,11 @@ dependencies {
 
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.messaging)
+    implementation(libs.firebase.appcheck)
+    implementation(libs.firebase.appcheck.playintegrity)
+    debugImplementation(libs.firebase.appcheck.debug)
+    implementation(libs.firebase.config)
+    implementation(libs.sentry.android)
 
     implementation(libs.hilt.android)
     implementation(libs.hilt.navigation.compose)

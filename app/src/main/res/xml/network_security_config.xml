@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Network Security Configuration for Pet Safety Android App
+
+    This configuration:
+    - Disables cleartext (HTTP) traffic globally
+    - Enforces HTTPS for all connections
+    - Adds certificate pinning as additional layer of security
+    - Allows debug connections in debug builds
+
+    Note: Certificate pinning is also implemented in OkHttp (ApiClient.kt)
+    for defense in depth.
+-->
+<network-security-config>
+    <!-- Base configuration: HTTPS only, no cleartext -->
+    <base-config cleartextTrafficPermitted="false">
+        <trust-anchors>
+            <!-- Trust system CAs for all connections -->
+            <certificates src="system" />
+        </trust-anchors>
+    </base-config>
+
+    <!-- Domain-specific configuration for our API -->
+    <domain-config cleartextTrafficPermitted="false">
+        <domain includeSubdomains="true">pet-er.app</domain>
+
+        <!-- Certificate pinning for pet-er.app -->
+        <!-- SHA-256 hashes of Subject Public Key Info (SPKI) -->
+        <!-- To generate: openssl s_client -connect pet-er.app:443 | openssl x509 -pubkey -noout | openssl pkey -pubin -outform der | openssl dgst -sha256 -binary | openssl enc -base64 -->
+        <pin-set expiration="2027-01-30">
+            <!-- Primary pin - TODO: Replace with actual production certificate pin -->
+            <pin digest="SHA-256">BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB=</pin>
+            <!-- Backup pin for certificate rotation -->
+            <pin digest="SHA-256">CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC=</pin>
+        </pin-set>
+    </domain-config>
+
+    <!-- Debug configuration: Allow user-installed CAs for Charles/Proxyman debugging -->
+    <debug-overrides>
+        <trust-anchors>
+            <certificates src="system" />
+            <certificates src="user" />
+        </trust-anchors>
+    </debug-overrides>
+</network-security-config>

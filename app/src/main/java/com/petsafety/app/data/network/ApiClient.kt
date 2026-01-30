@@ -4,6 +4,7 @@ import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFact
 import com.petsafety.app.BuildConfig
 import com.petsafety.app.data.local.AuthTokenStore
 import kotlinx.serialization.json.Json
+import okhttp3.CertificatePinner
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -12,7 +13,31 @@ import java.util.concurrent.TimeUnit
 
 @kotlinx.serialization.ExperimentalSerializationApi
 object ApiClient {
-    fun create(tokenStore: AuthTokenStore): ApiService {
+    /**
+     * Certificate pins for pet-er.app
+     *
+     * These are SHA-256 hashes of the Subject Public Key Info (SPKI) of trusted certificates.
+     * To generate a pin from a certificate:
+     * openssl s_client -connect pet-er.app:443 | openssl x509 -pubkey -noout | \
+     *   openssl pkey -pubin -outform der | openssl dgst -sha256 -binary | openssl enc -base64
+     *
+     * Include multiple pins for certificate rotation (primary + backup).
+     */
+    private val certificatePinner = CertificatePinner.Builder()
+        // Primary certificate pin (pet-er.app current certificate)
+        // TODO: Replace with actual hash from production certificate
+        .add("pet-er.app", "sha256/BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB=")
+        // Backup pin (for certificate rotation)
+        .add("pet-er.app", "sha256/CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC=")
+        .build()
+
+    /**
+     * Create ApiService with optional App Check interceptor
+     *
+     * @param tokenStore For authentication token management
+     * @param appCheckInterceptor Optional interceptor for Firebase App Check token injection
+     */
+    fun create(tokenStore: AuthTokenStore, appCheckInterceptor: AppCheckInterceptor? = null): ApiService {
         val logging = HttpLoggingInterceptor().apply {
             level = if (BuildConfig.DEBUG) {
                 HttpLoggingInterceptor.Level.BODY
@@ -21,8 +46,19 @@ object ApiClient {
             }
         }
 
-        val client = OkHttpClient.Builder()
+        val clientBuilder = OkHttpClient.Builder()
             .addInterceptor(AuthInterceptor(tokenStore))
+
+        // Add App Check interceptor if provided (adds X-Firebase-AppCheck header)
+        appCheckInterceptor?.let { clientBuilder.addInterceptor(it) }
+
+        // Add certificate pinning in release builds only
+        // This prevents MITM attacks by validating server certificate public key
+        if (!BuildConfig.DEBUG) {
+            clientBuilder.certificatePinner(certificatePinner)
+        }
+
+        val client = clientBuilder
             .addInterceptor(logging)
             .authenticator(TokenAuthenticator(tokenStore))
             .connectTimeout(30, TimeUnit.SECONDS)

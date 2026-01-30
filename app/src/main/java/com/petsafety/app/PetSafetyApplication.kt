@@ -7,9 +7,11 @@ import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.GoogleApiAvailability
 import com.google.firebase.FirebaseApp
 import com.google.firebase.messaging.FirebaseMessaging
+import com.petsafety.app.data.config.ConfigurationManager
 import com.petsafety.app.data.fcm.FCMRepository
 import com.petsafety.app.data.sync.SyncScheduler
 import dagger.hilt.android.HiltAndroidApp
+import io.sentry.android.core.SentryAndroid
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -24,6 +26,9 @@ class PetSafetyApplication : Application() {
     @Inject
     lateinit var fcmRepository: FCMRepository
 
+    @Inject
+    lateinit var configurationManager: ConfigurationManager
+
     private val applicationScope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
 
     override fun onCreate() {
@@ -34,7 +39,18 @@ class PetSafetyApplication : Application() {
         if (isEmulator()) {
             Log.w(TAG, "Running on emulator - Firebase/FCM disabled")
         } else if (isGooglePlayServicesAvailable()) {
+            // Initialize Firebase first (required before any Firebase APIs)
             initializeFirebase()
+
+            // Configure App Check after Firebase init
+            // This protects Firebase APIs from abuse
+            ConfigurationManager.configureAppCheck(this)
+
+            // Fetch remote configuration and initialize Sentry
+            applicationScope.launch {
+                configurationManager.fetchConfiguration()
+                initializeSentry()
+            }
         } else {
             Log.w(TAG, "Google Play Services not available - Firebase/FCM disabled")
         }
@@ -43,6 +59,33 @@ class PetSafetyApplication : Application() {
         // Schedule periodic sync
         syncScheduler.schedulePeriodicSync()
         Log.d(TAG, "=== Application.onCreate END ===")
+    }
+
+    /**
+     * Initialize Sentry error tracking with DSN from Remote Config
+     */
+    private fun initializeSentry() {
+        val dsn = configurationManager.sentryDSN.value
+
+        if (dsn.isEmpty()) {
+            Log.w(TAG, "Sentry DSN not configured in Remote Config - error tracking disabled")
+            return
+        }
+
+        SentryAndroid.init(this) { options ->
+            options.dsn = dsn
+            options.environment = if (BuildConfig.DEBUG) "development" else "production"
+            options.isDebug = BuildConfig.DEBUG
+            options.tracesSampleRate = 0.2 // 20% of transactions for performance monitoring
+
+            // Strip sensitive data before sending
+            options.setBeforeSend { event, _ ->
+                event.user?.email = null
+                event
+            }
+        }
+
+        Log.d(TAG, "Sentry initialized successfully")
     }
 
     private fun isEmulator(): Boolean {

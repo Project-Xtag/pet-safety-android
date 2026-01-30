@@ -29,6 +29,21 @@ captures/
 # Keystore files
 *.jks
 *.keystore
+signing.properties
+keystore.properties
 
 # External native build folder
 .cxx/
+
+# Security - sensitive configuration files
+# Note: google-services.json is kept in repo but API keys should be restricted in Firebase Console
+secrets.properties
+app-check-debug-token.txt
+
+# Environment files
+.env
+.env.local
+*.env
+
+# Release builds (may contain embedded secrets)
+app/release/

@@ -27,7 +27,14 @@ class FCMRepository @Inject constructor(
     @ApplicationContext private val context: Context,
     private val apiService: ApiService
 ) {
-    private val prefs by lazy {
+    /**
+     * Encrypted SharedPreferences for secure FCM token storage.
+     * Returns null if encryption is unavailable - in that case, we don't persist
+     * the token locally (FCM will provide it fresh each time).
+     *
+     * Security: Never fall back to unencrypted storage for sensitive tokens.
+     */
+    private val prefs: android.content.SharedPreferences? by lazy {
         try {
             val masterKey = MasterKey.Builder(context)
                 .setKeyScheme(MasterKey.KeyScheme.AES256_GCM)
@@ -41,9 +48,10 @@ class FCMRepository @Inject constructor(
                 EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
             )
         } catch (e: Exception) {
-            // Fallback to regular SharedPreferences on devices where encryption fails
-            Log.w(TAG, "EncryptedSharedPreferences not available, using regular prefs", e)
-            context.getSharedPreferences("fcm_prefs_fallback", Context.MODE_PRIVATE)
+            // Security: Do NOT fall back to unencrypted storage
+            // FCM will provide a fresh token on each app launch
+            Log.w(TAG, "EncryptedSharedPreferences not available, token will not be persisted locally", e)
+            null
         }
     }
 
@@ -63,10 +71,10 @@ class FCMRepository @Inject constructor(
     }
 
     /**
-     * Save FCM token locally
+     * Save FCM token locally (only if secure storage is available)
      */
     fun saveTokenLocally(token: String) {
-        prefs.edit {
+        prefs?.edit {
             putString(KEY_FCM_TOKEN, token)
         }
     }
@@ -75,7 +83,7 @@ class FCMRepository @Inject constructor(
      * Get locally stored FCM token
      */
     fun getStoredToken(): String? {
-        return prefs.getString(KEY_FCM_TOKEN, null)
+        return prefs?.getString(KEY_FCM_TOKEN, null)
     }
 
     /**
@@ -118,7 +126,7 @@ class FCMRepository @Inject constructor(
      * Clear locally stored token
      */
     fun clearStoredToken() {
-        prefs.edit {
+        prefs?.edit {
             remove(KEY_FCM_TOKEN)
         }
     }
