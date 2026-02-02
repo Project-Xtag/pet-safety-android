@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Pet Safety</string>
-    <string name="google_maps_key">YOUR_MAPS_API_KEY</string>
+    <string name="google_maps_key">***REDACTED***</string>
     <string name="my_pets">My Pets</string>
     <string name="scan_qr">Scan QR</string>
     <string name="alerts">Alerts</string>

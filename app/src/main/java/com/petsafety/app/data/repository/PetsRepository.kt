@@ -62,7 +62,10 @@ class PetsRepository(
         petId: String,
         location: LocationCoordinate?,
         address: String?,
-        description: String?
+        description: String?,
+        notificationCenterSource: String? = null,
+        notificationCenterLocation: LocationCoordinate? = null,
+        notificationCenterAddress: String? = null
     ): Result<Pet> {
         networkMonitor.refreshStatus()
         if (!networkMonitor.isConnected.first()) {
@@ -73,6 +76,12 @@ class PetsRepository(
             }
             if (!address.isNullOrBlank()) actionData["lastSeenAddress"] = address
             if (!description.isNullOrBlank()) actionData["description"] = description
+            if (!notificationCenterSource.isNullOrBlank()) actionData["notificationCenterSource"] = notificationCenterSource
+            if (notificationCenterLocation != null) {
+                actionData["notificationCenterLatitude"] = notificationCenterLocation.lat
+                actionData["notificationCenterLongitude"] = notificationCenterLocation.lng
+            }
+            if (!notificationCenterAddress.isNullOrBlank()) actionData["notificationCenterAddress"] = notificationCenterAddress
             syncService.queueAction(SyncService.ActionType.MARK_PET_LOST, actionData)
             return Result.failure(OfflineQueuedException())
         }
@@ -82,7 +91,10 @@ class PetsRepository(
             MarkMissingRequest(
                 lastSeenLocation = location,
                 lastSeenAddress = address,
-                description = description
+                description = description,
+                notificationCenterSource = notificationCenterSource,
+                notificationCenterLocation = notificationCenterLocation,
+                notificationCenterAddress = notificationCenterAddress
             )
         )
         response.data?.pet?.let { offlineManager.savePet(it) }

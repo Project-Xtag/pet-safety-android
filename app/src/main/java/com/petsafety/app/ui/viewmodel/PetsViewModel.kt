@@ -140,12 +140,23 @@ class PetsViewModel @Inject constructor(
         location: LocationCoordinate?,
         address: String?,
         description: String?,
+        notificationCenterSource: String? = null,
+        notificationCenterLocation: LocationCoordinate? = null,
+        notificationCenterAddress: String? = null,
         onResult: (Boolean, String?) -> Unit
     ) {
         viewModelScope.launch {
             _isLoading.value = true
             try {
-                val result = repository.markPetMissing(petId, location, address, description)
+                val result = repository.markPetMissing(
+                    petId,
+                    location,
+                    address,
+                    description,
+                    notificationCenterSource,
+                    notificationCenterLocation,
+                    notificationCenterAddress
+                )
                 result.getOrThrow()
                 onResult(true, null)
             } catch (ex: OfflineQueuedException) {

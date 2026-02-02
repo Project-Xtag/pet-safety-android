@@ -57,7 +57,10 @@ data class MarkMissingRequest(
     val lastSeenLocation: LocationCoordinate? = null,
     val lastSeenAddress: String? = null,
     val description: String? = null,
-    val rewardAmount: Double? = null
+    val rewardAmount: Double? = null,
+    val notificationCenterSource: String? = null,
+    val notificationCenterLocation: LocationCoordinate? = null,
+    val notificationCenterAddress: String? = null
 )
 
 @Serializable

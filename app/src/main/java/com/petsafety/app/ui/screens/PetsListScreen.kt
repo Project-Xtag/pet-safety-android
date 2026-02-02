@@ -260,8 +260,16 @@ fun PetsListScreen(
         ReportMissingSheet(
             availablePets = availablePets,
             onDismiss = { showReportMissingSheet = false },
-            onReportMissing = { pet, location, address, description ->
-                viewModel.markPetMissing(pet.id, location, address, description) { success, error ->
+            onReportMissing = { pet, location, address, description, notifSource, notifLocation, notifAddress ->
+                viewModel.markPetMissing(
+                    petId = pet.id,
+                    location = location,
+                    address = address,
+                    description = description,
+                    notificationCenterSource = notifSource,
+                    notificationCenterLocation = notifLocation,
+                    notificationCenterAddress = notifAddress
+                ) { success, error ->
                     showReportMissingSheet = false
                     if (success) {
                         viewModel.refresh()

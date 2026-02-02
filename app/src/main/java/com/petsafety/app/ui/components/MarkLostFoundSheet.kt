@@ -19,10 +19,13 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.CheckCircle
+import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.LocationOn
 import androidx.compose.material.icons.filled.Pets
 import androidx.compose.material.icons.filled.Warning
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.FilterChip
+import androidx.compose.material3.FilterChipDefaults
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -52,6 +55,15 @@ import com.petsafety.app.data.model.Pet
 import com.petsafety.app.ui.theme.BrandOrange
 import com.petsafety.app.ui.theme.MutedTextLight
 import com.petsafety.app.ui.theme.TealAccent
+
+/**
+ * Notification center source options
+ */
+enum class NotificationCenterSource(val value: String, val displayName: String) {
+    CURRENT_LOCATION("current_location", "Current Location"),
+    REGISTERED_ADDRESS("registered_address", "My Address"),
+    CUSTOM_ADDRESS("custom_address", "Custom")
+}
 
 /**
  * Bottom sheet for marking a pet as found.
@@ -138,7 +150,15 @@ fun MarkFoundSheet(
 fun ReportMissingSheet(
     availablePets: List<Pet>,
     onDismiss: () -> Unit,
-    onReportMissing: (Pet, LocationCoordinate?, String?, String?) -> Unit,
+    onReportMissing: (
+        pet: Pet,
+        lastSeenLocation: LocationCoordinate?,
+        lastSeenAddress: String?,
+        description: String?,
+        notificationCenterSource: String,
+        notificationCenterLocation: LocationCoordinate?,
+        notificationCenterAddress: String?
+    ) -> Unit,
     onRequestLocation: ((LocationCoordinate?) -> Unit) -> Unit
 ) {
     val sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true)
@@ -146,6 +166,10 @@ fun ReportMissingSheet(
     var lastSeenAddress by remember { mutableStateOf("") }
     var description by remember { mutableStateOf("") }
     var currentLocation by remember { mutableStateOf<LocationCoordinate?>(null) }
+
+    // Notification center state
+    var notificationCenterSource by remember { mutableStateOf(NotificationCenterSource.REGISTERED_ADDRESS) }
+    var customNotificationAddress by remember { mutableStateOf("") }
 
     ModalBottomSheet(
         onDismissRequest = onDismiss,
@@ -334,17 +358,157 @@ fun ReportMissingSheet(
                     )
                 }
 
+                Spacer(modifier = Modifier.height(16.dp))
+
+                // Notification Center Selection
+                Text(
+                    text = "Notification Center",
+                    style = MaterialTheme.typography.bodyMedium.copy(
+                        fontSize = 14.sp,
+                        fontWeight = FontWeight.SemiBold
+                    ),
+                    color = MaterialTheme.colorScheme.onSurface
+                )
+                Text(
+                    text = "Alerts will be sent within 10km of this location",
+                    style = MaterialTheme.typography.bodySmall.copy(fontSize = 12.sp),
+                    color = MutedTextLight
+                )
+                Spacer(modifier = Modifier.height(8.dp))
+
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                ) {
+                    NotificationCenterSource.entries.forEach { source ->
+                        FilterChip(
+                            selected = notificationCenterSource == source,
+                            onClick = {
+                                notificationCenterSource = source
+                                if (source == NotificationCenterSource.CURRENT_LOCATION && currentLocation == null) {
+                                    onRequestLocation { location ->
+                                        currentLocation = location
+                                    }
+                                }
+                            },
+                            label = {
+                                Text(
+                                    text = source.displayName,
+                                    fontSize = 11.sp
+                                )
+                            },
+                            modifier = Modifier.weight(1f),
+                            colors = FilterChipDefaults.filterChipColors(
+                                selectedContainerColor = TealAccent.copy(alpha = 0.15f),
+                                selectedLabelColor = TealAccent
+                            )
+                        )
+                    }
+                }
+
+                // Show content based on notification center source
+                when (notificationCenterSource) {
+                    NotificationCenterSource.CURRENT_LOCATION -> {
+                        if (currentLocation != null) {
+                            Row(
+                                verticalAlignment = Alignment.CenterVertically,
+                                modifier = Modifier.padding(top = 8.dp)
+                            ) {
+                                Icon(
+                                    imageVector = Icons.Default.LocationOn,
+                                    contentDescription = null,
+                                    tint = TealAccent,
+                                    modifier = Modifier.size(16.dp)
+                                )
+                                Spacer(modifier = Modifier.width(4.dp))
+                                Text(
+                                    text = "Lat: %.6f, Lng: %.6f".format(currentLocation!!.lat, currentLocation!!.lng),
+                                    style = MaterialTheme.typography.bodySmall,
+                                    color = MutedTextLight
+                                )
+                            }
+                        } else {
+                            Text(
+                                text = "Tap to get current location...",
+                                style = MaterialTheme.typography.bodySmall,
+                                color = MutedTextLight,
+                                modifier = Modifier.padding(top = 8.dp)
+                            )
+                        }
+                    }
+                    NotificationCenterSource.REGISTERED_ADDRESS -> {
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            modifier = Modifier.padding(top = 8.dp)
+                        ) {
+                            Icon(
+                                imageVector = Icons.Default.Home,
+                                contentDescription = null,
+                                tint = Color(0xFF34C759),
+                                modifier = Modifier.size(16.dp)
+                            )
+                            Spacer(modifier = Modifier.width(4.dp))
+                            Text(
+                                text = "Using your registered address",
+                                style = MaterialTheme.typography.bodySmall,
+                                color = MutedTextLight
+                            )
+                        }
+                    }
+                    NotificationCenterSource.CUSTOM_ADDRESS -> {
+                        Spacer(modifier = Modifier.height(8.dp))
+                        Box(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .clip(RoundedCornerShape(12.dp))
+                                .background(Color(0xFFF2F2F7))
+                                .padding(horizontal = 16.dp, vertical = 14.dp)
+                        ) {
+                            BasicTextField(
+                                value = customNotificationAddress,
+                                onValueChange = { customNotificationAddress = it },
+                                modifier = Modifier.fillMaxWidth(),
+                                textStyle = MaterialTheme.typography.bodyMedium.copy(
+                                    color = MaterialTheme.colorScheme.onSurface
+                                ),
+                                cursorBrush = SolidColor(BrandOrange),
+                                decorationBox = { innerTextField ->
+                                    if (customNotificationAddress.isEmpty()) {
+                                        Text(
+                                            text = "Enter address for notifications",
+                                            style = MaterialTheme.typography.bodyMedium,
+                                            color = MutedTextLight
+                                        )
+                                    }
+                                    innerTextField()
+                                }
+                            )
+                        }
+                    }
+                }
+
                 Spacer(modifier = Modifier.height(24.dp))
 
                 // Submit Button
                 BrandButton(
                     text = stringResource(R.string.report_missing),
                     onClick = {
+                        val notifLocation = if (notificationCenterSource == NotificationCenterSource.CURRENT_LOCATION) {
+                            currentLocation
+                        } else null
+
+                        val notifAddress = if (notificationCenterSource == NotificationCenterSource.CUSTOM_ADDRESS) {
+                            customNotificationAddress.takeIf { it.isNotBlank() }
+                        } else null
+
                         onReportMissing(
                             pet,
                             currentLocation,
                             lastSeenAddress.takeIf { it.isNotBlank() && it != "Current location" },
-                            description.takeIf { it.isNotBlank() }
+                            description.takeIf { it.isNotBlank() },
+                            notificationCenterSource.value,
+                            notifLocation,
+                            notifAddress
                         )
                     }
                 )
