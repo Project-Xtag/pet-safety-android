@@ -1,3 +1,5 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -8,6 +10,19 @@ plugins {
     alias(libs.plugins.hilt)
     alias(libs.plugins.google.services)
     id("kotlin-kapt")
+}
+
+// Load API keys from local.properties (gitignored) or environment variables
+val localProperties = Properties()
+val localPropertiesFile = rootProject.file("local.properties")
+if (localPropertiesFile.exists()) {
+    localProperties.load(localPropertiesFile.inputStream())
+}
+
+fun getApiKey(key: String, defaultValue: String = ""): String {
+    return localProperties.getProperty(key)
+        ?: System.getenv(key)
+        ?: defaultValue
 }
 
 android {
@@ -24,6 +39,14 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
             useSupportLibrary = true
+        }
+
+        // Inject Google Maps API key from local.properties or environment variable
+        // For local development: add GOOGLE_MAPS_API_KEY=your_key to local.properties
+        // For CI/CD: set GOOGLE_MAPS_API_KEY environment variable
+        val mapsApiKey = getApiKey("GOOGLE_MAPS_API_KEY", "")
+        if (mapsApiKey.isNotEmpty()) {
+            resValue("string", "google_maps_key", mapsApiKey)
         }
     }
 

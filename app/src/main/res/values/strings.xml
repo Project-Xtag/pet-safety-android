@@ -1,6 +1,15 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Pet Safety</string>
-    <string name="google_maps_key">***REDACTED***</string>
+    <!--
+        Google Maps API key is injected via build.gradle.kts from:
+        1. local.properties (for local development - add GOOGLE_MAPS_API_KEY=your_key)
+        2. Environment variable GOOGLE_MAPS_API_KEY (for CI/CD)
+
+        DO NOT commit actual API keys to this file!
+
+        This fallback value is used when no key is configured (maps won't work)
+    -->
+    <string name="google_maps_key" translatable="false" tools:ignore="UnusedResources">MISSING_API_KEY</string>
     <string name="my_pets">My Pets</string>
     <string name="scan_qr">Scan QR</string>
     <string name="alerts">Alerts</string>
