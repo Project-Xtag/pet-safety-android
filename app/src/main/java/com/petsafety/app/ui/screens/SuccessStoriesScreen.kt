@@ -1,5 +1,6 @@
 package com.petsafety.app.ui.screens
 
+import android.content.res.Resources
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -41,6 +42,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
@@ -60,8 +62,6 @@ import com.google.maps.android.compose.MarkerState
 import com.google.maps.android.compose.rememberCameraPositionState
 import com.petsafety.app.R
 import com.petsafety.app.data.model.SuccessStory
-import com.petsafety.app.ui.theme.BackgroundLight
-import com.petsafety.app.ui.theme.MutedTextLight
 import com.petsafety.app.ui.theme.TealAccent
 import com.petsafety.app.ui.viewmodel.AppStateViewModel
 import com.petsafety.app.ui.viewmodel.SuccessStoriesViewModel
@@ -84,7 +84,7 @@ fun SuccessStoriesScreen(
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(BackgroundLight)
+            .background(MaterialTheme.colorScheme.background)
     ) {
         Column(modifier = Modifier.fillMaxSize()) {
             // Toggle Button
@@ -126,9 +126,9 @@ fun SuccessStoriesScreen(
                                 color = TealAccent
                             )
                             Text(
-                                text = "Loading success stories...",
+                                text = stringResource(R.string.loading_success_stories),
                                 style = MaterialTheme.typography.bodyMedium.copy(fontSize = 15.sp),
-                                color = MutedTextLight
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
                             )
                         }
                     }
@@ -168,7 +168,7 @@ private fun EmptySuccessStoriesState() {
             Box(
                 modifier = Modifier
                     .size(100.dp)
-                    .background(Color(0xFFF2F2F7), CircleShape),
+                    .background(MaterialTheme.colorScheme.surfaceContainerHigh, CircleShape),
                 contentAlignment = Alignment.Center
             ) {
                 Icon(
@@ -184,7 +184,7 @@ private fun EmptySuccessStoriesState() {
                 verticalArrangement = Arrangement.spacedBy(12.dp)
             ) {
                 Text(
-                    text = "No Success Stories Nearby",
+                    text = stringResource(R.string.no_success_stories),
                     style = MaterialTheme.typography.titleLarge.copy(
                         fontSize = 20.sp,
                         fontWeight = FontWeight.Bold
@@ -192,9 +192,9 @@ private fun EmptySuccessStoriesState() {
                     color = MaterialTheme.colorScheme.onSurface
                 )
                 Text(
-                    text = "Be the first to share a happy reunion in your area!",
+                    text = stringResource(R.string.no_success_stories_message),
                     style = MaterialTheme.typography.bodyMedium.copy(fontSize = 15.sp),
-                    color = MutedTextLight,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
                     textAlign = TextAlign.Center,
                     modifier = Modifier.padding(horizontal = 32.dp)
                 )
@@ -224,10 +224,11 @@ private fun SuccessStoriesList(stories: List<SuccessStory>) {
 
 @Composable
 private fun SuccessStoryCard(story: SuccessStory) {
+    val resources = LocalContext.current.resources
     Card(
         modifier = Modifier.fillMaxWidth(),
         shape = RoundedCornerShape(16.dp),
-        colors = CardDefaults.cardColors(containerColor = Color.White),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
     ) {
         Column(
@@ -294,7 +295,7 @@ private fun SuccessStoryCard(story: SuccessStory) {
                             tint = Color(0xFF34C759)
                         )
                         Text(
-                            text = "Found & Reunited",
+                            text = stringResource(R.string.found_and_reunited),
                             style = MaterialTheme.typography.labelSmall.copy(
                                 fontWeight = FontWeight.SemiBold
                             ),
@@ -312,12 +313,12 @@ private fun SuccessStoryCard(story: SuccessStory) {
                                 imageVector = Icons.Default.LocationOn,
                                 contentDescription = null,
                                 modifier = Modifier.size(12.dp),
-                                tint = MutedTextLight
+                                tint = MaterialTheme.colorScheme.onSurfaceVariant
                             )
                             Text(
                                 text = city,
                                 style = MaterialTheme.typography.bodySmall,
-                                color = MutedTextLight
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
                             )
                         }
                     }
@@ -325,9 +326,9 @@ private fun SuccessStoryCard(story: SuccessStory) {
                     // Distance
                     story.distanceKm?.let { distance ->
                         Text(
-                            text = "%.1f km away".format(distance),
+                            text = stringResource(R.string.distance_km, distance),
                             style = MaterialTheme.typography.labelSmall,
-                            color = MutedTextLight
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
                         )
                     }
                 }
@@ -341,7 +342,7 @@ private fun SuccessStoryCard(story: SuccessStory) {
                 ) {
                     Icon(
                         imageVector = Icons.Default.Share,
-                        contentDescription = "Share",
+                        contentDescription = stringResource(R.string.share),
                         modifier = Modifier.size(18.dp),
                         tint = Color.Blue
                     )
@@ -353,7 +354,7 @@ private fun SuccessStoryCard(story: SuccessStory) {
                 Text(
                     text = text,
                     style = MaterialTheme.typography.bodyMedium,
-                    color = MutedTextLight,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
                     maxLines = 3,
                     overflow = TextOverflow.Ellipsis
                 )
@@ -372,12 +373,12 @@ private fun SuccessStoryCard(story: SuccessStory) {
                             imageVector = Icons.Default.Schedule,
                             contentDescription = null,
                             modifier = Modifier.size(12.dp),
-                            tint = MutedTextLight
+                            tint = MaterialTheme.colorScheme.onSurfaceVariant
                         )
                         Text(
-                            text = "Missing since ${formatDateString(missingSince)}",
+                            text = stringResource(R.string.missing_since, formatDateString(missingSince, resources)),
                             style = MaterialTheme.typography.labelSmall,
-                            color = MutedTextLight
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
                         )
                     }
                 }
@@ -390,12 +391,12 @@ private fun SuccessStoryCard(story: SuccessStory) {
                         imageVector = Icons.Default.CalendarMonth,
                         contentDescription = null,
                         modifier = Modifier.size(12.dp),
-                        tint = MutedTextLight
+                        tint = MaterialTheme.colorScheme.onSurfaceVariant
                     )
                     Text(
-                        text = "Found ${formatDateString(story.foundAt)}",
+                        text = stringResource(R.string.found_on, formatDateString(story.foundAt, resources)),
                         style = MaterialTheme.typography.labelSmall,
-                        color = MutedTextLight
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
                 }
             }
@@ -425,7 +426,7 @@ private fun SuccessStoriesMap(stories: List<SuccessStory>) {
             if (lat != null && lng != null) {
                 Marker(
                     state = MarkerState(position = LatLng(lat, lng)),
-                    title = story.petName ?: "Success Story",
+                    title = story.petName ?: stringResource(R.string.success_story_marker),
                     snippet = story.reunionCity
                 )
             }
@@ -433,7 +434,7 @@ private fun SuccessStoriesMap(stories: List<SuccessStory>) {
     }
 }
 
-private fun formatDateString(dateString: String): String {
+private fun formatDateString(dateString: String, resources: Resources): String {
     return try {
         // Try parsing ISO format
         val inputFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.getDefault())
@@ -441,15 +442,15 @@ private fun formatDateString(dateString: String): String {
         if (date != null) {
             val now = Date()
             val diffMs = now.time - date.time
-            val diffDays = TimeUnit.MILLISECONDS.toDays(diffMs)
-            val diffHours = TimeUnit.MILLISECONDS.toHours(diffMs)
-            val diffMinutes = TimeUnit.MILLISECONDS.toMinutes(diffMs)
+            val diffDays = TimeUnit.MILLISECONDS.toDays(diffMs).toInt()
+            val diffHours = TimeUnit.MILLISECONDS.toHours(diffMs).toInt()
+            val diffMinutes = TimeUnit.MILLISECONDS.toMinutes(diffMs).toInt()
 
             when {
-                diffDays > 0 -> if (diffDays == 1L) "1 day ago" else "$diffDays days ago"
-                diffHours > 0 -> if (diffHours == 1L) "1 hour ago" else "$diffHours hours ago"
-                diffMinutes > 0 -> if (diffMinutes == 1L) "1 minute ago" else "$diffMinutes minutes ago"
-                else -> "just now"
+                diffDays > 0 -> resources.getQuantityString(R.plurals.time_ago_days, diffDays, diffDays)
+                diffHours > 0 -> resources.getQuantityString(R.plurals.time_ago_hours, diffHours, diffHours)
+                diffMinutes > 0 -> resources.getQuantityString(R.plurals.time_ago_minutes, diffMinutes, diffMinutes)
+                else -> resources.getString(R.string.time_ago_just_now)
             }
         } else {
             dateString.take(10)

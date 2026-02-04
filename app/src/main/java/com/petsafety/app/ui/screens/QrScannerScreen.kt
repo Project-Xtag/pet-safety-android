@@ -38,6 +38,8 @@ import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.LocationOn
 import androidx.compose.material.icons.filled.Pets
 import androidx.compose.material.icons.filled.QrCodeScanner
+import androidx.compose.material.icons.filled.FlashOff
+import androidx.compose.material.icons.filled.FlashOn
 import androidx.compose.material.icons.filled.Warning
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -45,6 +47,7 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.OutlinedTextField
@@ -64,7 +67,9 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.hapticfeedback.HapticFeedbackType
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalHapticFeedback
 import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -82,9 +87,7 @@ import com.google.mlkit.vision.common.InputImage
 import com.petsafety.app.R
 import com.petsafety.app.data.model.ScanResponse
 import com.petsafety.app.data.repository.LocationConsent
-import com.petsafety.app.ui.theme.BackgroundLight
 import com.petsafety.app.ui.theme.BrandOrange
-import com.petsafety.app.ui.theme.MutedTextLight
 import com.petsafety.app.ui.theme.TealAccent
 import com.petsafety.app.ui.viewmodel.AppStateViewModel
 import com.petsafety.app.ui.viewmodel.QrScannerViewModel
@@ -101,8 +104,11 @@ fun QrScannerScreen(
     val scanResult by viewModel.scanResult.collectAsState()
     val errorMessage by viewModel.errorMessage.collectAsState()
     val lifecycleOwner = LocalLifecycleOwner.current
+    val haptic = LocalHapticFeedback.current
     var hasPermission by remember { mutableStateOf(false) }
     var manualCode by remember { mutableStateOf("") }
+    var isTorchOn by remember { mutableStateOf(false) }
+    var cameraRef by remember { mutableStateOf<androidx.camera.core.Camera?>(null) }
 
     val qrScannedMessage = stringResource(R.string.qr_scanned)
     val invalidQrCodeMessage = stringResource(R.string.invalid_qr_code)
@@ -130,10 +136,37 @@ fun QrScannerScreen(
             CameraPreview(
                 lifecycleOwner = lifecycleOwner,
                 onQrCodeScanned = { code ->
+                    haptic.performHapticFeedback(HapticFeedbackType.LongPress)
                     viewModel.scanQr(code)
                     appStateViewModel.showSuccess(qrScannedMessage)
-                }
+                },
+                onCameraReady = { camera -> cameraRef = camera }
             )
+
+            // Flashlight Toggle
+            if (cameraRef?.cameraInfo?.hasFlashUnit() == true) {
+                IconButton(
+                    onClick = {
+                        isTorchOn = !isTorchOn
+                        cameraRef?.cameraControl?.enableTorch(isTorchOn)
+                    },
+                    modifier = Modifier
+                        .align(Alignment.TopEnd)
+                        .padding(16.dp)
+                        .size(48.dp)
+                        .background(
+                            if (isTorchOn) Color.White else Color.Black.copy(alpha = 0.5f),
+                            CircleShape
+                        )
+                ) {
+                    Icon(
+                        imageVector = if (isTorchOn) Icons.Default.FlashOn else Icons.Default.FlashOff,
+                        contentDescription = if (isTorchOn) stringResource(R.string.turn_off_flashlight) else stringResource(R.string.turn_on_flashlight),
+                        tint = if (isTorchOn) Color.Black else Color.White,
+                        modifier = Modifier.size(24.dp)
+                    )
+                }
+            }
 
             // Scanning Overlay
             Column(
@@ -151,7 +184,7 @@ fun QrScannerScreen(
                 ) {
                     Icon(
                         imageVector = Icons.Default.QrCodeScanner,
-                        contentDescription = null,
+                        contentDescription = stringResource(R.string.qr_scanner_icon),
                         modifier = Modifier.size(40.dp),
                         tint = Color.White
                     )
@@ -160,7 +193,7 @@ fun QrScannerScreen(
                 Spacer(modifier = Modifier.height(16.dp))
 
                 Text(
-                    text = "Scan QR Code",
+                    text = stringResource(R.string.scan_qr_code),
                     style = MaterialTheme.typography.headlineSmall.copy(
                         fontSize = 22.sp,
                         fontWeight = FontWeight.Bold
@@ -171,7 +204,7 @@ fun QrScannerScreen(
                 Spacer(modifier = Modifier.height(8.dp))
 
                 Text(
-                    text = "Point your camera at a pet's QR tag",
+                    text = stringResource(R.string.scan_qr_subtitle),
                     style = MaterialTheme.typography.bodyMedium.copy(fontSize = 15.sp),
                     color = Color.White.copy(alpha = 0.8f)
                 )
@@ -224,7 +257,7 @@ fun QrScannerScreen(
             Box(
                 modifier = Modifier
                     .fillMaxSize()
-                    .background(BackgroundLight),
+                    .background(MaterialTheme.colorScheme.background),
                 contentAlignment = Alignment.Center
             ) {
                 Column(
@@ -234,19 +267,19 @@ fun QrScannerScreen(
                     Box(
                         modifier = Modifier
                             .size(100.dp)
-                            .background(Color(0xFFF2F2F7), CircleShape),
+                            .background(MaterialTheme.colorScheme.surfaceContainerHigh, CircleShape),
                         contentAlignment = Alignment.Center
                     ) {
                         Icon(
                             imageVector = Icons.Default.QrCodeScanner,
-                            contentDescription = null,
+                            contentDescription = stringResource(R.string.qr_scanner_icon),
                             modifier = Modifier.size(44.dp),
                             tint = TealAccent
                         )
                     }
 
                     Text(
-                        text = "Camera Access Required",
+                        text = stringResource(R.string.camera_access_required),
                         style = MaterialTheme.typography.titleLarge.copy(
                             fontSize = 22.sp,
                             fontWeight = FontWeight.Bold
@@ -255,9 +288,9 @@ fun QrScannerScreen(
                     )
 
                     Text(
-                        text = "Please enable camera access to scan QR codes",
+                        text = stringResource(R.string.camera_access_message),
                         style = MaterialTheme.typography.bodyMedium.copy(fontSize = 15.sp),
-                        color = MutedTextLight,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
                         textAlign = TextAlign.Center,
                         modifier = Modifier.padding(horizontal = 40.dp)
                     )
@@ -322,7 +355,8 @@ fun QrScannerScreen(
 @Composable
 private fun CameraPreview(
     lifecycleOwner: LifecycleOwner,
-    onQrCodeScanned: (String) -> Unit
+    onQrCodeScanned: (String) -> Unit,
+    onCameraReady: (androidx.camera.core.Camera) -> Unit = {}
 ) {
     val scanner = BarcodeScanning.getClient()
 
@@ -364,12 +398,13 @@ private fun CameraPreview(
                 }
 
                 cameraProvider.unbindAll()
-                cameraProvider.bindToLifecycle(
+                val camera = cameraProvider.bindToLifecycle(
                     lifecycleOwner,
                     CameraSelector.DEFAULT_BACK_CAMERA,
                     preview,
                     analysis
                 )
+                onCameraReady(camera)
             }, ContextCompat.getMainExecutor(ctx))
             previewView
         }
@@ -455,7 +490,7 @@ private fun ScannedPetSheet(
                 } else {
                     Icon(
                         imageVector = Icons.Default.Pets,
-                        contentDescription = null,
+                        contentDescription = stringResource(R.string.pet_photo),
                         modifier = Modifier.size(50.dp),
                         tint = TealAccent
                     )
@@ -466,7 +501,7 @@ private fun ScannedPetSheet(
 
             // Pet Name & Info
             Text(
-                text = "Hello! I'm ${pet.name}",
+                text = stringResource(R.string.hello_pet_name, pet.name),
                 style = MaterialTheme.typography.headlineMedium.copy(
                     fontSize = 26.sp,
                     fontWeight = FontWeight.Bold
@@ -478,9 +513,9 @@ private fun ScannedPetSheet(
             Spacer(modifier = Modifier.height(8.dp))
 
             Text(
-                text = "You've just scanned my tag. Thank you for helping me!",
+                text = stringResource(R.string.scanned_tag_thanks),
                 style = MaterialTheme.typography.bodyMedium.copy(fontSize = 15.sp),
-                color = MutedTextLight,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
                 textAlign = TextAlign.Center
             )
 
@@ -491,23 +526,23 @@ private fun ScannedPetSheet(
             ) {
                 pet.breed?.let {
                     Text(
-                        text = "Breed: $it",
+                        text = stringResource(R.string.breed_label, it),
                         style = MaterialTheme.typography.bodySmall.copy(fontSize = 14.sp),
-                        color = MutedTextLight
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
                 }
                 pet.age?.let {
                     Text(
-                        text = "Age: $it",
+                        text = stringResource(R.string.age_label, it),
                         style = MaterialTheme.typography.bodySmall.copy(fontSize = 14.sp),
-                        color = MutedTextLight
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
                 }
                 pet.color?.let {
                     Text(
-                        text = "Color: $it",
+                        text = stringResource(R.string.color_label, it),
                         style = MaterialTheme.typography.bodySmall.copy(fontSize = 14.sp),
-                        color = MutedTextLight
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
                 }
             }
@@ -549,7 +584,7 @@ private fun ScannedPetSheet(
                         )
                         Spacer(modifier = Modifier.width(8.dp))
                         Text(
-                            text = "Share My Location with Owner",
+                            text = stringResource(R.string.share_location_with_owner),
                             style = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.SemiBold)
                         )
                     }
@@ -557,15 +592,15 @@ private fun ScannedPetSheet(
                     Spacer(modifier = Modifier.height(8.dp))
 
                     Text(
-                        text = "${pet.name}'s owner will receive a notification with your location",
+                        text = stringResource(R.string.owner_notified_message, pet.name),
                         style = MaterialTheme.typography.bodySmall.copy(fontSize = 12.sp),
-                        color = MutedTextLight,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
                         textAlign = TextAlign.Center
                     )
                 } else {
                     // 3-tier Location Consent Options
                     Text(
-                        text = "Share Your Location",
+                        text = stringResource(R.string.step_share_location),
                         style = MaterialTheme.typography.titleMedium.copy(
                             fontSize = 18.sp,
                             fontWeight = FontWeight.Bold
@@ -576,9 +611,9 @@ private fun ScannedPetSheet(
                     Spacer(modifier = Modifier.height(8.dp))
 
                     Text(
-                        text = "Help ${pet.name}'s owner find them by sharing your location",
+                        text = stringResource(R.string.share_location_help, pet.name),
                         style = MaterialTheme.typography.bodySmall.copy(fontSize = 14.sp),
-                        color = MutedTextLight,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
                         textAlign = TextAlign.Center
                     )
 
@@ -586,8 +621,8 @@ private fun ScannedPetSheet(
 
                     // Option 1: Precise Location
                     LocationConsentOption(
-                        title = "Precise Location",
-                        description = "Share your exact GPS coordinates",
+                        title = stringResource(R.string.precise_location),
+                        description = stringResource(R.string.precise_location_desc),
                         icon = Icons.Default.LocationOn,
                         isSelected = selectedConsent == LocationConsent.PRECISE,
                         isRecommended = true,
@@ -598,8 +633,8 @@ private fun ScannedPetSheet(
 
                     // Option 2: Approximate Location
                     LocationConsentOption(
-                        title = "Approximate Location",
-                        description = "Share within ~500m accuracy (GDPR compliant)",
+                        title = stringResource(R.string.approximate_location),
+                        description = stringResource(R.string.approximate_location_desc),
                         icon = Icons.Default.LocationOn,
                         isSelected = selectedConsent == LocationConsent.APPROXIMATE,
                         isRecommended = false,
@@ -610,8 +645,8 @@ private fun ScannedPetSheet(
 
                     // Option 3: No Location
                     LocationConsentOption(
-                        title = "Don't Share Location",
-                        description = "Just notify the owner that their pet was found",
+                        title = stringResource(R.string.dont_share_location),
+                        description = stringResource(R.string.dont_share_location_desc),
                         icon = Icons.Default.Warning,
                         isSelected = selectedConsent == LocationConsent.DECLINE,
                         isRecommended = false,
@@ -676,12 +711,12 @@ private fun ScannedPetSheet(
                     ) {
                         if (isSubmitting) {
                             Text(
-                                text = "Sending...",
+                                text = stringResource(R.string.sending),
                                 style = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.SemiBold)
                             )
                         } else {
                             Text(
-                                text = "Confirm & Notify Owner",
+                                text = stringResource(R.string.confirm_notify_owner),
                                 style = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.SemiBold)
                             )
                         }
@@ -691,9 +726,9 @@ private fun ScannedPetSheet(
 
                     // Back button
                     Text(
-                        text = "Cancel",
+                        text = stringResource(R.string.cancel),
                         style = MaterialTheme.typography.bodyMedium.copy(
-                            color = MutedTextLight,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
                             fontWeight = FontWeight.Medium
                         ),
                         modifier = Modifier
@@ -711,7 +746,7 @@ private fun ScannedPetSheet(
             // Contact Owner Section
             if (pet.ownerPhone != null || pet.ownerEmail != null) {
                 Text(
-                    text = "Contact Owner",
+                    text = stringResource(R.string.contact_owner),
                     style = MaterialTheme.typography.titleMedium.copy(
                         fontSize = 18.sp,
                         fontWeight = FontWeight.Bold
@@ -724,7 +759,7 @@ private fun ScannedPetSheet(
                 pet.ownerPhone?.let { phone ->
                     ContactRow(
                         icon = Icons.Default.Call,
-                        label = "Call: $phone",
+                        label = stringResource(R.string.call_phone, phone),
                         onClick = {
                             val intent = Intent(Intent.ACTION_DIAL).apply {
                                 data = Uri.parse("tel:${phone.replace(" ", "")}")
@@ -738,7 +773,7 @@ private fun ScannedPetSheet(
                 pet.ownerEmail?.let { email ->
                     ContactRow(
                         icon = Icons.Default.Email,
-                        label = "Email: $email",
+                        label = stringResource(R.string.email_contact, email),
                         onClick = {
                             val intent = Intent(Intent.ACTION_SENDTO).apply {
                                 data = Uri.parse("mailto:$email")
@@ -755,10 +790,10 @@ private fun ScannedPetSheet(
                     Spacer(modifier = Modifier.height(16.dp))
                     InfoCard(
                         icon = Icons.Default.LocalHospital,
-                        title = "Medical Information",
+                        title = stringResource(R.string.medical_information),
                         content = medical,
-                        backgroundColor = Color.Red.copy(alpha = 0.1f),
-                        iconColor = Color.Red
+                        backgroundColor = MaterialTheme.colorScheme.error.copy(alpha = 0.1f),
+                        iconColor = MaterialTheme.colorScheme.error
                     )
                 }
             }
@@ -769,7 +804,7 @@ private fun ScannedPetSheet(
                     Spacer(modifier = Modifier.height(12.dp))
                     InfoCard(
                         icon = Icons.Default.Info,
-                        title = "Notes",
+                        title = stringResource(R.string.notes),
                         content = notes,
                         backgroundColor = Color.Blue.copy(alpha = 0.1f),
                         iconColor = Color.Blue
@@ -783,21 +818,21 @@ private fun ScannedPetSheet(
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .background(Color(0xFFF2F2F7), RoundedCornerShape(14.dp))
+                    .background(MaterialTheme.colorScheme.surfaceContainerHigh, RoundedCornerShape(14.dp))
                     .padding(16.dp),
                 verticalAlignment = Alignment.Top
             ) {
                 Icon(
                     imageVector = Icons.Default.Lock,
-                    contentDescription = null,
+                    contentDescription = stringResource(R.string.privacy_notice_icon),
                     modifier = Modifier.size(16.dp),
-                    tint = MutedTextLight
+                    tint = MaterialTheme.colorScheme.onSurfaceVariant
                 )
                 Spacer(modifier = Modifier.width(8.dp))
                 Text(
-                    text = "Your privacy matters. We'll only share your location with ${pet.name}'s owner with your explicit consent.",
+                    text = stringResource(R.string.your_privacy_notice, pet.name),
                     style = MaterialTheme.typography.bodySmall.copy(fontSize = 12.sp),
-                    color = MutedTextLight
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
             }
 
@@ -817,7 +852,7 @@ private fun ContactRow(
             .fillMaxWidth()
             .clickable(onClick = onClick),
         shape = RoundedCornerShape(14.dp),
-        colors = CardDefaults.cardColors(containerColor = Color(0xFFF2F2F7))
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainerHigh)
     ) {
         Row(
             modifier = Modifier
@@ -842,7 +877,7 @@ private fun ContactRow(
                 imageVector = Icons.Default.ChevronRight,
                 contentDescription = null,
                 modifier = Modifier.size(16.dp),
-                tint = MutedTextLight
+                tint = MaterialTheme.colorScheme.onSurfaceVariant
             )
         }
     }
@@ -905,7 +940,7 @@ private fun LocationConsentOption(
     onClick: () -> Unit
 ) {
     val borderColor = if (isSelected) BrandOrange else Color(0xFFE5E5EA)
-    val backgroundColor = if (isSelected) BrandOrange.copy(alpha = 0.1f) else Color(0xFFF2F2F7)
+    val backgroundColor = if (isSelected) BrandOrange.copy(alpha = 0.1f) else MaterialTheme.colorScheme.surfaceContainerHigh
 
     Card(
         modifier = Modifier
@@ -938,7 +973,7 @@ private fun LocationConsentOption(
                     imageVector = icon,
                     contentDescription = null,
                     modifier = Modifier.size(20.dp),
-                    tint = if (isSelected) BrandOrange else MutedTextLight
+                    tint = if (isSelected) BrandOrange else MaterialTheme.colorScheme.onSurfaceVariant
                 )
             }
 
@@ -960,7 +995,7 @@ private fun LocationConsentOption(
                     )
                     if (isRecommended) {
                         Text(
-                            text = "Recommended",
+                            text = stringResource(R.string.recommended),
                             style = MaterialTheme.typography.labelSmall.copy(
                                 fontSize = 10.sp,
                                 fontWeight = FontWeight.Medium
@@ -976,7 +1011,7 @@ private fun LocationConsentOption(
                 Text(
                     text = description,
                     style = MaterialTheme.typography.bodySmall.copy(fontSize = 12.sp),
-                    color = MutedTextLight
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
             }
 

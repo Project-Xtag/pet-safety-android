@@ -11,6 +11,8 @@ data class User(
     @SerialName("first_name") val firstName: String? = null,
     @SerialName("last_name") val lastName: String? = null,
     val phone: String? = null,
+    @SerialName("secondary_phone") val secondaryPhone: String? = null,
+    @SerialName("secondary_email") val secondaryEmail: String? = null,
     val address: String? = null,
     val city: String? = null,
     @SerialName("postal_code") val postalCode: String? = null,

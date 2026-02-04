@@ -27,11 +27,17 @@ val MutedTextDark = Color(0xFF999999)
 // Additional UI Colors
 val ErrorColor = Color(0xFFE53935)
 val SuccessColor = Color(0xFF43A047)
+val SuccessGreen = Color(0xFF34C759)
 val WarningColor = Color(0xFFFFA726)
+val InfoBlue = Color(0xFF007AFF)
 
 // Border/Divider Colors
 val BorderLight = Color(0xFFE0E0E0)
 val BorderDark = Color(0xFF424242)
+
+// Input/Field Background Colors
+val InputBackgroundLight = Color(0xFFF2F2F7)
+val InputBackgroundDark = Color(0xFF2C2C2E)
 
 // Legacy aliases for compatibility
 val BrandColor = BrandOrange

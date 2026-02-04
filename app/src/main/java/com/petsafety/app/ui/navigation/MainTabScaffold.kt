@@ -5,6 +5,8 @@ import android.content.pm.PackageManager
 import android.os.Build
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.animation.Crossfade
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
@@ -117,15 +119,17 @@ private fun TabContent(
     onQrCodeHandled: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-    when (selectedTab) {
-        TabItem.Pets -> PetsScreen(appStateViewModel, modifier)
-        TabItem.Scan -> QrScannerScreen(
-            appStateViewModel = appStateViewModel,
-            pendingQrCode = pendingQrCode,
-            onQrCodeHandled = onQrCodeHandled,
-            modifier = modifier
-        )
-        TabItem.Alerts -> AlertsTabScreen(appStateViewModel, authViewModel, modifier)
-        TabItem.Profile -> ProfileScreen(appStateViewModel, authViewModel, modifier)
+    Crossfade(targetState = selectedTab, animationSpec = tween(200)) {
+        when (it) {
+            TabItem.Pets -> PetsScreen(appStateViewModel, modifier)
+            TabItem.Scan -> QrScannerScreen(
+                appStateViewModel = appStateViewModel,
+                pendingQrCode = pendingQrCode,
+                onQrCodeHandled = onQrCodeHandled,
+                modifier = modifier
+            )
+            TabItem.Alerts -> AlertsTabScreen(appStateViewModel, authViewModel, modifier)
+            TabItem.Profile -> ProfileScreen(appStateViewModel, authViewModel, modifier)
+        }
     }
 }

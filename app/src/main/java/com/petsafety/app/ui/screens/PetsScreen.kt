@@ -1,5 +1,10 @@
 package com.petsafety.app.ui.screens
 
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.slideInHorizontally
+import androidx.compose.animation.slideOutHorizontally
+import androidx.compose.animation.core.tween
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -18,7 +23,15 @@ fun PetsScreen(appStateViewModel: AppStateViewModel, modifier: Modifier = Modifi
     val viewModel: PetsViewModel = hiltViewModel()
     val successStoriesViewModel: SuccessStoriesViewModel = hiltViewModel()
 
-    NavHost(navController = navController, startDestination = "pets_list", modifier = modifier) {
+    NavHost(
+        navController = navController,
+        startDestination = "pets_list",
+        modifier = modifier,
+        enterTransition = { slideInHorizontally(initialOffsetX = { it }, animationSpec = tween(300)) + fadeIn(animationSpec = tween(300)) },
+        exitTransition = { slideOutHorizontally(targetOffsetX = { -it / 3 }, animationSpec = tween(300)) + fadeOut(animationSpec = tween(150)) },
+        popEnterTransition = { slideInHorizontally(initialOffsetX = { -it / 3 }, animationSpec = tween(300)) + fadeIn(animationSpec = tween(300)) },
+        popExitTransition = { slideOutHorizontally(targetOffsetX = { it }, animationSpec = tween(300)) + fadeOut(animationSpec = tween(150)) }
+    ) {
         composable("pets_list") {
             PetsListScreen(
                 viewModel = viewModel,

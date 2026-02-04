@@ -1,6 +1,8 @@
 package com.petsafety.app.ui.viewmodel
 
+import android.app.Application
 import app.cash.turbine.test
+import com.petsafety.app.R
 import com.petsafety.app.data.model.User
 import com.petsafety.app.data.network.model.CanDeleteAccountResponse
 import com.petsafety.app.data.network.model.MissingPetInfo
@@ -31,6 +33,7 @@ import java.util.concurrent.TimeUnit
 @OptIn(ExperimentalCoroutinesApi::class)
 class AuthViewModelTest {
 
+    private lateinit var application: Application
     private lateinit var authRepository: AuthRepository
     private lateinit var viewModel: AuthViewModel
     private val testDispatcher = StandardTestDispatcher()
@@ -45,14 +48,17 @@ class AuthViewModelTest {
     @Before
     fun setup() {
         Dispatchers.setMain(testDispatcher)
+        application = mockk(relaxed = true)
         authRepository = mockk(relaxed = true)
 
         // Setup default mock behavior
         every { authRepository.isAuthenticated } returns flowOf(false)
         every { authRepository.isBiometricEnabled() } returns false
         every { authRepository.hasStoredToken() } returns false
+        every { application.getString(any()) } returns "Error"
+        every { application.getString(R.string.error_submit_support) } returns "Failed to submit support request"
 
-        viewModel = AuthViewModel(authRepository)
+        viewModel = AuthViewModel(application, authRepository)
     }
 
     @After
@@ -76,7 +82,7 @@ class AuthViewModelTest {
         every { authRepository.isBiometricEnabled() } returns true
         every { authRepository.isAuthenticated } returns MutableStateFlow(false)
 
-        viewModel = AuthViewModel(authRepository)
+        viewModel = AuthViewModel(application, authRepository)
         testDispatcher.scheduler.advanceUntilIdle()
 
         assertTrue(viewModel.showBiometricPrompt.value)
@@ -87,7 +93,7 @@ class AuthViewModelTest {
         every { authRepository.hasStoredToken() } returns false
         every { authRepository.isBiometricEnabled() } returns true
 
-        viewModel = AuthViewModel(authRepository)
+        viewModel = AuthViewModel(application, authRepository)
         testDispatcher.scheduler.advanceUntilIdle()
 
         assertFalse(viewModel.showBiometricPrompt.value)
@@ -233,7 +239,7 @@ class AuthViewModelTest {
     fun `onBiometricCancelled - dismisses prompt`() = runTest {
         every { authRepository.hasStoredToken() } returns true
         every { authRepository.isBiometricEnabled() } returns true
-        viewModel = AuthViewModel(authRepository)
+        viewModel = AuthViewModel(application, authRepository)
         testDispatcher.scheduler.advanceUntilIdle()
 
         viewModel.onBiometricCancelled()

@@ -77,9 +77,8 @@ import com.petsafety.app.data.model.Pet
 import com.petsafety.app.data.network.model.CreateSuccessStoryRequest
 import com.petsafety.app.ui.components.BrandButton
 import com.petsafety.app.ui.components.SuccessStoryDialog
-import com.petsafety.app.ui.theme.BackgroundLight
 import com.petsafety.app.ui.theme.BrandOrange
-import com.petsafety.app.ui.theme.MutedTextLight
+import com.petsafety.app.ui.theme.SuccessGreen
 import com.petsafety.app.ui.theme.TealAccent
 import com.petsafety.app.ui.util.AdaptiveLayout
 import com.petsafety.app.ui.viewmodel.AppStateViewModel
@@ -103,6 +102,7 @@ fun PetDetailScreen(
     var showSuccessStoryDialog by remember { mutableStateOf(false) }
     var showDeleteConfirmation by remember { mutableStateOf(false) }
     var showCannotDeleteAlert by remember { mutableStateOf(false) }
+    var showMarkFoundConfirmation by remember { mutableStateOf(false) }
     var isDeleting by remember { mutableStateOf(false) }
     var foundPetName by remember { mutableStateOf("") }
 
@@ -119,7 +119,7 @@ fun PetDetailScreen(
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(BackgroundLight),
+            .background(MaterialTheme.colorScheme.background),
         contentAlignment = Alignment.TopCenter
     ) {
         Column(
@@ -136,7 +136,7 @@ fun PetDetailScreen(
             ) {
                 Icon(
                     imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                    contentDescription = "Back",
+                    contentDescription = stringResource(R.string.back),
                     tint = MaterialTheme.colorScheme.onSurface
                 )
             }
@@ -150,7 +150,7 @@ fun PetDetailScreen(
                     .padding(horizontal = 16.dp)
                     .height(300.dp)
                     .clip(RoundedCornerShape(20.dp))
-                    .background(Color(0xFFF2F2F7))
+                    .background(MaterialTheme.colorScheme.surfaceContainerHigh)
             ) {
                 if (!pet.profileImage.isNullOrBlank()) {
                     AsyncImage(
@@ -162,11 +162,11 @@ fun PetDetailScreen(
                 } else {
                     Icon(
                         imageVector = Icons.Default.Pets,
-                        contentDescription = null,
+                        contentDescription = stringResource(R.string.pet_photo_placeholder),
                         modifier = Modifier
                             .size(80.dp)
                             .align(Alignment.Center),
-                        tint = MutedTextLight
+                        tint = MaterialTheme.colorScheme.onSurfaceVariant
                     )
                 }
             }
@@ -192,7 +192,7 @@ fun PetDetailScreen(
                 )
                 Spacer(modifier = Modifier.width(8.dp))
                 Text(
-                    text = "View ${pet.name}'s Photos",
+                    text = stringResource(R.string.view_pet_photos, pet.name),
                     style = MaterialTheme.typography.bodyMedium.copy(
                         fontSize = 15.sp,
                         fontWeight = FontWeight.SemiBold
@@ -219,28 +219,18 @@ fun PetDetailScreen(
             // Mark as Lost/Found Button
             if (pet.isMissing) {
                 Button(
-                    onClick = {
-                        viewModel.markPetFound(pet.id) { success, message ->
-                            if (success) {
-                                appStateViewModel.showSuccess(markedFoundMessage)
-                                foundPetName = pet.name
-                                showSuccessStoryDialog = true
-                            } else {
-                                appStateViewModel.showError(message ?: markFoundFailedMessage)
-                            }
-                        }
-                    },
+                    onClick = { showMarkFoundConfirmation = true },
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(horizontal = 16.dp),
                     colors = ButtonDefaults.buttonColors(
-                        containerColor = Color(0xFF34C759)
+                        containerColor = SuccessGreen
                     ),
                     shape = RoundedCornerShape(10.dp)
                 ) {
                     Icon(Icons.Default.CheckCircle, contentDescription = null)
                     Spacer(modifier = Modifier.width(8.dp))
-                    Text("Mark as Found", fontWeight = FontWeight.SemiBold)
+                    Text(stringResource(R.string.mark_as_found), fontWeight = FontWeight.SemiBold)
                 }
             } else {
                 Button(
@@ -255,7 +245,7 @@ fun PetDetailScreen(
                 ) {
                     Icon(Icons.Default.Warning, contentDescription = null)
                     Spacer(modifier = Modifier.width(8.dp))
-                    Text("Mark as Lost", fontWeight = FontWeight.SemiBold)
+                    Text(stringResource(R.string.mark_as_lost), fontWeight = FontWeight.SemiBold)
                 }
             }
 
@@ -267,25 +257,25 @@ fun PetDetailScreen(
                 verticalArrangement = Arrangement.spacedBy(16.dp)
             ) {
                 InfoCard(
-                    title = "Species",
+                    title = stringResource(R.string.species),
                     value = pet.species.replaceFirstChar { it.uppercase() },
                     icon = Icons.Default.Pets
                 )
 
                 pet.breed?.let {
-                    InfoCard(title = "Breed", value = it, icon = Icons.Default.FormatListBulleted)
+                    InfoCard(title = stringResource(R.string.breed), value = it, icon = Icons.Default.FormatListBulleted)
                 }
 
                 pet.color?.let {
-                    InfoCard(title = "Color", value = it, icon = Icons.Default.Palette)
+                    InfoCard(title = stringResource(R.string.color), value = it, icon = Icons.Default.Palette)
                 }
 
                 pet.age?.let {
-                    InfoCard(title = "Age", value = it, icon = Icons.Default.CalendarMonth)
+                    InfoCard(title = stringResource(R.string.age), value = it, icon = Icons.Default.CalendarMonth)
                 }
 
                 pet.microchipNumber?.let {
-                    InfoCard(title = "Microchip", value = it, icon = Icons.Default.Pin)
+                    InfoCard(title = stringResource(R.string.microchip), value = it, icon = Icons.Default.Pin)
                 }
             }
 
@@ -293,7 +283,7 @@ fun PetDetailScreen(
             pet.medicalNotes?.takeIf { it.isNotBlank() }?.let { medicalNotes ->
                 Spacer(modifier = Modifier.height(16.dp))
                 InfoSection(
-                    title = "Medical Information",
+                    title = stringResource(R.string.medical_information),
                     content = medicalNotes,
                     icon = Icons.Default.LocalHospital
                 )
@@ -303,7 +293,7 @@ fun PetDetailScreen(
             pet.notes?.takeIf { it.isNotBlank() }?.let { notes ->
                 Spacer(modifier = Modifier.height(16.dp))
                 InfoSection(
-                    title = "Additional Information",
+                    title = stringResource(R.string.additional_information),
                     content = notes,
                     icon = Icons.Default.Info
                 )
@@ -321,22 +311,22 @@ fun PetDetailScreen(
                     onClick = onViewPublicProfile,
                     modifier = Modifier.fillMaxWidth(),
                     colors = ButtonDefaults.buttonColors(
-                        containerColor = Color(0xFF34C759).copy(alpha = 0.1f),
-                        contentColor = Color(0xFF34C759)
+                        containerColor = SuccessGreen.copy(alpha = 0.1f),
+                        contentColor = SuccessGreen
                     ),
                     shape = RoundedCornerShape(14.dp)
                 ) {
                     Icon(Icons.Default.Visibility, contentDescription = null)
                     Spacer(modifier = Modifier.width(8.dp))
                     Text(
-                        text = "View ${pet.name}'s Public Profile",
+                        text = stringResource(R.string.view_public_profile, pet.name),
                         fontWeight = FontWeight.SemiBold
                     )
                 }
 
                 // Edit Button
                 BrandButton(
-                    text = "Edit ${pet.name}'s Profile",
+                    text = stringResource(R.string.edit_pet_profile, pet.name),
                     onClick = onEditPet,
                     icon = Icons.Default.Edit
                 )
@@ -352,8 +342,8 @@ fun PetDetailScreen(
                     },
                     modifier = Modifier.fillMaxWidth(),
                     colors = ButtonDefaults.buttonColors(
-                        containerColor = Color.Red.copy(alpha = 0.1f),
-                        contentColor = Color.Red
+                        containerColor = MaterialTheme.colorScheme.error.copy(alpha = 0.1f),
+                        contentColor = MaterialTheme.colorScheme.error
                     ),
                     shape = RoundedCornerShape(10.dp),
                     enabled = !isDeleting
@@ -361,14 +351,14 @@ fun PetDetailScreen(
                     if (isDeleting) {
                         CircularProgressIndicator(
                             modifier = Modifier.size(20.dp),
-                            color = Color.Red,
+                            color = MaterialTheme.colorScheme.error,
                             strokeWidth = 2.dp
                         )
                     } else {
                         Icon(Icons.Default.Delete, contentDescription = null)
                     }
                     Spacer(modifier = Modifier.width(8.dp))
-                    Text("Delete ${pet.name}", fontWeight = FontWeight.SemiBold)
+                    Text(stringResource(R.string.delete_pet_name, pet.name), fontWeight = FontWeight.SemiBold)
                 }
             }
 
@@ -433,9 +423,9 @@ fun PetDetailScreen(
     if (showDeleteConfirmation) {
         AlertDialog(
             onDismissRequest = { showDeleteConfirmation = false },
-            title = { Text("Delete ${pet.name}?") },
+            title = { Text(stringResource(R.string.delete_pet_confirm_title, pet.name)) },
             text = {
-                Text("This action cannot be undone. All data for ${pet.name} will be permanently deleted.")
+                Text(stringResource(R.string.delete_pet_confirm_message, pet.name))
             },
             confirmButton = {
                 TextButton(
@@ -452,14 +442,14 @@ fun PetDetailScreen(
                             showDeleteConfirmation = false
                         }
                     },
-                    colors = ButtonDefaults.textButtonColors(contentColor = Color.Red)
+                    colors = ButtonDefaults.textButtonColors(contentColor = MaterialTheme.colorScheme.error)
                 ) {
-                    Text("Delete")
+                    Text(stringResource(R.string.delete))
                 }
             },
             dismissButton = {
                 TextButton(onClick = { showDeleteConfirmation = false }) {
-                    Text("Cancel")
+                    Text(stringResource(R.string.cancel))
                 }
             }
         )
@@ -468,14 +458,39 @@ fun PetDetailScreen(
     if (showCannotDeleteAlert) {
         AlertDialog(
             onDismissRequest = { showCannotDeleteAlert = false },
-            title = { Text("Cannot Delete Missing Pet") },
+            title = { Text(stringResource(R.string.cannot_delete_missing_pet)) },
             text = {
-                Text("${pet.name} is currently marked as missing. Please mark them as found before deleting.")
+                Text(stringResource(R.string.cannot_delete_missing_message, pet.name))
             },
             confirmButton = {
                 TextButton(
                     onClick = {
                         showCannotDeleteAlert = false
+                        showMarkFoundConfirmation = true
+                    }
+                ) {
+                    Text(stringResource(R.string.mark_as_found))
+                }
+            },
+            dismissButton = {
+                TextButton(onClick = { showCannotDeleteAlert = false }) {
+                    Text(stringResource(R.string.cancel))
+                }
+            }
+        )
+    }
+
+    if (showMarkFoundConfirmation) {
+        AlertDialog(
+            onDismissRequest = { showMarkFoundConfirmation = false },
+            title = { Text(stringResource(R.string.mark_found_confirm_title, pet.name)) },
+            text = {
+                Text(stringResource(R.string.mark_found_confirm_message, pet.name))
+            },
+            confirmButton = {
+                TextButton(
+                    onClick = {
+                        showMarkFoundConfirmation = false
                         viewModel.markPetFound(pet.id) { success, message ->
                             if (success) {
                                 appStateViewModel.showSuccess(markedFoundMessage)
@@ -487,12 +502,12 @@ fun PetDetailScreen(
                         }
                     }
                 ) {
-                    Text("Mark as Found")
+                    Text(stringResource(R.string.mark_as_found))
                 }
             },
             dismissButton = {
-                TextButton(onClick = { showCannotDeleteAlert = false }) {
-                    Text("Cancel")
+                TextButton(onClick = { showMarkFoundConfirmation = false }) {
+                    Text(stringResource(R.string.cancel))
                 }
             }
         )
@@ -508,7 +523,7 @@ private fun InfoCard(
     Card(
         modifier = Modifier.fillMaxWidth(),
         shape = RoundedCornerShape(12.dp),
-        colors = CardDefaults.cardColors(containerColor = Color(0xFFF2F2F7))
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainerHigh)
     ) {
         Row(
             modifier = Modifier
@@ -522,15 +537,15 @@ private fun InfoCard(
             ) {
                 Icon(
                     imageVector = icon,
-                    contentDescription = null,
+                    contentDescription = title,
                     modifier = Modifier.size(16.dp),
-                    tint = MutedTextLight
+                    tint = MaterialTheme.colorScheme.onSurfaceVariant
                 )
                 Spacer(modifier = Modifier.width(8.dp))
                 Text(
                     text = title,
                     style = MaterialTheme.typography.bodyMedium,
-                    color = MutedTextLight
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
             }
             Spacer(modifier = Modifier.weight(1f))
@@ -554,7 +569,7 @@ private fun InfoSection(
             .fillMaxWidth()
             .padding(horizontal = 16.dp),
         shape = RoundedCornerShape(12.dp),
-        colors = CardDefaults.cardColors(containerColor = Color(0xFFF2F2F7))
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainerHigh)
     ) {
         Column(
             modifier = Modifier
@@ -564,7 +579,7 @@ private fun InfoSection(
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Icon(
                     imageVector = icon,
-                    contentDescription = null,
+                    contentDescription = title,
                     modifier = Modifier.size(20.dp),
                     tint = MaterialTheme.colorScheme.onSurface
                 )
@@ -579,7 +594,7 @@ private fun InfoSection(
             Text(
                 text = content,
                 style = MaterialTheme.typography.bodyMedium,
-                color = MutedTextLight
+                color = MaterialTheme.colorScheme.onSurfaceVariant
             )
         }
     }

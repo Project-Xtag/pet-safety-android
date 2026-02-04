@@ -5,6 +5,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.compose.setContent
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.fragment.app.FragmentActivity
 import androidx.compose.runtime.mutableStateOf
 import com.petsafety.app.data.notifications.NotificationHelper
@@ -31,6 +32,7 @@ class MainActivity : FragmentActivity() {
     private val notificationDataState = mutableStateOf<NotificationData?>(null)
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        val splashScreen = installSplashScreen()
         Log.d(TAG, "=== MainActivity.onCreate START ===")
         super.onCreate(savedInstanceState)
         Log.d(TAG, "=== handleIntent ===")

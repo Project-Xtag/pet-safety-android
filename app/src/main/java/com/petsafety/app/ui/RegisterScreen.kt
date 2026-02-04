@@ -2,11 +2,10 @@ package com.petsafety.app.ui
 
 import android.content.Intent
 import android.net.Uri
+import android.util.Patterns
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -25,15 +24,13 @@ import androidx.compose.foundation.text.ClickableText
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material3.AlertDialog
+import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
@@ -52,37 +49,31 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.fragment.app.FragmentActivity
-import androidx.compose.material3.HorizontalDivider
-import androidx.compose.material.icons.filled.LocalOffer
-import com.petsafety.app.data.local.BiometricHelper
+import com.petsafety.app.R
 import com.petsafety.app.ui.components.BrandButton
-import com.petsafety.app.ui.components.SecondaryButton
 import com.petsafety.app.ui.theme.BrandOrange
 import com.petsafety.app.ui.theme.PeachBackground
 import com.petsafety.app.ui.util.AdaptiveLayout
 import com.petsafety.app.ui.viewmodel.AppStateViewModel
 import com.petsafety.app.ui.viewmodel.AuthViewModel
-import android.util.Patterns
-import com.petsafety.app.R
 
 @Composable
-fun AuthScreen(
+fun RegisterScreen(
     appStateViewModel: AppStateViewModel,
     authViewModel: AuthViewModel,
-    onNavigateToOrderTags: () -> Unit = {},
-    onNavigateToRegister: () -> Unit = {}
+    onNavigateToLogin: () -> Unit = {}
 ) {
+    var firstName by remember { mutableStateOf("") }
+    var lastName by remember { mutableStateOf("") }
     var email by remember { mutableStateOf("") }
     var otpCode by remember { mutableStateOf("") }
     var showOtpField by remember { mutableStateOf(false) }
-    var showBiometricEnableDialog by remember { mutableStateOf(false) }
     var resendCooldown by remember { mutableIntStateOf(0) }
 
     // Countdown timer for resend cooldown
@@ -94,20 +85,15 @@ fun AuthScreen(
     }
 
     val trimmedEmail = email.trim()
+    val trimmedFirstName = firstName.trim()
     val isValidEmail = trimmedEmail.isNotEmpty() && Patterns.EMAIL_ADDRESS.matcher(trimmedEmail).matches()
 
     val context = LocalContext.current
-    val biometricHelper = remember { BiometricHelper(context) }
-    val biometricEnabled by authViewModel.biometricEnabled.collectAsState()
 
     // Extract string resources outside lambdas
     val codeSentMessage = stringResource(R.string.code_sent_to_email, email)
     val loginFailedMessage = stringResource(R.string.login_failed)
     val verificationFailedMessage = stringResource(R.string.verification_failed)
-    val biometricEnabledMessage = stringResource(R.string.biometric_enabled)
-    val biometricLoginTitle = stringResource(R.string.biometric_login_title)
-    val biometricLoginSubtitle = stringResource(R.string.biometric_login_subtitle)
-    val useEmailText = stringResource(R.string.use_password)
 
     Box(
         modifier = Modifier
@@ -121,7 +107,7 @@ fun AuthScreen(
                 .fillMaxSize()
                 .verticalScroll(rememberScrollState())
         ) {
-            // Logo Section - centered at top
+            // Logo Section
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -136,7 +122,7 @@ fun AuthScreen(
                 )
             }
 
-            // Login Card
+            // Registration Card
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -148,7 +134,7 @@ fun AuthScreen(
                 if (!showOtpField) {
                     // Header
                     Text(
-                        text = stringResource(R.string.welcome_back),
+                        text = stringResource(R.string.create_account),
                         style = MaterialTheme.typography.headlineMedium.copy(
                             fontSize = 26.sp,
                             fontWeight = FontWeight.Bold
@@ -157,12 +143,116 @@ fun AuthScreen(
                     )
                     Spacer(modifier = Modifier.height(8.dp))
                     Text(
-                        text = stringResource(R.string.enter_email_subtitle),
+                        text = stringResource(R.string.enter_details_subtitle),
                         style = MaterialTheme.typography.bodyMedium.copy(fontSize = 15.sp),
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
 
                     Spacer(modifier = Modifier.height(24.dp))
+
+                    // First Name Label
+                    Text(
+                        text = stringResource(R.string.first_name),
+                        style = MaterialTheme.typography.bodyMedium.copy(
+                            fontSize = 14.sp,
+                            fontWeight = FontWeight.SemiBold
+                        ),
+                        color = MaterialTheme.colorScheme.onSurface
+                    )
+                    Spacer(modifier = Modifier.height(8.dp))
+
+                    // First Name Field
+                    Box(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .clip(RoundedCornerShape(14.dp))
+                            .background(MaterialTheme.colorScheme.surface)
+                            .border(
+                                width = 1.dp,
+                                color = Color.Gray.copy(alpha = 0.3f),
+                                shape = RoundedCornerShape(14.dp)
+                            )
+                            .padding(horizontal = 16.dp, vertical = 14.dp)
+                    ) {
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Icon(
+                                imageVector = Icons.Default.Person,
+                                contentDescription = null,
+                                tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                                modifier = Modifier.size(20.dp)
+                            )
+                            Spacer(modifier = Modifier.width(12.dp))
+                            BasicTextField(
+                                value = firstName,
+                                onValueChange = { firstName = it },
+                                modifier = Modifier.fillMaxWidth(),
+                                textStyle = MaterialTheme.typography.bodyLarge.copy(
+                                    color = MaterialTheme.colorScheme.onSurface
+                                ),
+                                keyboardOptions = KeyboardOptions(
+                                    capitalization = KeyboardCapitalization.Words
+                                ),
+                                singleLine = true,
+                                cursorBrush = SolidColor(MaterialTheme.colorScheme.primary)
+                            )
+                        }
+                    }
+
+                    Spacer(modifier = Modifier.height(16.dp))
+
+                    // Last Name Label
+                    Text(
+                        text = stringResource(R.string.last_name),
+                        style = MaterialTheme.typography.bodyMedium.copy(
+                            fontSize = 14.sp,
+                            fontWeight = FontWeight.SemiBold
+                        ),
+                        color = MaterialTheme.colorScheme.onSurface
+                    )
+                    Spacer(modifier = Modifier.height(8.dp))
+
+                    // Last Name Field
+                    Box(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .clip(RoundedCornerShape(14.dp))
+                            .background(MaterialTheme.colorScheme.surface)
+                            .border(
+                                width = 1.dp,
+                                color = Color.Gray.copy(alpha = 0.3f),
+                                shape = RoundedCornerShape(14.dp)
+                            )
+                            .padding(horizontal = 16.dp, vertical = 14.dp)
+                    ) {
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Icon(
+                                imageVector = Icons.Default.Person,
+                                contentDescription = null,
+                                tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                                modifier = Modifier.size(20.dp)
+                            )
+                            Spacer(modifier = Modifier.width(12.dp))
+                            BasicTextField(
+                                value = lastName,
+                                onValueChange = { lastName = it },
+                                modifier = Modifier.fillMaxWidth(),
+                                textStyle = MaterialTheme.typography.bodyLarge.copy(
+                                    color = MaterialTheme.colorScheme.onSurface
+                                ),
+                                keyboardOptions = KeyboardOptions(
+                                    capitalization = KeyboardCapitalization.Words
+                                ),
+                                singleLine = true,
+                                cursorBrush = SolidColor(MaterialTheme.colorScheme.primary)
+                            )
+                        }
+                    }
+
+                    Spacer(modifier = Modifier.height(16.dp))
 
                     // Email Address Label
                     Text(
@@ -175,7 +265,7 @@ fun AuthScreen(
                     )
                     Spacer(modifier = Modifier.height(8.dp))
 
-                    // Email Field with icon (matching iOS style)
+                    // Email Field
                     Box(
                         modifier = Modifier
                             .fillMaxWidth()
@@ -224,9 +314,9 @@ fun AuthScreen(
 
                     Spacer(modifier = Modifier.height(24.dp))
 
-                    // Send Login Code Button
+                    // Create Account Button
                     BrandButton(
-                        text = stringResource(R.string.send_login_code),
+                        text = stringResource(R.string.create_account),
                         onClick = {
                             authViewModel.login(
                                 email = trimmedEmail,
@@ -240,55 +330,12 @@ fun AuthScreen(
                                 }
                             )
                         },
-                        enabled = isValidEmail
+                        enabled = trimmedFirstName.isNotBlank() && isValidEmail
                     )
-
-                    // Biometric Login Option (if enabled and has stored session)
-                    val activity = context as? FragmentActivity
-                    val loginWithBiometricText = stringResource(R.string.login_with_biometric)
-                    if (biometricHelper.canUseBiometric() && biometricEnabled && activity != null) {
-                        Spacer(modifier = Modifier.height(16.dp))
-                        TextButton(
-                            onClick = {
-                                biometricHelper.showBiometricPrompt(
-                                    activity = activity,
-                                    title = biometricLoginTitle,
-                                    subtitle = biometricLoginSubtitle,
-                                    negativeButtonText = useEmailText,
-                                    onSuccess = {
-                                        authViewModel.onBiometricSuccess()
-                                    },
-                                    onFailure = { error ->
-                                        error?.let { appStateViewModel.showError(it) }
-                                    },
-                                    onCancel = {
-                                        // User cancelled, do nothing
-                                    }
-                                )
-                            },
-                            modifier = Modifier.fillMaxWidth()
-                        ) {
-                            Icon(
-                                painter = painterResource(R.drawable.ic_fingerprint),
-                                contentDescription = null,
-                                modifier = Modifier.size(20.dp),
-                                tint = BrandOrange
-                            )
-                            Spacer(modifier = Modifier.width(8.dp))
-                            Text(
-                                text = loginWithBiometricText,
-                                style = MaterialTheme.typography.bodyMedium.copy(
-                                    fontSize = 15.sp,
-                                    fontWeight = FontWeight.Medium
-                                ),
-                                color = BrandOrange
-                            )
-                        }
-                    }
                 } else {
                     // OTP Verification View
                     Text(
-                        text = stringResource(R.string.welcome_back),
+                        text = stringResource(R.string.create_account),
                         style = MaterialTheme.typography.headlineMedium.copy(
                             fontSize = 26.sp,
                             fontWeight = FontWeight.Bold
@@ -315,7 +362,7 @@ fun AuthScreen(
 
                     Spacer(modifier = Modifier.height(20.dp))
 
-                    // OTP Code Field (large, centered, monospace)
+                    // OTP Code Field
                     Box(
                         modifier = Modifier
                             .fillMaxWidth()
@@ -375,10 +422,14 @@ fun AuthScreen(
                                 email = trimmedEmail,
                                 code = otpCode,
                                 onSuccess = {
-                                    // Offer biometric enrollment if available and not already enabled
-                                    if (biometricHelper.canUseBiometric() && !biometricEnabled) {
-                                        showBiometricEnableDialog = true
+                                    // Update profile with first/last name
+                                    val updates = mutableMapOf<String, Any>(
+                                        "first_name" to trimmedFirstName
+                                    )
+                                    if (lastName.trim().isNotBlank()) {
+                                        updates["last_name"] = lastName.trim()
                                     }
+                                    authViewModel.updateProfile(updates) { _, _ -> }
                                 },
                                 onFailure = { message ->
                                     appStateViewModel.showError(message ?: verificationFailedMessage)
@@ -403,7 +454,7 @@ fun AuthScreen(
                         TextButton(
                             onClick = {
                                 authViewModel.login(
-                                    email = trimmedEmail,
+                                    email = email,
                                     onSuccess = {
                                         resendCooldown = 60
                                         appStateViewModel.showSuccess(codeSentMessage)
@@ -451,13 +502,13 @@ fun AuthScreen(
                 Spacer(modifier = Modifier.height(16.dp))
 
                 // T&Cs and Privacy Policy Disclaimer
-                val termsLoginPrefix = stringResource(R.string.terms_login_prefix)
+                val termsRegisterPrefix = stringResource(R.string.terms_register_prefix)
                 val termsOfServiceText = stringResource(R.string.terms_of_service)
                 val termsAndText = stringResource(R.string.terms_and)
                 val privacyPolicyText = stringResource(R.string.privacy_policy)
                 val termsText = buildAnnotatedString {
                     withStyle(style = SpanStyle(color = MaterialTheme.colorScheme.onSurfaceVariant, fontSize = 12.sp)) {
-                        append(termsLoginPrefix)
+                        append(termsRegisterPrefix)
                     }
                     pushStringAnnotation(tag = "terms", annotation = "https://pet-er.app/terms")
                     withStyle(style = SpanStyle(color = BrandOrange, fontSize = 12.sp, fontWeight = FontWeight.Medium)) {
@@ -489,10 +540,9 @@ fun AuthScreen(
                     modifier = Modifier.fillMaxWidth(),
                     style = MaterialTheme.typography.bodySmall.copy(textAlign = TextAlign.Center)
                 )
-
             }
 
-            // Register & Order Tag CTAs for new users (outside card)
+            // Already have an account? Log in
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -500,36 +550,16 @@ fun AuthScreen(
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Text(
-                    text = stringResource(R.string.dont_have_account),
+                    text = stringResource(R.string.already_have_account),
                     style = MaterialTheme.typography.bodyMedium.copy(fontSize = 14.sp),
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
 
                 Spacer(modifier = Modifier.height(8.dp))
 
-                TextButton(onClick = onNavigateToRegister) {
+                TextButton(onClick = onNavigateToLogin) {
                     Text(
-                        text = stringResource(R.string.register),
-                        style = MaterialTheme.typography.bodyMedium.copy(
-                            fontSize = 14.sp,
-                            fontWeight = FontWeight.SemiBold
-                        ),
-                        color = BrandOrange
-                    )
-                }
-
-                TextButton(
-                    onClick = onNavigateToOrderTags
-                ) {
-                    Icon(
-                        imageVector = Icons.Default.LocalOffer,
-                        contentDescription = null,
-                        modifier = Modifier.size(16.dp),
-                        tint = BrandOrange
-                    )
-                    Spacer(modifier = Modifier.width(6.dp))
-                    Text(
-                        text = stringResource(R.string.start_here_order_free_tag),
+                        text = stringResource(R.string.log_in),
                         style = MaterialTheme.typography.bodyMedium.copy(
                             fontSize = 14.sp,
                             fontWeight = FontWeight.SemiBold
@@ -539,29 +569,5 @@ fun AuthScreen(
                 }
             }
         }
-    }
-
-    if (showBiometricEnableDialog) {
-        AlertDialog(
-            onDismissRequest = { showBiometricEnableDialog = false },
-            title = { Text(stringResource(R.string.enable_biometric_title)) },
-            text = { Text(stringResource(R.string.enable_biometric_message)) },
-            confirmButton = {
-                BrandButton(
-                    text = stringResource(R.string.enable),
-                    onClick = {
-                        authViewModel.setBiometricEnabled(true)
-                        showBiometricEnableDialog = false
-                        appStateViewModel.showSuccess(biometricEnabledMessage)
-                    },
-                    modifier = Modifier.padding(horizontal = 8.dp)
-                )
-            },
-            dismissButton = {
-                TextButton(onClick = { showBiometricEnableDialog = false }) {
-                    Text(stringResource(R.string.skip))
-                }
-            }
-        )
     }
 }

@@ -1,7 +1,9 @@
 package com.petsafety.app.ui.viewmodel
 
+import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.petsafety.app.R
 import com.petsafety.app.data.model.Pet
 import com.petsafety.app.data.repository.QrRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -13,6 +15,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class PublicPetProfileViewModel @Inject constructor(
+    private val application: Application,
     private val qrRepository: QrRepository
 ) : ViewModel() {
     private val _pet = MutableStateFlow<Pet?>(null)
@@ -32,7 +35,7 @@ class PublicPetProfileViewModel @Inject constructor(
                 val response = qrRepository.scanQr(qrCode)
                 _pet.value = response.pet
             } catch (ex: Exception) {
-                _errorMessage.value = ex.localizedMessage ?: "Failed to load pet profile"
+                _errorMessage.value = ex.localizedMessage ?: application.getString(R.string.error_load_pet_profile)
             } finally {
                 _isLoading.value = false
             }

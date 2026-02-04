@@ -1,5 +1,6 @@
 package com.petsafety.app.ui.viewmodel
 
+import android.app.Application
 import app.cash.turbine.test
 import com.petsafety.app.data.model.LocationCoordinate
 import com.petsafety.app.data.model.MissingPetAlert
@@ -27,6 +28,7 @@ import org.junit.Test
 class AlertsViewModelTest {
 
     private val testDispatcher = StandardTestDispatcher()
+    private lateinit var application: Application
     private lateinit var repository: AlertsRepository
     private lateinit var viewModel: AlertsViewModel
 
@@ -66,8 +68,9 @@ class AlertsViewModelTest {
     @Before
     fun setup() {
         Dispatchers.setMain(testDispatcher)
+        application = mockk(relaxed = true)
         repository = mockk(relaxed = true)
-        viewModel = AlertsViewModel(repository)
+        viewModel = AlertsViewModel(application, repository)
     }
 
     @After

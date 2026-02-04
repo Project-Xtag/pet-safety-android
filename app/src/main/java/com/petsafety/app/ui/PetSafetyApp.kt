@@ -1,7 +1,14 @@
 package com.petsafety.app.ui
 
+import androidx.compose.animation.AnimatedContent
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.togetherWith
+import androidx.compose.animation.core.tween
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -16,6 +23,7 @@ import com.petsafety.app.R
 import com.petsafety.app.data.local.BiometricHelper
 import com.petsafety.app.data.notifications.NotificationHelper
 import com.petsafety.app.ui.components.AppSnackbarHost
+import com.petsafety.app.ui.components.BrandButton
 import com.petsafety.app.ui.components.LoadingOverlay
 import com.petsafety.app.ui.components.MapAppPickerDialog
 import com.petsafety.app.ui.navigation.MainTabScaffold
@@ -40,10 +48,17 @@ fun PetSafetyApp(
     // State for showing map picker dialog from notification
     var showMapPicker by remember { mutableStateOf(false) }
     var mapPickerLocation by remember { mutableStateOf<Triple<Double, Double, Boolean>?>(null) }
-    var mapPickerLabel by remember { mutableStateOf("Pet Location") }
+    val defaultMapLabel = stringResource(R.string.map_label_pet_location)
+    var mapPickerLabel by remember { mutableStateOf(defaultMapLabel) }
 
     // State for showing order tags screen from auth screen
     var showOrderTagsScreen by remember { mutableStateOf(false) }
+
+    // State for showing register screen
+    var showRegisterScreen by remember { mutableStateOf(false) }
+
+    // State for session expired dialog
+    var showSessionExpiredDialog by remember { mutableStateOf(false) }
 
     val context = LocalContext.current
     val biometricHelper = remember { BiometricHelper(context) }
@@ -52,6 +67,16 @@ fun PetSafetyApp(
     val biometricTitle = stringResource(R.string.biometric_login_title)
     val biometricSubtitle = stringResource(R.string.biometric_login_subtitle)
     val biometricNegative = stringResource(R.string.use_password)
+    val mapLabelTagScanned = stringResource(R.string.map_label_tag_scanned)
+    val mapLabelSighting = stringResource(R.string.map_label_sighting)
+    val mapLabelPetLocation = stringResource(R.string.map_label_pet_location)
+
+    // Listen for session expiration events
+    LaunchedEffect(Unit) {
+        authViewModel.sessionExpiredEvent.collect {
+            showSessionExpiredDialog = true
+        }
+    }
 
     // Handle notification tap
     LaunchedEffect(pendingNotification) {
@@ -67,9 +92,9 @@ fun PetSafetyApp(
                             notification.isApproximate
                         )
                         mapPickerLabel = when (notification.type) {
-                            NotificationHelper.TYPE_TAG_SCANNED -> "Pet Tag Scanned"
-                            NotificationHelper.TYPE_SIGHTING -> "Pet Sighting"
-                            else -> "Pet Location"
+                            NotificationHelper.TYPE_TAG_SCANNED -> mapLabelTagScanned
+                            NotificationHelper.TYPE_SIGHTING -> mapLabelSighting
+                            else -> mapLabelPetLocation
                         }
                         showMapPicker = true
                     }
@@ -116,24 +141,43 @@ fun PetSafetyApp(
         },
         containerColor = MaterialTheme.colorScheme.background.copy(alpha = 0f)
     ) { padding ->
-        if (isAuthenticated) {
-            MainTabScaffold(
-                appStateViewModel = appStateViewModel,
-                authViewModel = authViewModel,
-                pendingQrCode = pendingQrCode,
-                onQrCodeHandled = onQrCodeHandled
-            )
-        } else if (showOrderTagsScreen) {
-            OrderMoreTagsScreen(
-                appStateViewModel = appStateViewModel,
-                onDone = { showOrderTagsScreen = false }
-            )
-        } else {
-            AuthScreen(
-                appStateViewModel = appStateViewModel,
-                authViewModel = authViewModel,
-                onNavigateToOrderTags = { showOrderTagsScreen = true }
-            )
+        val screenKey = when {
+            isAuthenticated -> "main"
+            showOrderTagsScreen -> "order_tags"
+            showRegisterScreen -> "register"
+            else -> "auth"
+        }
+
+        AnimatedContent(
+            targetState = screenKey,
+            transitionSpec = {
+                fadeIn(animationSpec = tween(300)) togetherWith fadeOut(animationSpec = tween(300))
+            },
+            label = "screen_transition"
+        ) { target ->
+            when (target) {
+                "main" -> MainTabScaffold(
+                    appStateViewModel = appStateViewModel,
+                    authViewModel = authViewModel,
+                    pendingQrCode = pendingQrCode,
+                    onQrCodeHandled = onQrCodeHandled
+                )
+                "order_tags" -> OrderMoreTagsScreen(
+                    appStateViewModel = appStateViewModel,
+                    onDone = { showOrderTagsScreen = false }
+                )
+                "register" -> RegisterScreen(
+                    appStateViewModel = appStateViewModel,
+                    authViewModel = authViewModel,
+                    onNavigateToLogin = { showRegisterScreen = false }
+                )
+                else -> AuthScreen(
+                    appStateViewModel = appStateViewModel,
+                    authViewModel = authViewModel,
+                    onNavigateToOrderTags = { showOrderTagsScreen = true },
+                    onNavigateToRegister = { showRegisterScreen = true }
+                )
+            }
         }
 
         if (isLoading) {
@@ -152,6 +196,31 @@ fun PetSafetyApp(
             onDismiss = {
                 showMapPicker = false
                 mapPickerLocation = null
+            }
+        )
+    }
+
+    // Session Expired Dialog - non-dismissible
+    if (showSessionExpiredDialog) {
+        AlertDialog(
+            onDismissRequest = { /* Non-dismissible */ },
+            title = {
+                Text(
+                    text = stringResource(R.string.session_expired_title),
+                    style = MaterialTheme.typography.headlineSmall
+                )
+            },
+            text = {
+                Text(
+                    text = stringResource(R.string.session_expired_message),
+                    style = MaterialTheme.typography.bodyMedium
+                )
+            },
+            confirmButton = {
+                BrandButton(
+                    text = stringResource(R.string.session_expired_log_in),
+                    onClick = { showSessionExpiredDialog = false }
+                )
             }
         )
     }

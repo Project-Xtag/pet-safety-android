@@ -1,5 +1,6 @@
 package com.petsafety.app.ui.viewmodel
 
+import android.app.Application
 import com.petsafety.app.data.model.User
 import com.petsafety.app.data.repository.AuthRepository
 import io.mockk.*
@@ -26,6 +27,7 @@ class PrivacySettingsViewModelTest {
     @MockK
     private lateinit var authRepository: AuthRepository
 
+    private lateinit var application: Application
     private lateinit var viewModel: AuthViewModel
     private val testDispatcher = StandardTestDispatcher()
     private val authStateFlow = MutableStateFlow(false)
@@ -53,13 +55,15 @@ class PrivacySettingsViewModelTest {
         MockKAnnotations.init(this)
         Dispatchers.setMain(testDispatcher)
 
+        application = mockk(relaxed = true)
+
         // Setup default mock behavior
         every { authRepository.isBiometricEnabled() } returns false
         every { authRepository.hasStoredToken() } returns false
         every { authRepository.isAuthenticated } returns authStateFlow
         coEvery { authRepository.getCurrentUser() } returns testUser
 
-        viewModel = AuthViewModel(authRepository)
+        viewModel = AuthViewModel(application, authRepository)
     }
 
     @After

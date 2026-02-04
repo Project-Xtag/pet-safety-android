@@ -14,7 +14,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.input.VisualTransformation
 import com.petsafety.app.ui.theme.CornerRadius
-import com.petsafety.app.ui.theme.MutedTextLight
 
 /**
  * Brand text field matching iOS BrandTextFieldStyle.
@@ -48,13 +47,13 @@ fun BrandTextField(
         onValueChange = onValueChange,
         modifier = modifier.fillMaxWidth(),
         label = label?.let { { Text(it) } },
-        placeholder = placeholder?.let { { Text(it, color = MutedTextLight) } },
+        placeholder = placeholder?.let { { Text(it, color = MaterialTheme.colorScheme.onSurfaceVariant) } },
         leadingIcon = leadingIcon?.let {
             {
                 Icon(
                     imageVector = it,
                     contentDescription = null,
-                    tint = MutedTextLight
+                    tint = MaterialTheme.colorScheme.onSurfaceVariant
                 )
             }
         },
@@ -103,7 +102,7 @@ fun BrandTextArea(
         onValueChange = onValueChange,
         modifier = modifier.fillMaxWidth(),
         label = label?.let { { Text(it) } },
-        placeholder = placeholder?.let { { Text(it, color = MutedTextLight) } },
+        placeholder = placeholder?.let { { Text(it, color = MaterialTheme.colorScheme.onSurfaceVariant) } },
         isError = isError,
         supportingText = if (isError && errorMessage != null) {
             { Text(errorMessage, color = MaterialTheme.colorScheme.error) }

@@ -26,8 +26,11 @@
         <item name="colorError">#FFB4AB</item>
     </style>
 
-    <!-- Splash screen theme -->
-    <style name="Theme.PetSafety.Splash" parent="Theme.PetSafety">
-        <item name="android:windowBackground">@color/background_dark</item>
+    <!-- Splash screen theme (Android 12+ SplashScreen API) -->
+    <style name="Theme.PetSafety.Splash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/background_dark</item>
+        <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher_round</item>
+        <item name="windowSplashScreenAnimationDuration">800</item>
+        <item name="postSplashScreenTheme">@style/Theme.PetSafety</item>
     </style>
 </resources>

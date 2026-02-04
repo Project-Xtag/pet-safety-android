@@ -1,7 +1,9 @@
 package com.petsafety.app.ui.viewmodel
 
+import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.petsafety.app.R
 import com.petsafety.app.data.model.Breed
 import com.petsafety.app.data.model.LocationCoordinate
 import com.petsafety.app.data.model.Pet
@@ -18,6 +20,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class PetsViewModel @Inject constructor(
+    private val application: Application,
     private val repository: PetsRepository
 ) : ViewModel() {
     private val _pets = MutableStateFlow<List<Pet>>(emptyList())
@@ -43,7 +46,7 @@ class PetsViewModel @Inject constructor(
                 _pets.value = result.first
                 _errorMessage.value = result.second
             } catch (ex: Exception) {
-                _errorMessage.value = ex.localizedMessage ?: "Failed to load pets"
+                _errorMessage.value = ex.localizedMessage ?: application.getString(R.string.error_load_pets)
             } finally {
                 _isLoading.value = false
             }
@@ -58,7 +61,7 @@ class PetsViewModel @Inject constructor(
                 _pets.value = result.first
                 _errorMessage.value = result.second
             } catch (ex: Exception) {
-                _errorMessage.value = ex.localizedMessage ?: "Failed to refresh pets"
+                _errorMessage.value = ex.localizedMessage ?: application.getString(R.string.error_refresh_pets)
             } finally {
                 _isRefreshing.value = false
             }

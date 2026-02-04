@@ -63,9 +63,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.petsafety.app.R
-import com.petsafety.app.ui.theme.BackgroundLight
 import com.petsafety.app.ui.theme.BrandOrange
-import com.petsafety.app.ui.theme.MutedTextLight
 import com.petsafety.app.ui.theme.PeachBackground
 import com.petsafety.app.ui.theme.TealAccent
 import com.petsafety.app.ui.util.AdaptiveLayout
@@ -103,7 +101,7 @@ fun ProfileScreen(
         )
         ProfileSection.PERSONAL -> PersonalInfoScreen(authViewModel, appStateViewModel) { section = ProfileSection.MAIN }
         ProfileSection.ADDRESS -> AddressScreen(authViewModel, appStateViewModel) { section = ProfileSection.MAIN }
-        ProfileSection.CONTACTS -> ContactsScreen { section = ProfileSection.MAIN }
+        ProfileSection.CONTACTS -> ContactsScreen(authViewModel, appStateViewModel) { section = ProfileSection.MAIN }
         ProfileSection.PRIVACY -> PrivacyModeScreen(authViewModel, appStateViewModel) { section = ProfileSection.MAIN }
         ProfileSection.NOTIFICATIONS -> NotificationPreferencesScreen(prefsViewModel) { section = ProfileSection.MAIN }
         ProfileSection.HELP -> HelpSupportScreen(authViewModel, appStateViewModel) { section = ProfileSection.MAIN }
@@ -136,7 +134,7 @@ private fun ProfileMain(
     Box(
         modifier = modifier
             .fillMaxSize()
-            .background(BackgroundLight),
+            .background(MaterialTheme.colorScheme.background),
         contentAlignment = Alignment.TopCenter
     ) {
         Column(
@@ -157,7 +155,7 @@ private fun ProfileMain(
 
                 // Title
                 Text(
-                    text = "Account",
+                    text = stringResource(R.string.account_title),
                     style = MaterialTheme.typography.titleMedium.copy(
                         fontSize = 20.sp,
                         fontWeight = FontWeight.SemiBold
@@ -202,38 +200,9 @@ private fun ProfileMain(
                     Text(
                         text = currentUser.email,
                         style = MaterialTheme.typography.bodyMedium.copy(fontSize = 14.sp),
-                        color = MutedTextLight
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
 
-                    Spacer(modifier = Modifier.height(12.dp))
-
-                    // Premium Badge
-                    Row(
-                        modifier = Modifier
-                            .background(
-                                TealAccent.copy(alpha = 0.1f),
-                                RoundedCornerShape(20.dp)
-                            )
-                            .padding(horizontal = 16.dp, vertical = 8.dp),
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        Icon(
-                            imageVector = Icons.Default.Star,
-                            contentDescription = null,
-                            modifier = Modifier.size(12.dp),
-                            tint = TealAccent
-                        )
-                        Spacer(modifier = Modifier.width(6.dp))
-                        Text(
-                            text = "PREMIUM MEMBER",
-                            style = MaterialTheme.typography.labelSmall.copy(
-                                fontSize = 11.sp,
-                                fontWeight = FontWeight.Bold,
-                                letterSpacing = 1.sp
-                            ),
-                            color = TealAccent
-                        )
-                    }
                 }
             }
 
@@ -245,7 +214,7 @@ private fun ProfileMain(
                     .fillMaxWidth()
                     .padding(horizontal = 24.dp),
                 shape = RoundedCornerShape(16.dp),
-                colors = CardDefaults.cardColors(containerColor = Color.White)
+                colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface)
             ) {
                 Column {
                     ProfileMenuRow(
@@ -253,31 +222,31 @@ private fun ProfileMain(
                         title = stringResource(R.string.personal_information),
                         onClick = { onNavigate(ProfileSection.PERSONAL) }
                     )
-                    HorizontalDivider(color = Color(0xFFF2F2F7))
+                    HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
                     ProfileMenuRow(
                         icon = Icons.Default.Home,
                         title = stringResource(R.string.address),
                         onClick = { onNavigate(ProfileSection.ADDRESS) }
                     )
-                    HorizontalDivider(color = Color(0xFFF2F2F7))
+                    HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
                     ProfileMenuRow(
                         icon = Icons.Default.People,
                         title = stringResource(R.string.contacts),
                         onClick = { onNavigate(ProfileSection.CONTACTS) }
                     )
-                    HorizontalDivider(color = Color(0xFFF2F2F7))
+                    HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
                     ProfileMenuRow(
                         icon = Icons.Default.Lock,
                         title = stringResource(R.string.privacy_mode),
                         onClick = { onNavigate(ProfileSection.PRIVACY) }
                     )
-                    HorizontalDivider(color = Color(0xFFF2F2F7))
+                    HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
                     ProfileMenuRow(
                         icon = Icons.Default.Notifications,
                         title = stringResource(R.string.notifications),
                         onClick = { onNavigate(ProfileSection.NOTIFICATIONS) }
                     )
-                    HorizontalDivider(color = Color(0xFFF2F2F7))
+                    HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
                     ProfileMenuRow(
                         icon = Icons.Default.HelpOutline,
                         title = stringResource(R.string.help_support),
@@ -329,13 +298,13 @@ private fun ProfileMain(
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Text(
-                    text = "DANGER ZONE",
+                    text = stringResource(R.string.danger_zone),
                     style = MaterialTheme.typography.labelSmall.copy(
                         fontSize = 12.sp,
                         fontWeight = FontWeight.SemiBold,
                         letterSpacing = 1.sp
                     ),
-                    color = Color.Red.copy(alpha = 0.7f)
+                    color = MaterialTheme.colorScheme.error.copy(alpha = 0.7f)
                 )
 
                 Spacer(modifier = Modifier.height(12.dp))
@@ -364,11 +333,11 @@ private fun ProfileMain(
                         .shadow(
                             elevation = 8.dp,
                             shape = RoundedCornerShape(16.dp),
-                            ambientColor = Color.Red.copy(alpha = 0.3f),
-                            spotColor = Color.Red.copy(alpha = 0.3f)
+                            ambientColor = MaterialTheme.colorScheme.error.copy(alpha = 0.3f),
+                            spotColor = MaterialTheme.colorScheme.error.copy(alpha = 0.3f)
                         ),
                     shape = RoundedCornerShape(16.dp),
-                    colors = ButtonDefaults.buttonColors(containerColor = Color.Red),
+                    colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.error),
                     enabled = !isDeleting && !isCheckingDelete
                 ) {
                     if (isDeleting || isCheckingDelete) {
@@ -388,7 +357,7 @@ private fun ProfileMain(
                     Text(
                         text = when {
                             isCheckingDelete -> stringResource(R.string.checking_delete_eligibility)
-                            isDeleting -> "Deleting..."
+                            isDeleting -> stringResource(R.string.deleting)
                             else -> stringResource(R.string.delete_account)
                         },
                         style = MaterialTheme.typography.labelLarge.copy(
@@ -401,9 +370,9 @@ private fun ProfileMain(
                 Spacer(modifier = Modifier.height(8.dp))
 
                 Text(
-                    text = "This will permanently delete your account and all data",
+                    text = stringResource(R.string.delete_account_permanent),
                     style = MaterialTheme.typography.bodySmall.copy(fontSize = 11.sp),
-                    color = MutedTextLight,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
                     textAlign = TextAlign.Center
                 )
             }
@@ -417,14 +386,14 @@ private fun ProfileMain(
         AlertDialog(
             onDismissRequest = { showLogoutDialog = false },
             title = { Text(stringResource(R.string.log_out)) },
-            text = { Text("Are you sure you want to log out?") },
+            text = { Text(stringResource(R.string.logout_confirm)) },
             confirmButton = {
                 TextButton(
                     onClick = {
                         showLogoutDialog = false
                         onLogout()
                     },
-                    colors = ButtonDefaults.textButtonColors(contentColor = Color.Red)
+                    colors = ButtonDefaults.textButtonColors(contentColor = MaterialTheme.colorScheme.error)
                 ) {
                     Text(stringResource(R.string.log_out))
                 }
@@ -443,7 +412,7 @@ private fun ProfileMain(
             onDismissRequest = { showDeleteDialog = false },
             title = { Text(stringResource(R.string.delete_account)) },
             text = {
-                Text("This action cannot be undone. Your account will be permanently deleted, all personal data will be removed, and any active subscriptions will be cancelled.")
+                Text(stringResource(R.string.delete_account_full_warning))
             },
             confirmButton = {
                 TextButton(
@@ -459,7 +428,7 @@ private fun ProfileMain(
                         }
                         showDeleteDialog = false
                     },
-                    colors = ButtonDefaults.textButtonColors(contentColor = Color.Red)
+                    colors = ButtonDefaults.textButtonColors(contentColor = MaterialTheme.colorScheme.error)
                 ) {
                     Text(stringResource(R.string.delete_account))
                 }
@@ -492,7 +461,7 @@ private fun ProfileMain(
             },
             confirmButton = {
                 TextButton(onClick = { showDeleteErrorDialog = false }) {
-                    Text("OK")
+                    Text(stringResource(R.string.ok))
                 }
             }
         )
@@ -516,7 +485,7 @@ private fun ProfileMenuRow(
             imageVector = icon,
             contentDescription = null,
             modifier = Modifier.size(18.dp),
-            tint = MutedTextLight
+            tint = MaterialTheme.colorScheme.onSurfaceVariant
         )
         Spacer(modifier = Modifier.width(16.dp))
         Text(
@@ -555,7 +524,7 @@ private fun PersonalInfoScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(BackgroundLight)
+            .background(MaterialTheme.colorScheme.background)
     ) {
         // Header
         SubScreenHeader(
@@ -573,7 +542,7 @@ private fun PersonalInfoScreen(
             Card(
                 modifier = Modifier.fillMaxWidth(),
                 shape = RoundedCornerShape(16.dp),
-                colors = CardDefaults.cardColors(containerColor = Color.White),
+                colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
                 elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
             ) {
                 Column(modifier = Modifier.padding(16.dp)) {
@@ -671,7 +640,7 @@ private fun AddressScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(BackgroundLight)
+            .background(MaterialTheme.colorScheme.background)
     ) {
         SubScreenHeader(
             title = stringResource(R.string.address),
@@ -688,20 +657,20 @@ private fun AddressScreen(
             Card(
                 modifier = Modifier.fillMaxWidth(),
                 shape = RoundedCornerShape(16.dp),
-                colors = CardDefaults.cardColors(containerColor = Color.White),
+                colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
                 elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
             ) {
                 Column(modifier = Modifier.padding(16.dp)) {
                     StyledOutlinedTextField(
                         value = address,
                         onValueChange = { address = it },
-                        label = "Street Address"
+                        label = stringResource(R.string.street_address)
                     )
                     Spacer(modifier = Modifier.height(12.dp))
                     StyledOutlinedTextField(
                         value = addressLine2,
                         onValueChange = { addressLine2 = it },
-                        label = "Address Line 2 (Optional)"
+                        label = stringResource(R.string.address_line_2_optional)
                     )
                     Spacer(modifier = Modifier.height(12.dp))
                     StyledOutlinedTextField(
@@ -777,18 +746,27 @@ private fun AddressScreen(
 }
 
 @Composable
-private fun ContactsScreen(onBack: () -> Unit) {
-    var primaryEmail by remember { mutableStateOf("") }
-    var secondaryEmail by remember { mutableStateOf("") }
-    var primaryPhone by remember { mutableStateOf("") }
-    var secondaryPhone by remember { mutableStateOf("") }
-    var showPrimaryOnTag by remember { mutableStateOf(true) }
-    var showSecondaryOnTag by remember { mutableStateOf(false) }
+private fun ContactsScreen(
+    authViewModel: AuthViewModel,
+    appStateViewModel: AppStateViewModel,
+    onBack: () -> Unit
+) {
+    val user by authViewModel.currentUser.collectAsState()
+    var primaryEmail by remember { mutableStateOf(user?.email ?: "") }
+    var secondaryEmail by remember { mutableStateOf(user?.secondaryEmail ?: "") }
+    var primaryPhone by remember { mutableStateOf(user?.phone ?: "") }
+    var secondaryPhone by remember { mutableStateOf(user?.secondaryPhone ?: "") }
+    var showPrimaryOnTag by remember { mutableStateOf(user?.showPhonePublicly ?: true) }
+    var showSecondaryOnTag by remember { mutableStateOf(!(user?.secondaryPhone.isNullOrBlank())) }
+    var isSaving by remember { mutableStateOf(false) }
+
+    val contactsUpdatedMessage = stringResource(R.string.updated)
+    val contactsUpdateFailedMessage = stringResource(R.string.update_failed)
 
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(BackgroundLight)
+            .background(MaterialTheme.colorScheme.background)
     ) {
         SubScreenHeader(
             title = stringResource(R.string.contacts),
@@ -804,7 +782,7 @@ private fun ContactsScreen(onBack: () -> Unit) {
         ) {
             // Email Section
             Text(
-                text = "Email Addresses",
+                text = stringResource(R.string.email_addresses),
                 style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.SemiBold),
                 color = MaterialTheme.colorScheme.onSurface
             )
@@ -813,20 +791,21 @@ private fun ContactsScreen(onBack: () -> Unit) {
             Card(
                 modifier = Modifier.fillMaxWidth(),
                 shape = RoundedCornerShape(16.dp),
-                colors = CardDefaults.cardColors(containerColor = Color.White),
+                colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
                 elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
             ) {
                 Column(modifier = Modifier.padding(16.dp)) {
                     StyledOutlinedTextField(
                         value = primaryEmail,
                         onValueChange = { primaryEmail = it },
-                        label = "Primary Email"
+                        label = stringResource(R.string.primary_email),
+                        enabled = false
                     )
                     Spacer(modifier = Modifier.height(12.dp))
                     StyledOutlinedTextField(
                         value = secondaryEmail,
                         onValueChange = { secondaryEmail = it },
-                        label = "Secondary Email (Optional)"
+                        label = stringResource(R.string.secondary_email_optional)
                     )
                 }
             }
@@ -835,7 +814,7 @@ private fun ContactsScreen(onBack: () -> Unit) {
 
             // Phone Section
             Text(
-                text = "Phone Numbers",
+                text = stringResource(R.string.phone_numbers),
                 style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.SemiBold),
                 color = MaterialTheme.colorScheme.onSurface
             )
@@ -844,14 +823,14 @@ private fun ContactsScreen(onBack: () -> Unit) {
             Card(
                 modifier = Modifier.fillMaxWidth(),
                 shape = RoundedCornerShape(16.dp),
-                colors = CardDefaults.cardColors(containerColor = Color.White),
+                colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
                 elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
             ) {
                 Column(modifier = Modifier.padding(16.dp)) {
                     StyledOutlinedTextField(
                         value = primaryPhone,
                         onValueChange = { primaryPhone = it },
-                        label = "Primary Phone"
+                        label = stringResource(R.string.primary_phone)
                     )
                     Row(
                         modifier = Modifier
@@ -861,9 +840,9 @@ private fun ContactsScreen(onBack: () -> Unit) {
                         verticalAlignment = Alignment.CenterVertically
                     ) {
                         Text(
-                            text = "Show on QR tag",
+                            text = stringResource(R.string.show_on_qr_tag),
                             style = MaterialTheme.typography.bodyMedium,
-                            color = MutedTextLight
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
                         )
                         Switch(
                             checked = showPrimaryOnTag,
@@ -872,12 +851,12 @@ private fun ContactsScreen(onBack: () -> Unit) {
                     }
                     HorizontalDivider(
                         modifier = Modifier.padding(vertical = 12.dp),
-                        color = Color(0xFFF2F2F7)
+                        color = MaterialTheme.colorScheme.surfaceContainerHigh
                     )
                     StyledOutlinedTextField(
                         value = secondaryPhone,
                         onValueChange = { secondaryPhone = it },
-                        label = "Secondary Phone (Optional)"
+                        label = stringResource(R.string.secondary_phone_optional)
                     )
                     Row(
                         modifier = Modifier
@@ -887,9 +866,9 @@ private fun ContactsScreen(onBack: () -> Unit) {
                         verticalAlignment = Alignment.CenterVertically
                     ) {
                         Text(
-                            text = "Show on QR tag",
+                            text = stringResource(R.string.show_on_qr_tag),
                             style = MaterialTheme.typography.bodyMedium,
-                            color = MutedTextLight
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
                         )
                         Switch(
                             checked = showSecondaryOnTag,
@@ -908,11 +887,62 @@ private fun ContactsScreen(onBack: () -> Unit) {
                 colors = CardDefaults.cardColors(containerColor = TealAccent.copy(alpha = 0.1f))
             ) {
                 Text(
-                    text = "Contacts marked as visible will be displayed on your pet's QR tag when scanned by someone who finds your pet.",
+                    text = stringResource(R.string.contacts_qr_tag_info),
                     style = MaterialTheme.typography.bodySmall.copy(fontSize = 13.sp),
-                    color = MutedTextLight,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
                     modifier = Modifier.padding(16.dp)
                 )
+            }
+
+            Spacer(modifier = Modifier.height(24.dp))
+
+            // Save Button
+            Button(
+                onClick = {
+                    isSaving = true
+                    authViewModel.updateProfile(
+                        updates = mapOf(
+                            "phone" to primaryPhone.trim(),
+                            "secondary_phone" to secondaryPhone.trim(),
+                            "secondary_email" to secondaryEmail.trim(),
+                            "show_phone_publicly" to showPrimaryOnTag,
+                            "show_email_publicly" to showSecondaryOnTag
+                        )
+                    ) { success, message ->
+                        isSaving = false
+                        if (success) {
+                            appStateViewModel.showSuccess(contactsUpdatedMessage)
+                            onBack()
+                        } else {
+                            appStateViewModel.showError(message ?: contactsUpdateFailedMessage)
+                        }
+                    }
+                },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(52.dp)
+                    .shadow(
+                        elevation = 8.dp,
+                        shape = RoundedCornerShape(16.dp),
+                        ambientColor = BrandOrange.copy(alpha = 0.3f),
+                        spotColor = BrandOrange.copy(alpha = 0.3f)
+                    ),
+                shape = RoundedCornerShape(16.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = BrandOrange),
+                enabled = !isSaving
+            ) {
+                if (isSaving) {
+                    CircularProgressIndicator(
+                        modifier = Modifier.size(18.dp),
+                        color = Color.White,
+                        strokeWidth = 2.dp
+                    )
+                } else {
+                    Text(
+                        text = stringResource(R.string.save),
+                        style = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.SemiBold)
+                    )
+                }
             }
         }
     }
@@ -938,15 +968,18 @@ private fun PrivacyModeScreen(
         mutableStateOf(currentUser?.showAddressPublicly ?: true)
     }
 
+    val privacyUpdatedMessage = stringResource(R.string.privacy_settings_updated)
+    val privacyFailedMessage = stringResource(R.string.privacy_settings_failed)
+
     // Update function that saves to backend
     fun updatePrivacySetting(field: String, value: Boolean) {
         authViewModel.updateProfile(
             mapOf(field to value)
         ) { success, error ->
             if (success) {
-                appStateViewModel.showSuccess("Privacy settings updated")
+                appStateViewModel.showSuccess(privacyUpdatedMessage)
             } else {
-                appStateViewModel.showError(error ?: "Failed to update privacy settings")
+                appStateViewModel.showError(error ?: privacyFailedMessage)
                 // Revert the toggle on failure
                 when (field) {
                     "show_phone_publicly" -> showPhonePublicly = !value
@@ -960,7 +993,7 @@ private fun PrivacyModeScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(BackgroundLight)
+            .background(MaterialTheme.colorScheme.background)
     ) {
         SubScreenHeader(
             title = stringResource(R.string.privacy_mode),
@@ -976,28 +1009,28 @@ private fun PrivacyModeScreen(
         ) {
             // Contact Visibility Section
             Text(
-                text = "Contact Visibility",
+                text = stringResource(R.string.contact_visibility),
                 style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.SemiBold),
                 color = MaterialTheme.colorScheme.onSurface
             )
             Spacer(modifier = Modifier.height(8.dp))
             Text(
-                text = "Control what contact information is visible when someone scans your pet's QR tag",
+                text = stringResource(R.string.contact_visibility_desc),
                 style = MaterialTheme.typography.bodySmall.copy(fontSize = 13.sp),
-                color = MutedTextLight
+                color = MaterialTheme.colorScheme.onSurfaceVariant
             )
             Spacer(modifier = Modifier.height(12.dp))
 
             Card(
                 modifier = Modifier.fillMaxWidth(),
                 shape = RoundedCornerShape(16.dp),
-                colors = CardDefaults.cardColors(containerColor = Color.White),
+                colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
                 elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
             ) {
                 Column(modifier = Modifier.padding(16.dp)) {
                     SettingsToggleRow(
-                        title = "Show Phone Number",
-                        subtitle = "Your phone number will be visible to finders",
+                        title = stringResource(R.string.show_phone_number),
+                        subtitle = stringResource(R.string.show_phone_subtitle),
                         checked = showPhonePublicly,
                         onCheckedChange = {
                             showPhonePublicly = it
@@ -1005,10 +1038,10 @@ private fun PrivacyModeScreen(
                         },
                         enabled = !isLoading
                     )
-                    HorizontalDivider(color = Color(0xFFF2F2F7))
+                    HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
                     SettingsToggleRow(
-                        title = "Show Email Address",
-                        subtitle = "Your email will be visible to finders",
+                        title = stringResource(R.string.show_email_address),
+                        subtitle = stringResource(R.string.show_email_subtitle),
                         checked = showEmailPublicly,
                         onCheckedChange = {
                             showEmailPublicly = it
@@ -1016,10 +1049,10 @@ private fun PrivacyModeScreen(
                         },
                         enabled = !isLoading
                     )
-                    HorizontalDivider(color = Color(0xFFF2F2F7))
+                    HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
                     SettingsToggleRow(
-                        title = "Show Address",
-                        subtitle = "Your address will be visible to finders",
+                        title = stringResource(R.string.show_address),
+                        subtitle = stringResource(R.string.show_address_subtitle),
                         checked = showAddressPublicly,
                         onCheckedChange = {
                             showAddressPublicly = it
@@ -1034,7 +1067,7 @@ private fun PrivacyModeScreen(
 
             // Data Privacy Links
             Text(
-                text = "Data Privacy",
+                text = stringResource(R.string.data_privacy),
                 style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.SemiBold),
                 color = MaterialTheme.colorScheme.onSurface
             )
@@ -1043,19 +1076,19 @@ private fun PrivacyModeScreen(
             Card(
                 modifier = Modifier.fillMaxWidth(),
                 shape = RoundedCornerShape(16.dp),
-                colors = CardDefaults.cardColors(containerColor = Color.White),
+                colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
                 elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
             ) {
                 Column {
                     ProfileMenuRow(
                         icon = Icons.Default.Lock,
-                        title = "Privacy Policy",
+                        title = stringResource(R.string.privacy_policy),
                         onClick = { /* Open privacy policy */ }
                     )
-                    HorizontalDivider(color = Color(0xFFF2F2F7))
+                    HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
                     ProfileMenuRow(
                         icon = Icons.Default.Person,
-                        title = "Data Management",
+                        title = stringResource(R.string.data_management),
                         onClick = { /* Open data management */ }
                     )
                 }
@@ -1084,7 +1117,7 @@ private fun NotificationPreferencesScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(BackgroundLight)
+            .background(MaterialTheme.colorScheme.background)
     ) {
         SubScreenHeader(
             title = stringResource(R.string.notifications),
@@ -1100,7 +1133,7 @@ private fun NotificationPreferencesScreen(
         ) {
             // Notification Channels
             Text(
-                text = "Notification Channels",
+                text = stringResource(R.string.notification_channels),
                 style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.SemiBold),
                 color = MaterialTheme.colorScheme.onSurface
             )
@@ -1109,27 +1142,27 @@ private fun NotificationPreferencesScreen(
             Card(
                 modifier = Modifier.fillMaxWidth(),
                 shape = RoundedCornerShape(16.dp),
-                colors = CardDefaults.cardColors(containerColor = Color.White),
+                colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
                 elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
             ) {
                 Column(modifier = Modifier.padding(16.dp)) {
                     SettingsToggleRow(
-                        title = "Push Notifications",
-                        subtitle = "Receive push notifications on your device",
+                        title = stringResource(R.string.push_notifications),
+                        subtitle = stringResource(R.string.push_notifications_subtitle),
                         checked = pushEnabled,
                         onCheckedChange = { pushEnabled = it }
                     )
-                    HorizontalDivider(color = Color(0xFFF2F2F7))
+                    HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
                     SettingsToggleRow(
-                        title = "Email Notifications",
-                        subtitle = "Receive notifications via email",
+                        title = stringResource(R.string.email_notifications),
+                        subtitle = stringResource(R.string.email_notifications_subtitle),
                         checked = emailEnabled,
                         onCheckedChange = { emailEnabled = it }
                     )
-                    HorizontalDivider(color = Color(0xFFF2F2F7))
+                    HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
                     SettingsToggleRow(
-                        title = "SMS Notifications",
-                        subtitle = "Receive notifications via SMS",
+                        title = stringResource(R.string.sms_notifications),
+                        subtitle = stringResource(R.string.sms_notifications_subtitle),
                         checked = smsEnabled,
                         onCheckedChange = { smsEnabled = it }
                     )
@@ -1140,7 +1173,7 @@ private fun NotificationPreferencesScreen(
 
             // Pet Alerts
             Text(
-                text = "Pet Alerts",
+                text = stringResource(R.string.pet_alerts),
                 style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.SemiBold),
                 color = MaterialTheme.colorScheme.onSurface
             )
@@ -1149,20 +1182,20 @@ private fun NotificationPreferencesScreen(
             Card(
                 modifier = Modifier.fillMaxWidth(),
                 shape = RoundedCornerShape(16.dp),
-                colors = CardDefaults.cardColors(containerColor = Color.White),
+                colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
                 elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
             ) {
                 Column(modifier = Modifier.padding(16.dp)) {
                     SettingsToggleRow(
-                        title = "Missing Pet Alerts",
-                        subtitle = "Get notified about missing pets in your area",
+                        title = stringResource(R.string.missing_pet_alerts),
+                        subtitle = stringResource(R.string.missing_pet_alerts_subtitle),
                         checked = missingPetAlerts,
                         onCheckedChange = { missingPetAlerts = it }
                     )
-                    HorizontalDivider(color = Color(0xFFF2F2F7))
+                    HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
                     SettingsToggleRow(
-                        title = "Nearby Alerts (10km)",
-                        subtitle = "Alerts for pets within 10km of your location",
+                        title = stringResource(R.string.nearby_alerts_10km),
+                        subtitle = stringResource(R.string.nearby_alerts_subtitle),
                         checked = nearbyAlerts,
                         onCheckedChange = { nearbyAlerts = it }
                     )
@@ -1173,7 +1206,7 @@ private fun NotificationPreferencesScreen(
 
             // Account & Orders
             Text(
-                text = "Account & Orders",
+                text = stringResource(R.string.account_and_orders),
                 style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.SemiBold),
                 color = MaterialTheme.colorScheme.onSurface
             )
@@ -1182,20 +1215,20 @@ private fun NotificationPreferencesScreen(
             Card(
                 modifier = Modifier.fillMaxWidth(),
                 shape = RoundedCornerShape(16.dp),
-                colors = CardDefaults.cardColors(containerColor = Color.White),
+                colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
                 elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
             ) {
                 Column(modifier = Modifier.padding(16.dp)) {
                     SettingsToggleRow(
-                        title = "Order Updates",
-                        subtitle = "Shipping and delivery notifications",
+                        title = stringResource(R.string.order_updates),
+                        subtitle = stringResource(R.string.order_updates_subtitle),
                         checked = orderUpdates,
                         onCheckedChange = { orderUpdates = it }
                     )
-                    HorizontalDivider(color = Color(0xFFF2F2F7))
+                    HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
                     SettingsToggleRow(
-                        title = "Account Activity",
-                        subtitle = "Login and security notifications",
+                        title = stringResource(R.string.account_activity),
+                        subtitle = stringResource(R.string.account_activity_subtitle),
                         checked = accountActivity,
                         onCheckedChange = { accountActivity = it }
                     )
@@ -1206,7 +1239,7 @@ private fun NotificationPreferencesScreen(
 
             // Optional Updates
             Text(
-                text = "Optional Updates",
+                text = stringResource(R.string.optional_updates),
                 style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.SemiBold),
                 color = MaterialTheme.colorScheme.onSurface
             )
@@ -1215,20 +1248,20 @@ private fun NotificationPreferencesScreen(
             Card(
                 modifier = Modifier.fillMaxWidth(),
                 shape = RoundedCornerShape(16.dp),
-                colors = CardDefaults.cardColors(containerColor = Color.White),
+                colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
                 elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
             ) {
                 Column(modifier = Modifier.padding(16.dp)) {
                     SettingsToggleRow(
-                        title = "Product Updates",
-                        subtitle = "New features and improvements",
+                        title = stringResource(R.string.product_updates),
+                        subtitle = stringResource(R.string.product_updates_subtitle),
                         checked = productUpdates,
                         onCheckedChange = { productUpdates = it }
                     )
-                    HorizontalDivider(color = Color(0xFFF2F2F7))
+                    HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
                     SettingsToggleRow(
-                        title = "Marketing Emails",
-                        subtitle = "Offers and promotions",
+                        title = stringResource(R.string.marketing_emails),
+                        subtitle = stringResource(R.string.marketing_emails_subtitle),
                         checked = marketingEmails,
                         onCheckedChange = { marketingEmails = it }
                     )
@@ -1238,9 +1271,9 @@ private fun NotificationPreferencesScreen(
             Spacer(modifier = Modifier.height(16.dp))
 
             Text(
-                text = "Note: Critical alerts about your pets will always be sent regardless of these settings.",
+                text = stringResource(R.string.critical_alerts_note),
                 style = MaterialTheme.typography.bodySmall.copy(fontSize = 12.sp),
-                color = MutedTextLight,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
                 textAlign = TextAlign.Center,
                 modifier = Modifier.fillMaxWidth()
             )
@@ -1259,7 +1292,7 @@ private fun HelpSupportScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(BackgroundLight)
+            .background(MaterialTheme.colorScheme.background)
     ) {
         SubScreenHeader(
             title = stringResource(R.string.help_support),
@@ -1275,7 +1308,7 @@ private fun HelpSupportScreen(
         ) {
             // Contact Support
             Text(
-                text = "Get Help",
+                text = stringResource(R.string.get_help),
                 style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.SemiBold),
                 color = MaterialTheme.colorScheme.onSurface
             )
@@ -1284,25 +1317,25 @@ private fun HelpSupportScreen(
             Card(
                 modifier = Modifier.fillMaxWidth(),
                 shape = RoundedCornerShape(16.dp),
-                colors = CardDefaults.cardColors(containerColor = Color.White),
+                colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
                 elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
             ) {
                 Column {
                     ProfileMenuRow(
                         icon = Icons.Default.HelpOutline,
-                        title = "Contact Support",
+                        title = stringResource(R.string.contact_support),
                         onClick = { showContactForm = true }
                     )
-                    HorizontalDivider(color = Color(0xFFF2F2F7))
+                    HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
                     ProfileMenuRow(
                         icon = Icons.Default.HelpOutline,
-                        title = "Frequently Asked Questions",
+                        title = stringResource(R.string.faq),
                         onClick = { /* Open FAQ */ }
                     )
-                    HorizontalDivider(color = Color(0xFFF2F2F7))
+                    HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
                     ProfileMenuRow(
                         icon = Icons.Default.Person,
-                        title = "User Guides",
+                        title = stringResource(R.string.user_guides),
                         onClick = { /* Open guides */ }
                     )
                 }
@@ -1312,7 +1345,7 @@ private fun HelpSupportScreen(
 
             // Legal
             Text(
-                text = "Legal",
+                text = stringResource(R.string.legal),
                 style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.SemiBold),
                 color = MaterialTheme.colorScheme.onSurface
             )
@@ -1321,19 +1354,19 @@ private fun HelpSupportScreen(
             Card(
                 modifier = Modifier.fillMaxWidth(),
                 shape = RoundedCornerShape(16.dp),
-                colors = CardDefaults.cardColors(containerColor = Color.White),
+                colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
                 elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
             ) {
                 Column {
                     ProfileMenuRow(
                         icon = Icons.Default.Lock,
-                        title = "Terms of Service",
+                        title = stringResource(R.string.terms_of_service),
                         onClick = { /* Open terms */ }
                     )
-                    HorizontalDivider(color = Color(0xFFF2F2F7))
+                    HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
                     ProfileMenuRow(
                         icon = Icons.Default.Lock,
-                        title = "Privacy Policy",
+                        title = stringResource(R.string.privacy_policy),
                         onClick = { /* Open privacy */ }
                     )
                 }
@@ -1354,20 +1387,20 @@ private fun HelpSupportScreen(
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
                     Text(
-                        text = "Pet Safety",
+                        text = stringResource(R.string.app_name_label),
                         style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold),
                         color = MaterialTheme.colorScheme.onSurface
                     )
                     Text(
-                        text = "Version 1.0.0",
+                        text = stringResource(R.string.app_version),
                         style = MaterialTheme.typography.bodySmall,
-                        color = MutedTextLight
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
                     Spacer(modifier = Modifier.height(8.dp))
                     Text(
-                        text = "Our support team typically responds within 24 hours.",
+                        text = stringResource(R.string.support_response_time),
                         style = MaterialTheme.typography.bodySmall.copy(fontSize = 12.sp),
-                        color = MutedTextLight,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
                         textAlign = TextAlign.Center
                     )
                 }
@@ -1391,19 +1424,28 @@ private fun ContactSupportDialog(
     appStateViewModel: AppStateViewModel,
     onDismiss: () -> Unit
 ) {
-    var selectedCategory by remember { mutableStateOf("General") }
+    val categoryGeneral = stringResource(R.string.support_category_general)
+    val categoryTechnical = stringResource(R.string.support_category_technical)
+    val categoryAccount = stringResource(R.string.support_category_account)
+    val categoryBilling = stringResource(R.string.support_category_billing)
+    val categoryFeature = stringResource(R.string.support_category_feature)
+    val categoryOther = stringResource(R.string.support_category_other)
+
+    var selectedCategory by remember { mutableStateOf(categoryGeneral) }
     var subject by remember { mutableStateOf("") }
     var message by remember { mutableStateOf("") }
     var isSubmitting by remember { mutableStateOf(false) }
     var showCategoryDropdown by remember { mutableStateOf(false) }
 
-    val categories = listOf("General", "Technical Issue", "Account", "Billing", "Feature Request", "Other")
+    val categories = listOf(categoryGeneral, categoryTechnical, categoryAccount, categoryBilling, categoryFeature, categoryOther)
+
+    val supportSuccessFormat = stringResource(R.string.contact_support_success, "%1\$s")
 
     AlertDialog(
         onDismissRequest = { if (!isSubmitting) onDismiss() },
         title = {
             Text(
-                text = "Contact Support",
+                text = stringResource(R.string.contact_support),
                 style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.Bold)
             )
         },
@@ -1415,9 +1457,9 @@ private fun ContactSupportDialog(
                 // Category selector
                 Column {
                     Text(
-                        text = "Category",
+                        text = stringResource(R.string.contact_support_category),
                         style = MaterialTheme.typography.labelMedium,
-                        color = MutedTextLight
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
                     Spacer(modifier = Modifier.height(4.dp))
                     Card(
@@ -1438,7 +1480,7 @@ private fun ContactSupportDialog(
                             Icon(
                                 imageVector = Icons.Default.ChevronRight,
                                 contentDescription = null,
-                                tint = MutedTextLight
+                                tint = MaterialTheme.colorScheme.onSurfaceVariant
                             )
                         }
                     }
@@ -1471,8 +1513,8 @@ private fun ContactSupportDialog(
                 OutlinedTextField(
                     value = subject,
                     onValueChange = { if (it.length <= 200) subject = it },
-                    label = { Text("Subject") },
-                    placeholder = { Text("Brief description of your issue") },
+                    label = { Text(stringResource(R.string.contact_support_subject)) },
+                    placeholder = { Text(stringResource(R.string.contact_support_subject_hint)) },
                     modifier = Modifier.fillMaxWidth(),
                     singleLine = true,
                     enabled = !isSubmitting
@@ -1482,8 +1524,8 @@ private fun ContactSupportDialog(
                 OutlinedTextField(
                     value = message,
                     onValueChange = { if (it.length <= 5000) message = it },
-                    label = { Text("Message") },
-                    placeholder = { Text("Describe your issue in detail...") },
+                    label = { Text(stringResource(R.string.contact_support_message)) },
+                    placeholder = { Text(stringResource(R.string.contact_support_message_hint)) },
                     modifier = Modifier
                         .fillMaxWidth()
                         .height(150.dp),
@@ -1491,9 +1533,9 @@ private fun ContactSupportDialog(
                 )
 
                 Text(
-                    text = "${message.length}/5000 characters",
+                    text = stringResource(R.string.char_count, message.length),
                     style = MaterialTheme.typography.labelSmall,
-                    color = MutedTextLight,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
                     modifier = Modifier.align(Alignment.End)
                 )
             }
@@ -1508,7 +1550,7 @@ private fun ContactSupportDialog(
                         message = message,
                         onSuccess = { ticketId ->
                             isSubmitting = false
-                            appStateViewModel.showSuccess("Support request submitted! Ticket ID: $ticketId")
+                            appStateViewModel.showSuccess(String.format(supportSuccessFormat, ticketId))
                             onDismiss()
                         },
                         onError = { error ->
@@ -1527,9 +1569,9 @@ private fun ContactSupportDialog(
                         strokeWidth = 2.dp
                     )
                     Spacer(modifier = Modifier.width(8.dp))
-                    Text("Sending...")
+                    Text(stringResource(R.string.contact_support_sending))
                 } else {
-                    Text("Submit")
+                    Text(stringResource(R.string.contact_support_submit))
                 }
             }
         },
@@ -1538,7 +1580,7 @@ private fun ContactSupportDialog(
                 onClick = onDismiss,
                 enabled = !isSubmitting
             ) {
-                Text("Cancel")
+                Text(stringResource(R.string.cancel))
             }
         }
     )
@@ -1565,7 +1607,7 @@ private fun SubScreenHeader(
         ) {
             Icon(
                 imageVector = Icons.Default.ArrowBack,
-                contentDescription = "Back",
+                contentDescription = stringResource(R.string.back),
                 modifier = Modifier.size(24.dp),
                 tint = MaterialTheme.colorScheme.onSurface
             )
@@ -1620,12 +1662,12 @@ private fun SettingsToggleRow(
             Text(
                 text = title,
                 style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.Medium),
-                color = if (enabled) MaterialTheme.colorScheme.onSurface else MutedTextLight
+                color = if (enabled) MaterialTheme.colorScheme.onSurface else MaterialTheme.colorScheme.onSurfaceVariant
             )
             Text(
                 text = subtitle,
                 style = MaterialTheme.typography.bodySmall.copy(fontSize = 12.sp),
-                color = MutedTextLight
+                color = MaterialTheme.colorScheme.onSurfaceVariant
             )
         }
         Spacer(modifier = Modifier.width(12.dp))

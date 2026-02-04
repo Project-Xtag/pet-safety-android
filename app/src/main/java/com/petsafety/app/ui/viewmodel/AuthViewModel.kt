@@ -1,7 +1,9 @@
 package com.petsafety.app.ui.viewmodel
 
+import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.petsafety.app.R
 import com.petsafety.app.data.model.User
 import com.petsafety.app.data.network.TokenAuthenticator
 import com.petsafety.app.data.network.model.CanDeleteAccountResponse
@@ -18,6 +20,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class AuthViewModel @Inject constructor(
+    private val application: Application,
     private val authRepository: AuthRepository
 ) : ViewModel() {
     private val _isAuthenticated = MutableStateFlow(false)
@@ -54,9 +57,11 @@ class AuthViewModel @Inject constructor(
         // Listen for auth expiration events from TokenAuthenticator
         viewModelScope.launch {
             TokenAuthenticator.authExpiredEvent.collect {
+                // Perform full logout to unregister FCM token and clean up state
+                authRepository.logout()
                 _isAuthenticated.value = false
                 _currentUser.value = null
-                _sessionExpiredEvent.emit("Your session has expired. Please log in again.")
+                _sessionExpiredEvent.emit(application.getString(R.string.error_session_expired_message))
             }
         }
         // Check if we should show biometric prompt on startup
@@ -77,7 +82,7 @@ class AuthViewModel @Inject constructor(
                 authRepository.login(email)
                 onSuccess()
             } catch (ex: Exception) {
-                val message = ex.localizedMessage ?: ex.message ?: "Login failed"
+                val message = ex.localizedMessage ?: ex.message ?: application.getString(R.string.error_login_failed)
                 _errorMessage.value = message
                 onFailure(message)
             } finally {
@@ -96,7 +101,7 @@ class AuthViewModel @Inject constructor(
                 _isAuthenticated.value = true
                 onSuccess()
             } catch (ex: Exception) {
-                val message = ex.localizedMessage ?: ex.message ?: "Verification failed"
+                val message = ex.localizedMessage ?: ex.message ?: application.getString(R.string.error_verification_failed)
                 _errorMessage.value = message
                 onFailure(message)
             } finally {
@@ -192,7 +197,7 @@ class AuthViewModel @Inject constructor(
                 val ticketId = authRepository.submitSupportRequest(category, subject, message)
                 onSuccess(ticketId)
             } catch (ex: Exception) {
-                onError(ex.localizedMessage ?: "Failed to submit support request")
+                onError(ex.localizedMessage ?: application.getString(R.string.error_submit_support))
             }
         }
     }

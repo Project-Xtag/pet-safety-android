@@ -260,4 +260,342 @@
     <string name="no_pets_to_report_message">Add a pet first to report them missing</string>
     <string name="dont_have_account">Don\'t have an account?</string>
     <string name="start_here_order_free_tag">Start here &amp; order your free tag</string>
+    <string name="create_account">Create Account</string>
+    <string name="enter_details_subtitle">Enter your details to get started.</string>
+    <string name="register">Register</string>
+    <string name="already_have_account">Already have an account?</string>
+    <string name="log_in">Log in</string>
+    <string name="session_expired_title">Session Expired</string>
+    <string name="session_expired_message">Your session has expired. Please log in again.</string>
+    <string name="session_expired_log_in">Log In</string>
+
+    <!-- ProfileScreen -->
+    <string name="account_title">Account</string>
+    <string name="danger_zone">DANGER ZONE</string>
+    <string name="deleting">Deleting\u2026</string>
+    <string name="delete_account_permanent">This will permanently delete your account and all data</string>
+    <string name="logout_confirm">Are you sure you want to log out?</string>
+    <string name="delete_account_full_warning">This action cannot be undone. Your account will be permanently deleted, all personal data will be removed, and any active subscriptions will be cancelled.</string>
+    <string name="ok">OK</string>
+    <string name="street_address">Street Address</string>
+    <string name="address_line_2_optional">Address Line 2 (Optional)</string>
+    <string name="email_addresses">Email Addresses</string>
+    <string name="primary_email">Primary Email</string>
+    <string name="secondary_email_optional">Secondary Email (Optional)</string>
+    <string name="phone_numbers">Phone Numbers</string>
+    <string name="primary_phone">Primary Phone</string>
+    <string name="show_on_qr_tag">Show on QR tag</string>
+    <string name="secondary_phone_optional">Secondary Phone (Optional)</string>
+    <string name="contacts_qr_tag_info">Contacts marked as visible will be displayed on your pet\'s QR tag when scanned by someone who finds your pet.</string>
+    <string name="contact_visibility">Contact Visibility</string>
+    <string name="contact_visibility_desc">Control what contact information is visible when someone scans your pet\'s QR tag</string>
+    <string name="show_phone_number">Show Phone Number</string>
+    <string name="show_phone_subtitle">Your phone number will be visible to finders</string>
+    <string name="show_email_address">Show Email Address</string>
+    <string name="show_email_subtitle">Your email will be visible to finders</string>
+    <string name="show_address">Show Address</string>
+    <string name="show_address_subtitle">Your address will be visible to finders</string>
+    <string name="data_privacy">Data Privacy</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="data_management">Data Management</string>
+    <string name="notification_channels">Notification Channels</string>
+    <string name="push_notifications_subtitle">Receive push notifications on your device</string>
+    <string name="email_notifications_subtitle">Receive notifications via email</string>
+    <string name="sms_notifications_subtitle">Receive notifications via SMS</string>
+    <string name="pet_alerts">Pet Alerts</string>
+    <string name="missing_pet_alerts">Missing Pet Alerts</string>
+    <string name="missing_pet_alerts_subtitle">Get notified about missing pets in your area</string>
+    <string name="nearby_alerts_10km">Nearby Alerts (10km)</string>
+    <string name="nearby_alerts_subtitle">Alerts for pets within 10km of your location</string>
+    <string name="account_and_orders">Account &amp; Orders</string>
+    <string name="order_updates">Order Updates</string>
+    <string name="order_updates_subtitle">Shipping and delivery notifications</string>
+    <string name="account_activity">Account Activity</string>
+    <string name="account_activity_subtitle">Login and security notifications</string>
+    <string name="optional_updates">Optional Updates</string>
+    <string name="product_updates">Product Updates</string>
+    <string name="product_updates_subtitle">New features and improvements</string>
+    <string name="marketing_emails">Marketing Emails</string>
+    <string name="marketing_emails_subtitle">Offers and promotions</string>
+    <string name="critical_alerts_note">Note: Critical alerts about your pets will always be sent regardless of these settings.</string>
+    <string name="get_help">Get Help</string>
+    <string name="faq">Frequently Asked Questions</string>
+    <string name="user_guides">User Guides</string>
+    <string name="legal">Legal</string>
+    <string name="terms_of_service">Terms of Service</string>
+    <string name="app_name_label">Pet Safety</string>
+    <string name="app_version">Version 1.0.0</string>
+    <string name="support_response_time">Our support team typically responds within 24 hours.</string>
+    <string name="char_count">%1$d/5000 characters</string>
+    <string name="privacy_settings_updated">Privacy settings updated</string>
+    <string name="privacy_settings_failed">Failed to update privacy settings</string>
+    <string name="support_category_general">General</string>
+    <string name="support_category_technical">Technical Issue</string>
+    <string name="support_category_account">Account</string>
+    <string name="support_category_billing">Billing</string>
+    <string name="support_category_feature">Feature Request</string>
+    <string name="support_category_other">Other</string>
+
+    <!-- PetDetailScreen -->
+    <string name="pet_photo_placeholder">Pet photo placeholder</string>
+    <string name="view_pet_photos">View %1$s\'s Photos</string>
+    <string name="mark_as_found">Mark as Found</string>
+    <string name="mark_as_lost">Mark as Lost</string>
+    <string name="age">Age</string>
+    <string name="view_public_profile">View %1$s\'s Public Profile</string>
+    <string name="edit_pet_profile">Edit %1$s\'s Profile</string>
+    <string name="delete_pet_name">Delete %1$s</string>
+    <string name="delete_pet_confirm_title">Delete %1$s?</string>
+    <string name="delete_pet_confirm_message">This action cannot be undone. All data for %1$s will be permanently deleted.</string>
+    <string name="cannot_delete_missing_pet">Cannot Delete Missing Pet</string>
+    <string name="cannot_delete_missing_message">%1$s is currently marked as missing. Please mark them as found before deleting.</string>
+    <string name="mark_found_confirm_title">Mark %1$s as Found?</string>
+    <string name="mark_found_confirm_message">This will close the missing alert for %1$s. Are you sure?</string>
+
+    <!-- PetsListScreen -->
+    <string name="failed_load_pets">Failed to load pets</string>
+    <string name="search">Search</string>
+    <string name="clear_search">Clear search</string>
+    <string name="pet_photo">Pet photo</string>
+    <string name="no_pets">No pets</string>
+    <string name="pet_owner_default">Pet Owner</string>
+    <string name="welcome_back_greeting">Welcome back,</string>
+    <string name="view_all">View All</string>
+    <string name="search_pets_hint">Search by name, breed, species\u2026</string>
+    <string name="quick_actions">Quick Actions</string>
+    <string name="action_add_pet">ADD PET</string>
+    <string name="action_mark_found">MARK FOUND</string>
+    <string name="action_report_missing">REPORT MISSING</string>
+    <string name="action_order_tags">ORDER TAGS</string>
+    <string name="action_replace_tag">REPLACE TAG</string>
+    <string name="success_stories">Success Stories</string>
+    <string name="found_pets">Found Pets</string>
+    <string name="success_stories_subtitle">See happy reunions near you</string>
+    <string name="missing_badge">MISSING</string>
+
+    <!-- QrScannerScreen -->
+    <string name="turn_off_flashlight">Turn off flashlight</string>
+    <string name="turn_on_flashlight">Turn on flashlight</string>
+    <string name="scan_qr_code">Scan QR Code</string>
+    <string name="scan_qr_subtitle">Point your camera at a pet\'s QR tag</string>
+    <string name="camera_access_required">Camera Access Required</string>
+    <string name="camera_access_message">Please enable camera access to scan QR codes</string>
+    <string name="hello_pet_name">Hello! I\'m %1$s</string>
+    <string name="scanned_tag_thanks">You\'ve just scanned my tag. Thank you for helping me!</string>
+    <string name="share_location_with_owner">Share My Location with Owner</string>
+    <string name="owner_notified_message">%1$s\'s owner will receive a notification with your location</string>
+    <string name="share_location_help">Help %1$s\'s owner find them by sharing your location</string>
+    <string name="precise_location">Precise Location</string>
+    <string name="precise_location_desc">Share your exact GPS coordinates</string>
+    <string name="approximate_location">Approximate Location</string>
+    <string name="approximate_location_desc">Share within ~500m accuracy (GDPR compliant)</string>
+    <string name="dont_share_location">Don\'t Share Location</string>
+    <string name="dont_share_location_desc">Just notify the owner that their pet was found</string>
+    <string name="sending">Sending\u2026</string>
+    <string name="confirm_notify_owner">Confirm &amp; Notify Owner</string>
+    <string name="contact_owner">Contact Owner</string>
+    <string name="call_phone">Call: %1$s</string>
+    <string name="email_contact">Email: %1$s</string>
+    <string name="privacy_notice">Your privacy matters. We\'ll only share your location with %1$s\'s owner to help reunite them.</string>
+    <string name="recommended">Recommended</string>
+
+    <!-- PetFormScreen -->
+    <string name="photo">Photo</string>
+    <string name="edit_photo">Edit Photo</string>
+    <string name="photo_selected_hint">Photo selected</string>
+    <string name="choose_photo_hint">Choose a photo of your pet</string>
+    <string name="basic_information">Basic Information</string>
+    <string name="colour">Colour</string>
+    <string name="colour_optional">Colour (optional)</string>
+    <string name="microchip_optional">Microchip Number (optional)</string>
+    <string name="sex">Sex</string>
+    <string name="not_specified">Not specified</string>
+    <string name="neutered_spayed">Neutered/Spayed</string>
+    <string name="health_information">Health Information</string>
+    <string name="medical_notes_hint">Medical notes (conditions, surgeries, etc.)</string>
+    <string name="behavior_notes_hint">Behavior notes (temperament, training, etc.)</string>
+    <string name="save_changes">Save Changes</string>
+    <string name="delete_pet_button">Delete Pet</string>
+    <string name="delete_pet_dialog_title">Delete %1$s?</string>
+    <string name="delete_pet_dialog_message">Are you sure you want to delete this pet? This action cannot be undone.</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+
+    <!-- PhotoGalleryScreen -->
+    <string name="pet_photo_fullscreen">Pet photo fullscreen view</string>
+    <string name="view_photo">View photo</string>
+    <string name="primary_photo">Primary photo</string>
+    <string name="set_as_primary">Set as primary</string>
+    <string name="pet_photos_title">%1$s\'s Photos</string>
+    <string name="add_photos">Add Photos</string>
+    <string name="uploading_photos">Uploading photos\u2026</string>
+    <string name="loading_photos">Loading photos\u2026</string>
+    <string name="no_photos_yet">No photos yet</string>
+    <string name="add_photos_gallery_hint">Add photos to create a gallery for %1$s</string>
+    <string name="add_photos_gallery_generic">Add photos to create a gallery</string>
+    <string name="choose_photo_source">Choose Photo Source</string>
+    <string name="camera">Camera</string>
+    <string name="library">Library</string>
+    <string name="delete_photo">Delete Photo</string>
+    <string name="delete_photo_confirm">Are you sure you want to delete this photo? This action cannot be undone.</string>
+    <string name="photo_tip">Tip: Long press a photo to set as primary or delete</string>
+    <plurals name="photo_count">
+        <item quantity="one">%d photo</item>
+        <item quantity="other">%d photos</item>
+    </plurals>
+
+    <!-- AuthScreen / RegisterScreen -->
+    <string name="invalid_email">Please enter a valid email address</string>
+    <string name="otp_placeholder" translatable="false">000000</string>
+    <string name="resend_code_cooldown">Resend code in %1$ds</string>
+    <string name="resend_code_prompt">Didn\'t receive the code? Resend</string>
+    <string name="terms_login_prefix">By logging in, you agree to our </string>
+    <string name="terms_register_prefix">By registering, you agree to our </string>
+    <string name="terms_and"> and </string>
+
+    <!-- PublicPetProfileScreen -->
+    <string name="public_profile_preview">Public Profile Preview</string>
+    <string name="failed_load_profile">Failed to load profile</string>
+    <string name="public_profile_subtitle">This is how others see %1$s\'s profile</string>
+    <string name="owner_notified_sms_email">%1$s\'s owner will receive an SMS and email with your location</string>
+    <string name="contact_owner_plea">Please let my owner know that you have found me\u2026</string>
+    <string name="contact_info_not_set">Contact info not set up yet</string>
+    <string name="allergies">Allergies</string>
+    <string name="how_it_works">How It Works</string>
+    <string name="help_reunite_pet">Help reunite %1$s with their owner safely</string>
+    <string name="step_share_location">Share Your Location</string>
+    <string name="step_share_location_desc">Tap the button above to share your location with the owner</string>
+    <string name="step_owner_notified">Owner Gets Notified</string>
+    <string name="step_owner_notified_desc">The owner receives an SMS and email with your location</string>
+    <string name="step_quick_reunion">Quick Reunion</string>
+    <string name="step_quick_reunion_desc">The owner can navigate to your location to collect their pet</string>
+    <string name="step_share_location_desc_public">Click the button above to share where you found %1$s</string>
+    <string name="step_owner_notified_desc_public">The owner receives an SMS with your location on Google Maps</string>
+    <string name="step_quick_reunion_desc_public">Stay near the location so the owner can find you and %1$s</string>
+    <string name="contact_owner_plea_full">Please let my owner know that you have found me. Tap on the share location button or call them on the phone number below.</string>
+    <string name="qr_scanner_icon">QR scanner</string>
+    <string name="privacy_notice_icon">Privacy notice</string>
+    <string name="your_privacy_notice">Your privacy matters. We\'ll only share your location with %1$s\'s owner with your explicit consent.</string>
+
+    <!-- AlertsScreens -->
+    <string name="loading_alerts">Loading alerts\u2026</string>
+    <string name="failed_load_alerts">Failed to load alerts</string>
+    <string name="no_active_alerts">No Active Alerts</string>
+    <string name="no_active_alerts_message">You don\'t have any missing pet alerts at the moment</string>
+    <string name="no_found_alerts">No Found Alerts</string>
+    <string name="no_found_alerts_message">No pets have been found recently in your area</string>
+    <plurals name="sighting_count">
+        <item quantity="one">%d sighting</item>
+        <item quantity="other">%d sightings</item>
+    </plurals>
+
+    <!-- OrdersScreen -->
+    <string name="failed_load_orders">Failed to load orders</string>
+    <string name="no_orders">No Orders</string>
+    <string name="no_orders_message">You haven\'t placed any orders yet</string>
+    <string name="order_id_short">Order #%1$s</string>
+    <string name="order_information">Order Information</string>
+    <string name="order_id_label">Order ID</string>
+    <string name="status">Status</string>
+    <string name="total_amount">Total Amount</string>
+    <string name="order_date">Order Date</string>
+    <string name="items">Items</string>
+    <string name="quantity_label">Quantity: %1$d</string>
+    <string name="qr_tag_pending">QR Tag pending</string>
+    <string name="qr_tag_assigned">QR Tag assigned</string>
+    <plurals name="item_count">
+        <item quantity="one">%d item</item>
+        <item quantity="other">%d items</item>
+    </plurals>
+
+    <!-- OrderMoreTagsScreen -->
+    <string name="get_qr_tags_subtitle">Get QR tags for your pets</string>
+    <string name="pet_names">Pet Names</string>
+    <string name="contact_details">Contact Details</string>
+    <string name="shipping_address">Shipping Address</string>
+    <string name="shipping">Shipping</string>
+    <string name="shipping_price">\u00a33.90</string>
+
+    <!-- OrderReplacementTagScreen -->
+    <string name="replacement_subtitle">Lost or damaged? We\'ll send you a new one</string>
+    <string name="free_replacement">Free Replacement</string>
+    <string name="replacement_shipping_info">Your replacement tag will be shipped within 2\u20133 business days\u2026</string>
+
+    <!-- SuccessStoriesScreen -->
+    <string name="loading_success_stories">Loading success stories\u2026</string>
+    <string name="no_success_stories">No Success Stories Nearby</string>
+    <string name="no_success_stories_message">Be the first to share a happy reunion in your area!</string>
+    <string name="found_and_reunited">Found &amp; Reunited</string>
+    <string name="distance_km">%.1f km away</string>
+    <string name="missing_since">Missing since %1$s</string>
+    <string name="found_on">Found %1$s</string>
+    <string name="success_story_marker">Success Story</string>
+    <string name="share">Share</string>
+    <string name="remove">Remove</string>
+    <string name="sighting_reports_desc">Sighting reports</string>
+
+    <!-- MarkLostFoundSheet -->
+    <string name="mark_pet_found_confirm">Mark %1$s as Found?</string>
+    <string name="mark_found_confirm_alert">This will close the missing alert for %1$s. Are you sure?</string>
+    <string name="notification_center">Notification Center</string>
+    <string name="alerts_radius_info">Alerts will be sent within 10km of this location</string>
+    <string name="current_location">Current location</string>
+    <string name="tap_get_location">Tap to get current location\u2026</string>
+    <string name="using_registered_address">Using your registered address</string>
+    <string name="enter_address_notifications">Enter address for notifications</string>
+    <string name="notification_source_current_location">Current Location</string>
+    <string name="notification_source_my_address">My Address</string>
+    <string name="notification_source_custom">Custom</string>
+    <string name="changes_sync_restored">Changes will be synced automatically when connection is restored.</string>
+
+    <!-- MapAppPickerDialog -->
+    <string name="location_title">%1$s Location</string>
+    <string name="approximate_location_note">This is an approximate location (~500m). Search the surrounding area.</string>
+    <string name="coordinates_label">Coordinates: %1$s</string>
+    <string name="open_in">Open in:</string>
+    <string name="google_maps">Google Maps</string>
+    <string name="waze">Waze</string>
+    <string name="other_maps_app">Other Maps App</string>
+    <string name="open_with">Open with\u2026</string>
+
+    <!-- OfflineIndicator -->
+    <string name="sync_now">Sync Now</string>
+
+    <!-- ErrorRetryState -->
+    <string name="something_went_wrong">Something went wrong</string>
+    <string name="try_again">Try Again</string>
+
+    <!-- PetSafetyApp notification map labels -->
+    <string name="map_label_pet_location">Pet Location</string>
+    <string name="map_label_tag_scanned">Pet Tag Scanned</string>
+    <string name="map_label_sighting">Pet Sighting</string>
+
+    <!-- PetFormScreen fallback -->
+    <string name="pet_default_name">Pet</string>
+
+    <!-- Relative time formatting -->
+    <plurals name="time_ago_days">
+        <item quantity="one">%d day ago</item>
+        <item quantity="other">%d days ago</item>
+    </plurals>
+    <plurals name="time_ago_hours">
+        <item quantity="one">%d hour ago</item>
+        <item quantity="other">%d hours ago</item>
+    </plurals>
+    <plurals name="time_ago_minutes">
+        <item quantity="one">%d minute ago</item>
+        <item quantity="other">%d minutes ago</item>
+    </plurals>
+    <string name="time_ago_just_now">just now</string>
+
+    <!-- ViewModel error messages -->
+    <string name="error_session_expired_message">Your session has expired. Please log in again.</string>
+    <string name="error_login_failed">Login failed</string>
+    <string name="error_verification_failed">Verification failed</string>
+    <string name="error_submit_support">Failed to submit support request</string>
+    <string name="error_load_pets">Failed to load pets</string>
+    <string name="error_refresh_pets">Failed to refresh pets</string>
+    <string name="error_load_alerts">Failed to load alerts</string>
+    <string name="error_load_pet_profile">Failed to load pet profile</string>
+    <string name="error_load_stories">Failed to load stories</string>
 </resources>

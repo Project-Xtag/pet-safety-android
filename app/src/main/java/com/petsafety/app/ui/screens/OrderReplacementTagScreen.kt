@@ -50,10 +50,7 @@ import com.petsafety.app.R
 import com.petsafety.app.data.model.Pet
 import com.petsafety.app.data.network.model.AddressDetails
 import com.petsafety.app.data.network.model.CreateReplacementOrderRequest
-import com.petsafety.app.ui.theme.BackgroundLight
 import com.petsafety.app.ui.theme.BrandOrange
-import com.petsafety.app.ui.theme.MutedTextLight
-import com.petsafety.app.ui.theme.PeachBackground
 import com.petsafety.app.ui.theme.TealAccent
 import com.petsafety.app.ui.util.AdaptiveLayout
 import com.petsafety.app.ui.viewmodel.AppStateViewModel
@@ -78,7 +75,7 @@ fun OrderReplacementTagScreen(
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(BackgroundLight),
+            .background(MaterialTheme.colorScheme.background),
         contentAlignment = Alignment.TopCenter
     ) {
         Column(
@@ -91,7 +88,7 @@ fun OrderReplacementTagScreen(
                 modifier = Modifier
                     .fillMaxWidth()
                     .background(
-                        PeachBackground,
+                        MaterialTheme.colorScheme.surfaceVariant,
                         RoundedCornerShape(bottomStart = 28.dp, bottomEnd = 28.dp)
                     )
                     .padding(24.dp)
@@ -126,9 +123,9 @@ fun OrderReplacementTagScreen(
                     )
 
                     Text(
-                        text = "Lost or damaged? We'll send you a new one",
+                        text = stringResource(R.string.replacement_subtitle),
                         style = MaterialTheme.typography.bodyMedium.copy(fontSize = 15.sp),
-                        color = MutedTextLight,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
                         textAlign = TextAlign.Center
                     )
                 }
@@ -147,7 +144,7 @@ fun OrderReplacementTagScreen(
                 Card(
                     modifier = Modifier.fillMaxWidth(),
                     shape = RoundedCornerShape(16.dp),
-                    colors = CardDefaults.cardColors(containerColor = Color.White),
+                    colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
                     elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
                 ) {
                     Row(
@@ -194,7 +191,7 @@ fun OrderReplacementTagScreen(
                             Text(
                                 text = "${pet.species}${pet.breed?.let { " • $it" } ?: ""}",
                                 style = MaterialTheme.typography.bodyMedium.copy(fontSize = 14.sp),
-                                color = MutedTextLight
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
                             )
                         }
                     }
@@ -206,7 +203,7 @@ fun OrderReplacementTagScreen(
                 Card(
                     modifier = Modifier.fillMaxWidth(),
                     shape = RoundedCornerShape(16.dp),
-                    colors = CardDefaults.cardColors(containerColor = Color.White),
+                    colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
                     elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
                 ) {
                     Column(modifier = Modifier.padding(16.dp)) {
@@ -221,7 +218,7 @@ fun OrderReplacementTagScreen(
                                 tint = TealAccent
                             )
                             Text(
-                                text = "Shipping Address",
+                                text = stringResource(R.string.shipping_address),
                                 style = MaterialTheme.typography.titleMedium.copy(
                                     fontSize = 17.sp,
                                     fontWeight = FontWeight.SemiBold
@@ -282,15 +279,15 @@ fun OrderReplacementTagScreen(
                             .padding(16.dp)
                     ) {
                         Text(
-                            text = "Free Replacement",
+                            text = stringResource(R.string.free_replacement),
                             style = MaterialTheme.typography.titleSmall.copy(fontWeight = FontWeight.SemiBold),
                             color = TealAccent
                         )
                         Spacer(modifier = Modifier.height(4.dp))
                         Text(
-                            text = "Your replacement tag will be shipped within 2-3 business days. The QR code remains the same, so existing links will continue to work.",
+                            text = stringResource(R.string.replacement_shipping_info),
                             style = MaterialTheme.typography.bodySmall.copy(fontSize = 13.sp),
-                            color = MutedTextLight
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
                         )
                     }
                 }
@@ -300,7 +297,7 @@ fun OrderReplacementTagScreen(
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .background(BackgroundLight)
+                    .background(MaterialTheme.colorScheme.background)
                     .padding(20.dp)
             ) {
                 Button(
@@ -367,12 +364,12 @@ private fun StyledTextField(
                 Icon(
                     imageVector = it,
                     contentDescription = null,
-                    tint = MutedTextLight
+                    tint = MaterialTheme.colorScheme.onSurfaceVariant
                 )
             }
         },
         colors = OutlinedTextFieldDefaults.colors(
-            unfocusedBorderColor = Color(0xFFE5E5E5),
+            unfocusedBorderColor = MaterialTheme.colorScheme.outline,
             focusedBorderColor = TealAccent
         )
     )

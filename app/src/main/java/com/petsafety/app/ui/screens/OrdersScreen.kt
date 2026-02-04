@@ -39,6 +39,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -47,10 +48,11 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.petsafety.app.R
 import com.petsafety.app.data.model.Order
+import com.petsafety.app.ui.components.ErrorRetryState
 import com.petsafety.app.ui.components.OrdersListSkeleton
-import com.petsafety.app.ui.theme.BackgroundLight
 import com.petsafety.app.ui.theme.BrandOrange
-import com.petsafety.app.ui.theme.MutedTextLight
+import com.petsafety.app.ui.theme.InfoBlue
+import com.petsafety.app.ui.theme.SuccessGreen
 import com.petsafety.app.ui.theme.TealAccent
 import com.petsafety.app.ui.viewmodel.OrdersViewModel
 import java.text.NumberFormat
@@ -65,6 +67,7 @@ fun OrdersScreen(onBack: () -> Unit) {
     val orders by viewModel.orders.collectAsState()
     val isRefreshing by viewModel.isRefreshing.collectAsState()
     val isLoading by viewModel.isLoading.collectAsState()
+    val error by viewModel.errorMessage.collectAsState()
     var selectedOrder by remember { mutableStateOf<Order?>(null) }
 
     LaunchedEffect(Unit) { viewModel.fetchOrders() }
@@ -72,13 +75,19 @@ fun OrdersScreen(onBack: () -> Unit) {
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(BackgroundLight)
+            .background(MaterialTheme.colorScheme.background)
     ) {
         when {
             isLoading && orders.isEmpty() -> {
                 Column(modifier = Modifier.fillMaxSize().padding(top = 16.dp)) {
                     OrdersListSkeleton(itemCount = 3)
                 }
+            }
+            error != null && orders.isEmpty() -> {
+                ErrorRetryState(
+                    message = error ?: stringResource(R.string.failed_load_orders),
+                    onRetry = { viewModel.refresh() }
+                )
             }
             orders.isEmpty() -> {
                 EmptyOrdersState()
@@ -133,7 +142,7 @@ private fun EmptyOrdersState() {
             Box(
                 modifier = Modifier
                     .size(100.dp)
-                    .background(Color(0xFFF2F2F7), CircleShape),
+                    .background(MaterialTheme.colorScheme.surfaceContainerHigh, CircleShape),
                 contentAlignment = Alignment.Center
             ) {
                 Icon(
@@ -145,7 +154,7 @@ private fun EmptyOrdersState() {
             }
 
             Text(
-                text = "No Orders",
+                text = stringResource(R.string.no_orders),
                 style = MaterialTheme.typography.titleLarge.copy(
                     fontSize = 20.sp,
                     fontWeight = FontWeight.Bold
@@ -154,9 +163,9 @@ private fun EmptyOrdersState() {
             )
 
             Text(
-                text = "You haven't placed any orders yet",
+                text = stringResource(R.string.no_orders_message),
                 style = MaterialTheme.typography.bodyMedium.copy(fontSize = 15.sp),
-                color = MutedTextLight,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
                 textAlign = TextAlign.Center,
                 modifier = Modifier.padding(horizontal = 32.dp)
             )
@@ -170,11 +179,11 @@ private fun OrderCard(
     onClick: () -> Unit
 ) {
     val statusColor = when (order.orderStatus.lowercase()) {
-        "completed" -> Color(0xFF34C759)
+        "completed" -> SuccessGreen
         "pending" -> BrandOrange
-        "failed" -> Color.Red
-        "processing" -> Color.Blue
-        else -> Color.Gray
+        "failed" -> MaterialTheme.colorScheme.error
+        "processing" -> InfoBlue
+        else -> MaterialTheme.colorScheme.outline
     }
 
     Card(
@@ -182,7 +191,7 @@ private fun OrderCard(
             .fillMaxWidth()
             .clickable(onClick = onClick),
         shape = RoundedCornerShape(16.dp),
-        colors = CardDefaults.cardColors(containerColor = Color.White),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
     ) {
         Column(
@@ -197,7 +206,7 @@ private fun OrderCard(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Text(
-                    text = "Order #${order.id.take(8)}",
+                    text = stringResource(R.string.order_id_short, order.id.take(8)),
                     style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold),
                     color = MaterialTheme.colorScheme.onSurface
                 )
@@ -233,7 +242,7 @@ private fun OrderCard(
                 Text(
                     text = formatDate(order.createdAt),
                     style = MaterialTheme.typography.bodySmall,
-                    color = MutedTextLight
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
             }
 
@@ -243,9 +252,9 @@ private fun OrderCard(
                     val totalItems = items.sumOf { it.quantity }
                     Spacer(modifier = Modifier.height(4.dp))
                     Text(
-                        text = "$totalItems item${if (totalItems == 1) "" else "s"}",
+                        text = pluralStringResource(R.plurals.item_count, totalItems, totalItems),
                         style = MaterialTheme.typography.bodySmall,
-                        color = MutedTextLight
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
                 }
             }
@@ -259,11 +268,11 @@ private fun OrderDetailScreen(
     onBack: () -> Unit
 ) {
     val statusColor = when (order.orderStatus.lowercase()) {
-        "completed" -> Color(0xFF34C759)
+        "completed" -> SuccessGreen
         "pending" -> BrandOrange
-        "failed" -> Color.Red
-        "processing" -> Color.Blue
-        else -> Color.Gray
+        "failed" -> MaterialTheme.colorScheme.error
+        "processing" -> InfoBlue
+        else -> MaterialTheme.colorScheme.outline
     }
 
     Column(
@@ -272,15 +281,15 @@ private fun OrderDetailScreen(
             .padding(16.dp)
     ) {
         // Order Information Section
-        SectionHeader(title = "Order Information")
+        SectionHeader(title = stringResource(R.string.order_information))
         Card(
             modifier = Modifier.fillMaxWidth(),
             shape = RoundedCornerShape(12.dp),
-            colors = CardDefaults.cardColors(containerColor = Color.White)
+            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface)
         ) {
             Column(modifier = Modifier.padding(16.dp)) {
-                DetailRow(label = "Order ID", value = "#${order.id.take(8)}")
-                HorizontalDivider(color = Color(0xFFF2F2F7), modifier = Modifier.padding(vertical = 12.dp))
+                DetailRow(label = stringResource(R.string.order_id_label), value = "#${order.id.take(8)}")
+                HorizontalDivider(color = MaterialTheme.colorScheme.outlineVariant, modifier = Modifier.padding(vertical = 12.dp))
 
                 Row(
                     modifier = Modifier.fillMaxWidth(),
@@ -288,9 +297,9 @@ private fun OrderDetailScreen(
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Text(
-                        text = "Status",
+                        text = stringResource(R.string.status),
                         style = MaterialTheme.typography.bodyMedium,
-                        color = MutedTextLight
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         Box(
@@ -307,10 +316,10 @@ private fun OrderDetailScreen(
                     }
                 }
 
-                HorizontalDivider(color = Color(0xFFF2F2F7), modifier = Modifier.padding(vertical = 12.dp))
-                DetailRow(label = "Total Amount", value = formatCurrency(order.totalAmount), isBold = true)
-                HorizontalDivider(color = Color(0xFFF2F2F7), modifier = Modifier.padding(vertical = 12.dp))
-                DetailRow(label = "Order Date", value = formatDateLong(order.createdAt))
+                HorizontalDivider(color = MaterialTheme.colorScheme.outlineVariant, modifier = Modifier.padding(vertical = 12.dp))
+                DetailRow(label = stringResource(R.string.total_amount), value = formatCurrency(order.totalAmount), isBold = true)
+                HorizontalDivider(color = MaterialTheme.colorScheme.outlineVariant, modifier = Modifier.padding(vertical = 12.dp))
+                DetailRow(label = stringResource(R.string.order_date), value = formatDateLong(order.createdAt))
             }
         }
 
@@ -318,11 +327,11 @@ private fun OrderDetailScreen(
         order.items?.let { items ->
             if (items.isNotEmpty()) {
                 Spacer(modifier = Modifier.height(24.dp))
-                SectionHeader(title = "Items")
+                SectionHeader(title = stringResource(R.string.items))
                 Card(
                     modifier = Modifier.fillMaxWidth(),
                     shape = RoundedCornerShape(12.dp),
-                    colors = CardDefaults.cardColors(containerColor = Color.White)
+                    colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface)
                 ) {
                     Column(modifier = Modifier.padding(16.dp)) {
                         items.forEachIndexed { index, item ->
@@ -334,9 +343,9 @@ private fun OrderDetailScreen(
                                 )
                                 Spacer(modifier = Modifier.height(4.dp))
                                 Text(
-                                    text = "Quantity: ${item.quantity}",
+                                    text = stringResource(R.string.quantity_label, item.quantity),
                                     style = MaterialTheme.typography.bodySmall,
-                                    color = MutedTextLight
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant
                                 )
                                 Spacer(modifier = Modifier.height(4.dp))
                                 Row(
@@ -345,9 +354,9 @@ private fun OrderDetailScreen(
                                     verticalAlignment = Alignment.CenterVertically
                                 ) {
                                     Text(
-                                        text = if (item.qrTagId == null) "QR Tag pending" else "QR Tag assigned",
+                                        text = if (item.qrTagId == null) stringResource(R.string.qr_tag_pending) else stringResource(R.string.qr_tag_assigned),
                                         style = MaterialTheme.typography.bodySmall,
-                                        color = if (item.qrTagId == null) BrandOrange else Color.Blue
+                                        color = if (item.qrTagId == null) BrandOrange else InfoBlue
                                     )
                                     Text(
                                         text = formatCurrency(item.price),
@@ -358,7 +367,7 @@ private fun OrderDetailScreen(
                             }
                             if (index < items.size - 1) {
                                 HorizontalDivider(
-                                    color = Color(0xFFF2F2F7),
+                                    color = MaterialTheme.colorScheme.outlineVariant,
                                     modifier = Modifier.padding(vertical = 12.dp)
                                 )
                             }
@@ -379,7 +388,7 @@ private fun SectionHeader(title: String) {
             fontWeight = FontWeight.SemiBold,
             letterSpacing = 0.5.sp
         ),
-        color = MutedTextLight,
+        color = MaterialTheme.colorScheme.onSurfaceVariant,
         modifier = Modifier.padding(start = 16.dp, bottom = 8.dp)
     )
 }
@@ -398,7 +407,7 @@ private fun DetailRow(
         Text(
             text = label,
             style = MaterialTheme.typography.bodyMedium,
-            color = MutedTextLight
+            color = MaterialTheme.colorScheme.onSurfaceVariant
         )
         Text(
             text = value,

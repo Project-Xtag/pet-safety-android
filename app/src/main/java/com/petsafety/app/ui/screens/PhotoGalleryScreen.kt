@@ -62,6 +62,7 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -73,9 +74,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.AsyncImage
 import com.petsafety.app.R
 import com.petsafety.app.data.model.PetPhoto
-import com.petsafety.app.ui.theme.BackgroundLight
 import com.petsafety.app.ui.theme.BrandOrange
-import com.petsafety.app.ui.theme.MutedTextLight
 import com.petsafety.app.ui.theme.TealAccent
 import com.petsafety.app.ui.viewmodel.AppStateViewModel
 import com.petsafety.app.ui.viewmodel.PetPhotosViewModel
@@ -143,7 +142,7 @@ fun PhotoGalleryScreen(
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(BackgroundLight)
+            .background(MaterialTheme.colorScheme.background)
     ) {
         Column(
             modifier = Modifier.fillMaxSize()
@@ -163,7 +162,7 @@ fun PhotoGalleryScreen(
                 ) {
                     Icon(
                         imageVector = Icons.Default.ArrowBack,
-                        contentDescription = "Back",
+                        contentDescription = stringResource(R.string.back),
                         tint = MaterialTheme.colorScheme.onSurface
                     )
                 }
@@ -174,7 +173,7 @@ fun PhotoGalleryScreen(
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
                     Text(
-                        text = if (petName.isNotBlank()) "$petName's Photos" else stringResource(R.string.photo_gallery_title),
+                        text = if (petName.isNotBlank()) stringResource(R.string.pet_photos_title, petName) else stringResource(R.string.photo_gallery_title),
                         style = MaterialTheme.typography.headlineMedium.copy(
                             fontSize = 24.sp,
                             fontWeight = FontWeight.Bold
@@ -185,9 +184,9 @@ fun PhotoGalleryScreen(
                     if (photos.isNotEmpty()) {
                         Spacer(modifier = Modifier.height(4.dp))
                         Text(
-                            text = "${photos.size} photo${if (photos.size == 1) "" else "s"}",
+                            text = pluralStringResource(R.plurals.photo_count, photos.size, photos.size),
                             style = MaterialTheme.typography.bodyMedium.copy(fontSize = 15.sp),
-                            color = MutedTextLight
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
                         )
                     }
                 }
@@ -217,7 +216,7 @@ fun PhotoGalleryScreen(
                 )
                 Spacer(modifier = Modifier.width(8.dp))
                 Text(
-                    text = "Add Photos",
+                    text = stringResource(R.string.add_photos),
                     style = MaterialTheme.typography.labelLarge.copy(
                         fontSize = 16.sp,
                         fontWeight = FontWeight.SemiBold
@@ -239,9 +238,9 @@ fun PhotoGalleryScreen(
                     )
                     Spacer(modifier = Modifier.height(8.dp))
                     Text(
-                        text = "Uploading photos...",
+                        text = stringResource(R.string.uploading_photos),
                         style = MaterialTheme.typography.bodySmall,
-                        color = MutedTextLight
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
                 }
             }
@@ -261,8 +260,8 @@ fun PhotoGalleryScreen(
                         ) {
                             CircularProgressIndicator(color = TealAccent)
                             Text(
-                                text = "Loading photos...",
-                                color = MutedTextLight
+                                text = stringResource(R.string.loading_photos),
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
                             )
                         }
                     }
@@ -307,9 +306,9 @@ fun PhotoGalleryScreen(
 
                     // Tip
                     Text(
-                        text = "Tip: Long press a photo to set as primary or delete",
+                        text = stringResource(R.string.photo_tip),
                         style = MaterialTheme.typography.bodySmall,
-                        color = MutedTextLight,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
                         textAlign = TextAlign.Center,
                         modifier = Modifier
                             .fillMaxWidth()
@@ -332,7 +331,7 @@ fun PhotoGalleryScreen(
                     .padding(24.dp)
             ) {
                 Text(
-                    text = "Choose Photo Source",
+                    text = stringResource(R.string.choose_photo_source),
                     style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.Bold),
                     modifier = Modifier.padding(bottom = 24.dp)
                 )
@@ -343,7 +342,7 @@ fun PhotoGalleryScreen(
                 ) {
                     SourceOption(
                         icon = Icons.Default.CameraAlt,
-                        label = "Camera",
+                        label = stringResource(R.string.camera),
                         onClick = {
                             showSourcePicker = false
                             takePhoto.launch(null)
@@ -352,7 +351,7 @@ fun PhotoGalleryScreen(
                     )
                     SourceOption(
                         icon = Icons.Default.PhotoLibrary,
-                        label = "Library",
+                        label = stringResource(R.string.library),
                         onClick = {
                             showSourcePicker = false
                             pickImages.launch("image/*")
@@ -373,8 +372,8 @@ fun PhotoGalleryScreen(
                 showDeleteDialog = false
                 photoToDelete = null
             },
-            title = { Text("Delete Photo") },
-            text = { Text("Are you sure you want to delete this photo? This action cannot be undone.") },
+            title = { Text(stringResource(R.string.delete_photo)) },
+            text = { Text(stringResource(R.string.delete_photo_confirm)) },
             confirmButton = {
                 TextButton(
                     onClick = {
@@ -389,7 +388,7 @@ fun PhotoGalleryScreen(
                     },
                     colors = ButtonDefaults.textButtonColors(contentColor = Color.Red)
                 ) {
-                    Text("Delete")
+                    Text(stringResource(R.string.delete))
                 }
             },
             dismissButton = {
@@ -416,7 +415,7 @@ fun PhotoGalleryScreen(
             ) {
                 AsyncImage(
                     model = photo.photoUrl,
-                    contentDescription = null,
+                    contentDescription = stringResource(R.string.pet_photo_fullscreen),
                     modifier = Modifier
                         .fillMaxSize()
                         .align(Alignment.Center),
@@ -431,7 +430,7 @@ fun PhotoGalleryScreen(
                 ) {
                     Icon(
                         imageVector = Icons.Default.Close,
-                        contentDescription = "Close",
+                        contentDescription = stringResource(R.string.close),
                         tint = Color.White,
                         modifier = Modifier.size(32.dp)
                     )
@@ -454,19 +453,19 @@ private fun EmptyPhotosState(petName: String) {
             Box(
                 modifier = Modifier
                     .size(100.dp)
-                    .background(Color(0xFFF2F2F7), CircleShape),
+                    .background(MaterialTheme.colorScheme.surfaceContainerHigh, CircleShape),
                 contentAlignment = Alignment.Center
             ) {
                 Icon(
                     imageVector = Icons.Default.Photo,
-                    contentDescription = null,
+                    contentDescription = stringResource(R.string.no_photos_yet),
                     modifier = Modifier.size(44.dp),
                     tint = TealAccent
                 )
             }
 
             Text(
-                text = "No photos yet",
+                text = stringResource(R.string.no_photos_yet),
                 style = MaterialTheme.typography.titleLarge.copy(
                     fontSize = 20.sp,
                     fontWeight = FontWeight.Bold
@@ -476,11 +475,11 @@ private fun EmptyPhotosState(petName: String) {
 
             Text(
                 text = if (petName.isNotBlank())
-                    "Add photos to create a gallery for $petName"
+                    stringResource(R.string.add_photos_gallery_hint, petName)
                 else
-                    "Add photos to create a gallery",
+                    stringResource(R.string.add_photos_gallery_generic),
                 style = MaterialTheme.typography.bodyMedium.copy(fontSize = 15.sp),
-                color = MutedTextLight,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
                 textAlign = TextAlign.Center,
                 modifier = Modifier.padding(horizontal = 32.dp)
             )
@@ -508,17 +507,17 @@ private fun PhotoGridItem(
                 .fillMaxSize()
                 .clickable(onClick = onClick),
             shape = RoundedCornerShape(12.dp),
-            colors = CardDefaults.cardColors(containerColor = Color(0xFFF2F2F7))
+            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainerHigh)
         ) {
             Box(modifier = Modifier.fillMaxSize()) {
                 AsyncImage(
                     model = photo.photoUrl,
-                    contentDescription = null,
+                    contentDescription = stringResource(R.string.pet_photo),
                     modifier = Modifier
                         .fillMaxSize()
                         .clickable(
                             onClick = onClick,
-                            onClickLabel = "View photo"
+                            onClickLabel = stringResource(R.string.view_photo)
                         ),
                     contentScale = ContentScale.Crop
                 )
@@ -529,7 +528,7 @@ private fun PhotoGridItem(
                         .fillMaxSize()
                         .clickable(
                             onClick = onClick,
-                            onClickLabel = "View"
+                            onClickLabel = stringResource(R.string.view_photo)
                         )
                 )
             }
@@ -548,12 +547,12 @@ private fun PhotoGridItem(
             ) {
                 Icon(
                     imageVector = Icons.Default.Star,
-                    contentDescription = null,
+                    contentDescription = stringResource(R.string.primary_photo),
                     modifier = Modifier.size(12.dp),
                     tint = Color.White
                 )
                 Text(
-                    text = "Primary",
+                    text = stringResource(R.string.primary),
                     style = MaterialTheme.typography.labelSmall.copy(
                         fontSize = 10.sp,
                         fontWeight = FontWeight.SemiBold
@@ -579,7 +578,7 @@ private fun PhotoGridItem(
                 ) {
                     Icon(
                         imageVector = Icons.Default.Star,
-                        contentDescription = "Set as primary",
+                        contentDescription = stringResource(R.string.set_as_primary),
                         modifier = Modifier.size(16.dp),
                         tint = BrandOrange
                     )
@@ -593,7 +592,7 @@ private fun PhotoGridItem(
             ) {
                 Icon(
                     imageVector = Icons.Default.Delete,
-                    contentDescription = "Delete",
+                    contentDescription = stringResource(R.string.delete),
                     modifier = Modifier.size(16.dp),
                     tint = Color.Red
                 )

@@ -23,6 +23,7 @@ import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.LocationOn
 import androidx.compose.material.icons.filled.Pets
 import androidx.compose.material.icons.filled.Warning
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.FilterChipDefaults
@@ -31,6 +32,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -39,6 +41,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.hapticfeedback.HapticFeedbackType
+import androidx.compose.ui.platform.LocalHapticFeedback
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
@@ -53,7 +57,7 @@ import com.petsafety.app.R
 import com.petsafety.app.data.model.LocationCoordinate
 import com.petsafety.app.data.model.Pet
 import com.petsafety.app.ui.theme.BrandOrange
-import com.petsafety.app.ui.theme.MutedTextLight
+import com.petsafety.app.ui.theme.SuccessGreen
 import com.petsafety.app.ui.theme.TealAccent
 
 /**
@@ -77,6 +81,8 @@ fun MarkFoundSheet(
     onMarkFound: (Pet) -> Unit
 ) {
     val sheetState = rememberModalBottomSheetState()
+    val haptic = LocalHapticFeedback.current
+    var petToConfirm by remember { mutableStateOf<Pet?>(null) }
 
     ModalBottomSheet(
         onDismissRequest = onDismiss,
@@ -96,13 +102,13 @@ fun MarkFoundSheet(
                 Box(
                     modifier = Modifier
                         .size(40.dp)
-                        .background(Color(0xFF34C759).copy(alpha = 0.15f), CircleShape),
+                        .background(SuccessGreen.copy(alpha = 0.15f), CircleShape),
                     contentAlignment = Alignment.Center
                 ) {
                     Icon(
                         imageVector = Icons.Default.CheckCircle,
-                        contentDescription = null,
-                        tint = Color(0xFF34C759),
+                        contentDescription = stringResource(R.string.mark_as_found),
+                        tint = SuccessGreen,
                         modifier = Modifier.size(20.dp)
                     )
                 }
@@ -119,7 +125,7 @@ fun MarkFoundSheet(
                     Text(
                         text = stringResource(R.string.select_pet_to_mark_found),
                         style = MaterialTheme.typography.bodyMedium.copy(fontSize = 14.sp),
-                        color = MutedTextLight
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
                 }
             }
@@ -133,11 +139,38 @@ fun MarkFoundSheet(
                 items(missingPets) { pet ->
                     PetSelectionRow(
                         pet = pet,
-                        onClick = { onMarkFound(pet) }
+                        onClick = { petToConfirm = pet }
                     )
                 }
             }
         }
+    }
+
+    if (petToConfirm != null) {
+        AlertDialog(
+            onDismissRequest = { petToConfirm = null },
+            title = { Text(stringResource(R.string.mark_pet_found_confirm, petToConfirm!!.name)) },
+            text = {
+                Text(stringResource(R.string.mark_found_confirm_alert, petToConfirm!!.name))
+            },
+            confirmButton = {
+                TextButton(
+                    onClick = {
+                        haptic.performHapticFeedback(HapticFeedbackType.LongPress)
+                        val pet = petToConfirm!!
+                        petToConfirm = null
+                        onMarkFound(pet)
+                    }
+                ) {
+                    Text(stringResource(R.string.mark_as_found))
+                }
+            },
+            dismissButton = {
+                TextButton(onClick = { petToConfirm = null }) {
+                    Text(stringResource(R.string.cancel))
+                }
+            }
+        )
     }
 }
 
@@ -162,6 +195,8 @@ fun ReportMissingSheet(
     onRequestLocation: ((LocationCoordinate?) -> Unit) -> Unit
 ) {
     val sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true)
+    val hapticMissing = LocalHapticFeedback.current
+    val currentLocationLabel = stringResource(R.string.current_location)
     var selectedPet by remember { mutableStateOf<Pet?>(null) }
     var lastSeenAddress by remember { mutableStateOf("") }
     var description by remember { mutableStateOf("") }
@@ -189,13 +224,13 @@ fun ReportMissingSheet(
                 Box(
                     modifier = Modifier
                         .size(40.dp)
-                        .background(Color.Red.copy(alpha = 0.15f), CircleShape),
+                        .background(MaterialTheme.colorScheme.error.copy(alpha = 0.15f), CircleShape),
                     contentAlignment = Alignment.Center
                 ) {
                     Icon(
                         imageVector = Icons.Default.Warning,
-                        contentDescription = null,
-                        tint = Color.Red,
+                        contentDescription = stringResource(R.string.report_missing),
+                        tint = MaterialTheme.colorScheme.error,
                         modifier = Modifier.size(20.dp)
                     )
                 }
@@ -215,7 +250,7 @@ fun ReportMissingSheet(
                         else
                             stringResource(R.string.add_missing_details),
                         style = MaterialTheme.typography.bodyMedium.copy(fontSize = 14.sp),
-                        color = MutedTextLight
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
                 }
             }
@@ -267,7 +302,7 @@ fun ReportMissingSheet(
                         modifier = Modifier
                             .weight(1f)
                             .clip(RoundedCornerShape(12.dp))
-                            .background(Color(0xFFF2F2F7))
+                            .background(MaterialTheme.colorScheme.surfaceContainerHigh)
                             .padding(horizontal = 16.dp, vertical = 14.dp)
                     ) {
                         BasicTextField(
@@ -283,7 +318,7 @@ fun ReportMissingSheet(
                                     Text(
                                         text = stringResource(R.string.enter_address_or_location),
                                         style = MaterialTheme.typography.bodyMedium,
-                                        color = MutedTextLight
+                                        color = MaterialTheme.colorScheme.onSurfaceVariant
                                     )
                                 }
                                 innerTextField()
@@ -301,7 +336,7 @@ fun ReportMissingSheet(
                                 onRequestLocation { location ->
                                     currentLocation = location
                                     if (location != null) {
-                                        lastSeenAddress = "Current location"
+                                        lastSeenAddress = currentLocationLabel
                                     }
                                 }
                             },
@@ -334,7 +369,7 @@ fun ReportMissingSheet(
                         .fillMaxWidth()
                         .height(100.dp)
                         .clip(RoundedCornerShape(12.dp))
-                        .background(Color(0xFFF2F2F7))
+                        .background(MaterialTheme.colorScheme.surfaceContainerHigh)
                         .padding(horizontal = 16.dp, vertical = 14.dp)
                 ) {
                     BasicTextField(
@@ -350,7 +385,7 @@ fun ReportMissingSheet(
                                 Text(
                                     text = stringResource(R.string.describe_circumstances),
                                     style = MaterialTheme.typography.bodyMedium,
-                                    color = MutedTextLight
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant
                                 )
                             }
                             innerTextField()
@@ -362,7 +397,7 @@ fun ReportMissingSheet(
 
                 // Notification Center Selection
                 Text(
-                    text = "Notification Center",
+                    text = stringResource(R.string.notification_center),
                     style = MaterialTheme.typography.bodyMedium.copy(
                         fontSize = 14.sp,
                         fontWeight = FontWeight.SemiBold
@@ -370,9 +405,9 @@ fun ReportMissingSheet(
                     color = MaterialTheme.colorScheme.onSurface
                 )
                 Text(
-                    text = "Alerts will be sent within 10km of this location",
+                    text = stringResource(R.string.alerts_radius_info),
                     style = MaterialTheme.typography.bodySmall.copy(fontSize = 12.sp),
-                    color = MutedTextLight
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
                 Spacer(modifier = Modifier.height(8.dp))
 
@@ -393,7 +428,11 @@ fun ReportMissingSheet(
                             },
                             label = {
                                 Text(
-                                    text = source.displayName,
+                                    text = when (source) {
+                                        NotificationCenterSource.CURRENT_LOCATION -> stringResource(R.string.notification_source_current_location)
+                                        NotificationCenterSource.REGISTERED_ADDRESS -> stringResource(R.string.notification_source_my_address)
+                                        NotificationCenterSource.CUSTOM_ADDRESS -> stringResource(R.string.notification_source_custom)
+                                    },
                                     fontSize = 11.sp
                                 )
                             },
@@ -422,16 +461,16 @@ fun ReportMissingSheet(
                                 )
                                 Spacer(modifier = Modifier.width(4.dp))
                                 Text(
-                                    text = "Lat: %.6f, Lng: %.6f".format(currentLocation!!.lat, currentLocation!!.lng),
+                                    text = stringResource(R.string.coordinates_label, "%.6f, %.6f".format(currentLocation!!.lat, currentLocation!!.lng)),
                                     style = MaterialTheme.typography.bodySmall,
-                                    color = MutedTextLight
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant
                                 )
                             }
                         } else {
                             Text(
-                                text = "Tap to get current location...",
+                                text = stringResource(R.string.tap_get_location),
                                 style = MaterialTheme.typography.bodySmall,
-                                color = MutedTextLight,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant,
                                 modifier = Modifier.padding(top = 8.dp)
                             )
                         }
@@ -444,14 +483,14 @@ fun ReportMissingSheet(
                             Icon(
                                 imageVector = Icons.Default.Home,
                                 contentDescription = null,
-                                tint = Color(0xFF34C759),
+                                tint = SuccessGreen,
                                 modifier = Modifier.size(16.dp)
                             )
                             Spacer(modifier = Modifier.width(4.dp))
                             Text(
-                                text = "Using your registered address",
+                                text = stringResource(R.string.using_registered_address),
                                 style = MaterialTheme.typography.bodySmall,
-                                color = MutedTextLight
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
                             )
                         }
                     }
@@ -461,7 +500,7 @@ fun ReportMissingSheet(
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .clip(RoundedCornerShape(12.dp))
-                                .background(Color(0xFFF2F2F7))
+                                .background(MaterialTheme.colorScheme.surfaceContainerHigh)
                                 .padding(horizontal = 16.dp, vertical = 14.dp)
                         ) {
                             BasicTextField(
@@ -475,9 +514,9 @@ fun ReportMissingSheet(
                                 decorationBox = { innerTextField ->
                                     if (customNotificationAddress.isEmpty()) {
                                         Text(
-                                            text = "Enter address for notifications",
+                                            text = stringResource(R.string.enter_address_notifications),
                                             style = MaterialTheme.typography.bodyMedium,
-                                            color = MutedTextLight
+                                            color = MaterialTheme.colorScheme.onSurfaceVariant
                                         )
                                     }
                                     innerTextField()
@@ -493,6 +532,7 @@ fun ReportMissingSheet(
                 BrandButton(
                     text = stringResource(R.string.report_missing),
                     onClick = {
+                        hapticMissing.performHapticFeedback(HapticFeedbackType.LongPress)
                         val notifLocation = if (notificationCenterSource == NotificationCenterSource.CURRENT_LOCATION) {
                             currentLocation
                         } else null
@@ -504,7 +544,7 @@ fun ReportMissingSheet(
                         onReportMissing(
                             pet,
                             currentLocation,
-                            lastSeenAddress.takeIf { it.isNotBlank() && it != "Current location" },
+                            lastSeenAddress.takeIf { it.isNotBlank() && it != currentLocationLabel },
                             description.takeIf { it.isNotBlank() },
                             notificationCenterSource.value,
                             notifLocation,
@@ -527,7 +567,7 @@ private fun PetSelectionRow(
         modifier = Modifier
             .fillMaxWidth()
             .clip(RoundedCornerShape(12.dp))
-            .background(Color(0xFFF2F2F7))
+            .background(MaterialTheme.colorScheme.surfaceContainerHigh)
             .clickable(onClick = onClick)
             .padding(12.dp),
         verticalAlignment = Alignment.CenterVertically
@@ -546,14 +586,14 @@ private fun PetSelectionRow(
             Box(
                 modifier = Modifier
                     .size(50.dp)
-                    .background(Color.White, RoundedCornerShape(10.dp)),
+                    .background(MaterialTheme.colorScheme.surface, RoundedCornerShape(10.dp)),
                 contentAlignment = Alignment.Center
             ) {
                 Icon(
                     imageVector = Icons.Default.Pets,
                     contentDescription = null,
                     modifier = Modifier.size(24.dp),
-                    tint = MutedTextLight
+                    tint = MaterialTheme.colorScheme.onSurfaceVariant
                 )
             }
         }
@@ -575,7 +615,7 @@ private fun PetSelectionRow(
             Text(
                 text = "${pet.species} ${pet.breed?.let { "- $it" } ?: ""}",
                 style = MaterialTheme.typography.bodySmall.copy(fontSize = 13.sp),
-                color = MutedTextLight,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis
             )

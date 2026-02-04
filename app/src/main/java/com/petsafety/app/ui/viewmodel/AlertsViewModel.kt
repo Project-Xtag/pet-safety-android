@@ -1,7 +1,9 @@
 package com.petsafety.app.ui.viewmodel
 
+import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.petsafety.app.R
 import com.petsafety.app.data.model.LocationCoordinate
 import com.petsafety.app.data.model.MissingPetAlert
 import com.petsafety.app.data.repository.AlertsRepository
@@ -15,6 +17,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class AlertsViewModel @Inject constructor(
+    private val application: Application,
     private val repository: AlertsRepository
 ) : ViewModel() {
     private val _alerts = MutableStateFlow<List<MissingPetAlert>>(emptyList())
@@ -47,7 +50,7 @@ class AlertsViewModel @Inject constructor(
                 _alerts.value = result.first
                 _errorMessage.value = result.second
             } catch (ex: Exception) {
-                _errorMessage.value = ex.localizedMessage ?: "Failed to load alerts"
+                _errorMessage.value = ex.localizedMessage ?: application.getString(R.string.error_load_alerts)
             } finally {
                 _isLoading.value = false
             }

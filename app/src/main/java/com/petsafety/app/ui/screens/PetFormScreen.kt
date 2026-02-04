@@ -60,9 +60,7 @@ import com.petsafety.app.data.network.model.UpdatePetRequest
 import com.petsafety.app.ui.components.PhotoCaptureSheet
 import com.petsafety.app.ui.components.SearchableDropdown
 import com.petsafety.app.ui.components.SimpleDropdown
-import com.petsafety.app.ui.theme.BackgroundLight
 import com.petsafety.app.ui.theme.BrandOrange
-import com.petsafety.app.ui.theme.MutedTextLight
 import com.petsafety.app.ui.theme.TealAccent
 import com.petsafety.app.ui.util.AdaptiveLayout
 import com.petsafety.app.ui.viewmodel.AppStateViewModel
@@ -101,12 +99,15 @@ fun PetFormScreen(
     var sex by remember { mutableStateOf(existing?.sex ?: "") }
     var isNeutered by remember { mutableStateOf(existing?.isNeutered ?: false) }
     val sexOptions = listOf("", "Male", "Female")
+    val notSpecifiedLabel = stringResource(R.string.not_specified)
+    val maleLabel = stringResource(R.string.male)
+    val femaleLabel = stringResource(R.string.female)
 
     val petCreatedMessage = stringResource(R.string.pet_created)
     val petCreateFailedMessage = stringResource(R.string.pet_create_failed)
     val petUpdatedMessage = stringResource(R.string.pet_updated)
     val petUpdateFailedMessage = stringResource(R.string.pet_update_failed)
-    val petDeletedMessage = stringResource(R.string.pet_deleted, existing?.name ?: "Pet")
+    val petDeletedMessage = stringResource(R.string.pet_deleted, existing?.name ?: stringResource(R.string.pet_default_name))
     val deleteFailedMessage = stringResource(R.string.delete_pet_failed)
 
     LaunchedEffect(species) {
@@ -120,7 +121,7 @@ fun PetFormScreen(
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(BackgroundLight),
+            .background(MaterialTheme.colorScheme.background),
         contentAlignment = Alignment.TopCenter
     ) {
         Column(
@@ -143,7 +144,7 @@ fun PetFormScreen(
             Spacer(modifier = Modifier.height(24.dp))
 
             // Photo Section
-            FormSection(title = "Photo") {
+            FormSection(title = stringResource(R.string.photo)) {
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
@@ -155,7 +156,7 @@ fun PetFormScreen(
                         modifier = Modifier
                             .size(100.dp)
                             .clip(RoundedCornerShape(12.dp))
-                            .background(Color(0xFFF2F2F7)),
+                            .background(MaterialTheme.colorScheme.surfaceContainerHigh),
                         contentAlignment = Alignment.Center
                     ) {
                         when {
@@ -181,7 +182,7 @@ fun PetFormScreen(
                                     imageVector = Icons.Default.Pets,
                                     contentDescription = null,
                                     modifier = Modifier.size(40.dp),
-                                    tint = MutedTextLight
+                                    tint = MaterialTheme.colorScheme.onSurfaceVariant
                                 )
                             }
                         }
@@ -191,21 +192,21 @@ fun PetFormScreen(
 
                     Column(modifier = Modifier.weight(1f)) {
                         Text(
-                            text = if (isEditMode) "Edit Photo" else "Select Photo",
+                            text = if (isEditMode) stringResource(R.string.edit_photo) else stringResource(R.string.select_photo),
                             style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.SemiBold),
                             color = MaterialTheme.colorScheme.onSurface
                         )
                         Text(
-                            text = if (capturedPhotoBytes != null) "Photo selected" else "Choose a photo of your pet",
+                            text = if (capturedPhotoBytes != null) stringResource(R.string.photo_selected_hint) else stringResource(R.string.choose_photo_hint),
                             style = MaterialTheme.typography.bodySmall,
-                            color = MutedTextLight
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
                         )
                     }
 
                     Icon(
                         imageVector = Icons.Default.ChevronRight,
                         contentDescription = null,
-                        tint = Color(0xFFC7C7CC)
+                        tint = MaterialTheme.colorScheme.onSurfaceVariant
                     )
                 }
             }
@@ -213,22 +214,22 @@ fun PetFormScreen(
             Spacer(modifier = Modifier.height(16.dp))
 
             // Basic Information Section
-            FormSection(title = "Basic Information") {
+            FormSection(title = stringResource(R.string.basic_information)) {
                 FormTextField(
-                    label = "Name",
+                    label = stringResource(R.string.name),
                     value = name,
                     onValueChange = { name = it },
-                    placeholder = "Pet Name"
+                    placeholder = stringResource(R.string.pet_name)
                 )
 
                 if (isEditMode) {
                     FormReadOnlyField(
-                        label = "Species",
+                        label = stringResource(R.string.species),
                         value = species.replaceFirstChar { it.uppercase() }
                     )
                 } else {
                     FormDropdown(
-                        label = "Species",
+                        label = stringResource(R.string.species),
                         items = speciesOptions,
                         selectedItem = species,
                         onItemSelected = { species = it }
@@ -246,29 +247,29 @@ fun PetFormScreen(
                 )
 
                 FormTextField(
-                    label = "Colour",
+                    label = stringResource(R.string.colour),
                     value = color,
                     onValueChange = { color = it },
-                    placeholder = "Colour (optional)"
+                    placeholder = stringResource(R.string.colour_optional)
                 )
 
                 FormTextField(
-                    label = "Microchip",
+                    label = stringResource(R.string.microchip),
                     value = microchipNumber,
                     onValueChange = { microchipNumber = it },
-                    placeholder = "Microchip Number (optional)"
+                    placeholder = stringResource(R.string.microchip_optional)
                 )
 
                 FormDropdown(
-                    label = "Sex",
+                    label = stringResource(R.string.sex),
                     items = sexOptions,
                     selectedItem = sex,
                     onItemSelected = { sex = it },
-                    displayTransform = { if (it.isEmpty()) "Not specified" else it }
+                    displayTransform = { when (it) { "" -> notSpecifiedLabel; "Male" -> maleLabel; "Female" -> femaleLabel; else -> it } }
                 )
 
                 FormToggle(
-                    label = "Neutered/Spayed",
+                    label = stringResource(R.string.neutered_spayed),
                     checked = isNeutered,
                     onCheckedChange = { isNeutered = it }
                 )
@@ -277,22 +278,22 @@ fun PetFormScreen(
             Spacer(modifier = Modifier.height(16.dp))
 
             // Health Information Section
-            FormSection(title = "Health Information") {
+            FormSection(title = stringResource(R.string.health_information)) {
                 FormTextArea(
                     value = medicalNotes,
                     onValueChange = { medicalNotes = it },
-                    placeholder = "Medical notes (conditions, surgeries, etc.)"
+                    placeholder = stringResource(R.string.medical_notes_hint)
                 )
             }
 
             Spacer(modifier = Modifier.height(16.dp))
 
             // Additional Information Section
-            FormSection(title = "Additional Information") {
+            FormSection(title = stringResource(R.string.additional_information)) {
                 FormTextArea(
                     value = notes,
                     onValueChange = { notes = it },
-                    placeholder = "Behavior notes (temperament, training, etc.)"
+                    placeholder = stringResource(R.string.behavior_notes_hint)
                 )
             }
 
@@ -362,7 +363,7 @@ fun PetFormScreen(
                 colors = ButtonDefaults.buttonColors(containerColor = BrandOrange)
             ) {
                 Text(
-                    text = "Save Changes",
+                    text = stringResource(R.string.save_changes),
                     style = MaterialTheme.typography.labelLarge.copy(
                         fontSize = 16.sp,
                         fontWeight = FontWeight.SemiBold
@@ -379,7 +380,7 @@ fun PetFormScreen(
             ) {
                 Text(
                     text = stringResource(R.string.cancel),
-                    color = MutedTextLight
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
             }
 
@@ -394,8 +395,8 @@ fun PetFormScreen(
                         .height(52.dp),
                     shape = RoundedCornerShape(16.dp),
                     colors = ButtonDefaults.buttonColors(
-                        containerColor = Color.Red.copy(alpha = 0.1f),
-                        contentColor = Color.Red
+                        containerColor = MaterialTheme.colorScheme.error.copy(alpha = 0.1f),
+                        contentColor = MaterialTheme.colorScheme.error
                     )
                 ) {
                     Icon(
@@ -405,7 +406,7 @@ fun PetFormScreen(
                     )
                     Spacer(modifier = Modifier.width(8.dp))
                     Text(
-                        text = "Delete Pet",
+                        text = stringResource(R.string.delete_pet_button),
                         style = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.SemiBold)
                     )
                 }
@@ -430,9 +431,9 @@ fun PetFormScreen(
     if (showDeleteDialog && existing != null) {
         AlertDialog(
             onDismissRequest = { showDeleteDialog = false },
-            title = { Text("Delete ${existing.name}?") },
+            title = { Text(stringResource(R.string.delete_pet_dialog_title, existing.name)) },
             text = {
-                Text("Are you sure you want to delete this pet? This action cannot be undone.")
+                Text(stringResource(R.string.delete_pet_dialog_message))
             },
             confirmButton = {
                 TextButton(
@@ -447,9 +448,9 @@ fun PetFormScreen(
                         }
                         showDeleteDialog = false
                     },
-                    colors = ButtonDefaults.textButtonColors(contentColor = Color.Red)
+                    colors = ButtonDefaults.textButtonColors(contentColor = MaterialTheme.colorScheme.error)
                 ) {
-                    Text("Delete")
+                    Text(stringResource(R.string.delete))
                 }
             },
             dismissButton = {
@@ -474,13 +475,13 @@ private fun FormSection(
                 fontWeight = FontWeight.SemiBold,
                 letterSpacing = 0.5.sp
             ),
-            color = MutedTextLight,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
             modifier = Modifier.padding(start = 16.dp, bottom = 8.dp)
         )
         Card(
             modifier = Modifier.fillMaxWidth(),
             shape = RoundedCornerShape(12.dp),
-            colors = CardDefaults.cardColors(containerColor = Color.White)
+            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface)
         ) {
             Column(modifier = Modifier.padding(16.dp)) {
                 content()
@@ -511,7 +512,7 @@ private fun FormTextField(
         OutlinedTextField(
             value = value,
             onValueChange = onValueChange,
-            placeholder = { Text(placeholder, color = MutedTextLight) },
+            placeholder = { Text(placeholder, color = MaterialTheme.colorScheme.onSurfaceVariant) },
             modifier = Modifier.weight(1f),
             singleLine = true,
             colors = OutlinedTextFieldDefaults.colors(
@@ -592,7 +593,7 @@ private fun FormBreedField(
         verticalAlignment = Alignment.CenterVertically
     ) {
         Text(
-            text = "Breed",
+            text = stringResource(R.string.breed),
             style = MaterialTheme.typography.bodyMedium,
             color = MaterialTheme.colorScheme.onSurface,
             modifier = Modifier.width(90.dp)
@@ -604,7 +605,7 @@ private fun FormBreedField(
             itemToString = { it.name },
             label = "",
             modifier = Modifier.weight(1f),
-            placeholder = "Search breed"
+            placeholder = stringResource(R.string.search_breed)
         )
     }
 }
@@ -647,12 +648,12 @@ private fun FormTextArea(
     OutlinedTextField(
         value = value,
         onValueChange = onValueChange,
-        placeholder = { Text(placeholder, color = MutedTextLight) },
+        placeholder = { Text(placeholder, color = MaterialTheme.colorScheme.onSurfaceVariant) },
         modifier = Modifier
             .fillMaxWidth()
             .height(100.dp),
         colors = OutlinedTextFieldDefaults.colors(
-            unfocusedBorderColor = Color(0xFFE5E5EA),
+            unfocusedBorderColor = MaterialTheme.colorScheme.outline,
             focusedBorderColor = TealAccent
         ),
         shape = RoundedCornerShape(8.dp)

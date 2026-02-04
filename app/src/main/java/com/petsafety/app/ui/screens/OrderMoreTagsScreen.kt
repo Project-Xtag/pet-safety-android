@@ -54,10 +54,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.petsafety.app.R
 import com.petsafety.app.data.network.model.AddressDetails
 import com.petsafety.app.data.network.model.CreateTagOrderRequest
-import com.petsafety.app.ui.theme.BackgroundLight
 import com.petsafety.app.ui.theme.BrandOrange
-import com.petsafety.app.ui.theme.MutedTextLight
-import com.petsafety.app.ui.theme.PeachBackground
 import com.petsafety.app.ui.theme.TealAccent
 import com.petsafety.app.ui.util.AdaptiveLayout
 import com.petsafety.app.ui.viewmodel.AppStateViewModel
@@ -86,7 +83,7 @@ fun OrderMoreTagsScreen(
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(BackgroundLight),
+            .background(MaterialTheme.colorScheme.background),
         contentAlignment = Alignment.TopCenter
     ) {
         Column(
@@ -99,7 +96,7 @@ fun OrderMoreTagsScreen(
                 modifier = Modifier
                     .fillMaxWidth()
                     .background(
-                        PeachBackground,
+                        MaterialTheme.colorScheme.surfaceVariant,
                         RoundedCornerShape(bottomStart = 28.dp, bottomEnd = 28.dp)
                     )
                     .padding(24.dp)
@@ -134,9 +131,9 @@ fun OrderMoreTagsScreen(
                     )
 
                     Text(
-                        text = "Get QR tags for your pets",
+                        text = stringResource(R.string.get_qr_tags_subtitle),
                         style = MaterialTheme.typography.bodyMedium.copy(fontSize = 15.sp),
-                        color = MutedTextLight
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
                 }
             }
@@ -152,7 +149,7 @@ fun OrderMoreTagsScreen(
             ) {
                 // Pet Names Section
                 SectionCard(
-                    title = "Pet Names",
+                    title = stringResource(R.string.pet_names),
                     icon = Icons.Default.Pets
                 ) {
                     petNames.forEachIndexed { index, value ->
@@ -172,8 +169,8 @@ fun OrderMoreTagsScreen(
                                 ) {
                                     Icon(
                                         imageVector = Icons.Default.Close,
-                                        contentDescription = "Remove",
-                                        tint = Color.Red.copy(alpha = 0.7f)
+                                        contentDescription = stringResource(R.string.remove),
+                                        tint = MaterialTheme.colorScheme.error.copy(alpha = 0.7f)
                                     )
                                 }
                             }
@@ -208,7 +205,7 @@ fun OrderMoreTagsScreen(
 
                 // Contact Details Section
                 SectionCard(
-                    title = "Contact Details",
+                    title = stringResource(R.string.contact_details),
                     icon = Icons.Default.Person
                 ) {
                     StyledTextField(
@@ -241,7 +238,7 @@ fun OrderMoreTagsScreen(
 
                 // Shipping Address Section
                 SectionCard(
-                    title = "Shipping Address",
+                    title = stringResource(R.string.shipping_address),
                     icon = Icons.Default.Home
                 ) {
                     StyledTextField(
@@ -294,12 +291,12 @@ fun OrderMoreTagsScreen(
                         horizontalArrangement = Arrangement.SpaceBetween
                     ) {
                         Text(
-                            text = "Shipping",
+                            text = stringResource(R.string.shipping),
                             style = MaterialTheme.typography.bodyMedium,
-                            color = MutedTextLight
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
                         )
                         Text(
-                            text = "£3.90",
+                            text = stringResource(R.string.shipping_price),
                             style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.SemiBold),
                             color = MaterialTheme.colorScheme.onSurface
                         )
@@ -311,7 +308,7 @@ fun OrderMoreTagsScreen(
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .background(BackgroundLight)
+                    .background(MaterialTheme.colorScheme.background)
                     .padding(20.dp)
             ) {
                 Button(
@@ -385,7 +382,7 @@ private fun SectionCard(
     Card(
         modifier = Modifier.fillMaxWidth(),
         shape = RoundedCornerShape(16.dp),
-        colors = CardDefaults.cardColors(containerColor = Color.White),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
     ) {
         Column(modifier = Modifier.padding(16.dp)) {
@@ -436,12 +433,12 @@ private fun StyledTextField(
                 Icon(
                     imageVector = it,
                     contentDescription = null,
-                    tint = MutedTextLight
+                    tint = MaterialTheme.colorScheme.onSurfaceVariant
                 )
             }
         },
         colors = OutlinedTextFieldDefaults.colors(
-            unfocusedBorderColor = Color(0xFFE5E5E5),
+            unfocusedBorderColor = MaterialTheme.colorScheme.outline,
             focusedBorderColor = TealAccent
         )
     )

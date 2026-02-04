@@ -51,19 +51,16 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.text.SpanStyle
-import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.AsyncImage
+import com.petsafety.app.R
 import com.petsafety.app.data.model.Pet
-import com.petsafety.app.ui.theme.BackgroundLight
 import com.petsafety.app.ui.theme.BrandOrange
-import com.petsafety.app.ui.theme.MutedTextLight
 import com.petsafety.app.ui.theme.TealAccent
 import com.petsafety.app.ui.viewmodel.AppStateViewModel
 import com.petsafety.app.ui.viewmodel.PublicPetProfileViewModel
@@ -86,7 +83,7 @@ fun PublicPetProfileScreen(
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(BackgroundLight)
+            .background(MaterialTheme.colorScheme.background)
     ) {
         Column(
             modifier = Modifier
@@ -104,13 +101,13 @@ fun PublicPetProfileScreen(
                 IconButton(onClick = onBack) {
                     Icon(
                         imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                        contentDescription = "Back",
+                        contentDescription = stringResource(R.string.back),
                         tint = MaterialTheme.colorScheme.onSurface
                     )
                 }
                 Spacer(modifier = Modifier.width(8.dp))
                 Text(
-                    text = "Public Profile Preview",
+                    text = stringResource(R.string.public_profile_preview),
                     style = MaterialTheme.typography.titleLarge.copy(
                         fontWeight = FontWeight.Bold
                     ),
@@ -139,7 +136,7 @@ fun PublicPetProfileScreen(
                         contentAlignment = Alignment.Center
                     ) {
                         Text(
-                            text = errorMessage ?: "Failed to load profile",
+                            text = errorMessage ?: stringResource(R.string.failed_load_profile),
                             color = Color.Red,
                             textAlign = TextAlign.Center
                         )
@@ -179,7 +176,7 @@ private fun PublicPetContent(pet: Pet) {
             )
             Spacer(modifier = Modifier.width(8.dp))
             Text(
-                text = "This is how others see ${pet.name}'s profile",
+                text = stringResource(R.string.public_profile_subtitle, pet.name),
                 style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.Medium),
                 color = Color.Blue
             )
@@ -218,7 +215,7 @@ private fun PublicPetContent(pet: Pet) {
 
         // Pet Name & Info
         Text(
-            text = "Hello! I'm ${pet.name}",
+            text = stringResource(R.string.hello_pet_name, pet.name),
             style = MaterialTheme.typography.headlineMedium.copy(
                 fontSize = 26.sp,
                 fontWeight = FontWeight.Bold
@@ -230,9 +227,9 @@ private fun PublicPetContent(pet: Pet) {
         Spacer(modifier = Modifier.height(8.dp))
 
         Text(
-            text = "You've just scanned my tag. Thank you for helping me!",
+            text = stringResource(R.string.scanned_tag_thanks),
             style = MaterialTheme.typography.bodyMedium.copy(fontSize = 15.sp),
-            color = MutedTextLight,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
             textAlign = TextAlign.Center,
             modifier = Modifier.padding(horizontal = 24.dp)
         )
@@ -246,32 +243,23 @@ private fun PublicPetContent(pet: Pet) {
         ) {
             pet.breed?.let { breed ->
                 Text(
-                    text = buildAnnotatedString {
-                        withStyle(SpanStyle(fontWeight = FontWeight.Bold)) { append("Breed: ") }
-                        append(breed)
-                    },
+                    text = stringResource(R.string.breed_label, breed),
                     style = MaterialTheme.typography.bodySmall.copy(fontSize = 14.sp),
-                    color = MutedTextLight
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
             }
             pet.age?.let { age ->
                 Text(
-                    text = buildAnnotatedString {
-                        withStyle(SpanStyle(fontWeight = FontWeight.Bold)) { append("Age: ") }
-                        append(age)
-                    },
+                    text = stringResource(R.string.age_label, age),
                     style = MaterialTheme.typography.bodySmall.copy(fontSize = 14.sp),
-                    color = MutedTextLight
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
             }
             pet.color?.let { color ->
                 Text(
-                    text = buildAnnotatedString {
-                        withStyle(SpanStyle(fontWeight = FontWeight.Bold)) { append("Color: ") }
-                        append(color)
-                    },
+                    text = stringResource(R.string.color_label, color),
                     style = MaterialTheme.typography.bodySmall.copy(fontSize = 14.sp),
-                    color = MutedTextLight
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
             }
         }
@@ -295,7 +283,7 @@ private fun PublicPetContent(pet: Pet) {
             )
             Spacer(modifier = Modifier.width(8.dp))
             Text(
-                text = "Share My Location with Owner",
+                text = stringResource(R.string.share_location_with_owner),
                 style = MaterialTheme.typography.labelLarge.copy(
                     fontSize = 16.sp,
                     fontWeight = FontWeight.SemiBold
@@ -306,9 +294,9 @@ private fun PublicPetContent(pet: Pet) {
         Spacer(modifier = Modifier.height(8.dp))
 
         Text(
-            text = "${pet.name}'s owner will receive an SMS and email with your location",
+            text = stringResource(R.string.owner_notified_sms_email, pet.name),
             style = MaterialTheme.typography.bodySmall.copy(fontSize = 12.sp),
-            color = MutedTextLight,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
             textAlign = TextAlign.Center,
             modifier = Modifier.padding(horizontal = 32.dp)
         )
@@ -323,7 +311,7 @@ private fun PublicPetContent(pet: Pet) {
                     .padding(horizontal = 24.dp)
             ) {
                 Text(
-                    text = "Contact Owner",
+                    text = stringResource(R.string.contact_owner),
                     style = MaterialTheme.typography.titleMedium.copy(
                         fontSize = 18.sp,
                         fontWeight = FontWeight.Bold
@@ -334,9 +322,9 @@ private fun PublicPetContent(pet: Pet) {
                 Spacer(modifier = Modifier.height(8.dp))
 
                 Text(
-                    text = "Please let my owner know that you have found me. Tap on the share location button or call them on the phone number below.",
+                    text = stringResource(R.string.contact_owner_plea_full),
                     style = MaterialTheme.typography.bodySmall.copy(fontSize = 14.sp),
-                    color = MutedTextLight,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
                     textAlign = TextAlign.Center
                 )
 
@@ -354,7 +342,7 @@ private fun PublicPetContent(pet: Pet) {
                                 context.startActivity(intent)
                             },
                         shape = RoundedCornerShape(14.dp),
-                        colors = CardDefaults.cardColors(containerColor = Color(0xFFF2F2F7))
+                        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainerHigh)
                     ) {
                         Row(
                             modifier = Modifier
@@ -369,7 +357,7 @@ private fun PublicPetContent(pet: Pet) {
                             )
                             Spacer(modifier = Modifier.width(12.dp))
                             Text(
-                                text = "Call: $phone",
+                                text = stringResource(R.string.call_phone, phone),
                                 style = MaterialTheme.typography.bodyMedium.copy(
                                     fontSize = 15.sp,
                                     fontWeight = FontWeight.Medium
@@ -380,7 +368,7 @@ private fun PublicPetContent(pet: Pet) {
                                 imageVector = Icons.Default.ChevronRight,
                                 contentDescription = null,
                                 modifier = Modifier.size(14.dp),
-                                tint = MutedTextLight
+                                tint = MaterialTheme.colorScheme.onSurfaceVariant
                             )
                         }
                     }
@@ -400,7 +388,7 @@ private fun PublicPetContent(pet: Pet) {
                                 context.startActivity(intent)
                             },
                         shape = RoundedCornerShape(14.dp),
-                        colors = CardDefaults.cardColors(containerColor = Color(0xFFF2F2F7))
+                        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainerHigh)
                     ) {
                         Row(
                             modifier = Modifier
@@ -415,7 +403,7 @@ private fun PublicPetContent(pet: Pet) {
                             )
                             Spacer(modifier = Modifier.width(12.dp))
                             Text(
-                                text = "Email: $email",
+                                text = stringResource(R.string.email_contact, email),
                                 style = MaterialTheme.typography.bodyMedium.copy(
                                     fontSize = 15.sp,
                                     fontWeight = FontWeight.Medium
@@ -426,7 +414,7 @@ private fun PublicPetContent(pet: Pet) {
                                 imageVector = Icons.Default.ChevronRight,
                                 contentDescription = null,
                                 modifier = Modifier.size(14.dp),
-                                tint = MutedTextLight
+                                tint = MaterialTheme.colorScheme.onSurfaceVariant
                             )
                         }
                     }
@@ -449,7 +437,7 @@ private fun PublicPetContent(pet: Pet) {
                 )
                 Spacer(modifier = Modifier.width(12.dp))
                 Text(
-                    text = "Contact info not set up yet",
+                    text = stringResource(R.string.contact_info_not_set),
                     style = MaterialTheme.typography.bodyMedium.copy(
                         fontSize = 15.sp,
                         fontWeight = FontWeight.Medium
@@ -464,7 +452,7 @@ private fun PublicPetContent(pet: Pet) {
         // Medical Information (in red)
         pet.medicalNotes?.takeIf { it.isNotBlank() }?.let { medicalNotes ->
             InfoCard(
-                title = "Medical Information",
+                title = stringResource(R.string.medical_information),
                 content = medicalNotes,
                 icon = Icons.Default.LocalHospital,
                 backgroundColor = Color.Red.copy(alpha = 0.1f),
@@ -476,7 +464,7 @@ private fun PublicPetContent(pet: Pet) {
         // Allergies (in orange)
         pet.allergies?.takeIf { it.isNotBlank() }?.let { allergies ->
             InfoCard(
-                title = "Allergies",
+                title = stringResource(R.string.allergies),
                 content = allergies,
                 icon = Icons.Default.Warning,
                 backgroundColor = BrandOrange.copy(alpha = 0.1f),
@@ -488,7 +476,7 @@ private fun PublicPetContent(pet: Pet) {
         // Notes (in blue)
         pet.notes?.takeIf { it.isNotBlank() }?.let { notes ->
             InfoCard(
-                title = "Notes",
+                title = stringResource(R.string.notes),
                 content = notes,
                 icon = Icons.Default.Info,
                 backgroundColor = Color.Blue.copy(alpha = 0.1f),
@@ -503,7 +491,7 @@ private fun PublicPetContent(pet: Pet) {
                 .fillMaxWidth()
                 .padding(horizontal = 24.dp),
             shape = RoundedCornerShape(14.dp),
-            colors = CardDefaults.cardColors(containerColor = Color(0xFFF2F2F7))
+            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainerHigh)
         ) {
             Column(
                 modifier = Modifier
@@ -511,7 +499,7 @@ private fun PublicPetContent(pet: Pet) {
                     .padding(16.dp)
             ) {
                 Text(
-                    text = "How It Works",
+                    text = stringResource(R.string.how_it_works),
                     style = MaterialTheme.typography.titleMedium.copy(
                         fontSize = 18.sp,
                         fontWeight = FontWeight.Bold
@@ -519,29 +507,29 @@ private fun PublicPetContent(pet: Pet) {
                 )
                 Spacer(modifier = Modifier.height(4.dp))
                 Text(
-                    text = "Help reunite ${pet.name} with their owner safely",
+                    text = stringResource(R.string.help_reunite_pet, pet.name),
                     style = MaterialTheme.typography.bodySmall.copy(fontSize = 14.sp),
-                    color = MutedTextLight
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
 
                 Spacer(modifier = Modifier.height(16.dp))
 
                 HowItWorksStep(
                     number = "1",
-                    title = "Share Your Location",
-                    description = "Click the button above to share where you found ${pet.name}"
+                    title = stringResource(R.string.step_share_location),
+                    description = stringResource(R.string.step_share_location_desc_public, pet.name)
                 )
                 Spacer(modifier = Modifier.height(12.dp))
                 HowItWorksStep(
                     number = "2",
-                    title = "Owner Gets Notified",
-                    description = "The owner receives an SMS with your location on Google Maps"
+                    title = stringResource(R.string.step_owner_notified),
+                    description = stringResource(R.string.step_owner_notified_desc_public)
                 )
                 Spacer(modifier = Modifier.height(12.dp))
                 HowItWorksStep(
                     number = "3",
-                    title = "Quick Reunion",
-                    description = "Stay near the location so the owner can find you and ${pet.name}"
+                    title = stringResource(R.string.step_quick_reunion),
+                    description = stringResource(R.string.step_quick_reunion_desc_public, pet.name)
                 )
             }
         }
@@ -553,7 +541,7 @@ private fun PublicPetContent(pet: Pet) {
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 24.dp)
-                .background(Color(0xFFF2F2F7), RoundedCornerShape(14.dp))
+                .background(MaterialTheme.colorScheme.surfaceContainerHigh, RoundedCornerShape(14.dp))
                 .padding(16.dp),
             verticalAlignment = Alignment.Top
         ) {
@@ -561,13 +549,13 @@ private fun PublicPetContent(pet: Pet) {
                 imageVector = Icons.Default.Lock,
                 contentDescription = null,
                 modifier = Modifier.size(12.dp),
-                tint = MutedTextLight
+                tint = MaterialTheme.colorScheme.onSurfaceVariant
             )
             Spacer(modifier = Modifier.width(8.dp))
             Text(
-                text = "Your privacy matters. We'll only share your location with ${pet.name}'s owner with your explicit consent.",
+                text = stringResource(R.string.your_privacy_notice, pet.name),
                 style = MaterialTheme.typography.bodySmall.copy(fontSize = 12.sp),
-                color = MutedTextLight
+                color = MaterialTheme.colorScheme.onSurfaceVariant
             )
         }
 
@@ -657,7 +645,7 @@ private fun HowItWorksStep(
             Text(
                 text = description,
                 style = MaterialTheme.typography.bodySmall.copy(fontSize = 13.sp),
-                color = MutedTextLight
+                color = MaterialTheme.colorScheme.onSurfaceVariant
             )
         }
     }

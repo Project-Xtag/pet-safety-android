@@ -54,6 +54,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -72,9 +73,10 @@ import com.google.maps.android.compose.rememberCameraPositionState
 import com.petsafety.app.R
 import com.petsafety.app.data.model.LocationCoordinate
 import com.petsafety.app.data.model.MissingPetAlert
-import com.petsafety.app.ui.theme.BackgroundLight
+import com.petsafety.app.ui.components.ErrorRetryState
 import com.petsafety.app.ui.theme.BrandOrange
-import com.petsafety.app.ui.theme.MutedTextLight
+import com.petsafety.app.ui.theme.InfoBlue
+import com.petsafety.app.ui.theme.SuccessGreen
 import com.petsafety.app.ui.theme.TealAccent
 import com.petsafety.app.ui.viewmodel.AlertsViewModel
 import com.petsafety.app.ui.viewmodel.AppStateViewModel
@@ -88,6 +90,7 @@ fun MissingAlertsScreen(
     val alerts by viewModel.missingAlerts.collectAsState()
     val isRefreshing by viewModel.isRefreshing.collectAsState()
     val isLoading by viewModel.isLoading.collectAsState()
+    val error by viewModel.errorMessage.collectAsState()
     var showMap by remember { mutableStateOf(false) }
     var selectedAlert by remember { mutableStateOf<MissingPetAlert?>(null) }
     var showReport by remember { mutableStateOf(false) }
@@ -98,7 +101,7 @@ fun MissingAlertsScreen(
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(BackgroundLight)
+            .background(MaterialTheme.colorScheme.background)
     ) {
         Column(modifier = Modifier.fillMaxSize()) {
             // Toggle Button
@@ -135,16 +138,22 @@ fun MissingAlertsScreen(
                         ) {
                             CircularProgressIndicator(color = BrandOrange)
                             Text(
-                                text = "Loading alerts...",
-                                color = MutedTextLight
+                                text = stringResource(R.string.loading_alerts),
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
                             )
                         }
                     }
                 }
+                error != null && alerts.isEmpty() -> {
+                    ErrorRetryState(
+                        message = error ?: stringResource(R.string.failed_load_alerts),
+                        onRetry = { viewModel.refresh() }
+                    )
+                }
                 alerts.isEmpty() -> {
                     EmptyAlertsState(
-                        title = "No Active Alerts",
-                        message = "You don't have any missing pet alerts at the moment"
+                        title = stringResource(R.string.no_active_alerts),
+                        message = stringResource(R.string.no_active_alerts_message)
                     )
                 }
                 else -> {
@@ -203,13 +212,14 @@ fun FoundAlertsScreen(
     val alerts by viewModel.foundAlerts.collectAsState()
     val isRefreshing by viewModel.isRefreshing.collectAsState()
     val isLoading by viewModel.isLoading.collectAsState()
+    val error by viewModel.errorMessage.collectAsState()
     var showMap by remember { mutableStateOf(false) }
     var selectedAlert by remember { mutableStateOf<MissingPetAlert?>(null) }
 
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(BackgroundLight)
+            .background(MaterialTheme.colorScheme.background)
     ) {
         Column(modifier = Modifier.fillMaxSize()) {
             Row(
@@ -243,18 +253,24 @@ fun FoundAlertsScreen(
                             horizontalAlignment = Alignment.CenterHorizontally,
                             verticalArrangement = Arrangement.spacedBy(16.dp)
                         ) {
-                            CircularProgressIndicator(color = Color(0xFF34C759))
+                            CircularProgressIndicator(color = SuccessGreen)
                             Text(
-                                text = "Loading alerts...",
-                                color = MutedTextLight
+                                text = stringResource(R.string.loading_alerts),
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
                             )
                         }
                     }
                 }
+                error != null && alerts.isEmpty() -> {
+                    ErrorRetryState(
+                        message = error ?: stringResource(R.string.failed_load_alerts),
+                        onRetry = { viewModel.refresh() }
+                    )
+                }
                 alerts.isEmpty() -> {
                     EmptyAlertsState(
-                        title = "No Found Alerts",
-                        message = "No pets have been found recently in your area"
+                        title = stringResource(R.string.no_found_alerts),
+                        message = stringResource(R.string.no_found_alerts_message)
                     )
                 }
                 else -> {
@@ -292,7 +308,7 @@ private fun EmptyAlertsState(title: String, message: String) {
             Box(
                 modifier = Modifier
                     .size(100.dp)
-                    .background(Color(0xFFF2F2F7), CircleShape),
+                    .background(MaterialTheme.colorScheme.surfaceContainerHigh, CircleShape),
                 contentAlignment = Alignment.Center
             ) {
                 Icon(
@@ -318,7 +334,7 @@ private fun EmptyAlertsState(title: String, message: String) {
                 Text(
                     text = message,
                     style = MaterialTheme.typography.bodyMedium.copy(fontSize = 15.sp),
-                    color = MutedTextLight,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
                     textAlign = TextAlign.Center,
                     modifier = Modifier.padding(horizontal = 32.dp)
                 )
@@ -351,16 +367,16 @@ private fun AlertCard(
     onClick: () -> Unit
 ) {
     val statusColor = when (alert.status) {
-        "active" -> Color.Red
-        "found" -> Color(0xFF34C759)
-        else -> Color.Gray
+        "active" -> MaterialTheme.colorScheme.error
+        "found" -> SuccessGreen
+        else -> MaterialTheme.colorScheme.outline
     }
 
     Card(
         onClick = onClick,
         modifier = Modifier.fillMaxWidth(),
         shape = RoundedCornerShape(16.dp),
-        colors = CardDefaults.cardColors(containerColor = Color.White),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
     ) {
         Row(
@@ -388,16 +404,16 @@ private fun AlertCard(
                     } else {
                         Icon(
                             imageVector = Icons.Default.Pets,
-                            contentDescription = null,
+                            contentDescription = stringResource(R.string.pet_photo),
                             modifier = Modifier.size(28.dp),
-                            tint = Color.White
+                            tint = MaterialTheme.colorScheme.onPrimary
                         )
                     }
                 } ?: Icon(
                     imageVector = Icons.Default.Pets,
-                    contentDescription = null,
+                    contentDescription = stringResource(R.string.pet_photo),
                     modifier = Modifier.size(28.dp),
-                    tint = Color.White
+                    tint = MaterialTheme.colorScheme.onPrimary
                 )
             }
 
@@ -435,14 +451,14 @@ private fun AlertCard(
                     ) {
                         Icon(
                             imageVector = Icons.Default.LocationOn,
-                            contentDescription = null,
+                            contentDescription = stringResource(R.string.last_seen_location),
                             modifier = Modifier.size(14.dp),
-                            tint = MutedTextLight
+                            tint = MaterialTheme.colorScheme.onSurfaceVariant
                         )
                         Text(
                             text = location,
                             style = MaterialTheme.typography.bodySmall,
-                            color = MutedTextLight,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
                             maxLines = 1,
                             overflow = TextOverflow.Ellipsis
                         )
@@ -457,14 +473,14 @@ private fun AlertCard(
                     ) {
                         Icon(
                             imageVector = Icons.Default.Visibility,
-                            contentDescription = null,
+                            contentDescription = stringResource(R.string.sighting_reports_desc),
                             modifier = Modifier.size(14.dp),
-                            tint = Color.Blue
+                            tint = InfoBlue
                         )
                         Text(
-                            text = "${alert.sightings.size} sighting${if (alert.sightings.size == 1) "" else "s"}",
+                            text = pluralStringResource(R.plurals.sighting_count, alert.sightings.size, alert.sightings.size),
                             style = MaterialTheme.typography.bodySmall,
-                            color = Color.Blue
+                            color = InfoBlue
                         )
                     }
                 }
@@ -661,7 +677,7 @@ private fun AlertsMap(alerts: List<MissingPetAlert>) {
             if (lat != null && lng != null) {
                 Marker(
                     state = MarkerState(position = LatLng(lat, lng)),
-                    title = alert.pet?.name ?: "Alert",
+                    title = alert.pet?.name ?: stringResource(R.string.alert_marker),
                     snippet = alert.resolvedLastSeenLocation
                 )
             }

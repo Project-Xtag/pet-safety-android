@@ -8,10 +8,15 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.Sync
@@ -23,14 +28,17 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.petsafety.app.data.sync.SyncService
 import com.petsafety.app.R
+import kotlinx.coroutines.launch
 
 @Composable
 fun OfflineIndicator(syncService: SyncService, isConnected: Boolean) {
@@ -38,6 +46,7 @@ fun OfflineIndicator(syncService: SyncService, isConnected: Boolean) {
     val isSyncing by syncService.isSyncing.collectAsState()
     val syncStatus by syncService.syncStatus.collectAsState()
     var expanded by remember { mutableStateOf(false) }
+    val scope = rememberCoroutineScope()
 
     LaunchedEffect(Unit) {
         syncService.updatePendingCount()
@@ -56,20 +65,39 @@ fun OfflineIndicator(syncService: SyncService, isConnected: Boolean) {
             Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(12.dp)) {
                 Icon(
                     imageVector = statusIcon(isConnected, pendingCount, isSyncing),
-                    contentDescription = null,
+                    contentDescription = stringResource(R.string.offline_mode),
                     tint = statusColor(isConnected, pendingCount)
                 )
-                Column {
+                Column(modifier = Modifier.weight(1f)) {
                     Text(
                         statusTitle(isConnected, pendingCount, isSyncing),
-                        style = MaterialTheme.typography.bodyMedium
+                        style = MaterialTheme.typography.bodyMedium,
+                        fontWeight = FontWeight.Medium
                     )
                     Text(
                         statusSubtitle(isConnected, pendingCount),
                         style = MaterialTheme.typography.bodySmall
                     )
                 }
-                Spacer(modifier = Modifier.weight(1f))
+                // Sync Now button (shown when connected with pending actions)
+                if (isConnected && pendingCount > 0 && !isSyncing) {
+                    TextButton(
+                        onClick = {
+                            scope.launch { syncService.performFullSync() }
+                        },
+                        colors = ButtonDefaults.textButtonColors(
+                            contentColor = MaterialTheme.colorScheme.tertiary
+                        )
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.Sync,
+                            contentDescription = null,
+                            modifier = Modifier.size(16.dp)
+                        )
+                        Spacer(modifier = Modifier.size(4.dp))
+                        Text(stringResource(R.string.sync_now), style = MaterialTheme.typography.labelMedium)
+                    }
+                }
             }
 
             AnimatedVisibility(visible = expanded) {
@@ -77,7 +105,8 @@ fun OfflineIndicator(syncService: SyncService, isConnected: Boolean) {
                     if (pendingCount > 0) {
                         Text(
                             pluralStringResource(R.plurals.queued_actions, pendingCount, pendingCount),
-                            style = MaterialTheme.typography.labelSmall
+                            style = MaterialTheme.typography.labelSmall,
+                            fontWeight = FontWeight.SemiBold
                         )
                     }
                     val statusMessage = when (val status = syncStatus) {
@@ -88,6 +117,15 @@ fun OfflineIndicator(syncService: SyncService, isConnected: Boolean) {
                     }
                     if (!statusMessage.isNullOrBlank()) {
                         Text(statusMessage, style = MaterialTheme.typography.labelSmall)
+                    }
+                    // Explanation when offline
+                    if (!isConnected && pendingCount > 0) {
+                        Spacer(modifier = Modifier.height(4.dp))
+                        Text(
+                            stringResource(R.string.changes_sync_restored),
+                            style = MaterialTheme.typography.labelSmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                        )
                     }
                 }
             }

@@ -1,7 +1,9 @@
 package com.petsafety.app.ui.viewmodel
 
+import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.petsafety.app.R
 import com.petsafety.app.data.model.SuccessStory
 import com.petsafety.app.data.network.model.CreateSuccessStoryRequest
 import com.petsafety.app.data.network.model.UpdateSuccessStoryRequest
@@ -15,6 +17,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SuccessStoriesViewModel @Inject constructor(
+    private val application: Application,
     private val repository: SuccessStoriesRepository
 ) : ViewModel() {
     private val _stories = MutableStateFlow<List<SuccessStory>>(emptyList())
@@ -57,7 +60,7 @@ class SuccessStoriesViewModel @Inject constructor(
                 _currentPage.value = response.page
                 _hasMore.value = response.hasMore
             } catch (ex: Exception) {
-                _errorMessage.value = ex.localizedMessage ?: "Failed to load stories"
+                _errorMessage.value = ex.localizedMessage ?: application.getString(R.string.error_load_stories)
             } finally {
                 _isLoading.value = false
             }

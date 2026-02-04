@@ -28,7 +28,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.petsafety.app.R
 
 /**
  * Map App Picker Dialog
@@ -49,7 +51,7 @@ fun MapAppPickerDialog(
     AlertDialog(
         onDismissRequest = onDismiss,
         title = {
-            Text("$label Location")
+            Text(stringResource(R.string.location_title, label))
         },
         text = {
             Column {
@@ -72,7 +74,7 @@ fun MapAppPickerDialog(
                             )
                             Spacer(modifier = Modifier.width(8.dp))
                             Text(
-                                text = "This is an approximate location (~500m). Search the surrounding area.",
+                                text = stringResource(R.string.approximate_location_note),
                                 style = MaterialTheme.typography.bodySmall,
                                 color = MaterialTheme.colorScheme.onErrorContainer
                             )
@@ -84,7 +86,7 @@ fun MapAppPickerDialog(
 
                 // Coordinates display
                 Text(
-                    text = "Coordinates: ${formatCoordinates(latitude, longitude, isApproximate)}",
+                    text = stringResource(R.string.coordinates_label, formatCoordinates(latitude, longitude, isApproximate)),
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
@@ -95,14 +97,14 @@ fun MapAppPickerDialog(
 
                 // Map app options
                 Text(
-                    text = "Open in:",
+                    text = stringResource(R.string.open_in),
                     style = MaterialTheme.typography.titleSmall,
                     modifier = Modifier.padding(vertical = 8.dp)
                 )
 
                 MapAppOption(
                     icon = Icons.Default.Map,
-                    label = "Google Maps",
+                    label = stringResource(R.string.google_maps),
                     onClick = {
                         openGoogleMaps(context, latitude, longitude, label)
                         onDismiss()
@@ -111,7 +113,7 @@ fun MapAppPickerDialog(
 
                 MapAppOption(
                     icon = Icons.Default.Navigation,
-                    label = "Waze",
+                    label = stringResource(R.string.waze),
                     onClick = {
                         openWaze(context, latitude, longitude)
                         onDismiss()
@@ -120,7 +122,7 @@ fun MapAppPickerDialog(
 
                 MapAppOption(
                     icon = Icons.Default.Directions,
-                    label = "Other Maps App",
+                    label = stringResource(R.string.other_maps_app),
                     onClick = {
                         openGenericMap(context, latitude, longitude, label)
                         onDismiss()
@@ -130,7 +132,7 @@ fun MapAppPickerDialog(
         },
         confirmButton = {
             TextButton(onClick = onDismiss) {
-                Text("Cancel")
+                Text(stringResource(R.string.cancel))
             }
         }
     )
@@ -193,6 +195,6 @@ private fun openGenericMap(context: Context, lat: Double, lng: Double, label: St
     // Generic geo: URI that opens the system chooser
     val geoUri = Uri.parse("geo:$lat,$lng?q=$lat,$lng(${Uri.encode(label)})")
     val intent = Intent(Intent.ACTION_VIEW, geoUri)
-    val chooser = Intent.createChooser(intent, "Open with...")
+    val chooser = Intent.createChooser(intent, context.getString(R.string.open_with))
     context.startActivity(chooser)
 }

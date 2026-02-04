@@ -29,10 +29,12 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.Clear
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Pets
 import androidx.compose.material.icons.filled.Refresh
+import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.material.icons.filled.Warning
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
@@ -40,7 +42,10 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.pulltorefresh.PullToRefreshBox
@@ -58,7 +63,9 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.hapticfeedback.HapticFeedbackType
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalHapticFeedback
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -72,13 +79,12 @@ import com.petsafety.app.R
 import com.petsafety.app.data.model.LocationCoordinate
 import com.petsafety.app.data.model.Pet
 import com.petsafety.app.ui.components.BrandButton
+import com.petsafety.app.ui.components.ErrorRetryState
 import com.petsafety.app.ui.components.MarkFoundSheet
 import com.petsafety.app.ui.components.OfflineIndicator
 import com.petsafety.app.ui.components.PetsListSkeleton
 import com.petsafety.app.ui.components.ReportMissingSheet
-import com.petsafety.app.ui.theme.BackgroundLight
 import com.petsafety.app.ui.theme.BrandOrange
-import com.petsafety.app.ui.theme.MutedTextLight
 import com.petsafety.app.ui.theme.PeachBackground
 import com.petsafety.app.ui.theme.TealAccent
 import com.petsafety.app.ui.viewmodel.AppStateViewModel
@@ -104,10 +110,21 @@ fun PetsListScreen(
     val isConnected by appStateViewModel.isConnected.collectAsState()
     val currentUser by authViewModel?.currentUser?.collectAsState() ?: remember { mutableStateOf(null) }
 
+    val haptic = LocalHapticFeedback.current
     val hasMissingPets = pets.any { it.isMissing }
     val missingPets = pets.filter { it.isMissing }
     val availablePets = pets.filter { !it.isMissing }
     val addPetFirstMessage = stringResource(R.string.add_pet_first_replacement)
+
+    var searchQuery by remember { mutableStateOf("") }
+    val filteredPets = if (searchQuery.isBlank()) pets else {
+        val query = searchQuery.lowercase()
+        pets.filter { pet ->
+            pet.name.lowercase().contains(query) ||
+            pet.species.lowercase().contains(query) ||
+            (pet.breed?.lowercase()?.contains(query) == true)
+        }
+    }
 
     // Bottom sheet states
     var showMarkFoundSheet by remember { mutableStateOf(false) }
@@ -151,12 +168,17 @@ fun PetsListScreen(
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(BackgroundLight)
+            .background(MaterialTheme.colorScheme.background)
     ) {
         Column(modifier = Modifier.fillMaxSize()) {
             OfflineIndicator(appStateViewModel.syncService, isConnected)
 
-            if (pets.isEmpty() && !isLoading) {
+            if (error != null && pets.isEmpty() && !isLoading) {
+                ErrorRetryState(
+                    message = error ?: stringResource(R.string.failed_load_pets),
+                    onRetry = { viewModel.refresh() }
+                )
+            } else if (pets.isEmpty() && !isLoading) {
                 EmptyStateView(
                     onAddPet = onAddPet
                 )
@@ -172,14 +194,16 @@ fun PetsListScreen(
                             .verticalScroll(rememberScrollState())
                     ) {
                         // Header Section
-                        HeaderSection(userName = currentUser?.firstName ?: "Pet Owner")
+                        HeaderSection(userName = currentUser?.firstName ?: stringResource(R.string.pet_owner_default))
 
                         Spacer(modifier = Modifier.height(24.dp))
 
                         // My Pets Section
                         PetsSection(
-                            pets = pets,
-                            onPetSelected = onPetSelected
+                            pets = if (searchQuery.isBlank()) pets else filteredPets,
+                            onPetSelected = onPetSelected,
+                            searchQuery = searchQuery,
+                            onSearchQueryChanged = { searchQuery = it }
                         )
 
                         Spacer(modifier = Modifier.height(24.dp))
@@ -245,6 +269,7 @@ fun PetsListScreen(
                 viewModel.markPetFound(pet.id) { success, error ->
                     showMarkFoundSheet = false
                     if (success) {
+                        haptic.performHapticFeedback(HapticFeedbackType.LongPress)
                         viewModel.refresh()
                         appStateViewModel.showSuccess(markedFoundMessage.replace("%s", pet.name))
                     } else {
@@ -272,6 +297,7 @@ fun PetsListScreen(
                 ) { success, error ->
                     showReportMissingSheet = false
                     if (success) {
+                        haptic.performHapticFeedback(HapticFeedbackType.LongPress)
                         viewModel.refresh()
                         appStateViewModel.showSuccess(markedMissingMessage.replace("%s", pet.name))
                     } else {
@@ -314,12 +340,12 @@ private fun HeaderSection(userName: String) {
             .padding(horizontal = 24.dp, vertical = 16.dp)
     ) {
         Text(
-            text = "Welcome back,",
+            text = stringResource(R.string.welcome_back_greeting),
             style = MaterialTheme.typography.bodyMedium.copy(
                 fontSize = 14.sp,
                 fontWeight = FontWeight.Medium
             ),
-            color = MutedTextLight
+            color = MaterialTheme.colorScheme.onSurfaceVariant
         )
         Spacer(modifier = Modifier.height(4.dp))
         Text(
@@ -336,7 +362,9 @@ private fun HeaderSection(userName: String) {
 @Composable
 private fun PetsSection(
     pets: List<Pet>,
-    onPetSelected: (Pet) -> Unit
+    onPetSelected: (Pet) -> Unit,
+    searchQuery: String = "",
+    onSearchQueryChanged: (String) -> Unit = {}
 ) {
     Column {
         Row(
@@ -347,16 +375,16 @@ private fun PetsSection(
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
-                text = "My Pets",
+                text = stringResource(R.string.my_pets),
                 style = MaterialTheme.typography.titleLarge.copy(
                     fontSize = 20.sp,
                     fontWeight = FontWeight.Bold
                 ),
                 color = MaterialTheme.colorScheme.onSurface
             )
-            if (pets.size > 4) {
+            if (pets.size > 4 && searchQuery.isBlank()) {
                 Text(
-                    text = "View All",
+                    text = stringResource(R.string.view_all),
                     style = MaterialTheme.typography.bodyMedium.copy(
                         fontSize = 14.sp,
                         fontWeight = FontWeight.SemiBold
@@ -367,11 +395,46 @@ private fun PetsSection(
             }
         }
 
+        if (pets.size > 4 || searchQuery.isNotBlank()) {
+            Spacer(modifier = Modifier.height(12.dp))
+            OutlinedTextField(
+                value = searchQuery,
+                onValueChange = onSearchQueryChanged,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 24.dp),
+                placeholder = { Text(stringResource(R.string.search_pets_hint)) },
+                leadingIcon = {
+                    Icon(
+                        imageVector = Icons.Default.Search,
+                        contentDescription = stringResource(R.string.search),
+                        tint = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                },
+                trailingIcon = {
+                    if (searchQuery.isNotBlank()) {
+                        IconButton(onClick = { onSearchQueryChanged("") }) {
+                            Icon(
+                                imageVector = Icons.Default.Clear,
+                                contentDescription = stringResource(R.string.clear_search)
+                            )
+                        }
+                    }
+                },
+                singleLine = true,
+                shape = RoundedCornerShape(12.dp),
+                colors = OutlinedTextFieldDefaults.colors(
+                    unfocusedContainerColor = MaterialTheme.colorScheme.surfaceContainerHigh,
+                    focusedContainerColor = MaterialTheme.colorScheme.surfaceContainerHigh
+                )
+            )
+        }
+
         Spacer(modifier = Modifier.height(16.dp))
 
         // Pet Cards Grid - adaptive columns for tablets
         val gridColumns = AdaptiveLayout.gridColumns()
-        val displayPets = pets.take(if (gridColumns >= 3) 6 else 4)
+        val displayPets = if (searchQuery.isNotBlank()) pets else pets.take(if (gridColumns >= 3) 6 else 4)
         val rowCount = (displayPets.size + gridColumns - 1) / gridColumns
         LazyVerticalGrid(
             columns = GridCells.Fixed(gridColumns),
@@ -402,13 +465,13 @@ private fun PetCardView(pet: Pet, onClick: () -> Unit) {
             )
             .then(
                 if (pet.isMissing) {
-                    Modifier.border(2.dp, Color.Red, RoundedCornerShape(16.dp))
+                    Modifier.border(2.dp, MaterialTheme.colorScheme.error, RoundedCornerShape(16.dp))
                 } else {
                     Modifier
                 }
             ),
         shape = RoundedCornerShape(16.dp),
-        colors = CardDefaults.cardColors(containerColor = Color.White),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
         onClick = onClick
     ) {
         Column {
@@ -431,15 +494,15 @@ private fun PetCardView(pet: Pet, onClick: () -> Unit) {
                     Box(
                         modifier = Modifier
                             .fillMaxSize()
-                            .background(Color(0xFFF2F2F7))
+                            .background(MaterialTheme.colorScheme.surfaceContainerHigh)
                             .clip(RoundedCornerShape(topStart = 16.dp, topEnd = 16.dp)),
                         contentAlignment = Alignment.Center
                     ) {
                         Icon(
                             imageVector = if (pet.species.lowercase() == "dog") Icons.Default.Pets else Icons.Default.Pets,
-                            contentDescription = null,
+                            contentDescription = stringResource(R.string.pet_photo),
                             modifier = Modifier.size(48.dp),
-                            tint = MutedTextLight
+                            tint = MaterialTheme.colorScheme.onSurfaceVariant
                         )
                     }
                 }
@@ -450,19 +513,19 @@ private fun PetCardView(pet: Pet, onClick: () -> Unit) {
                         modifier = Modifier
                             .align(Alignment.TopEnd)
                             .padding(8.dp)
-                            .background(Color.Red, RoundedCornerShape(8.dp))
+                            .background(MaterialTheme.colorScheme.error, RoundedCornerShape(8.dp))
                             .padding(horizontal = 8.dp, vertical = 4.dp),
                         verticalAlignment = Alignment.CenterVertically
                     ) {
                         Icon(
                             imageVector = Icons.Default.Warning,
-                            contentDescription = null,
+                            contentDescription = stringResource(R.string.tab_missing),
                             modifier = Modifier.size(10.dp),
                             tint = Color.White
                         )
                         Spacer(modifier = Modifier.width(4.dp))
                         Text(
-                            text = "MISSING",
+                            text = stringResource(R.string.missing_badge),
                             style = MaterialTheme.typography.labelSmall.copy(
                                 fontSize = 10.sp,
                                 fontWeight = FontWeight.Bold
@@ -480,7 +543,7 @@ private fun PetCardView(pet: Pet, onClick: () -> Unit) {
                     fontSize = 15.sp,
                     fontWeight = FontWeight.Bold
                 ),
-                color = if (pet.isMissing) Color.Red else MaterialTheme.colorScheme.onSurface,
+                color = if (pet.isMissing) MaterialTheme.colorScheme.error else MaterialTheme.colorScheme.onSurface,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis,
                 textAlign = TextAlign.Center,
@@ -502,7 +565,7 @@ private fun QuickActionsSection(
 ) {
     Column {
         Text(
-            text = "Quick Actions",
+            text = stringResource(R.string.quick_actions),
             style = MaterialTheme.typography.titleLarge.copy(
                 fontSize = 20.sp,
                 fontWeight = FontWeight.Bold
@@ -521,28 +584,28 @@ private fun QuickActionsSection(
         ) {
             QuickActionButton(
                 icon = Icons.Default.Add,
-                title = "ADD PET",
+                title = stringResource(R.string.action_add_pet),
                 color = TealAccent,
                 onClick = onAddPet,
                 modifier = Modifier.weight(1f)
             )
             QuickActionButton(
                 icon = if (hasMissingPets) Icons.Default.CheckCircle else Icons.Default.Warning,
-                title = if (hasMissingPets) "MARK FOUND" else "REPORT MISSING",
-                color = if (hasMissingPets) Color(0xFF34C759) else Color.Red,
+                title = if (hasMissingPets) stringResource(R.string.action_mark_found) else stringResource(R.string.action_report_missing),
+                color = if (hasMissingPets) Color(0xFF34C759) else MaterialTheme.colorScheme.error,
                 onClick = onMarkLostOrFound,
                 modifier = Modifier.weight(1f)
             )
             QuickActionButton(
                 icon = Icons.Default.ShoppingCart,
-                title = "ORDER TAGS",
+                title = stringResource(R.string.action_order_tags),
                 color = TealAccent,
                 onClick = onOrderTags,
                 modifier = Modifier.weight(1f)
             )
             QuickActionButton(
                 icon = Icons.Default.Refresh,
-                title = "REPLACE TAG",
+                title = stringResource(R.string.action_replace_tag),
                 color = BrandOrange,
                 onClick = onReplaceTag,
                 modifier = Modifier.weight(1f)
@@ -568,7 +631,7 @@ private fun QuickActionButton(
                 spotColor = Color.Black.copy(alpha = 0.06f)
             ),
         shape = RoundedCornerShape(20.dp),
-        colors = CardDefaults.cardColors(containerColor = Color.White),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
         onClick = onClick
     ) {
         Column(
@@ -598,7 +661,7 @@ private fun QuickActionButton(
                     fontWeight = FontWeight.Bold,
                     letterSpacing = 0.5.sp
                 ),
-                color = MutedTextLight,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
                 textAlign = TextAlign.Center,
                 maxLines = 2
             )
@@ -610,7 +673,7 @@ private fun QuickActionButton(
 private fun SuccessStoriesSection(onClick: () -> Unit) {
     Column {
         Text(
-            text = "Success Stories",
+            text = stringResource(R.string.success_stories),
             style = MaterialTheme.typography.titleLarge.copy(
                 fontSize = 20.sp,
                 fontWeight = FontWeight.Bold
@@ -632,7 +695,7 @@ private fun SuccessStoriesSection(onClick: () -> Unit) {
                     spotColor = Color.Black.copy(alpha = 0.06f)
                 ),
             shape = RoundedCornerShape(16.dp),
-            colors = CardDefaults.cardColors(containerColor = Color.White),
+            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
             onClick = onClick
         ) {
             Row(
@@ -650,7 +713,7 @@ private fun SuccessStoriesSection(onClick: () -> Unit) {
                 ) {
                     Icon(
                         imageVector = Icons.Default.Favorite,
-                        contentDescription = null,
+                        contentDescription = stringResource(R.string.success_stories),
                         modifier = Modifier.size(30.dp),
                         tint = Color(0xFF34C759)
                     )
@@ -661,7 +724,7 @@ private fun SuccessStoriesSection(onClick: () -> Unit) {
                 // Text
                 Column(modifier = Modifier.weight(1f)) {
                     Text(
-                        text = "Found Pets",
+                        text = stringResource(R.string.found_pets),
                         style = MaterialTheme.typography.titleMedium.copy(
                             fontSize = 17.sp,
                             fontWeight = FontWeight.SemiBold
@@ -670,9 +733,9 @@ private fun SuccessStoriesSection(onClick: () -> Unit) {
                     )
                     Spacer(modifier = Modifier.height(4.dp))
                     Text(
-                        text = "See happy reunions near you",
+                        text = stringResource(R.string.success_stories_subtitle),
                         style = MaterialTheme.typography.bodyMedium.copy(fontSize = 14.sp),
-                        color = MutedTextLight
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
                 }
 
@@ -681,7 +744,7 @@ private fun SuccessStoriesSection(onClick: () -> Unit) {
                     imageVector = Icons.AutoMirrored.Filled.KeyboardArrowRight,
                     contentDescription = null,
                     modifier = Modifier.size(14.dp),
-                    tint = MutedTextLight
+                    tint = MaterialTheme.colorScheme.onSurfaceVariant
                 )
             }
         }
@@ -700,12 +763,12 @@ private fun EmptyStateView(onAddPet: () -> Unit) {
         Box(
             modifier = Modifier
                 .size(100.dp)
-                .background(Color(0xFFF2F2F7), CircleShape),
+                .background(MaterialTheme.colorScheme.surfaceContainerHigh, CircleShape),
             contentAlignment = Alignment.Center
         ) {
             Icon(
                 imageVector = Icons.Default.Pets,
-                contentDescription = null,
+                contentDescription = stringResource(R.string.no_pets),
                 modifier = Modifier.size(40.dp),
                 tint = TealAccent
             )
@@ -727,7 +790,7 @@ private fun EmptyStateView(onAddPet: () -> Unit) {
         Text(
             text = stringResource(R.string.empty_pets_message),
             style = MaterialTheme.typography.bodyMedium.copy(fontSize = 15.sp),
-            color = MutedTextLight,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
             textAlign = TextAlign.Center
         )
 
