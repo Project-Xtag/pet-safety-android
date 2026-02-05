@@ -121,7 +121,7 @@ private fun TabContent(
 ) {
     Crossfade(targetState = selectedTab, animationSpec = tween(200)) {
         when (it) {
-            TabItem.Pets -> PetsScreen(appStateViewModel, modifier)
+            TabItem.Pets -> PetsScreen(appStateViewModel, authViewModel, modifier)
             TabItem.Scan -> QrScannerScreen(
                 appStateViewModel = appStateViewModel,
                 pendingQrCode = pendingQrCode,

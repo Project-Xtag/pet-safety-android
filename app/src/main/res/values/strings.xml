@@ -546,6 +546,7 @@
     <string name="notification_source_current_location">Current Location</string>
     <string name="notification_source_my_address">My Address</string>
     <string name="notification_source_custom">Custom</string>
+    <string name="no_registered_address">No registered address found. Please update your profile.</string>
     <string name="changes_sync_restored">Changes will be synced automatically when connection is restored.</string>
 
     <!-- MapAppPickerDialog -->

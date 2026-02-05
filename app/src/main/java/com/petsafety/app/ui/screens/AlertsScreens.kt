@@ -85,7 +85,8 @@ import com.petsafety.app.ui.viewmodel.AppStateViewModel
 @Composable
 fun MissingAlertsScreen(
     viewModel: AlertsViewModel,
-    appStateViewModel: AppStateViewModel
+    appStateViewModel: AppStateViewModel,
+    userLocation: LatLng? = null
 ) {
     val alerts by viewModel.missingAlerts.collectAsState()
     val isRefreshing by viewModel.isRefreshing.collectAsState()
@@ -104,7 +105,7 @@ fun MissingAlertsScreen(
             .background(MaterialTheme.colorScheme.background)
     ) {
         Column(modifier = Modifier.fillMaxSize()) {
-            // Toggle Button
+            // Toggle Button — always visible, even when alerts are empty
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -151,10 +152,15 @@ fun MissingAlertsScreen(
                     )
                 }
                 alerts.isEmpty() -> {
-                    EmptyAlertsState(
-                        title = stringResource(R.string.no_active_alerts),
-                        message = stringResource(R.string.no_active_alerts_message)
-                    )
+                    if (showMap) {
+                        // Show map centered on user location even with no alerts
+                        AlertsMap(alerts = emptyList(), userLocation = userLocation)
+                    } else {
+                        EmptyAlertsState(
+                            title = stringResource(R.string.no_active_alerts),
+                            message = stringResource(R.string.no_active_alerts_message)
+                        )
+                    }
                 }
                 else -> {
                     PullToRefreshBox(
@@ -163,7 +169,7 @@ fun MissingAlertsScreen(
                         modifier = Modifier.weight(1f)
                     ) {
                         if (showMap) {
-                            AlertsMap(alerts)
+                            AlertsMap(alerts = alerts, userLocation = userLocation)
                         } else {
                             AlertsList(alerts) { selectedAlert = it }
                         }
@@ -656,29 +662,69 @@ private fun ReportSightingDialog(
 }
 
 @Composable
-private fun AlertsMap(alerts: List<MissingPetAlert>) {
+private fun AlertsMap(alerts: List<MissingPetAlert>, userLocation: LatLng? = null) {
     val first = alerts.firstOrNull()
+    // Center on first alert, fallback to user location, fallback to London
+    val centerLat = first?.resolvedLatitude ?: userLocation?.latitude ?: 51.5074
+    val centerLng = first?.resolvedLongitude ?: userLocation?.longitude ?: -0.1278
     val cameraPositionState = rememberCameraPositionState {
-        position = CameraPosition.fromLatLngZoom(
-            LatLng(
-                first?.resolvedLatitude ?: 51.5074,
-                first?.resolvedLongitude ?: -0.1278
-            ),
-            11f
-        )
+        position = CameraPosition.fromLatLngZoom(LatLng(centerLat, centerLng), 11f)
     }
-    GoogleMap(
-        modifier = Modifier.fillMaxSize(),
-        cameraPositionState = cameraPositionState
-    ) {
-        alerts.forEach { alert ->
-            val lat = alert.resolvedLatitude
-            val lng = alert.resolvedLongitude
-            if (lat != null && lng != null) {
+
+    Box(modifier = Modifier.fillMaxSize()) {
+        GoogleMap(
+            modifier = Modifier.fillMaxSize(),
+            cameraPositionState = cameraPositionState
+        ) {
+            // User location marker (blue dot)
+            userLocation?.let { loc ->
+                com.google.maps.android.compose.Circle(
+                    center = loc,
+                    radius = 50.0,
+                    fillColor = Color(0x400000FF),
+                    strokeColor = Color(0xFF0000FF),
+                    strokeWidth = 2f
+                )
                 Marker(
-                    state = MarkerState(position = LatLng(lat, lng)),
-                    title = alert.pet?.name ?: stringResource(R.string.alert_marker),
-                    snippet = alert.resolvedLastSeenLocation
+                    state = MarkerState(position = loc),
+                    title = stringResource(R.string.current_location),
+                    alpha = 0.8f
+                )
+            }
+
+            // Alert markers
+            alerts.forEach { alert ->
+                val lat = alert.resolvedLatitude
+                val lng = alert.resolvedLongitude
+                if (lat != null && lng != null) {
+                    Marker(
+                        state = MarkerState(position = LatLng(lat, lng)),
+                        title = alert.pet?.name ?: stringResource(R.string.alert_marker),
+                        snippet = alert.resolvedLastSeenLocation
+                    )
+                }
+            }
+        }
+
+        // "No alerts nearby" overlay when empty
+        if (alerts.isEmpty()) {
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(16.dp)
+                    .align(Alignment.TopCenter)
+                    .background(
+                        MaterialTheme.colorScheme.surface.copy(alpha = 0.9f),
+                        RoundedCornerShape(12.dp)
+                    )
+                    .padding(16.dp),
+                contentAlignment = Alignment.Center
+            ) {
+                Text(
+                    text = stringResource(R.string.no_active_alerts_message),
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    textAlign = TextAlign.Center
                 )
             }
         }

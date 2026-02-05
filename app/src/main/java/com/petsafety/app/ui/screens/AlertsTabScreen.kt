@@ -21,6 +21,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.google.android.gms.location.LocationServices
+import com.google.android.gms.maps.model.LatLng
 import com.petsafety.app.R
 import com.petsafety.app.ui.components.OfflineIndicator
 import com.petsafety.app.ui.viewmodel.AlertsViewModel
@@ -38,15 +39,40 @@ fun AlertsTabScreen(
     val successStoriesViewModel: SuccessStoriesViewModel = hiltViewModel()
     var selectedTab by remember { mutableStateOf(0) }
     var hasLocationPermission by remember { mutableStateOf(false) }
+    var userLocation by remember { mutableStateOf<LatLng?>(null) }
     val context = androidx.compose.ui.platform.LocalContext.current
     val locationProvider = LocationServices.getFusedLocationProviderClient(context)
+    val currentUser by authViewModel.currentUser.collectAsState()
 
     val permissionLauncher = rememberLauncherForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->
         hasLocationPermission = granted
         if (granted) {
+            @Suppress("MissingPermission")
             locationProvider.lastLocation.addOnSuccessListener { location ->
                 if (location != null) {
+                    userLocation = LatLng(location.latitude, location.longitude)
                     alertsViewModel.fetchNearbyAlerts(location.latitude, location.longitude, 10.0)
+                }
+            }
+        } else {
+            // Fallback: geocode user's registered address
+            val user = currentUser
+            if (user != null) {
+                val address = listOfNotNull(user.address, user.city, user.postalCode, user.country)
+                    .filter { it.isNotBlank() }
+                    .joinToString(", ")
+                if (address.isNotBlank()) {
+                    @Suppress("DEPRECATION")
+                    try {
+                        val geocoder = android.location.Geocoder(context)
+                        val results = geocoder.getFromLocationName(address, 1)
+                        results?.firstOrNull()?.let {
+                            userLocation = LatLng(it.latitude, it.longitude)
+                            alertsViewModel.fetchNearbyAlerts(it.latitude, it.longitude, 10.0)
+                        }
+                    } catch (_: Exception) {
+                        // Geocoding failed, no fallback available
+                    }
                 }
             }
         }
@@ -70,7 +96,7 @@ fun AlertsTabScreen(
         }
 
         when (selectedTab) {
-            0 -> MissingAlertsScreen(alertsViewModel, appStateViewModel)
+            0 -> MissingAlertsScreen(alertsViewModel, appStateViewModel, userLocation)
             1 -> SuccessStoriesScreen(successStoriesViewModel, appStateViewModel)
         }
     }

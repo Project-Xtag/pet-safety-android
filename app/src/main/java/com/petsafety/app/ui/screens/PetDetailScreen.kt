@@ -43,6 +43,7 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.FilterChip
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -74,14 +75,17 @@ import com.google.android.gms.location.LocationServices
 import com.petsafety.app.R
 import com.petsafety.app.data.model.LocationCoordinate
 import com.petsafety.app.data.model.Pet
+import com.petsafety.app.data.model.User
 import com.petsafety.app.data.network.model.CreateSuccessStoryRequest
 import com.petsafety.app.ui.components.BrandButton
+import com.petsafety.app.ui.components.NotificationCenterSource
 import com.petsafety.app.ui.components.SuccessStoryDialog
 import com.petsafety.app.ui.theme.BrandOrange
 import com.petsafety.app.ui.theme.SuccessGreen
 import com.petsafety.app.ui.theme.TealAccent
 import com.petsafety.app.ui.util.AdaptiveLayout
 import com.petsafety.app.ui.viewmodel.AppStateViewModel
+import com.petsafety.app.ui.viewmodel.AuthViewModel
 import com.petsafety.app.ui.viewmodel.PetsViewModel
 import com.petsafety.app.ui.viewmodel.SuccessStoriesViewModel
 
@@ -89,6 +93,7 @@ import com.petsafety.app.ui.viewmodel.SuccessStoriesViewModel
 fun PetDetailScreen(
     viewModel: PetsViewModel,
     successStoriesViewModel: SuccessStoriesViewModel,
+    authViewModel: AuthViewModel,
     petId: String,
     onEditPet: () -> Unit,
     onOpenPhotos: () -> Unit,
@@ -98,6 +103,7 @@ fun PetDetailScreen(
 ) {
     val pets by viewModel.pets.collectAsState()
     val pet = pets.firstOrNull { it.id == petId } ?: return
+    val currentUser by authViewModel.currentUser.collectAsState()
     var showMissingDialog by remember { mutableStateOf(false) }
     var showSuccessStoryDialog by remember { mutableStateOf(false) }
     var showDeleteConfirmation by remember { mutableStateOf(false) }
@@ -370,13 +376,17 @@ fun PetDetailScreen(
     if (showMissingDialog) {
         MarkMissingDialog(
             pet = pet,
+            currentUser = currentUser,
             onDismiss = { showMissingDialog = false },
-            onSubmit = { coordinate, locationText, description ->
+            onSubmit = { coordinate, locationText, description, notifSource, notifLocation, notifAddress ->
                 viewModel.markPetMissing(
                     pet.id,
                     location = coordinate,
                     address = locationText,
-                    description = description
+                    description = description,
+                    notificationCenterSource = notifSource,
+                    notificationCenterLocation = notifLocation,
+                    notificationCenterAddress = notifAddress
                 ) { success, msg ->
                     if (success) {
                         appStateViewModel.showSuccess(markedMissingMessage)
@@ -604,16 +614,20 @@ private fun InfoSection(
 @Composable
 private fun MarkMissingDialog(
     pet: Pet,
+    currentUser: User?,
     onDismiss: () -> Unit,
-    onSubmit: (LocationCoordinate?, String?, String?) -> Unit
+    onSubmit: (LocationCoordinate?, String?, String?, String?, LocationCoordinate?, String?) -> Unit
 ) {
     val context = LocalContext.current
     val locationProvider = remember { LocationServices.getFusedLocationProviderClient(context) }
 
+    var selectedSource by remember { mutableStateOf(NotificationCenterSource.REGISTERED_ADDRESS) }
     var locationText by remember { mutableStateOf("") }
+    var customAddress by remember { mutableStateOf("") }
     var notes by remember { mutableStateOf("") }
     var capturedCoordinate by remember { mutableStateOf<LocationCoordinate?>(null) }
     var isCapturingLocation by remember { mutableStateOf(false) }
+    var isGeocoding by remember { mutableStateOf(false) }
     var hasLocationPermission by remember {
         mutableStateOf(
             ContextCompat.checkSelfPermission(
@@ -621,6 +635,13 @@ private fun MarkMissingDialog(
                 Manifest.permission.ACCESS_FINE_LOCATION
             ) == PackageManager.PERMISSION_GRANTED
         )
+    }
+
+    val registeredAddress = remember(currentUser) {
+        listOfNotNull(currentUser?.address, currentUser?.city, currentUser?.postalCode, currentUser?.country)
+            .filter { it.isNotBlank() }
+            .joinToString(", ")
+            .ifBlank { null }
     }
 
     val permissionLauncher = rememberLauncherForActivityResult(
@@ -658,52 +679,167 @@ private fun MarkMissingDialog(
         }
     }
 
+    fun geocodeAndSubmit() {
+        val geocoder = android.location.Geocoder(context)
+        val addressToGeocode = when (selectedSource) {
+            NotificationCenterSource.REGISTERED_ADDRESS -> registeredAddress
+            NotificationCenterSource.CUSTOM_ADDRESS -> customAddress.ifBlank { null }
+            NotificationCenterSource.CURRENT_LOCATION -> null
+        }
+
+        val notifSource = selectedSource.value
+
+        if (selectedSource == NotificationCenterSource.CURRENT_LOCATION) {
+            // GPS already captured
+            onSubmit(
+                capturedCoordinate,
+                locationText.ifBlank { null },
+                notes.ifBlank { null },
+                notifSource,
+                capturedCoordinate,
+                locationText.ifBlank { null }
+            )
+            return
+        }
+
+        if (addressToGeocode == null) {
+            onSubmit(null, null, notes.ifBlank { null }, notifSource, null, null)
+            return
+        }
+
+        isGeocoding = true
+        @Suppress("DEPRECATION")
+        try {
+            val results = geocoder.getFromLocationName(addressToGeocode, 1)
+            val coord = results?.firstOrNull()?.let {
+                LocationCoordinate(it.latitude, it.longitude)
+            }
+            onSubmit(
+                coord,
+                addressToGeocode,
+                notes.ifBlank { null },
+                notifSource,
+                coord,
+                addressToGeocode
+            )
+        } catch (_: Exception) {
+            // Geocoding failed, submit without coordinates — backend will handle it
+            onSubmit(null, addressToGeocode, notes.ifBlank { null }, notifSource, null, addressToGeocode)
+        } finally {
+            isGeocoding = false
+        }
+    }
+
+    val isSubmitDisabled = when (selectedSource) {
+        NotificationCenterSource.CURRENT_LOCATION -> capturedCoordinate == null && !isCapturingLocation
+        NotificationCenterSource.REGISTERED_ADDRESS -> registeredAddress == null
+        NotificationCenterSource.CUSTOM_ADDRESS -> customAddress.isBlank()
+    } || isGeocoding
+
     AlertDialog(
         onDismissRequest = onDismiss,
         title = { Text(stringResource(R.string.report_missing_title, pet.name)) },
         text = {
             Column {
+                // Location Source Picker
+                Text(
+                    text = stringResource(R.string.last_seen_location),
+                    style = MaterialTheme.typography.labelMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+                Spacer(modifier = Modifier.height(8.dp))
                 Row(
                     modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.spacedBy(8.dp),
-                    verticalAlignment = Alignment.CenterVertically
+                    horizontalArrangement = Arrangement.spacedBy(4.dp)
                 ) {
-                    OutlinedButton(
-                        onClick = { captureLocation() },
-                        enabled = !isCapturingLocation,
-                        modifier = Modifier.weight(1f)
-                    ) {
-                        if (isCapturingLocation) {
-                            CircularProgressIndicator(
-                                modifier = Modifier.size(16.dp),
-                                strokeWidth = 2.dp
-                            )
-                        } else {
-                            Icon(
-                                Icons.Default.MyLocation,
-                                contentDescription = null,
-                                modifier = Modifier.size(16.dp)
-                            )
-                        }
-                        Spacer(modifier = Modifier.width(4.dp))
-                        Text(stringResource(R.string.use_current_location))
+                    NotificationCenterSource.entries.forEach { source ->
+                        FilterChip(
+                            selected = selectedSource == source,
+                            onClick = {
+                                selectedSource = source
+                                if (source == NotificationCenterSource.CURRENT_LOCATION && capturedCoordinate == null) {
+                                    captureLocation()
+                                }
+                            },
+                            label = { Text(source.displayName, style = MaterialTheme.typography.labelSmall) },
+                            modifier = Modifier.weight(1f)
+                        )
                     }
                 }
-                Spacer(modifier = Modifier.height(8.dp))
-                OutlinedTextField(
-                    value = locationText,
-                    onValueChange = {
-                        locationText = it
-                        if (capturedCoordinate != null) {
-                            capturedCoordinate = null
+                Spacer(modifier = Modifier.height(12.dp))
+
+                // Source-specific content
+                when (selectedSource) {
+                    NotificationCenterSource.CURRENT_LOCATION -> {
+                        if (isCapturingLocation) {
+                            Row(verticalAlignment = Alignment.CenterVertically) {
+                                CircularProgressIndicator(
+                                    modifier = Modifier.size(16.dp),
+                                    strokeWidth = 2.dp
+                                )
+                                Spacer(modifier = Modifier.width(8.dp))
+                                Text(
+                                    text = stringResource(R.string.tap_get_location),
+                                    style = MaterialTheme.typography.bodySmall,
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                                )
+                            }
+                        } else if (capturedCoordinate != null) {
+                            Row(verticalAlignment = Alignment.CenterVertically) {
+                                Icon(
+                                    Icons.Default.MyLocation,
+                                    contentDescription = null,
+                                    modifier = Modifier.size(16.dp),
+                                    tint = SuccessGreen
+                                )
+                                Spacer(modifier = Modifier.width(8.dp))
+                                Text(
+                                    text = locationText,
+                                    style = MaterialTheme.typography.bodySmall,
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                                )
+                            }
+                        } else {
+                            OutlinedButton(
+                                onClick = { captureLocation() },
+                                modifier = Modifier.fillMaxWidth()
+                            ) {
+                                Icon(
+                                    Icons.Default.MyLocation,
+                                    contentDescription = null,
+                                    modifier = Modifier.size(16.dp)
+                                )
+                                Spacer(modifier = Modifier.width(4.dp))
+                                Text(stringResource(R.string.use_current_location))
+                            }
                         }
-                    },
-                    label = { Text(stringResource(R.string.last_seen_location)) },
-                    modifier = Modifier.fillMaxWidth(),
-                    supportingText = if (capturedCoordinate != null) {
-                        { Text(stringResource(R.string.location_captured)) }
-                    } else null
-                )
+                    }
+                    NotificationCenterSource.REGISTERED_ADDRESS -> {
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Icon(
+                                Icons.Default.LocationOn,
+                                contentDescription = null,
+                                modifier = Modifier.size(16.dp),
+                                tint = if (registeredAddress != null) SuccessGreen else MaterialTheme.colorScheme.error
+                            )
+                            Spacer(modifier = Modifier.width(8.dp))
+                            Text(
+                                text = registeredAddress ?: stringResource(R.string.no_registered_address),
+                                style = MaterialTheme.typography.bodySmall,
+                                color = if (registeredAddress != null) MaterialTheme.colorScheme.onSurfaceVariant else MaterialTheme.colorScheme.error
+                            )
+                        }
+                    }
+                    NotificationCenterSource.CUSTOM_ADDRESS -> {
+                        OutlinedTextField(
+                            value = customAddress,
+                            onValueChange = { customAddress = it },
+                            label = { Text(stringResource(R.string.enter_address_notifications)) },
+                            modifier = Modifier.fillMaxWidth()
+                        )
+                    }
+                }
+
                 Spacer(modifier = Modifier.height(8.dp))
                 OutlinedTextField(
                     value = notes,
@@ -711,17 +847,29 @@ private fun MarkMissingDialog(
                     label = { Text(stringResource(R.string.additional_info)) },
                     modifier = Modifier.fillMaxWidth()
                 )
+
+                Spacer(modifier = Modifier.height(8.dp))
+                Text(
+                    text = stringResource(R.string.alerts_radius_info),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
             }
         },
         confirmButton = {
-            Button(onClick = {
-                onSubmit(
-                    capturedCoordinate,
-                    locationText.ifBlank { null },
-                    notes.ifBlank { null }
-                )
-            }) {
-                Text(stringResource(R.string.report))
+            Button(
+                onClick = { geocodeAndSubmit() },
+                enabled = !isSubmitDisabled
+            ) {
+                if (isGeocoding) {
+                    CircularProgressIndicator(
+                        modifier = Modifier.size(16.dp),
+                        strokeWidth = 2.dp,
+                        color = MaterialTheme.colorScheme.onPrimary
+                    )
+                } else {
+                    Text(stringResource(R.string.report))
+                }
             }
         },
         dismissButton = {

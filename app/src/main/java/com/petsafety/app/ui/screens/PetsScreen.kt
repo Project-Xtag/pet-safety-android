@@ -14,11 +14,12 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.petsafety.app.ui.viewmodel.AppStateViewModel
+import com.petsafety.app.ui.viewmodel.AuthViewModel
 import com.petsafety.app.ui.viewmodel.PetsViewModel
 import com.petsafety.app.ui.viewmodel.SuccessStoriesViewModel
 
 @Composable
-fun PetsScreen(appStateViewModel: AppStateViewModel, modifier: Modifier = Modifier) {
+fun PetsScreen(appStateViewModel: AppStateViewModel, authViewModel: AuthViewModel, modifier: Modifier = Modifier) {
     val navController = rememberNavController()
     val viewModel: PetsViewModel = hiltViewModel()
     val successStoriesViewModel: SuccessStoriesViewModel = hiltViewModel()
@@ -51,6 +52,7 @@ fun PetsScreen(appStateViewModel: AppStateViewModel, modifier: Modifier = Modifi
             PetDetailScreen(
                 viewModel = viewModel,
                 successStoriesViewModel = successStoriesViewModel,
+                authViewModel = authViewModel,
                 petId = petId,
                 onEditPet = { navController.navigate("pet_form/$petId") },
                 onOpenPhotos = { navController.navigate("pet_photos/$petId") },
