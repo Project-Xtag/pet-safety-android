@@ -690,14 +690,22 @@ private fun MarkMissingDialog(
         val notifSource = selectedSource.value
 
         if (selectedSource == NotificationCenterSource.CURRENT_LOCATION) {
-            // GPS already captured
+            // GPS already captured — reverse-geocode for a readable address
+            @Suppress("DEPRECATION")
+            val reverseAddress = capturedCoordinate?.let { coord ->
+                try {
+                    geocoder.getFromLocation(coord.lat, coord.lng, 1)
+                        ?.firstOrNull()
+                        ?.getAddressLine(0)
+                } catch (_: Exception) { null }
+            } ?: locationText.ifBlank { "Current location" }
             onSubmit(
                 capturedCoordinate,
-                locationText.ifBlank { null },
+                reverseAddress,
                 notes.ifBlank { null },
                 notifSource,
                 capturedCoordinate,
-                locationText.ifBlank { null }
+                reverseAddress
             )
             return
         }
