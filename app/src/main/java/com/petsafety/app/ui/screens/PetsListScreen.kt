@@ -594,7 +594,7 @@ private fun QuickActionsSection(
             QuickActionButton(
                 icon = if (hasMissingPets) Icons.Default.CheckCircle else Icons.Default.Warning,
                 title = if (hasMissingPets) stringResource(R.string.action_mark_found) else stringResource(R.string.action_report_missing),
-                color = if (hasMissingPets) SuccessColor else ErrorColor,
+                color = if (hasMissingPets) TealAccent else ErrorColor,
                 onClick = onMarkLostOrFound,
                 modifier = Modifier.weight(1f)
             )
