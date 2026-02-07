@@ -186,13 +186,13 @@ data class PhotoReorderRequest(
 
 @Serializable
 data class CreateSuccessStoryRequest(
-    @SerialName("pet_id") val petId: String,
-    @SerialName("alert_id") val alertId: String? = null,
-    @SerialName("reunion_latitude") val reunionLatitude: Double? = null,
-    @SerialName("reunion_longitude") val reunionLongitude: Double? = null,
-    @SerialName("reunion_city") val reunionCity: String? = null,
-    @SerialName("story_text") val storyText: String? = null,
-    @SerialName("auto_confirm") val autoConfirm: Boolean? = null
+    val petId: String,
+    val alertId: String? = null,
+    val reunionLatitude: Double? = null,
+    val reunionLongitude: Double? = null,
+    val reunionCity: String? = null,
+    val storyText: String? = null,
+    val autoConfirm: Boolean? = null
 )
 
 @Serializable

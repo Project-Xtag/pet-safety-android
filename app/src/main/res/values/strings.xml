@@ -75,6 +75,7 @@
     <string name="search_breed">Search breed...</string>
     <string name="use_current_location">Use Current Location</string>
     <string name="location_captured">Location captured from GPS</string>
+    <string name="getting_location">Getting your location…</string>
     <string name="sighting_location">Sighting location</string>
     <string name="add_photo">Add Photo</string>
     <string name="use_camera">Open device camera</string>

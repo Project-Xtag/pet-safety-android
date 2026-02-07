@@ -431,11 +431,13 @@ fun PetDetailScreen(
                 showSuccessStoryDialog = false
                 onBack()
             },
-            onSubmit = { storyText ->
+            onSubmit = { storyText, location ->
                 successStoriesViewModel.createStory(
                     CreateSuccessStoryRequest(
                         petId = petId,
                         storyText = storyText,
+                        reunionLatitude = location?.lat,
+                        reunionLongitude = location?.lng,
                         autoConfirm = true
                     )
                 ) { success, message ->
