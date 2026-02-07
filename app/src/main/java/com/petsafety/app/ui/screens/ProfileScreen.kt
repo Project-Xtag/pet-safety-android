@@ -29,7 +29,10 @@ import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material.icons.filled.People
 import androidx.compose.material.icons.filled.Person
+import androidx.compose.material.icons.filled.CardGiftcard
+import androidx.compose.material.icons.filled.CreditCard
 import androidx.compose.material.icons.filled.Star
+import androidx.compose.material.icons.filled.WorkspacePremium
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -79,7 +82,10 @@ private enum class ProfileSection {
     PRIVACY,
     NOTIFICATIONS,
     HELP,
-    ORDERS
+    ORDERS,
+    BILLING,
+    REFERRAL,
+    PRICING
 }
 
 @Composable
@@ -106,6 +112,9 @@ fun ProfileScreen(
         ProfileSection.NOTIFICATIONS -> NotificationPreferencesScreen(prefsViewModel) { section = ProfileSection.MAIN }
         ProfileSection.HELP -> HelpSupportScreen(authViewModel, appStateViewModel) { section = ProfileSection.MAIN }
         ProfileSection.ORDERS -> OrdersScreen { section = ProfileSection.MAIN }
+        ProfileSection.BILLING -> BillingScreen(onBack = { section = ProfileSection.MAIN })
+        ProfileSection.REFERRAL -> ReferralScreen(onBack = { section = ProfileSection.MAIN })
+        ProfileSection.PRICING -> PricingScreen(onBack = { section = ProfileSection.MAIN })
     }
 }
 
@@ -240,6 +249,24 @@ private fun ProfileMain(
                         icon = Icons.Default.HelpOutline,
                         title = stringResource(R.string.help_support),
                         onClick = { onNavigate(ProfileSection.HELP) }
+                    )
+                    HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
+                    ProfileMenuRow(
+                        icon = Icons.Default.WorkspacePremium,
+                        title = stringResource(R.string.subscription_title),
+                        onClick = { onNavigate(ProfileSection.PRICING) }
+                    )
+                    HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
+                    ProfileMenuRow(
+                        icon = Icons.Default.CreditCard,
+                        title = stringResource(R.string.billing_title),
+                        onClick = { onNavigate(ProfileSection.BILLING) }
+                    )
+                    HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
+                    ProfileMenuRow(
+                        icon = Icons.Default.CardGiftcard,
+                        title = stringResource(R.string.referral_title),
+                        onClick = { onNavigate(ProfileSection.REFERRAL) }
                     )
                 }
             }

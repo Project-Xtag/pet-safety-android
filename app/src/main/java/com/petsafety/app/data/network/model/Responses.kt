@@ -198,3 +198,68 @@ data class SupportRequestResponse(
     val ticketId: String,
     val message: String
 )
+
+// Subscription responses
+@Serializable
+data class SubscriptionPlansResponse(
+    val plans: List<SubscriptionPlan>
+)
+
+@Serializable
+data class MySubscriptionResponse(
+    val subscription: UserSubscription? = null
+)
+
+@Serializable
+data class CheckoutResponse(
+    @SerialName("session_id") val sessionId: String,
+    val url: String
+)
+
+@Serializable
+data class UpgradeResponse(
+    val subscription: UserSubscription,
+    val message: String? = null
+)
+
+@Serializable
+data class CancelSubscriptionResponse(
+    val subscription: UserSubscription,
+    val message: String? = null
+)
+
+@Serializable
+data class PortalSessionResponse(
+    val url: String
+)
+
+@Serializable
+data class InvoicesResponse(
+    val invoices: List<Invoice>
+)
+
+@Serializable
+data class SubscriptionFeaturesResponse(
+    @SerialName("plan_name") val planName: String,
+    @SerialName("can_create_alerts") val canCreateAlerts: Boolean,
+    @SerialName("can_receive_vet_alerts") val canReceiveVetAlerts: Boolean,
+    @SerialName("can_receive_community_alerts") val canReceiveCommunityAlerts: Boolean,
+    @SerialName("can_use_sms_notifications") val canUseSmsNotifications: Boolean,
+    @SerialName("max_pets") val maxPets: Int? = null,
+    @SerialName("max_photos_per_pet") val maxPhotosPerPet: Int,
+    @SerialName("max_emergency_contacts") val maxEmergencyContacts: Int,
+    @SerialName("free_tag_replacement") val freeTagReplacement: Boolean
+)
+
+@Serializable
+data class ReferralCodeResponse(
+    val code: String,
+    @SerialName("expires_at") val expiresAt: String? = null
+)
+
+@Serializable
+data class ReferralStatusResponse(
+    val code: String? = null,
+    @SerialName("expires_at") val expiresAt: String? = null,
+    val referrals: List<Referral> = emptyList()
+)

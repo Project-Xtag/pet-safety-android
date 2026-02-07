@@ -105,6 +105,16 @@
                     android:scheme="petsafety"
                     android:host="tag" />
             </intent-filter>
+
+            <!-- Deep link for Stripe checkout return: petsafety://checkout/success or /cancelled -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data
+                    android:scheme="petsafety"
+                    android:host="checkout" />
+            </intent-filter>
         </activity>
 
     </application>

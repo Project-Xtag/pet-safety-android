@@ -208,3 +208,17 @@ data class SupportRequest(
     val subject: String,
     val message: String
 )
+
+// Subscription requests
+@Serializable
+data class CreateCheckoutRequest(
+    @SerialName("plan_name") val planName: String,
+    @SerialName("billing_period") val billingPeriod: String,
+    val platform: String = "android",
+    @SerialName("promo_code") val promoCode: String? = null
+)
+
+@Serializable
+data class ApplyReferralRequest(
+    val code: String
+)

@@ -30,6 +30,7 @@ data class NotificationData(
 class MainActivity : FragmentActivity() {
     private val deepLinkCodeState = mutableStateOf<String?>(null)
     private val notificationDataState = mutableStateOf<NotificationData?>(null)
+    val checkoutResultState = mutableStateOf<String?>(null)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         val splashScreen = installSplashScreen()
@@ -81,7 +82,15 @@ class MainActivity : FragmentActivity() {
             return
         }
 
-        // Check for deep link
+        // Check for checkout deep link
+        val checkoutResult = extractCheckoutResult(intent)
+        if (checkoutResult != null) {
+            Log.d(TAG, "Handling checkout deep link: $checkoutResult")
+            checkoutResultState.value = checkoutResult
+            return
+        }
+
+        // Check for QR deep link
         deepLinkCodeState.value = extractQrCode(intent)
     }
 
@@ -92,6 +101,14 @@ class MainActivity : FragmentActivity() {
             "https" -> extractQrFromHttps(data)
             else -> null
         }
+    }
+
+    private fun extractCheckoutResult(intent: Intent?): String? {
+        val data = intent?.data ?: return null
+        if (data.scheme == "petsafety" && data.host == "checkout") {
+            return data.lastPathSegment // "success" or "cancelled"
+        }
+        return null
     }
 
     private fun extractQrFromHttps(uri: Uri): String? {

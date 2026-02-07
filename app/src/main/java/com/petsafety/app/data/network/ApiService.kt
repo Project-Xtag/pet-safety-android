@@ -210,4 +210,40 @@ interface ApiService {
 
     @DELETE("users/fcm-tokens/{token}")
     suspend fun removeFCMToken(@Path("token") token: String): ApiEnvelope<EmptyResponse>
+
+    // Subscriptions
+    @GET("subscriptions/plans")
+    suspend fun getSubscriptionPlans(): ApiEnvelope<SubscriptionPlansResponse>
+
+    @GET("subscriptions/my-subscription")
+    suspend fun getMySubscription(): ApiEnvelope<MySubscriptionResponse>
+
+    @POST("subscriptions/checkout")
+    suspend fun createSubscriptionCheckout(@Body request: CreateCheckoutRequest): ApiEnvelope<CheckoutResponse>
+
+    @POST("subscriptions/upgrade-starter")
+    suspend fun upgradeToStarter(): ApiEnvelope<UpgradeResponse>
+
+    @POST("subscriptions/cancel")
+    suspend fun cancelSubscription(): ApiEnvelope<CancelSubscriptionResponse>
+
+    @GET("subscriptions/features")
+    suspend fun getSubscriptionFeatures(): ApiEnvelope<SubscriptionFeaturesResponse>
+
+    // Billing
+    @POST("billing/portal-session")
+    suspend fun createPortalSession(): ApiEnvelope<PortalSessionResponse>
+
+    @GET("billing/invoices")
+    suspend fun getInvoices(@Query("limit") limit: Int = 24): ApiEnvelope<InvoicesResponse>
+
+    // Referrals
+    @POST("referrals/generate-code")
+    suspend fun generateReferralCode(): ApiEnvelope<ReferralCodeResponse>
+
+    @POST("referrals/apply")
+    suspend fun applyReferralCode(@Body request: ApplyReferralRequest): ApiEnvelope<EmptyResponse>
+
+    @GET("referrals/status")
+    suspend fun getReferralStatus(): ApiEnvelope<ReferralStatusResponse>
 }

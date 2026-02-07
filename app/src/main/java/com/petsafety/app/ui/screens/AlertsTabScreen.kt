@@ -51,6 +51,29 @@ fun AlertsTabScreen(
     val locationProvider = LocationServices.getFusedLocationProviderClient(context)
     val currentUser by authViewModel.currentUser.collectAsState()
 
+    // Helper function to fallback to user's registered address
+    fun fallbackToRegisteredAddress() {
+        val user = currentUser
+        if (user != null) {
+            val address = listOfNotNull(user.address, user.city, user.postalCode, user.country)
+                .filter { it.isNotBlank() }
+                .joinToString(", ")
+            if (address.isNotBlank()) {
+                @Suppress("DEPRECATION")
+                try {
+                    val geocoder = android.location.Geocoder(context)
+                    val results = geocoder.getFromLocationName(address, 1)
+                    results?.firstOrNull()?.let {
+                        userLocation = LatLng(it.latitude, it.longitude)
+                        alertsViewModel.fetchNearbyAlerts(it.latitude, it.longitude, 10.0)
+                    }
+                } catch (_: Exception) {
+                    // Geocoding failed, no fallback available
+                }
+            }
+        }
+    }
+
     // Helper function to fetch location and alerts
     fun fetchLocationAndAlerts() {
         @Suppress("MissingPermission")
@@ -88,29 +111,6 @@ fun AlertsTabScreen(
         }.addOnFailureListener {
             // Location fetch failed, fallback to registered address
             fallbackToRegisteredAddress()
-        }
-    }
-
-    // Helper function to fallback to user's registered address
-    fun fallbackToRegisteredAddress() {
-        val user = currentUser
-        if (user != null) {
-            val address = listOfNotNull(user.address, user.city, user.postalCode, user.country)
-                .filter { it.isNotBlank() }
-                .joinToString(", ")
-            if (address.isNotBlank()) {
-                @Suppress("DEPRECATION")
-                try {
-                    val geocoder = android.location.Geocoder(context)
-                    val results = geocoder.getFromLocationName(address, 1)
-                    results?.firstOrNull()?.let {
-                        userLocation = LatLng(it.latitude, it.longitude)
-                        alertsViewModel.fetchNearbyAlerts(it.latitude, it.longitude, 10.0)
-                    }
-                } catch (_: Exception) {
-                    // Geocoding failed, no fallback available
-                }
-            }
         }
     }
 

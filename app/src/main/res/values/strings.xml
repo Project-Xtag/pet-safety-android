@@ -612,4 +612,43 @@
     <string name="error_load_alerts">Failed to load alerts</string>
     <string name="error_load_pet_profile">Failed to load pet profile</string>
     <string name="error_load_stories">Failed to load stories</string>
+
+    <!-- Subscription / Pricing -->
+    <string name="subscription_title">Subscription</string>
+    <string name="subscription_choose_plan">Choose Plan</string>
+    <string name="subscription_monthly">Monthly</string>
+    <string name="subscription_yearly">Yearly</string>
+    <string name="subscription_popular">Popular</string>
+    <string name="subscription_current_plan">Current Plan</string>
+    <string name="subscription_select">Select Plan</string>
+    <string name="subscription_max_pets">Max pets: %1$s</string>
+    <string name="subscription_vet_alerts">Vet &amp; rescue alerts</string>
+    <string name="subscription_sms">SMS notifications</string>
+    <string name="subscription_community_alerts">Community alerts</string>
+    <string name="subscription_free_replacement">Free tag replacement</string>
+
+    <!-- Billing -->
+    <string name="billing_title">Billing &amp; Invoices</string>
+    <string name="billing_manage_subscription">Manage Subscription</string>
+    <string name="billing_manage_description">Change plan, update payment method, or cancel</string>
+    <string name="billing_current_plan">Current Plan</string>
+    <string name="billing_plan_label">Plan</string>
+    <string name="billing_status_label">Status</string>
+    <string name="billing_invoices">Invoices</string>
+    <string name="billing_no_invoices">No invoices yet</string>
+
+    <!-- Referral -->
+    <string name="referral_title">Refer a Friend</string>
+    <string name="referral_your_code">Your Referral Code</string>
+    <string name="referral_copy">Copy</string>
+    <string name="referral_copied">Copied!</string>
+    <string name="referral_share">Share</string>
+    <string name="referral_generate">Generate Referral Code</string>
+    <string name="referral_share_text">Use my referral code %1$s to get 2 months free on Pet Safety! https://pet-er.app/choose-plan?referral=%2$s</string>
+    <string name="referral_how_it_works">How It Works</string>
+    <string name="referral_step_1">Share your unique code with friends</string>
+    <string name="referral_step_2">They use it when subscribing to a paid plan</string>
+    <string name="referral_step_3">You both enjoy 2 months free</string>
+    <string name="referral_history">Referral History</string>
+    <string name="referral_no_referrals">No referrals yet. Share your code to get started!</string>
 </resources>
