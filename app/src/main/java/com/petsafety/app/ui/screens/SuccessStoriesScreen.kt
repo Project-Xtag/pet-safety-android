@@ -74,12 +74,21 @@ import java.util.concurrent.TimeUnit
 @Composable
 fun SuccessStoriesScreen(
     viewModel: SuccessStoriesViewModel,
-    appStateViewModel: AppStateViewModel
+    appStateViewModel: AppStateViewModel,
+    userLatitude: Double? = null,
+    userLongitude: Double? = null
 ) {
     val stories by viewModel.stories.collectAsState()
     val isRefreshing by viewModel.isRefreshing.collectAsState()
     val isLoading by viewModel.isLoading.collectAsState()
     var showMap by remember { mutableStateOf(false) }
+
+    // Fetch stories when screen loads
+    androidx.compose.runtime.LaunchedEffect(userLatitude, userLongitude) {
+        val lat = userLatitude ?: 51.5074  // Default to London
+        val lng = userLongitude ?: -0.1278
+        viewModel.fetchStories(lat, lng, 50.0, 1, loadMore = false)
+    }
 
     Box(
         modifier = Modifier

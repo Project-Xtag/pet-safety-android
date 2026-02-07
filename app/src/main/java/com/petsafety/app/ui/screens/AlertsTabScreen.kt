@@ -150,7 +150,12 @@ fun AlertsTabScreen(
 
         when (selectedTab) {
             0 -> MissingAlertsScreen(alertsViewModel, appStateViewModel, userLocation)
-            1 -> SuccessStoriesScreen(successStoriesViewModel, appStateViewModel)
+            1 -> SuccessStoriesScreen(
+                viewModel = successStoriesViewModel,
+                appStateViewModel = appStateViewModel,
+                userLatitude = userLocation?.latitude,
+                userLongitude = userLocation?.longitude
+            )
         }
     }
 }
