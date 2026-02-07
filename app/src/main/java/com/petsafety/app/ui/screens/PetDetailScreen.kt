@@ -332,8 +332,8 @@ fun PetDetailScreen(
                     onClick = onViewPublicProfile,
                     modifier = Modifier.fillMaxWidth(),
                     colors = ButtonDefaults.buttonColors(
-                        containerColor = SuccessGreen.copy(alpha = 0.1f),
-                        contentColor = SuccessGreen
+                        containerColor = TealAccent.copy(alpha = 0.1f),
+                        contentColor = TealAccent
                     ),
                     shape = RoundedCornerShape(14.dp)
                 ) {
@@ -996,7 +996,7 @@ private fun MarkMissingDialog(
                                 Icons.Default.LocationOn,
                                 contentDescription = null,
                                 modifier = Modifier.size(16.dp),
-                                tint = if (registeredAddress != null) SuccessGreen else MaterialTheme.colorScheme.error
+                                tint = if (registeredAddress != null) TealAccent else MaterialTheme.colorScheme.error
                             )
                             Spacer(modifier = Modifier.width(8.dp))
                             Text(

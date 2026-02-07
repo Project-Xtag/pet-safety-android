@@ -85,7 +85,9 @@ import com.petsafety.app.ui.components.OfflineIndicator
 import com.petsafety.app.ui.components.PetsListSkeleton
 import com.petsafety.app.ui.components.ReportMissingSheet
 import com.petsafety.app.ui.theme.BrandOrange
+import com.petsafety.app.ui.theme.ErrorColor
 import com.petsafety.app.ui.theme.PeachBackground
+import com.petsafety.app.ui.theme.SuccessColor
 import com.petsafety.app.ui.theme.TealAccent
 import com.petsafety.app.ui.viewmodel.AppStateViewModel
 import com.petsafety.app.ui.viewmodel.AuthViewModel
@@ -592,7 +594,7 @@ private fun QuickActionsSection(
             QuickActionButton(
                 icon = if (hasMissingPets) Icons.Default.CheckCircle else Icons.Default.Warning,
                 title = if (hasMissingPets) stringResource(R.string.action_mark_found) else stringResource(R.string.action_report_missing),
-                color = if (hasMissingPets) Color(0xFF34C759) else MaterialTheme.colorScheme.error,
+                color = if (hasMissingPets) SuccessColor else ErrorColor,
                 onClick = onMarkLostOrFound,
                 modifier = Modifier.weight(1f)
             )
@@ -708,14 +710,14 @@ private fun SuccessStoriesSection(onClick: () -> Unit) {
                 Box(
                     modifier = Modifier
                         .size(60.dp)
-                        .background(Color(0xFF34C759).copy(alpha = 0.15f), CircleShape),
+                        .background(SuccessColor.copy(alpha = 0.15f), CircleShape),
                     contentAlignment = Alignment.Center
                 ) {
                     Icon(
                         imageVector = Icons.Default.Favorite,
                         contentDescription = stringResource(R.string.success_stories),
                         modifier = Modifier.size(30.dp),
-                        tint = Color(0xFF34C759)
+                        tint = SuccessColor
                     )
                 }
 
