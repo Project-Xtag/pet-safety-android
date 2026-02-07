@@ -1,17 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Pet Safety Brand Colors - matching iOS app design -->
+    <!-- Pet Safety Brand Colors - matching web app design -->
+    <!--
+    | UI Element           | Color       | Hex     |
+    | Primary CTA buttons  | Coral       | #FF914D |
+    | Links & focus rings  | Teal        | #4DB8C4 |
+    | Tab bar / nav tint   | Teal        | #4DB8C4 |
+    | Badges & tags        | Coral       | #FF914D |
+    | Highlights / accents | Golden      | #FFEB2E |
+    | Delete / error       | Destructive | #F75757 |
+    | Screen background    | Cream/Dark  | #F9F5F0 / #1F1B2E |
+    | Section backgrounds  | Peach       | #FDEDD8 |
+    | Secondary text       | Gray        | #737373 |
+    | Success states       | Sage        | #A6C4B8 |
+    | Upgrade banners      | Golden Light| #FFFF80 |
+    -->
 
-    <!-- Primary Brand Color (Orange) -->
+    <!-- Primary Brand Color (Coral) - for CTAs, badges -->
     <color name="brand_orange">#FF914D</color>
     <color name="brand_orange_dark">#F5975B</color>
 
-    <!-- Secondary Accent (Teal) -->
-    <color name="teal_accent">#6FB2B2</color>
+    <!-- Secondary Accent (Teal) - for links, focus rings, nav -->
+    <color name="teal_accent">#4DB8C4</color>
+
+    <!-- Golden Accent - for highlights -->
+    <color name="golden_accent">#FFEB2E</color>
+    <color name="golden_light">#FFFF80</color>
 
     <!-- Background Colors -->
-    <color name="background_light">#FAF8F0</color>
-    <color name="background_dark">#1F2326</color>
+    <color name="background_light">#F9F5F0</color>
+    <color name="background_dark">#1F1B2E</color>
 
     <!-- Surface/Card Colors -->
     <color name="peach_background">#FDEDD8</color>
@@ -22,10 +40,11 @@
     <color name="muted_text_light">#737373</color>
     <color name="muted_text_dark">#999999</color>
 
-    <!-- Additional UI Colors -->
-    <color name="error_color">#E53935</color>
-    <color name="success_color">#43A047</color>
+    <!-- State Colors -->
+    <color name="error_color">#F75757</color>
+    <color name="success_color">#A6C4B8</color>
     <color name="warning_color">#FFA726</color>
+    <color name="info_blue">#007AFF</color>
 
     <!-- Border/Divider Colors -->
     <color name="border_light">#E0E0E0</color>
