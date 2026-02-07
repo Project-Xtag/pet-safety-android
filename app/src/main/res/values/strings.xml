@@ -411,6 +411,7 @@
     <string name="sex">Sex</string>
     <string name="not_specified">Not specified</string>
     <string name="neutered_spayed">Neutered/Spayed</string>
+    <string name="neutered">Neutered</string>
     <string name="health_information">Health Information</string>
     <string name="medical_notes_hint">Medical notes (conditions, surgeries, etc.)</string>
     <string name="behavior_notes_hint">Behavior notes (temperament, training, etc.)</string>

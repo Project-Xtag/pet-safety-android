@@ -197,17 +197,13 @@ fun PhotoGalleryScreen(
                 onClick = { showSourcePicker = true },
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(horizontal = 16.dp)
-                    .height(52.dp)
-                    .shadow(
-                        elevation = 8.dp,
-                        shape = RoundedCornerShape(16.dp),
-                        ambientColor = BrandOrange.copy(alpha = 0.3f),
-                        spotColor = BrandOrange.copy(alpha = 0.3f)
-                    ),
+                    .padding(horizontal = 16.dp),
                 enabled = !isUploading,
-                shape = RoundedCornerShape(16.dp),
-                colors = ButtonDefaults.buttonColors(containerColor = BrandOrange)
+                shape = RoundedCornerShape(14.dp),
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = TealAccent,
+                    contentColor = Color.White
+                )
             ) {
                 Icon(
                     imageVector = Icons.Default.Add,
@@ -217,7 +213,7 @@ fun PhotoGalleryScreen(
                 Spacer(modifier = Modifier.width(8.dp))
                 Text(
                     text = stringResource(R.string.add_photos),
-                    style = MaterialTheme.typography.labelLarge.copy(
+                    style = MaterialTheme.typography.bodyMedium.copy(
                         fontSize = 16.sp,
                         fontWeight = FontWeight.SemiBold
                     )

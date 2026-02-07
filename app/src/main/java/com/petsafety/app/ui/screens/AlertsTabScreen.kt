@@ -1,6 +1,8 @@
 package com.petsafety.app.ui.screens
 
 import android.Manifest
+import android.content.pm.PackageManager
+import android.os.Looper
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.Column
@@ -19,8 +21,13 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.core.content.ContextCompat
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.google.android.gms.location.LocationCallback
+import com.google.android.gms.location.LocationRequest
+import com.google.android.gms.location.LocationResult
 import com.google.android.gms.location.LocationServices
+import com.google.android.gms.location.Priority
 import com.google.android.gms.maps.model.LatLng
 import com.petsafety.app.R
 import com.petsafety.app.ui.components.OfflineIndicator
@@ -44,42 +51,88 @@ fun AlertsTabScreen(
     val locationProvider = LocationServices.getFusedLocationProviderClient(context)
     val currentUser by authViewModel.currentUser.collectAsState()
 
-    val permissionLauncher = rememberLauncherForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->
-        hasLocationPermission = granted
-        if (granted) {
-            @Suppress("MissingPermission")
-            locationProvider.lastLocation.addOnSuccessListener { location ->
-                if (location != null) {
-                    userLocation = LatLng(location.latitude, location.longitude)
-                    alertsViewModel.fetchNearbyAlerts(location.latitude, location.longitude, 10.0)
-                }
-            }
-        } else {
-            // Fallback: geocode user's registered address
-            val user = currentUser
-            if (user != null) {
-                val address = listOfNotNull(user.address, user.city, user.postalCode, user.country)
-                    .filter { it.isNotBlank() }
-                    .joinToString(", ")
-                if (address.isNotBlank()) {
-                    @Suppress("DEPRECATION")
-                    try {
-                        val geocoder = android.location.Geocoder(context)
-                        val results = geocoder.getFromLocationName(address, 1)
-                        results?.firstOrNull()?.let {
-                            userLocation = LatLng(it.latitude, it.longitude)
-                            alertsViewModel.fetchNearbyAlerts(it.latitude, it.longitude, 10.0)
+    // Helper function to fetch location and alerts
+    fun fetchLocationAndAlerts() {
+        @Suppress("MissingPermission")
+        locationProvider.lastLocation.addOnSuccessListener { location ->
+            if (location != null) {
+                userLocation = LatLng(location.latitude, location.longitude)
+                alertsViewModel.fetchNearbyAlerts(location.latitude, location.longitude, 10.0)
+            } else {
+                // lastLocation is null, request a fresh location update
+                val locationRequest = LocationRequest.Builder(Priority.PRIORITY_HIGH_ACCURACY, 5000L)
+                    .setMinUpdateIntervalMillis(2000L)
+                    .setMaxUpdates(1)
+                    .build()
+
+                val locationCallback = object : LocationCallback() {
+                    override fun onLocationResult(result: LocationResult) {
+                        result.lastLocation?.let { freshLocation ->
+                            userLocation = LatLng(freshLocation.latitude, freshLocation.longitude)
+                            alertsViewModel.fetchNearbyAlerts(freshLocation.latitude, freshLocation.longitude, 10.0)
+                        } ?: run {
+                            // Still no location, fallback to registered address
+                            fallbackToRegisteredAddress()
                         }
-                    } catch (_: Exception) {
-                        // Geocoding failed, no fallback available
+                        locationProvider.removeLocationUpdates(this)
                     }
+                }
+
+                @Suppress("MissingPermission")
+                locationProvider.requestLocationUpdates(
+                    locationRequest,
+                    locationCallback,
+                    Looper.getMainLooper()
+                )
+            }
+        }.addOnFailureListener {
+            // Location fetch failed, fallback to registered address
+            fallbackToRegisteredAddress()
+        }
+    }
+
+    // Helper function to fallback to user's registered address
+    fun fallbackToRegisteredAddress() {
+        val user = currentUser
+        if (user != null) {
+            val address = listOfNotNull(user.address, user.city, user.postalCode, user.country)
+                .filter { it.isNotBlank() }
+                .joinToString(", ")
+            if (address.isNotBlank()) {
+                @Suppress("DEPRECATION")
+                try {
+                    val geocoder = android.location.Geocoder(context)
+                    val results = geocoder.getFromLocationName(address, 1)
+                    results?.firstOrNull()?.let {
+                        userLocation = LatLng(it.latitude, it.longitude)
+                        alertsViewModel.fetchNearbyAlerts(it.latitude, it.longitude, 10.0)
+                    }
+                } catch (_: Exception) {
+                    // Geocoding failed, no fallback available
                 }
             }
         }
     }
 
+    val permissionLauncher = rememberLauncherForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->
+        hasLocationPermission = granted
+        if (granted) {
+            fetchLocationAndAlerts()
+        } else {
+            // Permission denied, fallback to registered address
+            fallbackToRegisteredAddress()
+        }
+    }
+
     LaunchedEffect(Unit) {
-        permissionLauncher.launch(Manifest.permission.ACCESS_FINE_LOCATION)
+        // Check if permission is already granted
+        val permissionStatus = ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION)
+        if (permissionStatus == PackageManager.PERMISSION_GRANTED) {
+            hasLocationPermission = true
+            fetchLocationAndAlerts()
+        } else {
+            permissionLauncher.launch(Manifest.permission.ACCESS_FINE_LOCATION)
+        }
     }
 
     Column(modifier = modifier.fillMaxWidth().padding(12.dp)) {

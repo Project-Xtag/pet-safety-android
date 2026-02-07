@@ -261,28 +261,40 @@ private fun PublicPetContent(pet: Pet, currentUser: User?) {
 
         Spacer(modifier = Modifier.height(12.dp))
 
-        // Pet details row
+        // Pet details row (values only, no labels)
         Row(
             modifier = Modifier.padding(horizontal = 24.dp),
-            horizontalArrangement = Arrangement.spacedBy(16.dp)
+            horizontalArrangement = Arrangement.spacedBy(8.dp),
+            verticalAlignment = Alignment.CenterVertically
         ) {
-            pet.breed?.let { breed ->
-                Text(
-                    text = stringResource(R.string.breed_label, breed),
-                    style = MaterialTheme.typography.bodySmall.copy(fontSize = 14.sp),
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
-                )
+            val neuteredLabel = stringResource(R.string.neutered)
+            val details = buildList {
+                pet.breed?.takeIf { it.isNotBlank() }?.let { add(it) }
+                pet.age?.takeIf { it.isNotBlank() }?.let { add(it) }
+                // Sex + neutered
+                val sexValue = pet.sex?.takeIf { it.isNotBlank() && it.lowercase() != "unknown" }
+                if (sexValue != null) {
+                    val sexText = if (pet.isNeutered == true) {
+                        "${sexValue.replaceFirstChar { it.uppercase() }}, $neuteredLabel"
+                    } else {
+                        sexValue.replaceFirstChar { it.uppercase() }
+                    }
+                    add(sexText)
+                } else if (pet.isNeutered == true) {
+                    add(neuteredLabel)
+                }
             }
-            pet.age?.let { age ->
+
+            details.forEachIndexed { index, detail ->
+                if (index > 0) {
+                    Text(
+                        text = "•",
+                        style = MaterialTheme.typography.bodySmall.copy(fontSize = 14.sp),
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                }
                 Text(
-                    text = stringResource(R.string.age_label, age),
-                    style = MaterialTheme.typography.bodySmall.copy(fontSize = 14.sp),
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
-                )
-            }
-            pet.color?.let { color ->
-                Text(
-                    text = stringResource(R.string.color_label, color),
+                    text = detail,
                     style = MaterialTheme.typography.bodySmall.copy(fontSize = 14.sp),
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )

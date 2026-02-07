@@ -119,17 +119,6 @@ private fun ProfileMain(
 ) {
     val user by authViewModel.currentUser.collectAsState()
     var showLogoutDialog by remember { mutableStateOf(false) }
-    var showDeleteDialog by remember { mutableStateOf(false) }
-    var showDeleteErrorDialog by remember { mutableStateOf(false) }
-    var isDeleting by remember { mutableStateOf(false) }
-    var isCheckingDelete by remember { mutableStateOf(false) }
-    var deleteErrorMessage by remember { mutableStateOf("") }
-    var missingPetNames by remember { mutableStateOf<List<String>>(emptyList()) }
-
-    // Extract string resources outside lambdas
-    val accountDeletedMessage = stringResource(R.string.account_deleted)
-    val deleteAccountFailedMessage = stringResource(R.string.delete_account_failed)
-    val cannotDeleteMissingPetsMessage = stringResource(R.string.cannot_delete_missing_pets)
 
     Box(
         modifier = modifier
@@ -288,96 +277,7 @@ private fun ProfileMain(
                 )
             }
 
-            Spacer(modifier = Modifier.height(24.dp))
-
-            // Danger Zone
-            Column(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 24.dp),
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-                Text(
-                    text = stringResource(R.string.danger_zone),
-                    style = MaterialTheme.typography.labelSmall.copy(
-                        fontSize = 12.sp,
-                        fontWeight = FontWeight.SemiBold,
-                        letterSpacing = 1.sp
-                    ),
-                    color = MaterialTheme.colorScheme.error.copy(alpha = 0.7f)
-                )
-
-                Spacer(modifier = Modifier.height(12.dp))
-
-                Button(
-                    onClick = {
-                        isCheckingDelete = true
-                        authViewModel.canDeleteAccount { response, error ->
-                            isCheckingDelete = false
-                            if (error != null) {
-                                appStateViewModel.showError(error)
-                            } else if (response != null) {
-                                if (response.canDelete) {
-                                    showDeleteDialog = true
-                                } else {
-                                    deleteErrorMessage = response.message ?: cannotDeleteMissingPetsMessage
-                                    missingPetNames = response.missingPets?.map { it.name } ?: emptyList()
-                                    showDeleteErrorDialog = true
-                                }
-                            }
-                        }
-                    },
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(52.dp)
-                        .shadow(
-                            elevation = 8.dp,
-                            shape = RoundedCornerShape(16.dp),
-                            ambientColor = MaterialTheme.colorScheme.error.copy(alpha = 0.3f),
-                            spotColor = MaterialTheme.colorScheme.error.copy(alpha = 0.3f)
-                        ),
-                    shape = RoundedCornerShape(16.dp),
-                    colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.error),
-                    enabled = !isDeleting && !isCheckingDelete
-                ) {
-                    if (isDeleting || isCheckingDelete) {
-                        CircularProgressIndicator(
-                            modifier = Modifier.size(18.dp),
-                            color = Color.White,
-                            strokeWidth = 2.dp
-                        )
-                    } else {
-                        Icon(
-                            imageVector = Icons.Default.Delete,
-                            contentDescription = null,
-                            modifier = Modifier.size(18.dp)
-                        )
-                    }
-                    Spacer(modifier = Modifier.width(12.dp))
-                    Text(
-                        text = when {
-                            isCheckingDelete -> stringResource(R.string.checking_delete_eligibility)
-                            isDeleting -> stringResource(R.string.deleting)
-                            else -> stringResource(R.string.delete_account)
-                        },
-                        style = MaterialTheme.typography.labelLarge.copy(
-                            fontSize = 16.sp,
-                            fontWeight = FontWeight.SemiBold
-                        )
-                    )
-                }
-
-                Spacer(modifier = Modifier.height(8.dp))
-
-                Text(
-                    text = stringResource(R.string.delete_account_permanent),
-                    style = MaterialTheme.typography.bodySmall.copy(fontSize = 11.sp),
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    textAlign = TextAlign.Center
-                )
-            }
-
-            Spacer(modifier = Modifier.height(100.dp))
+            Spacer(modifier = Modifier.height(120.dp))
         }
     }
 
@@ -401,67 +301,6 @@ private fun ProfileMain(
             dismissButton = {
                 TextButton(onClick = { showLogoutDialog = false }) {
                     Text(stringResource(R.string.cancel))
-                }
-            }
-        )
-    }
-
-    // Delete Account Dialog
-    if (showDeleteDialog) {
-        AlertDialog(
-            onDismissRequest = { showDeleteDialog = false },
-            title = { Text(stringResource(R.string.delete_account)) },
-            text = {
-                Text(stringResource(R.string.delete_account_full_warning))
-            },
-            confirmButton = {
-                TextButton(
-                    onClick = {
-                        isDeleting = true
-                        authViewModel.deleteAccount { success, message ->
-                            isDeleting = false
-                            if (success) {
-                                appStateViewModel.showSuccess(accountDeletedMessage)
-                            } else {
-                                appStateViewModel.showError(message ?: deleteAccountFailedMessage)
-                            }
-                        }
-                        showDeleteDialog = false
-                    },
-                    colors = ButtonDefaults.textButtonColors(contentColor = MaterialTheme.colorScheme.error)
-                ) {
-                    Text(stringResource(R.string.delete_account))
-                }
-            },
-            dismissButton = {
-                TextButton(onClick = { showDeleteDialog = false }) {
-                    Text(stringResource(R.string.cancel))
-                }
-            }
-        )
-    }
-
-    // Cannot Delete Account (Missing Pets) Dialog
-    if (showDeleteErrorDialog) {
-        AlertDialog(
-            onDismissRequest = { showDeleteErrorDialog = false },
-            title = { Text(stringResource(R.string.cannot_delete_account)) },
-            text = {
-                Column {
-                    Text(deleteErrorMessage)
-                    if (missingPetNames.isNotEmpty()) {
-                        Spacer(modifier = Modifier.height(12.dp))
-                        Text(
-                            text = stringResource(R.string.missing_pets_label, missingPetNames.joinToString(", ")),
-                            style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.SemiBold),
-                            color = Color(0xFFD97706) // Amber color for emphasis
-                        )
-                    }
-                }
-            },
-            confirmButton = {
-                TextButton(onClick = { showDeleteErrorDialog = false }) {
-                    Text(stringResource(R.string.ok))
                 }
             }
         )
@@ -1288,6 +1127,17 @@ private fun HelpSupportScreen(
     onBack: () -> Unit
 ) {
     var showContactForm by remember { mutableStateOf(false) }
+    var showDeleteDialog by remember { mutableStateOf(false) }
+    var showDeleteErrorDialog by remember { mutableStateOf(false) }
+    var isDeleting by remember { mutableStateOf(false) }
+    var isCheckingDelete by remember { mutableStateOf(false) }
+    var deleteErrorMessage by remember { mutableStateOf("") }
+    var missingPetNames by remember { mutableStateOf<List<String>>(emptyList()) }
+
+    // Extract string resources outside lambdas
+    val accountDeletedMessage = stringResource(R.string.account_deleted)
+    val deleteAccountFailedMessage = stringResource(R.string.delete_account_failed)
+    val cannotDeleteMissingPetsMessage = stringResource(R.string.cannot_delete_missing_pets)
 
     Column(
         modifier = Modifier
@@ -1304,7 +1154,7 @@ private fun HelpSupportScreen(
                 .fillMaxWidth()
                 .verticalScroll(rememberScrollState())
                 .padding(horizontal = 20.dp)
-                .padding(top = 20.dp, bottom = 100.dp)
+                .padding(top = 20.dp, bottom = 120.dp)
         ) {
             // Contact Support
             Text(
@@ -1405,6 +1255,93 @@ private fun HelpSupportScreen(
                     )
                 }
             }
+
+            Spacer(modifier = Modifier.height(24.dp))
+
+            // Danger Zone
+            Column(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                Text(
+                    text = stringResource(R.string.danger_zone),
+                    style = MaterialTheme.typography.labelSmall.copy(
+                        fontSize = 12.sp,
+                        fontWeight = FontWeight.SemiBold,
+                        letterSpacing = 1.sp
+                    ),
+                    color = MaterialTheme.colorScheme.error.copy(alpha = 0.7f)
+                )
+
+                Spacer(modifier = Modifier.height(12.dp))
+
+                Button(
+                    onClick = {
+                        isCheckingDelete = true
+                        authViewModel.canDeleteAccount { response, error ->
+                            isCheckingDelete = false
+                            if (error != null) {
+                                appStateViewModel.showError(error)
+                            } else if (response != null) {
+                                if (response.canDelete) {
+                                    showDeleteDialog = true
+                                } else {
+                                    deleteErrorMessage = response.message ?: cannotDeleteMissingPetsMessage
+                                    missingPetNames = response.missingPets?.map { it.name } ?: emptyList()
+                                    showDeleteErrorDialog = true
+                                }
+                            }
+                        }
+                    },
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(52.dp)
+                        .shadow(
+                            elevation = 8.dp,
+                            shape = RoundedCornerShape(16.dp),
+                            ambientColor = MaterialTheme.colorScheme.error.copy(alpha = 0.3f),
+                            spotColor = MaterialTheme.colorScheme.error.copy(alpha = 0.3f)
+                        ),
+                    shape = RoundedCornerShape(16.dp),
+                    colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.error),
+                    enabled = !isDeleting && !isCheckingDelete
+                ) {
+                    if (isDeleting || isCheckingDelete) {
+                        CircularProgressIndicator(
+                            modifier = Modifier.size(18.dp),
+                            color = Color.White,
+                            strokeWidth = 2.dp
+                        )
+                    } else {
+                        Icon(
+                            imageVector = Icons.Default.Delete,
+                            contentDescription = null,
+                            modifier = Modifier.size(18.dp)
+                        )
+                    }
+                    Spacer(modifier = Modifier.width(12.dp))
+                    Text(
+                        text = when {
+                            isCheckingDelete -> stringResource(R.string.checking_delete_eligibility)
+                            isDeleting -> stringResource(R.string.deleting)
+                            else -> stringResource(R.string.delete_account)
+                        },
+                        style = MaterialTheme.typography.labelLarge.copy(
+                            fontSize = 16.sp,
+                            fontWeight = FontWeight.SemiBold
+                        )
+                    )
+                }
+
+                Spacer(modifier = Modifier.height(8.dp))
+
+                Text(
+                    text = stringResource(R.string.delete_account_permanent),
+                    style = MaterialTheme.typography.bodySmall.copy(fontSize = 11.sp),
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    textAlign = TextAlign.Center
+                )
+            }
         }
     }
 
@@ -1414,6 +1351,67 @@ private fun HelpSupportScreen(
             authViewModel = authViewModel,
             appStateViewModel = appStateViewModel,
             onDismiss = { showContactForm = false }
+        )
+    }
+
+    // Delete Account Dialog
+    if (showDeleteDialog) {
+        AlertDialog(
+            onDismissRequest = { showDeleteDialog = false },
+            title = { Text(stringResource(R.string.delete_account)) },
+            text = {
+                Text(stringResource(R.string.delete_account_full_warning))
+            },
+            confirmButton = {
+                TextButton(
+                    onClick = {
+                        isDeleting = true
+                        authViewModel.deleteAccount { success, message ->
+                            isDeleting = false
+                            if (success) {
+                                appStateViewModel.showSuccess(accountDeletedMessage)
+                            } else {
+                                appStateViewModel.showError(message ?: deleteAccountFailedMessage)
+                            }
+                        }
+                        showDeleteDialog = false
+                    },
+                    colors = ButtonDefaults.textButtonColors(contentColor = MaterialTheme.colorScheme.error)
+                ) {
+                    Text(stringResource(R.string.delete_account))
+                }
+            },
+            dismissButton = {
+                TextButton(onClick = { showDeleteDialog = false }) {
+                    Text(stringResource(R.string.cancel))
+                }
+            }
+        )
+    }
+
+    // Cannot Delete Account (Missing Pets) Dialog
+    if (showDeleteErrorDialog) {
+        AlertDialog(
+            onDismissRequest = { showDeleteErrorDialog = false },
+            title = { Text(stringResource(R.string.cannot_delete_account)) },
+            text = {
+                Column {
+                    Text(deleteErrorMessage)
+                    if (missingPetNames.isNotEmpty()) {
+                        Spacer(modifier = Modifier.height(12.dp))
+                        Text(
+                            text = stringResource(R.string.missing_pets_label, missingPetNames.joinToString(", ")),
+                            style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.SemiBold),
+                            color = Color(0xFFD97706) // Amber color for emphasis
+                        )
+                    }
+                }
+            },
+            confirmButton = {
+                TextButton(onClick = { showDeleteErrorDialog = false }) {
+                    Text(stringResource(R.string.ok))
+                }
+            }
         )
     }
 }

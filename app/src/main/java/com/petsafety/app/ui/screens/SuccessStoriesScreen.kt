@@ -62,7 +62,6 @@ import com.google.maps.android.compose.MarkerState
 import com.google.maps.android.compose.rememberCameraPositionState
 import com.petsafety.app.R
 import com.petsafety.app.data.model.SuccessStory
-import com.petsafety.app.ui.theme.SuccessColor
 import com.petsafety.app.ui.theme.TealAccent
 import com.petsafety.app.ui.viewmodel.AppStateViewModel
 import com.petsafety.app.ui.viewmodel.SuccessStoriesViewModel
@@ -245,7 +244,7 @@ private fun SuccessStoryCard(story: SuccessStory) {
                     modifier = Modifier
                         .size(80.dp)
                         .clip(RoundedCornerShape(12.dp))
-                        .background(SuccessColor.copy(alpha = 0.2f)),
+                        .background(TealAccent.copy(alpha = 0.2f)),
                     contentAlignment = Alignment.Center
                 ) {
                     if (!story.petPhotoUrl.isNullOrBlank()) {
@@ -282,7 +281,7 @@ private fun SuccessStoryCard(story: SuccessStory) {
                     Row(
                         modifier = Modifier
                             .background(
-                                SuccessColor.copy(alpha = 0.1f),
+                                TealAccent.copy(alpha = 0.1f),
                                 RoundedCornerShape(6.dp)
                             )
                             .padding(horizontal = 8.dp, vertical = 4.dp),
@@ -293,14 +292,14 @@ private fun SuccessStoryCard(story: SuccessStory) {
                             imageVector = Icons.Default.CheckCircle,
                             contentDescription = null,
                             modifier = Modifier.size(12.dp),
-                            tint = SuccessColor
+                            tint = TealAccent
                         )
                         Text(
                             text = stringResource(R.string.found_and_reunited),
                             style = MaterialTheme.typography.labelSmall.copy(
                                 fontWeight = FontWeight.SemiBold
                             ),
-                            color = SuccessColor
+                            color = TealAccent
                         )
                     }
 

@@ -183,35 +183,6 @@ fun PetDetailScreen(
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            // View Photos Button
-            Button(
-                onClick = onOpenPhotos,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 16.dp),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = TealAccent.copy(alpha = 0.1f),
-                    contentColor = TealAccent
-                ),
-                shape = RoundedCornerShape(14.dp)
-            ) {
-                Icon(
-                    imageVector = Icons.Default.Photo,
-                    contentDescription = null,
-                    modifier = Modifier.size(20.dp)
-                )
-                Spacer(modifier = Modifier.width(8.dp))
-                Text(
-                    text = stringResource(R.string.view_pet_photos, pet.name),
-                    style = MaterialTheme.typography.bodyMedium.copy(
-                        fontSize = 15.sp,
-                        fontWeight = FontWeight.SemiBold
-                    )
-                )
-            }
-
-            Spacer(modifier = Modifier.height(24.dp))
-
             // Pet Name
             Text(
                 text = pet.name,
@@ -226,6 +197,35 @@ fun PetDetailScreen(
 
             Spacer(modifier = Modifier.height(16.dp))
 
+            // View Photos Button (under pet name)
+            Button(
+                onClick = onOpenPhotos,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 16.dp),
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = TealAccent,
+                    contentColor = Color.White
+                ),
+                shape = RoundedCornerShape(14.dp)
+            ) {
+                Icon(
+                    imageVector = Icons.Default.Photo,
+                    contentDescription = null,
+                    modifier = Modifier.size(20.dp)
+                )
+                Spacer(modifier = Modifier.width(8.dp))
+                Text(
+                    text = stringResource(R.string.view_pet_photos, pet.name),
+                    style = MaterialTheme.typography.bodyMedium.copy(
+                        fontSize = 16.sp,
+                        fontWeight = FontWeight.SemiBold
+                    )
+                )
+            }
+
+            Spacer(modifier = Modifier.height(16.dp))
+
             // Mark as Lost/Found Button
             if (pet.isMissing) {
                 Button(
@@ -234,13 +234,20 @@ fun PetDetailScreen(
                         .fillMaxWidth()
                         .padding(horizontal = 16.dp),
                     colors = ButtonDefaults.buttonColors(
-                        containerColor = SuccessGreen
+                        containerColor = TealAccent,
+                        contentColor = Color.White
                     ),
-                    shape = RoundedCornerShape(10.dp)
+                    shape = RoundedCornerShape(14.dp)
                 ) {
                     Icon(Icons.Default.CheckCircle, contentDescription = null)
                     Spacer(modifier = Modifier.width(8.dp))
-                    Text(stringResource(R.string.mark_as_found), fontWeight = FontWeight.SemiBold)
+                    Text(
+                        text = stringResource(R.string.mark_as_found),
+                        style = MaterialTheme.typography.bodyMedium.copy(
+                            fontSize = 16.sp,
+                            fontWeight = FontWeight.SemiBold
+                        )
+                    )
                 }
             } else {
                 Button(
@@ -332,8 +339,8 @@ fun PetDetailScreen(
                     onClick = onViewPublicProfile,
                     modifier = Modifier.fillMaxWidth(),
                     colors = ButtonDefaults.buttonColors(
-                        containerColor = TealAccent.copy(alpha = 0.1f),
-                        contentColor = TealAccent
+                        containerColor = TealAccent,
+                        contentColor = Color.White
                     ),
                     shape = RoundedCornerShape(14.dp)
                 ) {
@@ -341,7 +348,10 @@ fun PetDetailScreen(
                     Spacer(modifier = Modifier.width(8.dp))
                     Text(
                         text = stringResource(R.string.view_public_profile, pet.name),
-                        fontWeight = FontWeight.SemiBold
+                        style = MaterialTheme.typography.bodyMedium.copy(
+                            fontSize = 16.sp,
+                            fontWeight = FontWeight.SemiBold
+                        )
                     )
                 }
 
