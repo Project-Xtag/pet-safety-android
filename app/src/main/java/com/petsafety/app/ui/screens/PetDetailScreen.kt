@@ -29,13 +29,17 @@ import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.FormatListBulleted
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.LocalHospital
+import androidx.compose.material.icons.filled.MonitorWeight
 import androidx.compose.material.icons.filled.MyLocation
 import androidx.compose.material.icons.filled.Palette
+import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Pets
 import androidx.compose.material.icons.filled.Photo
 import androidx.compose.material.icons.filled.Pin
+import androidx.compose.material.icons.filled.Scale
 import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material.icons.filled.Warning
+import androidx.compose.material.icons.filled.LocationOn
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
@@ -280,28 +284,39 @@ fun PetDetailScreen(
                     InfoCard(title = stringResource(R.string.age), value = it, icon = Icons.Default.CalendarMonth)
                 }
 
+                pet.weight?.let { weight ->
+                    InfoCard(title = stringResource(R.string.weight), value = String.format("%.1f kg", weight), icon = Icons.Default.Scale)
+                }
+
+                pet.sex?.takeIf { it.lowercase() != "unknown" }?.let { sex ->
+                    InfoCard(title = stringResource(R.string.sex), value = sex.replaceFirstChar { it.uppercase() }, icon = Icons.Default.Person)
+                }
+
+                pet.isNeutered?.takeIf { it }?.let {
+                    InfoCard(title = stringResource(R.string.neutered_spayed), value = stringResource(R.string.yes), icon = Icons.Default.CheckCircle)
+                }
+
                 pet.microchipNumber?.let {
                     InfoCard(title = stringResource(R.string.microchip), value = it, icon = Icons.Default.Pin)
                 }
             }
 
-            // Medical Info
-            pet.medicalNotes?.takeIf { it.isNotBlank() }?.let { medicalNotes ->
+            // Health Information
+            if (pet.medicalNotes?.isNotBlank() == true || pet.allergies?.isNotBlank() == true || pet.medications?.isNotBlank() == true) {
                 Spacer(modifier = Modifier.height(16.dp))
-                InfoSection(
-                    title = stringResource(R.string.medical_information),
-                    content = medicalNotes,
-                    icon = Icons.Default.LocalHospital
+                HealthInfoSection(
+                    medicalNotes = pet.medicalNotes,
+                    allergies = pet.allergies,
+                    medications = pet.medications
                 )
             }
 
             // Additional Information
-            pet.notes?.takeIf { it.isNotBlank() }?.let { notes ->
+            if (pet.uniqueFeatures?.isNotBlank() == true || pet.notes?.isNotBlank() == true) {
                 Spacer(modifier = Modifier.height(16.dp))
-                InfoSection(
-                    title = stringResource(R.string.additional_information),
-                    content = notes,
-                    icon = Icons.Default.Info
+                AdditionalInfoSection(
+                    uniqueFeatures = pet.uniqueFeatures,
+                    behaviorNotes = pet.notes
                 )
             }
 
@@ -606,6 +621,159 @@ private fun InfoSection(
                 style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )
+        }
+    }
+}
+
+@Composable
+private fun HealthInfoSection(
+    medicalNotes: String?,
+    allergies: String?,
+    medications: String?
+) {
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 16.dp),
+        shape = RoundedCornerShape(12.dp),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainerHigh)
+    ) {
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp),
+            verticalArrangement = Arrangement.spacedBy(12.dp)
+        ) {
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Icon(
+                    imageVector = Icons.Default.LocalHospital,
+                    contentDescription = null,
+                    modifier = Modifier.size(20.dp),
+                    tint = MaterialTheme.colorScheme.onSurface
+                )
+                Spacer(modifier = Modifier.width(8.dp))
+                Text(
+                    text = stringResource(R.string.health_information),
+                    style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.SemiBold),
+                    color = MaterialTheme.colorScheme.onSurface
+                )
+            }
+
+            medicalNotes?.takeIf { it.isNotBlank() }?.let {
+                Column {
+                    Text(
+                        text = stringResource(R.string.medical_notes),
+                        style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.Medium),
+                        color = MaterialTheme.colorScheme.onSurface
+                    )
+                    Spacer(modifier = Modifier.height(4.dp))
+                    Text(
+                        text = it,
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                }
+            }
+
+            allergies?.takeIf { it.isNotBlank() }?.let {
+                Column {
+                    Text(
+                        text = stringResource(R.string.allergies),
+                        style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.Medium),
+                        color = MaterialTheme.colorScheme.onSurface
+                    )
+                    Spacer(modifier = Modifier.height(4.dp))
+                    Text(
+                        text = it,
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                }
+            }
+
+            medications?.takeIf { it.isNotBlank() }?.let {
+                Column {
+                    Text(
+                        text = stringResource(R.string.medications),
+                        style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.Medium),
+                        color = MaterialTheme.colorScheme.onSurface
+                    )
+                    Spacer(modifier = Modifier.height(4.dp))
+                    Text(
+                        text = it,
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun AdditionalInfoSection(
+    uniqueFeatures: String?,
+    behaviorNotes: String?
+) {
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 16.dp),
+        shape = RoundedCornerShape(12.dp),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainerHigh)
+    ) {
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp),
+            verticalArrangement = Arrangement.spacedBy(12.dp)
+        ) {
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Icon(
+                    imageVector = Icons.Default.Info,
+                    contentDescription = null,
+                    modifier = Modifier.size(20.dp),
+                    tint = MaterialTheme.colorScheme.onSurface
+                )
+                Spacer(modifier = Modifier.width(8.dp))
+                Text(
+                    text = stringResource(R.string.additional_information),
+                    style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.SemiBold),
+                    color = MaterialTheme.colorScheme.onSurface
+                )
+            }
+
+            uniqueFeatures?.takeIf { it.isNotBlank() }?.let {
+                Column {
+                    Text(
+                        text = stringResource(R.string.unique_features),
+                        style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.Medium),
+                        color = MaterialTheme.colorScheme.onSurface
+                    )
+                    Spacer(modifier = Modifier.height(4.dp))
+                    Text(
+                        text = it,
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                }
+            }
+
+            behaviorNotes?.takeIf { it.isNotBlank() }?.let {
+                Column {
+                    Text(
+                        text = stringResource(R.string.behavior_notes),
+                        style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.Medium),
+                        color = MaterialTheme.colorScheme.onSurface
+                    )
+                    Spacer(modifier = Modifier.height(4.dp))
+                    Text(
+                        text = it,
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                }
+            }
         }
     }
 }

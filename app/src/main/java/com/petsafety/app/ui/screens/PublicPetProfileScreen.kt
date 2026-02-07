@@ -60,21 +60,25 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.AsyncImage
 import com.petsafety.app.R
 import com.petsafety.app.data.model.Pet
+import com.petsafety.app.data.model.User
 import com.petsafety.app.ui.theme.BrandOrange
 import com.petsafety.app.ui.theme.TealAccent
 import com.petsafety.app.ui.viewmodel.AppStateViewModel
+import com.petsafety.app.ui.viewmodel.AuthViewModel
 import com.petsafety.app.ui.viewmodel.PublicPetProfileViewModel
 
 @Composable
 fun PublicPetProfileScreen(
     qrCode: String,
     appStateViewModel: AppStateViewModel,
+    authViewModel: AuthViewModel,
     onBack: () -> Unit
 ) {
     val viewModel: PublicPetProfileViewModel = hiltViewModel()
     val pet by viewModel.pet.collectAsState()
     val isLoading by viewModel.isLoading.collectAsState()
     val errorMessage by viewModel.errorMessage.collectAsState()
+    val currentUser by authViewModel.currentUser.collectAsState()
 
     LaunchedEffect(qrCode) {
         viewModel.loadPublicProfile(qrCode)
@@ -143,7 +147,7 @@ fun PublicPetProfileScreen(
                     }
                 }
                 pet != null -> {
-                    PublicPetContent(pet = pet!!)
+                    PublicPetContent(pet = pet!!, currentUser = currentUser)
                 }
             }
         }
@@ -151,8 +155,29 @@ fun PublicPetProfileScreen(
 }
 
 @Composable
-private fun PublicPetContent(pet: Pet) {
+private fun PublicPetContent(pet: Pet, currentUser: User?) {
     val context = LocalContext.current
+
+    // Check if this is the owner viewing their own pet's profile
+    val isOwnPet = currentUser != null && pet.ownerId == currentUser.id
+
+    // Compute effective contact info (fallback to current user for own pet)
+    val ownerPhone = pet.ownerPhone ?: if (isOwnPet && currentUser?.showPhonePublicly == true) {
+        currentUser.phone
+    } else null
+
+    val ownerEmail = pet.ownerEmail ?: if (isOwnPet && currentUser?.showEmailPublicly == true) {
+        currentUser.email
+    } else null
+
+    // Check if owner has contact info but it's hidden due to privacy settings
+    val hasHiddenContactInfo = isOwnPet && currentUser != null && run {
+        val hasPhone = !currentUser.phone.isNullOrBlank()
+        val hasEmail = !currentUser.email.isNullOrBlank()
+        val phoneHidden = hasPhone && currentUser.showPhonePublicly != true
+        val emailHidden = hasEmail && currentUser.showEmailPublicly != true
+        (phoneHidden || emailHidden) && ownerPhone == null && ownerEmail == null
+    }
 
     Column(
         modifier = Modifier.fillMaxWidth(),
@@ -304,7 +329,7 @@ private fun PublicPetContent(pet: Pet) {
         Spacer(modifier = Modifier.height(24.dp))
 
         // Contact Owner Section
-        if (pet.ownerPhone != null || pet.ownerEmail != null) {
+        if (ownerPhone != null || ownerEmail != null) {
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -331,7 +356,7 @@ private fun PublicPetContent(pet: Pet) {
                 Spacer(modifier = Modifier.height(16.dp))
 
                 // Phone (tappable to call)
-                pet.ownerPhone?.let { phone ->
+                ownerPhone?.let { phone ->
                     Card(
                         modifier = Modifier
                             .fillMaxWidth()
@@ -377,7 +402,7 @@ private fun PublicPetContent(pet: Pet) {
                 }
 
                 // Email (tappable to send email)
-                pet.ownerEmail?.let { email ->
+                ownerEmail?.let { email ->
                     Card(
                         modifier = Modifier
                             .fillMaxWidth()
@@ -420,8 +445,40 @@ private fun PublicPetContent(pet: Pet) {
                     }
                 }
             }
+        } else if (hasHiddenContactInfo) {
+            // Contact info is hidden due to privacy settings (blue)
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 24.dp)
+                    .background(Color.Blue.copy(alpha = 0.1f), RoundedCornerShape(14.dp))
+                    .padding(16.dp)
+            ) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Icon(
+                        imageVector = Icons.Default.Lock,
+                        contentDescription = null,
+                        tint = Color.Blue
+                    )
+                    Spacer(modifier = Modifier.width(12.dp))
+                    Text(
+                        text = stringResource(R.string.contact_info_hidden),
+                        style = MaterialTheme.typography.bodyMedium.copy(
+                            fontSize = 15.sp,
+                            fontWeight = FontWeight.Medium
+                        ),
+                        color = Color.Blue
+                    )
+                }
+                Spacer(modifier = Modifier.height(8.dp))
+                Text(
+                    text = stringResource(R.string.contact_info_hidden_hint),
+                    style = MaterialTheme.typography.bodySmall.copy(fontSize = 12.sp),
+                    color = Color.Blue.copy(alpha = 0.8f)
+                )
+            }
         } else {
-            // No contact info message
+            // No contact info set (orange)
             Row(
                 modifier = Modifier
                     .fillMaxWidth()

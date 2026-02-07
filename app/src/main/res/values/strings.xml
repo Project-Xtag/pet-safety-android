@@ -414,6 +414,9 @@
     <string name="health_information">Health Information</string>
     <string name="medical_notes_hint">Medical notes (conditions, surgeries, etc.)</string>
     <string name="behavior_notes_hint">Behavior notes (temperament, training, etc.)</string>
+    <string name="weight_optional">Weight in kg (optional)</string>
+    <string name="unique_features_hint">Unique features (markings, scars, distinctive traits…)</string>
+    <string name="health_info_hint">Allergies, medications, medical conditions…</string>
     <string name="save_changes">Save Changes</string>
     <string name="delete_pet_button">Delete Pet</string>
     <string name="delete_pet_dialog_title">Delete %1$s?</string>
@@ -460,7 +463,15 @@
     <string name="owner_notified_sms_email">%1$s\'s owner will receive an SMS and email with your location</string>
     <string name="contact_owner_plea">Please let my owner know that you have found me\u2026</string>
     <string name="contact_info_not_set">Contact info not set up yet</string>
+    <string name="contact_info_hidden">Contact info is hidden</string>
+    <string name="contact_info_hidden_hint">Your contact details are set but hidden due to privacy settings. Update in Account → Privacy Mode.</string>
     <string name="allergies">Allergies</string>
+    <string name="medications">Medications</string>
+    <string name="unique_features">Unique Features</string>
+    <string name="behavior_notes">Behavior Notes</string>
+    <string name="weight">Weight</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
     <string name="how_it_works">How It Works</string>
     <string name="help_reunite_pet">Help reunite %1$s with their owner safely</string>
     <string name="step_share_location">Share Your Location</string>

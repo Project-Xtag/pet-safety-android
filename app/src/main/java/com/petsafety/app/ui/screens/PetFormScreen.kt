@@ -98,6 +98,8 @@ fun PetFormScreen(
     var showDeleteDialog by remember { mutableStateOf(false) }
     var sex by remember { mutableStateOf(existing?.sex ?: "") }
     var isNeutered by remember { mutableStateOf(existing?.isNeutered ?: false) }
+    var weight by remember { mutableStateOf(existing?.weight?.let { String.format("%.1f", it) } ?: "") }
+    var uniqueFeatures by remember { mutableStateOf(existing?.uniqueFeatures ?: "") }
     val sexOptions = listOf("", "Male", "Female")
     val notSpecifiedLabel = stringResource(R.string.not_specified)
     val maleLabel = stringResource(R.string.male)
@@ -260,6 +262,13 @@ fun PetFormScreen(
                     placeholder = stringResource(R.string.microchip_optional)
                 )
 
+                FormTextField(
+                    label = stringResource(R.string.weight),
+                    value = weight,
+                    onValueChange = { weight = it },
+                    placeholder = stringResource(R.string.weight_optional)
+                )
+
                 FormDropdown(
                     label = stringResource(R.string.sex),
                     items = sexOptions,
@@ -291,6 +300,14 @@ fun PetFormScreen(
             // Additional Information Section
             FormSection(title = stringResource(R.string.additional_information)) {
                 FormTextArea(
+                    value = uniqueFeatures,
+                    onValueChange = { uniqueFeatures = it },
+                    placeholder = stringResource(R.string.unique_features_hint)
+                )
+
+                Spacer(modifier = Modifier.height(12.dp))
+
+                FormTextArea(
                     value = notes,
                     onValueChange = { notes = it },
                     placeholder = stringResource(R.string.behavior_notes_hint)
@@ -310,9 +327,11 @@ fun PetFormScreen(
                                 species = species,
                                 breed = breedValue,
                                 color = color.ifBlank { null },
+                                weight = weight.toDoubleOrNull(),
                                 microchipNumber = microchipNumber.ifBlank { null },
                                 medicalNotes = medicalNotes.ifBlank { null },
                                 notes = notes.ifBlank { null },
+                                uniqueFeatures = uniqueFeatures.ifBlank { null },
                                 sex = sex.ifBlank { null },
                                 isNeutered = isNeutered
                             )
@@ -332,9 +351,11 @@ fun PetFormScreen(
                                 name = name,
                                 breed = breedValue,
                                 color = color.ifBlank { null },
+                                weight = weight.toDoubleOrNull(),
                                 microchipNumber = microchipNumber.ifBlank { null },
                                 medicalNotes = medicalNotes.ifBlank { null },
                                 notes = notes.ifBlank { null },
+                                uniqueFeatures = uniqueFeatures.ifBlank { null },
                                 sex = sex.ifBlank { null },
                                 isNeutered = isNeutered
                             )

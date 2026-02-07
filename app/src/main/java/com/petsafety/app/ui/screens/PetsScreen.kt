@@ -73,6 +73,7 @@ fun PetsScreen(appStateViewModel: AppStateViewModel, authViewModel: AuthViewMode
             PublicPetProfileScreen(
                 qrCode = qrCode,
                 appStateViewModel = appStateViewModel,
+                authViewModel = authViewModel,
                 onBack = { navController.popBackStack() }
             )
         }
