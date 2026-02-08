@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "242586087061",
+    "project_id": "tagme-ae074",
+    "storage_bucket": "tagme-ae074.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:242586087061:android:8f85db5eec915af9c6b59c",
+        "android_client_info": {
+          "package_name": "com.petsafety.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmdGWW75WX8Aj5S7uw60E2MiMOl34w7Gw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
