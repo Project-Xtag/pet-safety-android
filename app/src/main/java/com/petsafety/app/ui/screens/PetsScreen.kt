@@ -37,6 +37,7 @@ fun PetsScreen(appStateViewModel: AppStateViewModel, authViewModel: AuthViewMode
             PetsListScreen(
                 viewModel = viewModel,
                 appStateViewModel = appStateViewModel,
+                authViewModel = authViewModel,
                 onPetSelected = { navController.navigate("pet_detail/${it.id}") },
                 onAddPet = { navController.navigate("pet_form") },
                 onOrderTags = { navController.navigate("order_more_tags") },
@@ -81,6 +82,7 @@ fun PetsScreen(appStateViewModel: AppStateViewModel, authViewModel: AuthViewMode
             PetFormScreen(
                 viewModel = viewModel,
                 appStateViewModel = appStateViewModel,
+                onBack = { navController.popBackStack() },
                 onDone = { navController.popBackStack() }
             )
         }
@@ -93,6 +95,7 @@ fun PetsScreen(appStateViewModel: AppStateViewModel, authViewModel: AuthViewMode
                 viewModel = viewModel,
                 petId = petId,
                 appStateViewModel = appStateViewModel,
+                onBack = { navController.popBackStack() },
                 onDone = { navController.popBackStack() }
             )
         }
@@ -118,6 +121,7 @@ fun PetsScreen(appStateViewModel: AppStateViewModel, authViewModel: AuthViewMode
         composable("order_more_tags") {
             OrderMoreTagsScreen(
                 appStateViewModel = appStateViewModel,
+                onBack = { navController.popBackStack() },
                 onDone = { navController.popBackStack() }
             )
         }
@@ -130,6 +134,7 @@ fun PetsScreen(appStateViewModel: AppStateViewModel, authViewModel: AuthViewMode
             OrderReplacementTagScreen(
                 pet = pet,
                 appStateViewModel = appStateViewModel,
+                onBack = { navController.popBackStack() },
                 onDone = { navController.popBackStack() }
             )
         }

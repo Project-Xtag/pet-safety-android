@@ -36,7 +36,9 @@ import androidx.compose.material.icons.filled.NotificationImportant
 import androidx.compose.material.icons.filled.Pets
 import androidx.compose.material.icons.filled.QrCodeScanner
 import com.petsafety.app.R
+import com.petsafety.app.ui.components.PushNotificationPrompt
 import androidx.annotation.StringRes
+import androidx.compose.runtime.saveable.rememberSaveable
 
 sealed class TabItem(@StringRes val labelRes: Int, val icon: ImageVector) {
     data object Pets : TabItem(R.string.my_pets, Icons.Default.Pets)
@@ -56,6 +58,9 @@ fun MainTabScaffold(
     val tabs = listOf(TabItem.Pets, TabItem.Scan, TabItem.Alerts, TabItem.Profile)
     var selectedTab by remember { mutableStateOf<TabItem>(TabItem.Pets) }
 
+    // Custom pre-permission dialog state
+    var showPushPrompt by rememberSaveable { mutableStateOf(false) }
+
     // Request notification permission on Android 13+
     val notificationPermissionLauncher = rememberLauncherForActivityResult(
         ActivityResultContracts.RequestPermission()
@@ -64,7 +69,7 @@ fun MainTabScaffold(
         // No action needed on denial - app works without notifications
     }
 
-    // Request notification permission once on first composition (Android 13+)
+    // Show custom dialog once on first composition (Android 13+)
     LaunchedEffect(Unit) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             val hasPermission = ContextCompat.checkSelfPermission(
@@ -73,9 +78,35 @@ fun MainTabScaffold(
             ) == PackageManager.PERMISSION_GRANTED
 
             if (!hasPermission) {
-                notificationPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
+                // Show custom dialog first instead of system dialog directly
+                val prefs = context.getSharedPreferences("push_prefs", android.content.Context.MODE_PRIVATE)
+                val promptShown = prefs.getBoolean("push_prompt_shown", false)
+                if (!promptShown) {
+                    showPushPrompt = true
+                } else {
+                    notificationPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
+                }
             }
         }
+    }
+
+    // Custom pre-permission dialog
+    if (showPushPrompt) {
+        PushNotificationPrompt(
+            onEnable = {
+                showPushPrompt = false
+                val prefs = context.getSharedPreferences("push_prefs", android.content.Context.MODE_PRIVATE)
+                prefs.edit().putBoolean("push_prompt_shown", true).apply()
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                    notificationPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
+                }
+            },
+            onDismiss = {
+                showPushPrompt = false
+                val prefs = context.getSharedPreferences("push_prefs", android.content.Context.MODE_PRIVATE)
+                prefs.edit().putBoolean("push_prompt_shown", true).apply()
+            }
+        )
     }
 
     LaunchedEffect(pendingQrCode) {

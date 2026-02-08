@@ -18,6 +18,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Email
@@ -63,6 +64,7 @@ import com.petsafety.app.ui.viewmodel.OrdersViewModel
 @Composable
 fun OrderMoreTagsScreen(
     appStateViewModel: AppStateViewModel,
+    onBack: () -> Unit = {},
     onDone: () -> Unit
 ) {
     val viewModel: OrdersViewModel = hiltViewModel()
@@ -101,6 +103,15 @@ fun OrderMoreTagsScreen(
                     )
                     .padding(24.dp)
             ) {
+                IconButton(
+                    onClick = onBack,
+                    modifier = Modifier.align(Alignment.TopStart)
+                ) {
+                    Icon(
+                        imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                        contentDescription = stringResource(R.string.back)
+                    )
+                }
                 Column(
                     horizontalAlignment = Alignment.CenterHorizontally,
                     modifier = Modifier.fillMaxWidth()
