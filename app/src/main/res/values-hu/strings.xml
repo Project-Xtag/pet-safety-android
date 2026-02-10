@@ -1,4 +1,1375 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Stub file for localization. Replace values with translations. -->
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">Pet Safety</string>
+    <!--
+        Google Maps API key is injected via build.gradle.kts from:
+        1. local.properties (for local development - add GOOGLE_MAPS_API_KEY=your_key)
+        2. Environment variable GOOGLE_MAPS_API_KEY (for CI/CD)
+
+        DO NOT commit actual API keys to this file!
+
+        This fallback value is used when no key is configured (maps won't work)
+    -->
+
+    <!-- ============================================ -->
+    <!-- MARK: Common -->
+    <!-- ============================================ -->
+    <string name="cancel">Mégse</string>
+    <string name="save">Mentés</string>
+    <string name="delete">Törlés</string>
+    <string name="close">Bezárás</string>
+    <string name="ok">OK</string>
+    <string name="back">Vissza</string>
+    <string name="submit">Beküldés</string>
+    <string name="skip">Kihagyás</string>
+    <string name="loading">Betöltés\u2026</string>
+    <string name="error">Hiba</string>
+    <string name="success">Siker</string>
+    <string name="confirm">Megerősítés</string>
+    <string name="retry">Újrapróbálás</string>
+    <string name="done">Kész</string>
+    <string name="edit">Szerkesztés</string>
+    <string name="add">Hozzáadás</string>
+    <string name="remove">Eltávolítás</string>
+    <string name="search">Keresés</string>
+    <string name="settings">Beállítások</string>
+    <string name="updated">Frissítve</string>
+    <string name="update_failed">A frissítés sikertelen</string>
+    <string name="enable">Engedélyezés</string>
+    <string name="change">Módosítás</string>
+    <string name="primary">Elsődleges</string>
+    <string name="share">Megosztás</string>
+    <string name="saving">Mentés\u2026</string>
+    <string name="sending">Küldés\u2026</string>
+    <string name="yes">Igen</string>
+    <string name="no">Nem</string>
+    <string name="not_set">Nincs megadva</string>
+    <string name="recommended">Ajánlott</string>
+    <string name="details">Részletek</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Tab Bar -->
+    <!-- ============================================ -->
+    <string name="my_pets">Kedvenceim</string>
+    <string name="scan_qr">QR beolvasás</string>
+    <string name="alerts">Riasztások</string>
+    <string name="profile">Profil</string>
+    <string name="tab_my_pets">Kedvenceim</string>
+    <string name="tab_scan_qr">QR beolvasás</string>
+    <string name="tab_alerts">Riasztások</string>
+    <string name="tab_profile">Profil</string>
+    <string name="tab_missing">Eltűnt</string>
+    <string name="tab_found">Megtalált</string>
+    <string name="tab_success">Megtalált kedvencek</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Auth -->
+    <!-- ============================================ -->
+    <string name="auth_tagline">Tartsd biztonságban kedvenceidet QR bilétákkal</string>
+    <string name="welcome_back">Üdv újra!</string>
+    <string name="enter_email_subtitle">Add meg az email címed, hogy bejelentkezési kódot kapj.</string>
+    <string name="email_address">Email cím</string>
+    <string name="send_login_code">Bejelentkezési kód küldése</string>
+    <string name="enter_otp_code">Add meg a 6 számjegyű kódot</string>
+    <string name="verify_code">Kód ellenőrzése</string>
+    <string name="use_different_email">Másik email használata</string>
+    <string name="code_sent_to_email">Kód elküldve: %1$s</string>
+    <string name="otp_sent_to">Add meg a 6 számjegyű kódot, amelyet ide küldtünk:</string>
+    <string name="login_failed">Sikertelen bejelentkezés</string>
+    <string name="verification_failed">Sikertelen ellenőrzés</string>
+    <string name="invalid_email">Kérjük, adj meg érvényes email címet</string>
+    <string name="resend_code_cooldown">Kód újraküldése %1$ds múlva</string>
+    <string name="resend_code_prompt">Nem kaptad meg a kódot? Újraküldés</string>
+    <string name="dont_have_account">Nincs még fiókod?</string>
+    <string name="start_here_order_free_tag">Kezdd itt &amp; rendeld meg az ingyenes bilétát</string>
+    <string name="create_account">Fiók létrehozása</string>
+    <string name="enter_details_subtitle">Add meg az adataid a kezdéshez.</string>
+    <string name="register">Regisztráció</string>
+    <string name="already_have_account">Már van fiókod?</string>
+    <string name="log_in">Bejelentkezés</string>
+    <string name="terms_login_prefix">Bejelentkezéssel elfogadod a(z) </string>
+    <string name="terms_register_prefix">Regisztrációval elfogadod a(z) </string>
+    <string name="terms_and"> és </string>
+    <string name="terms_of_service">Felhasználási feltételeket</string>
+    <string name="privacy_policy">Adatvédelmi szabályzatot</string>
+    <string name="terms_disclaimer">Bejelentkezéssel elfogadod a Felhasználási feltételeket és az Adatvédelmi szabályzatot</string>
+    <string name="first_name">Keresztnév</string>
+    <string name="last_name">Vezetéknév</string>
+    <string name="email">Email</string>
+    <string name="phone">Telefonszám</string>
+    <string name="new_code_sent_to_email">Új kód elküldve: %1$s</string>
+    <string name="by_creating_account_agree">Fiók létrehozásával elfogadod a</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Biometric -->
+    <!-- ============================================ -->
+    <string name="biometric_login_title">Biometrikus bejelentkezés</string>
+    <string name="biometric_login_subtitle">Használd az ujjlenyomatodat vagy az arcodat a bejelentkezéshez</string>
+    <string name="use_password">Email használata</string>
+    <string name="login_with_biometric">Bejelentkezés biometrikával</string>
+    <string name="enable_biometric_title">Engedélyezed a biometrikus bejelentkezést?</string>
+    <string name="enable_biometric_message">Használd az ujjlenyomatodat vagy az arcodat a gyors bejelentkezéshez legközelebb.</string>
+    <string name="biometric_enabled">Biometrikus bejelentkezés engedélyezve</string>
+    <string name="enable_biometric_type">Engedélyezed a(z) %1$s használatát?</string>
+    <string name="biometric_type_enabled">%1$s engedélyezve</string>
+    <string name="use_biometric_quick_login">Használd a(z) %1$s-t a gyors bejelentkezéshez legközelebb.</string>
+    <string name="login_with_biometric_type">Bejelentkezés: %1$s</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Session -->
+    <!-- ============================================ -->
+    <string name="session_expired_title">A munkamenet lejárt</string>
+    <string name="session_expired_message">A munkamenet lejárt. Kérjük, jelentkezz be újra.</string>
+    <string name="session_expired_log_in">Bejelentkezés</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Home / Pets List -->
+    <!-- ============================================ -->
+    <string name="pet_owner_default">Kedvenc gazdája</string>
+    <string name="welcome_back_greeting">Üdv újra,</string>
+    <string name="view_all">Összes megtekintése</string>
+    <string name="search_pets_hint">Keresés név, fajta, faj szerint\u2026</string>
+    <string name="quick_actions">Gyors műveletek</string>
+    <string name="action_add_pet">KEDVENC HOZZÁADÁSA</string>
+    <string name="action_mark_found">MEGTALÁLTNAK JELÖLÉS</string>
+    <string name="action_report_missing">ELTŰNT JELENTÉSE</string>
+    <string name="action_order_tags">BILÉTÁK RENDELÉSE</string>
+    <string name="action_replace_tag">BILÉTA CSERE</string>
+    <string name="empty_pets_title">Még nincs kedvenc</string>
+    <string name="empty_pets_message">Add hozzá az első kedvenced, hogy elkezdd a Pet Safety használatát</string>
+    <string name="missing_badge">ELTŰNT</string>
+    <string name="add_pet">Kedvenc hozzáadása</string>
+    <string name="pet_name">Kedvenc neve</string>
+    <string name="pet_safety_user">Pet Safety felhasználó</string>
+    <string name="failed_load_pets">Nem sikerült betölteni a kedvenceket</string>
+    <string name="clear_search">Keresés törlése</string>
+    <string name="pet_photo">Kedvenc fotója</string>
+    <string name="pet_photo_placeholder">Kedvenc fotó helyőrző</string>
+    <string name="no_pets">Nincs kedvenc</string>
+    <string name="success_stories">Sikertörténetek</string>
+    <string name="found_pets">Megtalált kedvencek</string>
+    <string name="success_stories_subtitle">Nézd meg a boldog újraegyesüléseket a közeledben</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Pet Detail -->
+    <!-- ============================================ -->
+    <string name="breed_label">Fajta: %1$s</string>
+    <string name="color_label">Szín: %1$s</string>
+    <string name="age_label">Kor: %1$s</string>
+    <string name="microchip_label">Mikrochip: %1$s</string>
+    <string name="species_label">Faj: %1$s</string>
+    <string name="medical_information">Egészségügyi információ</string>
+    <string name="additional_information">További információ</string>
+    <string name="photo_gallery">Fotógaléria</string>
+    <string name="edit_pet">Kedvenc szerkesztése</string>
+    <string name="view_pet_photos">%1$s fotóinak megtekintése</string>
+    <string name="mark_as_found">Megtaláltként jelölés</string>
+    <string name="mark_as_lost">Eltűntként jelölés</string>
+    <string name="mark_found">Megtalált jelölése</string>
+    <string name="mark_missing">Eltűnt jelölése</string>
+    <string name="age">Kor</string>
+    <string name="view_public_profile">%1$s nyilvános profiljának megtekintése</string>
+    <string name="edit_pet_profile">%1$s profiljának szerkesztése</string>
+    <string name="delete_pet_name">%1$s törlése</string>
+    <string name="delete_pet_confirm_title">Törlöd %1$s-t?</string>
+    <string name="delete_pet_confirm_message">Ez a művelet nem vonható vissza. %1$s minden adata véglegesen törlődik.</string>
+    <string name="cannot_delete_missing_pet">Eltűnt kedvenc nem törölhető</string>
+    <string name="cannot_delete_missing_message">%1$s jelenleg eltűntként van jelölve. Törlés előtt jelöld meg megtaláltként.</string>
+    <string name="mark_found_confirm_title">%1$s megtaláltként jelölése?</string>
+    <string name="mark_found_confirm_message">Ez lezárja %1$s eltűnt riasztását. Biztos vagy benne?</string>
+    <string name="marked_found_message">%1$s megtaláltként jelölve.</string>
+    <string name="marked_missing_message">%1$s eltűntként jelölve.</string>
+    <string name="mark_found_failed">Nem sikerült megtaláltként jelölni</string>
+    <string name="mark_missing_failed">Nem sikerült eltűntként jelölni</string>
+    <string name="pet_deleted">%1$s törölve lett</string>
+    <string name="delete_pet_failed">Nem sikerült törölni a kedvencet</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Pet Form -->
+    <!-- ============================================ -->
+    <string name="name">Név</string>
+    <string name="species">Faj</string>
+    <string name="breed">Fajta</string>
+    <string name="color">Szín</string>
+    <string name="microchip">Mikrochip</string>
+    <string name="medical_notes">Egészségügyi megjegyzések</string>
+    <string name="photo">Fotó</string>
+    <string name="edit_photo">Fotó szerkesztése</string>
+    <string name="photo_selected_hint">Fotó kiválasztva</string>
+    <string name="choose_photo_hint">Válassz fotót a kedvencedről</string>
+    <string name="basic_information">Alapinformációk</string>
+    <string name="colour">Szín</string>
+    <string name="colour_optional">Szín (opcionális)</string>
+    <string name="microchip_optional">Mikrochip szám (opcionális)</string>
+    <string name="sex">Nem</string>
+    <string name="not_specified">Nincs megadva</string>
+    <string name="neutered_spayed">Ivartalanított</string>
+    <string name="neutered">Ivartalanított</string>
+    <string name="health_information">Egészségügyi információ</string>
+    <string name="medical_notes_hint">Egészségügyi megjegyzések (állapotok, műtétek, stb.)</string>
+    <string name="health_info_hint">Allergiák, gyógyszerek, egészségügyi állapotok\u2026</string>
+    <string name="behavior_notes_hint">Viselkedési megjegyzések (temperamentum, képzés, stb.)</string>
+    <string name="save_changes">Változások mentése</string>
+    <string name="delete_pet_button">Kedvenc törlése</string>
+    <string name="delete_pet_dialog_title">Törlöd %1$s-t?</string>
+    <string name="delete_pet_dialog_message">Biztosan törlöd ezt a kedvencet? Ez a művelet nem vonható vissza.</string>
+    <string name="male">Hím</string>
+    <string name="female">Nőstény</string>
+    <string name="default_species_dog">Kutya</string>
+    <string name="species_cat">Macska</string>
+    <string name="search_breed">Fajta keresése\u2026</string>
+    <string name="select_photo">Fotó kiválasztása</string>
+    <string name="select_pet">Kedvenc kiválasztása</string>
+    <string name="select_pet_for_replacement">Kedvenc kiválasztása biléta cseréhez</string>
+    <string name="physical_details">Fizikai adatok</string>
+    <string name="weight">Súly</string>
+    <string name="weight_optional">Súly kg-ban (opcionális)</string>
+    <string name="date_of_birth">Születési dátum</string>
+    <string name="allergies_hint">Allergiák (étel, gyógyszer, stb.)</string>
+    <string name="medications_hint">Jelenlegi gyógyszerek</string>
+    <string name="unique_features_hint">Egyedi jegyek (mintázatok, hegek, jellegzetes vonások\u2026)</string>
+    <string name="photo_selected">Fotó kiválasztva</string>
+    <string name="pet_created">Kedvenc létrehozva</string>
+    <string name="pet_create_failed">Nem sikerült létrehozni a kedvencet</string>
+    <string name="pet_updated">Kedvenc frissítve</string>
+    <string name="pet_update_failed">Nem sikerült frissíteni a kedvencet</string>
+    <string name="pet_updated_photo_failed">Kedvenc frissítve! A fotó feltöltése nem sikerült - kérjük, próbáld meg később.</string>
+    <string name="pet_default_name">Kedvenc</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Photo Gallery -->
+    <!-- ============================================ -->
+    <string name="photo_gallery_title">Fotógaléria</string>
+    <string name="pet_photos_title">%1$s fotói</string>
+    <string name="add_photos">Fotók hozzáadása</string>
+    <string name="uploading_photos">Fotók feltöltése\u2026</string>
+    <string name="loading_photos">Fotók betöltése\u2026</string>
+    <string name="no_photos_yet">Még nincs fotó</string>
+    <string name="add_photos_gallery_hint">Adj hozzá fotókat, hogy galéria készüljön %1$s számára</string>
+    <string name="add_photos_gallery_generic">Adj hozzá fotókat, hogy galéria készüljön</string>
+    <string name="choose_photo_source">Fotóforrás kiválasztása</string>
+    <string name="camera">Kamera</string>
+    <string name="library">Galéria</string>
+    <string name="delete_photo">Fotó törlése</string>
+    <string name="delete_photo_confirm">Biztosan törlöd ezt a fotót? Ez a művelet nem vonható vissza.</string>
+    <string name="photo_tip">Tipp: Hosszú nyomással állítsd be elsődlegesnek vagy töröld</string>
+    <string name="photo_uploaded">Fotó feltöltve</string>
+    <string name="upload_failed">Feltöltés sikertelen</string>
+    <string name="primary_updated">Elsődleges fotó frissítve</string>
+    <string name="primary_failed">Nem sikerült elsődlegesnek beállítani</string>
+    <string name="photo_deleted">Fotó törölve</string>
+    <string name="delete_photo_failed">Nem sikerült törölni a fotót</string>
+    <string name="upload_photo_failed">Nem sikerült feltölteni a fotót</string>
+    <string name="add_photo">Fotó hozzáadása</string>
+    <string name="use_camera">Eszköz kamera megnyitása</string>
+    <string name="choose_from_gallery">Választás a galériából</string>
+    <string name="select_existing_photo">Meglévő fotó kiválasztása</string>
+    <string name="choose_photos">Fotók kiválasztása</string>
+    <string name="take_photo">Fotó készítése</string>
+    <string name="pet_photo_fullscreen">Kedvenc fotó teljes képernyőn</string>
+    <string name="view_photo">Fotó megtekintése</string>
+    <string name="primary_photo">Elsődleges fotó</string>
+    <string name="set_as_primary">Beállítás elsődlegesnek</string>
+    <string name="photo_uploading">Fotó feltöltése\u2026</string>
+    <string name="photo_primary_updated">Elsődleges fotó frissítve</string>
+    <string name="photo_primary_failed">Nem sikerült elsődleges fotóként beállítani</string>
+    <string name="photo_upload_single_failed">Nem sikerült feltölteni a fotót</string>
+    <string name="photo_delete_failed">Nem sikerült törölni a fotót</string>
+    <plurals name="photo_count">
+        <item quantity="one">%d fotó</item>
+        <item quantity="other">%d fotó</item>
+    </plurals>
+    <plurals name="photos_uploaded">
+        <item quantity="one">%d fotó feltöltve</item>
+        <item quantity="other">%d fotó feltöltve</item>
+    </plurals>
+    <plurals name="photos_upload_failed">
+        <item quantity="one">%d fotó feltöltése sikertelen</item>
+        <item quantity="other">%d fotó feltöltése sikertelen</item>
+    </plurals>
+
+    <!-- ============================================ -->
+    <!-- MARK: QR Scanner -->
+    <!-- ============================================ -->
+    <string name="scan_qr_code">QR-kód beolvasása</string>
+    <string name="scan_qr_subtitle">Irányítsd a kamerát a kedvenc QR bilétájára</string>
+    <string name="camera_access_required">Kamera-hozzáférés szükséges</string>
+    <string name="camera_access_message">Kérjük, engedélyezd a kamera hozzáférést a QR-kódok beolvasásához</string>
+    <string name="enable_camera">Kamera engedélyezése</string>
+    <string name="qr_scanned">QR beolvasva</string>
+    <string name="manual_code_entry">Kód kézi megadása</string>
+    <string name="manual_code_label">QR-kód</string>
+    <string name="submit_code">Kód beküldése</string>
+    <string name="invalid_qr_code">Adj meg érvényes kódot</string>
+    <string name="turn_off_flashlight">Zseblámpa kikapcsolása</string>
+    <string name="turn_on_flashlight">Zseblámpa bekapcsolása</string>
+    <string name="hello_pet_name">Szia! %1$s vagyok</string>
+    <string name="scanned_tag_thanks">Épp most olvastad be a bilétámat. Köszönöm, hogy segítesz!</string>
+    <string name="share_location_with_owner">Helyzetem megosztása a gazdával</string>
+    <string name="owner_notified_message">%1$s gazdája értesítést kap a tartózkodási helyedről</string>
+    <string name="share_location_help">Segíts %1$s gazdájának megtalálni őt a helyzeted megosztásával</string>
+    <string name="precise_location">Pontos hely</string>
+    <string name="precise_location_desc">Oszd meg a pontos GPS koordinátáid</string>
+    <string name="approximate_location">Közelítő hely</string>
+    <string name="approximate_location_desc">Megosztás ~500m pontossággal (GDPR-kompatibilis)</string>
+    <string name="dont_share_location">Ne ossz meg helyet</string>
+    <string name="dont_share_location_desc">Csak értesítsd a gazdát, hogy a kedvencét megtalálták</string>
+    <string name="confirm_notify_owner">Megerősítés &amp; gazda értesítése</string>
+    <string name="contact_owner">Gazda elérhetősége</string>
+    <string name="call_phone">Hívás: %1$s</string>
+    <string name="email_contact">Email: %1$s</string>
+    <string name="privacy_notice">Fontos az adatvédelem. A helyzetedet csak %1$s gazdájával osztjuk meg, hogy segítsünk újra találkozni.</string>
+    <string name="found_pet_title">%1$s megtalálva</string>
+    <string name="share_location">Hely megosztása</string>
+    <string name="location_shared">Hely megosztva</string>
+    <string name="share_location_failed">Nem sikerült megosztani a helyet</string>
+    <string name="qr_scanner_icon">QR beolvasó</string>
+    <string name="privacy_notice_icon">Adatvédelmi figyelmeztetés</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Share Location Flow -->
+    <!-- ============================================ -->
+    <string name="share_help_get_home">Segíts, hogy %1$s hazajusson</string>
+    <string name="share_choose_desc">Válaszd ki, mennyi helyinformációt osztasz meg a gazdával</string>
+    <string name="share_dont_share">Ne ossz meg</string>
+    <string name="share_dont_share_desc">Csak értesítsd a gazdát, hogy a kedvenc bilétáját beolvasták</string>
+    <string name="share_approximate">Közelítő terület</string>
+    <string name="share_approximate_desc">Oszd meg a környéked (~500m sugarú terület)</string>
+    <string name="share_exact">Pontos hely</string>
+    <string name="share_exact_desc">Oszd meg a pontos helyed a gyorsabb újraegyesüléshez</string>
+    <string name="share_your_location">Tartózkodási helyed</string>
+    <string name="share_accuracy">(~500m pontosság)</string>
+    <string name="share_getting_location">Hely lekérése\u2026</string>
+    <string name="share_owner_notified">Gazda értesítve!</string>
+    <string name="share_owner_knows">Tudja, hogy a kedvence bilétáját beolvasták</string>
+    <string name="share_on_their_way">Úton van!</string>
+    <string name="share_notifying">Gazda értesítése\u2026</string>
+    <string name="share_notify_no_location">Gazda értesítése (hely nélkül)</string>
+    <string name="share_notify_with_location">Megosztás &amp; gazda értesítése</string>
+    <string name="share_privacy_note">A pontos helyedet soha nem tároljuk. Csak a közelítő területet osztjuk meg a gazdával.</string>
+    <string name="share_found_pet">%1$s megtalálva!</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Scanner Detail -->
+    <!-- ============================================ -->
+    <string name="scanner_title">QR-kód beolvasása</string>
+    <string name="scanner_subtitle">Irányítsd a kamerát a kedvenc QR bilétájára</string>
+    <string name="scanner_camera_required">Kamera-hozzáférés szükséges</string>
+    <string name="scanner_camera_message">Kérjük, engedélyezd a kamera hozzáférést a beállításokban a QR-kódok beolvasásához</string>
+    <string name="scanner_open_settings">Beállítások megnyitása</string>
+    <string name="scanner_greeting">Szia! %1$s vagyok</string>
+    <string name="scanner_scanned_message">Épp most olvastad be a bilétámat. Köszönöm, hogy segítesz!</string>
+    <string name="scanner_breed">Fajta</string>
+    <string name="scanner_age">Kor</string>
+    <string name="scanner_color">Szín</string>
+    <string name="scanner_share_location">Helyzetem megosztása a gazdával</string>
+    <string name="scanner_owner_notified">A gazdát értesítettük, hogy a kedvence bilétáját beolvasták.</string>
+    <string name="scanner_contact_owner">Gazda elérhetősége</string>
+    <string name="scanner_contact_instructions">Vedd fel a kapcsolatot a gazdával, hogy tuddatni tudd, hogy megtaláltad a kedvencét:</string>
+    <string name="scanner_call">Hívás: %1$s</string>
+    <string name="scanner_email">Email: %1$s</string>
+    <string name="scanner_owner_location">Gazda helye</string>
+    <string name="scanner_medical_info">Egészségügyi információ</string>
+    <string name="scanner_allergies">Allergiák</string>
+    <string name="scanner_notes">Megjegyzések</string>
+    <string name="scanner_how_it_works">Hogyan működik</string>
+    <string name="scanner_step1_title">1. Biléta beolvasása</string>
+    <string name="scanner_step1_desc">Ezt már megtetted! A biléta egyedi QR-kódot tartalmaz.</string>
+    <string name="scanner_step2_title">2. Hely megosztása</string>
+    <string name="scanner_step2_desc">Koppints a fenti gombra, hogy megoszd, hol találtad meg a kedvencet.</string>
+    <string name="scanner_step3_title">3. Gazda elérése</string>
+    <string name="scanner_step3_desc">Használd az elérhetőségeket, hogy közvetlenül elérd a gazdát.</string>
+    <string name="scanner_privacy_notice">A pontos helyed nem kerül megosztásra. Csak a közelítő terület (~500m) látható.</string>
+    <string name="scanner_found_pet">%1$s megtalálva!</string>
+    <string name="scanner_step1_dynamic_desc">Kattints a fenti gombra, hogy megoszd, hol találtad meg %1$s-t</string>
+    <string name="scanner_step3_dynamic_desc">Maradj a hely közelében, hogy a gazda megtalálhasson téged és %1$s-t</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Tag Activation -->
+    <!-- ============================================ -->
+    <string name="tag_activate_title">Biléta aktiválása</string>
+    <string name="tag_loading_pets">Kedvencek betöltése\u2026</string>
+    <string name="tag_activated">Biléta aktiválva!</string>
+    <string name="tag_activated_message">%1$s bilétája aktív</string>
+    <string name="tag_choose_plan">Válassz előfizetési csomagot, hogy minden funkciót feloldj a kedvenced számára.</string>
+    <string name="tag_choose_plan_button">Csomag kiválasztása</string>
+    <string name="tag_skip_for_now">Kihagyás most</string>
+    <string name="tag_no_pets">Még nincs kedvenc</string>
+    <string name="tag_no_pets_message">Előbb adj hozzá egy kedvencet, majd aktiváld a bilétát</string>
+    <string name="tag_code_label">Biléta kód</string>
+    <string name="tag_select_pet">Válassz kedvencet a biléta összekapcsolásához</string>
+    <string name="tag_activating">Aktiválás\u2026</string>
+    <string name="tag_activate_button">Biléta aktiválása</string>
+    <string name="tag_link_message">A biléta a kiválasztott kedvenchez lesz kapcsolva</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Plan Selection -->
+    <!-- ============================================ -->
+    <string name="plan_choose_title">Válaszd ki a csomagod</string>
+    <string name="plan_tag_activated">Biléta aktiválva!</string>
+    <string name="plan_choose_subtitle">Válassz csomagot az összes funkció feloldásához</string>
+    <string name="plan_upgrade_title">Csomagfrissítés</string>
+    <string name="plan_upgrade_subtitle">További funkciók a kedvenceidnek</string>
+    <string name="plan_loading">Csomagok betöltése\u2026</string>
+    <string name="plan_failed_to_load">Nem sikerült betölteni a csomagokat</string>
+    <string name="plan_load_failed">Nem sikerült betölteni a csomagokat</string>
+    <string name="plan_choose_your_plan">Válaszd ki a csomagod</string>
+    <string name="plan_popular">Népszerű</string>
+    <string name="plan_current">Jelenlegi csomag</string>
+    <string name="plan_select_free">Ingyenes csomag kiválasztása</string>
+    <string name="plan_select">%1$s kiválasztása</string>
+    <string name="plan_skip_free">Kihagyás most (Ingyenes csomag)</string>
+    <string name="plan_all_include">Minden csomag tartalmazza:</string>
+    <string name="plan_feature_qr">QR biléta a kedvencednek</string>
+    <string name="plan_feature_profile">Kedvenc profiloldala</string>
+    <string name="plan_feature_scan_notify">Beolvasási értesítések</string>
+    <string name="plan_paid_add">A fizetős csomagok tartalmazzák még:</string>
+    <string name="plan_feature_alerts">Eltűnt kedvenc riasztások</string>
+    <string name="plan_feature_location">Helymegosztás</string>
+    <string name="plan_feature_priority">Elsőbbségi támogatás</string>
+    <string name="plan_feature_qr_tag">QR biléta a kedvencednek</string>
+    <string name="plan_feature_scan_notif">Azonnali beolvasási értesítések</string>
+    <string name="plan_feature_public_profile">Nyilvános kedvenc profil</string>
+    <string name="plan_feature_secure_storage">Biztonságos adattárolás</string>
+    <string name="plan_feature_lost_alerts">Eltűnt kedvenc riasztások állatorvosoknak és a közösségnek</string>
+    <string name="plan_feature_lost_alerts_short">Eltűnt kedvenc riasztások</string>
+    <string name="plan_feature_sms">SMS értesítések</string>
+    <string name="plan_feature_photos">Legfeljebb 10 fotó kedvencenként</string>
+    <string name="plan_feature_replacements">Ingyenes biléta csere</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Alerts -->
+    <!-- ============================================ -->
+    <string name="show_list">Lista megjelenítése</string>
+    <string name="show_map">Térkép megjelenítése</string>
+    <string name="unknown_pet">Ismeretlen kedvenc</string>
+    <string name="pet_alert">Kedvenc riasztás</string>
+    <string name="alert_status">Állapot: %1$s</string>
+    <string name="alert_last_seen">Utoljára látva: %1$s</string>
+    <string name="alert_info">Info: %1$s</string>
+    <string name="alert_sightings_count">Észlelések: %1$d</string>
+    <string name="alert_marker">Riasztás</string>
+    <string name="loading_alerts">Riasztások betöltése\u2026</string>
+    <string name="failed_load_alerts">Nem sikerült betölteni a riasztásokat</string>
+    <string name="no_active_alerts">Nincsenek aktív riasztások</string>
+    <string name="no_active_alerts_message">Jelenleg nincs eltűnt kedvenc riasztásod</string>
+    <string name="no_found_alerts">Nincsenek megtalált riasztások</string>
+    <string name="no_found_alerts_message">Mostanában nem találtak kedvenceket a környékeden</string>
+    <string name="missing_pet_alerts_title">Eltűnt kedvenc riasztások</string>
+    <string name="create_alert">Riasztás létrehozása</string>
+    <string name="create_new_alert">Új riasztás létrehozása</string>
+    <string name="sighting_count_singular">1 észlelés</string>
+    <string name="unknown_breed">Ismeretlen fajta</string>
+    <string name="last_seen_label">Utoljára látva</string>
+    <string name="reported_sightings_count">Bejelentett észlelések (%1$d)</string>
+    <string name="report_a_sighting">Észlelés bejelentése</string>
+    <string name="anonymous">Névtelen</string>
+    <string name="contact_label">Kapcsolat: %1$s</string>
+    <string name="pet_marked_found">%1$s megtaláltként jelölve!</string>
+    <string name="mark_found_failed_message">Nem sikerült megtaláltként jelölni: %1$s</string>
+    <plurals name="sighting_count">
+        <item quantity="one">%d észlelés</item>
+        <item quantity="other">%d észlelés</item>
+    </plurals>
+
+    <!-- Alerts Tab -->
+    <string name="alerts_loading">Riasztások betöltése\u2026</string>
+    <string name="alerts_missing_pets_title">Eltűnt kedvenc riasztások</string>
+    <string name="alerts_list">Lista</string>
+    <string name="alerts_map">Térkép</string>
+    <string name="alerts_no_nearby_title">Nincs %1$s riasztás a közelben</string>
+    <string name="alerts_no_nearby_message">Jelenleg nincs %1$s riasztás a környékeden</string>
+    <string name="alerts_location_required">Helymeghatározás szükséges</string>
+    <string name="alerts_location_required_message">A közeledben lévő eltűnt riasztásokhoz engedélyezd a helymeghatározást vagy add meg a címed.</string>
+    <string name="alerts_enable_location">Helymeghatározás engedélyezése a beállításokban</string>
+    <string name="alerts_or">VAGY</string>
+    <string name="alerts_add_address_profile">Add meg a címed a profilodban</string>
+    <string name="alerts_add_my_address">Cím hozzáadása</string>
+    <string name="alerts_no_missing_nearby">Nincsenek eltűnt riasztások a közelben</string>
+
+    <!-- Alert Status & Details -->
+    <string name="alert_status_missing">Eltűnt</string>
+    <string name="alert_status_found">Megtalált</string>
+    <string name="alert_missing_since">Eltűnt ekkor: %1$s</string>
+    <string name="alert_missing_for">Eltűnt ennyi ideje: %1$s</string>
+    <string name="alert_found_on">Megtalálva ekkor: %1$s</string>
+    <string name="alert_found_reunited">Megtalált &amp; újraegyesült</string>
+    <string name="alert_mark_found_title">%1$s megtaláltként jelölése?</string>
+    <string name="alert_mark_found_message">Ez lezárja %1$s eltűnt riasztását. Biztos vagy benne?</string>
+    <string name="alert_mark_found_failed">Nem sikerült megtaláltként jelölni</string>
+    <string name="alert_marked_found_success">%1$s megtaláltként jelölve!</string>
+    <string name="alert_mark_found_error">Nem sikerült megtaláltként jelölni: %1$s</string>
+    <string name="pet_default">kedvenc</string>
+    <string name="report_found">Megtalálás jelentése</string>
+
+    <!-- Map Annotations -->
+    <string name="map_you">Te</string>
+    <string name="map_missing_alert">Eltűnt riasztás</string>
+    <string name="map_found_alert">Megtalált riasztás</string>
+    <string name="time_less_than_hour">Kevesebb mint egy óra</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Report Missing / Sighting -->
+    <!-- ============================================ -->
+    <string name="report_missing_title">%1$s eltűnésének bejelentése</string>
+    <string name="last_seen_location">Utoljára látott hely</string>
+    <string name="additional_info">További információ</string>
+    <string name="report">Jelentés</string>
+    <string name="report_sighting">Észlelés bejelentése</string>
+    <string name="report_sighting_prompt">Oszd meg azokat a részleteket, ahol láttad a kedvencet.</string>
+    <string name="notes">Megjegyzések</string>
+    <string name="sighting_reported">Észlelés bejelentve</string>
+    <string name="report_failed">Nem sikerült bejelenteni</string>
+    <string name="sighting_location">Észlelés helye</string>
+    <string name="use_current_location">Jelenlegi hely használata</string>
+    <string name="location_captured">Hely rögzítve GPS-ből</string>
+    <string name="getting_location">Hely lekérése\u2026</string>
+    <string name="create_alert_failed">Nem sikerült létrehozni a riasztást</string>
+    <string name="update_alert_failed">Nem sikerült frissíteni a riasztást</string>
+    <string name="report_sighting_failed">Nem sikerült bejelenteni az észlelést</string>
+    <string name="report_missing_pet">Eltűnt kedvenc bejelentése</string>
+    <string name="select_pet_to_report">Válassz kedvencet</string>
+    <string name="add_missing_details">Adj meg részleteket az eltűnésről</string>
+    <string name="enter_address_or_location">Add meg a címet vagy a hely leírását</string>
+    <string name="additional_details">További részletek</string>
+    <string name="describe_circumstances">Írd le a körülményeket, megkülönböztető jegyeket, stb.</string>
+    <string name="report_missing">Eltűnt jelentése</string>
+    <string name="no_pets_to_report_message">Adj hozzá egy kedvencet, hogy eltűntként jelenthessük</string>
+    <string name="mark_pet_found">Kedvenc megtaláltnak jelölése</string>
+    <string name="select_pet_to_mark_found">Válaszd ki a megtalált kedvencet</string>
+    <string name="no_missing_pets_message">Nincs eltűntként jelölt kedvenced</string>
+    <string name="select_pet_header">Kedvenc kiválasztása</string>
+    <string name="no_pets_available">Nincs elérhető kedvenc. Kérjük, adj hozzá egyet.</string>
+    <string name="pet_picker_label">Kedvenc</string>
+    <string name="last_seen_location_header">Utoljára látott hely</string>
+    <string name="enter_location">Hely megadása</string>
+    <string name="additional_information_header">További információ</string>
+    <string name="additional_details_placeholder">Adj meg további részleteket arról, mikor és hol láttad utoljára a kedvenced\u2026</string>
+    <string name="alert_created_success">Eltűnt kedvenc riasztás sikeresen létrehozva!</string>
+    <string name="alert_queued_offline">Riasztás sorba állítva. Online állapotban szinkronizálódik.</string>
+    <string name="your_contact_information">Elérhetőségeid</string>
+    <string name="name_optional">Név (opcionális)</string>
+    <string name="phone_optional">Telefonszám (opcionális)</string>
+    <string name="email_optional">Email (opcionális)</string>
+    <string name="sighting_reported_success">Észlelés sikeresen bejelentve!</string>
+    <string name="report_sighting_header">Észlelés bejelentése</string>
+    <string name="report_sighting_help">Segíts, hogy a kedvenc újra találkozhasson a gazdájával a hely megosztásával.</string>
+    <string name="share_contact_info">Elérhetőségeim megosztása</string>
+    <string name="share_contact_info_desc">Engedélyezd, hogy a gazda közvetlenül felvehesse veled a kapcsolatot</string>
+    <string name="your_name">Neved</string>
+    <string name="your_phone_number">Telefonszámod</string>
+    <string name="your_email">Email címed</string>
+    <string name="address_or_description">Cím vagy leírás</string>
+    <string name="where_did_you_see">Hol láttad a kedvencet?</string>
+    <string name="sighting_notes_placeholder">Írd le, mit láttál, a kedvenc állapotát, haladási irányt\u2026</string>
+    <string name="submit_sighting_report">Észlelés beküldése</string>
+    <string name="sighting_reported_owner_notified">Észlelés bejelentve! A gazdát értesítettük.</string>
+    <string name="sighting_queued_offline">Észlelés sorba állítva - online állapotban elküldjük.</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Mark Lost/Found Sheet -->
+    <!-- ============================================ -->
+    <string name="mark_pet_found_confirm">%1$s megtaláltként jelölése?</string>
+    <string name="mark_found_confirm_alert">Ez lezárja %1$s eltűnt riasztását. Biztos vagy benne?</string>
+    <string name="notification_center">Értesítési központ</string>
+    <string name="alerts_radius_info">A riasztások 10 km-es körzetben lesznek elküldve ezen a helyen</string>
+    <string name="current_location">Jelenlegi hely</string>
+    <string name="tap_get_location">Koppints a jelenlegi hely lekéréséhez\u2026</string>
+    <string name="using_registered_address">A regisztrált címed használata</string>
+    <string name="enter_address_notifications">Adj meg címet az értesítésekhez</string>
+    <string name="notification_source_current_location">Jelenlegi hely</string>
+    <string name="notification_source_my_address">Saját cím</string>
+    <string name="notification_source_custom">Egyéni</string>
+    <string name="no_registered_address">Nincs regisztrált cím. Kérjük, frissítsd a profilod.</string>
+
+    <!-- Mark Lost Flow -->
+    <string name="location_current">Jelenlegi hely</string>
+    <string name="location_my_address">Saját cím</string>
+    <string name="location_custom">Egyéni cím</string>
+    <string name="mark_lost_pet_info">Kedvenc információ</string>
+    <string name="mark_lost_last_seen">Utoljára látott hely</string>
+    <string name="mark_lost_alerts_footer">A riasztások a közelben lévő felhasználóknak, állatorvosoknak és menhelyeknek lesznek elküldve 10 km-en belül.</string>
+    <string name="mark_lost_getting_location">Hely lekérése\u2026</string>
+    <string name="mark_lost_no_address">Nincs regisztrált cím. Menj a Profil > Cím menüpontra.</string>
+    <string name="mark_lost_address_placeholder">Adj meg címet vagy helyet</string>
+    <string name="mark_lost_additional_info">További információ</string>
+    <string name="mark_lost_additional_placeholder">Írd le, mikor és hol láttad utoljára a kedvenced, mit viselt, stb.</string>
+    <string name="mark_lost_sends_to">Ez a riasztás ide kerül elküldésre:</string>
+    <string name="mark_lost_nearby_owners">Közeli kedvenc gazdák</string>
+    <string name="mark_lost_vet_clinics">Környékbeli állatorvosi rendelők</string>
+    <string name="mark_lost_shelters">Közeli állatmenhelyek</string>
+    <string name="mark_lost_report">Eltűnt jelentése</string>
+    <string name="mark_lost_title">Eltűnt jelentése</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Notifications -->
+    <!-- ============================================ -->
+    <string name="tag_scanned_message">%1$s bilétáját beolvasták ekkor: %2$s!</string>
+    <string name="unknown_location">ismeretlen helyen</string>
+    <string name="sighting_message_with_location">%1$s-t észlelték itt: %2$s!</string>
+    <string name="sighting_message_no_location">%1$s-t észlelték!</string>
+    <string name="pet_found_message">Jó hír! %1$s megkerült!</string>
+    <string name="notification_tag_scanned_title">%1$s megkerült!</string>
+    <string name="notification_sighting_title">%1$s észlelve!</string>
+    <string name="notification_pet_found_title">Jó hír!</string>
+    <string name="notification_channel_name">Pet Safety riasztások</string>
+    <string name="notification_channel_tag_scans">Biléta beolvasások</string>
+    <string name="notification_channel_tag_scans_desc">Értesítések, amikor beolvassák a kedvenced bilétáját</string>
+    <string name="notification_channel_alerts">Eltűnt kedvenc riasztások</string>
+    <string name="notification_channel_alerts_desc">Értesítések eltűnt kedvencekről a környékeden</string>
+    <string name="notification_channel_sightings">Észlelési jelentések</string>
+    <string name="notification_channel_sightings_desc">Értesítések, amikor észlelik az eltűnt kedvencedet</string>
+    <string name="notification_method_required">Legalább egy értesítési módot engedélyezni kell</string>
+
+    <!-- FCM Notification Strings -->
+    <string name="notif_tag_scanned_title">Biléta beolvasva</string>
+    <string name="notif_tag_scanned_body">%1$s bilétáját beolvasták!</string>
+    <string name="notif_tag_scanned_body_location">%1$s bilétáját beolvasták! %2$s</string>
+    <string name="notif_missing_pet_title">Eltűnt kedvenc a közelben</string>
+    <string name="notif_missing_pet_body">%1$s eltűnt itt: %2$s. Figyelj rá!</string>
+    <string name="notif_pet_found_title">Kedvenc megkerült!</string>
+    <string name="notif_pet_found_body">Jó hír! %1$s megkerült!</string>
+    <string name="notif_sighting_title">Észlelés bejelentve</string>
+    <string name="notif_sighting_body_location">%1$s-t észlelték itt: %2$s!</string>
+    <string name="notif_sighting_body_no_location">%1$s-t észlelték! Ellenőrizd az észlelés helyét.</string>
+    <string name="notif_fallback_title">Pet Safety</string>
+    <string name="notif_fallback_pet_name">Kedvenced</string>
+    <string name="notif_fallback_a_pet">Egy kedvenc</string>
+    <string name="notif_fallback_your_area">a környéked</string>
+    <string name="notif_location_shared">Hely megosztva</string>
+    <string name="notif_location_approximate">Közelítő hely (~500m)</string>
+
+    <!-- Notification Action Buttons -->
+    <string name="notif_action_view_area">Terület megtekintése (~500m)</string>
+    <string name="notif_action_view_map">Megtekintés térképen</string>
+    <string name="notif_action_get_directions">Útvonaltervezés</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Notification Settings -->
+    <!-- ============================================ -->
+    <string name="notif_channels">Értesítési csatornák</string>
+    <string name="notif_channels_footer">Válaszd ki, hogyan szeretnél értesítéseket kapni. Legalább egy módnak engedélyezve kell maradnia.</string>
+    <string name="notif_push">Push értesítések</string>
+    <string name="notif_push_desc">Valós idejű alkalmazáson belüli riasztások</string>
+    <string name="notif_email">Email értesítések</string>
+    <string name="notif_email_desc">Részletes email riasztások</string>
+    <string name="notif_sms">SMS értesítések</string>
+    <string name="notif_sms_desc">Szöveges üzenet riasztások</string>
+    <string name="notif_pet_alerts">Kedvenc riasztások</string>
+    <string name="notif_pet_alerts_footer">Értesítések eltűnt kedvencekről a környékeden</string>
+    <string name="notif_missing_pet_alerts">Eltűnt kedvenc riasztások</string>
+    <string name="notif_nearby_alerts">Közeli riasztások (10km)</string>
+    <string name="notif_account_orders">Fiók &amp; rendelések</string>
+    <string name="notif_account_orders_footer">Maradj naprakész a fióktevékenységeidről és rendeléseidről</string>
+    <string name="notif_order_updates">Rendelésfrissítések</string>
+    <string name="notif_account_activity">Fióktevékenység</string>
+    <string name="notif_optional_updates">Opcionális frissítések</string>
+    <string name="notif_optional_footer">Hírek, tippek és promóciós tartalmak</string>
+    <string name="notif_product_updates">Termékfrissítések</string>
+    <string name="notif_marketing_emails">Marketing emailek</string>
+    <string name="notif_save_changes">Változások mentése</string>
+    <string name="notif_title">Értesítések</string>
+    <string name="notif_saved">Mentve</string>
+    <string name="notif_saved_message">Értesítési beállítások sikeresen mentve</string>
+    <string name="notif_critical_footer">Ezeket a beállításokat bármikor módosíthatod. A kedvenceid kritikus riasztásai mindig elküldésre kerülnek.</string>
+    <string name="notification_channels">Értesítési csatornák</string>
+    <string name="notification_preferences_title">Értesítési beállítások</string>
+    <string name="notifications">Értesítések</string>
+    <string name="push_notifications">Push értesítések</string>
+    <string name="push_notifications_subtitle">Push értesítések fogadása az eszközödön</string>
+    <string name="email_notifications">Email értesítések</string>
+    <string name="email_notifications_subtitle">Értesítések fogadása emailben</string>
+    <string name="sms_notifications">SMS értesítések</string>
+    <string name="sms_notifications_subtitle">Értesítések fogadása SMS-ben</string>
+    <string name="pet_alerts">Kedvenc riasztások</string>
+    <string name="missing_pet_alerts">Eltűnt kedvenc riasztások</string>
+    <string name="missing_pet_alerts_subtitle">Értesítés eltűnt kedvencekről a környékeden</string>
+    <string name="nearby_alerts_10km">Közeli riasztások (10km)</string>
+    <string name="nearby_alerts_subtitle">Riasztások 10 km-en belül a tartózkodási helyedhez képest</string>
+    <string name="account_and_orders">Fiók &amp; rendelések</string>
+    <string name="order_updates">Rendelésfrissítések</string>
+    <string name="order_updates_subtitle">Szállítási és kézbesítési értesítések</string>
+    <string name="account_activity">Fióktevékenység</string>
+    <string name="account_activity_subtitle">Bejelentkezési és biztonsági értesítések</string>
+    <string name="optional_updates">Opcionális frissítések</string>
+    <string name="product_updates">Termékfrissítések</string>
+    <string name="product_updates_subtitle">Új funkciók és fejlesztések</string>
+    <string name="marketing_emails">Marketing emailek</string>
+    <string name="marketing_emails_subtitle">Ajánlatok és promóciók</string>
+    <string name="critical_alerts_note">Megjegyzés: a kedvenceid kritikus riasztásai mindig elküldésre kerülnek, függetlenül a beállításoktól.</string>
+
+    <!-- Notification Preferences -->
+    <string name="notif_pref_intro">Válaszd ki, hogyan szeretnél fontos frissítéseket kapni a kedvenceidről és a fiókodról.</string>
+    <string name="notif_pref_methods">Értesítési módok</string>
+    <string name="notif_pref_email">Email értesítések</string>
+    <string name="notif_pref_email_desc">Részletes email riasztások fogadása</string>
+    <string name="notif_pref_sms">SMS értesítések</string>
+    <string name="notif_pref_sms_desc">Szöveges üzenet riasztások fogadása</string>
+    <string name="notif_pref_push">Push értesítések</string>
+    <string name="notif_pref_push_desc">Valós idejű alkalmazáson belüli riasztások fogadása</string>
+    <string name="notif_pref_warning">Legalább egy értesítési módot engedélyezni kell</string>
+    <string name="notif_pref_save">Változások mentése</string>
+    <string name="notif_pref_title">Értesítési beállítások</string>
+    <string name="notif_pref_success">Értesítési beállítások sikeresen mentve</string>
+    <string name="notif_pref_loading">Beállítások betöltése\u2026</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Success Stories -->
+    <!-- ============================================ -->
+    <string name="success_stories_title">Sikertörténetek</string>
+    <string name="share_your_story">Oszd meg a történeted</string>
+    <string name="success_story_prompt">Jó hír! %1$s megkerült! Szeretnéd megosztani az újraegyesülés történetét, hogy inspirálj másokat?</string>
+    <string name="your_story">A történeted</string>
+    <string name="story_placeholder">Meséld el, hogyan találkoztatok újra\u2026</string>
+    <string name="share_story">Történet megosztása</string>
+    <string name="story_shared">Történet sikeresen megosztva</string>
+    <string name="story_share_failed">Nem sikerült megosztani a történetet</string>
+    <string name="loading_success_stories">Sikertörténetek betöltése\u2026</string>
+    <string name="success_stories_loading">Történetek betöltése\u2026</string>
+    <string name="no_success_stories">Nincsenek sikertörténetek a közelben</string>
+    <string name="no_success_stories_message">Légy te az első, aki megoszt egy boldog újraegyesülést a környékeden!</string>
+    <string name="found_and_reunited">Megtalált &amp; újraegyesült</string>
+    <string name="distance_km">%.1f km távolság</string>
+    <string name="missing_since">Eltűnt ekkor: %1$s</string>
+    <string name="found_on">%1$s megtalálva</string>
+    <string name="success_story_marker">Sikertörténet</string>
+    <string name="load_more">További betöltése</string>
+    <string name="missing_for">Eltűnt ennyi ideje: %1$s</string>
+    <string name="pet_found_share">%1$s megkerült!</string>
+    <string name="reunited_in">%1$s alatt újraegyesült</string>
+    <string name="shared_via_pet_safety">Megosztva a Pet Safety alkalmazásból</string>
+    <string name="sighting_reports_desc">Észlelési jelentések</string>
+
+    <!-- Success Story Time -->
+    <string name="success_just_now">Most</string>
+    <string name="success_day_ago">1 napja</string>
+    <string name="success_days_ago">%1$d napja</string>
+    <string name="success_hour_ago">1 órája</string>
+    <string name="success_hours_ago">%1$d órája</string>
+    <string name="success_minute_ago">1 perce</string>
+    <string name="success_minutes_ago">%1$d perce</string>
+
+    <!-- Success Stories Tab -->
+    <string name="success_tab_title">Sikertörténetek</string>
+    <string name="success_tab_list">Lista</string>
+    <string name="success_tab_map">Térkép</string>
+
+    <!-- Success Story Prompt -->
+    <string name="story_great_news">Jó hír!</string>
+    <string name="story_post">Közzététel</string>
+    <string name="story_pet_home">%1$s itthon van!</string>
+    <string name="story_reunited">Újraegyesült!</string>
+    <string name="story_share_prompt">Oszd meg az újraegyesülés történetét!</string>
+    <string name="story_inspiration">A történeted reményt adhat más gazdáknak a környékeden.</string>
+    <string name="story_share_button">Történetem megosztása</string>
+    <string name="story_maybe_later">Talán később</string>
+    <string name="story_your_story">A történeted</string>
+    <string name="story_placeholder_named">Oszd meg, hogyan találtad meg és egyesültetek újra: %1$s</string>
+    <string name="story_city_optional">Város/terület (opcionális)</string>
+    <string name="story_city_placeholder">pl. Budapest, VII. kerület</string>
+    <string name="story_share_publicly">Megosztás nyilvánosan</string>
+    <string name="story_share_publicly_desc">Engedélyezd, hogy a közelben mások is láthassák a történeted</string>
+    <string name="story_posting">Közzététel\u2026</string>
+    <string name="story_share_story">Történet megosztása</string>
+    <string name="story_contact_note">Elérhetőségeid nem kerülnek megosztásra.</string>
+    <string name="story_posted_success">A sikertörténeted megosztásra került!</string>
+    <string name="story_share_title">Oszd meg a történeted</string>
+    <string name="story_pet_is_home">%1$s itthon van!</string>
+    <string name="story_share_reunion">Oszd meg az újraegyesülés történetét!</string>
+    <string name="story_inspire_others">A %1$s-ról szóló történeted reményt adhat más gazdáknak.</string>
+    <string name="story_share_my_story">Történetem megosztása</string>
+    <string name="story_share_how">Oszd meg, hogyan találtad meg és egyesültetek újra: %1$s</string>
+    <string name="story_privacy_note">Elérhetőségeid nem kerülnek megosztásra.</string>
+    <string name="story_shared_success">A sikertörténeted megosztásra került!</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Profile -->
+    <!-- ============================================ -->
+    <string name="profile_title">Fiók</string>
+    <string name="account_title">Fiók</string>
+    <string name="profile_personal_info">Személyes adatok</string>
+    <string name="profile_address">Cím</string>
+    <string name="profile_contacts">Kapcsolatok</string>
+    <string name="profile_privacy_mode">Adatvédelmi mód</string>
+    <string name="profile_notifications">Értesítések</string>
+    <string name="profile_help_support">Súgó és támogatás</string>
+    <string name="profile_log_out">Kijelentkezés</string>
+    <string name="profile_logout_confirm">Biztosan kijelentkezel?</string>
+    <string name="profile_delete_account">Fiók törlése</string>
+    <string name="profile_delete_confirm">Biztosan törlöd a fiókodat? Ez a művelet nem vonható vissza.</string>
+    <string name="profile_cannot_delete">Fiók nem törölhető</string>
+    <string name="profile_cannot_delete_message">Mielőtt törölnéd a fiókod, jelöld meg minden eltűnt kedvencet megtaláltként.</string>
+    <string name="profile_danger_zone">Veszélyzóna</string>
+    <string name="profile_deleting">Törlés\u2026</string>
+    <string name="profile_delete_permanent">Ez véglegesen törli a fiókodat és az összes adatot</string>
+    <string name="log_out">Kijelentkezés</string>
+    <string name="personal_information">Személyes adatok</string>
+    <string name="address">Cím</string>
+    <string name="contacts">Kapcsolatok</string>
+    <string name="privacy_mode">Adatvédelmi mód</string>
+    <string name="help_support">Súgó és támogatás</string>
+    <string name="danger_zone">VESZÉLYZÓNA</string>
+    <string name="deleting">Törlés\u2026</string>
+    <string name="delete_account_permanent">Ez véglegesen törli a fiókodat és az összes adatot</string>
+    <string name="logout_confirm">Biztosan kijelentkezel?</string>
+    <string name="delete_account_full_warning">Ez a művelet nem vonható vissza. A fiókod véglegesen törlődik, minden személyes adat eltávolításra kerül, és az aktív előfizetések megszűnnek.</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Personal Information -->
+    <!-- ============================================ -->
+    <string name="personal_details">Személyes adatok</string>
+    <string name="personal_first_name">Keresztnév</string>
+    <string name="personal_first_name_placeholder">Add meg a keresztneved</string>
+    <string name="personal_last_name">Vezetéknév</string>
+    <string name="personal_last_name_placeholder">Add meg a vezetékneved</string>
+    <string name="personal_email">Email</string>
+    <string name="personal_email_placeholder">Add meg az emailed</string>
+    <string name="personal_phone">Telefonszám</string>
+    <string name="personal_phone_placeholder">Add meg a telefonszámod</string>
+    <string name="personal_edit_info">Adatok szerkesztése</string>
+    <string name="personal_title">Személyes adatok</string>
+    <string name="edit_information">Adatok szerkesztése</string>
+    <string name="registered_address">Regisztrált cím</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Address -->
+    <!-- ============================================ -->
+    <string name="address_details">Cím részletek</string>
+    <string name="address_details_footer">A címedet a biléták szállításához és a közeli riasztásokhoz használjuk.</string>
+    <string name="address_street">Utca, házszám</string>
+    <string name="address_street_placeholder">Add meg az utcát és házszámot</string>
+    <string name="address_line2">Cím 2. sora (opcionális)</string>
+    <string name="address_line2_placeholder">Lakás, emelet, stb.</string>
+    <string name="address_city">Város / település</string>
+    <string name="address_city_placeholder">Add meg a várost vagy települést</string>
+    <string name="address_postal">Irányítószám</string>
+    <string name="address_postal_placeholder">Add meg az irányítószámot</string>
+    <string name="address_country">Ország</string>
+    <string name="address_select_country">Ország kiválasztása</string>
+    <string name="address_no_address">Nincs regisztrált cím</string>
+    <string name="address_add_prompt">Adj meg címet a szállításhoz és a helyalapú riasztásokhoz.</string>
+    <string name="address_add">Cím hozzáadása</string>
+    <string name="address_edit">Cím szerkesztése</string>
+    <string name="address_title">Cím</string>
+    <string name="address_select_country_title">Ország kiválasztása</string>
+    <string name="address_line2_label">Cím 2. sora</string>
+    <string name="address_postal_label">Irányítószám</string>
+    <string name="street_address">Utca, házszám</string>
+    <string name="address_line_2_optional">Cím 2. sora (opcionális)</string>
+    <string name="city">Város</string>
+    <string name="post_code">Irányítószám</string>
+    <string name="country">Ország</string>
+    <string name="street">Utca</string>
+    <string name="address_updated">Cím frissítve</string>
+    <string name="address_shipping_footer">Add meg a teljes címed szállításhoz és számlázáshoz</string>
+    <string name="address_delivery_prompt">Adj meg címet a QR biléták szállításához</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Contacts -->
+    <!-- ============================================ -->
+    <string name="contacts_settings">Kapcsolati beállítások</string>
+    <string name="contacts_info_text">Ezeket az elérhetőségeket láthatják, amikor beolvassák a kedvenced QR bilétáját. Legalább egy kapcsolati mód megadása szükséges.</string>
+    <string name="contacts_email_section">Email címek</string>
+    <string name="contacts_phone_section">Telefonszámok</string>
+    <string name="contacts_edit_title">Elérhetőségek szerkesztése</string>
+    <string name="contacts_primary_email">Elsődleges email</string>
+    <string name="contacts_primary_email_footer">Ez az email jelenik meg, amikor beolvassák a kedvenced QR bilétáját.</string>
+    <string name="contacts_email_placeholder">Email cím</string>
+    <string name="contacts_show_on_tag">Megjelenítés a bilétán</string>
+    <string name="contacts_secondary_email">Másodlagos email (opcionális)</string>
+    <string name="contacts_secondary_email_footer">Tartalék email elérhetőséghez.</string>
+    <string name="contacts_secondary_email_placeholder">Másodlagos email cím</string>
+    <string name="contacts_primary_phone">Elsődleges telefonszám</string>
+    <string name="contacts_primary_phone_footer">Ez a telefonszám jelenik meg, amikor beolvassák a kedvenced QR bilétáját.</string>
+    <string name="contacts_phone_placeholder">Telefonszám</string>
+    <string name="contacts_secondary_phone">Másodlagos telefonszám (opcionális)</string>
+    <string name="contacts_secondary_phone_footer">Tartalék telefonszám elérhetőséghez.</string>
+    <string name="contacts_secondary_phone_placeholder">Másodlagos telefonszám</string>
+    <string name="contacts_title">Elérhetőségek</string>
+    <string name="contacts_primary_badge">ELSŐDLEGES</string>
+    <string name="contacts_visible_badge">Látható a bilétán</string>
+    <string name="contacts_hidden_badge">Rejtett</string>
+    <string name="contacts_none_added">Nincs megadva: %1$s</string>
+    <string name="email_addresses">Email címek</string>
+    <string name="primary_email">Elsődleges email</string>
+    <string name="secondary_email_optional">Másodlagos email (opcionális)</string>
+    <string name="phone_numbers">Telefonszámok</string>
+    <string name="primary_phone">Elsődleges telefonszám</string>
+    <string name="show_on_qr_tag">Megjelenítés a QR bilétán</string>
+    <string name="secondary_phone_optional">Másodlagos telefonszám (opcionális)</string>
+    <string name="contacts_qr_tag_info">A láthatóként megjelölt elérhetőségek megjelennek a kedvenced QR bilétáján, amikor azt valaki beolvassa.</string>
+    <string name="contact_details">Elérhetőségek</string>
+    <string name="contacts_coming_soon">Hamarosan</string>
+    <string name="contacts_info_full">Ezek az elérhetőségek megjelennek, amikor beolvassák a kedvenced QR bilétáját. Legfeljebb két email címet és telefonszámot adhatsz meg.</string>
+    <string name="contacts_primary_email_edit_footer">A fő fiók email címed</string>
+    <string name="contacts_secondary_email_edit_footer">Tartalék email a kedvenc megtalálásáról szóló értesítésekhez</string>
+    <string name="contacts_primary_phone_edit_footer">A fő elérhetőségi telefonszámod</string>
+    <string name="contacts_secondary_phone_edit_footer">Tartalék telefonszám vészhelyzetekre</string>
+    <string name="contacts_visible_on_tag">Látható a bilétán</string>
+    <string name="contacts_no_type_added">Nincs megadva: %1$s</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Contact Visibility -->
+    <!-- ============================================ -->
+    <string name="contact_visibility">Elérhetőségek láthatósága</string>
+    <string name="contact_visibility_desc">Szabályozd, milyen elérhetőség látható, amikor beolvassák a kedvenced QR bilétáját</string>
+    <string name="show_phone_number">Telefonszám megjelenítése</string>
+    <string name="show_phone_subtitle">A telefonszámod látható lesz a megtalálók számára</string>
+    <string name="show_email_address">Email cím megjelenítése</string>
+    <string name="show_email_subtitle">Az emailed látható lesz a megtalálók számára</string>
+    <string name="show_address">Cím megjelenítése</string>
+    <string name="show_address_subtitle">A címed látható lesz a megtalálók számára</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Privacy Mode -->
+    <!-- ============================================ -->
+    <string name="privacy_contact_visibility">Elérhetőségek láthatósága</string>
+    <string name="privacy_contact_footer">Szabályozd, mely elérhetőségek láthatók, amikor beolvassák a kedvenced QR bilétáját.</string>
+    <string name="privacy_show_phone">Telefonszám megjelenítése</string>
+    <string name="privacy_show_email">Email cím megjelenítése</string>
+    <string name="privacy_show_address">Cím megjelenítése</string>
+    <string name="privacy_data_privacy">Adatvédelem</string>
+    <string name="privacy_privacy_policy">Adatvédelmi szabályzat</string>
+    <string name="privacy_data_management">Adatkezelés</string>
+    <string name="privacy_title">Adatvédelmi mód</string>
+    <string name="privacy_mode_footer">Az adatvédelmi beállítások segítenek szabályozni, milyen információk kerülnek megosztásra, amikor beolvassák a kedvenced QR bilétáját.</string>
+    <string name="privacy_policy_title">Adatvédelmi szabályzat</string>
+    <string name="privacy_policy_updated">Utoljára frissítve: 2024. november</string>
+    <string name="privacy_policy_section1_title">1. Gyűjtött információk</string>
+    <string name="privacy_policy_section1_body">Összegyűjtjük az általad közvetlenül megadott információkat, beleértve a neved, emailed, telefonszámod, címed és kedvenc adatait. Helyadatokat is gyűjtünk, ha úgy döntesz, hogy megosztod azokat.</string>
+    <string name="privacy_policy_section2_title">2. Az információk felhasználása</string>
+    <string name="privacy_policy_section2_body">Az adataidat a kedvenc biztonsági szolgáltatásaink nyújtásához, eltűnt kedvencekről szóló értesítések küldéséhez és a gazda-kedvenc újraegyesülésének segítéséhez használjuk.</string>
+    <string name="privacy_policy_section3_title">3. Információmegosztás</string>
+    <string name="privacy_policy_section3_body">Az elérhetőségeidet csak az adatvédelmi beállításaid szerint osztjuk meg. A helyadatokat csak akkor osztjuk meg, ha ezt kifejezetten engedélyezed.</string>
+    <string name="privacy_policy_section4_title">4. Adatbiztonság</string>
+    <string name="privacy_policy_section4_body">Iparági szabványú titkosítást és biztonsági intézkedéseket használunk a személyes adataid védelmére.</string>
+    <string name="privacy_policy_section5_title">5. A jogaid</string>
+    <string name="privacy_policy_section5_body">Jogod van a személyes adataid eléréséhez, frissítéséhez és törléséhez bármikor az alkalmazás beállításaiban.</string>
+    <string name="privacy_your_data">Adataid</string>
+    <string name="privacy_your_data_footer">Kérj másolatot az összes személyes adatról, amelyet a rendszerünk tárol.</string>
+    <string name="privacy_export_data">Adataim exportálása</string>
+    <string name="privacy_deletion_section">Adattörlés</string>
+    <string name="privacy_deletion_footer">Fiókod és az összes kapcsolódó adat végleges törlése.</string>
+    <string name="privacy_delete_account">Fiókom törlése</string>
+    <string name="privacy_delete_confirm">Biztosan törlöd a fiókodat? Ez véglegesen eltávolítja az összes adatodat, beleértve a kedvenceket, riasztásokat és rendelési előzményeket. Ez a művelet nem vonható vissza.</string>
+    <string name="data_privacy">Adatvédelem</string>
+    <string name="data_management">Adatkezelés</string>
+    <string name="privacy_settings_updated">Adatvédelmi beállítások frissítve</string>
+    <string name="privacy_settings_failed">Nem sikerült frissíteni az adatvédelmi beállításokat</string>
+    <string name="privacy_settings_placeholder">Az adatvédelmi beállítások itt lesznek elérhetők.</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Delete Account -->
+    <!-- ============================================ -->
+    <string name="delete_account">Fiók törlése</string>
+    <string name="delete_account_warning">Ez a művelet nem vonható vissza. Minden adatod, beleértve a kedvenceket, riasztásokat és fotókat, véglegesen törlődik.</string>
+    <string name="delete_account_confirm_prompt">Megerősítéshez írd be alább: DELETE</string>
+    <string name="type_delete_to_confirm">Írd be: DELETE</string>
+    <string name="account_deleted">Fiók törölve</string>
+    <string name="delete_account_failed">Nem sikerült törölni a fiókot</string>
+    <string name="cannot_delete_account">Fiók nem törölhető</string>
+    <string name="cannot_delete_missing_pets">Nem törölheted a fiókodat, amíg vannak eltűntként jelölt kedvenceid. Előbb jelöld meg őket megtaláltként.</string>
+    <string name="missing_pets_label">Eltűnt kedvencek: %1$s</string>
+    <string name="checking_delete_eligibility">Ellenőrzés\u2026</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Help & Support -->
+    <!-- ============================================ -->
+    <string name="help_quick_actions">Gyors műveletek</string>
+    <string name="help_contact_support">Kapcsolat a támogatással</string>
+    <string name="help_resources">Források</string>
+    <string name="help_faq">Gyakran Ismételt Kérdések</string>
+    <string name="help_user_guides">Felhasználói útmutatók</string>
+    <string name="help_legal">Jogi</string>
+    <string name="help_terms">Felhasználási feltételek</string>
+    <string name="help_privacy">Adatvédelmi szabályzat</string>
+    <string name="help_app_info">Alkalmazás információk</string>
+    <string name="help_version">Verzió</string>
+    <string name="help_build">Build</string>
+    <string name="help_title">Súgó és támogatás</string>
+    <string name="help_support_footer">Segítségre van szükséged? Támogató csapatunk segít.</string>
+    <string name="help_category">Kategória</string>
+    <string name="help_subject">Tárgy</string>
+    <string name="help_subject_placeholder">Rövid leírás a problémáról</string>
+    <string name="help_message">Üzenet</string>
+    <string name="help_message_placeholder">Írd le részletesen a problémát\u2026</string>
+    <string name="help_sending">Küldés\u2026</string>
+    <string name="help_submit_request">Kérés beküldése</string>
+    <string name="help_contact_title">Kapcsolat a támogatással</string>
+    <string name="help_faq_title">GYIK</string>
+    <string name="help_guides_title">Felhasználói útmutatók</string>
+    <string name="help_guide_placeholder">Részletes útmutató tartalom itt lesz elérhető.</string>
+    <string name="get_help">Segítség kérése</string>
+    <string name="faq">Gyakran Ismételt Kérdések</string>
+    <string name="user_guides">Felhasználói útmutatók</string>
+    <string name="legal">Jogi</string>
+    <string name="support_response_time">Támogató csapatunk általában 24 órán belül válaszol.</string>
+    <string name="contact_support">Kapcsolat a támogatással</string>
+    <string name="contact_support_category">Kategória</string>
+    <string name="contact_support_subject">Tárgy</string>
+    <string name="contact_support_subject_hint">Rövid leírás a problémáról</string>
+    <string name="contact_support_message">Üzenet</string>
+    <string name="contact_support_message_hint">Írd le részletesen a problémát\u2026</string>
+    <string name="contact_support_submit">Beküldés</string>
+    <string name="contact_support_sending">Küldés\u2026</string>
+    <string name="contact_support_success">Támogatási kérés elküldve! Jegyazonosító: %1$s</string>
+    <string name="contact_support_response">24 órán belül válaszolunk.</string>
+    <string name="support_email">Támogatás: support@petsafety.eu</string>
+    <string name="support_category_general">Általános</string>
+    <string name="support_category_technical">Technikai probléma</string>
+    <string name="support_category_account">Fiók</string>
+    <string name="support_category_billing">Számlázás</string>
+    <string name="support_category_feature">Funkció kérés</string>
+    <string name="support_category_other">Egyéb</string>
+    <string name="char_count">%1$d/5000 karakter</string>
+
+    <!-- FAQ Items -->
+    <string name="help_faq_q1">Hogyan adok hozzá kedvencet?</string>
+    <string name="help_faq_a1">Lépj a Kedvenceim fülre és koppints a + gombra. Töltsd ki a kedvenced adatait, majd mentsd.</string>
+    <string name="help_faq_q2">Hogyan működnek a QR biléták?</string>
+    <string name="help_faq_a2">Minden QR biléta egyedi kódot tartalmaz, amely a kedvenced profiljához kapcsolódik. Amikor valaki beolvassa, láthatja a kedvenced információit és kapcsolatba léphet veled.</string>
+    <string name="help_faq_q3">Mi történik, ha a kedvencem eltűntként van jelölve?</string>
+    <string name="help_faq_a3">Riasztást küldünk a közelben lévő Pet Safety felhasználóknak. Bárki, aki beolvassa a kedvenced bilétáját, felkérést kap a helyzet megosztására.</string>
+    <string name="help_faq_q4">Hogyan frissíthetem az elérhetőségeimet?</string>
+    <string name="help_faq_a4">Lépj a Fiók > Kapcsolatok menüpontra, és frissítsd az email címeidet és telefonszámaidat, amelyek a kedvenced bilétáján megjelennek.</string>
+    <string name="help_faq_q5">Biztonságban vannak a személyes adataim?</string>
+    <string name="help_faq_a5">Igen. Titkosítást és biztonságos szervereket használunk az adataid védelmére. Az adatokat az Adatvédelmi mód beállításaiban szabályozhatod.</string>
+
+    <!-- Guide Items -->
+    <string name="help_guide_getting_started">Első lépések</string>
+    <string name="help_guide_managing_pets">Kedvenceid kezelése</string>
+    <string name="help_guide_qr_tags">QR biléták megértése</string>
+    <string name="help_guide_missing_pet">Mit tegyél, ha eltűnik a kedvenced</string>
+    <string name="help_guide_privacy">Adatvédelmi és biztonsági beállítások</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Orders -->
+    <!-- ============================================ -->
+    <string name="orders_title">Rendelések</string>
+    <string name="order_number">Rendelés #%1$s</string>
+    <string name="order_total">Összesen: %1$s</string>
+    <string name="order_tags">Biléták rendelése</string>
+    <string name="replace_tag">Biléta csere</string>
+    <string name="add_pet_first_replacement">Először adj hozzá egy kedvencet, hogy bilétát cserélhess.</string>
+    <string name="order_more_tags_title">További biléták rendelése</string>
+    <string name="add_another_pet">Kedvenc hozzáadása</string>
+    <string name="full_name">Teljes név</string>
+    <string name="place_order">Rendelés leadása</string>
+    <string name="order_created_payment_pending">Rendelés létrehozva. Fizetés folyamatban.</string>
+    <string name="payment_intent_failed">Sikertelen fizetési szándék</string>
+    <string name="order_create_failed">Nem sikerült létrehozni a rendelést</string>
+    <string name="order_replacement_title">Biléta csere rendelése</string>
+    <string name="pet_label">Kedvenc: %1$s</string>
+    <string name="order_replacement_button">Csere rendelése</string>
+    <string name="replacement_ordered">Csere megrendelve</string>
+    <string name="replacement_failed">Nem sikerült megrendelni a cserét</string>
+    <string name="replacement_order_failed">Nem sikerült létrehozni a csere rendelést</string>
+    <string name="create_payment_intent_failed">Nem sikerült létrehozni a fizetési szándékot</string>
+    <string name="failed_load_orders">Nem sikerült betölteni a rendeléseket</string>
+    <string name="no_orders">Nincsenek rendelések</string>
+    <string name="no_orders_message">Még nem adtál le rendelést</string>
+    <string name="order_id_short">Rendelés #%1$s</string>
+    <string name="order_information">Rendelési információk</string>
+    <string name="order_id_label">Rendelés azonosító</string>
+    <string name="status">Állapot</string>
+    <string name="total_amount">Végösszeg</string>
+    <string name="order_date">Rendelés dátuma</string>
+    <string name="items">Tételek</string>
+    <string name="quantity_label">Mennyiség: %1$d</string>
+    <string name="qr_tag_pending">QR biléta függőben</string>
+    <string name="qr_tag_assigned">QR biléta hozzárendelve</string>
+    <plurals name="item_count">
+        <item quantity="one">%d tétel</item>
+        <item quantity="other">%d tétel</item>
+    </plurals>
+
+    <!-- Order More Tags -->
+    <string name="order_more_title">További biléták rendelése</string>
+    <string name="order_more_complete">Rendelés kész!</string>
+    <string name="order_more_payment_pending">A rendelésed leadva. Hamarosan emailt kapsz a fizetési instrukciókkal.</string>
+    <string name="order_more_confirmation">A bilétákat a fizetés megerősítése után szállítjuk.</string>
+    <string name="order_more_pet_names">Kedvencek nevei</string>
+    <string name="order_more_pet_names_footer">Add meg azoknak a kedvenceknek a nevét, akiknek bilétát szeretnél. A bilétára gravírozzuk a kedvenc nevét.</string>
+    <string name="order_more_pet_name_placeholder">Kedvenc neve</string>
+    <string name="order_more_add_another">Kedvenc hozzáadása</string>
+    <string name="order_more_your_info">Adataid</string>
+    <string name="order_more_full_name">Teljes név</string>
+    <string name="order_more_email">Email</string>
+    <string name="order_more_phone">Telefonszám</string>
+    <string name="order_more_shipping">Szállítási cím</string>
+    <string name="order_more_street">Utca, házszám</string>
+    <string name="order_more_street_placeholder">Add meg az utcát és házszámot</string>
+    <string name="order_more_line2">Cím 2. sora (opcionális)</string>
+    <string name="order_more_line2_placeholder">Lakás, emelet, stb.</string>
+    <string name="order_more_city">Város</string>
+    <string name="order_more_province">Megye / állam (opcionális)</string>
+    <string name="order_more_postal">Irányítószám</string>
+    <string name="order_more_country">Ország</string>
+    <string name="order_more_summary">Rendelés összegzése</string>
+    <string name="order_more_tags_count">Biléták (%1$d)</string>
+    <string name="order_more_shipping_cost">Szállítás</string>
+    <string name="order_more_total">Összesen</string>
+    <string name="order_more_creating">Rendelés létrehozása\u2026</string>
+    <string name="order_more_place_order">Rendelés leadása</string>
+    <string name="get_qr_tags_subtitle">Szerezz QR bilétákat a kedvenceidnek</string>
+    <string name="pet_names">Kedvencek nevei</string>
+    <string name="shipping_address">Szállítási cím</string>
+    <string name="shipping">Szállítás</string>
+    <string name="shipping_price">\u00a33.90</string>
+
+    <!-- Order Replacement Tag -->
+    <string name="order_replace_title">Biléta csere rendelése</string>
+    <string name="order_replace_complete">Rendelés kész!</string>
+    <string name="order_replace_confirmation">A cserebiléta a megadott címre lesz szállítva.</string>
+    <string name="order_replace_pet_info">Kedvenc információ</string>
+    <string name="order_replace_important">Fontos információ</string>
+    <string name="order_replace_eligible_free">Az első csere ingyenes</string>
+    <string name="order_replace_additional_fee">További csere: %1$s</string>
+    <string name="order_replace_shipping">Szállítási cím</string>
+    <string name="order_replace_shipping_footer">A cserebilétát erre a címre szállítjuk.</string>
+    <string name="order_replace_street">Utca, házszám</string>
+    <string name="order_replace_street_placeholder">Add meg az utcát és házszámot</string>
+    <string name="order_replace_line2">Cím 2. sora (opcionális)</string>
+    <string name="order_replace_line2_placeholder">Lakás, emelet, stb.</string>
+    <string name="order_replace_city">Város</string>
+    <string name="order_replace_postal">Irányítószám</string>
+    <string name="order_replace_country">Ország</string>
+    <string name="order_replace_phone">Telefonszám (opcionális)</string>
+    <string name="order_replace_phone_placeholder">Add meg a telefonszámod</string>
+    <string name="order_replace_creating">Rendelés létrehozása\u2026</string>
+    <string name="order_replace_free_button">Megerősítés &amp; ingyenes csere biléta rendelése</string>
+    <string name="order_replace_paid_button">Megerősítés &amp; fizetés: %1$s</string>
+    <string name="replacement_subtitle">Elveszett vagy sérült? Küldünk újat</string>
+    <string name="free_replacement">Ingyenes csere</string>
+    <string name="replacement_shipping_info">A cserebilétát 2\u20133 munkanapon belül szállítjuk\u2026</string>
+    <string name="order_replace_upgrade_hint">Válts Standard vagy Ultimate csomagra ingyenes cserékért</string>
+    <string name="order_replace_old_deactivated">A régi QR kód deaktiválva lesz a rendelés leadásakor</string>
+    <string name="order_replace_delivery_time">Az új bilétád 5-7 munkanapon belül megérkezik</string>
+    <string name="order_replace_scan_activate">A biléta megérkezése után be kell olvasnod az aktiváláshoz</string>
+    <string name="order_replace_province">Megye / állam (opcionális)</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Subscription / Pricing -->
+    <!-- ============================================ -->
+    <string name="subscription_title">Előfizetés</string>
+    <string name="subscription_choose_plan">Csomag kiválasztása</string>
+    <string name="subscription_monthly">Havi</string>
+    <string name="subscription_yearly">Éves</string>
+    <string name="subscription_popular">Népszerű</string>
+    <string name="subscription_current_plan">Jelenlegi csomag</string>
+    <string name="subscription_select">Csomag kiválasztása</string>
+    <string name="subscription_max_pets">Max kedvenc: %1$s</string>
+    <string name="subscription_vet_alerts">Állatorvosi &amp; mentő riasztások</string>
+    <string name="subscription_sms">SMS értesítések</string>
+    <string name="subscription_community_alerts">Közösségi riasztások</string>
+    <string name="subscription_free_replacement">Ingyenes biléta csere</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Billing -->
+    <!-- ============================================ -->
+    <string name="billing_title">Számlázás &amp; számlák</string>
+    <string name="billing_manage_subscription">Előfizetés kezelése</string>
+    <string name="billing_manage_description">Csomag módosítása, fizetési mód frissítése vagy lemondás</string>
+    <string name="billing_current_plan">Jelenlegi csomag</string>
+    <string name="billing_plan_label">Csomag</string>
+    <string name="billing_status_label">Állapot</string>
+    <string name="billing_invoices">Számlák</string>
+    <string name="billing_no_invoices">Még nincsenek számlák</string>
+    <string name="billing_subscription">Előfizetés</string>
+    <string name="billing_portal_footer">Előfizetésedet, fizetési módodat és számlázási adataidat a Stripe-on kezelheted.</string>
+    <string name="billing_loading_invoices">Számlák betöltése\u2026</string>
+    <string name="billing_invoice">Számla</string>
+    <string name="billing_unknown">Ismeretlen</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Referral -->
+    <!-- ============================================ -->
+    <string name="referral_title">Ajánlj egy barátot</string>
+    <string name="referral_loading">Betöltés\u2026</string>
+    <string name="referral_your_code">Ajánlókódod</string>
+    <string name="referral_share_footer">Oszd meg a kódodat barátaiddal. Ha előfizetnek, mindketten jutalmat kaptok!</string>
+    <string name="referral_how_it_works">Hogyan működik</string>
+    <string name="referral_step_1">Oszd meg az egyedi kódod a barátokkal</string>
+    <string name="referral_step_2">A kódot fizetős csomagra történő előfizetéskor használják</string>
+    <string name="referral_step_3">Mindketten 2 hónap ingyenes használatot kaptok</string>
+    <string name="referral_history">Ajánlási előzmények</string>
+    <string name="referral_no_referrals">Még nincs ajánlás. Oszd meg a kódod a kezdéshez!</string>
+    <string name="referral_generate">Ajánlókód generálása</string>
+    <string name="referral_copied">Másolva!</string>
+    <string name="referral_copy">Másolás</string>
+    <string name="referral_share">Megosztás</string>
+    <string name="referral_pending">Függőben</string>
+    <string name="referral_share_text">Használd az ajánlókódomat %1$s, és kapj 2 hónap ingyenes Pet Safety előfizetést! https://pet-er.app/choose-plan?referral=%2$s</string>
+    <string name="referral_clipboard_label">Ajánlókód</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Push Notification Prompt -->
+    <!-- ============================================ -->
+    <string name="push_prompt_title">Maradj kapcsolatban</string>
+    <string name="push_prompt_subtitle">Engedélyezd az értesítéseket, hogy ne maradj le fontos frissítésekről:</string>
+    <string name="push_prompt_benefit_scan">Azonnali értesítések, amikor beolvassák a kedvenced bilétáját</string>
+    <string name="push_prompt_benefit_sighting">Észlelési jelentések a közösségtől</string>
+    <string name="push_prompt_benefit_found">Azonnal értesülsz, ha a kedvenced megkerül</string>
+    <string name="push_prompt_benefit_missing">Eltűnt kedvenc riasztások a környékeden</string>
+    <string name="push_prompt_enable">Értesítések engedélyezése</string>
+    <string name="push_prompt_later">Talán később</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Quick Mark Lost/Found -->
+    <!-- ============================================ -->
+    <string name="quick_lost_select_pet">Válassz kedvencet eltűnt bejelentéshez</string>
+    <string name="quick_lost_all_missing">Az összes kedvenced már eltűntként van jelölve.</string>
+    <string name="quick_lost_title">Eltűnt jelentése</string>
+    <string name="quick_found_select_pet">Válassz kedvencet megtaláltként jelöléshez</string>
+    <string name="quick_found_currently_missing">Jelenleg eltűnt</string>
+    <string name="quick_found_no_missing">Nincsenek eltűnt kedvenceid, akiket megtaláltként jelölnél.</string>
+    <string name="quick_found_title">Kedvenc megtaláltként jelölése</string>
+    <string name="quick_found_mark_failed">Nem sikerült megtaláltként jelölni %1$s-t: %2$s</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Breed Picker -->
+    <!-- ============================================ -->
+    <string name="breed_select_title">Fajta kiválasztása</string>
+    <string name="breed_search_placeholder">Fajták keresése\u2026</string>
+    <string name="breed_no_results">Nem található fajta</string>
+    <string name="breed_use_custom">Használd \"%1$s\"-t egyedi fajtának</string>
+    <string name="breed_manual_entry">Fajta kézi megadása</string>
+    <string name="breed_clear_selection">Kiválasztás törlése</string>
+    <string name="breed_enter_name">Fajta megadása</string>
+    <string name="breed_custom">Egyedi fajta</string>
+    <string name="breed_custom_footer">Add meg az egyedi fajtanevet, ha nincs a listában</string>
+    <string name="breed_back_to_list">Vissza a fajták listájához</string>
+    <string name="breed_select_optional">Fajta kiválasztása (opcionális)</string>
+    <string name="breed_optional">Fajta (opcionális)</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Public Pet Profile -->
+    <!-- ============================================ -->
+    <string name="public_profile_preview">Nyilvános profil előnézet</string>
+    <string name="failed_load_profile">Nem sikerült betölteni a profilt</string>
+    <string name="public_profile_subtitle">Így látják mások %1$s profilját</string>
+    <string name="owner_notified_sms_email">%1$s gazdája SMS-t és emailt kap a tartózkodási helyedről</string>
+    <string name="contact_owner_plea">Kérlek, tudasd a gazdámmal, hogy megtaláltál\u2026</string>
+    <string name="contact_owner_plea_full">Kérlek, tudasd a gazdámmal, hogy megtaláltál. Koppints a helymegosztás gombra vagy hívd a lentebb található telefonszámot.</string>
+    <string name="contact_info_not_set">Az elérhetőségek még nincsenek beállítva</string>
+    <string name="contact_info_hidden">Az elérhetőségek rejtve vannak</string>
+    <string name="contact_info_hidden_hint">Az elérhetőségeid be vannak állítva, de az adatvédelmi beállítások miatt rejtve vannak. Frissítés: Fiók \u2192 Adatvédelmi mód.</string>
+    <string name="allergies">Allergiák</string>
+    <string name="medications">Gyógyszerek</string>
+    <string name="unique_features">Egyedi jegyek</string>
+    <string name="behavior_notes">Viselkedési megjegyzések</string>
+    <string name="how_it_works">Hogyan működik</string>
+    <string name="help_reunite_pet">Segíts biztonságosan újraegyesíteni %1$s-t a gazdájával</string>
+    <string name="step_share_location">Helyed megosztása</string>
+    <string name="step_share_location_desc">Koppints a fenti gombra, hogy megoszd a helyed a gazdával</string>
+    <string name="step_owner_notified">A gazda értesítést kap</string>
+    <string name="step_owner_notified_desc">A gazda SMS-t és emailt kap a helyedről</string>
+    <string name="step_quick_reunion">Gyors újraegyesülés</string>
+    <string name="step_quick_reunion_desc">A gazda a helyedre navigálhat, hogy összegyűjtse a kedvencét</string>
+    <string name="step_share_location_desc_public">Kattints a fenti gombra, hogy megoszd, hol találtad meg %1$s-t</string>
+    <string name="step_owner_notified_desc_public">A gazda SMS-t kap a helyedről a Google Maps-en</string>
+    <string name="step_quick_reunion_desc_public">Maradj a hely közelében, hogy a gazda megtalálhasson téged és %1$s-t</string>
+    <string name="owner_phone_label">Gazda telefonszáma: %1$s</string>
+    <string name="owner_email_label">Gazda email címe: %1$s</string>
+    <string name="your_privacy_notice">Fontos az adatvédelem. A helyedet csak %1$s gazdájával osztjuk meg a kifejezett hozzájárulásoddal.</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Offline Mode -->
+    <!-- ============================================ -->
+    <string name="offline_mode">Offline mód</string>
+    <string name="syncing">Szinkronizálás\u2026</string>
+    <string name="sync_completed">Szinkronizálás kész</string>
+    <string name="sync_failed">Szinkronizálás sikertelen: %1$s</string>
+    <string name="sync_no_connection">Nem lehet szinkronizálni: nincs internetkapcsolat</string>
+    <string name="pending_changes">Függőben lévő változások</string>
+    <string name="online">Online</string>
+    <string name="offline_changes_sync">A változások online állapotban szinkronizálódnak</string>
+    <string name="tap_view_queued_actions">Koppints a sorba állított műveletek megtekintéséhez</string>
+    <string name="connected">Kapcsolódva</string>
+    <string name="sync_now">Szinkronizálás most</string>
+    <string name="changes_sync_restored">A változások automatikusan szinkronizálódnak, ha a kapcsolat helyreáll.</string>
+    <string name="offline_pending_changes">Függőben lévő változások</string>
+    <string name="offline_online">Online</string>
+    <string name="offline_sync_message">A változások online állapotban szinkronizálódnak</string>
+    <string name="offline_tap_to_view">Koppints a sorba állított műveletek megtekintéséhez</string>
+    <string name="offline_actions_queued">%1$d művelet sorba állítva</string>
+    <string name="offline_last_synced">Utoljára szinkronizálva: %1$s</string>
+    <string name="offline_sync_now">Szinkronizálás most</string>
+    <string name="offline_last_sync_label">Utolsó szinkron ideje</string>
+    <plurals name="queued_actions">
+        <item quantity="one">%d művelet sorba állítva</item>
+        <item quantity="other">%d művelet sorba állítva</item>
+    </plurals>
+
+    <!-- Sync Error Banner -->
+    <string name="sync_actions_failed">%1$d művelet szinkronizálása sikertelen</string>
+    <string name="sync_tried_count">%1$d alkalommal próbáltuk</string>
+    <string name="sync_retry_all">Összes újrapróbálása</string>
+    <string name="sync_dismiss_all">Összes elvetése</string>
+    <string name="sync_syncing">Szinkronizálás\u2026</string>
+    <string name="sync_count_failed">%1$d sikertelen</string>
+    <string name="sync_count_pending">%1$d függőben</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Error / Retry -->
+    <!-- ============================================ -->
+    <string name="error_something_wrong">Valami hiba történt</string>
+    <string name="something_went_wrong">Valami hiba történt</string>
+    <string name="try_again">Próbáld újra</string>
+    <string name="error_session_expired_message">A munkamenet lejárt. Kérjük, jelentkezz be újra.</string>
+    <string name="error_login_failed">Sikertelen bejelentkezés</string>
+    <string name="error_verification_failed">Sikertelen ellenőrzés</string>
+    <string name="error_submit_support">Nem sikerült elküldeni a támogatási kérést</string>
+    <string name="error_load_pets">Nem sikerült betölteni a kedvenceket</string>
+    <string name="error_refresh_pets">Nem sikerült frissíteni a kedvenceket</string>
+    <string name="error_load_alerts">Nem sikerült betölteni a riasztásokat</string>
+    <string name="error_load_pet_profile">Nem sikerült betölteni a kedvenc profilt</string>
+    <string name="error_load_stories">Nem sikerült betölteni a történeteket</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Map App Picker -->
+    <!-- ============================================ -->
+    <string name="map_approximate_notice">Ez egy közelítő hely (~500m). Keresd a környező területet.</string>
+    <string name="map_coordinates">Koordináták</string>
+    <string name="map_open_in">Megnyitás itt</string>
+    <string name="map_apple_maps">Apple Térkép</string>
+    <string name="map_google_maps">Google Térkép</string>
+    <string name="map_waze">Waze</string>
+    <string name="map_pet_location">%1$s helye</string>
+    <string name="location_title">%1$s helye</string>
+    <string name="approximate_location_note">Ez egy közelítő hely (~500m). Keresd a környező területet.</string>
+    <string name="coordinates_label">Koordináták: %1$s</string>
+    <string name="open_in">Megnyitás itt:</string>
+    <string name="google_maps">Google Térkép</string>
+    <string name="waze">Waze</string>
+    <string name="other_maps_app">Más térkép alkalmazás</string>
+    <string name="open_with">Megnyitás ezzel\u2026</string>
+    <string name="map_label_pet_location">Kedvenc helye</string>
+    <string name="map_label_tag_scanned">Kedvenc biléta beolvasva</string>
+    <string name="map_label_sighting">Kedvenc észlelés</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: App Info -->
+    <!-- ============================================ -->
+    <string name="app_name_label">Pet Safety</string>
+    <string name="app_version">Verzió 1.0.0</string>
+    <string name="terms_url">Feltételek: https://pet-er.app/terms</string>
+    <string name="privacy_url">Adatvédelem: https://pet-er.app/privacy</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Relative Time -->
+    <!-- ============================================ -->
+    <string name="time_ago_just_now">épp most</string>
+    <plurals name="time_ago_days">
+        <item quantity="one">%d napja</item>
+        <item quantity="other">%d napja</item>
+    </plurals>
+    <plurals name="time_ago_hours">
+        <item quantity="one">%d órája</item>
+        <item quantity="other">%d órája</item>
+    </plurals>
+    <plurals name="time_ago_minutes">
+        <item quantity="one">%d perce</item>
+        <item quantity="other">%d perce</item>
+    </plurals>
 </resources>

@@ -1,4 +1,1384 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Stub file for localization. Replace values with translations. -->
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">Pet Safety</string>
+    <!--
+        Google Maps API key is injected via build.gradle.kts from:
+        1. local.properties (for local development - add GOOGLE_MAPS_API_KEY=your_key)
+        2. Environment variable GOOGLE_MAPS_API_KEY (for CI/CD)
+
+        DO NOT commit actual API keys to this file!
+
+        This fallback value is used when no key is configured (maps won't work)
+    -->
+
+    <!-- ============================================ -->
+    <!-- MARK: Common -->
+    <!-- ============================================ -->
+    <string name="cancel">Zrušit</string>
+    <string name="save">Uložit</string>
+    <string name="delete">Smazat</string>
+    <string name="close">Zavřít</string>
+    <string name="ok">OK</string>
+    <string name="back">Zpět</string>
+    <string name="submit">Odeslat</string>
+    <string name="skip">Přeskočit</string>
+    <string name="loading">Načítání\u2026</string>
+    <string name="error">Chyba</string>
+    <string name="success">Úspěch</string>
+    <string name="confirm">Potvrdit</string>
+    <string name="retry">Zkusit znovu</string>
+    <string name="done">Hotovo</string>
+    <string name="edit">Upravit</string>
+    <string name="add">Přidat</string>
+    <string name="remove">Odstranit</string>
+    <string name="search">Hledat</string>
+    <string name="settings">Nastavení</string>
+    <string name="updated">Aktualizováno</string>
+    <string name="update_failed">Aktualizace se nezdařila</string>
+    <string name="enable">Povolit</string>
+    <string name="change">Změnit</string>
+    <string name="primary">Hlavní</string>
+    <string name="share">Sdílet</string>
+    <string name="saving">Ukládání\u2026</string>
+    <string name="sending">Odesílání\u2026</string>
+    <string name="yes">Ano</string>
+    <string name="no">Ne</string>
+    <string name="not_set">Nenastaveno</string>
+    <string name="recommended">Doporučeno</string>
+    <string name="details">Podrobnosti</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Tab Bar -->
+    <!-- ============================================ -->
+    <string name="my_pets">Moji mazlíčci</string>
+    <string name="scan_qr">Skenovat QR</string>
+    <string name="alerts">Upozornění</string>
+    <string name="profile">Profil</string>
+    <string name="tab_my_pets">Moji mazlíčci</string>
+    <string name="tab_scan_qr">Skenovat QR</string>
+    <string name="tab_alerts">Upozornění</string>
+    <string name="tab_profile">Profil</string>
+    <string name="tab_missing">Ztracený</string>
+    <string name="tab_found">Nalezený</string>
+    <string name="tab_success">Nalezení mazlíčci</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Auth -->
+    <!-- ============================================ -->
+    <string name="auth_tagline">Chraňte své mazlíčky pomocí QR známek</string>
+    <string name="welcome_back">Vítejte zpět!</string>
+    <string name="enter_email_subtitle">Zadejte e-mail pro obdržení přihlašovacího kódu.</string>
+    <string name="email_address">E-mailová adresa</string>
+    <string name="send_login_code">Odeslat přihlašovací kód</string>
+    <string name="enter_otp_code">Zadejte 6místný kód</string>
+    <string name="verify_code">Ověřit kód</string>
+    <string name="use_different_email">Použít jiný e-mail</string>
+    <string name="code_sent_to_email">Kód odeslán na %1$s</string>
+    <string name="otp_sent_to">Zadejte 6místný kód odeslaný na</string>
+    <string name="login_failed">Přihlášení se nezdařilo</string>
+    <string name="verification_failed">Ověření se nezdařilo</string>
+    <string name="invalid_email">Zadejte platnou e-mailovou adresu</string>
+    <string name="resend_code_cooldown">Znovu odeslat kód za %1$ds</string>
+    <string name="resend_code_prompt">Nedostali jste kód? Odeslat znovu</string>
+    <string name="dont_have_account">Nemáte účet?</string>
+    <string name="start_here_order_free_tag">Začněte zde a objednejte si bezplatnou známku</string>
+    <string name="create_account">Vytvořit účet</string>
+    <string name="enter_details_subtitle">Zadejte své údaje a začněte.</string>
+    <string name="register">Registrovat</string>
+    <string name="already_have_account">Už máte účet?</string>
+    <string name="log_in">Přihlásit se</string>
+    <string name="terms_login_prefix">Přihlášením souhlasíte s našimi </string>
+    <string name="terms_register_prefix">Registrací souhlasíte s našimi </string>
+    <string name="terms_and"> a </string>
+    <string name="terms_of_service">Podmínkami služby</string>
+    <string name="privacy_policy">Zásadami ochrany soukromí</string>
+    <string name="terms_disclaimer">Přihlášením souhlasíte s Podmínkami služby a Zásadami ochrany soukromí</string>
+    <string name="first_name">Jméno</string>
+    <string name="last_name">Příjmení</string>
+    <string name="email">E-mail</string>
+    <string name="phone">Telefon</string>
+    <string name="new_code_sent_to_email">Nový kód odeslán na %1$s</string>
+    <string name="by_creating_account_agree">Vytvořením účtu souhlasíte s našimi</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Biometric -->
+    <!-- ============================================ -->
+    <string name="biometric_login_title">Biometrické přihlášení</string>
+    <string name="biometric_login_subtitle">Použijte otisk prstu nebo obličej k přihlášení</string>
+    <string name="use_password">Použít e-mail</string>
+    <string name="login_with_biometric">Přihlásit se biometricky</string>
+    <string name="enable_biometric_title">Povolit biometrické přihlášení?</string>
+    <string name="enable_biometric_message">Použijte otisk prstu nebo obličej pro rychlé přihlášení příště.</string>
+    <string name="biometric_enabled">Biometrické přihlášení povoleno</string>
+    <string name="enable_biometric_type">Povolit %1$s?</string>
+    <string name="biometric_type_enabled">%1$s povoleno</string>
+    <string name="use_biometric_quick_login">Použijte %1$s pro rychlé přihlášení příště.</string>
+    <string name="login_with_biometric_type">Přihlásit se pomocí %1$s</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Session -->
+    <!-- ============================================ -->
+    <string name="session_expired_title">Relace vypršela</string>
+    <string name="session_expired_message">Vaše relace vypršela. Přihlaste se znovu.</string>
+    <string name="session_expired_log_in">Přihlásit se</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Home / Pets List -->
+    <!-- ============================================ -->
+    <string name="pet_owner_default">Majitel mazlíčka</string>
+    <string name="welcome_back_greeting">Vítejte zpět,</string>
+    <string name="view_all">Zobrazit vše</string>
+    <string name="search_pets_hint">Hledat podle jména, plemene, druhu\u2026</string>
+    <string name="quick_actions">Rychlé akce</string>
+    <string name="action_add_pet">PŘIDAT MAZLÍČKA</string>
+    <string name="action_mark_found">OZNAČIT JAKO NALEZENÉ</string>
+    <string name="action_report_missing">NAHLÁSIT ZTRÁTU</string>
+    <string name="action_order_tags">OBJEDNAT ZNÁMKY</string>
+    <string name="action_replace_tag">VYMĚNIT ZNÁMKU</string>
+    <string name="empty_pets_title">Zatím žádní mazlíčci</string>
+    <string name="empty_pets_message">Přidejte prvního mazlíčka a začněte s Pet Safety</string>
+    <string name="missing_badge">ZTRACENÝ</string>
+    <string name="add_pet">Přidat mazlíčka</string>
+    <string name="pet_name">Jméno mazlíčka</string>
+    <string name="pet_safety_user">Uživatel Pet Safety</string>
+    <string name="failed_load_pets">Nepodařilo se načíst mazlíčky</string>
+    <string name="clear_search">Vymazat hledání</string>
+    <string name="pet_photo">Fotka mazlíčka</string>
+    <string name="pet_photo_placeholder">Zástupná fotka mazlíčka</string>
+    <string name="no_pets">Žádní mazlíčci</string>
+    <string name="success_stories">Příběhy úspěchu</string>
+    <string name="found_pets">Nalezení mazlíčci</string>
+    <string name="success_stories_subtitle">Podívejte se na šťastná shledání ve vašem okolí</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Pet Detail -->
+    <!-- ============================================ -->
+    <string name="breed_label">Plemeno: %1$s</string>
+    <string name="color_label">Barva: %1$s</string>
+    <string name="age_label">Věk: %1$s</string>
+    <string name="microchip_label">Mikročip: %1$s</string>
+    <string name="species_label">Druh: %1$s</string>
+    <string name="medical_information">Zdravotní informace</string>
+    <string name="additional_information">Doplňující informace</string>
+    <string name="photo_gallery">Fotogalerie</string>
+    <string name="edit_pet">Upravit mazlíčka</string>
+    <string name="view_pet_photos">Zobrazit fotky %1$s</string>
+    <string name="mark_as_found">Označit jako nalezené</string>
+    <string name="mark_as_lost">Označit jako ztracené</string>
+    <string name="mark_found">Označit nalezené</string>
+    <string name="mark_missing">Označit ztracené</string>
+    <string name="age">Věk</string>
+    <string name="view_public_profile">Zobrazit veřejný profil %1$s</string>
+    <string name="edit_pet_profile">Upravit profil %1$s</string>
+    <string name="delete_pet_name">Smazat %1$s</string>
+    <string name="delete_pet_confirm_title">Smazat %1$s?</string>
+    <string name="delete_pet_confirm_message">Tuto akci nelze vrátit. Všechna data pro %1$s budou trvale smazána.</string>
+    <string name="cannot_delete_missing_pet">Ztraceného mazlíčka nelze smazat</string>
+    <string name="cannot_delete_missing_message">%1$s je označen jako ztracený. Před smazáním jej označte jako nalezeného.</string>
+    <string name="mark_found_confirm_title">Označit %1$s jako nalezené?</string>
+    <string name="mark_found_confirm_message">Tímto se uzavře výstraha o ztrátě %1$s. Opravdu?</string>
+    <string name="marked_found_message">%1$s označen jako nalezený.</string>
+    <string name="marked_missing_message">%1$s označen jako ztracený.</string>
+    <string name="mark_found_failed">Nepodařilo se označit jako nalezený</string>
+    <string name="mark_missing_failed">Nepodařilo se označit jako ztracený</string>
+    <string name="pet_deleted">%1$s byl smazán</string>
+    <string name="delete_pet_failed">Nepodařilo se smazat mazlíčka</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Pet Form -->
+    <!-- ============================================ -->
+    <string name="name">Jméno</string>
+    <string name="species">Druh</string>
+    <string name="breed">Plemeno</string>
+    <string name="color">Barva</string>
+    <string name="microchip">Mikročip</string>
+    <string name="medical_notes">Zdravotní poznámky</string>
+    <string name="photo">Fotka</string>
+    <string name="edit_photo">Upravit fotku</string>
+    <string name="photo_selected_hint">Fotka vybrána</string>
+    <string name="choose_photo_hint">Vyberte fotku svého mazlíčka</string>
+    <string name="basic_information">Základní informace</string>
+    <string name="colour">Barva</string>
+    <string name="colour_optional">Barva (volitelné)</string>
+    <string name="microchip_optional">Číslo mikročipu (volitelné)</string>
+    <string name="sex">Pohlaví</string>
+    <string name="not_specified">Nespecifikováno</string>
+    <string name="neutered_spayed">Kastrovaný/sterilizovaný</string>
+    <string name="neutered">Kastrovaný</string>
+    <string name="health_information">Zdravotní informace</string>
+    <string name="medical_notes_hint">Zdravotní poznámky (stavy, operace apod.)</string>
+    <string name="health_info_hint">Alergie, léky, zdravotní stavy\u2026</string>
+    <string name="behavior_notes_hint">Poznámky k chování (povaha, výcvik apod.)</string>
+    <string name="save_changes">Uložit změny</string>
+    <string name="delete_pet_button">Smazat mazlíčka</string>
+    <string name="delete_pet_dialog_title">Smazat %1$s?</string>
+    <string name="delete_pet_dialog_message">Opravdu chcete smazat tohoto mazlíčka? Tuto akci nelze vrátit.</string>
+    <string name="male">Samec</string>
+    <string name="female">Samice</string>
+    <string name="default_species_dog">Pes</string>
+    <string name="species_cat">Kočka</string>
+    <string name="search_breed">Hledat plemeno\u2026</string>
+    <string name="select_photo">Vybrat fotku</string>
+    <string name="select_pet">Vybrat mazlíčka</string>
+    <string name="select_pet_for_replacement">Vybrat mazlíčka pro náhradní známku</string>
+    <string name="physical_details">Fyzické údaje</string>
+    <string name="weight">Hmotnost</string>
+    <string name="weight_optional">Hmotnost v kg (volitelné)</string>
+    <string name="date_of_birth">Datum narození</string>
+    <string name="allergies_hint">Alergie (jídlo, léky apod.)</string>
+    <string name="medications_hint">Aktuální léky</string>
+    <string name="unique_features_hint">Jedinečné znaky (známky, jizvy, výrazné rysy\u2026)</string>
+    <string name="photo_selected">Fotka vybrána</string>
+    <string name="pet_created">Mazlíček vytvořen</string>
+    <string name="pet_create_failed">Mazlíčka se nepodařilo vytvořit</string>
+    <string name="pet_updated">Mazlíček aktualizován</string>
+    <string name="pet_update_failed">Mazlíčka se nepodařilo aktualizovat</string>
+    <string name="pet_updated_photo_failed">Mazlíček aktualizován! Nahrání fotky se nezdařilo - zkuste to později.</string>
+    <string name="pet_default_name">Mazlíček</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Photo Gallery -->
+    <!-- ============================================ -->
+    <string name="photo_gallery_title">Fotogalerie</string>
+    <string name="pet_photos_title">Fotky %1$s</string>
+    <string name="add_photos">Přidat fotky</string>
+    <string name="uploading_photos">Nahrávání fotek\u2026</string>
+    <string name="loading_photos">Načítání fotek\u2026</string>
+    <string name="no_photos_yet">Zatím žádné fotky</string>
+    <string name="add_photos_gallery_hint">Přidejte fotky a vytvořte galerii pro %1$s</string>
+    <string name="add_photos_gallery_generic">Přidejte fotky a vytvořte galerii</string>
+    <string name="choose_photo_source">Vybrat zdroj fotografií</string>
+    <string name="camera">Fotoaparát</string>
+    <string name="library">Knihovna</string>
+    <string name="delete_photo">Smazat fotku</string>
+    <string name="delete_photo_confirm">Opravdu chcete smazat tuto fotku? Tuto akci nelze vrátit.</string>
+    <string name="photo_tip">Tip: Dlouze stiskněte fotku pro nastavení jako hlavní nebo smazání</string>
+    <string name="photo_uploaded">Fotka nahrána</string>
+    <string name="upload_failed">Nahrání selhalo</string>
+    <string name="primary_updated">Hlavní fotka aktualizována</string>
+    <string name="primary_failed">Nepodařilo se nastavit hlavní</string>
+    <string name="photo_deleted">Fotka smazána</string>
+    <string name="delete_photo_failed">Smazání fotky se nezdařilo</string>
+    <string name="upload_photo_failed">Nahrání fotky se nezdařilo</string>
+    <string name="add_photo">Přidat fotku</string>
+    <string name="use_camera">Otevřít fotoaparát zařízení</string>
+    <string name="choose_from_gallery">Vybrat z galerie</string>
+    <string name="select_existing_photo">Vybrat existující fotku</string>
+    <string name="choose_photos">Vybrat fotky</string>
+    <string name="take_photo">Vyfotit</string>
+    <string name="pet_photo_fullscreen">Fotka mazlíčka na celou obrazovku</string>
+    <string name="view_photo">Zobrazit fotku</string>
+    <string name="primary_photo">Hlavní fotka</string>
+    <string name="set_as_primary">Nastavit jako hlavní</string>
+    <string name="photo_uploading">Nahrávání fotky\u2026</string>
+    <string name="photo_primary_updated">Hlavní fotka aktualizována</string>
+    <string name="photo_primary_failed">Nepodařilo se nastavit hlavní fotku</string>
+    <string name="photo_upload_single_failed">Nahrání fotky se nezdařilo</string>
+    <string name="photo_delete_failed">Smazání fotky se nezdařilo</string>
+    <plurals name="photo_count">
+        <item quantity="one">%d fotka</item>
+        <item quantity="few">%d fotky</item>
+        <item quantity="other">%d fotek</item>
+    </plurals>
+    <plurals name="photos_uploaded">
+        <item quantity="one">%d fotka nahrána</item>
+        <item quantity="few">%d fotky nahrány</item>
+        <item quantity="other">%d fotek nahráno</item>
+    </plurals>
+    <plurals name="photos_upload_failed">
+        <item quantity="one">%d fotku se nepodařilo nahrát</item>
+        <item quantity="few">%d fotky se nepodařilo nahrát</item>
+        <item quantity="other">%d fotek se nepodařilo nahrát</item>
+    </plurals>
+
+    <!-- ============================================ -->
+    <!-- MARK: QR Scanner -->
+    <!-- ============================================ -->
+    <string name="scan_qr_code">Skenovat QR kód</string>
+    <string name="scan_qr_subtitle">Naměřte kameru na QR známku mazlíčka</string>
+    <string name="camera_access_required">Vyžadován přístup ke kameře</string>
+    <string name="camera_access_message">Povolte přístup ke kameře pro skenování QR kódů</string>
+    <string name="enable_camera">Povolit kameru</string>
+    <string name="qr_scanned">QR naskenováno</string>
+    <string name="manual_code_entry">Zadat kód ručně</string>
+    <string name="manual_code_label">QR kód</string>
+    <string name="submit_code">Odeslat kód</string>
+    <string name="invalid_qr_code">Zadejte platný kód</string>
+    <string name="turn_off_flashlight">Vypnout baterku</string>
+    <string name="turn_on_flashlight">Zapnout baterku</string>
+    <string name="hello_pet_name">Ahoj! Jmenuji se %1$s</string>
+    <string name="scanned_tag_thanks">Právě jste naskenovali mou známku. Děkuji, že mi pomáháte!</string>
+    <string name="share_location_with_owner">Sdílet moji polohu s majitelem</string>
+    <string name="owner_notified_message">Majitel %1$s obdrží upozornění s vaší polohou</string>
+    <string name="share_location_help">Pomozte majiteli %1$s najít mazlíčka sdílením vaší polohy</string>
+    <string name="precise_location">Přesná poloha</string>
+    <string name="precise_location_desc">Sdílejte přesné GPS souřadnice</string>
+    <string name="approximate_location">Přibližná poloha</string>
+    <string name="approximate_location_desc">Sdílení s přesností ~500 m (GDPR compliant)</string>
+    <string name="dont_share_location">Nesdílet polohu</string>
+    <string name="dont_share_location_desc">Pouze informovat majitele, že mazlíček byl nalezen</string>
+    <string name="confirm_notify_owner">Potvrdit a informovat majitele</string>
+    <string name="contact_owner">Kontaktovat majitele</string>
+    <string name="call_phone">Volat: %1$s</string>
+    <string name="email_contact">E-mail: %1$s</string>
+    <string name="privacy_notice">Na vašem soukromí záleží. Vaši polohu sdílíme pouze s majitelem %1$s pro pomoc při shledání.</string>
+    <string name="found_pet_title">%1$s nalezen</string>
+    <string name="share_location">Sdílet polohu</string>
+    <string name="location_shared">Poloha sdílena</string>
+    <string name="share_location_failed">Sdílení polohy se nezdařilo</string>
+    <string name="qr_scanner_icon">QR skener</string>
+    <string name="privacy_notice_icon">Upozornění na soukromí</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Share Location Flow -->
+    <!-- ============================================ -->
+    <string name="share_help_get_home">Pomozte %1$s dostat se domů</string>
+    <string name="share_choose_desc">Zvolte, kolik informací o poloze chcete sdílet s majitelem</string>
+    <string name="share_dont_share">Nesdílet</string>
+    <string name="share_dont_share_desc">Pouze informovat majitele, že známka byla naskenována</string>
+    <string name="share_approximate">Přibližná oblast</string>
+    <string name="share_approximate_desc">Sdílejte svou přibližnou oblast (~500 m)</string>
+    <string name="share_exact">Přesná poloha</string>
+    <string name="share_exact_desc">Sdílejte přesnou polohu pro rychlejší shledání</string>
+    <string name="share_your_location">Vaše poloha</string>
+    <string name="share_accuracy">(~500 m přesnost)</string>
+    <string name="share_getting_location">Získávání polohy\u2026</string>
+    <string name="share_owner_notified">Majitel informován!</string>
+    <string name="share_owner_knows">Ví, že známka jeho mazlíčka byla naskenována</string>
+    <string name="share_on_their_way">Je na cestě!</string>
+    <string name="share_notifying">Informování majitele\u2026</string>
+    <string name="share_notify_no_location">Informovat majitele (bez polohy)</string>
+    <string name="share_notify_with_location">Sdílet a informovat majitele</string>
+    <string name="share_privacy_note">Vaše přesná poloha se nikdy neukládá. Sdílí se pouze přibližná oblast s majitelem.</string>
+    <string name="share_found_pet">%1$s nalezen!</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Scanner Detail -->
+    <!-- ============================================ -->
+    <string name="scanner_title">Skenovat QR kód</string>
+    <string name="scanner_subtitle">Naměřte kameru na QR známku mazlíčka</string>
+    <string name="scanner_camera_required">Vyžadován přístup ke kameře</string>
+    <string name="scanner_camera_message">Povolte přístup ke kameře v Nastavení pro skenování QR kódů</string>
+    <string name="scanner_open_settings">Otevřít nastavení</string>
+    <string name="scanner_greeting">Ahoj! Jmenuji se %1$s</string>
+    <string name="scanner_scanned_message">Právě jste naskenovali mou známku. Děkuji, že mi pomáháte!</string>
+    <string name="scanner_breed">Plemeno</string>
+    <string name="scanner_age">Věk</string>
+    <string name="scanner_color">Barva</string>
+    <string name="scanner_share_location">Sdílet moji polohu s majitelem</string>
+    <string name="scanner_owner_notified">Majitel byl informován, že známka jeho mazlíčka byla naskenována.</string>
+    <string name="scanner_contact_owner">Kontaktovat majitele</string>
+    <string name="scanner_contact_instructions">Kontaktujte majitele a dejte mu vědět, že jste našli jeho mazlíčka:</string>
+    <string name="scanner_call">Volat: %1$s</string>
+    <string name="scanner_email">E-mail: %1$s</string>
+    <string name="scanner_owner_location">Poloha majitele</string>
+    <string name="scanner_medical_info">Zdravotní informace</string>
+    <string name="scanner_allergies">Alergie</string>
+    <string name="scanner_notes">Poznámky</string>
+    <string name="scanner_how_it_works">Jak to funguje</string>
+    <string name="scanner_step1_title">1. Naskenujte známku</string>
+    <string name="scanner_step1_desc">To jste už udělali! Známka obsahuje unikátní QR kód.</string>
+    <string name="scanner_step2_title">2. Sdílejte polohu</string>
+    <string name="scanner_step2_desc">Klepněte na tlačítko výše a sdílejte místo, kde jste mazlíčka našli.</string>
+    <string name="scanner_step3_title">3. Kontaktujte majitele</string>
+    <string name="scanner_step3_desc">Použijte kontaktní údaje k přímému kontaktu s majitelem.</string>
+    <string name="scanner_privacy_notice">Vaše přesná poloha není sdílena. Viditelná je pouze přibližná oblast (~500 m).</string>
+    <string name="scanner_found_pet">%1$s nalezen!</string>
+    <string name="scanner_step1_dynamic_desc">Klikněte na tlačítko výše a sdílejte, kde jste našli %1$s</string>
+    <string name="scanner_step3_dynamic_desc">Zůstaňte poblíž, aby vás majitel mohl najít i s %1$s</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Tag Activation -->
+    <!-- ============================================ -->
+    <string name="tag_activate_title">Aktivovat známku</string>
+    <string name="tag_loading_pets">Načítání vašich mazlíčků\u2026</string>
+    <string name="tag_activated">Známka aktivována!</string>
+    <string name="tag_activated_message">Známka mazlíčka %1$s je nyní aktivní</string>
+    <string name="tag_choose_plan">Vyberte předplatné pro odemčení všech funkcí pro svého mazlíčka.</string>
+    <string name="tag_choose_plan_button">Vybrat plán</string>
+    <string name="tag_skip_for_now">Přeskočit</string>
+    <string name="tag_no_pets">Zatím žádní mazlíčci</string>
+    <string name="tag_no_pets_message">Před aktivací známky nejprve přidejte mazlíčka</string>
+    <string name="tag_code_label">Kód známky</string>
+    <string name="tag_select_pet">Vyberte mazlíčka pro propojení se známkou</string>
+    <string name="tag_activating">Aktivace\u2026</string>
+    <string name="tag_activate_button">Aktivovat známku</string>
+    <string name="tag_link_message">Tato známka bude propojena s vybraným mazlíčkem</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Plan Selection -->
+    <!-- ============================================ -->
+    <string name="plan_choose_title">Vyberte si plán</string>
+    <string name="plan_tag_activated">Známka aktivována!</string>
+    <string name="plan_choose_subtitle">Vyberte plán pro odemčení všech funkcí</string>
+    <string name="plan_upgrade_title">Upgradovat plán</string>
+    <string name="plan_upgrade_subtitle">Získejte více funkcí pro své mazlíčky</string>
+    <string name="plan_loading">Načítání plánů\u2026</string>
+    <string name="plan_failed_to_load">Plány se nepodařilo načíst</string>
+    <string name="plan_load_failed">Plány se nepodařilo načíst</string>
+    <string name="plan_choose_your_plan">Vyberte si plán</string>
+    <string name="plan_popular">Oblíbené</string>
+    <string name="plan_current">Aktuální plán</string>
+    <string name="plan_select_free">Vybrat bezplatný plán</string>
+    <string name="plan_select">Vybrat %1$s</string>
+    <string name="plan_skip_free">Přeskočit (bezplatný plán)</string>
+    <string name="plan_all_include">Všechny plány zahrnují:</string>
+    <string name="plan_feature_qr">QR známka pro vašeho mazlíčka</string>
+    <string name="plan_feature_profile">Profilová stránka mazlíčka</string>
+    <string name="plan_feature_scan_notify">Upozornění na skenování</string>
+    <string name="plan_paid_add">Placené plány navíc:</string>
+    <string name="plan_feature_alerts">Upozornění na ztracené mazlíčky</string>
+    <string name="plan_feature_location">Sdílení polohy</string>
+    <string name="plan_feature_priority">Prioritní podpora</string>
+    <string name="plan_feature_qr_tag">QR známka pro vašeho mazlíčka</string>
+    <string name="plan_feature_scan_notif">Okamžitá upozornění na skenování</string>
+    <string name="plan_feature_public_profile">Veřejný profil mazlíčka</string>
+    <string name="plan_feature_secure_storage">Bezpečné ukládání dat</string>
+    <string name="plan_feature_lost_alerts">Upozornění o ztracených mazlíčcích pro veterináře a komunitu</string>
+    <string name="plan_feature_lost_alerts_short">Upozornění o ztracených mazlíčcích</string>
+    <string name="plan_feature_sms">SMS upozornění</string>
+    <string name="plan_feature_photos">Až 10 fotek na mazlíčka</string>
+    <string name="plan_feature_replacements">Bezplatné náhrady známek</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Alerts -->
+    <!-- ============================================ -->
+    <string name="show_list">Zobrazit seznam</string>
+    <string name="show_map">Zobrazit mapu</string>
+    <string name="unknown_pet">Neznámý mazlíček</string>
+    <string name="pet_alert">Upozornění na mazlíčka</string>
+    <string name="alert_status">Stav: %1$s</string>
+    <string name="alert_last_seen">Naposledy viděn: %1$s</string>
+    <string name="alert_info">Info: %1$s</string>
+    <string name="alert_sightings_count">Pozorování: %1$d</string>
+    <string name="alert_marker">Upozornění</string>
+    <string name="loading_alerts">Načítání upozornění\u2026</string>
+    <string name="failed_load_alerts">Upozornění se nepodařilo načíst</string>
+    <string name="no_active_alerts">Žádná aktivní upozornění</string>
+    <string name="no_active_alerts_message">Aktuálně nemáte žádná upozornění na ztracené mazlíčky</string>
+    <string name="no_found_alerts">Žádná upozornění na nalezení</string>
+    <string name="no_found_alerts_message">Ve vašem okolí nebyli nedávno nalezeni žádní mazlíčci</string>
+    <string name="missing_pet_alerts_title">Upozornění na ztracené mazlíčky</string>
+    <string name="create_alert">Vytvořit upozornění</string>
+    <string name="create_new_alert">Vytvořit nové upozornění</string>
+    <string name="sighting_count_singular">1 pozorování</string>
+    <string name="unknown_breed">Neznámé plemeno</string>
+    <string name="last_seen_label">Naposledy viděn</string>
+    <string name="reported_sightings_count">Nahlášená pozorování (%1$d)</string>
+    <string name="report_a_sighting">Nahlásit pozorování</string>
+    <string name="anonymous">Anonymní</string>
+    <string name="contact_label">Kontakt: %1$s</string>
+    <string name="pet_marked_found">%1$s byl označen jako nalezený!</string>
+    <string name="mark_found_failed_message">Označení jako nalezený se nezdařilo: %1$s</string>
+    <plurals name="sighting_count">
+        <item quantity="one">%d pozorování</item>
+        <item quantity="few">%d pozorování</item>
+        <item quantity="other">%d pozorování</item>
+    </plurals>
+
+    <!-- Alerts Tab -->
+    <string name="alerts_loading">Načítání upozornění\u2026</string>
+    <string name="alerts_missing_pets_title">Upozornění na ztracené mazlíčky</string>
+    <string name="alerts_list">Seznam</string>
+    <string name="alerts_map">Mapa</string>
+    <string name="alerts_no_nearby_title">Žádná upozornění %1$s v okolí</string>
+    <string name="alerts_no_nearby_message">V okolí nejsou žádná upozornění na mazlíčky %1$s</string>
+    <string name="alerts_location_required">Vyžadována poloha</string>
+    <string name="alerts_location_required_message">Pro zobrazení upozornění v okolí povolte polohu nebo přidejte adresu.</string>
+    <string name="alerts_enable_location">Povolit služby polohy v Nastavení</string>
+    <string name="alerts_or">NEBO</string>
+    <string name="alerts_add_address_profile">Přidejte adresu ve svém profilu</string>
+    <string name="alerts_add_my_address">Přidat moji adresu</string>
+    <string name="alerts_no_missing_nearby">Žádná upozornění na ztracené mazlíčky v okolí</string>
+
+    <!-- Alert Status & Details -->
+    <string name="alert_status_missing">Ztracený</string>
+    <string name="alert_status_found">Nalezený</string>
+    <string name="alert_missing_since">Ztracen od %1$s</string>
+    <string name="alert_missing_for">Ztracen na %1$s</string>
+    <string name="alert_found_on">Nalezen %1$s</string>
+    <string name="alert_found_reunited">Nalezen a shledán</string>
+    <string name="alert_mark_found_title">Označit %1$s jako nalezeného?</string>
+    <string name="alert_mark_found_message">Tímto se uzavře upozornění o ztrátě %1$s. Opravdu?</string>
+    <string name="alert_mark_found_failed">Označení jako nalezený se nezdařilo</string>
+    <string name="alert_marked_found_success">%1$s byl označen jako nalezený!</string>
+    <string name="alert_mark_found_error">Označení jako nalezený se nezdařilo: %1$s</string>
+    <string name="pet_default">mazlíček</string>
+    <string name="report_found">Nahlásit nalezení</string>
+
+    <!-- Map Annotations -->
+    <string name="map_you">Vy</string>
+    <string name="map_missing_alert">Upozornění na ztrátu</string>
+    <string name="map_found_alert">Upozornění na nalezení</string>
+    <string name="time_less_than_hour">Méně než hodina</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Report Missing / Sighting -->
+    <!-- ============================================ -->
+    <string name="report_missing_title">Nahlásit ztrátu %1$s</string>
+    <string name="last_seen_location">Místo posledního výskytu</string>
+    <string name="additional_info">Další info</string>
+    <string name="report">Nahlásit</string>
+    <string name="report_sighting">Nahlásit pozorování</string>
+    <string name="report_sighting_prompt">Sdílejte detaily o tom, kde jste mazlíčka viděli.</string>
+    <string name="notes">Poznámky</string>
+    <string name="sighting_reported">Pozorování nahlášeno</string>
+    <string name="report_failed">Nahlášení se nezdařilo</string>
+    <string name="sighting_location">Místo pozorování</string>
+    <string name="use_current_location">Použít aktuální polohu</string>
+    <string name="location_captured">Poloha získána z GPS</string>
+    <string name="getting_location">Získávání polohy\u2026</string>
+    <string name="create_alert_failed">Nepodařilo se vytvořit upozornění</string>
+    <string name="update_alert_failed">Nepodařilo se aktualizovat upozornění</string>
+    <string name="report_sighting_failed">Nepodařilo se nahlásit pozorování</string>
+    <string name="report_missing_pet">Nahlásit ztraceného mazlíčka</string>
+    <string name="select_pet_to_report">Vyberte mazlíčka</string>
+    <string name="add_missing_details">Přidat detaily o ztrátě</string>
+    <string name="enter_address_or_location">Zadejte adresu nebo popis místa</string>
+    <string name="additional_details">Další detaily</string>
+    <string name="describe_circumstances">Popište okolnosti, rozlišovací znaky apod.</string>
+    <string name="report_missing">Nahlásit ztrátu</string>
+    <string name="no_pets_to_report_message">Nejdříve přidejte mazlíčka, abyste jej mohli nahlásit jako ztraceného</string>
+    <string name="mark_pet_found">Označit mazlíčka jako nalezeného</string>
+    <string name="select_pet_to_mark_found">Vyberte mazlíčka, který byl nalezen</string>
+    <string name="no_missing_pets_message">Nemáte žádné mazlíčky označené jako ztracené</string>
+    <string name="select_pet_header">Vybrat mazlíčka</string>
+    <string name="no_pets_available">Žádní mazlíčci nejsou dostupní. Nejprve přidejte mazlíčka.</string>
+    <string name="pet_picker_label">Mazlíček</string>
+    <string name="last_seen_location_header">Místo posledního výskytu</string>
+    <string name="enter_location">Zadejte polohu</string>
+    <string name="additional_information_header">Další informace</string>
+    <string name="additional_details_placeholder">Uveďte další podrobnosti o tom, kdy a kde jste mazlíčka naposledy viděli\u2026</string>
+    <string name="alert_created_success">Upozornění na ztraceného mazlíčka bylo úspěšně vytvořeno!</string>
+    <string name="alert_queued_offline">Upozornění ve frontě. Synchronizuje se po připojení.</string>
+    <string name="your_contact_information">Vaše kontaktní údaje</string>
+    <string name="name_optional">Jméno (volitelné)</string>
+    <string name="phone_optional">Telefon (volitelné)</string>
+    <string name="email_optional">E-mail (volitelné)</string>
+    <string name="sighting_reported_success">Pozorování úspěšně nahlášeno!</string>
+    <string name="report_sighting_header">Nahlásit pozorování</string>
+    <string name="report_sighting_help">Pomozte mazlíčkovi znovu se shledat s majitelem sdílením místa pozorování.</string>
+    <string name="share_contact_info">Sdílet moje kontaktní údaje</string>
+    <string name="share_contact_info_desc">Umožněte majiteli kontaktovat vás přímo</string>
+    <string name="your_name">Vaše jméno</string>
+    <string name="your_phone_number">Váš telefon</string>
+    <string name="your_email">Váš e-mail</string>
+    <string name="address_or_description">Adresa nebo popis</string>
+    <string name="where_did_you_see">Kde jste mazlíčka viděli?</string>
+    <string name="sighting_notes_placeholder">Popište, co jste viděli, stav mazlíčka, směr pohybu\u2026</string>
+    <string name="submit_sighting_report">Odeslat hlášení o pozorování</string>
+    <string name="sighting_reported_owner_notified">Pozorování nahlášeno! Majitel byl informován.</string>
+    <string name="sighting_queued_offline">Pozorování ve frontě - odešle se po připojení.</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Mark Lost/Found Sheet -->
+    <!-- ============================================ -->
+    <string name="mark_pet_found_confirm">Označit %1$s jako nalezeného?</string>
+    <string name="mark_found_confirm_alert">Tímto se uzavře upozornění o ztrátě %1$s. Opravdu?</string>
+    <string name="notification_center">Centrum oznámení</string>
+    <string name="alerts_radius_info">Upozornění budou odeslána v okruhu 10 km od této polohy</string>
+    <string name="current_location">Aktuální poloha</string>
+    <string name="tap_get_location">Klepněte pro získání aktuální polohy\u2026</string>
+    <string name="using_registered_address">Používá se vaše registrovaná adresa</string>
+    <string name="enter_address_notifications">Zadejte adresu pro oznámení</string>
+    <string name="notification_source_current_location">Aktuální poloha</string>
+    <string name="notification_source_my_address">Moje adresa</string>
+    <string name="notification_source_custom">Vlastní</string>
+    <string name="no_registered_address">Nebyla nalezena žádná registrovaná adresa. Aktualizujte svůj profil.</string>
+
+    <!-- Mark Lost Flow -->
+    <string name="location_current">Aktuální poloha</string>
+    <string name="location_my_address">Moje adresa</string>
+    <string name="location_custom">Vlastní adresa</string>
+    <string name="mark_lost_pet_info">Informace o mazlíčkovi</string>
+    <string name="mark_lost_last_seen">Místo posledního výskytu</string>
+    <string name="mark_lost_alerts_footer">Upozornění budou odeslána blízkým uživatelům, veterinářům a útulkům v okruhu 10 km.</string>
+    <string name="mark_lost_getting_location">Získávání polohy\u2026</string>
+    <string name="mark_lost_no_address">Žádná registrovaná adresa. Jděte do Profil > Adresa.</string>
+    <string name="mark_lost_address_placeholder">Zadejte adresu nebo místo</string>
+    <string name="mark_lost_additional_info">Další informace</string>
+    <string name="mark_lost_additional_placeholder">Popište, kdy a kde jste mazlíčka naposledy viděli, co měl na sobě, apod.</string>
+    <string name="mark_lost_sends_to">Toto upozornění bude odesláno:</string>
+    <string name="mark_lost_nearby_owners">Majitelům mazlíčků v okolí</string>
+    <string name="mark_lost_vet_clinics">Veterinárním klinikám v okolí</string>
+    <string name="mark_lost_shelters">Útulkům v okolí</string>
+    <string name="mark_lost_report">Nahlásit ztrátu</string>
+    <string name="mark_lost_title">Nahlásit ztrátu</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Notifications -->
+    <!-- ============================================ -->
+    <string name="tag_scanned_message">Známka %1$s byla naskenována v %2$s!</string>
+    <string name="unknown_location">na neznámém místě</string>
+    <string name="sighting_message_with_location">%1$s byl spatřen v %2$s!</string>
+    <string name="sighting_message_no_location">%1$s byl spatřen!</string>
+    <string name="pet_found_message">Skvělá zpráva! %1$s byl nalezen!</string>
+    <string name="notification_tag_scanned_title">%1$s nalezen!</string>
+    <string name="notification_sighting_title">%1$s spatřen!</string>
+    <string name="notification_pet_found_title">Skvělá zpráva!</string>
+    <string name="notification_channel_name">Pet Safety upozornění</string>
+    <string name="notification_channel_tag_scans">Skeny známek</string>
+    <string name="notification_channel_tag_scans_desc">Oznámení, když je známka mazlíčka naskenována</string>
+    <string name="notification_channel_alerts">Upozornění na ztracené mazlíčky</string>
+    <string name="notification_channel_alerts_desc">Oznámení o ztracených mazlíčcích ve vašem okolí</string>
+    <string name="notification_channel_sightings">Hlášení pozorování</string>
+    <string name="notification_channel_sightings_desc">Oznámení, když je váš ztracený mazlíček spatřen</string>
+    <string name="notification_method_required">Musí být povolen alespoň jeden způsob oznámení</string>
+
+    <!-- FCM Notification Strings -->
+    <string name="notif_tag_scanned_title">Známka naskenována</string>
+    <string name="notif_tag_scanned_body">Známka %1$s byla naskenována!</string>
+    <string name="notif_tag_scanned_body_location">Známka %1$s byla naskenována! %2$s</string>
+    <string name="notif_missing_pet_title">Ztracený mazlíček poblíž</string>
+    <string name="notif_missing_pet_body">%1$s je ztracen v %2$s. Dávejte pozor!</string>
+    <string name="notif_pet_found_title">Mazlíček nalezen!</string>
+    <string name="notif_pet_found_body">Skvělá zpráva! %1$s byl nalezen!</string>
+    <string name="notif_sighting_title">Pozorování nahlášeno</string>
+    <string name="notif_sighting_body_location">%1$s byl spatřen v %2$s!</string>
+    <string name="notif_sighting_body_no_location">%1$s byl spatřen! Zkontrolujte místo pozorování.</string>
+    <string name="notif_fallback_title">Pet Safety</string>
+    <string name="notif_fallback_pet_name">Váš mazlíček</string>
+    <string name="notif_fallback_a_pet">Mazlíček</string>
+    <string name="notif_fallback_your_area">vaše oblast</string>
+    <string name="notif_location_shared">Poloha sdílena</string>
+    <string name="notif_location_approximate">Přibližná poloha (~500 m)</string>
+
+    <!-- Notification Action Buttons -->
+    <string name="notif_action_view_area">Zobrazit oblast (~500 m)</string>
+    <string name="notif_action_view_map">Zobrazit na mapě</string>
+    <string name="notif_action_get_directions">Získat trasu</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Notification Settings -->
+    <!-- ============================================ -->
+    <string name="notif_channels">Kanály oznámení</string>
+    <string name="notif_channels_footer">Vyberte, jak chcete dostávat oznámení. Alespoň jedna metoda musí zůstat aktivní.</string>
+    <string name="notif_push">Push oznámení</string>
+    <string name="notif_push_desc">Upozornění v reálném čase v aplikaci</string>
+    <string name="notif_email">E-mailová oznámení</string>
+    <string name="notif_email_desc">Detailní e-mailová upozornění</string>
+    <string name="notif_sms">SMS oznámení</string>
+    <string name="notif_sms_desc">Upozornění SMS zprávou</string>
+    <string name="notif_pet_alerts">Upozornění na mazlíčky</string>
+    <string name="notif_pet_alerts_footer">Upozornění o ztracených mazlíčcích ve vašem okolí</string>
+    <string name="notif_missing_pet_alerts">Upozornění na ztracené mazlíčky</string>
+    <string name="notif_nearby_alerts">Upozornění v okolí (10 km)</string>
+    <string name="notif_account_orders">Účet a objednávky</string>
+    <string name="notif_account_orders_footer">Zůstaňte informováni o aktivitě účtu a objednávkách</string>
+    <string name="notif_order_updates">Aktualizace objednávek</string>
+    <string name="notif_account_activity">Aktivita účtu</string>
+    <string name="notif_optional_updates">Volitelné aktualizace</string>
+    <string name="notif_optional_footer">Novinky, tipy a propagační obsah</string>
+    <string name="notif_product_updates">Aktualizace produktu</string>
+    <string name="notif_marketing_emails">Marketingové e-maily</string>
+    <string name="notif_save_changes">Uložit změny</string>
+    <string name="notif_title">Oznámení</string>
+    <string name="notif_saved">Uloženo</string>
+    <string name="notif_saved_message">Nastavení oznámení bylo úspěšně uloženo</string>
+    <string name="notif_critical_footer">Tato nastavení můžete kdykoli změnit. Kritická upozornění o vašich mazlíčcích budou vždy odesílána.</string>
+    <string name="notification_channels">Kanály oznámení</string>
+    <string name="notification_preferences_title">Nastavení oznámení</string>
+    <string name="notifications">Oznámení</string>
+    <string name="push_notifications">Push oznámení</string>
+    <string name="push_notifications_subtitle">Přijímat push oznámení na zařízení</string>
+    <string name="email_notifications">E-mailová oznámení</string>
+    <string name="email_notifications_subtitle">Přijímat oznámení e-mailem</string>
+    <string name="sms_notifications">SMS oznámení</string>
+    <string name="sms_notifications_subtitle">Přijímat oznámení SMS</string>
+    <string name="pet_alerts">Upozornění na mazlíčky</string>
+    <string name="missing_pet_alerts">Upozornění na ztracené mazlíčky</string>
+    <string name="missing_pet_alerts_subtitle">Získávejte upozornění o ztracených mazlíčcích ve vašem okolí</string>
+    <string name="nearby_alerts_10km">Upozornění v okolí (10 km)</string>
+    <string name="nearby_alerts_subtitle">Upozornění na mazlíčky v okruhu 10 km od vaší polohy</string>
+    <string name="account_and_orders">Účet a objednávky</string>
+    <string name="order_updates">Aktualizace objednávek</string>
+    <string name="order_updates_subtitle">Oznámení o dopravě a doručení</string>
+    <string name="account_activity">Aktivita účtu</string>
+    <string name="account_activity_subtitle">Oznámení o přihlášení a bezpečnosti</string>
+    <string name="optional_updates">Volitelné aktualizace</string>
+    <string name="product_updates">Aktualizace produktu</string>
+    <string name="product_updates_subtitle">Nové funkce a vylepšení</string>
+    <string name="marketing_emails">Marketingové e-maily</string>
+    <string name="marketing_emails_subtitle">Nabídky a akce</string>
+    <string name="critical_alerts_note">Poznámka: Kritická upozornění o vašich mazlíčcích budou vždy odeslána bez ohledu na toto nastavení.</string>
+
+    <!-- Notification Preferences -->
+    <string name="notif_pref_intro">Vyberte, jak chcete dostávat důležité aktualizace o svých mazlíčcích a účtu.</string>
+    <string name="notif_pref_methods">Metody oznámení</string>
+    <string name="notif_pref_email">E-mailová oznámení</string>
+    <string name="notif_pref_email_desc">Přijímat detailní e-mailová upozornění</string>
+    <string name="notif_pref_sms">SMS oznámení</string>
+    <string name="notif_pref_sms_desc">Přijímat upozornění SMS zprávou</string>
+    <string name="notif_pref_push">Push oznámení</string>
+    <string name="notif_pref_push_desc">Přijímat upozornění v reálném čase v aplikaci</string>
+    <string name="notif_pref_warning">Musí být povolena alespoň jedna metoda oznámení</string>
+    <string name="notif_pref_save">Uložit změny</string>
+    <string name="notif_pref_title">Nastavení oznámení</string>
+    <string name="notif_pref_success">Nastavení oznámení bylo úspěšně uloženo</string>
+    <string name="notif_pref_loading">Načítání nastavení\u2026</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Success Stories -->
+    <!-- ============================================ -->
+    <string name="success_stories_title">Příběhy úspěchu</string>
+    <string name="share_your_story">Sdílejte svůj příběh</string>
+    <string name="success_story_prompt">Skvělé zprávy! %1$s byl nalezen! Chcete sdílet svůj příběh shledání a inspirovat ostatní?</string>
+    <string name="your_story">Váš příběh</string>
+    <string name="story_placeholder">Řekněte nám, jak jste se shledali\u2026</string>
+    <string name="share_story">Sdílet příběh</string>
+    <string name="story_shared">Příběh úspěšně sdílen</string>
+    <string name="story_share_failed">Sdílení příběhu se nezdařilo</string>
+    <string name="loading_success_stories">Načítání příběhů úspěchu\u2026</string>
+    <string name="success_stories_loading">Načítání příběhů\u2026</string>
+    <string name="no_success_stories">Žádné příběhy úspěchu v okolí</string>
+    <string name="no_success_stories_message">Buďte první, kdo sdílí šťastné shledání ve vašem okolí!</string>
+    <string name="found_and_reunited">Nalezen a shledán</string>
+    <string name="distance_km">%.1f km daleko</string>
+    <string name="missing_since">Ztracen od %1$s</string>
+    <string name="found_on">Nalezen %1$s</string>
+    <string name="success_story_marker">Příběh úspěchu</string>
+    <string name="load_more">Načíst více</string>
+    <string name="missing_for">Ztracen po dobu %1$s</string>
+    <string name="pet_found_share">%1$s nalezen!</string>
+    <string name="reunited_in">Shledáno za %1$s</string>
+    <string name="shared_via_pet_safety">Sdíleno přes Pet Safety aplikaci</string>
+    <string name="sighting_reports_desc">Hlášení pozorování</string>
+
+    <!-- Success Story Time -->
+    <string name="success_just_now">právě teď</string>
+    <string name="success_day_ago">před 1 dnem</string>
+    <string name="success_days_ago">před %1$d dny</string>
+    <string name="success_hour_ago">před 1 hodinou</string>
+    <string name="success_hours_ago">před %1$d hodinami</string>
+    <string name="success_minute_ago">před 1 minutou</string>
+    <string name="success_minutes_ago">před %1$d minutami</string>
+
+    <!-- Success Stories Tab -->
+    <string name="success_tab_title">Příběhy úspěchu</string>
+    <string name="success_tab_list">Seznam</string>
+    <string name="success_tab_map">Mapa</string>
+
+    <!-- Success Story Prompt -->
+    <string name="story_great_news">Skvělé zprávy!</string>
+    <string name="story_post">Publikovat</string>
+    <string name="story_pet_home">%1$s je doma!</string>
+    <string name="story_reunited">Shledáno!</string>
+    <string name="story_share_prompt">Sdílejte svůj příběh shledání!</string>
+    <string name="story_inspiration">Váš příběh může inspirovat ostatní majitele mazlíčků ve vašem okolí.</string>
+    <string name="story_share_button">Sdílet můj příběh</string>
+    <string name="story_maybe_later">Možná později</string>
+    <string name="story_your_story">Váš příběh</string>
+    <string name="story_placeholder_named">Sdílejte, jak byl %1$s nalezen a shledán</string>
+    <string name="story_city_optional">Město/oblast (volitelné)</string>
+    <string name="story_city_placeholder">např. Praha, Vinohrady</string>
+    <string name="story_share_publicly">Sdílet veřejně</string>
+    <string name="story_share_publicly_desc">Umožněte ostatním v okolí vidět váš příběh</string>
+    <string name="story_posting">Publikování\u2026</string>
+    <string name="story_share_story">Sdílet příběh</string>
+    <string name="story_contact_note">Vaše kontaktní údaje nebudou sdíleny.</string>
+    <string name="story_posted_success">Váš příběh úspěchu byl sdílen!</string>
+    <string name="story_share_title">Sdílejte svůj příběh</string>
+    <string name="story_pet_is_home">%1$s je doma!</string>
+    <string name="story_share_reunion">Sdílejte svůj příběh shledání!</string>
+    <string name="story_inspire_others">Váš příběh o %1$s může inspirovat ostatní majitele mazlíčků.</string>
+    <string name="story_share_my_story">Sdílet můj příběh</string>
+    <string name="story_share_how">Sdílejte, jak byl %1$s nalezen a shledán</string>
+    <string name="story_privacy_note">Vaše kontaktní údaje nebudou sdíleny.</string>
+    <string name="story_shared_success">Váš příběh úspěchu byl sdílen!</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Profile -->
+    <!-- ============================================ -->
+    <string name="profile_title">Účet</string>
+    <string name="account_title">Účet</string>
+    <string name="profile_personal_info">Osobní údaje</string>
+    <string name="profile_address">Adresa</string>
+    <string name="profile_contacts">Kontakty</string>
+    <string name="profile_privacy_mode">Režim soukromí</string>
+    <string name="profile_notifications">Oznámení</string>
+    <string name="profile_help_support">Nápověda &amp; podpora</string>
+    <string name="profile_log_out">Odhlásit se</string>
+    <string name="profile_logout_confirm">Opravdu se chcete odhlásit?</string>
+    <string name="profile_delete_account">Smazat účet</string>
+    <string name="profile_delete_confirm">Opravdu chcete smazat svůj účet? Tuto akci nelze vrátit.</string>
+    <string name="profile_cannot_delete">Účet nelze smazat</string>
+    <string name="profile_cannot_delete_message">Před smazáním účtu označte všechny ztracené mazlíčky jako nalezené.</string>
+    <string name="profile_danger_zone">Nebezpečná zóna</string>
+    <string name="profile_deleting">Mazání\u2026</string>
+    <string name="profile_delete_permanent">Tímto dojde k trvalému smazání vašeho účtu a všech dat</string>
+    <string name="log_out">Odhlásit se</string>
+    <string name="personal_information">Osobní údaje</string>
+    <string name="address">Adresa</string>
+    <string name="contacts">Kontakty</string>
+    <string name="privacy_mode">Režim soukromí</string>
+    <string name="help_support">Nápověda &amp; podpora</string>
+    <string name="danger_zone">NEBEZPEČNÁ ZÓNA</string>
+    <string name="deleting">Mazání\u2026</string>
+    <string name="delete_account_permanent">Tímto dojde k trvalému smazání vašeho účtu a všech dat</string>
+    <string name="logout_confirm">Opravdu se chcete odhlásit?</string>
+    <string name="delete_account_full_warning">Tuto akci nelze vrátit. Váš účet bude trvale smazán, všechna osobní data budou odstraněna a případná aktivní předplatná budou zrušena.</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Personal Information -->
+    <!-- ============================================ -->
+    <string name="personal_details">Osobní údaje</string>
+    <string name="personal_first_name">Jméno</string>
+    <string name="personal_first_name_placeholder">Zadejte jméno</string>
+    <string name="personal_last_name">Příjmení</string>
+    <string name="personal_last_name_placeholder">Zadejte příjmení</string>
+    <string name="personal_email">E-mail</string>
+    <string name="personal_email_placeholder">Zadejte e-mail</string>
+    <string name="personal_phone">Telefon</string>
+    <string name="personal_phone_placeholder">Zadejte telefonní číslo</string>
+    <string name="personal_edit_info">Upravit údaje</string>
+    <string name="personal_title">Osobní údaje</string>
+    <string name="edit_information">Upravit údaje</string>
+    <string name="registered_address">Registrovaná adresa</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Address -->
+    <!-- ============================================ -->
+    <string name="address_details">Detaily adresy</string>
+    <string name="address_details_footer">Vaše adresa se používá pro doručení známek a hledání upozornění v okolí.</string>
+    <string name="address_street">Ulice a číslo</string>
+    <string name="address_street_placeholder">Zadejte ulici a číslo</string>
+    <string name="address_line2">Adresní řádek 2 (volitelné)</string>
+    <string name="address_line2_placeholder">Byt, patro apod.</string>
+    <string name="address_city">Město / obec</string>
+    <string name="address_city_placeholder">Zadejte město nebo obec</string>
+    <string name="address_postal">PSČ</string>
+    <string name="address_postal_placeholder">Zadejte PSČ</string>
+    <string name="address_country">Země</string>
+    <string name="address_select_country">Vybrat zemi</string>
+    <string name="address_no_address">Žádná registrovaná adresa</string>
+    <string name="address_add_prompt">Přidejte adresu pro doručování a upozornění podle polohy.</string>
+    <string name="address_add">Přidat adresu</string>
+    <string name="address_edit">Upravit adresu</string>
+    <string name="address_title">Adresa</string>
+    <string name="address_select_country_title">Vybrat zemi</string>
+    <string name="address_line2_label">Adresní řádek 2</string>
+    <string name="address_postal_label">PSČ</string>
+    <string name="street_address">Ulice a číslo</string>
+    <string name="address_line_2_optional">Adresní řádek 2 (volitelné)</string>
+    <string name="city">Město</string>
+    <string name="post_code">PSČ</string>
+    <string name="country">Země</string>
+    <string name="street">Ulice</string>
+    <string name="address_updated">Adresa aktualizována</string>
+    <string name="address_shipping_footer">Zadejte úplnou adresu pro doručení a fakturaci</string>
+    <string name="address_delivery_prompt">Přidejte adresu pro doručení QR známek</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Contacts -->
+    <!-- ============================================ -->
+    <string name="contacts_settings">Nastavení kontaktů</string>
+    <string name="contacts_info_text">Tyto kontaktní údaje budou zobrazeny při skenování QR známky vašeho mazlíčka. Je vyžadován alespoň jeden kontakt.</string>
+    <string name="contacts_email_section">E-mailové adresy</string>
+    <string name="contacts_phone_section">Telefonní čísla</string>
+    <string name="contacts_edit_title">Upravit kontaktní údaje</string>
+    <string name="contacts_primary_email">Hlavní e-mail</string>
+    <string name="contacts_primary_email_footer">Tento e-mail se zobrazí při skenování QR známky vašeho mazlíčka.</string>
+    <string name="contacts_email_placeholder">E-mailová adresa</string>
+    <string name="contacts_show_on_tag">Zobrazit na známce</string>
+    <string name="contacts_secondary_email">Sekundární e-mail (volitelné)</string>
+    <string name="contacts_secondary_email_footer">Záložní e-mail pro kontakt.</string>
+    <string name="contacts_secondary_email_placeholder">Sekundární e-mailová adresa</string>
+    <string name="contacts_primary_phone">Hlavní telefon</string>
+    <string name="contacts_primary_phone_footer">Toto číslo se zobrazí při skenování QR známky vašeho mazlíčka.</string>
+    <string name="contacts_phone_placeholder">Telefonní číslo</string>
+    <string name="contacts_secondary_phone">Sekundární telefon (volitelné)</string>
+    <string name="contacts_secondary_phone_footer">Záložní telefonní číslo pro kontakt.</string>
+    <string name="contacts_secondary_phone_placeholder">Sekundární telefonní číslo</string>
+    <string name="contacts_title">Kontaktní údaje</string>
+    <string name="contacts_primary_badge">HLAVNÍ</string>
+    <string name="contacts_visible_badge">Viditelné na známce</string>
+    <string name="contacts_hidden_badge">Skryté</string>
+    <string name="contacts_none_added">Žádné %1$s nebyly přidány</string>
+    <string name="email_addresses">E-mailové adresy</string>
+    <string name="primary_email">Hlavní e-mail</string>
+    <string name="secondary_email_optional">Sekundární e-mail (volitelné)</string>
+    <string name="phone_numbers">Telefonní čísla</string>
+    <string name="primary_phone">Hlavní telefon</string>
+    <string name="show_on_qr_tag">Zobrazit na QR známce</string>
+    <string name="secondary_phone_optional">Sekundární telefon (volitelné)</string>
+    <string name="contacts_qr_tag_info">Kontakty označené jako viditelné se zobrazí na QR známce vašeho mazlíčka při skenování.</string>
+    <string name="contact_details">Kontaktní údaje</string>
+    <string name="contacts_coming_soon">Již brzy</string>
+    <string name="contacts_info_full">Tyto kontaktní údaje se zobrazí při skenování QR známky vašeho mazlíčka. Můžete přidat až dvě e-mailové adresy a telefonní čísla.</string>
+    <string name="contacts_primary_email_edit_footer">Váš hlavní e-mail účtu</string>
+    <string name="contacts_secondary_email_edit_footer">Záložní e-mail pro oznámení o nalezení</string>
+    <string name="contacts_primary_phone_edit_footer">Váš hlavní kontaktní telefon</string>
+    <string name="contacts_secondary_phone_edit_footer">Záložní telefon pro nouzové situace</string>
+    <string name="contacts_visible_on_tag">Viditelné na známce</string>
+    <string name="contacts_no_type_added">Žádné %1$s nebyly přidány</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Contact Visibility -->
+    <!-- ============================================ -->
+    <string name="contact_visibility">Viditelnost kontaktů</string>
+    <string name="contact_visibility_desc">Ovládejte, jaké kontaktní údaje jsou viditelné při skenování QR známky vašeho mazlíčka</string>
+    <string name="show_phone_number">Zobrazit telefonní číslo</string>
+    <string name="show_phone_subtitle">Vaše telefonní číslo bude viditelné pro nálezce</string>
+    <string name="show_email_address">Zobrazit e-mail</string>
+    <string name="show_email_subtitle">Váš e-mail bude viditelný pro nálezce</string>
+    <string name="show_address">Zobrazit adresu</string>
+    <string name="show_address_subtitle">Vaše adresa bude viditelná pro nálezce</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Privacy Mode -->
+    <!-- ============================================ -->
+    <string name="privacy_contact_visibility">Viditelnost kontaktů</string>
+    <string name="privacy_contact_footer">Ovládejte, které kontaktní údaje jsou viditelné při skenování QR známky vašeho mazlíčka.</string>
+    <string name="privacy_show_phone">Zobrazit telefonní číslo</string>
+    <string name="privacy_show_email">Zobrazit e-mail</string>
+    <string name="privacy_show_address">Zobrazit adresu</string>
+    <string name="privacy_data_privacy">Ochrana dat</string>
+    <string name="privacy_privacy_policy">Zásady ochrany soukromí</string>
+    <string name="privacy_data_management">Správa dat</string>
+    <string name="privacy_title">Režim soukromí</string>
+    <string name="privacy_mode_footer">Nastavení soukromí pomáhá kontrolovat, jaké informace se sdílí při skenování QR známky vašeho mazlíčka.</string>
+    <string name="privacy_policy_title">Zásady ochrany soukromí</string>
+    <string name="privacy_policy_updated">Poslední aktualizace: listopad 2024</string>
+    <string name="privacy_policy_section1_title">1. Informace, které shromažďujeme</string>
+    <string name="privacy_policy_section1_body">Shromažďujeme informace, které poskytujete přímo, včetně jména, e-mailu, telefonu, adresy a informací o mazlíčkovi. Také shromažďujeme údaje o poloze, pokud se rozhodnete je sdílet.</string>
+    <string name="privacy_policy_section2_title">2. Jak používáme vaše informace</string>
+    <string name="privacy_policy_section2_body">Vaše informace používáme k poskytování našich služeb, zasílání upozornění o ztracených mazlíčcích a usnadnění shledání s majiteli.</string>
+    <string name="privacy_policy_section3_title">3. Sdílení informací</string>
+    <string name="privacy_policy_section3_body">Vaše kontaktní údaje sdílíme pouze podle vašich nastavení soukromí. Údaje o poloze sdílíme pouze tehdy, když to výslovně zvolíte.</string>
+    <string name="privacy_policy_section4_title">4. Bezpečnost dat</string>
+    <string name="privacy_policy_section4_body">Používáme standardní šifrování a bezpečnostní opatření k ochraně vašich osobních údajů.</string>
+    <string name="privacy_policy_section5_title">5. Vaše práva</string>
+    <string name="privacy_policy_section5_body">Máte právo kdykoli přistupovat ke svým osobním údajům, aktualizovat je a smazat je v nastavení aplikace.</string>
+    <string name="privacy_your_data">Vaše data</string>
+    <string name="privacy_your_data_footer">Požádejte o kopii všech svých osobních údajů uložených v našem systému.</string>
+    <string name="privacy_export_data">Exportovat moje data</string>
+    <string name="privacy_deletion_section">Smazání dat</string>
+    <string name="privacy_deletion_footer">Trvale smazat váš účet a všechna související data.</string>
+    <string name="privacy_delete_account">Smazat můj účet</string>
+    <string name="privacy_delete_confirm">Opravdu chcete smazat účet? Tímto budou trvale odstraněna všechna data včetně mazlíčků, upozornění a historie objednávek. Tuto akci nelze vrátit.</string>
+    <string name="data_privacy">Ochrana dat</string>
+    <string name="data_management">Správa dat</string>
+    <string name="privacy_settings_updated">Nastavení soukromí aktualizováno</string>
+    <string name="privacy_settings_failed">Aktualizace nastavení soukromí se nezdařila</string>
+    <string name="privacy_settings_placeholder">Nastavení soukromí bude dostupné zde.</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Delete Account -->
+    <!-- ============================================ -->
+    <string name="delete_account">Smazat účet</string>
+    <string name="delete_account_warning">Tuto akci nelze vrátit. Všechna vaše data včetně mazlíčků, upozornění a fotek budou trvale smazána.</string>
+    <string name="delete_account_confirm_prompt">Pro potvrzení napište níže DELETE:</string>
+    <string name="type_delete_to_confirm">Napište DELETE</string>
+    <string name="account_deleted">Účet smazán</string>
+    <string name="delete_account_failed">Smazání účtu se nezdařilo</string>
+    <string name="cannot_delete_account">Účet nelze smazat</string>
+    <string name="cannot_delete_missing_pets">Nemůžete smazat účet, dokud máte mazlíčky označené jako ztracené. Nejprve je označte jako nalezené.</string>
+    <string name="missing_pets_label">Ztracení mazlíčci: %1$s</string>
+    <string name="checking_delete_eligibility">Kontrola\u2026</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Help & Support -->
+    <!-- ============================================ -->
+    <string name="help_quick_actions">Rychlé akce</string>
+    <string name="help_contact_support">Kontaktovat podporu</string>
+    <string name="help_resources">Zdroje</string>
+    <string name="help_faq">Často kladené otázky</string>
+    <string name="help_user_guides">Uživatelské příručky</string>
+    <string name="help_legal">Právní</string>
+    <string name="help_terms">Podmínky služby</string>
+    <string name="help_privacy">Zásady ochrany soukromí</string>
+    <string name="help_app_info">Informace o aplikaci</string>
+    <string name="help_version">Verze</string>
+    <string name="help_build">Build</string>
+    <string name="help_title">Nápověda &amp; podpora</string>
+    <string name="help_support_footer">Potřebujete pomoc? Náš tým podpory je tu pro vás.</string>
+    <string name="help_category">Kategorie</string>
+    <string name="help_subject">Předmět</string>
+    <string name="help_subject_placeholder">Krátký popis problému</string>
+    <string name="help_message">Zpráva</string>
+    <string name="help_message_placeholder">Popište problém podrobně\u2026</string>
+    <string name="help_sending">Odesílání\u2026</string>
+    <string name="help_submit_request">Odeslat žádost</string>
+    <string name="help_contact_title">Kontaktovat podporu</string>
+    <string name="help_faq_title">FAQ</string>
+    <string name="help_guides_title">Uživatelské příručky</string>
+    <string name="help_guide_placeholder">Podrobný obsah příručky bude k dispozici zde.</string>
+    <string name="get_help">Získat pomoc</string>
+    <string name="faq">Často kladené otázky</string>
+    <string name="user_guides">Uživatelské příručky</string>
+    <string name="legal">Právní</string>
+    <string name="support_response_time">Náš tým podpory obvykle odpovídá do 24 hodin.</string>
+    <string name="contact_support">Kontaktovat podporu</string>
+    <string name="contact_support_category">Kategorie</string>
+    <string name="contact_support_subject">Předmět</string>
+    <string name="contact_support_subject_hint">Krátký popis problému</string>
+    <string name="contact_support_message">Zpráva</string>
+    <string name="contact_support_message_hint">Popište problém podrobně\u2026</string>
+    <string name="contact_support_submit">Odeslat</string>
+    <string name="contact_support_sending">Odesílání\u2026</string>
+    <string name="contact_support_success">Žádost o podporu odeslána! ID tiket: %1$s</string>
+    <string name="contact_support_response">Odpovíme do 24 hodin.</string>
+    <string name="support_email">Podpora: support@petsafety.eu</string>
+    <string name="support_category_general">Obecné</string>
+    <string name="support_category_technical">Technický problém</string>
+    <string name="support_category_account">Účet</string>
+    <string name="support_category_billing">Fakturace</string>
+    <string name="support_category_feature">Požadavek na funkci</string>
+    <string name="support_category_other">Jiné</string>
+    <string name="char_count">%1$d/5000 znaků</string>
+
+    <!-- FAQ Items -->
+    <string name="help_faq_q1">Jak přidám mazlíčka?</string>
+    <string name="help_faq_a1">Přejděte na záložku Moji mazlíčci a klepněte na +. Vyplňte údaje o mazlíčkovi a uložte.</string>
+    <string name="help_faq_q2">Jak fungují QR známky?</string>
+    <string name="help_faq_a2">Každá QR známka obsahuje unikátní kód propojený s profilem mazlíčka. Po naskenování lze zobrazit informace a kontaktovat vás.</string>
+    <string name="help_faq_q3">Co se stane, když je mazlíček označen jako ztracený?</string>
+    <string name="help_faq_a3">Upozornění se odešle uživatelům Pet Safety v okolí. Každý, kdo naskenuje známku, bude vyzván ke sdílení polohy.</string>
+    <string name="help_faq_q4">Jak aktualizuji kontaktní údaje?</string>
+    <string name="help_faq_a4">Přejděte na Účet > Kontakty a aktualizujte e-mail a telefon, které se zobrazují na známce.</string>
+    <string name="help_faq_q5">Jsou moje osobní údaje v bezpečí?</string>
+    <string name="help_faq_a5">Ano. Používáme šifrování a bezpečné servery. Viditelnost údajů můžete ovládat v režimu soukromí.</string>
+
+    <!-- Guide Items -->
+    <string name="help_guide_getting_started">Začínáme</string>
+    <string name="help_guide_managing_pets">Správa mazlíčků</string>
+    <string name="help_guide_qr_tags">Porozumění QR známkám</string>
+    <string name="help_guide_missing_pet">Co dělat, když se mazlíček ztratí</string>
+    <string name="help_guide_privacy">Nastavení soukromí a zabezpečení</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Orders -->
+    <!-- ============================================ -->
+    <string name="orders_title">Objednávky</string>
+    <string name="order_number">Objednávka #%1$s</string>
+    <string name="order_total">Celkem: %1$s</string>
+    <string name="order_tags">Objednat známky</string>
+    <string name="replace_tag">Vyměnit známku</string>
+    <string name="add_pet_first_replacement">Nejprve přidejte mazlíčka, abyste mohli objednat náhradní známku.</string>
+    <string name="order_more_tags_title">Objednat více známek</string>
+    <string name="add_another_pet">Přidat dalšího mazlíčka</string>
+    <string name="full_name">Celé jméno</string>
+    <string name="place_order">Odeslat objednávku</string>
+    <string name="order_created_payment_pending">Objednávka vytvořena. Platba čeká.</string>
+    <string name="payment_intent_failed">Záměr platby selhal</string>
+    <string name="order_create_failed">Objednávku se nepodařilo vytvořit</string>
+    <string name="order_replacement_title">Objednat náhradní známku</string>
+    <string name="pet_label">Mazlíček: %1$s</string>
+    <string name="order_replacement_button">Objednat náhradu</string>
+    <string name="replacement_ordered">Náhrada objednána</string>
+    <string name="replacement_failed">Náhradu se nepodařilo objednat</string>
+    <string name="replacement_order_failed">Objednávku náhrady se nepodařilo vytvořit</string>
+    <string name="create_payment_intent_failed">Záměr platby se nepodařilo vytvořit</string>
+    <string name="failed_load_orders">Objednávky se nepodařilo načíst</string>
+    <string name="no_orders">Žádné objednávky</string>
+    <string name="no_orders_message">Zatím jste neprovedli žádnou objednávku</string>
+    <string name="order_id_short">Objednávka #%1$s</string>
+    <string name="order_information">Informace o objednávce</string>
+    <string name="order_id_label">ID objednávky</string>
+    <string name="status">Stav</string>
+    <string name="total_amount">Celková částka</string>
+    <string name="order_date">Datum objednávky</string>
+    <string name="items">Položky</string>
+    <string name="quantity_label">Množství: %1$d</string>
+    <string name="qr_tag_pending">QR známka čeká</string>
+    <string name="qr_tag_assigned">QR známka přiřazena</string>
+    <plurals name="item_count">
+        <item quantity="one">%d položka</item>
+        <item quantity="few">%d položky</item>
+        <item quantity="other">%d položek</item>
+    </plurals>
+
+    <!-- Order More Tags -->
+    <string name="order_more_title">Objednat více známek</string>
+    <string name="order_more_complete">Objednávka dokončena!</string>
+    <string name="order_more_payment_pending">Objednávka byla odeslána. Brzy obdržíte e-mail s pokyny k platbě.</string>
+    <string name="order_more_confirmation">Známky odešleme po potvrzení platby.</string>
+    <string name="order_more_pet_names">Jména mazlíčků</string>
+    <string name="order_more_pet_names_footer">Zadejte jména mazlíčků, pro které chcete známky. Na každou známku vygravírujeme jméno.</string>
+    <string name="order_more_pet_name_placeholder">Jméno mazlíčka</string>
+    <string name="order_more_add_another">Přidat dalšího mazlíčka</string>
+    <string name="order_more_your_info">Vaše údaje</string>
+    <string name="order_more_full_name">Celé jméno</string>
+    <string name="order_more_email">E-mail</string>
+    <string name="order_more_phone">Telefon</string>
+    <string name="order_more_shipping">Doručovací adresa</string>
+    <string name="order_more_street">Ulice a číslo</string>
+    <string name="order_more_street_placeholder">Zadejte ulici a číslo</string>
+    <string name="order_more_line2">Adresní řádek 2 (volitelné)</string>
+    <string name="order_more_line2_placeholder">Byt, patro apod.</string>
+    <string name="order_more_city">Město</string>
+    <string name="order_more_province">Kraj / stát (volitelné)</string>
+    <string name="order_more_postal">PSČ</string>
+    <string name="order_more_country">Země</string>
+    <string name="order_more_summary">Shrnutí objednávky</string>
+    <string name="order_more_tags_count">Známky (%1$d)</string>
+    <string name="order_more_shipping_cost">Doprava</string>
+    <string name="order_more_total">Celkem</string>
+    <string name="order_more_creating">Vytváření objednávky\u2026</string>
+    <string name="order_more_place_order">Odeslat objednávku</string>
+    <string name="get_qr_tags_subtitle">Získejte QR známky pro své mazlíčky</string>
+    <string name="pet_names">Jména mazlíčků</string>
+    <string name="shipping_address">Doručovací adresa</string>
+    <string name="shipping">Doprava</string>
+    <string name="shipping_price">\u00a33.90</string>
+
+    <!-- Order Replacement Tag -->
+    <string name="order_replace_title">Objednat náhradní známku</string>
+    <string name="order_replace_complete">Objednávka dokončena!</string>
+    <string name="order_replace_confirmation">Náhradní známka bude odeslána na uvedenou adresu.</string>
+    <string name="order_replace_pet_info">Informace o mazlíčkovi</string>
+    <string name="order_replace_important">Důležité informace</string>
+    <string name="order_replace_eligible_free">První náhrada zdarma</string>
+    <string name="order_replace_additional_fee">Další náhrady: %1$s</string>
+    <string name="order_replace_shipping">Doručovací adresa</string>
+    <string name="order_replace_shipping_footer">Náhradní známku odešleme na tuto adresu.</string>
+    <string name="order_replace_street">Ulice a číslo</string>
+    <string name="order_replace_street_placeholder">Zadejte ulici a číslo</string>
+    <string name="order_replace_line2">Adresní řádek 2 (volitelné)</string>
+    <string name="order_replace_line2_placeholder">Byt, patro apod.</string>
+    <string name="order_replace_city">Město</string>
+    <string name="order_replace_postal">PSČ</string>
+    <string name="order_replace_country">Země</string>
+    <string name="order_replace_phone">Telefon (volitelné)</string>
+    <string name="order_replace_phone_placeholder">Zadejte telefonní číslo</string>
+    <string name="order_replace_creating">Vytváření objednávky\u2026</string>
+    <string name="order_replace_free_button">Potvrdit a objednat bezplatnou náhradní známku</string>
+    <string name="order_replace_paid_button">Potvrdit a zaplatit %1$s</string>
+    <string name="replacement_subtitle">Ztracená nebo poškozená? Pošleme novou</string>
+    <string name="free_replacement">Bezplatná náhrada</string>
+    <string name="replacement_shipping_info">Náhradní známka bude odeslána do 2\u20133 pracovních dnů\u2026</string>
+    <string name="order_replace_upgrade_hint">Upgradujte na Standard nebo Ultimate pro bezplatné náhrady</string>
+    <string name="order_replace_old_deactivated">Váš starý QR kód bude deaktivován po odeslání této objednávky</string>
+    <string name="order_replace_delivery_time">Novou známku obdržíte do 5-7 pracovních dnů</string>
+    <string name="order_replace_scan_activate">Jakmile obdržíte novou známku, musíte ji naskenovat pro aktivaci</string>
+    <string name="order_replace_province">Kraj / stát (volitelné)</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Subscription / Pricing -->
+    <!-- ============================================ -->
+    <string name="subscription_title">Předplatné</string>
+    <string name="subscription_choose_plan">Vybrat plán</string>
+    <string name="subscription_monthly">Měsíčně</string>
+    <string name="subscription_yearly">Ročně</string>
+    <string name="subscription_popular">Oblíbené</string>
+    <string name="subscription_current_plan">Aktuální plán</string>
+    <string name="subscription_select">Vybrat plán</string>
+    <string name="subscription_max_pets">Max. mazlíčků: %1$s</string>
+    <string name="subscription_vet_alerts">Upozornění pro veterináře &amp; záchranu</string>
+    <string name="subscription_sms">SMS upozornění</string>
+    <string name="subscription_community_alerts">Komunitní upozornění</string>
+    <string name="subscription_free_replacement">Bezplatná náhrada známky</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Billing -->
+    <!-- ============================================ -->
+    <string name="billing_title">Fakturace &amp; faktury</string>
+    <string name="billing_manage_subscription">Spravovat předplatné</string>
+    <string name="billing_manage_description">Změnit plán, aktualizovat platební metodu nebo zrušit</string>
+    <string name="billing_current_plan">Aktuální plán</string>
+    <string name="billing_plan_label">Plán</string>
+    <string name="billing_status_label">Stav</string>
+    <string name="billing_invoices">Faktury</string>
+    <string name="billing_no_invoices">Zatím žádné faktury</string>
+    <string name="billing_subscription">Předplatné</string>
+    <string name="billing_portal_footer">Spravujte předplatné, platební metodu a fakturační údaje přes Stripe.</string>
+    <string name="billing_loading_invoices">Načítání faktur\u2026</string>
+    <string name="billing_invoice">Faktura</string>
+    <string name="billing_unknown">Neznámé</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Referral -->
+    <!-- ============================================ -->
+    <string name="referral_title">Doporučte příteli</string>
+    <string name="referral_loading">Načítání\u2026</string>
+    <string name="referral_your_code">Váš doporučovací kód</string>
+    <string name="referral_share_footer">Sdílejte svůj kód s přáteli. Když si předplatí, oba dostanete odměnu!</string>
+    <string name="referral_how_it_works">Jak to funguje</string>
+    <string name="referral_step_1">Sdílejte svůj jedinečný kód s přáteli</string>
+    <string name="referral_step_2">Použijí jej při předplatném placeného plánu</string>
+    <string name="referral_step_3">Oba získáte 2 měsíce zdarma</string>
+    <string name="referral_history">Historie doporučení</string>
+    <string name="referral_no_referrals">Zatím žádná doporučení. Sdílejte svůj kód a začněte!</string>
+    <string name="referral_generate">Vygenerovat doporučovací kód</string>
+    <string name="referral_copied">Zkopírováno!</string>
+    <string name="referral_copy">Kopírovat</string>
+    <string name="referral_share">Sdílet</string>
+    <string name="referral_pending">Čeká</string>
+    <string name="referral_share_text">Použijte můj doporučovací kód %1$s a získejte 2 měsíce Pet Safety zdarma! https://pet-er.app/choose-plan?referral=%2$s</string>
+    <string name="referral_clipboard_label">Doporučovací kód</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Push Notification Prompt -->
+    <!-- ============================================ -->
+    <string name="push_prompt_title">Zůstaňte v kontaktu</string>
+    <string name="push_prompt_subtitle">Povolte oznámení, abyste nezmeškali důležité aktualizace:</string>
+    <string name="push_prompt_benefit_scan">Okamžitá upozornění, když je známka vašeho mazlíčka naskenována</string>
+    <string name="push_prompt_benefit_sighting">Hlášení pozorování od komunity</string>
+    <string name="push_prompt_benefit_found">Okamžitě se dozvíte, když je mazlíček nalezen</string>
+    <string name="push_prompt_benefit_missing">Upozornění na ztracené mazlíčky ve vašem okolí</string>
+    <string name="push_prompt_enable">Povolit oznámení</string>
+    <string name="push_prompt_later">Možná později</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Quick Mark Lost/Found -->
+    <!-- ============================================ -->
+    <string name="quick_lost_select_pet">Vyberte mazlíčka pro nahlášení jako ztraceného</string>
+    <string name="quick_lost_all_missing">Všichni vaši mazlíčci jsou již označeni jako ztracení.</string>
+    <string name="quick_lost_title">Nahlásit ztrátu</string>
+    <string name="quick_found_select_pet">Vyberte mazlíčka pro označení jako nalezeného</string>
+    <string name="quick_found_currently_missing">Aktuálně ztracení</string>
+    <string name="quick_found_no_missing">Žádní ztracení mazlíčci k označení jako nalezení.</string>
+    <string name="quick_found_title">Označit mazlíčka jako nalezeného</string>
+    <string name="quick_found_mark_failed">Nepodařilo se označit %1$s jako nalezeného: %2$s</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Breed Picker -->
+    <!-- ============================================ -->
+    <string name="breed_select_title">Vybrat plemeno</string>
+    <string name="breed_search_placeholder">Hledat plemena\u2026</string>
+    <string name="breed_no_results">Žádná plemena nenalezena</string>
+    <string name="breed_use_custom">Použít \"%1$s\" jako vlastní plemeno</string>
+    <string name="breed_manual_entry">Zadat plemeno ručně</string>
+    <string name="breed_clear_selection">Vymazat výběr</string>
+    <string name="breed_enter_name">Zadejte název plemene</string>
+    <string name="breed_custom">Vlastní plemeno</string>
+    <string name="breed_custom_footer">Zadejte vlastní plemeno, pokud není v seznamu</string>
+    <string name="breed_back_to_list">Zpět na seznam plemen</string>
+    <string name="breed_select_optional">Vybrat plemeno (volitelné)</string>
+    <string name="breed_optional">Plemeno (volitelné)</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Public Pet Profile -->
+    <!-- ============================================ -->
+    <string name="public_profile_preview">Náhled veřejného profilu</string>
+    <string name="failed_load_profile">Nepodařilo se načíst profil</string>
+    <string name="public_profile_subtitle">Takto ostatní uvidí profil %1$s</string>
+    <string name="owner_notified_sms_email">Majitel %1$s obdrží SMS a e-mail s vaší polohou</string>
+    <string name="contact_owner_plea">Prosím, dejte mému majiteli vědět, že jste mě našli\u2026</string>
+    <string name="contact_owner_plea_full">Prosím, dejte mému majiteli vědět, že jste mě našli. Klepněte na tlačítko sdílení polohy nebo zavolejte na níže uvedené číslo.</string>
+    <string name="contact_info_not_set">Kontaktní údaje ještě nejsou nastaveny</string>
+    <string name="contact_info_hidden">Kontaktní údaje jsou skryté</string>
+    <string name="contact_info_hidden_hint">Kontaktní údaje jsou nastaveny, ale skryty kvůli nastavení soukromí. Aktualizujte v Účet \u2192 Režim soukromí.</string>
+    <string name="allergies">Alergie</string>
+    <string name="medications">Léky</string>
+    <string name="unique_features">Jedinečné znaky</string>
+    <string name="behavior_notes">Poznámky k chování</string>
+    <string name="how_it_works">Jak to funguje</string>
+    <string name="help_reunite_pet">Pomozte bezpečně shledat %1$s s majitelem</string>
+    <string name="step_share_location">Sdílejte svou polohu</string>
+    <string name="step_share_location_desc">Klepněte na tlačítko výše pro sdílení polohy s majitelem</string>
+    <string name="step_owner_notified">Majitel je informován</string>
+    <string name="step_owner_notified_desc">Majitel obdrží SMS a e-mail s vaší polohou</string>
+    <string name="step_quick_reunion">Rychlé shledání</string>
+    <string name="step_quick_reunion_desc">Majitel může navigovat k vaší poloze a vyzvednout svého mazlíčka</string>
+    <string name="step_share_location_desc_public">Klikněte na tlačítko výše a sdílejte, kde jste našli %1$s</string>
+    <string name="step_owner_notified_desc_public">Majitel obdrží SMS s vaší polohou na Google Maps</string>
+    <string name="step_quick_reunion_desc_public">Zůstaňte poblíž, aby majitel našel vás i %1$s</string>
+    <string name="owner_phone_label">Telefon majitele: %1$s</string>
+    <string name="owner_email_label">E-mail majitele: %1$s</string>
+    <string name="your_privacy_notice">Vaše soukromí je důležité. Vaši polohu sdílíme s majitelem %1$s pouze s vaším výslovným souhlasem.</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Offline Mode -->
+    <!-- ============================================ -->
+    <string name="offline_mode">Offline režim</string>
+    <string name="syncing">Synchronizace\u2026</string>
+    <string name="sync_completed">Synchronizace dokončena</string>
+    <string name="sync_failed">Synchronizace se nezdařila: %1$s</string>
+    <string name="sync_no_connection">Nelze synchronizovat: bez internetového připojení</string>
+    <string name="pending_changes">Čekající změny</string>
+    <string name="online">Online</string>
+    <string name="offline_changes_sync">Změny se synchronizují po připojení</string>
+    <string name="tap_view_queued_actions">Klepněte pro zobrazení čekajících akcí</string>
+    <string name="connected">Připojeno</string>
+    <string name="sync_now">Synchronizovat nyní</string>
+    <string name="changes_sync_restored">Změny se budou automaticky synchronizovat po obnovení připojení.</string>
+    <string name="offline_pending_changes">Čekající změny</string>
+    <string name="offline_online">Online</string>
+    <string name="offline_sync_message">Změny se synchronizují po připojení</string>
+    <string name="offline_tap_to_view">Klepněte pro zobrazení čekajících akcí</string>
+    <string name="offline_actions_queued">%1$d akce v řadě</string>
+    <string name="offline_last_synced">Naposledy synchronizováno: %1$s</string>
+    <string name="offline_sync_now">Synchronizovat nyní</string>
+    <string name="offline_last_sync_label">Čas poslední synchronizace</string>
+    <plurals name="queued_actions">
+        <item quantity="one">%d akce v řadě</item>
+        <item quantity="few">%d akce v řadě</item>
+        <item quantity="other">%d akcí v řadě</item>
+    </plurals>
+
+    <!-- Sync Error Banner -->
+    <string name="sync_actions_failed">%1$d akce nebyly synchronizovány</string>
+    <string name="sync_tried_count">Vyzkoušeno %1$d×</string>
+    <string name="sync_retry_all">Zkusit vše znovu</string>
+    <string name="sync_dismiss_all">Zahodit vše</string>
+    <string name="sync_syncing">Synchronizace\u2026</string>
+    <string name="sync_count_failed">%1$d selhalo</string>
+    <string name="sync_count_pending">%1$d čeká</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Error / Retry -->
+    <!-- ============================================ -->
+    <string name="error_something_wrong">Něco se pokazilo</string>
+    <string name="something_went_wrong">Něco se pokazilo</string>
+    <string name="try_again">Zkusit znovu</string>
+    <string name="error_session_expired_message">Vaše relace vypršela. Přihlaste se znovu.</string>
+    <string name="error_login_failed">Přihlášení se nezdařilo</string>
+    <string name="error_verification_failed">Ověření se nezdařilo</string>
+    <string name="error_submit_support">Nepodařilo se odeslat žádost na podporu</string>
+    <string name="error_load_pets">Nepodařilo se načíst mazlíčky</string>
+    <string name="error_refresh_pets">Nepodařilo se obnovit mazlíčky</string>
+    <string name="error_load_alerts">Nepodařilo se načíst upozornění</string>
+    <string name="error_load_pet_profile">Nepodařilo se načíst profil mazlíčka</string>
+    <string name="error_load_stories">Nepodařilo se načíst příběhy</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Map App Picker -->
+    <!-- ============================================ -->
+    <string name="map_approximate_notice">Toto je přibližná poloha (~500 m). Prohledejte okolí.</string>
+    <string name="map_coordinates">Souřadnice</string>
+    <string name="map_open_in">Otevřít v</string>
+    <string name="map_apple_maps">Apple Mapy</string>
+    <string name="map_google_maps">Google Mapy</string>
+    <string name="map_waze">Waze</string>
+    <string name="map_pet_location">Poloha %1$s</string>
+    <string name="location_title">Poloha %1$s</string>
+    <string name="approximate_location_note">Toto je přibližná poloha (~500 m). Prohledejte okolí.</string>
+    <string name="coordinates_label">Souřadnice: %1$s</string>
+    <string name="open_in">Otevřít v:</string>
+    <string name="google_maps">Google Mapy</string>
+    <string name="waze">Waze</string>
+    <string name="other_maps_app">Jiná mapová aplikace</string>
+    <string name="open_with">Otevřít pomocí\u2026</string>
+    <string name="map_label_pet_location">Poloha mazlíčka</string>
+    <string name="map_label_tag_scanned">Známka mazlíčka naskenována</string>
+    <string name="map_label_sighting">Pozorování mazlíčka</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: App Info -->
+    <!-- ============================================ -->
+    <string name="app_name_label">Pet Safety</string>
+    <string name="app_version">Verze 1.0.0</string>
+    <string name="terms_url">Podmínky: https://pet-er.app/terms</string>
+    <string name="privacy_url">Soukromí: https://pet-er.app/privacy</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Relative Time -->
+    <!-- ============================================ -->
+    <string name="time_ago_just_now">právě teď</string>
+    <plurals name="time_ago_days">
+        <item quantity="one">před %d dnem</item>
+        <item quantity="few">před %d dny</item>
+        <item quantity="other">před %d dny</item>
+    </plurals>
+    <plurals name="time_ago_hours">
+        <item quantity="one">před %d hodinou</item>
+        <item quantity="few">před %d hodinami</item>
+        <item quantity="other">před %d hodinami</item>
+    </plurals>
+    <plurals name="time_ago_minutes">
+        <item quantity="one">před %d minutou</item>
+        <item quantity="few">před %d minutami</item>
+        <item quantity="other">před %d minutami</item>
+    </plurals>
 </resources>

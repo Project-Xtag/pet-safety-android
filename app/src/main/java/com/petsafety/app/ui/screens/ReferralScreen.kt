@@ -163,7 +163,7 @@ fun ReferralScreen(
                             OutlinedButton(
                                 onClick = {
                                     val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
-                                    clipboard.setPrimaryClip(ClipData.newPlainText("Referral Code", referralCode!!.code))
+                                    clipboard.setPrimaryClip(ClipData.newPlainText(context.getString(R.string.referral_clipboard_label), referralCode!!.code))
                                     copied = true
                                 },
                                 modifier = Modifier.weight(1f)

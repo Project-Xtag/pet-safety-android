@@ -1,4 +1,1386 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Stub file for localization. Replace values with translations. -->
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">Pet Safety</string>
+    <!--
+        Google Maps API key is injected via build.gradle.kts from:
+        1. local.properties (for local development - add GOOGLE_MAPS_API_KEY=your_key)
+        2. Environment variable GOOGLE_MAPS_API_KEY (for CI/CD)
+
+        DO NOT commit actual API keys to this file!
+
+        This fallback value is used when no key is configured (maps won't work)
+    -->
+    <string name="google_maps_key" tools:ignore="UnusedResources">MISSING_API_KEY</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Common -->
+    <!-- ============================================ -->
+    <string name="cancel">Anulează</string>
+    <string name="save">Salvează</string>
+    <string name="delete">Șterge</string>
+    <string name="close">Închide</string>
+    <string name="ok">OK</string>
+    <string name="back">Înapoi</string>
+    <string name="submit">Trimite</string>
+    <string name="skip">Sari peste</string>
+    <string name="loading">Se încarcă\u2026</string>
+    <string name="error">Eroare</string>
+    <string name="success">Succes</string>
+    <string name="confirm">Confirmă</string>
+    <string name="retry">Reîncearcă</string>
+    <string name="done">Gata</string>
+    <string name="edit">Editează</string>
+    <string name="add">Adaugă</string>
+    <string name="remove">Elimină</string>
+    <string name="search">Caută</string>
+    <string name="settings">Setări</string>
+    <string name="updated">Actualizat</string>
+    <string name="update_failed">Actualizarea a eșuat</string>
+    <string name="enable">Activează</string>
+    <string name="change">Schimbă</string>
+    <string name="primary">Principal</string>
+    <string name="share">Partajează</string>
+    <string name="saving">Se salvează\u2026</string>
+    <string name="sending">Se trimite\u2026</string>
+    <string name="yes">Da</string>
+    <string name="no">Nu</string>
+    <string name="not_set">Nesetat</string>
+    <string name="recommended">Recomandat</string>
+    <string name="details">Detalii</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Tab Bar -->
+    <!-- ============================================ -->
+    <string name="my_pets">Animalele mele</string>
+    <string name="scan_qr">Scanează QR</string>
+    <string name="alerts">Alerte</string>
+    <string name="profile">Profil</string>
+    <string name="tab_my_pets">Animalele mele</string>
+    <string name="tab_scan_qr">Scanează QR</string>
+    <string name="tab_alerts">Alerte</string>
+    <string name="tab_profile">Profil</string>
+    <string name="tab_missing">Dispărut</string>
+    <string name="tab_found">Găsit</string>
+    <string name="tab_success">Animale găsite</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Auth -->
+    <!-- ============================================ -->
+    <string name="auth_tagline">Ține-ți animalele în siguranță cu etichete QR</string>
+    <string name="welcome_back">Bine ai revenit!</string>
+    <string name="enter_email_subtitle">Introdu e-mailul pentru a primi un cod de autentificare.</string>
+    <string name="email_address">Adresă de e-mail</string>
+    <string name="send_login_code">Trimite codul de autentificare</string>
+    <string name="enter_otp_code">Introdu codul de 6 cifre</string>
+    <string name="verify_code">Verifică codul</string>
+    <string name="use_different_email">Folosește alt e-mail</string>
+    <string name="code_sent_to_email">Cod trimis la %1$s</string>
+    <string name="otp_sent_to">Introdu codul de 6 cifre trimis la</string>
+    <string name="login_failed">Autentificare eșuată</string>
+    <string name="verification_failed">Verificare eșuată</string>
+    <string name="invalid_email">Introdu o adresă de e-mail validă</string>
+    <string name="otp_placeholder">000000</string>
+    <string name="resend_code_cooldown">Retrimite codul în %1$ds</string>
+    <string name="resend_code_prompt">Nu ai primit codul? Retrimite</string>
+    <string name="dont_have_account">Nu ai cont?</string>
+    <string name="start_here_order_free_tag">Începe aici și comandă eticheta gratuită</string>
+    <string name="create_account">Creează cont</string>
+    <string name="enter_details_subtitle">Introdu datele tale pentru a începe.</string>
+    <string name="register">Înregistrare</string>
+    <string name="already_have_account">Ai deja cont?</string>
+    <string name="log_in">Autentificare</string>
+    <string name="terms_login_prefix">Prin autentificare, ești de acord cu </string>
+    <string name="terms_register_prefix">Prin înregistrare, ești de acord cu </string>
+    <string name="terms_and"> și </string>
+    <string name="terms_of_service">Termenii de utilizare</string>
+    <string name="privacy_policy">Politica de confidențialitate</string>
+    <string name="terms_disclaimer">Prin autentificare, ești de acord cu Termenii de utilizare și Politica de confidențialitate</string>
+    <string name="first_name">Prenume</string>
+    <string name="last_name">Nume</string>
+    <string name="email">E-mail</string>
+    <string name="phone">Telefon</string>
+    <string name="new_code_sent_to_email">Cod nou trimis la %1$s</string>
+    <string name="by_creating_account_agree">Prin crearea unui cont, ești de acord cu</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Biometric -->
+    <!-- ============================================ -->
+    <string name="biometric_login_title">Autentificare biometrică</string>
+    <string name="biometric_login_subtitle">Folosește amprenta sau fața pentru autentificare</string>
+    <string name="use_password">Folosește e-mail</string>
+    <string name="login_with_biometric">Autentificare biometrică</string>
+    <string name="enable_biometric_title">Activezi autentificarea biometrică?</string>
+    <string name="enable_biometric_message">Folosește amprenta sau fața pentru autentificare rapidă data viitoare.</string>
+    <string name="biometric_enabled">Autentificare biometrică activată</string>
+    <string name="enable_biometric_type">Activezi %1$s?</string>
+    <string name="biometric_type_enabled">%1$s activat</string>
+    <string name="use_biometric_quick_login">Folosește %1$s pentru autentificare rapidă data viitoare.</string>
+    <string name="login_with_biometric_type">Autentificare cu %1$s</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Session -->
+    <!-- ============================================ -->
+    <string name="session_expired_title">Sesiune expirată</string>
+    <string name="session_expired_message">Sesiunea ta a expirat. Te rugăm să te autentifici din nou.</string>
+    <string name="session_expired_log_in">Autentificare</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Home / Pets List -->
+    <!-- ============================================ -->
+    <string name="pet_owner_default">Proprietar animal</string>
+    <string name="welcome_back_greeting">Bine ai revenit,</string>
+    <string name="view_all">Vezi tot</string>
+    <string name="search_pets_hint">Caută după nume, rasă, specie\u2026</string>
+    <string name="quick_actions">Acțiuni rapide</string>
+    <string name="action_add_pet">ADAUGĂ ANIMAL</string>
+    <string name="action_mark_found">MARCHEAZĂ GĂSIT</string>
+    <string name="action_report_missing">RAPORTEAZĂ DISPĂRUT</string>
+    <string name="action_order_tags">COMANDĂ ETICHETE</string>
+    <string name="action_replace_tag">ÎNLOCUIRE ETICHETĂ</string>
+    <string name="empty_pets_title">Încă nu ai animale</string>
+    <string name="empty_pets_message">Adaugă primul animal pentru a începe cu Pet Safety</string>
+    <string name="missing_badge">DISPĂRUT</string>
+    <string name="add_pet">Adaugă animal</string>
+    <string name="pet_name">Numele animalului</string>
+    <string name="pet_safety_user">Utilizator Pet Safety</string>
+    <string name="failed_load_pets">Nu s-au putut încărca animalele</string>
+    <string name="clear_search">Șterge căutarea</string>
+    <string name="pet_photo">Fotografie animal</string>
+    <string name="pet_photo_placeholder">Placeholder fotografie animal</string>
+    <string name="no_pets">Fără animale</string>
+    <string name="success_stories">Povești de succes</string>
+    <string name="found_pets">Animale găsite</string>
+    <string name="success_stories_subtitle">Vezi reuniuni fericite în apropierea ta</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Pet Detail -->
+    <!-- ============================================ -->
+    <string name="breed_label">Rasă: %1$s</string>
+    <string name="color_label">Culoare: %1$s</string>
+    <string name="age_label">Vârstă: %1$s</string>
+    <string name="microchip_label">Microcip: %1$s</string>
+    <string name="species_label">Specie: %1$s</string>
+    <string name="medical_information">Informații medicale</string>
+    <string name="additional_information">Informații suplimentare</string>
+    <string name="photo_gallery">Galerie foto</string>
+    <string name="edit_pet">Editează animalul</string>
+    <string name="view_pet_photos">Vezi fotografiile lui %1$s</string>
+    <string name="mark_as_found">Marchează ca găsit</string>
+    <string name="mark_as_lost">Marchează ca dispărut</string>
+    <string name="mark_found">Marchează găsit</string>
+    <string name="mark_missing">Marchează dispărut</string>
+    <string name="age">Vârstă</string>
+    <string name="view_public_profile">Vezi profilul public al lui %1$s</string>
+    <string name="edit_pet_profile">Editează profilul lui %1$s</string>
+    <string name="delete_pet_name">Șterge %1$s</string>
+    <string name="delete_pet_confirm_title">Ștergi %1$s?</string>
+    <string name="delete_pet_confirm_message">Această acțiune nu poate fi anulată. Toate datele pentru %1$s vor fi șterse definitiv.</string>
+    <string name="cannot_delete_missing_pet">Nu se poate șterge un animal dispărut</string>
+    <string name="cannot_delete_missing_message">%1$s este marcat ca dispărut. Marchează-l ca găsit înainte de ștergere.</string>
+    <string name="mark_found_confirm_title">Marchezi %1$s ca găsit?</string>
+    <string name="mark_found_confirm_message">Aceasta va închide alerta de dispariție pentru %1$s. Ești sigur?</string>
+    <string name="marked_found_message">%1$s marcat ca găsit.</string>
+    <string name="marked_missing_message">%1$s marcat ca dispărut.</string>
+    <string name="mark_found_failed">Nu s-a putut marca găsit</string>
+    <string name="mark_missing_failed">Nu s-a putut marca dispărut</string>
+    <string name="pet_deleted">%1$s a fost șters</string>
+    <string name="delete_pet_failed">Nu s-a putut șterge animalul</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Pet Form -->
+    <!-- ============================================ -->
+    <string name="name">Nume</string>
+    <string name="species">Specie</string>
+    <string name="breed">Rasă</string>
+    <string name="color">Culoare</string>
+    <string name="microchip">Microcip</string>
+    <string name="medical_notes">Note medicale</string>
+    <string name="photo">Foto</string>
+    <string name="edit_photo">Editează fotografia</string>
+    <string name="photo_selected_hint">Fotografie selectată</string>
+    <string name="choose_photo_hint">Alege o fotografie a animalului tău</string>
+    <string name="basic_information">Informații de bază</string>
+    <string name="colour">Culoare</string>
+    <string name="colour_optional">Culoare (opțional)</string>
+    <string name="microchip_optional">Număr microcip (opțional)</string>
+    <string name="sex">Sex</string>
+    <string name="not_specified">Nespecificat</string>
+    <string name="neutered_spayed">Castrat/Sterilizat</string>
+    <string name="neutered">Castrat</string>
+    <string name="health_information">Informații de sănătate</string>
+    <string name="medical_notes_hint">Note medicale (afecțiuni, intervenții etc.)</string>
+    <string name="health_info_hint">Alergii, medicamente, condiții medicale\u2026</string>
+    <string name="behavior_notes_hint">Note comportamentale (temperament, dresaj, etc.)</string>
+    <string name="save_changes">Salvează modificările</string>
+    <string name="delete_pet_button">Șterge animalul</string>
+    <string name="delete_pet_dialog_title">Ștergi %1$s?</string>
+    <string name="delete_pet_dialog_message">Sigur dorești să ștergi acest animal? Această acțiune nu poate fi anulată.</string>
+    <string name="male">Mascul</string>
+    <string name="female">Femelă</string>
+    <string name="default_species_dog">Câine</string>
+    <string name="species_cat">Pisică</string>
+    <string name="search_breed">Caută rasă\u2026</string>
+    <string name="select_photo">Selectează foto</string>
+    <string name="select_pet">Selectează animal</string>
+    <string name="select_pet_for_replacement">Selectează animal pentru etichetă de înlocuire</string>
+    <string name="physical_details">Detalii fizice</string>
+    <string name="weight">Greutate</string>
+    <string name="weight_optional">Greutate în kg (opțional)</string>
+    <string name="date_of_birth">Data nașterii</string>
+    <string name="allergies_hint">Alergii (hrană, medicamente, etc.)</string>
+    <string name="medications_hint">Medicamente curente</string>
+    <string name="unique_features_hint">Caracteristici unice (semne, cicatrici, trăsături distinctive\u2026)</string>
+    <string name="photo_selected">Fotografie selectată</string>
+    <string name="pet_created">Animal creat</string>
+    <string name="pet_create_failed">Nu s-a putut crea animalul</string>
+    <string name="pet_updated">Animal actualizat</string>
+    <string name="pet_update_failed">Nu s-a putut actualiza animalul</string>
+    <string name="pet_updated_photo_failed">Animal actualizat! Încărcarea fotografiei a eșuat - încearcă din nou mai târziu.</string>
+    <string name="pet_default_name">Animal</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Photo Gallery -->
+    <!-- ============================================ -->
+    <string name="photo_gallery_title">Galerie foto</string>
+    <string name="pet_photos_title">Fotografiile lui %1$s</string>
+    <string name="add_photos">Adaugă fotografii</string>
+    <string name="uploading_photos">Se încarcă fotografii\u2026</string>
+    <string name="loading_photos">Se încarcă fotografii\u2026</string>
+    <string name="no_photos_yet">Încă nu există fotografii</string>
+    <string name="add_photos_gallery_hint">Adaugă fotografii pentru a crea o galerie pentru %1$s</string>
+    <string name="add_photos_gallery_generic">Adaugă fotografii pentru a crea o galerie</string>
+    <string name="choose_photo_source">Alege sursa fotografiei</string>
+    <string name="camera">Cameră</string>
+    <string name="library">Bibliotecă</string>
+    <string name="delete_photo">Șterge fotografia</string>
+    <string name="delete_photo_confirm">Ești sigur că vrei să ștergi această fotografie? Această acțiune nu poate fi anulată.</string>
+    <string name="photo_tip">Sfat: Apasă lung pe o fotografie pentru a o seta ca principală sau pentru a o șterge</string>
+    <string name="photo_uploaded">Fotografie încărcată</string>
+    <string name="upload_failed">Încărcarea a eșuat</string>
+    <string name="primary_updated">Fotografia principală a fost actualizată</string>
+    <string name="primary_failed">Nu s-a putut seta ca principală</string>
+    <string name="photo_deleted">Fotografie ștearsă</string>
+    <string name="delete_photo_failed">Nu s-a putut șterge fotografia</string>
+    <string name="upload_photo_failed">Nu s-a putut încărca fotografia</string>
+    <string name="add_photo">Adaugă fotografie</string>
+    <string name="use_camera">Deschide camera dispozitivului</string>
+    <string name="choose_from_gallery">Alege din galerie</string>
+    <string name="select_existing_photo">Selectează o fotografie existentă</string>
+    <string name="choose_photos">Alege fotografii</string>
+    <string name="take_photo">Fă o fotografie</string>
+    <string name="pet_photo_fullscreen">Fotografie animal pe tot ecranul</string>
+    <string name="view_photo">Vezi fotografia</string>
+    <string name="primary_photo">Fotografie principală</string>
+    <string name="set_as_primary">Setează ca principală</string>
+    <string name="photo_uploading">Se încarcă fotografia\u2026</string>
+    <string name="photo_primary_updated">Fotografia principală a fost actualizată</string>
+    <string name="photo_primary_failed">Nu s-a putut seta fotografia principală</string>
+    <string name="photo_upload_single_failed">Nu s-a putut încărca fotografia</string>
+    <string name="photo_delete_failed">Nu s-a putut șterge fotografia</string>
+    <plurals name="photo_count">
+        <item quantity="one">%d fotografie</item>
+        <item quantity="few">%d fotografii</item>
+        <item quantity="other">%d fotografii</item>
+    </plurals>
+    <plurals name="photos_uploaded">
+        <item quantity="one">%d fotografie încărcată</item>
+        <item quantity="few">%d fotografii încărcate</item>
+        <item quantity="other">%d fotografii încărcate</item>
+    </plurals>
+    <plurals name="photos_upload_failed">
+        <item quantity="one">%d fotografie nu s-a putut încărca</item>
+        <item quantity="few">%d fotografii nu s-au putut încărca</item>
+        <item quantity="other">%d fotografii nu s-au putut încărca</item>
+    </plurals>
+
+    <!-- ============================================ -->
+    <!-- MARK: QR Scanner -->
+    <!-- ============================================ -->
+    <string name="scan_qr_code">Scanează cod QR</string>
+    <string name="scan_qr_subtitle">Îndreaptă camera către eticheta QR a animalului</string>
+    <string name="camera_access_required">Acces la cameră necesar</string>
+    <string name="camera_access_message">Activează accesul la cameră pentru a scana coduri QR</string>
+    <string name="enable_camera">Activează camera</string>
+    <string name="qr_scanned">QR scanat</string>
+    <string name="manual_code_entry">Introdu codul manual</string>
+    <string name="manual_code_label">Cod QR</string>
+    <string name="submit_code">Trimite cod</string>
+    <string name="invalid_qr_code">Introdu un cod valid</string>
+    <string name="turn_off_flashlight">Oprește lanterna</string>
+    <string name="turn_on_flashlight">Pornește lanterna</string>
+    <string name="hello_pet_name">Salut! Sunt %1$s</string>
+    <string name="scanned_tag_thanks">Tocmai ai scanat eticheta mea. Mulțumesc că mă ajuți!</string>
+    <string name="share_location_with_owner">Partajează locația mea cu proprietarul</string>
+    <string name="owner_notified_message">Proprietarul lui %1$s va primi o notificare cu locația ta</string>
+    <string name="share_location_help">Ajută proprietarul lui %1$s să-l găsească partajând locația ta</string>
+    <string name="precise_location">Locație precisă</string>
+    <string name="precise_location_desc">Partajează coordonatele GPS exacte</string>
+    <string name="approximate_location">Locație aproximativă</string>
+    <string name="approximate_location_desc">Partajează cu o precizie de ~500 m (conform GDPR)</string>
+    <string name="dont_share_location">Nu partaja locația</string>
+    <string name="dont_share_location_desc">Doar notifică proprietarul că animalul a fost găsit</string>
+    <string name="confirm_notify_owner">Confirmă și notifică proprietarul</string>
+    <string name="contact_owner">Contactează proprietarul</string>
+    <string name="call_phone">Sună: %1$s</string>
+    <string name="email_contact">E-mail: %1$s</string>
+    <string name="privacy_notice">Confidențialitatea ta contează. Vom partaja locația ta doar cu proprietarul lui %1$s pentru a ajuta la reunire.</string>
+    <string name="found_pet_title">%1$s găsit</string>
+    <string name="share_location">Partajează locația</string>
+    <string name="location_shared">Locație partajată</string>
+    <string name="share_location_failed">Partajarea locației a eșuat</string>
+    <string name="qr_scanner_icon">Scanner QR</string>
+    <string name="privacy_notice_icon">Notificare confidențialitate</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Share Location Flow -->
+    <!-- ============================================ -->
+    <string name="share_help_get_home">Ajută-l pe %1$s să ajungă acasă</string>
+    <string name="share_choose_desc">Alege câtă informație de locație să partajezi cu proprietarul</string>
+    <string name="share_dont_share">Nu partaja</string>
+    <string name="share_dont_share_desc">Doar notifică proprietarul că eticheta a fost scanată</string>
+    <string name="share_approximate">Zonă aproximativă</string>
+    <string name="share_approximate_desc">Partajează zona generală (~500 m)</string>
+    <string name="share_exact">Locație exactă</string>
+    <string name="share_exact_desc">Partajează locația exactă pentru o reunire mai rapidă</string>
+    <string name="share_your_location">Locația ta</string>
+    <string name="share_accuracy">(~500 m precizie)</string>
+    <string name="share_getting_location">Se obține locația\u2026</string>
+    <string name="share_owner_notified">Proprietar notificat!</string>
+    <string name="share_owner_knows">Știe că eticheta animalului a fost scanată</string>
+    <string name="share_on_their_way">Este pe drum!</string>
+    <string name="share_notifying">Se notifică proprietarul\u2026</string>
+    <string name="share_notify_no_location">Notifică proprietarul (fără locație)</string>
+    <string name="share_notify_with_location">Partajează și notifică proprietarul</string>
+    <string name="share_privacy_note">Locația ta exactă nu este stocată niciodată. Doar zona aproximativă este partajată cu proprietarul.</string>
+    <string name="share_found_pet">%1$s găsit!</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Scanner Detail -->
+    <!-- ============================================ -->
+    <string name="scanner_title">Scanează cod QR</string>
+    <string name="scanner_subtitle">Îndreaptă camera către eticheta QR a animalului</string>
+    <string name="scanner_camera_required">Acces la cameră necesar</string>
+    <string name="scanner_camera_message">Activează accesul la cameră în Setări pentru a scana coduri QR</string>
+    <string name="scanner_open_settings">Deschide setările</string>
+    <string name="scanner_greeting">Salut! Sunt %1$s</string>
+    <string name="scanner_scanned_message">Tocmai ai scanat eticheta mea. Mulțumesc că mă ajuți!</string>
+    <string name="scanner_breed">Rasă</string>
+    <string name="scanner_age">Vârstă</string>
+    <string name="scanner_color">Culoare</string>
+    <string name="scanner_share_location">Partajează locația mea cu proprietarul</string>
+    <string name="scanner_owner_notified">Proprietarul a fost notificat că eticheta animalului a fost scanată.</string>
+    <string name="scanner_contact_owner">Contactează proprietarul</string>
+    <string name="scanner_contact_instructions">Contactează proprietarul pentru a-l anunța că ai găsit animalul:</string>
+    <string name="scanner_call">Sună: %1$s</string>
+    <string name="scanner_email">E-mail: %1$s</string>
+    <string name="scanner_owner_location">Locația proprietarului</string>
+    <string name="scanner_medical_info">Informații medicale</string>
+    <string name="scanner_allergies">Alergii</string>
+    <string name="scanner_notes">Note</string>
+    <string name="scanner_how_it_works">Cum funcționează</string>
+    <string name="scanner_step1_title">1. Scanează eticheta</string>
+    <string name="scanner_step1_desc">Ai făcut deja acest pas! Eticheta conține un cod QR unic.</string>
+    <string name="scanner_step2_title">2. Partajează locația</string>
+    <string name="scanner_step2_desc">Atinge butonul de mai sus pentru a partaja unde ai găsit animalul.</string>
+    <string name="scanner_step3_title">3. Contactează proprietarul</string>
+    <string name="scanner_step3_desc">Folosește datele de contact pentru a lua legătura direct cu proprietarul.</string>
+    <string name="scanner_privacy_notice">Locația ta exactă nu este partajată. Este vizibilă doar zona aproximativă (~500 m).</string>
+    <string name="scanner_found_pet">%1$s găsit!</string>
+    <string name="scanner_step1_dynamic_desc">Apasă butonul de mai sus pentru a partaja unde ai găsit %1$s</string>
+    <string name="scanner_step3_dynamic_desc">Rămâi aproape pentru ca proprietarul să te poată găsi pe tine și pe %1$s</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Tag Activation -->
+    <!-- ============================================ -->
+    <string name="tag_activate_title">Activează eticheta</string>
+    <string name="tag_loading_pets">Se încarcă animalele tale\u2026</string>
+    <string name="tag_activated">Etichetă activată!</string>
+    <string name="tag_activated_message">Eticheta lui %1$s este acum activă</string>
+    <string name="tag_choose_plan">Alege un plan de abonament pentru a debloca toate funcțiile pentru animalul tău.</string>
+    <string name="tag_choose_plan_button">Alege plan</string>
+    <string name="tag_skip_for_now">Sari peste</string>
+    <string name="tag_no_pets">Încă nu ai animale</string>
+    <string name="tag_no_pets_message">Adaugă un animal înainte de a activa o etichetă</string>
+    <string name="tag_code_label">Cod etichetă</string>
+    <string name="tag_select_pet">Selectează un animal pentru a-l lega de această etichetă</string>
+    <string name="tag_activating">Se activează\u2026</string>
+    <string name="tag_activate_button">Activează eticheta</string>
+    <string name="tag_link_message">Această etichetă va fi asociată cu animalul selectat</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Plan Selection -->
+    <!-- ============================================ -->
+    <string name="plan_choose_title">Alege planul</string>
+    <string name="plan_tag_activated">Etichetă activată!</string>
+    <string name="plan_choose_subtitle">Alege un plan pentru a debloca toate funcțiile</string>
+    <string name="plan_upgrade_title">Îmbunătățește planul</string>
+    <string name="plan_upgrade_subtitle">Obține mai multe funcții pentru animalele tale</string>
+    <string name="plan_loading">Se încarcă planurile\u2026</string>
+    <string name="plan_failed_to_load">Nu s-au putut încărca planurile</string>
+    <string name="plan_load_failed">Nu s-au putut încărca planurile</string>
+    <string name="plan_choose_your_plan">Alege planul</string>
+    <string name="plan_popular">Popular</string>
+    <string name="plan_current">Planul actual</string>
+    <string name="plan_select_free">Selectează planul gratuit</string>
+    <string name="plan_select">Selectează %1$s</string>
+    <string name="plan_skip_free">Sari peste (Plan gratuit)</string>
+    <string name="plan_all_include">Toate planurile includ:</string>
+    <string name="plan_feature_qr">Etichetă QR pentru animalul tău</string>
+    <string name="plan_feature_profile">Pagina de profil a animalului</string>
+    <string name="plan_feature_scan_notify">Notificări de scanare</string>
+    <string name="plan_paid_add">Planurile plătite oferă în plus:</string>
+    <string name="plan_feature_alerts">Alerte animale dispărute</string>
+    <string name="plan_feature_location">Partajare locație</string>
+    <string name="plan_feature_priority">Suport prioritar</string>
+    <string name="plan_feature_qr_tag">Etichetă QR pentru animalul tău</string>
+    <string name="plan_feature_scan_notif">Notificări instant de scanare</string>
+    <string name="plan_feature_public_profile">Profil public al animalului</string>
+    <string name="plan_feature_secure_storage">Stocare securizată a datelor</string>
+    <string name="plan_feature_lost_alerts">Alerte de animal pierdut către veterinari și comunitate</string>
+    <string name="plan_feature_lost_alerts_short">Alerte animal pierdut</string>
+    <string name="plan_feature_sms">Notificări SMS</string>
+    <string name="plan_feature_photos">Până la 10 fotografii per animal</string>
+    <string name="plan_feature_replacements">Înlocuiri gratuite de etichete</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Alerts -->
+    <!-- ============================================ -->
+    <string name="show_list">Afișează lista</string>
+    <string name="show_map">Afișează harta</string>
+    <string name="unknown_pet">Animal necunoscut</string>
+    <string name="pet_alert">Alertă animal</string>
+    <string name="alert_status">Stare: %1$s</string>
+    <string name="alert_last_seen">Văzut ultima dată: %1$s</string>
+    <string name="alert_info">Info: %1$s</string>
+    <string name="alert_sightings_count">Observații: %1$d</string>
+    <string name="alert_marker">Alertă</string>
+    <string name="loading_alerts">Se încarcă alertele\u2026</string>
+    <string name="failed_load_alerts">Nu s-au putut încărca alertele</string>
+    <string name="no_active_alerts">Nicio alertă activă</string>
+    <string name="no_active_alerts_message">În prezent nu ai alerte pentru animale dispărute</string>
+    <string name="no_found_alerts">Nicio alertă de animale găsite</string>
+    <string name="no_found_alerts_message">Nu au fost găsite animale recent în zona ta</string>
+    <string name="missing_pet_alerts_title">Alerte animale dispărute</string>
+    <string name="create_alert">Creează alertă</string>
+    <string name="create_new_alert">Creează alertă nouă</string>
+    <string name="sighting_count_singular">1 observație</string>
+    <string name="unknown_breed">Rasă necunoscută</string>
+    <string name="last_seen_label">Văzut ultima dată</string>
+    <string name="reported_sightings_count">Observații raportate (%1$d)</string>
+    <string name="report_a_sighting">Raportează o observație</string>
+    <string name="anonymous">Anonim</string>
+    <string name="contact_label">Contact: %1$s</string>
+    <string name="pet_marked_found">%1$s a fost marcat ca găsit!</string>
+    <string name="mark_found_failed_message">Nu s-a putut marca ca găsit: %1$s</string>
+    <plurals name="sighting_count">
+        <item quantity="one">%d observație</item>
+        <item quantity="few">%d observații</item>
+        <item quantity="other">%d observații</item>
+    </plurals>
+
+    <!-- Alerts Tab -->
+    <string name="alerts_loading">Se încarcă alertele\u2026</string>
+    <string name="alerts_missing_pets_title">Alerte animale dispărute</string>
+    <string name="alerts_list">Listă</string>
+    <string name="alerts_map">Hartă</string>
+    <string name="alerts_no_nearby_title">Nicio alertă %1$s în apropiere</string>
+    <string name="alerts_no_nearby_message">Nu există alerte pentru animale %1$s în zona ta acum</string>
+    <string name="alerts_location_required">Locație necesară</string>
+    <string name="alerts_location_required_message">Pentru a vedea alertele din apropiere, activează locația sau adaugă adresa ta.</string>
+    <string name="alerts_enable_location">Activează locația în Setări</string>
+    <string name="alerts_or">SAU</string>
+    <string name="alerts_add_address_profile">Adaugă adresa în profil</string>
+    <string name="alerts_add_my_address">Adaugă adresa mea</string>
+    <string name="alerts_no_missing_nearby">Nicio alertă de animale dispărute în apropiere</string>
+
+    <!-- Alert Status & Details -->
+    <string name="alert_status_missing">Dispărut</string>
+    <string name="alert_status_found">Găsit</string>
+    <string name="alert_missing_since">Dispărut din %1$s</string>
+    <string name="alert_missing_for">Dispărut de %1$s</string>
+    <string name="alert_found_on">Găsit pe %1$s</string>
+    <string name="alert_found_reunited">Găsit și reunificat</string>
+    <string name="alert_mark_found_title">Marchezi %1$s ca găsit?</string>
+    <string name="alert_mark_found_message">Aceasta va închide alerta de dispariție pentru %1$s. Ești sigur?</string>
+    <string name="alert_mark_found_failed">Nu s-a putut marca găsit</string>
+    <string name="alert_marked_found_success">%1$s a fost marcat ca găsit!</string>
+    <string name="alert_mark_found_error">Nu s-a putut marca găsit: %1$s</string>
+    <string name="pet_default">animal</string>
+    <string name="report_found">Raportează găsit</string>
+
+    <!-- Map Annotations -->
+    <string name="map_you">Tu</string>
+    <string name="map_missing_alert">Alertă dispărut</string>
+    <string name="map_found_alert">Alertă găsit</string>
+    <string name="time_less_than_hour">Mai puțin de o oră</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Report Missing / Sighting -->
+    <!-- ============================================ -->
+    <string name="report_missing_title">Raportează %1$s ca dispărut</string>
+    <string name="last_seen_location">Locația unde a fost văzut ultima dată</string>
+    <string name="additional_info">Informații suplimentare</string>
+    <string name="report">Raportează</string>
+    <string name="report_sighting">Raportează observație</string>
+    <string name="report_sighting_prompt">Împărtășește detalii despre unde ai văzut animalul.</string>
+    <string name="notes">Note</string>
+    <string name="sighting_reported">Observație raportată</string>
+    <string name="report_failed">Raportarea a eșuat</string>
+    <string name="sighting_location">Locația observației</string>
+    <string name="use_current_location">Folosește locația curentă</string>
+    <string name="location_captured">Locație capturată din GPS</string>
+    <string name="getting_location">Se obține locația\u2026</string>
+    <string name="create_alert_failed">Nu s-a putut crea alerta</string>
+    <string name="update_alert_failed">Nu s-a putut actualiza alerta</string>
+    <string name="report_sighting_failed">Nu s-a putut raporta observația</string>
+    <string name="report_missing_pet">Raportează animal dispărut</string>
+    <string name="select_pet_to_report">Selectează un animal</string>
+    <string name="add_missing_details">Adaugă detalii despre dispariție</string>
+    <string name="enter_address_or_location">Introdu adresa sau descrierea locației</string>
+    <string name="additional_details">Detalii suplimentare</string>
+    <string name="describe_circumstances">Descrie circumstanțele, trăsăturile distinctive, etc.</string>
+    <string name="report_missing">Raportează dispariția</string>
+    <string name="no_pets_to_report_message">Adaugă un animal înainte de a-l raporta ca dispărut</string>
+    <string name="mark_pet_found">Marchează animal ca găsit</string>
+    <string name="select_pet_to_mark_found">Selectează animalul care a fost găsit</string>
+    <string name="no_missing_pets_message">Nu ai animale marcate ca dispărute</string>
+    <string name="select_pet_header">Selectează animal</string>
+    <string name="no_pets_available">Nu există animale disponibile. Adaugă unul mai întâi.</string>
+    <string name="pet_picker_label">Animal</string>
+    <string name="last_seen_location_header">Locația unde a fost văzut ultima dată</string>
+    <string name="enter_location">Introdu locația</string>
+    <string name="additional_information_header">Informații suplimentare</string>
+    <string name="additional_details_placeholder">Oferă detalii despre când și unde ai văzut ultima dată animalul\u2026</string>
+    <string name="alert_created_success">Alertă de animal dispărut creată cu succes!</string>
+    <string name="alert_queued_offline">Alertă în coadă. Se va sincroniza când ești online.</string>
+    <string name="your_contact_information">Informațiile tale de contact</string>
+    <string name="name_optional">Nume (opțional)</string>
+    <string name="phone_optional">Telefon (opțional)</string>
+    <string name="email_optional">E-mail (opțional)</string>
+    <string name="sighting_reported_success">Observație raportată cu succes!</string>
+    <string name="report_sighting_header">Raportează o observație</string>
+    <string name="report_sighting_help">Ajută la reunirea animalului cu proprietarul împărtășind locul unde l-ai văzut.</string>
+    <string name="share_contact_info">Partajează datele mele de contact</string>
+    <string name="share_contact_info_desc">Permite proprietarului să te contacteze direct</string>
+    <string name="your_name">Numele tău</string>
+    <string name="your_phone_number">Numărul tău de telefon</string>
+    <string name="your_email">E-mailul tău</string>
+    <string name="address_or_description">Adresă sau descriere</string>
+    <string name="where_did_you_see">Unde ai văzut animalul?</string>
+    <string name="sighting_notes_placeholder">Descrie ce ai văzut, starea animalului, direcția de deplasare\u2026</string>
+    <string name="submit_sighting_report">Trimite raportul de observație</string>
+    <string name="sighting_reported_owner_notified">Observație raportată! Proprietarul a fost notificat.</string>
+    <string name="sighting_queued_offline">Observație în coadă - va fi trimisă când ești online.</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Mark Lost/Found Sheet -->
+    <!-- ============================================ -->
+    <string name="mark_pet_found_confirm">Marchezi %1$s ca găsit?</string>
+    <string name="mark_found_confirm_alert">Aceasta va închide alerta de dispariție pentru %1$s. Ești sigur?</string>
+    <string name="notification_center">Centru de notificări</string>
+    <string name="alerts_radius_info">Alertele vor fi trimise în raza de 10 km de această locație</string>
+    <string name="current_location">Locația curentă</string>
+    <string name="tap_get_location">Apasă pentru a obține locația curentă\u2026</string>
+    <string name="using_registered_address">Se folosește adresa ta înregistrată</string>
+    <string name="enter_address_notifications">Introdu adresa pentru notificări</string>
+    <string name="notification_source_current_location">Locația curentă</string>
+    <string name="notification_source_my_address">Adresa mea</string>
+    <string name="notification_source_custom">Personalizat</string>
+    <string name="no_registered_address">Nu s-a găsit nicio adresă înregistrată. Actualizează-ți profilul.</string>
+
+    <!-- Mark Lost Flow -->
+    <string name="location_current">Locația curentă</string>
+    <string name="location_my_address">Adresa mea</string>
+    <string name="location_custom">Adresă personalizată</string>
+    <string name="mark_lost_pet_info">Informații despre animal</string>
+    <string name="mark_lost_last_seen">Locația unde a fost văzut ultima dată</string>
+    <string name="mark_lost_alerts_footer">Alertele vor fi trimise utilizatorilor din apropiere, veterinarilor și adăposturilor pe o rază de 10 km.</string>
+    <string name="mark_lost_getting_location">Se obține locația\u2026</string>
+    <string name="mark_lost_no_address">Nu există adresă înregistrată. Mergi la Profil > Adresă.</string>
+    <string name="mark_lost_address_placeholder">Introdu adresa sau locația</string>
+    <string name="mark_lost_additional_info">Informații suplimentare</string>
+    <string name="mark_lost_additional_placeholder">Descrie când și unde ai văzut ultima dată animalul, ce purta, etc.</string>
+    <string name="mark_lost_sends_to">Această alertă va fi trimisă către:</string>
+    <string name="mark_lost_nearby_owners">Proprietari de animale din apropiere</string>
+    <string name="mark_lost_vet_clinics">Clinici veterinare din zonă</string>
+    <string name="mark_lost_shelters">Adăposturi de animale din apropiere</string>
+    <string name="mark_lost_report">Raportează dispariția</string>
+    <string name="mark_lost_title">Raportează dispariția</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Notifications -->
+    <!-- ============================================ -->
+    <string name="tag_scanned_message">Eticheta lui %1$s a fost scanată la %2$s!</string>
+    <string name="unknown_location">o locație necunoscută</string>
+    <string name="sighting_message_with_location">%1$s a fost văzut la %2$s!</string>
+    <string name="sighting_message_no_location">%1$s a fost văzut!</string>
+    <string name="pet_found_message">Vești bune! %1$s a fost găsit!</string>
+    <string name="notification_tag_scanned_title">%1$s găsit!</string>
+    <string name="notification_sighting_title">%1$s văzut!</string>
+    <string name="notification_pet_found_title">Vești bune!</string>
+    <string name="notification_channel_name">Alerte Pet Safety</string>
+    <string name="notification_channel_tag_scans">Scanări etichetă</string>
+    <string name="notification_channel_tag_scans_desc">Notificări când eticheta animalului tău este scanată</string>
+    <string name="notification_channel_alerts">Alerte animale dispărute</string>
+    <string name="notification_channel_alerts_desc">Notificări pentru animale dispărute în zona ta</string>
+    <string name="notification_channel_sightings">Raportări de observații</string>
+    <string name="notification_channel_sightings_desc">Notificări când animalul tău dispărut este văzut</string>
+    <string name="notification_method_required">Cel puțin un mod de notificare trebuie să fie activ</string>
+
+    <!-- FCM Notification Strings -->
+    <string name="notif_tag_scanned_title">Etichetă scanată</string>
+    <string name="notif_tag_scanned_body">Eticheta lui %1$s a fost scanată!</string>
+    <string name="notif_tag_scanned_body_location">Eticheta lui %1$s a fost scanată! %2$s</string>
+    <string name="notif_missing_pet_title">Animal dispărut în apropiere</string>
+    <string name="notif_missing_pet_body">%1$s este dispărut în %2$s. Fii atent!</string>
+    <string name="notif_pet_found_title">Animal găsit!</string>
+    <string name="notif_pet_found_body">Vești bune! %1$s a fost găsit!</string>
+    <string name="notif_sighting_title">Observație raportată</string>
+    <string name="notif_sighting_body_location">%1$s a fost văzut la %2$s!</string>
+    <string name="notif_sighting_body_no_location">%1$s a fost văzut! Verifică locația observației.</string>
+    <string name="notif_fallback_title">Pet Safety</string>
+    <string name="notif_fallback_pet_name">Animalul tău</string>
+    <string name="notif_fallback_a_pet">Un animal</string>
+    <string name="notif_fallback_your_area">zona ta</string>
+    <string name="notif_location_shared">Locație partajată</string>
+    <string name="notif_location_approximate">Locație aproximativă (~500 m)</string>
+
+    <!-- Notification Action Buttons -->
+    <string name="notif_action_view_area">Vezi zona (~500 m)</string>
+    <string name="notif_action_view_map">Vezi pe hartă</string>
+    <string name="notif_action_get_directions">Obține direcții</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Notification Settings -->
+    <!-- ============================================ -->
+    <string name="notif_channels">Canale de notificare</string>
+    <string name="notif_channels_footer">Alege cum dorești să primești notificări. Cel puțin un mod trebuie să rămână activ.</string>
+    <string name="notif_push">Notificări push</string>
+    <string name="notif_push_desc">Alerte în timp real în aplicație</string>
+    <string name="notif_email">Notificări prin e-mail</string>
+    <string name="notif_email_desc">Alerte detaliate prin e-mail</string>
+    <string name="notif_sms">Notificări SMS</string>
+    <string name="notif_sms_desc">Alerte prin mesaj text</string>
+    <string name="notif_pet_alerts">Alerte animale</string>
+    <string name="notif_pet_alerts_footer">Notificări despre animale dispărute în zona ta</string>
+    <string name="notif_missing_pet_alerts">Alerte animale dispărute</string>
+    <string name="notif_nearby_alerts">Alerte în apropiere (10 km)</string>
+    <string name="notif_account_orders">Cont și comenzi</string>
+    <string name="notif_account_orders_footer">Fii la curent cu activitatea contului și comenzile</string>
+    <string name="notif_order_updates">Actualizări comenzi</string>
+    <string name="notif_account_activity">Activitatea contului</string>
+    <string name="notif_optional_updates">Actualizări opționale</string>
+    <string name="notif_optional_footer">Noutăți, sfaturi și conținut promoțional</string>
+    <string name="notif_product_updates">Actualizări produs</string>
+    <string name="notif_marketing_emails">E-mailuri de marketing</string>
+    <string name="notif_save_changes">Salvează modificările</string>
+    <string name="notif_title">Notificări</string>
+    <string name="notif_saved">Salvat</string>
+    <string name="notif_saved_message">Preferințele de notificare au fost salvate cu succes</string>
+    <string name="notif_critical_footer">Poți modifica aceste setări oricând. Alertele critice despre animalele tale vor fi întotdeauna trimise.</string>
+    <string name="notification_channels">Canale de notificare</string>
+    <string name="notification_preferences_title">Preferințe notificări</string>
+    <string name="notifications">Notificări</string>
+    <string name="push_notifications">Notificări push</string>
+    <string name="push_notifications_subtitle">Primește notificări push pe dispozitiv</string>
+    <string name="email_notifications">Notificări prin e-mail</string>
+    <string name="email_notifications_subtitle">Primește notificări prin e-mail</string>
+    <string name="sms_notifications">Notificări SMS</string>
+    <string name="sms_notifications_subtitle">Primește notificări prin SMS</string>
+    <string name="pet_alerts">Alerte animale</string>
+    <string name="missing_pet_alerts">Alerte animale dispărute</string>
+    <string name="missing_pet_alerts_subtitle">Primește notificări despre animale dispărute în zona ta</string>
+    <string name="nearby_alerts_10km">Alerte în apropiere (10 km)</string>
+    <string name="nearby_alerts_subtitle">Alerte pentru animale în raza de 10 km de locația ta</string>
+    <string name="account_and_orders">Cont și comenzi</string>
+    <string name="order_updates">Actualizări comenzi</string>
+    <string name="order_updates_subtitle">Notificări despre livrare și expediere</string>
+    <string name="account_activity">Activitatea contului</string>
+    <string name="account_activity_subtitle">Notificări de autentificare și securitate</string>
+    <string name="optional_updates">Actualizări opționale</string>
+    <string name="product_updates">Actualizări produs</string>
+    <string name="product_updates_subtitle">Funcții noi și îmbunătățiri</string>
+    <string name="marketing_emails">E-mailuri de marketing</string>
+    <string name="marketing_emails_subtitle">Oferte și promoții</string>
+    <string name="critical_alerts_note">Notă: Alertele critice despre animalele tale vor fi întotdeauna trimise indiferent de aceste setări.</string>
+
+    <!-- Notification Preferences -->
+    <string name="notif_pref_intro">Alege cum dorești să primești actualizări importante despre animalele tale și cont.</string>
+    <string name="notif_pref_methods">Metode de notificare</string>
+    <string name="notif_pref_email">Notificări prin e-mail</string>
+    <string name="notif_pref_email_desc">Primește alerte detaliate prin e-mail</string>
+    <string name="notif_pref_sms">Notificări SMS</string>
+    <string name="notif_pref_sms_desc">Primește alerte prin mesaj text</string>
+    <string name="notif_pref_push">Notificări push</string>
+    <string name="notif_pref_push_desc">Primește alerte în timp real în aplicație</string>
+    <string name="notif_pref_warning">Cel puțin un mod de notificare trebuie să fie activ</string>
+    <string name="notif_pref_save">Salvează modificările</string>
+    <string name="notif_pref_title">Setări notificări</string>
+    <string name="notif_pref_success">Preferințele de notificare au fost salvate cu succes</string>
+    <string name="notif_pref_loading">Se încarcă preferințele\u2026</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Success Stories -->
+    <!-- ============================================ -->
+    <string name="success_stories_title">Povești de succes</string>
+    <string name="share_your_story">Împărtășește-ți povestea</string>
+    <string name="success_story_prompt">Vești bune! %1$s a fost găsit! Vrei să împărtășești povestea de reunire pentru a-i inspira pe alții?</string>
+    <string name="your_story">Povestea ta</string>
+    <string name="story_placeholder">Spune-ne cum v-ați reunit\u2026</string>
+    <string name="share_story">Partajează povestea</string>
+    <string name="story_shared">Povestea a fost partajată cu succes</string>
+    <string name="story_share_failed">Nu s-a putut partaja povestea</string>
+    <string name="loading_success_stories">Se încarcă povești de succes\u2026</string>
+    <string name="success_stories_loading">Se încarcă povești\u2026</string>
+    <string name="no_success_stories">Nu există povești de succes în apropiere</string>
+    <string name="no_success_stories_message">Fii primul care împărtășește o reuniune fericită în zona ta!</string>
+    <string name="found_and_reunited">Găsit și reunificat</string>
+    <string name="distance_km">La %.1f km</string>
+    <string name="missing_since">Dispărut din %1$s</string>
+    <string name="found_on">Găsit %1$s</string>
+    <string name="success_story_marker">Poveste de succes</string>
+    <string name="load_more">Încarcă mai mult</string>
+    <string name="missing_for">Dispărut de %1$s</string>
+    <string name="pet_found_share">%1$s găsit!</string>
+    <string name="reunited_in">Reunit în %1$s</string>
+    <string name="shared_via_pet_safety">Partajat prin aplicația Pet Safety</string>
+    <string name="sighting_reports_desc">Raportări de observații</string>
+
+    <!-- Success Story Time -->
+    <string name="success_just_now">chiar acum</string>
+    <string name="success_day_ago">acum 1 zi</string>
+    <string name="success_days_ago">acum %1$d zile</string>
+    <string name="success_hour_ago">acum 1 oră</string>
+    <string name="success_hours_ago">acum %1$d ore</string>
+    <string name="success_minute_ago">acum 1 minut</string>
+    <string name="success_minutes_ago">acum %1$d minute</string>
+
+    <!-- Success Stories Tab -->
+    <string name="success_tab_title">Povești de succes</string>
+    <string name="success_tab_list">Listă</string>
+    <string name="success_tab_map">Hartă</string>
+
+    <!-- Success Story Prompt -->
+    <string name="story_great_news">Vești bune!</string>
+    <string name="story_post">Publică</string>
+    <string name="story_pet_home">%1$s este acasă!</string>
+    <string name="story_reunited">Reunit!</string>
+    <string name="story_share_prompt">Împărtășește-ți povestea de reunire!</string>
+    <string name="story_inspiration">Povestea ta poate inspira speranță altor proprietari de animale din zona ta.</string>
+    <string name="story_share_button">Partajează povestea mea</string>
+    <string name="story_maybe_later">Poate mai târziu</string>
+    <string name="story_your_story">Povestea ta</string>
+    <string name="story_placeholder_named">Împărtășește cum a fost găsit și reunit %1$s</string>
+    <string name="story_city_optional">Oraș/Zonă (opțional)</string>
+    <string name="story_city_placeholder">ex. București, Sector 1</string>
+    <string name="story_share_publicly">Partajează public</string>
+    <string name="story_share_publicly_desc">Permite altora din apropiere să vadă povestea ta</string>
+    <string name="story_posting">Se publică\u2026</string>
+    <string name="story_share_story">Partajează povestea</string>
+    <string name="story_contact_note">Informațiile tale de contact nu vor fi partajate.</string>
+    <string name="story_posted_success">Povestea ta de succes a fost partajată!</string>
+    <string name="story_share_title">Împărtășește-ți povestea</string>
+    <string name="story_pet_is_home">%1$s este acasă!</string>
+    <string name="story_share_reunion">Împărtășește-ți povestea de reunire!</string>
+    <string name="story_inspire_others">Povestea ta despre %1$s poate inspira alți proprietari de animale.</string>
+    <string name="story_share_my_story">Partajează povestea mea</string>
+    <string name="story_share_how">Împărtășește cum a fost găsit și reunit %1$s</string>
+    <string name="story_privacy_note">Informațiile tale de contact nu vor fi partajate.</string>
+    <string name="story_shared_success">Povestea ta de succes a fost partajată!</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Profile -->
+    <!-- ============================================ -->
+    <string name="profile_title">Cont</string>
+    <string name="account_title">Cont</string>
+    <string name="profile_personal_info">Informații personale</string>
+    <string name="profile_address">Adresă</string>
+    <string name="profile_contacts">Contacte</string>
+    <string name="profile_privacy_mode">Mod confidențialitate</string>
+    <string name="profile_notifications">Notificări</string>
+    <string name="profile_help_support">Ajutor &amp; suport</string>
+    <string name="profile_log_out">Deconectare</string>
+    <string name="profile_logout_confirm">Sigur dorești să te deconectezi?</string>
+    <string name="profile_delete_account">Șterge contul</string>
+    <string name="profile_delete_confirm">Sigur dorești să îți ștergi contul? Această acțiune nu poate fi anulată.</string>
+    <string name="profile_cannot_delete">Contul nu poate fi șters</string>
+    <string name="profile_cannot_delete_message">Marchează toate animalele dispărute ca găsite înainte de a șterge contul.</string>
+    <string name="profile_danger_zone">Zonă periculoasă</string>
+    <string name="profile_deleting">Se șterge\u2026</string>
+    <string name="profile_delete_permanent">Aceasta va șterge permanent contul și toate datele</string>
+    <string name="log_out">Deconectare</string>
+    <string name="personal_information">Informații personale</string>
+    <string name="address">Adresă</string>
+    <string name="contacts">Contacte</string>
+    <string name="privacy_mode">Mod confidențialitate</string>
+    <string name="help_support">Ajutor &amp; suport</string>
+    <string name="danger_zone">ZONĂ PERICULOASĂ</string>
+    <string name="deleting">Se șterge\u2026</string>
+    <string name="delete_account_permanent">Aceasta va șterge permanent contul și toate datele</string>
+    <string name="logout_confirm">Sigur dorești să te deconectezi?</string>
+    <string name="delete_account_full_warning">Această acțiune nu poate fi anulată. Contul tău va fi șters permanent, toate datele personale vor fi eliminate și orice abonamente active vor fi anulate.</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Personal Information -->
+    <!-- ============================================ -->
+    <string name="personal_details">Date personale</string>
+    <string name="personal_first_name">Prenume</string>
+    <string name="personal_first_name_placeholder">Introdu prenumele</string>
+    <string name="personal_last_name">Nume</string>
+    <string name="personal_last_name_placeholder">Introdu numele</string>
+    <string name="personal_email">E-mail</string>
+    <string name="personal_email_placeholder">Introdu e-mailul</string>
+    <string name="personal_phone">Telefon</string>
+    <string name="personal_phone_placeholder">Introdu numărul de telefon</string>
+    <string name="personal_edit_info">Editează informațiile</string>
+    <string name="personal_title">Informații personale</string>
+    <string name="edit_information">Editează informațiile</string>
+    <string name="registered_address">Adresă înregistrată</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Address -->
+    <!-- ============================================ -->
+    <string name="address_details">Detalii adresă</string>
+    <string name="address_details_footer">Adresa ta este folosită pentru livrarea etichetelor și găsirea alertelor din apropiere.</string>
+    <string name="address_street">Stradă și număr</string>
+    <string name="address_street_placeholder">Introdu strada și numărul</string>
+    <string name="address_line2">Linia 2 adresă (opțional)</string>
+    <string name="address_line2_placeholder">Apartament, etaj, etc.</string>
+    <string name="address_city">Oraș / localitate</string>
+    <string name="address_city_placeholder">Introdu orașul sau localitatea</string>
+    <string name="address_postal">Cod poștal</string>
+    <string name="address_postal_placeholder">Introdu codul poștal</string>
+    <string name="address_country">Țară</string>
+    <string name="address_select_country">Selectează țara</string>
+    <string name="address_no_address">Nu există adresă înregistrată</string>
+    <string name="address_add_prompt">Adaugă adresa pentru a activa livrarea și alertele bazate pe locație.</string>
+    <string name="address_add">Adaugă adresă</string>
+    <string name="address_edit">Editează adresă</string>
+    <string name="address_title">Adresă</string>
+    <string name="address_select_country_title">Selectează țara</string>
+    <string name="address_line2_label">Linia 2 adresă</string>
+    <string name="address_postal_label">Cod poștal</string>
+    <string name="street_address">Stradă și număr</string>
+    <string name="address_line_2_optional">Linia 2 adresă (opțional)</string>
+    <string name="city">Oraș</string>
+    <string name="post_code">Cod poștal</string>
+    <string name="country">Țară</string>
+    <string name="street">Stradă</string>
+    <string name="address_updated">Adresă actualizată</string>
+    <string name="address_shipping_footer">Introdu adresa completă pentru livrare și facturare</string>
+    <string name="address_delivery_prompt">Adaugă adresa pentru a permite livrarea etichetelor QR</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Contacts -->
+    <!-- ============================================ -->
+    <string name="contacts_settings">Setări contacte</string>
+    <string name="contacts_info_text">Aceste detalii de contact vor fi afișate când cineva scanează eticheta QR a animalului. Este necesar cel puțin un contact.</string>
+    <string name="contacts_email_section">Adrese de e-mail</string>
+    <string name="contacts_phone_section">Numere de telefon</string>
+    <string name="contacts_edit_title">Editează detaliile de contact</string>
+    <string name="contacts_primary_email">E-mail principal</string>
+    <string name="contacts_primary_email_footer">Acest e-mail va fi afișat când cineva scanează eticheta QR a animalului.</string>
+    <string name="contacts_email_placeholder">Adresă de e-mail</string>
+    <string name="contacts_show_on_tag">Afișează pe etichetă</string>
+    <string name="contacts_secondary_email">E-mail secundar (opțional)</string>
+    <string name="contacts_secondary_email_footer">Un e-mail de rezervă pentru contact.</string>
+    <string name="contacts_secondary_email_placeholder">Adresă de e-mail secundară</string>
+    <string name="contacts_primary_phone">Telefon principal</string>
+    <string name="contacts_primary_phone_footer">Acest număr va fi afișat când cineva scanează eticheta QR a animalului.</string>
+    <string name="contacts_phone_placeholder">Număr de telefon</string>
+    <string name="contacts_secondary_phone">Telefon secundar (opțional)</string>
+    <string name="contacts_secondary_phone_footer">Un telefon de rezervă pentru contact.</string>
+    <string name="contacts_secondary_phone_placeholder">Număr de telefon secundar</string>
+    <string name="contacts_title">Detalii de contact</string>
+    <string name="contacts_primary_badge">PRINCIPAL</string>
+    <string name="contacts_visible_badge">Vizibil pe etichetă</string>
+    <string name="contacts_hidden_badge">Ascuns</string>
+    <string name="contacts_none_added">Niciun %1$s adăugat</string>
+    <string name="email_addresses">Adrese de e-mail</string>
+    <string name="primary_email">E-mail principal</string>
+    <string name="secondary_email_optional">E-mail secundar (opțional)</string>
+    <string name="phone_numbers">Numere de telefon</string>
+    <string name="primary_phone">Telefon principal</string>
+    <string name="show_on_qr_tag">Afișează pe eticheta QR</string>
+    <string name="secondary_phone_optional">Telefon secundar (opțional)</string>
+    <string name="contacts_qr_tag_info">Contactele marcate ca vizibile vor fi afișate pe eticheta QR a animalului atunci când este scanată.</string>
+    <string name="contact_details">Detalii de contact</string>
+    <string name="contacts_coming_soon">În curând</string>
+    <string name="contacts_info_full">Aceste detalii de contact vor fi afișate când cineva scanează eticheta QR a animalului. Poți adăuga până la două adrese de e-mail și numere de telefon.</string>
+    <string name="contacts_primary_email_edit_footer">E-mailul principal al contului</string>
+    <string name="contacts_secondary_email_edit_footer">E-mail de rezervă pentru notificări de recuperare</string>
+    <string name="contacts_primary_phone_edit_footer">Numărul principal de contact</string>
+    <string name="contacts_secondary_phone_edit_footer">Telefon de rezervă pentru urgențe</string>
+    <string name="contacts_visible_on_tag">Vizibil pe etichetă</string>
+    <string name="contacts_no_type_added">Niciun %1$s adăugat</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Contact Visibility -->
+    <!-- ============================================ -->
+    <string name="contact_visibility">Vizibilitatea contactelor</string>
+    <string name="contact_visibility_desc">Controlează ce informații de contact sunt vizibile când se scanează eticheta QR a animalului</string>
+    <string name="show_phone_number">Afișează numărul de telefon</string>
+    <string name="show_phone_subtitle">Numărul tău de telefon va fi vizibil pentru cei care găsesc animalul</string>
+    <string name="show_email_address">Afișează adresa de e-mail</string>
+    <string name="show_email_subtitle">E-mailul tău va fi vizibil pentru cei care găsesc animalul</string>
+    <string name="show_address">Afișează adresa</string>
+    <string name="show_address_subtitle">Adresa ta va fi vizibilă pentru cei care găsesc animalul</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Privacy Mode -->
+    <!-- ============================================ -->
+    <string name="privacy_contact_visibility">Vizibilitatea contactelor</string>
+    <string name="privacy_contact_footer">Controlează ce contacte sunt vizibile când se scanează eticheta QR a animalului.</string>
+    <string name="privacy_show_phone">Afișează numărul de telefon</string>
+    <string name="privacy_show_email">Afișează adresa de e-mail</string>
+    <string name="privacy_show_address">Afișează adresa</string>
+    <string name="privacy_data_privacy">Confidențialitate date</string>
+    <string name="privacy_privacy_policy">Politica de confidențialitate</string>
+    <string name="privacy_data_management">Gestionare date</string>
+    <string name="privacy_title">Mod confidențialitate</string>
+    <string name="privacy_mode_footer">Setările de confidențialitate te ajută să controlezi ce informații sunt partajate când se scanează eticheta QR a animalului.</string>
+    <string name="privacy_policy_title">Politica de confidențialitate</string>
+    <string name="privacy_policy_updated">Ultima actualizare: noiembrie 2024</string>
+    <string name="privacy_policy_section1_title">1. Informații colectate</string>
+    <string name="privacy_policy_section1_body">Colectăm informațiile furnizate direct, inclusiv nume, e-mail, telefon, adresă și informații despre animal. De asemenea, colectăm date de locație când alegi să le partajezi.</string>
+    <string name="privacy_policy_section2_title">2. Cum folosim informațiile</string>
+    <string name="privacy_policy_section2_body">Informațiile tale sunt folosite pentru serviciile de siguranță a animalelor, trimiterea notificărilor și facilitarea reunificărilor.</string>
+    <string name="privacy_policy_section3_title">3. Partajarea informațiilor</string>
+    <string name="privacy_policy_section3_body">Partajăm datele de contact doar conform setărilor de confidențialitate. Locația este partajată doar când alegi explicit.</string>
+    <string name="privacy_policy_section4_title">4. Securitatea datelor</string>
+    <string name="privacy_policy_section4_body">Folosim criptare și măsuri standard din industrie pentru protecția datelor personale.</string>
+    <string name="privacy_policy_section5_title">5. Drepturile tale</string>
+    <string name="privacy_policy_section5_body">Ai dreptul de a accesa, actualiza și șterge datele tale personale în orice moment din setările aplicației.</string>
+    <string name="privacy_your_data">Datele tale</string>
+    <string name="privacy_your_data_footer">Solicită o copie a tuturor datelor personale stocate în sistemul nostru.</string>
+    <string name="privacy_export_data">Exportă datele mele</string>
+    <string name="privacy_deletion_section">Ștergere date</string>
+    <string name="privacy_deletion_footer">Șterge permanent contul tău și toate datele asociate.</string>
+    <string name="privacy_delete_account">Șterge contul meu</string>
+    <string name="privacy_delete_confirm">Sigur dorești să îți ștergi contul? Acest lucru va elimina definitiv toate datele, inclusiv animale, alerte și istoricul comenzilor. Această acțiune nu poate fi anulată.</string>
+    <string name="data_privacy">Confidențialitate date</string>
+    <string name="data_management">Gestionare date</string>
+    <string name="privacy_settings_updated">Setările de confidențialitate au fost actualizate</string>
+    <string name="privacy_settings_failed">Nu s-au putut actualiza setările de confidențialitate</string>
+    <string name="privacy_settings_placeholder">Setările de confidențialitate vor fi disponibile aici.</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Delete Account -->
+    <!-- ============================================ -->
+    <string name="delete_account">Șterge contul</string>
+    <string name="delete_account_warning">Această acțiune nu poate fi anulată. Toate datele tale, inclusiv animale, alerte și fotografii, vor fi șterse definitiv.</string>
+    <string name="delete_account_confirm_prompt">Pentru a confirma, tastează DELETE mai jos:</string>
+    <string name="type_delete_to_confirm">Tastează DELETE</string>
+    <string name="account_deleted">Cont șters</string>
+    <string name="delete_account_failed">Nu s-a putut șterge contul</string>
+    <string name="cannot_delete_account">Contul nu poate fi șters</string>
+    <string name="cannot_delete_missing_pets">Nu poți șterge contul cât timp ai animale marcate ca dispărute. Marchează-le ca găsite mai întâi.</string>
+    <string name="missing_pets_label">Animale dispărute: %1$s</string>
+    <string name="checking_delete_eligibility">Se verifică\u2026</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Help & Support -->
+    <!-- ============================================ -->
+    <string name="help_quick_actions">Acțiuni rapide</string>
+    <string name="help_contact_support">Contactează suportul</string>
+    <string name="help_resources">Resurse</string>
+    <string name="help_faq">Întrebări frecvente</string>
+    <string name="help_user_guides">Ghiduri utilizator</string>
+    <string name="help_legal">Legal</string>
+    <string name="help_terms">Termeni de utilizare</string>
+    <string name="help_privacy">Politica de confidențialitate</string>
+    <string name="help_app_info">Informații despre aplicație</string>
+    <string name="help_version">Versiune</string>
+    <string name="help_build">Build</string>
+    <string name="help_title">Ajutor &amp; suport</string>
+    <string name="help_support_footer">Ai nevoie de ajutor? Echipa noastră de suport este aici pentru tine.</string>
+    <string name="help_category">Categorie</string>
+    <string name="help_subject">Subiect</string>
+    <string name="help_subject_placeholder">Descriere scurtă a problemei</string>
+    <string name="help_message">Mesaj</string>
+    <string name="help_message_placeholder">Descrie problema în detaliu\u2026</string>
+    <string name="help_sending">Se trimite\u2026</string>
+    <string name="help_submit_request">Trimite solicitarea</string>
+    <string name="help_contact_title">Contactează suportul</string>
+    <string name="help_faq_title">FAQ</string>
+    <string name="help_guides_title">Ghiduri utilizator</string>
+    <string name="help_guide_placeholder">Conținutul detaliat al ghidului va fi disponibil aici.</string>
+    <string name="get_help">Obține ajutor</string>
+    <string name="faq">Întrebări frecvente</string>
+    <string name="user_guides">Ghiduri utilizator</string>
+    <string name="legal">Legal</string>
+    <string name="support_response_time">Echipa noastră răspunde de obicei în 24 de ore.</string>
+    <string name="contact_support">Contactează suportul</string>
+    <string name="contact_support_category">Categorie</string>
+    <string name="contact_support_subject">Subiect</string>
+    <string name="contact_support_subject_hint">Descriere scurtă a problemei</string>
+    <string name="contact_support_message">Mesaj</string>
+    <string name="contact_support_message_hint">Descrie problema în detaliu\u2026</string>
+    <string name="contact_support_submit">Trimite</string>
+    <string name="contact_support_sending">Se trimite\u2026</string>
+    <string name="contact_support_success">Solicitare trimisă! ID ticket: %1$s</string>
+    <string name="contact_support_response">Îți vom răspunde în 24 de ore.</string>
+    <string name="support_email">Suport: support@petsafety.eu</string>
+    <string name="support_category_general">General</string>
+    <string name="support_category_technical">Problemă tehnică</string>
+    <string name="support_category_account">Cont</string>
+    <string name="support_category_billing">Facturare</string>
+    <string name="support_category_feature">Cerere funcționalitate</string>
+    <string name="support_category_other">Altele</string>
+    <string name="char_count">%1$d/5000 caractere</string>
+
+    <!-- FAQ Items -->
+    <string name="help_faq_q1">Cum adaug un animal?</string>
+    <string name="help_faq_a1">Mergi la fila Animalele mele și apasă +. Completează datele și salvează.</string>
+    <string name="help_faq_q2">Cum funcționează etichetele QR?</string>
+    <string name="help_faq_a2">Fiecare etichetă QR conține un cod unic legat de profilul animalului tău. Când cineva o scanează, poate vedea informațiile și te poate contacta.</string>
+    <string name="help_faq_q3">Ce se întâmplă când animalul meu este marcat ca dispărut?</string>
+    <string name="help_faq_a3">O alertă este trimisă utilizatorilor Pet Safety din apropiere. Oricine scanează eticheta va fi invitat să își partajeze locația.</string>
+    <string name="help_faq_q4">Cum îmi actualizez informațiile de contact?</string>
+    <string name="help_faq_a4">Mergi la Cont > Contacte pentru a actualiza e-mailurile și telefoanele afișate pe etichetă.</string>
+    <string name="help_faq_q5">Sunt datele mele personale în siguranță?</string>
+    <string name="help_faq_a5">Da. Folosim criptare și servere securizate. Poți controla vizibilitatea în modul de confidențialitate.</string>
+
+    <!-- Guide Items -->
+    <string name="help_guide_getting_started">Introducere</string>
+    <string name="help_guide_managing_pets">Gestionarea animalelor</string>
+    <string name="help_guide_qr_tags">Înțelegerea etichetelor QR</string>
+    <string name="help_guide_missing_pet">Ce să faci dacă animalul tău dispare</string>
+    <string name="help_guide_privacy">Setări de confidențialitate și securitate</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Orders -->
+    <!-- ============================================ -->
+    <string name="orders_title">Comenzi</string>
+    <string name="order_number">Comanda #%1$s</string>
+    <string name="order_total">Total: %1$s</string>
+    <string name="order_tags">Comandă etichete</string>
+    <string name="replace_tag">Înlocuiește eticheta</string>
+    <string name="add_pet_first_replacement">Adaugă un animal înainte de a comanda o etichetă de înlocuire.</string>
+    <string name="order_more_tags_title">Comandă mai multe etichete</string>
+    <string name="add_another_pet">Adaugă alt animal</string>
+    <string name="full_name">Nume complet</string>
+    <string name="place_order">Plasează comanda</string>
+    <string name="order_created_payment_pending">Comandă creată. Plata este în așteptare.</string>
+    <string name="payment_intent_failed">Intenția de plată a eșuat</string>
+    <string name="order_create_failed">Nu s-a putut crea comanda</string>
+    <string name="order_replacement_title">Comandă etichetă de înlocuire</string>
+    <string name="pet_label">Animal: %1$s</string>
+    <string name="order_replacement_button">Comandă înlocuirea</string>
+    <string name="replacement_ordered">Înlocuire comandată</string>
+    <string name="replacement_failed">Nu s-a putut comanda înlocuirea</string>
+    <string name="replacement_order_failed">Nu s-a putut crea comanda de înlocuire</string>
+    <string name="create_payment_intent_failed">Nu s-a putut crea intenția de plată</string>
+    <string name="failed_load_orders">Nu s-au putut încărca comenzile</string>
+    <string name="no_orders">Nu există comenzi</string>
+    <string name="no_orders_message">Nu ai plasat încă nicio comandă</string>
+    <string name="order_id_short">Comanda #%1$s</string>
+    <string name="order_information">Informații comandă</string>
+    <string name="order_id_label">ID comandă</string>
+    <string name="status">Stare</string>
+    <string name="total_amount">Suma totală</string>
+    <string name="order_date">Data comenzii</string>
+    <string name="items">Produse</string>
+    <string name="quantity_label">Cantitate: %1$d</string>
+    <string name="qr_tag_pending">Etichetă QR în așteptare</string>
+    <string name="qr_tag_assigned">Etichetă QR alocată</string>
+    <plurals name="item_count">
+        <item quantity="one">%d articol</item>
+        <item quantity="few">%d articole</item>
+        <item quantity="other">%d articole</item>
+    </plurals>
+
+    <!-- Order More Tags -->
+    <string name="order_more_title">Comandă mai multe etichete</string>
+    <string name="order_more_complete">Comandă completă!</string>
+    <string name="order_more_payment_pending">Comanda ta a fost plasată. Vei primi în curând un e-mail cu instrucțiunile de plată.</string>
+    <string name="order_more_confirmation">Vom expedia etichetele după confirmarea plății.</string>
+    <string name="order_more_pet_names">Numele animalelor</string>
+    <string name="order_more_pet_names_footer">Introdu numele animalelor pentru care vrei etichete. Vom grava fiecare etichetă cu numele animalului.</string>
+    <string name="order_more_pet_name_placeholder">Numele animalului</string>
+    <string name="order_more_add_another">Adaugă alt animal</string>
+    <string name="order_more_your_info">Informațiile tale</string>
+    <string name="order_more_full_name">Nume complet</string>
+    <string name="order_more_email">E-mail</string>
+    <string name="order_more_phone">Telefon</string>
+    <string name="order_more_shipping">Adresă de livrare</string>
+    <string name="order_more_street">Stradă și număr</string>
+    <string name="order_more_street_placeholder">Introdu strada și numărul</string>
+    <string name="order_more_line2">Linia 2 adresă (opțional)</string>
+    <string name="order_more_line2_placeholder">Apartament, etaj, etc.</string>
+    <string name="order_more_city">Oraș</string>
+    <string name="order_more_province">Județ / stat (opțional)</string>
+    <string name="order_more_postal">Cod poștal</string>
+    <string name="order_more_country">Țară</string>
+    <string name="order_more_summary">Rezumat comandă</string>
+    <string name="order_more_tags_count">Etichete (%1$d)</string>
+    <string name="order_more_shipping_cost">Livrare</string>
+    <string name="order_more_total">Total</string>
+    <string name="order_more_creating">Se creează comanda\u2026</string>
+    <string name="order_more_place_order">Plasează comanda</string>
+    <string name="get_qr_tags_subtitle">Obține etichete QR pentru animalele tale</string>
+    <string name="pet_names">Numele animalelor</string>
+    <string name="shipping_address">Adresă de livrare</string>
+    <string name="shipping">Livrare</string>
+    <string name="shipping_price">\u00a33.90</string>
+
+    <!-- Order Replacement Tag -->
+    <string name="order_replace_title">Comandă etichetă de înlocuire</string>
+    <string name="order_replace_complete">Comandă completă!</string>
+    <string name="order_replace_confirmation">Eticheta de înlocuire va fi expediată la adresa furnizată.</string>
+    <string name="order_replace_pet_info">Informații animal</string>
+    <string name="order_replace_important">Informații importante</string>
+    <string name="order_replace_eligible_free">Prima înlocuire este gratuită</string>
+    <string name="order_replace_additional_fee">Înlocuiri suplimentare: %1$s</string>
+    <string name="order_replace_shipping">Adresă de livrare</string>
+    <string name="order_replace_shipping_footer">Vom expedia eticheta de înlocuire la această adresă.</string>
+    <string name="order_replace_street">Stradă și număr</string>
+    <string name="order_replace_street_placeholder">Introdu strada și numărul</string>
+    <string name="order_replace_line2">Linia 2 adresă (opțional)</string>
+    <string name="order_replace_line2_placeholder">Apartament, etaj, etc.</string>
+    <string name="order_replace_city">Oraș</string>
+    <string name="order_replace_postal">Cod poștal</string>
+    <string name="order_replace_country">Țară</string>
+    <string name="order_replace_phone">Telefon (opțional)</string>
+    <string name="order_replace_phone_placeholder">Introdu numărul de telefon</string>
+    <string name="order_replace_creating">Se creează comanda\u2026</string>
+    <string name="order_replace_free_button">Confirmă și comandă eticheta de înlocuire gratuită</string>
+    <string name="order_replace_paid_button">Confirmă și plătește %1$s</string>
+    <string name="replacement_subtitle">Pierdută sau deteriorată? Îți trimitem una nouă</string>
+    <string name="free_replacement">Înlocuire gratuită</string>
+    <string name="replacement_shipping_info">Eticheta de înlocuire va fi expediată în 2\u20133 zile lucrătoare\u2026</string>
+    <string name="order_replace_upgrade_hint">Fă upgrade la Standard sau Ultimate pentru înlocuiri gratuite</string>
+    <string name="order_replace_old_deactivated">Codul QR vechi va fi dezactivat când plasezi această comandă</string>
+    <string name="order_replace_delivery_time">Vei primi noua etichetă în 5-7 zile lucrătoare</string>
+    <string name="order_replace_scan_activate">După ce primești noua etichetă, trebuie să o scanezi pentru activare</string>
+    <string name="order_replace_province">Județ / stat (opțional)</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Subscription / Pricing -->
+    <!-- ============================================ -->
+    <string name="subscription_title">Abonament</string>
+    <string name="subscription_choose_plan">Alege planul</string>
+    <string name="subscription_monthly">Lunar</string>
+    <string name="subscription_yearly">Anual</string>
+    <string name="subscription_popular">Popular</string>
+    <string name="subscription_current_plan">Planul curent</string>
+    <string name="subscription_select">Selectează planul</string>
+    <string name="subscription_max_pets">Max. animale: %1$s</string>
+    <string name="subscription_vet_alerts">Alerte către veterinari &amp; salvare</string>
+    <string name="subscription_sms">Notificări SMS</string>
+    <string name="subscription_community_alerts">Alerte comunitare</string>
+    <string name="subscription_free_replacement">Înlocuire etichetă gratuită</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Billing -->
+    <!-- ============================================ -->
+    <string name="billing_title">Facturare &amp; facturi</string>
+    <string name="billing_manage_subscription">Gestionează abonamentul</string>
+    <string name="billing_manage_description">Schimbă planul, actualizează metoda de plată sau anulează</string>
+    <string name="billing_current_plan">Planul curent</string>
+    <string name="billing_plan_label">Plan</string>
+    <string name="billing_status_label">Stare</string>
+    <string name="billing_invoices">Facturi</string>
+    <string name="billing_no_invoices">Încă nu există facturi</string>
+    <string name="billing_subscription">Abonament</string>
+    <string name="billing_portal_footer">Gestionează abonamentul, metoda de plată și facturarea prin Stripe.</string>
+    <string name="billing_loading_invoices">Se încarcă facturile\u2026</string>
+    <string name="billing_invoice">Factură</string>
+    <string name="billing_unknown">Necunoscut</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Referral -->
+    <!-- ============================================ -->
+    <string name="referral_title">Recomandă unui prieten</string>
+    <string name="referral_loading">Se încarcă\u2026</string>
+    <string name="referral_your_code">Codul tău de recomandare</string>
+    <string name="referral_share_footer">Partajează codul cu prietenii. Când se abonează, amândoi primiți recompense!</string>
+    <string name="referral_how_it_works">Cum funcționează</string>
+    <string name="referral_step_1">Partajează codul tău unic cu prietenii</string>
+    <string name="referral_step_2">Îl folosesc când se abonează la un plan plătit</string>
+    <string name="referral_step_3">Amândoi beneficiați de 2 luni gratuite</string>
+    <string name="referral_history">Istoric recomandări</string>
+    <string name="referral_no_referrals">Încă nu ai recomandări. Partajează codul pentru a începe!</string>
+    <string name="referral_generate">Generează cod de recomandare</string>
+    <string name="referral_copied">Copiat!</string>
+    <string name="referral_copy">Copiază</string>
+    <string name="referral_share">Partajează</string>
+    <string name="referral_pending">În așteptare</string>
+    <string name="referral_share_text">Folosește codul meu de recomandare %1$s pentru 2 luni gratuite la Pet Safety! https://pet-er.app/choose-plan?referral=%2$s</string>
+    <string name="referral_clipboard_label">Cod de recomandare</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Push Notification Prompt -->
+    <!-- ============================================ -->
+    <string name="push_prompt_title">Rămâi conectat</string>
+    <string name="push_prompt_subtitle">Activează notificările pentru a nu rata actualizări importante:</string>
+    <string name="push_prompt_benefit_scan">Alerte instant când eticheta animalului tău este scanată</string>
+    <string name="push_prompt_benefit_sighting">Raportări de observații din comunitate</string>
+    <string name="push_prompt_benefit_found">Află imediat când animalul tău este găsit</string>
+    <string name="push_prompt_benefit_missing">Alerte pentru animale dispărute în zona ta</string>
+    <string name="push_prompt_enable">Activează notificările</string>
+    <string name="push_prompt_later">Poate mai târziu</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Quick Mark Lost/Found -->
+    <!-- ============================================ -->
+    <string name="quick_lost_select_pet">Selectează un animal pentru a-l raporta ca dispărut</string>
+    <string name="quick_lost_all_missing">Toate animalele tale sunt deja marcate ca dispărute.</string>
+    <string name="quick_lost_title">Raportează dispariția</string>
+    <string name="quick_found_select_pet">Selectează un animal pentru a-l marca ca găsit</string>
+    <string name="quick_found_currently_missing">În prezent dispărute</string>
+    <string name="quick_found_no_missing">Nu ai animale dispărute de marcat ca găsite.</string>
+    <string name="quick_found_title">Marchează animal ca găsit</string>
+    <string name="quick_found_mark_failed">Nu s-a putut marca %1$s ca găsit: %2$s</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Breed Picker -->
+    <!-- ============================================ -->
+    <string name="breed_select_title">Selectează rasă</string>
+    <string name="breed_search_placeholder">Caută rase\u2026</string>
+    <string name="breed_no_results">Nu s-au găsit rase</string>
+    <string name="breed_use_custom">Folosește \"%1$s\" ca rasă personalizată</string>
+    <string name="breed_manual_entry">Introdu rasă manual</string>
+    <string name="breed_clear_selection">Șterge selecția</string>
+    <string name="breed_enter_name">Introdu numele rasei</string>
+    <string name="breed_custom">Rasă personalizată</string>
+    <string name="breed_custom_footer">Introdu o rasă personalizată dacă nu este listată</string>
+    <string name="breed_back_to_list">Înapoi la lista de rase</string>
+    <string name="breed_select_optional">Selectează rasă (opțional)</string>
+    <string name="breed_optional">Rasă (opțional)</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Public Pet Profile -->
+    <!-- ============================================ -->
+    <string name="public_profile_preview">Previzualizare profil public</string>
+    <string name="failed_load_profile">Nu s-a putut încărca profilul</string>
+    <string name="public_profile_subtitle">Așa văd ceilalți profilul lui %1$s</string>
+    <string name="owner_notified_sms_email">Proprietarul lui %1$s va primi un SMS și un e-mail cu locația ta</string>
+    <string name="contact_owner_plea">Te rog anunță proprietarul că m-ai găsit\u2026</string>
+    <string name="contact_owner_plea_full">Te rog anunță proprietarul că m-ai găsit. Apasă pe butonul de partajare a locației sau sună la numărul de mai jos.</string>
+    <string name="contact_info_not_set">Datele de contact nu sunt încă setate</string>
+    <string name="contact_info_hidden">Datele de contact sunt ascunse</string>
+    <string name="contact_info_hidden_hint">Datele de contact sunt setate, dar ascunse din setările de confidențialitate. Actualizează în Cont \u2192 Mod confidențialitate.</string>
+    <string name="allergies">Alergii</string>
+    <string name="medications">Medicație</string>
+    <string name="unique_features">Caracteristici unice</string>
+    <string name="behavior_notes">Note comportament</string>
+    <string name="how_it_works">Cum funcționează</string>
+    <string name="help_reunite_pet">Ajută la reunirea în siguranță a lui %1$s cu proprietarul</string>
+    <string name="step_share_location">Partajează locația</string>
+    <string name="step_share_location_desc">Apasă butonul de mai sus pentru a partaja locația cu proprietarul</string>
+    <string name="step_owner_notified">Proprietarul este notificat</string>
+    <string name="step_owner_notified_desc">Proprietarul primește SMS și e-mail cu locația ta</string>
+    <string name="step_quick_reunion">Reunire rapidă</string>
+    <string name="step_quick_reunion_desc">Proprietarul poate naviga către locația ta pentru a-și recupera animalul</string>
+    <string name="step_share_location_desc_public">Apasă butonul de mai sus pentru a partaja unde ai găsit %1$s</string>
+    <string name="step_owner_notified_desc_public">Proprietarul primește un SMS cu locația ta pe Google Maps</string>
+    <string name="step_quick_reunion_desc_public">Rămâi aproape pentru ca proprietarul să te găsească pe tine și pe %1$s</string>
+    <string name="owner_phone_label">Telefon proprietar: %1$s</string>
+    <string name="owner_email_label">E-mail proprietar: %1$s</string>
+    <string name="your_privacy_notice">Confidențialitatea ta contează. Vom partaja locația ta doar cu proprietarul lui %1$s cu consimțământul tău explicit.</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Offline Mode -->
+    <!-- ============================================ -->
+    <string name="offline_mode">Mod offline</string>
+    <string name="syncing">Se sincronizează\u2026</string>
+    <string name="sync_completed">Sincronizare completă</string>
+    <string name="sync_failed">Sincronizare eșuată: %1$s</string>
+    <string name="sync_no_connection">Nu se poate sincroniza: fără internet</string>
+    <string name="pending_changes">Modificări în așteptare</string>
+    <string name="online">Online</string>
+    <string name="offline_changes_sync">Modificările se vor sincroniza când ești online</string>
+    <string name="tap_view_queued_actions">Apasă pentru a vedea acțiunile în coadă</string>
+    <string name="connected">Conectat</string>
+    <string name="sync_now">Sincronizează acum</string>
+    <string name="changes_sync_restored">Modificările se vor sincroniza automat când conexiunea este restabilită.</string>
+    <string name="offline_pending_changes">Modificări în așteptare</string>
+    <string name="offline_online">Online</string>
+    <string name="offline_sync_message">Modificările se vor sincroniza când ești online</string>
+    <string name="offline_tap_to_view">Apasă pentru a vedea acțiunile în coadă</string>
+    <string name="offline_actions_queued">%1$d acțiune(i) în coadă</string>
+    <string name="offline_last_synced">Ultima sincronizare: %1$s</string>
+    <string name="offline_sync_now">Sincronizează acum</string>
+    <string name="offline_last_sync_label">Timp ultima sincronizare</string>
+    <plurals name="queued_actions">
+        <item quantity="one">%d acțiune în coadă</item>
+        <item quantity="few">%d acțiuni în coadă</item>
+        <item quantity="other">%d acțiuni în coadă</item>
+    </plurals>
+
+    <!-- Sync Error Banner -->
+    <string name="sync_actions_failed">%1$d acțiune(i) nu au fost sincronizate</string>
+    <string name="sync_tried_count">Încercat de %1$d ori</string>
+    <string name="sync_retry_all">Reîncearcă toate</string>
+    <string name="sync_dismiss_all">Ignoră toate</string>
+    <string name="sync_syncing">Se sincronizează\u2026</string>
+    <string name="sync_count_failed">%1$d eșuate</string>
+    <string name="sync_count_pending">%1$d în așteptare</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Error / Retry -->
+    <!-- ============================================ -->
+    <string name="error_something_wrong">Ceva nu a mers bine</string>
+    <string name="something_went_wrong">Ceva nu a mers bine</string>
+    <string name="try_again">Încearcă din nou</string>
+    <string name="error_session_expired_message">Sesiunea ta a expirat. Te rugăm să te autentifici din nou.</string>
+    <string name="error_login_failed">Autentificare eșuată</string>
+    <string name="error_verification_failed">Verificare eșuată</string>
+    <string name="error_submit_support">Nu s-a putut trimite solicitarea de suport</string>
+    <string name="error_load_pets">Nu s-au putut încărca animalele</string>
+    <string name="error_refresh_pets">Nu s-au putut actualiza animalele</string>
+    <string name="error_load_alerts">Nu s-au putut încărca alertele</string>
+    <string name="error_load_pet_profile">Nu s-a putut încărca profilul animalului</string>
+    <string name="error_load_stories">Nu s-au putut încărca poveștile</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Map App Picker -->
+    <!-- ============================================ -->
+    <string name="map_approximate_notice">Aceasta este o locație aproximativă (~500 m). Caută în zona din jur.</string>
+    <string name="map_coordinates">Coordonate</string>
+    <string name="map_open_in">Deschide în</string>
+    <string name="map_apple_maps">Apple Maps</string>
+    <string name="map_google_maps">Google Maps</string>
+    <string name="map_waze">Waze</string>
+    <string name="map_pet_location">Locația lui %1$s</string>
+    <string name="location_title">Locația lui %1$s</string>
+    <string name="approximate_location_note">Aceasta este o locație aproximativă (~500 m). Caută în zona din jur.</string>
+    <string name="coordinates_label">Coordonate: %1$s</string>
+    <string name="open_in">Deschide în:</string>
+    <string name="google_maps">Google Maps</string>
+    <string name="waze">Waze</string>
+    <string name="other_maps_app">Altă aplicație de hărți</string>
+    <string name="open_with">Deschide cu\u2026</string>
+    <string name="map_label_pet_location">Locație animal</string>
+    <string name="map_label_tag_scanned">Etichetă animal scanată</string>
+    <string name="map_label_sighting">Observație animal</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: App Info -->
+    <!-- ============================================ -->
+    <string name="app_name_label">Pet Safety</string>
+    <string name="app_version">Versiunea 1.0.0</string>
+    <string name="terms_url">Termeni: https://pet-er.app/terms</string>
+    <string name="privacy_url">Confidențialitate: https://pet-er.app/privacy</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Relative Time -->
+    <!-- ============================================ -->
+    <string name="time_ago_just_now">chiar acum</string>
+    <plurals name="time_ago_days">
+        <item quantity="one">acum %d zi</item>
+        <item quantity="few">acum %d zile</item>
+        <item quantity="other">acum %d zile</item>
+    </plurals>
+    <plurals name="time_ago_hours">
+        <item quantity="one">acum %d oră</item>
+        <item quantity="few">acum %d ore</item>
+        <item quantity="other">acum %d ore</item>
+    </plurals>
+    <plurals name="time_ago_minutes">
+        <item quantity="one">acum %d minut</item>
+        <item quantity="few">acum %d minute</item>
+        <item quantity="other">acum %d minute</item>
+    </plurals>
 </resources>

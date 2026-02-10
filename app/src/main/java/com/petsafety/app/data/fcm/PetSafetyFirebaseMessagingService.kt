@@ -3,6 +3,7 @@ package com.petsafety.app.data.fcm
 import android.util.Log
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
+import com.petsafety.app.R
 import com.petsafety.app.data.notifications.NotificationHelper
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
@@ -65,7 +66,7 @@ class PetSafetyFirebaseMessagingService : FirebaseMessagingService() {
                 // Handle generic notification (fallback to title/body)
                 remoteMessage.notification?.let { notification ->
                     notificationHelper.showNotification(
-                        title = notification.title ?: "Pet Safety",
+                        title = notification.title ?: getString(R.string.notif_fallback_title),
                         body = notification.body ?: ""
                     )
                 }
@@ -74,7 +75,7 @@ class PetSafetyFirebaseMessagingService : FirebaseMessagingService() {
     }
 
     private fun handleTagScannedNotification(data: Map<String, String>) {
-        val petName = data["pet_name"] ?: "Your pet"
+        val petName = data["pet_name"] ?: getString(R.string.notif_fallback_pet_name)
         val scanId = data["scan_id"]
         val petId = data["pet_id"]
         val locationType = data["location_type"] ?: "none"
@@ -83,15 +84,15 @@ class PetSafetyFirebaseMessagingService : FirebaseMessagingService() {
         val address = data["address"]
 
         val locationInfo = when (locationType) {
-            "precise" -> address ?: "Location shared"
-            "approximate" -> "Approximate location (~500m)"
+            "precise" -> address ?: getString(R.string.notif_location_shared)
+            "approximate" -> getString(R.string.notif_location_approximate)
             else -> null
         }
 
         val body = if (locationInfo != null) {
-            "$petName's tag was scanned! $locationInfo"
+            getString(R.string.notif_tag_scanned_body_location, petName, locationInfo)
         } else {
-            "$petName's tag was scanned!"
+            getString(R.string.notif_tag_scanned_body, petName)
         }
 
         val location = if (latitude != null && longitude != null) {
@@ -104,7 +105,7 @@ class PetSafetyFirebaseMessagingService : FirebaseMessagingService() {
         } else null
 
         notificationHelper.showTagScannedNotification(
-            title = "Tag Scanned",
+            title = getString(R.string.notif_tag_scanned_title),
             body = body,
             petId = petId,
             scanId = scanId,
@@ -114,26 +115,26 @@ class PetSafetyFirebaseMessagingService : FirebaseMessagingService() {
     }
 
     private fun handleMissingPetAlert(data: Map<String, String>) {
-        val petName = data["pet_name"] ?: "A pet"
+        val petName = data["pet_name"] ?: getString(R.string.notif_fallback_a_pet)
         val alertId = data["alert_id"]
-        val address = data["address"] ?: "your area"
+        val address = data["address"] ?: getString(R.string.notif_fallback_your_area)
 
         notificationHelper.showMissingPetAlert(
-            title = "Missing Pet Nearby",
-            body = "$petName is missing in $address. Keep an eye out!",
+            title = getString(R.string.notif_missing_pet_title),
+            body = getString(R.string.notif_missing_pet_body, petName, address),
             alertId = alertId,
             petName = petName
         )
     }
 
     private fun handlePetFoundNotification(data: Map<String, String>) {
-        val petName = data["pet_name"] ?: "Your pet"
+        val petName = data["pet_name"] ?: getString(R.string.notif_fallback_pet_name)
         val alertId = data["alert_id"]
         val petId = data["pet_id"]
 
         notificationHelper.showPetFoundNotification(
-            title = "Pet Found!",
-            body = "Great news! $petName has been found!",
+            title = getString(R.string.notif_pet_found_title),
+            body = getString(R.string.notif_pet_found_body, petName),
             petId = petId,
             alertId = alertId,
             petName = petName
@@ -141,7 +142,7 @@ class PetSafetyFirebaseMessagingService : FirebaseMessagingService() {
     }
 
     private fun handleSightingNotification(data: Map<String, String>) {
-        val petName = data["pet_name"] ?: "Your pet"
+        val petName = data["pet_name"] ?: getString(R.string.notif_fallback_pet_name)
         val alertId = data["alert_id"]
         val sightingId = data["sighting_id"]
         val latitude = data["latitude"]?.toDoubleOrNull()
@@ -149,9 +150,9 @@ class PetSafetyFirebaseMessagingService : FirebaseMessagingService() {
         val address = data["address"]
 
         val body = if (address != null) {
-            "$petName was spotted at $address!"
+            getString(R.string.notif_sighting_body_location, petName, address)
         } else {
-            "$petName was spotted! Check the sighting location."
+            getString(R.string.notif_sighting_body_no_location, petName)
         }
 
         val location = if (latitude != null && longitude != null) {
@@ -164,7 +165,7 @@ class PetSafetyFirebaseMessagingService : FirebaseMessagingService() {
         } else null
 
         notificationHelper.showSightingNotification(
-            title = "Sighting Reported",
+            title = getString(R.string.notif_sighting_title),
             body = body,
             alertId = alertId,
             sightingId = sightingId,

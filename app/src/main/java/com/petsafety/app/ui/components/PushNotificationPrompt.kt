@@ -24,8 +24,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.petsafety.app.R
 
 /**
  * Custom pre-permission dialog for push notifications.
@@ -48,7 +50,7 @@ fun PushNotificationPrompt(
         },
         title = {
             Text(
-                text = "Stay Connected",
+                text = stringResource(R.string.push_prompt_title),
                 fontWeight = FontWeight.Bold
             )
         },
@@ -58,24 +60,24 @@ fun PushNotificationPrompt(
                 verticalArrangement = Arrangement.spacedBy(12.dp)
             ) {
                 Text(
-                    text = "Enable notifications to never miss an important update about your pet:",
+                    text = stringResource(R.string.push_prompt_subtitle),
                     style = MaterialTheme.typography.bodyMedium
                 )
                 Spacer(Modifier.height(4.dp))
-                BenefitRow(Icons.Default.QrCodeScanner, "Instant alerts when your pet's tag is scanned")
-                BenefitRow(Icons.Default.RemoveRedEye, "Sighting reports from the community")
-                BenefitRow(Icons.Default.Favorite, "Know immediately when your pet is found")
-                BenefitRow(Icons.Default.Warning, "Missing pet alerts in your area")
+                BenefitRow(Icons.Default.QrCodeScanner, stringResource(R.string.push_prompt_benefit_scan))
+                BenefitRow(Icons.Default.RemoveRedEye, stringResource(R.string.push_prompt_benefit_sighting))
+                BenefitRow(Icons.Default.Favorite, stringResource(R.string.push_prompt_benefit_found))
+                BenefitRow(Icons.Default.Warning, stringResource(R.string.push_prompt_benefit_missing))
             }
         },
         confirmButton = {
             TextButton(onClick = onEnable) {
-                Text("Enable Notifications")
+                Text(stringResource(R.string.push_prompt_enable))
             }
         },
         dismissButton = {
             TextButton(onClick = onDismiss) {
-                Text("Maybe Later")
+                Text(stringResource(R.string.push_prompt_later))
             }
         }
     )

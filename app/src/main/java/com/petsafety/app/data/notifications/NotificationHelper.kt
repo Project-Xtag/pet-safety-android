@@ -171,7 +171,7 @@ class NotificationHelper @Inject constructor(private val context: Context) {
             )
             builder.addAction(
                 R.drawable.ic_notification,
-                if (loc.isApproximate) "View Area (~500m)" else "View on Map",
+                if (loc.isApproximate) context.getString(R.string.notif_action_view_area) else context.getString(R.string.notif_action_view_map),
                 mapPendingIntent
             )
         }
@@ -294,7 +294,7 @@ class NotificationHelper @Inject constructor(private val context: Context) {
             )
             builder.addAction(
                 R.drawable.ic_notification,
-                "Get Directions",
+                context.getString(R.string.notif_action_get_directions),
                 mapPendingIntent
             )
         }
