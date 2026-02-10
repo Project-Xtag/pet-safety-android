@@ -1373,4 +1373,30 @@
         <item quantity="one">%d minute ago</item>
         <item quantity="other">%d minutes ago</item>
     </plurals>
+
+    <!-- ============================================ -->
+    <!-- MARK: Success Stories Reunion -->
+    <!-- ============================================ -->
+    <string name="reunion_template">%1$s has been reunited. After %2$s missing, %3$s was successfully reunited with their family. Thank you to our amazing community for bringing %4$s home!</string>
+    <string name="reunion_template_no_time">%1$s has been reunited with their family! Thank you to our amazing community for bringing %2$s home!</string>
+    <string name="owners_story">Owner\'s story:</string>
+    <string name="some_time">some time</string>
+    <string name="post_to_success_stories">Post to Success Stories</string>
+    <string name="remove_from_success_stories">Remove from Success Stories</string>
+    <string name="removed_from_success_stories">Removed from Success Stories</string>
+    <string name="remove_story_confirm_title">Remove Success Story?</string>
+    <string name="remove_story_confirm_message">This will remove your pet\'s story from the public success stories feed.</string>
+    <string name="remove_story_failed">Failed to remove story</string>
+    <plurals name="time_hours_duration">
+        <item quantity="one">%d hour</item>
+        <item quantity="other">%d hours</item>
+    </plurals>
+    <plurals name="time_days_duration">
+        <item quantity="one">%d day</item>
+        <item quantity="other">%d days</item>
+    </plurals>
+    <plurals name="time_weeks_duration">
+        <item quantity="one">%d week</item>
+        <item quantity="other">%d weeks</item>
+    </plurals>
 </resources>

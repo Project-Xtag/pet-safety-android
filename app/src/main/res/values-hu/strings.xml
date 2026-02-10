@@ -1372,4 +1372,28 @@
         <item quantity="one">%d perce</item>
         <item quantity="other">%d perce</item>
     </plurals>
+
+    <!-- Sikertörténetek újraegyesülés -->
+    <string name="reunion_template">%1$s hazatalált. %2$s eltűnés után %3$s sikeresen újraegyesült családjával. Köszönet csodálatos közösségünknek, amiért hazahozták %4$s-t!</string>
+    <string name="reunion_template_no_time">%1$s újraegyesült családjával! Köszönet csodálatos közösségünknek, amiért hazahozták %2$s-t!</string>
+    <string name="owners_story">A gazdi története:</string>
+    <string name="some_time">egy idő</string>
+    <string name="post_to_success_stories">Közzététel a sikertörténeteknél</string>
+    <string name="remove_from_success_stories">Eltávolítás a sikertörténetekből</string>
+    <string name="removed_from_success_stories">Eltávolítva a sikertörténetekből</string>
+    <string name="remove_story_confirm_title">Sikertörténet eltávolítása?</string>
+    <string name="remove_story_confirm_message">Ezzel eltávolítja kisállata történetét a nyilvános sikertörténetek listájából.</string>
+    <string name="remove_story_failed">Nem sikerült eltávolítani a történetet</string>
+    <plurals name="time_hours_duration">
+        <item quantity="one">%d óra</item>
+        <item quantity="other">%d óra</item>
+    </plurals>
+    <plurals name="time_days_duration">
+        <item quantity="one">%d nap</item>
+        <item quantity="other">%d nap</item>
+    </plurals>
+    <plurals name="time_weeks_duration">
+        <item quantity="one">%d hét</item>
+        <item quantity="other">%d hét</item>
+    </plurals>
 </resources>

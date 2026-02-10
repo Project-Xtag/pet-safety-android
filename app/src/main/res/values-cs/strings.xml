@@ -1381,4 +1381,31 @@
         <item quantity="few">před %d minutami</item>
         <item quantity="other">před %d minutami</item>
     </plurals>
+
+    <!-- Úspěšné příběhy shledání -->
+    <string name="reunion_template">%1$s se vrátil domů. Po %2$s postrádání se %3$s úspěšně shledal se svou rodinou. Děkujeme naší úžasné komunitě za přivedení %4$s domů!</string>
+    <string name="reunion_template_no_time">%1$s se shledal se svou rodinou! Děkujeme naší úžasné komunitě za přivedení %2$s domů!</string>
+    <string name="owners_story">Příběh majitele:</string>
+    <string name="some_time">nějaký čas</string>
+    <string name="post_to_success_stories">Přidat k úspěšným příběhům</string>
+    <string name="remove_from_success_stories">Odstranit z úspěšných příběhů</string>
+    <string name="removed_from_success_stories">Odstraněno z úspěšných příběhů</string>
+    <string name="remove_story_confirm_title">Odstranit úspěšný příběh?</string>
+    <string name="remove_story_confirm_message">Tímto odstraníte příběh vašeho mazlíčka z veřejného seznamu úspěšných příběhů.</string>
+    <string name="remove_story_failed">Nepodařilo se odstranit příběh</string>
+    <plurals name="time_hours_duration">
+        <item quantity="one">%d hodina</item>
+        <item quantity="few">%d hodiny</item>
+        <item quantity="other">%d hodin</item>
+    </plurals>
+    <plurals name="time_days_duration">
+        <item quantity="one">%d den</item>
+        <item quantity="few">%d dny</item>
+        <item quantity="other">%d dní</item>
+    </plurals>
+    <plurals name="time_weeks_duration">
+        <item quantity="one">%d týden</item>
+        <item quantity="few">%d týdny</item>
+        <item quantity="other">%d týdnů</item>
+    </plurals>
 </resources>

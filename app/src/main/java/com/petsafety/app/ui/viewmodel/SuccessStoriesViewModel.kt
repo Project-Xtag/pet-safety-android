@@ -38,6 +38,9 @@ class SuccessStoriesViewModel @Inject constructor(
     private val _currentPage = MutableStateFlow(1)
     val currentPage: StateFlow<Int> = _currentPage.asStateFlow()
 
+    private val _petStories = MutableStateFlow<List<SuccessStory>>(emptyList())
+    val petStories: StateFlow<List<SuccessStory>> = _petStories.asStateFlow()
+
     private var lastLatitude: Double = 51.5074
     private var lastLongitude: Double = -0.1278
     private var lastRadiusKm: Double = 100.0
@@ -79,6 +82,16 @@ class SuccessStoriesViewModel @Inject constructor(
                 _errorMessage.value = ex.localizedMessage
             } finally {
                 _isRefreshing.value = false
+            }
+        }
+    }
+
+    fun fetchStoriesForPet(petId: String) {
+        viewModelScope.launch {
+            try {
+                _petStories.value = repository.getStoriesForPet(petId)
+            } catch (ex: Exception) {
+                _petStories.value = emptyList()
             }
         }
     }

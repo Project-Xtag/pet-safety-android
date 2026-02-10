@@ -1372,4 +1372,28 @@
         <item quantity="one">hace %d minuto</item>
         <item quantity="other">hace %d minutos</item>
     </plurals>
+
+    <!-- Historias de éxito reunión -->
+    <string name="reunion_template">%1$s se ha reunido. Después de %2$s desaparecido, %3$s se reunió exitosamente con su familia. ¡Gracias a nuestra increíble comunidad por traer a %4$s a casa!</string>
+    <string name="reunion_template_no_time">¡%1$s se reunió con su familia! ¡Gracias a nuestra increíble comunidad por traer a %2$s a casa!</string>
+    <string name="owners_story">Historia del dueño:</string>
+    <string name="some_time">algún tiempo</string>
+    <string name="post_to_success_stories">Publicar en historias de éxito</string>
+    <string name="remove_from_success_stories">Eliminar de historias de éxito</string>
+    <string name="removed_from_success_stories">Eliminado de historias de éxito</string>
+    <string name="remove_story_confirm_title">¿Eliminar historia de éxito?</string>
+    <string name="remove_story_confirm_message">Esto eliminará la historia de su mascota de la lista pública de historias de éxito.</string>
+    <string name="remove_story_failed">No se pudo eliminar la historia</string>
+    <plurals name="time_hours_duration">
+        <item quantity="one">%d hora</item>
+        <item quantity="other">%d horas</item>
+    </plurals>
+    <plurals name="time_days_duration">
+        <item quantity="one">%d día</item>
+        <item quantity="other">%d días</item>
+    </plurals>
+    <plurals name="time_weeks_duration">
+        <item quantity="one">%d semana</item>
+        <item quantity="other">%d semanas</item>
+    </plurals>
 </resources>

@@ -1383,4 +1383,31 @@
         <item quantity="few">acum %d minute</item>
         <item quantity="other">acum %d minute</item>
     </plurals>
+
+    <!-- Povești de succes reuniune -->
+    <string name="reunion_template">%1$s s-a reunit. După %2$s dispărut, %3$s s-a reunit cu succes cu familia sa. Mulțumim comunității noastre uimitoare pentru aducerea lui %4$s acasă!</string>
+    <string name="reunion_template_no_time">%1$s s-a reunit cu familia sa! Mulțumim comunității noastre uimitoare pentru aducerea lui %2$s acasă!</string>
+    <string name="owners_story">Povestea proprietarului:</string>
+    <string name="some_time">ceva timp</string>
+    <string name="post_to_success_stories">Publică în poveștile de succes</string>
+    <string name="remove_from_success_stories">Elimină din poveștile de succes</string>
+    <string name="removed_from_success_stories">Eliminat din poveștile de succes</string>
+    <string name="remove_story_confirm_title">Elimini povestea de succes?</string>
+    <string name="remove_story_confirm_message">Aceasta va elimina povestea animalului tău din lista publică de povești de succes.</string>
+    <string name="remove_story_failed">Nu s-a putut elimina povestea</string>
+    <plurals name="time_hours_duration">
+        <item quantity="one">%d oră</item>
+        <item quantity="few">%d ore</item>
+        <item quantity="other">%d ore</item>
+    </plurals>
+    <plurals name="time_days_duration">
+        <item quantity="one">%d zi</item>
+        <item quantity="few">%d zile</item>
+        <item quantity="other">%d zile</item>
+    </plurals>
+    <plurals name="time_weeks_duration">
+        <item quantity="one">%d săptămână</item>
+        <item quantity="few">%d săptămâni</item>
+        <item quantity="other">%d săptămâni</item>
+    </plurals>
 </resources>

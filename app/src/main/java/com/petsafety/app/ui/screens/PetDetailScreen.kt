@@ -81,6 +81,7 @@ import com.petsafety.app.data.model.LocationCoordinate
 import com.petsafety.app.data.model.Pet
 import com.petsafety.app.data.model.User
 import com.petsafety.app.data.network.model.CreateSuccessStoryRequest
+import androidx.compose.material.icons.filled.Favorite
 import com.petsafety.app.ui.components.BrandButton
 import com.petsafety.app.ui.components.NotificationCenterSource
 import com.petsafety.app.ui.components.SuccessStoryDialog
@@ -113,8 +114,17 @@ fun PetDetailScreen(
     var showDeleteConfirmation by remember { mutableStateOf(false) }
     var showCannotDeleteAlert by remember { mutableStateOf(false) }
     var showMarkFoundConfirmation by remember { mutableStateOf(false) }
+    var showRemoveStoryConfirmation by remember { mutableStateOf(false) }
     var isDeleting by remember { mutableStateOf(false) }
     var foundPetName by remember { mutableStateOf("") }
+    val petStories by successStoriesViewModel.petStories.collectAsState()
+    val petSuccessStory = petStories.firstOrNull()
+    val wasPreviouslyMissing = petStories.isNotEmpty()
+
+    // Fetch success stories for this pet on load
+    androidx.compose.runtime.LaunchedEffect(petId) {
+        successStoriesViewModel.fetchStoriesForPet(petId)
+    }
 
     // Extract string resources outside lambdas
     val markedFoundMessage = stringResource(R.string.marked_found_message, pet.name)
@@ -125,6 +135,8 @@ fun PetDetailScreen(
     val storyShareFailedMessage = stringResource(R.string.story_share_failed)
     val petDeletedMessage = stringResource(R.string.pet_deleted, pet.name)
     val deleteFailedMessage = stringResource(R.string.delete_pet_failed)
+    val removedFromStoriesMessage = stringResource(R.string.removed_from_success_stories)
+    val removeStoryFailedMessage = stringResource(R.string.remove_story_failed)
 
     Box(
         modifier = Modifier
@@ -263,6 +275,53 @@ fun PetDetailScreen(
                     Icon(Icons.Default.Warning, contentDescription = null)
                     Spacer(modifier = Modifier.width(8.dp))
                     Text(stringResource(R.string.mark_as_lost), fontWeight = FontWeight.SemiBold)
+                }
+            }
+
+            // Success Story Buttons — only for previously missing pets that are now found
+            if (!pet.isMissing && wasPreviouslyMissing) {
+                Spacer(modifier = Modifier.height(12.dp))
+                if (petSuccessStory != null) {
+                    Button(
+                        onClick = { showRemoveStoryConfirmation = true },
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(horizontal = 16.dp),
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = MaterialTheme.colorScheme.error.copy(alpha = 0.1f),
+                            contentColor = MaterialTheme.colorScheme.error
+                        ),
+                        shape = RoundedCornerShape(14.dp)
+                    ) {
+                        Icon(Icons.Default.Delete, contentDescription = null, modifier = Modifier.size(20.dp))
+                        Spacer(modifier = Modifier.width(8.dp))
+                        Text(
+                            text = stringResource(R.string.remove_from_success_stories),
+                            fontWeight = FontWeight.SemiBold
+                        )
+                    }
+                } else {
+                    Button(
+                        onClick = {
+                            foundPetName = pet.name
+                            showSuccessStoryDialog = true
+                        },
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(horizontal = 16.dp),
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = SuccessGreen,
+                            contentColor = Color.White
+                        ),
+                        shape = RoundedCornerShape(14.dp)
+                    ) {
+                        Icon(Icons.Default.Favorite, contentDescription = null, modifier = Modifier.size(20.dp))
+                        Spacer(modifier = Modifier.width(8.dp))
+                        Text(
+                            text = stringResource(R.string.post_to_success_stories),
+                            fontWeight = FontWeight.SemiBold
+                        )
+                    }
                 }
             }
 
@@ -544,6 +603,41 @@ fun PetDetailScreen(
             },
             dismissButton = {
                 TextButton(onClick = { showMarkFoundConfirmation = false }) {
+                    Text(stringResource(R.string.cancel))
+                }
+            }
+        )
+    }
+
+    if (showRemoveStoryConfirmation) {
+        AlertDialog(
+            onDismissRequest = { showRemoveStoryConfirmation = false },
+            title = { Text(stringResource(R.string.remove_story_confirm_title)) },
+            text = {
+                Text(stringResource(R.string.remove_story_confirm_message))
+            },
+            confirmButton = {
+                TextButton(
+                    onClick = {
+                        showRemoveStoryConfirmation = false
+                        petSuccessStory?.let { story ->
+                            successStoriesViewModel.deleteStory(story.id) { success, message ->
+                                if (success) {
+                                    appStateViewModel.showSuccess(removedFromStoriesMessage)
+                                    successStoriesViewModel.fetchStoriesForPet(petId)
+                                } else {
+                                    appStateViewModel.showError(message ?: removeStoryFailedMessage)
+                                }
+                            }
+                        }
+                    },
+                    colors = ButtonDefaults.textButtonColors(contentColor = MaterialTheme.colorScheme.error)
+                ) {
+                    Text(stringResource(R.string.remove))
+                }
+            },
+            dismissButton = {
+                TextButton(onClick = { showRemoveStoryConfirmation = false }) {
                     Text(stringResource(R.string.cancel))
                 }
             }

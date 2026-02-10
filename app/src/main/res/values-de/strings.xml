@@ -1372,4 +1372,28 @@
         <item quantity="one">vor %d Minute</item>
         <item quantity="other">vor %d Minuten</item>
     </plurals>
+
+    <!-- Erfolgsgeschichten Wiedervereinigung -->
+    <string name="reunion_template">%1$s ist wieder zu Hause. Nach %2$s Vermissung wurde %3$s erfolgreich mit seiner Familie wiedervereinigt. Danke an unsere großartige Gemeinschaft, die %4$s nach Hause gebracht hat!</string>
+    <string name="reunion_template_no_time">%1$s wurde mit seiner Familie wiedervereinigt! Danke an unsere großartige Gemeinschaft, die %2$s nach Hause gebracht hat!</string>
+    <string name="owners_story">Geschichte des Besitzers:</string>
+    <string name="some_time">einige Zeit</string>
+    <string name="post_to_success_stories">Zu Erfolgsgeschichten hinzufügen</string>
+    <string name="remove_from_success_stories">Aus Erfolgsgeschichten entfernen</string>
+    <string name="removed_from_success_stories">Aus Erfolgsgeschichten entfernt</string>
+    <string name="remove_story_confirm_title">Erfolgsgeschichte entfernen?</string>
+    <string name="remove_story_confirm_message">Dadurch wird die Geschichte Ihres Haustieres aus der öffentlichen Liste der Erfolgsgeschichten entfernt.</string>
+    <string name="remove_story_failed">Geschichte konnte nicht entfernt werden</string>
+    <plurals name="time_hours_duration">
+        <item quantity="one">%d Stunde</item>
+        <item quantity="other">%d Stunden</item>
+    </plurals>
+    <plurals name="time_days_duration">
+        <item quantity="one">%d Tag</item>
+        <item quantity="other">%d Tage</item>
+    </plurals>
+    <plurals name="time_weeks_duration">
+        <item quantity="one">%d Woche</item>
+        <item quantity="other">%d Wochen</item>
+    </plurals>
 </resources>

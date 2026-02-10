@@ -54,6 +54,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
+import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.CameraPosition
 import com.google.android.gms.maps.model.LatLng
 import com.google.maps.android.compose.GoogleMap
@@ -358,15 +359,37 @@ private fun SuccessStoryCard(story: SuccessStory) {
                 }
             }
 
-            // Story Text
+            // Reunion Template Text
+            val petName = story.petName ?: ""
+            val timeMissing = computeTimeMissing(story, resources)
+            Text(
+                text = if (story.missingSince != null) {
+                    stringResource(R.string.reunion_template, petName, timeMissing, petName, petName)
+                } else {
+                    stringResource(R.string.reunion_template_no_time, petName, petName)
+                },
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                maxLines = 4,
+                overflow = TextOverflow.Ellipsis
+            )
+
+            // Owner's Story (optional)
             story.storyText?.let { text ->
-                Text(
-                    text = text,
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    maxLines = 3,
-                    overflow = TextOverflow.Ellipsis
-                )
+                Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
+                    Text(
+                        text = stringResource(R.string.owners_story),
+                        style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.SemiBold),
+                        color = MaterialTheme.colorScheme.onSurface
+                    )
+                    Text(
+                        text = text,
+                        style = MaterialTheme.typography.bodySmall.copy(fontStyle = androidx.compose.ui.text.font.FontStyle.Italic),
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        maxLines = 2,
+                        overflow = TextOverflow.Ellipsis
+                    )
+                }
             }
 
             // Time Info
@@ -415,6 +438,7 @@ private fun SuccessStoryCard(story: SuccessStory) {
 
 @Composable
 private fun SuccessStoriesMap(stories: List<SuccessStory>) {
+    val resources = LocalContext.current.resources
     val first = stories.firstOrNull()
     val cameraPositionState = rememberCameraPositionState {
         position = CameraPosition.fromLatLngZoom(
@@ -425,21 +449,145 @@ private fun SuccessStoriesMap(stories: List<SuccessStory>) {
             11f
         )
     }
-    GoogleMap(
-        modifier = Modifier.fillMaxSize(),
-        cameraPositionState = cameraPositionState
-    ) {
-        stories.forEach { story ->
-            val lat = story.reunionLatitude
-            val lng = story.reunionLongitude
-            if (lat != null && lng != null) {
-                Marker(
-                    state = MarkerState(position = LatLng(lat, lng)),
-                    title = story.petName ?: stringResource(R.string.success_story_marker),
-                    snippet = story.reunionCity
-                )
+    var selectedStory by remember { mutableStateOf<SuccessStory?>(null) }
+
+    Box(modifier = Modifier.fillMaxSize()) {
+        GoogleMap(
+            modifier = Modifier.fillMaxSize(),
+            cameraPositionState = cameraPositionState,
+            onMapClick = { selectedStory = null }
+        ) {
+            stories.forEach { story ->
+                val lat = story.reunionLatitude
+                val lng = story.reunionLongitude
+                if (lat != null && lng != null) {
+                    Marker(
+                        state = MarkerState(position = LatLng(lat, lng)),
+                        title = story.petName ?: stringResource(R.string.success_story_marker),
+                        snippet = story.reunionCity,
+                        icon = BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN),
+                        onClick = {
+                            selectedStory = story
+                            true
+                        }
+                    )
+                }
             }
         }
+
+        // Selected story card popup
+        selectedStory?.let { story ->
+            Card(
+                modifier = Modifier
+                    .align(Alignment.BottomCenter)
+                    .padding(16.dp)
+                    .fillMaxWidth(),
+                shape = RoundedCornerShape(16.dp),
+                elevation = CardDefaults.cardElevation(defaultElevation = 8.dp)
+            ) {
+                Row(
+                    modifier = Modifier.padding(12.dp),
+                    horizontalArrangement = Arrangement.spacedBy(12.dp)
+                ) {
+                    // Pet Photo
+                    Box(
+                        modifier = Modifier
+                            .size(70.dp)
+                            .clip(RoundedCornerShape(12.dp))
+                            .background(TealAccent.copy(alpha = 0.2f)),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        if (!story.petPhotoUrl.isNullOrBlank()) {
+                            AsyncImage(
+                                model = story.petPhotoUrl,
+                                contentDescription = story.petName,
+                                modifier = Modifier.fillMaxSize(),
+                                contentScale = ContentScale.Crop
+                            )
+                        } else {
+                            Icon(
+                                imageVector = Icons.Default.Favorite,
+                                contentDescription = null,
+                                modifier = Modifier.size(28.dp),
+                                tint = Color.White
+                            )
+                        }
+                    }
+
+                    Column(
+                        modifier = Modifier.weight(1f),
+                        verticalArrangement = Arrangement.spacedBy(4.dp)
+                    ) {
+                        story.petName?.let {
+                            Text(
+                                text = it,
+                                style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold)
+                            )
+                        }
+                        Row(
+                            modifier = Modifier
+                                .background(TealAccent.copy(alpha = 0.1f), RoundedCornerShape(6.dp))
+                                .padding(horizontal = 8.dp, vertical = 2.dp),
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.spacedBy(4.dp)
+                        ) {
+                            Icon(Icons.Default.CheckCircle, null, Modifier.size(12.dp), tint = TealAccent)
+                            Text(
+                                stringResource(R.string.found_and_reunited),
+                                style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.SemiBold),
+                                color = TealAccent
+                            )
+                        }
+                        story.reunionCity?.let { city ->
+                            Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(4.dp)) {
+                                Icon(Icons.Default.LocationOn, null, Modifier.size(12.dp), tint = MaterialTheme.colorScheme.onSurfaceVariant)
+                                Text(city, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                            }
+                        }
+                        // Reunion text
+                        val petName = story.petName ?: ""
+                        val timeMissing = computeTimeMissing(story, resources)
+                        Text(
+                            text = if (story.missingSince != null) {
+                                stringResource(R.string.reunion_template, petName, timeMissing, petName, petName)
+                            } else {
+                                stringResource(R.string.reunion_template_no_time, petName, petName)
+                            },
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            maxLines = 2,
+                            overflow = TextOverflow.Ellipsis
+                        )
+                    }
+                }
+            }
+        }
+    }
+}
+
+private fun computeTimeMissing(story: SuccessStory, resources: Resources): String {
+    val missingSince = story.missingSince ?: return resources.getString(R.string.some_time)
+    return try {
+        val inputFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.getDefault())
+        val missingDate = inputFormat.parse(missingSince.take(19))
+        val foundDate = inputFormat.parse(story.foundAt.take(19))
+        if (missingDate != null && foundDate != null) {
+            val diffMs = foundDate.time - missingDate.time
+            val diffDays = TimeUnit.MILLISECONDS.toDays(diffMs).toInt()
+            val diffHours = TimeUnit.MILLISECONDS.toHours(diffMs).toInt()
+            when {
+                diffDays == 0 -> resources.getQuantityString(R.plurals.time_hours_duration, maxOf(1, diffHours), maxOf(1, diffHours))
+                diffDays < 7 -> resources.getQuantityString(R.plurals.time_days_duration, diffDays, diffDays)
+                else -> {
+                    val weeks = diffDays / 7
+                    resources.getQuantityString(R.plurals.time_weeks_duration, weeks, weeks)
+                }
+            }
+        } else {
+            resources.getString(R.string.some_time)
+        }
+    } catch (e: Exception) {
+        resources.getString(R.string.some_time)
     }
 }
 
