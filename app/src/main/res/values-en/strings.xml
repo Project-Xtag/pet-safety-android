@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Pet Safety</string>
-    <!--
-        Google Maps API key is injected via build.gradle.kts from:
-        1. local.properties (for local development - add GOOGLE_MAPS_API_KEY=your_key)
-        2. Environment variable GOOGLE_MAPS_API_KEY (for CI/CD)
-
-        DO NOT commit actual API keys to this file!
-
-        This fallback value is used when no key is configured (maps won't work)
-    -->
-    <string name="google_maps_key" translatable="false" tools:ignore="UnusedResources">MISSING_API_KEY</string>
+    <!-- Google Maps API key is injected via build.gradle.kts resValue from local.properties or env var -->
 
     <!-- ============================================ -->
     <!-- MARK: Common -->
@@ -1378,13 +1369,13 @@
     <!-- Success Stories Reunion -->
     <string name="reunion_template">%1$s has been reunited. After %2$s missing, %3$s was successfully reunited with their family. Thank you to our amazing community for bringing %4$s home!</string>
     <string name="reunion_template_no_time">%1$s has been reunited with their family! Thank you to our amazing community for bringing %2$s home!</string>
-    <string name="owners_story">Owner's story:</string>
+    <string name="owners_story">Owner\'s story:</string>
     <string name="some_time">some time</string>
     <string name="post_to_success_stories">Post to Success Stories</string>
     <string name="remove_from_success_stories">Remove from Success Stories</string>
     <string name="removed_from_success_stories">Removed from Success Stories</string>
     <string name="remove_story_confirm_title">Remove Success Story?</string>
-    <string name="remove_story_confirm_message">This will remove your pet's story from the public success stories feed.</string>
+    <string name="remove_story_confirm_message">This will remove your pet\'s story from the public success stories feed.</string>
     <string name="remove_story_failed">Failed to remove story</string>
     <plurals name="time_hours_duration">
         <item quantity="one">%d hour</item>

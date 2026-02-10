@@ -57,6 +57,7 @@ fun MainTabScaffold(
     val context = LocalContext.current
     val tabs = listOf(TabItem.Pets, TabItem.Scan, TabItem.Alerts, TabItem.Profile)
     var selectedTab by remember { mutableStateOf<TabItem>(TabItem.Pets) }
+    var alertsInitialTab by remember { mutableStateOf(0) }
 
     // Custom pre-permission dialog state
     var showPushPrompt by rememberSaveable { mutableStateOf(false) }
@@ -136,6 +137,11 @@ fun MainTabScaffold(
             authViewModel = authViewModel,
             pendingQrCode = pendingQrCode,
             onQrCodeHandled = onQrCodeHandled,
+            alertsInitialTab = alertsInitialTab,
+            onNavigateToSuccessStories = {
+                alertsInitialTab = 1
+                selectedTab = TabItem.Alerts
+            },
             modifier = Modifier.padding(innerPadding)
         )
     }
@@ -148,18 +154,20 @@ private fun TabContent(
     authViewModel: AuthViewModel,
     pendingQrCode: String?,
     onQrCodeHandled: () -> Unit,
+    alertsInitialTab: Int = 0,
+    onNavigateToSuccessStories: () -> Unit = {},
     modifier: Modifier = Modifier
 ) {
     Crossfade(targetState = selectedTab, animationSpec = tween(200)) {
         when (it) {
-            TabItem.Pets -> PetsScreen(appStateViewModel, authViewModel, modifier)
+            TabItem.Pets -> PetsScreen(appStateViewModel, authViewModel, modifier, onNavigateToSuccessStories)
             TabItem.Scan -> QrScannerScreen(
                 appStateViewModel = appStateViewModel,
                 pendingQrCode = pendingQrCode,
                 onQrCodeHandled = onQrCodeHandled,
                 modifier = modifier
             )
-            TabItem.Alerts -> AlertsTabScreen(appStateViewModel, authViewModel, modifier)
+            TabItem.Alerts -> AlertsTabScreen(appStateViewModel, authViewModel, modifier, alertsInitialTab)
             TabItem.Profile -> ProfileScreen(appStateViewModel, authViewModel, modifier)
         }
     }

@@ -3,9 +3,17 @@ package com.petsafety.app.ui.screens
 import android.Manifest
 import android.annotation.SuppressLint
 import android.content.pm.PackageManager
+import android.graphics.Bitmap
+import android.graphics.BitmapShader
+import android.graphics.Canvas
+import android.graphics.Paint
+import android.graphics.Shader
+import android.graphics.drawable.BitmapDrawable
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.background
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -26,7 +34,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.LocationOn
 import androidx.compose.material.icons.filled.MyLocation
 import androidx.compose.material.icons.filled.Pets
-import androidx.compose.material.icons.filled.Visibility
+import androidx.compose.material.icons.filled.Schedule
 import androidx.compose.material.icons.filled.Warning
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
@@ -35,7 +43,9 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
@@ -43,14 +53,17 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.pulltorefresh.PullToRefreshBox
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateMapOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
@@ -62,42 +75,76 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.content.ContextCompat
+import coil.ImageLoader
 import coil.compose.AsyncImage
+import coil.request.ImageRequest
 import com.google.android.gms.location.LocationServices
+import com.google.android.gms.maps.model.BitmapDescriptor
+import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.CameraPosition
 import com.google.android.gms.maps.model.LatLng
 import com.google.maps.android.compose.GoogleMap
 import com.google.maps.android.compose.Marker
 import com.google.maps.android.compose.MarkerState
+import com.google.maps.android.compose.MapUiSettings
 import com.google.maps.android.compose.rememberCameraPositionState
 import com.petsafety.app.R
 import com.petsafety.app.data.model.LocationCoordinate
 import com.petsafety.app.data.model.MissingPetAlert
 import com.petsafety.app.ui.components.ErrorRetryState
 import com.petsafety.app.ui.theme.BrandOrange
-import com.petsafety.app.ui.theme.InfoBlue
 import com.petsafety.app.ui.theme.SuccessGreen
 import com.petsafety.app.ui.theme.TealAccent
 import com.petsafety.app.ui.viewmodel.AlertsViewModel
 import com.petsafety.app.ui.viewmodel.AppStateViewModel
+import com.petsafety.app.ui.viewmodel.AuthViewModel
+import android.content.res.Resources
+import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.clickable
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
+import androidx.compose.material.icons.filled.CheckCircle
+import com.petsafety.app.data.repository.LocationConsent
+import com.petsafety.app.ui.viewmodel.QrScannerViewModel
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
+import java.util.concurrent.TimeUnit
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MissingAlertsScreen(
     viewModel: AlertsViewModel,
     appStateViewModel: AppStateViewModel,
+    authViewModel: AuthViewModel,
+    qrScannerViewModel: QrScannerViewModel,
     userLocation: LatLng? = null
 ) {
     val alerts by viewModel.missingAlerts.collectAsState()
     val isRefreshing by viewModel.isRefreshing.collectAsState()
     val isLoading by viewModel.isLoading.collectAsState()
     val error by viewModel.errorMessage.collectAsState()
+    val currentUser by authViewModel.currentUser.collectAsState()
     var showMap by remember { mutableStateOf(false) }
     var selectedAlert by remember { mutableStateOf<MissingPetAlert?>(null) }
+    var mapDetailAlert by remember { mutableStateOf<MissingPetAlert?>(null) }
     var showReport by remember { mutableStateOf(false) }
 
     val sightingReportedMessage = stringResource(R.string.sighting_reported)
     val reportFailedMessage = stringResource(R.string.report_failed)
+
+    // Full detail screen when a map marker is tapped
+    mapDetailAlert?.let { alert ->
+        AlertDetailScreen(
+            alert = alert,
+            currentUserId = currentUser?.id,
+            viewModel = viewModel,
+            qrScannerViewModel = qrScannerViewModel,
+            appStateViewModel = appStateViewModel,
+            onBack = { mapDetailAlert = null }
+        )
+        return
+    }
 
     Box(
         modifier = Modifier
@@ -153,8 +200,7 @@ fun MissingAlertsScreen(
                 }
                 alerts.isEmpty() -> {
                     if (showMap) {
-                        // Show map centered on user location even with no alerts
-                        AlertsMap(alerts = emptyList(), userLocation = userLocation)
+                        AlertsMap(alerts = emptyList(), userLocation = userLocation, onAlertSelected = {})
                     } else {
                         EmptyAlertsState(
                             title = stringResource(R.string.no_active_alerts),
@@ -169,7 +215,7 @@ fun MissingAlertsScreen(
                         modifier = Modifier.weight(1f)
                     ) {
                         if (showMap) {
-                            AlertsMap(alerts = alerts, userLocation = userLocation)
+                            AlertsMap(alerts = alerts, userLocation = userLocation, onAlertSelected = { mapDetailAlert = it })
                         } else {
                             AlertsList(alerts) { selectedAlert = it }
                         }
@@ -179,6 +225,7 @@ fun MissingAlertsScreen(
         }
     }
 
+    // List view dialog (unchanged)
     selectedAlert?.let { alert ->
         AlertDetailDialog(
             alert = alert,
@@ -286,7 +333,7 @@ fun FoundAlertsScreen(
                         modifier = Modifier.weight(1f)
                     ) {
                         if (showMap) {
-                            AlertsMap(alerts)
+                            AlertsMap(alerts = alerts, onAlertSelected = { selectedAlert = it })
                         } else {
                             AlertsList(alerts) { selectedAlert = it }
                         }
@@ -372,12 +419,6 @@ private fun AlertCard(
     alert: MissingPetAlert,
     onClick: () -> Unit
 ) {
-    val statusColor = when (alert.status) {
-        "active" -> MaterialTheme.colorScheme.error
-        "found" -> SuccessGreen
-        else -> MaterialTheme.colorScheme.outline
-    }
-
     Card(
         onClick = onClick,
         modifier = Modifier.fillMaxWidth(),
@@ -385,111 +426,161 @@ private fun AlertCard(
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
     ) {
-        Row(
+        Column(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(16.dp),
-            horizontalArrangement = Arrangement.spacedBy(16.dp)
+            verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
-            // Pet Photo
-            Box(
-                modifier = Modifier
-                    .size(70.dp)
-                    .clip(RoundedCornerShape(12.dp))
-                    .background(statusColor.copy(alpha = 0.2f)),
-                contentAlignment = Alignment.Center
+            // Top section: Photo + Info + Chevron
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(16.dp),
+                verticalAlignment = Alignment.Top
             ) {
-                alert.pet?.let { pet ->
-                    if (!pet.profileImage.isNullOrBlank()) {
+                // Pet Photo — 80dp to match iOS
+                Box(
+                    modifier = Modifier
+                        .size(80.dp)
+                        .clip(RoundedCornerShape(12.dp))
+                        .background(Color.Red.copy(alpha = 0.2f)),
+                    contentAlignment = Alignment.Center
+                ) {
+                    if (!alert.resolvedPetPhoto.isNullOrBlank()) {
                         AsyncImage(
-                            model = pet.profileImage,
-                            contentDescription = pet.name,
+                            model = alert.resolvedPetPhoto,
+                            contentDescription = alert.resolvedPetName,
                             modifier = Modifier.fillMaxSize(),
                             contentScale = ContentScale.Crop
                         )
                     } else {
                         Icon(
                             imageVector = Icons.Default.Pets,
-                            contentDescription = stringResource(R.string.pet_photo),
-                            modifier = Modifier.size(28.dp),
-                            tint = MaterialTheme.colorScheme.onPrimary
+                            contentDescription = null,
+                            modifier = Modifier.size(32.dp),
+                            tint = Color.White
                         )
                     }
-                } ?: Icon(
-                    imageVector = Icons.Default.Pets,
-                    contentDescription = stringResource(R.string.pet_photo),
-                    modifier = Modifier.size(28.dp),
-                    tint = MaterialTheme.colorScheme.onPrimary
+                }
+
+                Column(
+                    modifier = Modifier.weight(1f),
+                    verticalArrangement = Arrangement.spacedBy(6.dp)
+                ) {
+                    // Pet Name
+                    Text(
+                        text = alert.resolvedPetName ?: stringResource(R.string.unknown_pet),
+                        style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold),
+                        color = MaterialTheme.colorScheme.onSurface
+                    )
+
+                    // Species + Breed
+                    val speciesBreed = buildList {
+                        alert.resolvedSpecies?.let { add(it) }
+                        alert.breed?.let { add(it) }
+                    }.joinToString(" \u2022 ")
+                    if (speciesBreed.isNotBlank()) {
+                        Text(
+                            text = speciesBreed,
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                        )
+                    }
+
+                    // Missing Badge
+                    Row(
+                        modifier = Modifier
+                            .background(Color.Red.copy(alpha = 0.1f), RoundedCornerShape(6.dp))
+                            .padding(horizontal = 8.dp, vertical = 4.dp),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.spacedBy(4.dp)
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.Warning,
+                            contentDescription = null,
+                            modifier = Modifier.size(12.dp),
+                            tint = Color.Red
+                        )
+                        Text(
+                            text = stringResource(R.string.alert_status_missing),
+                            style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.SemiBold),
+                            color = Color.Red
+                        )
+                    }
+
+                    // Missing Since
+                    alert.createdAt?.let { dateStr ->
+                        val formattedDate = formatDateAbbreviated(dateStr)
+                        if (formattedDate.isNotBlank()) {
+                            Text(
+                                text = stringResource(R.string.alert_missing_since, formattedDate),
+                                style = MaterialTheme.typography.bodySmall,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
+                            )
+                        }
+                    }
+
+                    // Location
+                    alert.resolvedLastSeenLocation?.let { location ->
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.spacedBy(4.dp)
+                        ) {
+                            Icon(
+                                imageVector = Icons.Default.LocationOn,
+                                contentDescription = null,
+                                modifier = Modifier.size(14.dp),
+                                tint = MaterialTheme.colorScheme.onSurfaceVariant
+                            )
+                            Text(
+                                text = location,
+                                style = MaterialTheme.typography.bodySmall,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                maxLines = 1,
+                                overflow = TextOverflow.Ellipsis
+                            )
+                        }
+                    }
+
+                    // Distance
+                    alert.distanceKm?.let { distance ->
+                        Text(
+                            text = stringResource(R.string.distance_km, distance),
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                        )
+                    }
+                }
+
+                // Chevron
+                Icon(
+                    imageVector = Icons.AutoMirrored.Filled.KeyboardArrowRight,
+                    contentDescription = null,
+                    modifier = Modifier.size(20.dp),
+                    tint = MaterialTheme.colorScheme.onSurfaceVariant
                 )
             }
 
-            Column(
-                modifier = Modifier.weight(1f),
-                verticalArrangement = Arrangement.spacedBy(4.dp)
-            ) {
-                // Pet Name
-                Text(
-                    text = alert.pet?.name ?: stringResource(R.string.unknown_pet),
-                    style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold),
-                    color = MaterialTheme.colorScheme.onSurface
-                )
-
-                // Status Badge
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    Box(
-                        modifier = Modifier
-                            .size(8.dp)
-                            .background(statusColor, CircleShape)
-                    )
-                    Spacer(modifier = Modifier.width(6.dp))
+            // Additional info / description (truncated)
+            alert.additionalInfo?.let { info ->
+                if (info.isNotBlank()) {
                     Text(
-                        text = alert.status.replaceFirstChar { it.uppercase() },
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = statusColor
+                        text = info,
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        maxLines = 2,
+                        overflow = TextOverflow.Ellipsis
                     )
                 }
+            }
 
-                // Location
-                alert.resolvedLastSeenLocation?.let { location ->
-                    Row(
-                        verticalAlignment = Alignment.CenterVertically,
-                        horizontalArrangement = Arrangement.spacedBy(4.dp)
-                    ) {
-                        Icon(
-                            imageVector = Icons.Default.LocationOn,
-                            contentDescription = stringResource(R.string.last_seen_location),
-                            modifier = Modifier.size(14.dp),
-                            tint = MaterialTheme.colorScheme.onSurfaceVariant
-                        )
-                        Text(
-                            text = location,
-                            style = MaterialTheme.typography.bodySmall,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant,
-                            maxLines = 1,
-                            overflow = TextOverflow.Ellipsis
-                        )
-                    }
-                }
-
-                // Sightings Count
-                if (!alert.sightings.isNullOrEmpty()) {
-                    Row(
-                        verticalAlignment = Alignment.CenterVertically,
-                        horizontalArrangement = Arrangement.spacedBy(4.dp)
-                    ) {
-                        Icon(
-                            imageVector = Icons.Default.Visibility,
-                            contentDescription = stringResource(R.string.sighting_reports_desc),
-                            modifier = Modifier.size(14.dp),
-                            tint = InfoBlue
-                        )
-                        Text(
-                            text = pluralStringResource(R.plurals.sighting_count, alert.sightings.size, alert.sightings.size),
-                            style = MaterialTheme.typography.bodySmall,
-                            color = InfoBlue
-                        )
-                    }
-                }
+            // Sightings count
+            if (!alert.sightings.isNullOrEmpty()) {
+                Text(
+                    text = pluralStringResource(R.plurals.sighting_count, alert.sightings.size, alert.sightings.size),
+                    style = MaterialTheme.typography.bodySmall.copy(fontWeight = FontWeight.SemiBold),
+                    color = BrandOrange
+                )
             }
         }
     }
@@ -501,16 +592,176 @@ private fun AlertDetailDialog(
     onDismiss: () -> Unit,
     onReportSighting: (() -> Unit)?
 ) {
+    val resources = LocalContext.current.resources
     AlertDialog(
         onDismissRequest = onDismiss,
-        title = { Text(alert.pet?.name ?: stringResource(R.string.pet_alert)) },
+        title = null,
         text = {
-            Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                Text(stringResource(R.string.alert_status, alert.status))
-                alert.resolvedLastSeenLocation?.let { Text(stringResource(R.string.alert_last_seen, it)) }
-                alert.additionalInfo?.let { Text(stringResource(R.string.alert_info, it)) }
+            Column(
+                verticalArrangement = Arrangement.spacedBy(12.dp),
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                // Photo + Name + Badge header
+                Row(
+                    horizontalArrangement = Arrangement.spacedBy(12.dp),
+                    verticalAlignment = Alignment.Top
+                ) {
+                    Box(
+                        modifier = Modifier
+                            .size(90.dp)
+                            .clip(RoundedCornerShape(12.dp))
+                            .background(Color.Red.copy(alpha = 0.2f)),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        if (!alert.resolvedPetPhoto.isNullOrBlank()) {
+                            AsyncImage(
+                                model = alert.resolvedPetPhoto,
+                                contentDescription = alert.resolvedPetName,
+                                modifier = Modifier.fillMaxSize(),
+                                contentScale = ContentScale.Crop
+                            )
+                        } else {
+                            Icon(
+                                imageVector = Icons.Default.Pets,
+                                contentDescription = null,
+                                modifier = Modifier.size(36.dp),
+                                tint = Color.White
+                            )
+                        }
+                    }
+
+                    Column(
+                        verticalArrangement = Arrangement.spacedBy(6.dp)
+                    ) {
+                        Text(
+                            text = alert.resolvedPetName ?: stringResource(R.string.unknown_pet),
+                            style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.Bold),
+                            color = MaterialTheme.colorScheme.onSurface
+                        )
+
+                        // Species + Breed
+                        val speciesBreed = buildList {
+                            alert.resolvedSpecies?.let { add(it) }
+                            alert.breed?.let { add(it) }
+                        }.joinToString(" \u2022 ")
+                        if (speciesBreed.isNotBlank()) {
+                            Text(
+                                text = speciesBreed,
+                                style = MaterialTheme.typography.bodyMedium,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
+                            )
+                        }
+
+                        // Missing Badge
+                        Row(
+                            modifier = Modifier
+                                .background(Color.Red.copy(alpha = 0.1f), RoundedCornerShape(6.dp))
+                                .padding(horizontal = 8.dp, vertical = 4.dp),
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.spacedBy(4.dp)
+                        ) {
+                            Icon(
+                                imageVector = Icons.Default.Warning,
+                                contentDescription = null,
+                                modifier = Modifier.size(12.dp),
+                                tint = Color.Red
+                            )
+                            Text(
+                                text = stringResource(R.string.alert_status_missing),
+                                style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.SemiBold),
+                                color = Color.Red
+                            )
+                        }
+                    }
+                }
+
+                // Missing Duration (prominent red text)
+                alert.createdAt?.let { dateStr ->
+                    val duration = computeMissingDuration(dateStr, resources)
+                    Text(
+                        text = stringResource(R.string.alert_missing_for, duration),
+                        style = MaterialTheme.typography.bodyLarge.copy(fontWeight = FontWeight.SemiBold),
+                        color = Color.Red
+                    )
+                }
+
+                // Missing since date
+                alert.createdAt?.let { dateStr ->
+                    val formattedDate = formatDateAbbreviated(dateStr)
+                    if (formattedDate.isNotBlank()) {
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.spacedBy(4.dp)
+                        ) {
+                            Icon(
+                                imageVector = Icons.Default.Schedule,
+                                contentDescription = null,
+                                modifier = Modifier.size(14.dp),
+                                tint = MaterialTheme.colorScheme.onSurfaceVariant
+                            )
+                            Text(
+                                text = stringResource(R.string.alert_missing_since, formattedDate),
+                                style = MaterialTheme.typography.bodySmall,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
+                            )
+                        }
+                    }
+                }
+
+                // Location
+                alert.resolvedLastSeenLocation?.let { location ->
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.spacedBy(4.dp)
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.LocationOn,
+                            contentDescription = null,
+                            modifier = Modifier.size(14.dp),
+                            tint = MaterialTheme.colorScheme.onSurfaceVariant
+                        )
+                        Text(
+                            text = location,
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                        )
+                    }
+                }
+
+                // Distance
+                alert.distanceKm?.let { distance ->
+                    Text(
+                        text = stringResource(R.string.distance_km, distance),
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                }
+
+                // Description / Additional Info
+                alert.additionalInfo?.let { info ->
+                    if (info.isNotBlank()) {
+                        Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
+                            Text(
+                                text = stringResource(R.string.details),
+                                style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.SemiBold),
+                                color = MaterialTheme.colorScheme.onSurface
+                            )
+                            Text(
+                                text = info,
+                                style = MaterialTheme.typography.bodySmall,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
+                            )
+                        }
+                    }
+                }
+
+                // Sightings count
                 if (!alert.sightings.isNullOrEmpty()) {
-                    Text(stringResource(R.string.alert_sightings_count, alert.sightings.size))
+                    Text(
+                        text = pluralStringResource(R.plurals.sighting_count, alert.sightings.size, alert.sightings.size),
+                        style = MaterialTheme.typography.bodySmall.copy(fontWeight = FontWeight.SemiBold),
+                        color = BrandOrange
+                    )
                 }
             }
         },
@@ -519,9 +770,10 @@ private fun AlertDetailDialog(
                 if (onReportSighting != null && alert.status == "active") {
                     Button(
                         onClick = onReportSighting,
-                        colors = ButtonDefaults.buttonColors(containerColor = BrandOrange)
+                        colors = ButtonDefaults.buttonColors(containerColor = BrandOrange),
+                        shape = RoundedCornerShape(10.dp)
                     ) {
-                        Text(stringResource(R.string.report_sighting))
+                        Text(stringResource(R.string.report_sighting), fontWeight = FontWeight.SemiBold)
                     }
                 }
                 TextButton(onClick = onDismiss) {
@@ -661,8 +913,30 @@ private fun ReportSightingDialog(
     )
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun AlertsMap(alerts: List<MissingPetAlert>, userLocation: LatLng? = null) {
+private fun AlertsMap(
+    alerts: List<MissingPetAlert>,
+    userLocation: LatLng? = null,
+    onAlertSelected: (MissingPetAlert) -> Unit = {}
+) {
+    val context = LocalContext.current
+    val density = LocalDensity.current
+    val markerSizePx = with(density) { 48.dp.roundToPx() }
+
+    // Load circular photo markers for each alert
+    val markerIcons = remember { mutableStateMapOf<String, BitmapDescriptor>() }
+    LaunchedEffect(alerts) {
+        alerts.forEach { alert ->
+            val photoUrl = alert.resolvedPetPhoto
+            if (photoUrl.isNullOrBlank()) return@forEach
+            if (markerIcons.containsKey(alert.id)) return@forEach
+            loadCircularAlertMarkerBitmap(context, photoUrl, markerSizePx)?.let {
+                markerIcons[alert.id] = it
+            }
+        }
+    }
+
     val first = alerts.firstOrNull()
     // Center on first alert, fallback to user location, fallback to London
     val centerLat = first?.resolvedLatitude ?: userLocation?.latitude ?: 51.5074
@@ -685,22 +959,23 @@ private fun AlertsMap(alerts: List<MissingPetAlert>, userLocation: LatLng? = nul
                     strokeColor = Color(0xFF0000FF),
                     strokeWidth = 2f
                 )
-                Marker(
-                    state = MarkerState(position = loc),
-                    title = stringResource(R.string.current_location),
-                    alpha = 0.8f
-                )
             }
 
-            // Alert markers
+            // Alert markers with pet photo icons
             alerts.forEach { alert ->
                 val lat = alert.resolvedLatitude
                 val lng = alert.resolvedLongitude
                 if (lat != null && lng != null) {
                     Marker(
                         state = MarkerState(position = LatLng(lat, lng)),
-                        title = alert.pet?.name ?: stringResource(R.string.alert_marker),
-                        snippet = alert.resolvedLastSeenLocation
+                        title = alert.resolvedPetName ?: stringResource(R.string.alert_marker),
+                        snippet = alert.resolvedLastSeenLocation,
+                        icon = markerIcons[alert.id]
+                            ?: BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED),
+                        onClick = {
+                            onAlertSelected(alert)
+                            true
+                        }
                     )
                 }
             }
@@ -728,5 +1003,758 @@ private fun AlertsMap(alerts: List<MissingPetAlert>, userLocation: LatLng? = nul
                 )
             }
         }
+    }
+}
+
+@Composable
+private fun AlertDetailScreen(
+    alert: MissingPetAlert,
+    currentUserId: String?,
+    viewModel: AlertsViewModel,
+    qrScannerViewModel: QrScannerViewModel,
+    appStateViewModel: AppStateViewModel,
+    onBack: () -> Unit
+) {
+    val context = LocalContext.current
+    val resources = context.resources
+    val isOwner = currentUserId != null && alert.userId == currentUserId
+    var showReportSighting by remember { mutableStateOf(false) }
+    var showReportFound by remember { mutableStateOf(false) }
+    var showMarkFoundConfirmation by remember { mutableStateOf(false) }
+    var reverseGeocodedAddress by remember { mutableStateOf<String?>(null) }
+
+    // Reverse-geocode the pin coordinates to get the actual address
+    LaunchedEffect(alert.resolvedLatitude, alert.resolvedLongitude) {
+        val lat = alert.resolvedLatitude
+        val lng = alert.resolvedLongitude
+        if (lat != null && lng != null) {
+            @Suppress("DEPRECATION")
+            try {
+                val geocoder = android.location.Geocoder(context)
+                val results = geocoder.getFromLocation(lat, lng, 1)
+                results?.firstOrNull()?.let { addr ->
+                    val parts = listOfNotNull(
+                        addr.thoroughfare,
+                        addr.locality,
+                        addr.adminArea,
+                        addr.countryName
+                    ).filter { it.isNotBlank() }
+                    if (parts.isNotEmpty()) {
+                        reverseGeocodedAddress = parts.joinToString(", ")
+                    }
+                }
+            } catch (_: Exception) {
+                // Reverse geocoding failed, fall back to stored address
+            }
+        }
+    }
+
+    val sightingReportedMessage = stringResource(R.string.sighting_reported)
+    val reportFailedMessage = stringResource(R.string.report_failed)
+    val markedFoundMessage = stringResource(R.string.mark_as_found)
+    val ownerNotifiedMessage = stringResource(R.string.share_owner_notified)
+    val shareLocationFailedMessage = stringResource(R.string.share_location_failed)
+    val petName = alert.resolvedPetName ?: stringResource(R.string.unknown_pet)
+    val resolvedQrCode = alert.qrCode ?: alert.pet?.qrCode
+
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(MaterialTheme.colorScheme.background)
+            .verticalScroll(rememberScrollState())
+    ) {
+        // Back button overlay on photo
+        Box(modifier = Modifier.fillMaxWidth()) {
+            // Pet photo
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(300.dp)
+                    .background(Color.Red.copy(alpha = 0.1f)),
+                contentAlignment = Alignment.Center
+            ) {
+                if (!alert.resolvedPetPhoto.isNullOrBlank()) {
+                    AsyncImage(
+                        model = alert.resolvedPetPhoto,
+                        contentDescription = petName,
+                        modifier = Modifier.fillMaxSize(),
+                        contentScale = ContentScale.Crop
+                    )
+                } else {
+                    Icon(
+                        imageVector = Icons.Default.Pets,
+                        contentDescription = null,
+                        modifier = Modifier.size(80.dp),
+                        tint = Color.Red.copy(alpha = 0.3f)
+                    )
+                }
+            }
+
+            // Back button
+            IconButton(
+                onClick = onBack,
+                modifier = Modifier
+                    .padding(8.dp)
+                    .align(Alignment.TopStart)
+                    .background(
+                        MaterialTheme.colorScheme.surface.copy(alpha = 0.8f),
+                        CircleShape
+                    )
+            ) {
+                Icon(
+                    imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                    contentDescription = stringResource(R.string.back),
+                    modifier = Modifier.size(24.dp),
+                    tint = MaterialTheme.colorScheme.onSurface
+                )
+            }
+        }
+
+        Column(
+            modifier = Modifier.padding(24.dp),
+            verticalArrangement = Arrangement.spacedBy(16.dp)
+        ) {
+            // Pet Name
+            Text(
+                text = petName,
+                style = MaterialTheme.typography.headlineMedium.copy(fontWeight = FontWeight.Bold),
+                color = MaterialTheme.colorScheme.onSurface
+            )
+
+            // Species, breed, age, color — info chips
+            val infoItems = buildList {
+                alert.resolvedSpecies?.let { add(it) }
+                alert.breed?.let { add(it) }
+                alert.pet?.age?.let { add(it) }
+                (alert.color ?: alert.pet?.color)?.let { add(it) }
+            }
+            if (infoItems.isNotEmpty()) {
+                Row(
+                    horizontalArrangement = Arrangement.spacedBy(8.dp),
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    infoItems.forEach { info ->
+                        Text(
+                            text = info,
+                            modifier = Modifier
+                                .background(
+                                    MaterialTheme.colorScheme.surfaceContainerHigh,
+                                    RoundedCornerShape(8.dp)
+                                )
+                                .padding(horizontal = 12.dp, vertical = 6.dp),
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = MaterialTheme.colorScheme.onSurface
+                        )
+                    }
+                }
+            }
+
+            // Status: Active — Missing since [date]
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .background(Color.Red.copy(alpha = 0.08f), RoundedCornerShape(12.dp))
+                    .padding(16.dp),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(12.dp)
+            ) {
+                Icon(
+                    imageVector = Icons.Default.Warning,
+                    contentDescription = null,
+                    modifier = Modifier.size(24.dp),
+                    tint = Color.Red
+                )
+                Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
+                    alert.createdAt?.let { dateStr ->
+                        val duration = computeMissingDuration(dateStr, resources)
+                        Text(
+                            text = stringResource(R.string.alert_missing_for, duration),
+                            style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold),
+                            color = Color.Red
+                        )
+                    }
+                    alert.createdAt?.let { dateStr ->
+                        val formattedDate = formatDateAbbreviated(dateStr)
+                        if (formattedDate.isNotBlank()) {
+                            Text(
+                                text = stringResource(R.string.alert_missing_since, formattedDate),
+                                style = MaterialTheme.typography.bodyMedium,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
+                            )
+                        }
+                    }
+                }
+            }
+
+            // Last seen location section
+            val lat = alert.resolvedLatitude
+            val lng = alert.resolvedLongitude
+            if (lat != null && lng != null) {
+                Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                    Text(
+                        text = stringResource(R.string.last_seen_location_header),
+                        style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.SemiBold),
+                        color = MaterialTheme.colorScheme.onSurface
+                    )
+
+                    // Embedded map (display only)
+                    val mapCameraState = rememberCameraPositionState {
+                        position = CameraPosition.fromLatLngZoom(LatLng(lat, lng), 15f)
+                    }
+                    Box(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(200.dp)
+                            .clip(RoundedCornerShape(12.dp))
+                    ) {
+                        GoogleMap(
+                            modifier = Modifier.fillMaxSize(),
+                            cameraPositionState = mapCameraState,
+                            uiSettings = MapUiSettings(
+                                zoomControlsEnabled = false,
+                                scrollGesturesEnabled = false,
+                                zoomGesturesEnabled = false,
+                                tiltGesturesEnabled = false,
+                                rotationGesturesEnabled = false,
+                                mapToolbarEnabled = false
+                            )
+                        ) {
+                            Marker(
+                                state = MarkerState(position = LatLng(lat, lng)),
+                                icon = BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)
+                            )
+                        }
+                    }
+
+                    // Address text (prefer reverse-geocoded address from coordinates)
+                    val displayAddress = reverseGeocodedAddress ?: alert.resolvedLastSeenLocation
+                    displayAddress?.let { address ->
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.spacedBy(8.dp)
+                        ) {
+                            Icon(
+                                imageVector = Icons.Default.LocationOn,
+                                contentDescription = null,
+                                modifier = Modifier.size(16.dp),
+                                tint = MaterialTheme.colorScheme.onSurfaceVariant
+                            )
+                            Text(
+                                text = address,
+                                style = MaterialTheme.typography.bodyMedium,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
+                            )
+                        }
+                    }
+
+                    // Distance
+                    alert.distanceKm?.let { distance ->
+                        Text(
+                            text = stringResource(R.string.distance_km, distance),
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                        )
+                    }
+                }
+            }
+
+            // Additional info
+            alert.additionalInfo?.let { info ->
+                if (info.isNotBlank()) {
+                    Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
+                        Text(
+                            text = stringResource(R.string.details),
+                            style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.SemiBold),
+                            color = MaterialTheme.colorScheme.onSurface
+                        )
+                        Text(
+                            text = info,
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                        )
+                    }
+                }
+            }
+
+            // Sightings count
+            if (!alert.sightings.isNullOrEmpty()) {
+                Text(
+                    text = pluralStringResource(R.plurals.sighting_count, alert.sightings.size, alert.sightings.size),
+                    style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.SemiBold),
+                    color = BrandOrange
+                )
+            }
+
+            HorizontalDivider(modifier = Modifier.padding(vertical = 8.dp))
+
+            // Action buttons
+            if (isOwner) {
+                Button(
+                    onClick = { showMarkFoundConfirmation = true },
+                    modifier = Modifier.fillMaxWidth(),
+                    colors = ButtonDefaults.buttonColors(containerColor = TealAccent),
+                    shape = RoundedCornerShape(12.dp)
+                ) {
+                    Text(
+                        text = stringResource(R.string.mark_as_found),
+                        fontWeight = FontWeight.SemiBold,
+                        modifier = Modifier.padding(vertical = 4.dp)
+                    )
+                }
+            } else {
+                Button(
+                    onClick = { showReportSighting = true },
+                    modifier = Modifier.fillMaxWidth(),
+                    colors = ButtonDefaults.buttonColors(containerColor = BrandOrange),
+                    shape = RoundedCornerShape(12.dp)
+                ) {
+                    Text(
+                        text = stringResource(R.string.report_sighting),
+                        fontWeight = FontWeight.SemiBold,
+                        modifier = Modifier.padding(vertical = 4.dp)
+                    )
+                }
+
+                // Report Found button — only if pet has a QR code
+                if (resolvedQrCode != null) {
+                    Spacer(modifier = Modifier.height(8.dp))
+                    Button(
+                        onClick = { showReportFound = true },
+                        modifier = Modifier.fillMaxWidth(),
+                        colors = ButtonDefaults.buttonColors(containerColor = TealAccent),
+                        shape = RoundedCornerShape(12.dp)
+                    ) {
+                        Text(
+                            text = stringResource(R.string.report_found),
+                            fontWeight = FontWeight.SemiBold,
+                            modifier = Modifier.padding(vertical = 4.dp)
+                        )
+                    }
+                }
+            }
+
+            Spacer(modifier = Modifier.height(16.dp))
+        }
+    }
+
+    if (showReportSighting) {
+        ReportSightingDialog(
+            alertId = alert.id,
+            onDismiss = { showReportSighting = false },
+            onSubmit = { coordinate, locationText, notes ->
+                viewModel.reportSighting(
+                    alertId = alert.id,
+                    reporterName = null,
+                    reporterPhone = null,
+                    reporterEmail = null,
+                    location = locationText,
+                    coordinate = coordinate,
+                    notes = notes
+                ) { success, message ->
+                    if (success) appStateViewModel.showSuccess(sightingReportedMessage)
+                    else appStateViewModel.showError(message ?: reportFailedMessage)
+                    showReportSighting = false
+                }
+            }
+        )
+    }
+
+    if (showReportFound && resolvedQrCode != null) {
+        ReportFoundDialog(
+            petName = petName,
+            qrCode = resolvedQrCode,
+            qrScannerViewModel = qrScannerViewModel,
+            onDismiss = { showReportFound = false },
+            onSuccess = {
+                appStateViewModel.showSuccess(ownerNotifiedMessage)
+                showReportFound = false
+            },
+            onError = { message ->
+                appStateViewModel.showError(message ?: shareLocationFailedMessage)
+                showReportFound = false
+            }
+        )
+    }
+
+    if (showMarkFoundConfirmation) {
+        AlertDialog(
+            onDismissRequest = { showMarkFoundConfirmation = false },
+            title = { Text(stringResource(R.string.mark_found_confirm_title, petName)) },
+            text = { Text(stringResource(R.string.mark_found_confirm_message, petName)) },
+            confirmButton = {
+                Button(
+                    onClick = {
+                        viewModel.updateAlertStatus(alert.id, "found") { success, message ->
+                            if (success) {
+                                appStateViewModel.showSuccess(markedFoundMessage)
+                                viewModel.refresh()
+                                onBack()
+                            } else {
+                                appStateViewModel.showError(message ?: reportFailedMessage)
+                            }
+                        }
+                        showMarkFoundConfirmation = false
+                    },
+                    colors = ButtonDefaults.buttonColors(containerColor = TealAccent)
+                ) {
+                    Text(stringResource(R.string.confirm))
+                }
+            },
+            dismissButton = {
+                TextButton(onClick = { showMarkFoundConfirmation = false }) {
+                    Text(stringResource(R.string.cancel))
+                }
+            }
+        )
+    }
+}
+
+@SuppressLint("MissingPermission")
+@Composable
+private fun ReportFoundDialog(
+    petName: String,
+    qrCode: String,
+    qrScannerViewModel: QrScannerViewModel,
+    onDismiss: () -> Unit,
+    onSuccess: () -> Unit,
+    onError: (String?) -> Unit
+) {
+    val context = LocalContext.current
+    val locationProvider = remember { LocationServices.getFusedLocationProviderClient(context) }
+
+    var selectedConsent by remember { mutableStateOf<LocationConsent?>(null) }
+    var isSubmitting by remember { mutableStateOf(false) }
+    var hasLocationPermission by remember {
+        mutableStateOf(
+            ContextCompat.checkSelfPermission(
+                context,
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ) == PackageManager.PERMISSION_GRANTED
+        )
+    }
+    var currentLocation by remember { mutableStateOf<android.location.Location?>(null) }
+
+    val permissionLauncher = rememberLauncherForActivityResult(
+        ActivityResultContracts.RequestPermission()
+    ) { granted ->
+        hasLocationPermission = granted
+        if (granted) {
+            locationProvider.lastLocation.addOnSuccessListener { location ->
+                currentLocation = location
+            }
+        }
+    }
+
+    // Request location permission and fetch location on open
+    LaunchedEffect(Unit) {
+        if (hasLocationPermission) {
+            locationProvider.lastLocation.addOnSuccessListener { location ->
+                currentLocation = location
+            }
+        } else {
+            permissionLauncher.launch(Manifest.permission.ACCESS_FINE_LOCATION)
+        }
+    }
+
+    AlertDialog(
+        onDismissRequest = { if (!isSubmitting) onDismiss() },
+        title = {
+            Text(
+                text = stringResource(R.string.report_found),
+                style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.Bold)
+            )
+        },
+        text = {
+            Column(
+                modifier = Modifier.fillMaxWidth(),
+                verticalArrangement = Arrangement.spacedBy(12.dp)
+            ) {
+                Text(
+                    text = stringResource(R.string.share_location_help, petName),
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+
+                // Option 1: Precise Location
+                ConsentOptionCard(
+                    title = stringResource(R.string.precise_location),
+                    description = stringResource(R.string.precise_location_desc),
+                    icon = Icons.Default.LocationOn,
+                    isSelected = selectedConsent == LocationConsent.PRECISE,
+                    isRecommended = true,
+                    onClick = { selectedConsent = LocationConsent.PRECISE }
+                )
+
+                // Option 2: Approximate Location
+                ConsentOptionCard(
+                    title = stringResource(R.string.approximate_location),
+                    description = stringResource(R.string.approximate_location_desc),
+                    icon = Icons.Default.LocationOn,
+                    isSelected = selectedConsent == LocationConsent.APPROXIMATE,
+                    isRecommended = false,
+                    onClick = { selectedConsent = LocationConsent.APPROXIMATE }
+                )
+
+                // Option 3: Don't share location
+                ConsentOptionCard(
+                    title = stringResource(R.string.dont_share_location),
+                    description = stringResource(R.string.dont_share_location_desc),
+                    icon = Icons.Default.Warning,
+                    isSelected = selectedConsent == LocationConsent.DECLINE,
+                    isRecommended = false,
+                    onClick = { selectedConsent = LocationConsent.DECLINE }
+                )
+            }
+        },
+        confirmButton = {
+            Button(
+                onClick = {
+                    val consent = selectedConsent ?: return@Button
+                    isSubmitting = true
+                    when (consent) {
+                        LocationConsent.DECLINE -> {
+                            qrScannerViewModel.shareLocation(qrCode, consent, onResult = { success, message ->
+                                if (success) onSuccess() else onError(message)
+                            })
+                        }
+                        LocationConsent.APPROXIMATE, LocationConsent.PRECISE -> {
+                            val loc = currentLocation
+                            if (loc != null) {
+                                qrScannerViewModel.shareLocation(
+                                    qrCode, consent,
+                                    loc.latitude, loc.longitude, loc.accuracy.toDouble(),
+                                    onResult = { success, message ->
+                                        if (success) onSuccess() else onError(message)
+                                    }
+                                )
+                            } else {
+                                // Try to fetch location one more time
+                                locationProvider.lastLocation.addOnSuccessListener { location ->
+                                    if (location != null) {
+                                        qrScannerViewModel.shareLocation(
+                                            qrCode, consent,
+                                            location.latitude, location.longitude, location.accuracy.toDouble(),
+                                            onResult = { success, message ->
+                                                if (success) onSuccess() else onError(message)
+                                            }
+                                        )
+                                    } else {
+                                        // Fallback to decline if no location available
+                                        qrScannerViewModel.shareLocation(
+                                            qrCode, LocationConsent.DECLINE,
+                                            onResult = { success, message ->
+                                                if (success) onSuccess() else onError(message)
+                                            }
+                                        )
+                                    }
+                                }.addOnFailureListener {
+                                    qrScannerViewModel.shareLocation(
+                                        qrCode, LocationConsent.DECLINE,
+                                        onResult = { success, message ->
+                                            if (success) onSuccess() else onError(message)
+                                        }
+                                    )
+                                }
+                            }
+                        }
+                    }
+                },
+                enabled = selectedConsent != null && !isSubmitting,
+                colors = ButtonDefaults.buttonColors(containerColor = TealAccent),
+                shape = RoundedCornerShape(10.dp)
+            ) {
+                if (isSubmitting) {
+                    Text(stringResource(R.string.sending), fontWeight = FontWeight.SemiBold)
+                } else {
+                    Text(stringResource(R.string.confirm_notify_owner), fontWeight = FontWeight.SemiBold)
+                }
+            }
+        },
+        dismissButton = {
+            if (!isSubmitting) {
+                TextButton(onClick = onDismiss) {
+                    Text(stringResource(R.string.cancel))
+                }
+            }
+        }
+    )
+}
+
+@Composable
+private fun ConsentOptionCard(
+    title: String,
+    description: String,
+    icon: androidx.compose.ui.graphics.vector.ImageVector,
+    isSelected: Boolean,
+    isRecommended: Boolean,
+    onClick: () -> Unit
+) {
+    val borderColor = if (isSelected) TealAccent else MaterialTheme.colorScheme.outlineVariant
+    val backgroundColor = if (isSelected) TealAccent.copy(alpha = 0.1f) else MaterialTheme.colorScheme.surfaceContainerHigh
+
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable(onClick = onClick),
+        shape = RoundedCornerShape(14.dp),
+        colors = CardDefaults.cardColors(containerColor = backgroundColor),
+        border = BorderStroke(
+            width = if (isSelected) 2.dp else 1.dp,
+            color = borderColor
+        )
+    ) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(12.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            // Icon
+            Box(
+                modifier = Modifier
+                    .size(36.dp)
+                    .background(
+                        if (isSelected) TealAccent.copy(alpha = 0.2f) else MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.3f),
+                        CircleShape
+                    ),
+                contentAlignment = Alignment.Center
+            ) {
+                Icon(
+                    imageVector = icon,
+                    contentDescription = null,
+                    modifier = Modifier.size(18.dp),
+                    tint = if (isSelected) TealAccent else MaterialTheme.colorScheme.onSurfaceVariant
+                )
+            }
+
+            Spacer(modifier = Modifier.width(12.dp))
+
+            // Text
+            Column(modifier = Modifier.weight(1f)) {
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                ) {
+                    Text(
+                        text = title,
+                        style = MaterialTheme.typography.bodyLarge.copy(
+                            fontWeight = FontWeight.SemiBold,
+                            fontSize = 14.sp
+                        ),
+                        color = if (isSelected) TealAccent else MaterialTheme.colorScheme.onSurface
+                    )
+                    if (isRecommended) {
+                        Text(
+                            text = stringResource(R.string.recommended),
+                            style = MaterialTheme.typography.labelSmall.copy(
+                                fontSize = 10.sp,
+                                fontWeight = FontWeight.Medium
+                            ),
+                            color = Color.White,
+                            modifier = Modifier
+                                .background(TealAccent, RoundedCornerShape(4.dp))
+                                .padding(horizontal = 6.dp, vertical = 2.dp)
+                        )
+                    }
+                }
+                Spacer(modifier = Modifier.height(2.dp))
+                Text(
+                    text = description,
+                    style = MaterialTheme.typography.bodySmall.copy(fontSize = 11.sp),
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+            }
+
+            // Selection indicator
+            if (isSelected) {
+                Icon(
+                    imageVector = Icons.Default.CheckCircle,
+                    contentDescription = null,
+                    modifier = Modifier.size(24.dp),
+                    tint = TealAccent
+                )
+            } else {
+                Box(
+                    modifier = Modifier
+                        .size(24.dp)
+                        .background(MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.3f), CircleShape)
+                )
+            }
+        }
+    }
+}
+
+private suspend fun loadCircularAlertMarkerBitmap(
+    context: android.content.Context,
+    url: String,
+    sizePx: Int
+): BitmapDescriptor? {
+    return try {
+        val loader = ImageLoader(context)
+        val request = ImageRequest.Builder(context)
+            .data(url)
+            .size(sizePx)
+            .allowHardware(false)
+            .build()
+        val result = loader.execute(request)
+        val bitmap = (result.drawable as? BitmapDrawable)?.bitmap ?: return null
+
+        val scaled = Bitmap.createScaledBitmap(bitmap, sizePx, sizePx, true)
+        val output = Bitmap.createBitmap(sizePx, sizePx, Bitmap.Config.ARGB_8888)
+        val canvas = Canvas(output)
+        val paint = Paint(Paint.ANTI_ALIAS_FLAG)
+
+        // Red border circle (matching iOS missing pet marker)
+        val borderWidth = sizePx * 0.05f
+        paint.color = android.graphics.Color.parseColor("#FF0000")
+        canvas.drawCircle(sizePx / 2f, sizePx / 2f, sizePx / 2f, paint)
+
+        // Circular pet photo
+        paint.shader = BitmapShader(
+            scaled,
+            Shader.TileMode.CLAMP,
+            Shader.TileMode.CLAMP
+        )
+        canvas.drawCircle(sizePx / 2f, sizePx / 2f, sizePx / 2f - borderWidth, paint)
+
+        BitmapDescriptorFactory.fromBitmap(output)
+    } catch (_: Exception) {
+        null
+    }
+}
+
+private fun formatDateAbbreviated(dateString: String): String {
+    return try {
+        val inputFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.getDefault())
+        val date = inputFormat.parse(dateString.take(19))
+        if (date != null) {
+            val outputFormat = SimpleDateFormat("MMM d, yyyy", Locale.getDefault())
+            outputFormat.format(date)
+        } else {
+            dateString.take(10)
+        }
+    } catch (e: Exception) {
+        dateString.take(10)
+    }
+}
+
+private fun computeMissingDuration(dateString: String, resources: Resources): String {
+    return try {
+        val inputFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.getDefault())
+        val date = inputFormat.parse(dateString.take(19))
+        if (date != null) {
+            val diffMs = Date().time - date.time
+            val diffDays = TimeUnit.MILLISECONDS.toDays(diffMs).toInt()
+            val diffHours = TimeUnit.MILLISECONDS.toHours(diffMs).toInt()
+            when {
+                diffDays > 0 -> resources.getQuantityString(R.plurals.time_days_duration, diffDays, diffDays)
+                diffHours > 0 -> resources.getQuantityString(R.plurals.time_hours_duration, maxOf(1, diffHours), maxOf(1, diffHours))
+                else -> resources.getQuantityString(R.plurals.time_hours_duration, 1, 1)
+            }
+        } else {
+            resources.getString(R.string.some_time)
+        }
+    } catch (e: Exception) {
+        resources.getString(R.string.some_time)
     }
 }

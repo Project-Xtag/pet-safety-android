@@ -8,7 +8,7 @@ data class SuccessStoryEntity(
     @PrimaryKey val id: String,
     val alertId: String?,
     val petId: String,
-    val ownerId: String,
+    val ownerId: String?,
     val reunionCity: String?,
     val reunionLatitude: Double?,
     val reunionLongitude: Double?,
@@ -16,9 +16,9 @@ data class SuccessStoryEntity(
     val isPublic: Boolean,
     val isConfirmed: Boolean,
     val missingSince: String?,
-    val foundAt: String,
-    val createdAt: String,
-    val updatedAt: String,
+    val foundAt: String?,
+    val createdAt: String?,
+    val updatedAt: String?,
     val deletedAt: String?,
     val lastSyncedAt: Long
 )

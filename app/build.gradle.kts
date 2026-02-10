@@ -44,10 +44,8 @@ android {
         // Inject Google Maps API key from local.properties or environment variable
         // For local development: add GOOGLE_MAPS_API_KEY=your_key to local.properties
         // For CI/CD: set GOOGLE_MAPS_API_KEY environment variable
-        val mapsApiKey = getApiKey("GOOGLE_MAPS_API_KEY", "")
-        if (mapsApiKey.isNotEmpty()) {
-            resValue("string", "google_maps_key", mapsApiKey)
-        }
+        val mapsApiKey = getApiKey("GOOGLE_MAPS_API_KEY", "MISSING_API_KEY")
+        resValue("string", "google_maps_key", mapsApiKey)
     }
 
     buildTypes {

@@ -168,7 +168,7 @@ fun BillingScreen(
                             horizontalArrangement = Arrangement.SpaceBetween
                         ) {
                             Text(text = stringResource(R.string.billing_plan_label), style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
-                            Text(text = sub.planName.replaceFirstChar { it.uppercase() }, style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.SemiBold))
+                            Text(text = sub.resolvedPlanName.replaceFirstChar { it.uppercase() }, style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.SemiBold))
                         }
                         Spacer(modifier = Modifier.height(8.dp))
                         Row(

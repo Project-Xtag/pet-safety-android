@@ -32,8 +32,8 @@ class OfflineDataManager(private val database: AppDatabase) {
                 notes = pet.notes,
                 profileImage = pet.profileImage,
                 isMissing = pet.isMissing,
-                createdAt = pet.createdAt,
-                updatedAt = pet.updatedAt,
+                createdAt = pet.createdAt ?: "",
+                updatedAt = pet.updatedAt ?: "",
                 ageYears = pet.ageYears,
                 ageMonths = pet.ageMonths,
                 ageText = pet.ageText,
@@ -102,8 +102,8 @@ class OfflineDataManager(private val database: AppDatabase) {
                 lastSeenLatitude = alert.resolvedLatitude,
                 lastSeenLongitude = alert.resolvedLongitude,
                 additionalInfo = alert.additionalInfo ?: alert.legacyDescription,
-                createdAt = alert.createdAt,
-                updatedAt = alert.updatedAt,
+                createdAt = alert.createdAt ?: "",
+                updatedAt = alert.updatedAt ?: "",
                 lastSyncedAt = System.currentTimeMillis()
             )
         )
@@ -137,8 +137,8 @@ class OfflineDataManager(private val database: AppDatabase) {
                 petId = story.petId,
                 ownerId = story.ownerId,
                 reunionCity = story.reunionCity,
-                reunionLatitude = story.reunionLatitude,
-                reunionLongitude = story.reunionLongitude,
+                reunionLatitude = story.resolvedLatitude,
+                reunionLongitude = story.resolvedLongitude,
                 storyText = story.storyText,
                 isPublic = story.isPublic,
                 isConfirmed = story.isConfirmed,

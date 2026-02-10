@@ -50,8 +50,8 @@ class SubscriptionViewModel @Inject constructor(
     private val _error = MutableStateFlow<String?>(null)
     val error: StateFlow<String?> = _error
 
-    val currentPlanName: String get() = _subscription.value?.planName ?: "None"
-    val isOnStarterPlan: Boolean get() = _subscription.value?.planName?.lowercase() == "starter"
+    val currentPlanName: String get() = _subscription.value?.resolvedPlanName ?: "None"
+    val isOnStarterPlan: Boolean get() = _subscription.value?.resolvedPlanName?.lowercase() == "starter"
 
     fun loadPlans() {
         viewModelScope.launch {

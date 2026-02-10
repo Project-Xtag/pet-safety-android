@@ -1,6 +1,12 @@
 package com.petsafety.app.ui.screens
 
 import android.content.res.Resources
+import android.graphics.Bitmap
+import android.graphics.BitmapShader
+import android.graphics.Canvas
+import android.graphics.Paint
+import android.graphics.Shader
+import android.graphics.drawable.BitmapDrawable
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -23,7 +29,6 @@ import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.LocationOn
 import androidx.compose.material.icons.filled.Schedule
-import androidx.compose.material.icons.filled.Share
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
@@ -31,18 +36,20 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.pulltorefresh.PullToRefreshBox
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateMapOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
@@ -53,7 +60,10 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import coil.ImageLoader
 import coil.compose.AsyncImage
+import coil.request.ImageRequest
+import com.google.android.gms.maps.model.BitmapDescriptor
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.CameraPosition
 import com.google.android.gms.maps.model.LatLng
@@ -85,7 +95,7 @@ fun SuccessStoriesScreen(
     var showMap by remember { mutableStateOf(false) }
 
     // Fetch stories when screen loads
-    androidx.compose.runtime.LaunchedEffect(userLatitude, userLongitude) {
+    LaunchedEffect(userLatitude, userLongitude) {
         val lat = userLatitude ?: 51.5074  // Default to London
         val lng = userLongitude ?: -0.1278
         viewModel.fetchStories(lat, lng, 50.0, 1, loadMore = false)
@@ -144,8 +154,12 @@ fun SuccessStoriesScreen(
                     }
                 }
                 stories.isEmpty() -> {
-                    // Empty State
-                    EmptySuccessStoriesState()
+                    if (showMap) {
+                        // Show map centered on user location even when no stories
+                        SuccessStoriesMap(emptyList(), userLatitude, userLongitude)
+                    } else {
+                        EmptySuccessStoriesState()
+                    }
                 }
                 else -> {
                     PullToRefreshBox(
@@ -154,7 +168,7 @@ fun SuccessStoriesScreen(
                         modifier = Modifier.weight(1f)
                     ) {
                         if (showMap) {
-                            SuccessStoriesMap(stories)
+                            SuccessStoriesMap(stories, userLatitude, userLongitude)
                         } else {
                             SuccessStoriesList(stories)
                         }
@@ -342,21 +356,6 @@ private fun SuccessStoryCard(story: SuccessStory) {
                         )
                     }
                 }
-
-                // Share Button
-                IconButton(
-                    onClick = { /* Share action */ },
-                    modifier = Modifier
-                        .size(36.dp)
-                        .background(Color.Blue.copy(alpha = 0.1f), CircleShape)
-                ) {
-                    Icon(
-                        imageVector = Icons.Default.Share,
-                        contentDescription = stringResource(R.string.share),
-                        modifier = Modifier.size(18.dp),
-                        tint = Color.Blue
-                    )
-                }
             }
 
             // Reunion Template Text
@@ -396,7 +395,8 @@ private fun SuccessStoryCard(story: SuccessStory) {
             Row(
                 horizontalArrangement = Arrangement.spacedBy(16.dp)
             ) {
-                story.missingSince?.let { missingSince ->
+                story.missingSince?.let {
+                    val timeMissing = computeTimeMissing(story, resources)
                     Row(
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.spacedBy(4.dp)
@@ -408,7 +408,7 @@ private fun SuccessStoryCard(story: SuccessStory) {
                             tint = MaterialTheme.colorScheme.onSurfaceVariant
                         )
                         Text(
-                            text = stringResource(R.string.missing_since, formatDateString(missingSince, resources)),
+                            text = stringResource(R.string.missing_for, timeMissing),
                             style = MaterialTheme.typography.labelSmall,
                             color = MaterialTheme.colorScheme.onSurfaceVariant
                         )
@@ -426,7 +426,7 @@ private fun SuccessStoryCard(story: SuccessStory) {
                         tint = MaterialTheme.colorScheme.onSurfaceVariant
                     )
                     Text(
-                        text = stringResource(R.string.found_on, formatDateString(story.foundAt, resources)),
+                        text = stringResource(R.string.found_on, formatDateString(story.foundAt ?: "", resources)),
                         style = MaterialTheme.typography.labelSmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
@@ -437,14 +437,33 @@ private fun SuccessStoryCard(story: SuccessStory) {
 }
 
 @Composable
-private fun SuccessStoriesMap(stories: List<SuccessStory>) {
-    val resources = LocalContext.current.resources
+private fun SuccessStoriesMap(
+    stories: List<SuccessStory>,
+    userLatitude: Double? = null,
+    userLongitude: Double? = null
+) {
+    val context = LocalContext.current
+    val density = LocalDensity.current
+    val markerSizePx = with(density) { 48.dp.roundToPx() }
+
+    // Load circular photo markers for each story
+    val markerIcons = remember { mutableStateMapOf<String, BitmapDescriptor>() }
+    LaunchedEffect(stories) {
+        stories.forEach { story ->
+            if (story.petPhotoUrl.isNullOrBlank()) return@forEach
+            if (markerIcons.containsKey(story.id)) return@forEach
+            loadCircularMarkerBitmap(context, story.petPhotoUrl, markerSizePx)?.let {
+                markerIcons[story.id] = it
+            }
+        }
+    }
+
     val first = stories.firstOrNull()
     val cameraPositionState = rememberCameraPositionState {
         position = CameraPosition.fromLatLngZoom(
             LatLng(
-                first?.reunionLatitude ?: 51.5074,
-                first?.reunionLongitude ?: -0.1278
+                first?.resolvedLatitude ?: userLatitude ?: 51.5074,
+                first?.resolvedLongitude ?: userLongitude ?: -0.1278
             ),
             11f
         )
@@ -458,14 +477,15 @@ private fun SuccessStoriesMap(stories: List<SuccessStory>) {
             onMapClick = { selectedStory = null }
         ) {
             stories.forEach { story ->
-                val lat = story.reunionLatitude
-                val lng = story.reunionLongitude
+                val lat = story.resolvedLatitude
+                val lng = story.resolvedLongitude
                 if (lat != null && lng != null) {
                     Marker(
                         state = MarkerState(position = LatLng(lat, lng)),
                         title = story.petName ?: stringResource(R.string.success_story_marker),
                         snippet = story.reunionCity,
-                        icon = BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN),
+                        icon = markerIcons[story.id]
+                            ?: BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN),
                         onClick = {
                             selectedStory = story
                             true
@@ -475,93 +495,55 @@ private fun SuccessStoriesMap(stories: List<SuccessStory>) {
             }
         }
 
-        // Selected story card popup
+        // Selected story card popup — reuses the same card as the list view
         selectedStory?.let { story ->
-            Card(
+            Box(
                 modifier = Modifier
                     .align(Alignment.BottomCenter)
                     .padding(16.dp)
-                    .fillMaxWidth(),
-                shape = RoundedCornerShape(16.dp),
-                elevation = CardDefaults.cardElevation(defaultElevation = 8.dp)
             ) {
-                Row(
-                    modifier = Modifier.padding(12.dp),
-                    horizontalArrangement = Arrangement.spacedBy(12.dp)
-                ) {
-                    // Pet Photo
-                    Box(
-                        modifier = Modifier
-                            .size(70.dp)
-                            .clip(RoundedCornerShape(12.dp))
-                            .background(TealAccent.copy(alpha = 0.2f)),
-                        contentAlignment = Alignment.Center
-                    ) {
-                        if (!story.petPhotoUrl.isNullOrBlank()) {
-                            AsyncImage(
-                                model = story.petPhotoUrl,
-                                contentDescription = story.petName,
-                                modifier = Modifier.fillMaxSize(),
-                                contentScale = ContentScale.Crop
-                            )
-                        } else {
-                            Icon(
-                                imageVector = Icons.Default.Favorite,
-                                contentDescription = null,
-                                modifier = Modifier.size(28.dp),
-                                tint = Color.White
-                            )
-                        }
-                    }
-
-                    Column(
-                        modifier = Modifier.weight(1f),
-                        verticalArrangement = Arrangement.spacedBy(4.dp)
-                    ) {
-                        story.petName?.let {
-                            Text(
-                                text = it,
-                                style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold)
-                            )
-                        }
-                        Row(
-                            modifier = Modifier
-                                .background(TealAccent.copy(alpha = 0.1f), RoundedCornerShape(6.dp))
-                                .padding(horizontal = 8.dp, vertical = 2.dp),
-                            verticalAlignment = Alignment.CenterVertically,
-                            horizontalArrangement = Arrangement.spacedBy(4.dp)
-                        ) {
-                            Icon(Icons.Default.CheckCircle, null, Modifier.size(12.dp), tint = TealAccent)
-                            Text(
-                                stringResource(R.string.found_and_reunited),
-                                style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.SemiBold),
-                                color = TealAccent
-                            )
-                        }
-                        story.reunionCity?.let { city ->
-                            Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(4.dp)) {
-                                Icon(Icons.Default.LocationOn, null, Modifier.size(12.dp), tint = MaterialTheme.colorScheme.onSurfaceVariant)
-                                Text(city, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
-                            }
-                        }
-                        // Reunion text
-                        val petName = story.petName ?: ""
-                        val timeMissing = computeTimeMissing(story, resources)
-                        Text(
-                            text = if (story.missingSince != null) {
-                                stringResource(R.string.reunion_template, petName, timeMissing, petName, petName)
-                            } else {
-                                stringResource(R.string.reunion_template_no_time, petName, petName)
-                            },
-                            style = MaterialTheme.typography.bodySmall,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant,
-                            maxLines = 2,
-                            overflow = TextOverflow.Ellipsis
-                        )
-                    }
-                }
+                SuccessStoryCard(story = story)
             }
         }
+    }
+}
+
+private suspend fun loadCircularMarkerBitmap(
+    context: android.content.Context,
+    url: String,
+    sizePx: Int
+): BitmapDescriptor? {
+    return try {
+        val loader = ImageLoader(context)
+        val request = ImageRequest.Builder(context)
+            .data(url)
+            .size(sizePx)
+            .allowHardware(false)
+            .build()
+        val result = loader.execute(request)
+        val bitmap = (result.drawable as? BitmapDrawable)?.bitmap ?: return null
+
+        val scaled = Bitmap.createScaledBitmap(bitmap, sizePx, sizePx, true)
+        val output = Bitmap.createBitmap(sizePx, sizePx, Bitmap.Config.ARGB_8888)
+        val canvas = Canvas(output)
+        val paint = Paint(Paint.ANTI_ALIAS_FLAG)
+
+        // Teal border circle
+        val borderWidth = sizePx * 0.1f
+        paint.color = android.graphics.Color.parseColor("#26A69A")
+        canvas.drawCircle(sizePx / 2f, sizePx / 2f, sizePx / 2f, paint)
+
+        // Circular pet photo
+        paint.shader = BitmapShader(
+            scaled,
+            Shader.TileMode.CLAMP,
+            Shader.TileMode.CLAMP
+        )
+        canvas.drawCircle(sizePx / 2f, sizePx / 2f, sizePx / 2f - borderWidth, paint)
+
+        BitmapDescriptorFactory.fromBitmap(output)
+    } catch (_: Exception) {
+        null
     }
 }
 
@@ -570,7 +552,7 @@ private fun computeTimeMissing(story: SuccessStory, resources: Resources): Strin
     return try {
         val inputFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.getDefault())
         val missingDate = inputFormat.parse(missingSince.take(19))
-        val foundDate = inputFormat.parse(story.foundAt.take(19))
+        val foundDate = story.foundAt?.let { inputFormat.parse(it.take(19)) }
         if (missingDate != null && foundDate != null) {
             val diffMs = foundDate.time - missingDate.time
             val diffDays = TimeUnit.MILLISECONDS.toDays(diffMs).toInt()

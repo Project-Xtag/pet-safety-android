@@ -34,17 +34,25 @@ import com.petsafety.app.ui.components.OfflineIndicator
 import com.petsafety.app.ui.viewmodel.AlertsViewModel
 import com.petsafety.app.ui.viewmodel.AppStateViewModel
 import com.petsafety.app.ui.viewmodel.AuthViewModel
+import com.petsafety.app.ui.viewmodel.QrScannerViewModel
 import com.petsafety.app.ui.viewmodel.SuccessStoriesViewModel
 
 @Composable
 fun AlertsTabScreen(
     appStateViewModel: AppStateViewModel,
     authViewModel: AuthViewModel,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    initialTab: Int = 0
 ) {
     val alertsViewModel: AlertsViewModel = hiltViewModel()
+    val qrScannerViewModel: QrScannerViewModel = hiltViewModel()
     val successStoriesViewModel: SuccessStoriesViewModel = hiltViewModel()
-    var selectedTab by remember { mutableStateOf(0) }
+    var selectedTab by remember { mutableStateOf(initialTab) }
+
+    // Update tab when navigated to from another screen
+    LaunchedEffect(initialTab) {
+        selectedTab = initialTab
+    }
     var hasLocationPermission by remember { mutableStateOf(false) }
     var userLocation by remember { mutableStateOf<LatLng?>(null) }
     val context = androidx.compose.ui.platform.LocalContext.current
@@ -141,15 +149,15 @@ fun AlertsTabScreen(
 
         TabRow(selectedTabIndex = selectedTab) {
             Tab(selected = selectedTab == 0, onClick = { selectedTab = 0 }) {
-                Text(stringResource(R.string.tab_missing))
+                Text(stringResource(R.string.tab_missing), modifier = Modifier.padding(vertical = 12.dp))
             }
             Tab(selected = selectedTab == 1, onClick = { selectedTab = 1 }) {
-                Text(stringResource(R.string.tab_success))
+                Text(stringResource(R.string.tab_success), modifier = Modifier.padding(vertical = 12.dp))
             }
         }
 
         when (selectedTab) {
-            0 -> MissingAlertsScreen(alertsViewModel, appStateViewModel, userLocation)
+            0 -> MissingAlertsScreen(alertsViewModel, appStateViewModel, authViewModel, qrScannerViewModel, userLocation)
             1 -> SuccessStoriesScreen(
                 viewModel = successStoriesViewModel,
                 appStateViewModel = appStateViewModel,

@@ -212,9 +212,22 @@ data class MySubscriptionResponse(
 
 @Serializable
 data class CheckoutResponse(
-    @SerialName("session_id") val sessionId: String,
-    val url: String
-)
+    @SerialName("session_id") val sessionId: String? = null,
+    val url: String? = null,
+    val checkout: CheckoutData? = null
+) {
+    @Serializable
+    data class CheckoutData(
+        val id: String? = null,
+        val url: String? = null
+    )
+
+    val resolvedUrl: String?
+        get() = url ?: checkout?.url
+
+    val resolvedSessionId: String?
+        get() = sessionId ?: checkout?.id
+}
 
 @Serializable
 data class UpgradeResponse(
@@ -240,16 +253,30 @@ data class InvoicesResponse(
 
 @Serializable
 data class SubscriptionFeaturesResponse(
-    @SerialName("plan_name") val planName: String,
-    @SerialName("can_create_alerts") val canCreateAlerts: Boolean,
-    @SerialName("can_receive_vet_alerts") val canReceiveVetAlerts: Boolean,
-    @SerialName("can_receive_community_alerts") val canReceiveCommunityAlerts: Boolean,
-    @SerialName("can_use_sms_notifications") val canUseSmsNotifications: Boolean,
-    @SerialName("max_pets") val maxPets: Int? = null,
-    @SerialName("max_photos_per_pet") val maxPhotosPerPet: Int,
-    @SerialName("max_emergency_contacts") val maxEmergencyContacts: Int,
-    @SerialName("free_tag_replacement") val freeTagReplacement: Boolean
-)
+    val features: SubscriptionFeaturesData? = null,
+    val access: SubscriptionAccessData? = null
+) {
+    @Serializable
+    data class SubscriptionFeaturesData(
+        @SerialName("plan_name") val planName: String? = null,
+        @SerialName("can_create_alerts") val canCreateAlerts: Boolean = false,
+        @SerialName("can_receive_vet_alerts") val canReceiveVetAlerts: Boolean = false,
+        @SerialName("can_receive_community_alerts") val canReceiveCommunityAlerts: Boolean = false,
+        @SerialName("can_use_sms_notifications") val canUseSmsNotifications: Boolean = false,
+        @SerialName("max_pets") val maxPets: Int? = null,
+        @SerialName("max_photos_per_pet") val maxPhotosPerPet: Int = 10,
+        @SerialName("max_emergency_contacts") val maxEmergencyContacts: Int = 1,
+        @SerialName("free_tag_replacement") val freeTagReplacement: Boolean = false
+    )
+
+    @Serializable
+    data class SubscriptionAccessData(
+        @SerialName("paid_plan") val paidPlan: Boolean = false,
+        val notifications: Boolean = false,
+        val sms: Boolean = false,
+        @SerialName("multiple_contacts") val multipleContacts: Boolean = false
+    )
+}
 
 @Serializable
 data class ReferralCodeResponse(

@@ -13,14 +13,25 @@ data class MissingPetAlert(
     @SerialName("last_seen_latitude") val lastSeenLatitude: Double? = null,
     @SerialName("last_seen_longitude") val lastSeenLongitude: Double? = null,
     @SerialName("additional_info") val additionalInfo: String? = null,
-    @SerialName("created_at") val createdAt: String,
-    @SerialName("updated_at") val updatedAt: String,
+    @SerialName("created_at") val createdAt: String? = null,
+    @SerialName("updated_at") val updatedAt: String? = null,
     val pet: Pet? = null,
     val sightings: List<Sighting>? = null,
     @SerialName("description") val legacyDescription: String? = null,
     @SerialName("last_seen_address") val legacyLastSeenAddress: String? = null,
     val lat: Double? = null,
-    val lng: Double? = null
+    val lng: Double? = null,
+    // Flat pet fields returned by nearby alerts endpoint
+    @SerialName("pet_name") val flatPetName: String? = null,
+    val species: String? = null,
+    val breed: String? = null,
+    val color: String? = null,
+    @SerialName("profile_image") val flatProfileImage: String? = null,
+    @SerialName("distance_km") val distanceKm: Double? = null,
+    @SerialName("qr_code") val qrCode: String? = null,
+    @SerialName("reward_amount") val rewardAmount: Double? = null,
+    @SerialName("alert_radius_km") val alertRadiusKm: Double? = null,
+    @SerialName("found_at") val foundAt: String? = null
 ) {
     val resolvedLastSeenLocation: String?
         get() = legacyLastSeenAddress ?: lastSeenLocation
@@ -30,6 +41,15 @@ data class MissingPetAlert(
 
     val resolvedLongitude: Double?
         get() = lastSeenLongitude ?: lng
+
+    val resolvedPetName: String?
+        get() = pet?.name ?: flatPetName
+
+    val resolvedPetPhoto: String?
+        get() = pet?.profileImage ?: flatProfileImage
+
+    val resolvedSpecies: String?
+        get() = pet?.species ?: species
 }
 
 @Serializable

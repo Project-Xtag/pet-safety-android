@@ -17,9 +17,9 @@ data class Pet(
     val notes: String? = null,
     @SerialName("profile_image") private val profileImageField: String? = null,
     @SerialName("photo_url") private val photoUrlField: String? = null,
-    @SerialName("is_missing") val isMissing: Boolean,
-    @SerialName("created_at") val createdAt: String,
-    @SerialName("updated_at") val updatedAt: String,
+    @SerialName("is_missing") val isMissing: Boolean = false,
+    @SerialName("created_at") val createdAt: String? = null,
+    @SerialName("updated_at") val updatedAt: String? = null,
     @SerialName("age_years") val ageYears: Int? = null,
     @SerialName("age_months") val ageMonths: Int? = null,
     @SerialName("age_text") val ageText: String? = null,
@@ -33,7 +33,14 @@ data class Pet(
     @SerialName("date_of_birth") val dateOfBirth: String? = null,
     @SerialName("owner_name") val ownerName: String? = null,
     @SerialName("owner_phone") val ownerPhone: String? = null,
-    @SerialName("owner_email") val ownerEmail: String? = null
+    @SerialName("owner_secondary_phone") val ownerSecondaryPhone: String? = null,
+    @SerialName("owner_email") val ownerEmail: String? = null,
+    @SerialName("owner_secondary_email") val ownerSecondaryEmail: String? = null,
+    @SerialName("owner_address") val ownerAddress: String? = null,
+    @SerialName("owner_address_line_2") val ownerAddressLine2: String? = null,
+    @SerialName("owner_city") val ownerCity: String? = null,
+    @SerialName("owner_postal_code") val ownerPostalCode: String? = null,
+    @SerialName("owner_country") val ownerCountry: String? = null
 ) {
     // Use whichever field is set (API may return either profile_image or photo_url)
     val profileImage: String?

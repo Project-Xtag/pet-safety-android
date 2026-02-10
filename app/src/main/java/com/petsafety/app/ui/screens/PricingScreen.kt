@@ -154,7 +154,7 @@ fun PricingScreen(
                     PlanCard(
                         plan = plan,
                         billingPeriod = selectedBilling,
-                        isCurrent = subscription?.planName?.lowercase() == plan.name.lowercase(),
+                        isCurrent = subscription?.resolvedPlanName?.lowercase() == plan.name.lowercase(),
                         isProcessing = isProcessing,
                         onSelect = { viewModel.selectPlan(plan, selectedBilling) }
                     )
@@ -247,7 +247,7 @@ private fun PlanCard(
             FeatureRow(stringResource(R.string.subscription_vet_alerts), plan.features.vetAlerts)
             FeatureRow(stringResource(R.string.subscription_sms), plan.features.smsNotifications)
             FeatureRow(stringResource(R.string.subscription_community_alerts), plan.features.communityAlerts)
-            FeatureRow(stringResource(R.string.subscription_free_replacement), plan.features.freeTagReplacement)
+            FeatureRow(stringResource(R.string.subscription_free_replacement), plan.features.hasFreeReplacement)
 
             Spacer(modifier = Modifier.height(12.dp))
 

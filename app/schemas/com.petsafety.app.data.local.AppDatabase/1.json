@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "5245771b3ad121a0405e869e65ce0a3d",
+    "identityHash": "261958a93db843904e13d6d8fc691645",
     "entities": [
       {
         "tableName": "pets",
@@ -330,7 +330,7 @@
       },
       {
         "tableName": "success_stories",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `alertId` TEXT, `petId` TEXT NOT NULL, `ownerId` TEXT NOT NULL, `reunionCity` TEXT, `reunionLatitude` REAL, `reunionLongitude` REAL, `storyText` TEXT, `isPublic` INTEGER NOT NULL, `isConfirmed` INTEGER NOT NULL, `missingSince` TEXT, `foundAt` TEXT NOT NULL, `createdAt` TEXT NOT NULL, `updatedAt` TEXT NOT NULL, `deletedAt` TEXT, `lastSyncedAt` INTEGER NOT NULL, PRIMARY KEY(`id`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `alertId` TEXT, `petId` TEXT NOT NULL, `ownerId` TEXT, `reunionCity` TEXT, `reunionLatitude` REAL, `reunionLongitude` REAL, `storyText` TEXT, `isPublic` INTEGER NOT NULL, `isConfirmed` INTEGER NOT NULL, `missingSince` TEXT, `foundAt` TEXT, `createdAt` TEXT, `updatedAt` TEXT, `deletedAt` TEXT, `lastSyncedAt` INTEGER NOT NULL, PRIMARY KEY(`id`))",
         "fields": [
           {
             "fieldPath": "id",
@@ -354,7 +354,7 @@
             "fieldPath": "ownerId",
             "columnName": "ownerId",
             "affinity": "TEXT",
-            "notNull": true
+            "notNull": false
           },
           {
             "fieldPath": "reunionCity",
@@ -402,19 +402,19 @@
             "fieldPath": "foundAt",
             "columnName": "foundAt",
             "affinity": "TEXT",
-            "notNull": true
+            "notNull": false
           },
           {
             "fieldPath": "createdAt",
             "columnName": "createdAt",
             "affinity": "TEXT",
-            "notNull": true
+            "notNull": false
           },
           {
             "fieldPath": "updatedAt",
             "columnName": "updatedAt",
             "affinity": "TEXT",
-            "notNull": true
+            "notNull": false
           },
           {
             "fieldPath": "deletedAt",
@@ -442,7 +442,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '5245771b3ad121a0405e869e65ce0a3d')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '261958a93db843904e13d6d8fc691645')"
     ]
   }
 }

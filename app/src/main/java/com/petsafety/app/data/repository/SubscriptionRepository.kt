@@ -34,7 +34,7 @@ class SubscriptionRepository(private val apiService: ApiService) {
                 promoCode = promoCode
             )
         )
-        return response.data?.url ?: error("Missing checkout URL")
+        return response.data?.resolvedUrl ?: error("Missing checkout URL")
     }
 
     suspend fun upgradeToStarter(): UserSubscription {
