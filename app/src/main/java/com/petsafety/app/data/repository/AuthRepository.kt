@@ -41,6 +41,7 @@ class AuthRepository(
         val token = data.token
         val user = data.user
         tokenStore.saveAuthToken(token)
+        data.refreshToken?.let { tokenStore.saveRefreshToken(it) }
         tokenStore.saveUserInfo(user.id, user.email)
 
         // Register FCM token after successful login
@@ -54,6 +55,7 @@ class AuthRepository(
         unregisterFCMToken()
 
         tokenStore.clearAuthToken()
+        tokenStore.clearRefreshToken()
         tokenStore.clearUserInfo()
     }
 
@@ -117,6 +119,7 @@ class AuthRepository(
 
         apiService.deleteAccount()
         tokenStore.clearAuthToken()
+        tokenStore.clearRefreshToken()
         tokenStore.clearUserInfo()
         tokenStore.setBiometricEnabled(false)
 

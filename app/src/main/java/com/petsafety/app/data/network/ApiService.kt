@@ -24,6 +24,9 @@ interface ApiService {
     @POST("auth/verify-otp")
     suspend fun verifyOtp(@Body request: VerifyOtpRequest): ApiEnvelope<VerifyOtpResponse>
 
+    @POST("auth/refresh")
+    suspend fun refreshToken(@Body body: Map<String, String>): ApiEnvelope<RefreshTokenResponse>
+
     // User
     @GET("users/me")
     suspend fun getCurrentUser(): ApiEnvelope<UserResponse>

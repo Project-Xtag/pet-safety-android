@@ -9,6 +9,7 @@ import kotlinx.coroutines.flow.asStateFlow
 
 class AuthTokenStore(context: Context) {
     private val authTokenKey = "auth_token"
+    private val refreshTokenKey = "refresh_token"
     private val userIdKey = "user_id"
     private val userEmailKey = "user_email"
     private val biometricEnabledKey = "biometric_enabled"
@@ -28,6 +29,9 @@ class AuthTokenStore(context: Context) {
 
     private val _authToken = MutableStateFlow(prefs.getString(authTokenKey, null))
     val authToken: StateFlow<String?> = _authToken.asStateFlow()
+
+    private val _refreshToken = MutableStateFlow(prefs.getString(refreshTokenKey, null))
+    val refreshToken: StateFlow<String?> = _refreshToken.asStateFlow()
 
     private val _userId = MutableStateFlow(prefs.getString(userIdKey, null))
     val userId: StateFlow<String?> = _userId.asStateFlow()
@@ -55,6 +59,16 @@ class AuthTokenStore(context: Context) {
     suspend fun clearAuthToken() {
         prefs.edit().remove(authTokenKey).apply()
         _authToken.value = null
+    }
+
+    suspend fun saveRefreshToken(token: String) {
+        prefs.edit().putString(refreshTokenKey, token).apply()
+        _refreshToken.value = token
+    }
+
+    suspend fun clearRefreshToken() {
+        prefs.edit().remove(refreshTokenKey).apply()
+        _refreshToken.value = null
     }
 
     suspend fun saveUserInfo(userId: String, email: String) {

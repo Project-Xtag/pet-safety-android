@@ -8,6 +8,7 @@ import com.petsafety.app.data.network.ApiService
 import com.petsafety.app.data.network.model.ApiEnvelope
 import com.petsafety.app.data.network.model.BreedsResponse
 import com.petsafety.app.data.network.model.CreatePetRequest
+import com.petsafety.app.data.network.model.MarkMissingRequest
 import com.petsafety.app.data.network.model.MarkMissingResponse
 import com.petsafety.app.data.network.model.PetResponse
 import com.petsafety.app.data.network.model.PetsResponse
@@ -18,6 +19,7 @@ import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.every
 import io.mockk.mockk
+import io.mockk.slot
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.test.runTest
@@ -327,5 +329,63 @@ class PetsRepositoryTest {
         val result = repository.getBreedsBySpecies("DOG")
 
         assertEquals(breeds, result)
+    }
+
+    // ==================== markPetMissing - rewardAmount tests ====================
+
+    @Test
+    fun `markPetMissing - with rewardAmount - passes reward in request`() = runTest {
+        val location = LocationCoordinate(51.5074, -0.1278)
+        val requestSlot = slot<MarkMissingRequest>()
+        coEvery { apiService.markPetMissing("pet-1", capture(requestSlot)) } returns ApiEnvelope(
+            success = true,
+            data = MarkMissingResponse(
+                pet = testPet.copy(isMissing = true),
+                message = "Pet marked as missing"
+            )
+        )
+
+        repository.markPetMissing("pet-1", location, "London", "Lost in park", rewardAmount = 50.0)
+
+        assertEquals(50.0, requestSlot.captured.rewardAmount!!, 0.0)
+    }
+
+    @Test
+    fun `markPetMissing - with null rewardAmount - omits reward from request`() = runTest {
+        val location = LocationCoordinate(51.5074, -0.1278)
+        val requestSlot = slot<MarkMissingRequest>()
+        coEvery { apiService.markPetMissing("pet-1", capture(requestSlot)) } returns ApiEnvelope(
+            success = true,
+            data = MarkMissingResponse(
+                pet = testPet.copy(isMissing = true),
+                message = "Pet marked as missing"
+            )
+        )
+
+        repository.markPetMissing("pet-1", location, "London", "Lost in park", rewardAmount = null)
+
+        assertNull(requestSlot.captured.rewardAmount)
+    }
+
+    @Test
+    fun `markPetMissing - offline - queues action with rewardAmount in actionData`() = runTest {
+        every { networkMonitor.isConnected } returns MutableStateFlow(false)
+        val location = LocationCoordinate(51.5074, -0.1278)
+
+        repository.markPetMissing("pet-1", location, "London", "Lost", rewardAmount = 100.0)
+
+        coVerify {
+            syncService.queueAction(
+                SyncService.ActionType.MARK_PET_LOST,
+                match { map ->
+                    map["petId"] == "pet-1" &&
+                    map["latitude"] == 51.5074 &&
+                    map["longitude"] == -0.1278 &&
+                    map["lastSeenAddress"] == "London" &&
+                    map["description"] == "Lost" &&
+                    map["rewardAmount"] == 100.0
+                }
+            )
+        }
     }
 }

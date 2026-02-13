@@ -36,6 +36,8 @@ hilt-navigation-compose = "1.2.0"
  turbine = "1.1.0"
  mockk = "1.13.12"
  coroutines-test = "1.9.0"
+sqlcipher = "4.6.1"
+sqlite-ktx = "2.4.0"
 
  [libraries]
  androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "core-ktx" }
@@ -65,6 +67,8 @@ androidx-core-splashscreen = { module = "androidx.core:core-splashscreen", versi
  room-runtime = { module = "androidx.room:room-runtime", version.ref = "room" }
  room-ktx = { module = "androidx.room:room-ktx", version.ref = "room" }
  room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" }
+sqlcipher = { module = "net.zetetic:sqlcipher-android", version.ref = "sqlcipher" }
+sqlite-ktx = { module = "androidx.sqlite:sqlite-ktx", version.ref = "sqlite-ktx" }
  datastore-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "datastore" }
  work-runtime = { module = "androidx.work:work-runtime-ktx", version.ref = "workmanager" }
 security-crypto = { module = "androidx.security:security-crypto", version.ref = "security-crypto" }

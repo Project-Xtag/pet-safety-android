@@ -122,6 +122,12 @@
 -dontwarn androidx.camera.**
 
 # ============================================
+# SQLCIPHER DATABASE ENCRYPTION
+# ============================================
+-keep class net.zetetic.database.sqlcipher.** { *; }
+-dontwarn net.zetetic.database.sqlcipher.**
+
+# ============================================
 # SECURITY - ENCRYPTED SHARED PREFERENCES
 # ============================================
 -keep class androidx.security.crypto.** { *; }
@@ -183,6 +189,7 @@
 # Protect sensitive classes from easy identification
 -keep class com.petsafety.app.data.local.AuthTokenStore { *; }
 -keep class com.petsafety.app.data.local.BiometricHelper { *; }
+-keep class com.petsafety.app.data.local.DatabaseKeyManager { *; }
 -keep class com.petsafety.app.data.network.TokenAuthenticator { *; }
 
 # Keep BuildConfig for debug checks

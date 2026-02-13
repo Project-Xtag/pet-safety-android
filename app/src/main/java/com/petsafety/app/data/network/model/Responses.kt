@@ -13,7 +13,14 @@ data class LoginResponse(
 @Serializable
 data class VerifyOtpResponse(
     val token: String,
+    val refreshToken: String? = null,
     val user: User
+)
+
+@Serializable
+data class RefreshTokenResponse(
+    val token: String,
+    val refreshToken: String
 )
 
 @Serializable

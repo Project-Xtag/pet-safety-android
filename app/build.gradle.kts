@@ -131,6 +131,8 @@ dependencies {
     implementation(libs.room.runtime)
     implementation(libs.room.ktx)
     ksp(libs.room.compiler)
+    implementation(libs.sqlcipher)
+    implementation(libs.sqlite.ktx)
     implementation(libs.work.runtime)
     implementation(libs.security.crypto)
     implementation(libs.biometric)

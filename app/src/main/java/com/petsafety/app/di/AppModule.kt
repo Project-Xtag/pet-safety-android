@@ -6,6 +6,8 @@ import androidx.work.WorkManager
 import com.petsafety.app.data.config.ConfigurationManager
 import com.petsafety.app.data.local.AppDatabase
 import com.petsafety.app.data.local.AuthTokenStore
+import com.petsafety.app.data.local.DatabaseKeyManager
+import net.zetetic.database.sqlcipher.SupportOpenHelperFactory
 import com.petsafety.app.data.local.OfflineDataManager
 import com.petsafety.app.data.fcm.FCMRepository
 import com.petsafety.app.data.network.ApiClient
@@ -38,10 +40,17 @@ import javax.inject.Singleton
 object AppModule {
     @Provides
     @Singleton
-    fun provideDatabase(@ApplicationContext context: Context): AppDatabase =
-        Room.databaseBuilder(context, AppDatabase::class.java, "PetSafety.db")
+    fun provideDatabase(@ApplicationContext context: Context): AppDatabase {
+        val keyManager = DatabaseKeyManager(context)
+        val passphrase = keyManager.getOrCreatePassphrase()
+        System.loadLibrary("sqlcipher")
+        val factory = SupportOpenHelperFactory(passphrase)
+
+        return Room.databaseBuilder(context, AppDatabase::class.java, "PetSafety.db")
+            .openHelperFactory(factory)
             .fallbackToDestructiveMigration()
             .build()
+    }
 
     @Provides
     @Singleton
