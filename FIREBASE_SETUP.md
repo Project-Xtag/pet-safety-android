@@ -82,7 +82,7 @@ When someone scans a pet's tag, they can choose:
 # Get your FCM token from logcat (look for "FCM token:")
 
 # Test via backend (requires auth token)
-curl -X POST https://pet-er.app/api/test/fcm \
+curl -X POST https://senra.pet/api/test/fcm \
   -H "Authorization: Bearer YOUR_AUTH_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{

@@ -61,6 +61,20 @@ data class AlertUpdatedEvent(
 )
 
 @Serializable
+data class SubscriptionChangedEvent(
+    val planName: String,
+    val status: String,
+    val billingPeriod: String? = null,
+    val expiresAt: String? = null
+)
+
+@Serializable
+data class ReferralUsedEvent(
+    val refereeName: String? = null,
+    val refereeEmail: String? = null
+)
+
+@Serializable
 data class ConnectionEvent(
     val userId: String,
     val connectedAt: String

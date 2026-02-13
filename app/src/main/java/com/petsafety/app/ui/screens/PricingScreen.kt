@@ -1,7 +1,7 @@
 package com.petsafety.app.ui.screens
 
-import android.content.Intent
 import android.net.Uri
+import androidx.browser.customtabs.CustomTabsIntent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -74,10 +74,12 @@ fun PricingScreen(
 
     LaunchedEffect(Unit) { viewModel.loadAll() }
 
-    // Launch browser when checkout URL is available
+    // Launch Chrome Custom Tab when checkout URL is available
     LaunchedEffect(checkoutUrl) {
         checkoutUrl?.let { url ->
-            context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
+            val customTabsIntent = CustomTabsIntent.Builder().build()
+            customTabsIntent.launchUrl(context, Uri.parse(url))
+            viewModel.handleCheckoutCancelled() // Clear URL so it doesn't re-launch
         }
     }
 

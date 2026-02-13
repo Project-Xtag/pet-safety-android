@@ -10,14 +10,13 @@ import com.petsafety.app.data.network.model.ShareLocationResponse
 import kotlin.math.roundToInt
 
 /**
- * Location consent level for sharing location when scanning a tag
+ * Location consent level for sharing location when scanning a tag.
+ * 2-tier model: precise (toggle ON) or approximate (toggle OFF).
  */
 enum class LocationConsent {
-    /** Don't share any location */
-    DECLINE,
-    /** Share approximate location (~500m accuracy) */
+    /** Share approximate location (~500m accuracy) — toggle OFF */
     APPROXIMATE,
-    /** Share precise location */
+    /** Share precise/exact location — toggle ON (default) */
     PRECISE
 }
 
@@ -32,12 +31,12 @@ class QrRepository(private val apiService: ApiService) {
         apiService.getActiveTag(petId).data?.tag
 
     /**
-     * Share location with 3-tier GDPR consent
+     * Share location with 2-tier consent (toggle ON = precise, toggle OFF = approximate).
      *
      * @param qrCode The scanned QR code
-     * @param consent The location consent level
-     * @param latitude Current latitude (required if consent is not DECLINE)
-     * @param longitude Current longitude (required if consent is not DECLINE)
+     * @param consent The location consent level (PRECISE or APPROXIMATE)
+     * @param latitude Current latitude (required)
+     * @param longitude Current longitude (required)
      * @param accuracyMeters GPS accuracy in meters (optional)
      */
     suspend fun shareLocation(
@@ -47,41 +46,44 @@ class QrRepository(private val apiService: ApiService) {
         longitude: Double? = null,
         accuracyMeters: Double? = null
     ): ShareLocationResponse {
-        val request = when (consent) {
-            LocationConsent.DECLINE -> {
-                // No location shared
-                ShareLocationRequest(qrCode = qrCode)
-            }
-            LocationConsent.APPROXIMATE -> {
-                require(latitude != null && longitude != null) {
-                    "Location required for approximate consent"
-                }
-                // Round to 3 decimal places (~111m precision)
-                val roundedLat = (latitude * 1000).roundToInt() / 1000.0
-                val roundedLng = (longitude * 1000).roundToInt() / 1000.0
+        val shareExact = consent == LocationConsent.PRECISE
 
-                ShareLocationRequest(
-                    qrCode = qrCode,
-                    latitude = roundedLat,
-                    longitude = roundedLng,
-                    accuracyMeters = accuracyMeters,
-                    isApproximate = true,
-                    consentType = LocationConsentType.APPROXIMATE
-                )
-            }
-            LocationConsent.PRECISE -> {
-                require(latitude != null && longitude != null) {
-                    "Location required for precise consent"
+        val request = if (latitude != null && longitude != null) {
+            when (consent) {
+                LocationConsent.APPROXIMATE -> {
+                    // Round to 3 decimal places (~111m precision)
+                    val roundedLat = (latitude * 1000).roundToInt() / 1000.0
+                    val roundedLng = (longitude * 1000).roundToInt() / 1000.0
+
+                    ShareLocationRequest(
+                        qrCode = qrCode,
+                        latitude = roundedLat,
+                        longitude = roundedLng,
+                        accuracyMeters = accuracyMeters,
+                        isApproximate = true,
+                        consentType = LocationConsentType.APPROXIMATE,
+                        shareExactLocation = false
+                    )
                 }
-                ShareLocationRequest(
-                    qrCode = qrCode,
-                    latitude = latitude,
-                    longitude = longitude,
-                    accuracyMeters = accuracyMeters,
-                    isApproximate = false,
-                    consentType = LocationConsentType.PRECISE
-                )
+                LocationConsent.PRECISE -> {
+                    ShareLocationRequest(
+                        qrCode = qrCode,
+                        latitude = latitude,
+                        longitude = longitude,
+                        accuracyMeters = accuracyMeters,
+                        isApproximate = false,
+                        consentType = LocationConsentType.PRECISE,
+                        shareExactLocation = true
+                    )
+                }
             }
+        } else {
+            // No coordinates available — send consent preference without location data;
+            // backend will still record the scan event
+            ShareLocationRequest(
+                qrCode = qrCode,
+                shareExactLocation = shareExact
+            )
         }
 
         return apiService.shareLocation(request).data

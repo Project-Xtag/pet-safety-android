@@ -151,6 +151,10 @@ interface ApiService {
         @Body request: CreateReplacementOrderRequest
     ): ApiEnvelope<ReplacementOrderResponse>
 
+    // Tag Checkout (Stripe Checkout redirect)
+    @POST("orders/create-checkout")
+    suspend fun createTagCheckout(@Body request: CreateTagCheckoutRequest): ApiEnvelope<TagCheckoutResponse>
+
     // Payments
     @POST("payments/intent")
     suspend fun createPaymentIntent(@Body request: CreatePaymentIntentRequest): ApiEnvelope<PaymentIntentResponse>

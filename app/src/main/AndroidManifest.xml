@@ -93,7 +93,7 @@
                 <category android:name="android.intent.category.BROWSABLE" />
                 <data
                     android:scheme="https"
-                    android:host="pet-er.app"
+                    android:host="senra.pet"
                     android:pathPrefix="/qr/" />
             </intent-filter>
 
@@ -102,17 +102,17 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
                 <data
-                    android:scheme="petsafety"
+                    android:scheme="senra"
                     android:host="tag" />
             </intent-filter>
 
-            <!-- Deep link for Stripe checkout return: petsafety://checkout/success or /cancelled -->
+            <!-- Deep link for Stripe checkout return: senra://checkout/success or /cancelled -->
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
                 <data
-                    android:scheme="petsafety"
+                    android:scheme="senra"
                     android:host="checkout" />
             </intent-filter>
         </activity>

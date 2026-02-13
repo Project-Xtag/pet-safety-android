@@ -311,6 +311,7 @@
     <string name="dont_share_location">Nu partaja locația</string>
     <string name="dont_share_location_desc">Doar notifică proprietarul că animalul a fost găsit</string>
     <string name="confirm_notify_owner">Confirmă și notifică proprietarul</string>
+    <string name="share_exact_location_toggle">Partajează locația exactă</string>
     <string name="contact_owner">Contactează proprietarul</string>
     <string name="call_phone">Sună: %1$s</string>
     <string name="email_contact">E-mail: %1$s</string>
@@ -735,6 +736,11 @@
     <string name="pet_found_share">%1$s găsit!</string>
     <string name="reunited_in">Reunit în %1$s</string>
     <string name="shared_via_pet_safety">Partajat prin aplicația Pet Safety</string>
+    <string name="story_share_good_news">Împărtășește vestea bună</string>
+    <string name="story_social_caption">%1$s s-a reunit cu familia! Mulțumim comunității TagMe Now pentru că a ajutat la aducerea lui %1$s acasă. senra.pet</string>
+    <string name="story_generating_card">Se creează cardul de partajare\u2026</string>
+    <string name="story_pet_is_home_title">%1$s este acasă!</string>
+    <string name="story_inspire_others_message">Inspiră alți proprietari împărtășind cum s-a reunit %1$s cu tine.</string>
     <string name="sighting_reports_desc">Raportări de observații</string>
 
     <!-- Success Story Time -->
@@ -1011,7 +1017,7 @@
     <string name="contact_support_sending">Se trimite\u2026</string>
     <string name="contact_support_success">Solicitare trimisă! ID ticket: %1$s</string>
     <string name="contact_support_response">Îți vom răspunde în 24 de ore.</string>
-    <string name="support_email">Suport: support@petsafety.eu</string>
+    <string name="support_email">Suport: hello@senra.pet</string>
     <string name="support_category_general">General</string>
     <string name="support_category_technical">Problemă tehnică</string>
     <string name="support_category_account">Cont</string>
@@ -1197,7 +1203,7 @@
     <string name="referral_copy">Copiază</string>
     <string name="referral_share">Partajează</string>
     <string name="referral_pending">În așteptare</string>
-    <string name="referral_share_text">Folosește codul meu de recomandare %1$s pentru 2 luni gratuite la Pet Safety! https://pet-er.app/choose-plan?referral=%2$s</string>
+    <string name="referral_share_text">Folosește codul meu de recomandare %1$s pentru 2 luni gratuite la Pet Safety! https://senra.pet/choose-plan?referral=%2$s</string>
     <string name="referral_clipboard_label">Cod de recomandare</string>
 
     <!-- ============================================ -->
@@ -1352,8 +1358,8 @@
     <!-- ============================================ -->
     <string name="app_name_label">Pet Safety</string>
     <string name="app_version">Versiunea 1.0.0</string>
-    <string name="terms_url">Termeni: https://pet-er.app/terms</string>
-    <string name="privacy_url">Confidențialitate: https://pet-er.app/privacy</string>
+    <string name="terms_url">Termeni: https://senra.pet/terms</string>
+    <string name="privacy_url">Confidențialitate: https://senra.pet/privacy</string>
 
     <!-- ============================================ -->
     <!-- MARK: Relative Time -->
@@ -1401,4 +1407,18 @@
         <item quantity="few">%d săptămâni</item>
         <item quantity="other">%d săptămâni</item>
     </plurals>
+
+    <!-- ============================================ -->
+    <!-- MARK: Reward & Sighting Details -->
+    <!-- ============================================ -->
+    <string name="reward_optional">Recompensă (opțional)</string>
+    <string name="reward_badge">\u20AC%d Recompensă</string>
+    <string name="sighting_details_title">Observări</string>
+    <string name="sighting_at">Văzut la %1$s</string>
+    <string name="sighting_reported_at">Raportat %1$s</string>
+    <string name="sighting_no_details">Nu au fost raportate observări încă</string>
+    <string name="sighting_anonymous">Raportator anonim</string>
+    <string name="reporter_name">Numele tău</string>
+    <string name="reporter_phone">Număr de telefon</string>
+    <string name="reporter_email">E-mail</string>
 </resources>

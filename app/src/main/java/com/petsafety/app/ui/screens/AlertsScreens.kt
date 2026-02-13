@@ -12,6 +12,7 @@ import android.graphics.drawable.BitmapDrawable
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.background
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.layout.Arrangement
@@ -70,6 +71,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -99,11 +101,10 @@ import com.petsafety.app.ui.viewmodel.AlertsViewModel
 import com.petsafety.app.ui.viewmodel.AppStateViewModel
 import com.petsafety.app.ui.viewmodel.AuthViewModel
 import android.content.res.Resources
-import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.clickable
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
-import androidx.compose.material.icons.filled.CheckCircle
+import androidx.compose.material3.Switch
+import androidx.compose.material3.SwitchDefaults
 import com.petsafety.app.data.repository.LocationConsent
 import com.petsafety.app.ui.viewmodel.QrScannerViewModel
 import java.text.SimpleDateFormat
@@ -236,12 +237,12 @@ fun MissingAlertsScreen(
             ReportSightingDialog(
                 alertId = alert.id,
                 onDismiss = { showReport = false },
-                onSubmit = { coordinate, locationText, notes ->
+                onSubmit = { coordinate, locationText, notes, name, phone, email ->
                     viewModel.reportSighting(
                         alertId = alert.id,
-                        reporterName = null,
-                        reporterPhone = null,
-                        reporterEmail = null,
+                        reporterName = name,
+                        reporterPhone = phone,
+                        reporterEmail = email,
                         location = locationText,
                         coordinate = coordinate,
                         notes = notes
@@ -487,25 +488,41 @@ private fun AlertCard(
                         )
                     }
 
-                    // Missing Badge
+                    // Missing Badge + Reward Badge
                     Row(
-                        modifier = Modifier
-                            .background(Color.Red.copy(alpha = 0.1f), RoundedCornerShape(6.dp))
-                            .padding(horizontal = 8.dp, vertical = 4.dp),
-                        verticalAlignment = Alignment.CenterVertically,
-                        horizontalArrangement = Arrangement.spacedBy(4.dp)
+                        horizontalArrangement = Arrangement.spacedBy(6.dp),
+                        verticalAlignment = Alignment.CenterVertically
                     ) {
-                        Icon(
-                            imageVector = Icons.Default.Warning,
-                            contentDescription = null,
-                            modifier = Modifier.size(12.dp),
-                            tint = Color.Red
-                        )
-                        Text(
-                            text = stringResource(R.string.alert_status_missing),
-                            style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.SemiBold),
-                            color = Color.Red
-                        )
+                        Row(
+                            modifier = Modifier
+                                .background(Color.Red.copy(alpha = 0.1f), RoundedCornerShape(6.dp))
+                                .padding(horizontal = 8.dp, vertical = 4.dp),
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.spacedBy(4.dp)
+                        ) {
+                            Icon(
+                                imageVector = Icons.Default.Warning,
+                                contentDescription = null,
+                                modifier = Modifier.size(12.dp),
+                                tint = Color.Red
+                            )
+                            Text(
+                                text = stringResource(R.string.alert_status_missing),
+                                style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.SemiBold),
+                                color = Color.Red
+                            )
+                        }
+
+                        if (alert.rewardAmount != null && alert.rewardAmount > 0) {
+                            Text(
+                                text = stringResource(R.string.reward_badge, alert.rewardAmount.toInt()),
+                                modifier = Modifier
+                                    .background(BrandOrange.copy(alpha = 0.15f), RoundedCornerShape(6.dp))
+                                    .padding(horizontal = 8.dp, vertical = 4.dp),
+                                style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.SemiBold),
+                                color = BrandOrange
+                            )
+                        }
                     }
 
                     // Missing Since
@@ -652,25 +669,41 @@ private fun AlertDetailDialog(
                             )
                         }
 
-                        // Missing Badge
+                        // Missing Badge + Reward Badge
                         Row(
-                            modifier = Modifier
-                                .background(Color.Red.copy(alpha = 0.1f), RoundedCornerShape(6.dp))
-                                .padding(horizontal = 8.dp, vertical = 4.dp),
-                            verticalAlignment = Alignment.CenterVertically,
-                            horizontalArrangement = Arrangement.spacedBy(4.dp)
+                            horizontalArrangement = Arrangement.spacedBy(6.dp),
+                            verticalAlignment = Alignment.CenterVertically
                         ) {
-                            Icon(
-                                imageVector = Icons.Default.Warning,
-                                contentDescription = null,
-                                modifier = Modifier.size(12.dp),
-                                tint = Color.Red
-                            )
-                            Text(
-                                text = stringResource(R.string.alert_status_missing),
-                                style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.SemiBold),
-                                color = Color.Red
-                            )
+                            Row(
+                                modifier = Modifier
+                                    .background(Color.Red.copy(alpha = 0.1f), RoundedCornerShape(6.dp))
+                                    .padding(horizontal = 8.dp, vertical = 4.dp),
+                                verticalAlignment = Alignment.CenterVertically,
+                                horizontalArrangement = Arrangement.spacedBy(4.dp)
+                            ) {
+                                Icon(
+                                    imageVector = Icons.Default.Warning,
+                                    contentDescription = null,
+                                    modifier = Modifier.size(12.dp),
+                                    tint = Color.Red
+                                )
+                                Text(
+                                    text = stringResource(R.string.alert_status_missing),
+                                    style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.SemiBold),
+                                    color = Color.Red
+                                )
+                            }
+
+                            if (alert.rewardAmount != null && alert.rewardAmount > 0) {
+                                Text(
+                                    text = stringResource(R.string.reward_badge, alert.rewardAmount.toInt()),
+                                    modifier = Modifier
+                                        .background(BrandOrange.copy(alpha = 0.15f), RoundedCornerShape(6.dp))
+                                        .padding(horizontal = 8.dp, vertical = 4.dp),
+                                    style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.SemiBold),
+                                    color = BrandOrange
+                                )
+                            }
                         }
                     }
                 }
@@ -789,7 +822,7 @@ private fun AlertDetailDialog(
 private fun ReportSightingDialog(
     alertId: String,
     onDismiss: () -> Unit,
-    onSubmit: (LocationCoordinate?, String?, String?) -> Unit
+    onSubmit: (LocationCoordinate?, String?, String?, String?, String?, String?) -> Unit
 ) {
     val context = LocalContext.current
     val locationProvider = remember { LocationServices.getFusedLocationProviderClient(context) }
@@ -798,6 +831,10 @@ private fun ReportSightingDialog(
     var notes by remember { mutableStateOf("") }
     var capturedCoordinate by remember { mutableStateOf<LocationCoordinate?>(null) }
     var isCapturingLocation by remember { mutableStateOf(false) }
+    var shareContact by remember { mutableStateOf(false) }
+    var reporterName by remember { mutableStateOf("") }
+    var reporterPhone by remember { mutableStateOf("") }
+    var reporterEmail by remember { mutableStateOf("") }
     var hasLocationPermission by remember {
         mutableStateOf(
             ContextCompat.checkSelfPermission(
@@ -889,6 +926,65 @@ private fun ReportSightingDialog(
                     label = { Text(stringResource(R.string.notes)) },
                     modifier = Modifier.fillMaxWidth()
                 )
+
+                Spacer(modifier = Modifier.height(12.dp))
+                HorizontalDivider()
+                Spacer(modifier = Modifier.height(8.dp))
+
+                // Share contact info toggle
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Column(modifier = Modifier.weight(1f)) {
+                        Text(
+                            text = stringResource(R.string.share_contact_info),
+                            style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.SemiBold),
+                            color = MaterialTheme.colorScheme.onSurface
+                        )
+                        Text(
+                            text = stringResource(R.string.share_contact_info_desc),
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                        )
+                    }
+                    Switch(
+                        checked = shareContact,
+                        onCheckedChange = { shareContact = it },
+                        colors = SwitchDefaults.colors(
+                            checkedThumbColor = Color.White,
+                            checkedTrackColor = TealAccent,
+                            uncheckedThumbColor = Color.White,
+                            uncheckedTrackColor = MaterialTheme.colorScheme.outline
+                        )
+                    )
+                }
+
+                if (shareContact) {
+                    Spacer(modifier = Modifier.height(8.dp))
+                    OutlinedTextField(
+                        value = reporterName,
+                        onValueChange = { reporterName = it },
+                        label = { Text(stringResource(R.string.reporter_name)) },
+                        modifier = Modifier.fillMaxWidth()
+                    )
+                    Spacer(modifier = Modifier.height(8.dp))
+                    OutlinedTextField(
+                        value = reporterPhone,
+                        onValueChange = { reporterPhone = it },
+                        label = { Text(stringResource(R.string.reporter_phone)) },
+                        modifier = Modifier.fillMaxWidth(),
+                        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Phone)
+                    )
+                    Spacer(modifier = Modifier.height(8.dp))
+                    OutlinedTextField(
+                        value = reporterEmail,
+                        onValueChange = { reporterEmail = it },
+                        label = { Text(stringResource(R.string.reporter_email)) },
+                        modifier = Modifier.fillMaxWidth(),
+                        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email)
+                    )
+                }
             }
         },
         confirmButton = {
@@ -897,7 +993,10 @@ private fun ReportSightingDialog(
                     onSubmit(
                         capturedCoordinate,
                         locationText.ifBlank { null },
-                        notes.ifBlank { null }
+                        notes.ifBlank { null },
+                        if (shareContact) reporterName.ifBlank { null } else null,
+                        if (shareContact) reporterPhone.ifBlank { null } else null,
+                        if (shareContact) reporterEmail.ifBlank { null } else null
                     )
                 },
                 colors = ButtonDefaults.buttonColors(containerColor = BrandOrange)
@@ -1114,12 +1213,24 @@ private fun AlertDetailScreen(
             modifier = Modifier.padding(24.dp),
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
-            // Pet Name
+            // Pet Name + Reward Badge
             Text(
                 text = petName,
                 style = MaterialTheme.typography.headlineMedium.copy(fontWeight = FontWeight.Bold),
                 color = MaterialTheme.colorScheme.onSurface
             )
+
+            // Reward badge
+            if (alert.rewardAmount != null && alert.rewardAmount > 0) {
+                Text(
+                    text = stringResource(R.string.reward_badge, alert.rewardAmount.toInt()),
+                    modifier = Modifier
+                        .background(BrandOrange.copy(alpha = 0.15f), RoundedCornerShape(8.dp))
+                        .padding(horizontal = 12.dp, vertical = 6.dp),
+                    style = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.Bold),
+                    color = BrandOrange
+                )
+            }
 
             // Species, breed, age, color — info chips
             val infoItems = buildList {
@@ -1276,13 +1387,25 @@ private fun AlertDetailScreen(
                 }
             }
 
-            // Sightings count
-            if (!alert.sightings.isNullOrEmpty()) {
+            // Sightings details section
+            Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
                 Text(
-                    text = pluralStringResource(R.plurals.sighting_count, alert.sightings.size, alert.sightings.size),
-                    style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.SemiBold),
-                    color = BrandOrange
+                    text = stringResource(R.string.sighting_details_title),
+                    style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.SemiBold),
+                    color = MaterialTheme.colorScheme.onSurface
                 )
+
+                if (alert.sightings.isNullOrEmpty()) {
+                    Text(
+                        text = stringResource(R.string.sighting_no_details),
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                } else {
+                    alert.sightings.forEach { sighting ->
+                        SightingCard(sighting = sighting)
+                    }
+                }
             }
 
             HorizontalDivider(modifier = Modifier.padding(vertical = 8.dp))
@@ -1341,12 +1464,12 @@ private fun AlertDetailScreen(
         ReportSightingDialog(
             alertId = alert.id,
             onDismiss = { showReportSighting = false },
-            onSubmit = { coordinate, locationText, notes ->
+            onSubmit = { coordinate, locationText, notes, name, phone, email ->
                 viewModel.reportSighting(
                     alertId = alert.id,
-                    reporterName = null,
-                    reporterPhone = null,
-                    reporterEmail = null,
+                    reporterName = name,
+                    reporterPhone = phone,
+                    reporterEmail = email,
                     location = locationText,
                     coordinate = coordinate,
                     notes = notes
@@ -1422,7 +1545,7 @@ private fun ReportFoundDialog(
     val context = LocalContext.current
     val locationProvider = remember { LocationServices.getFusedLocationProviderClient(context) }
 
-    var selectedConsent by remember { mutableStateOf<LocationConsent?>(null) }
+    var shareExactLocation by remember { mutableStateOf(true) }
     var isSubmitting by remember { mutableStateOf(false) }
     var hasLocationPermission by remember {
         mutableStateOf(
@@ -1475,98 +1598,117 @@ private fun ReportFoundDialog(
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
 
-                // Option 1: Precise Location
-                ConsentOptionCard(
-                    title = stringResource(R.string.precise_location),
-                    description = stringResource(R.string.precise_location_desc),
-                    icon = Icons.Default.LocationOn,
-                    isSelected = selectedConsent == LocationConsent.PRECISE,
-                    isRecommended = true,
-                    onClick = { selectedConsent = LocationConsent.PRECISE }
-                )
-
-                // Option 2: Approximate Location
-                ConsentOptionCard(
-                    title = stringResource(R.string.approximate_location),
-                    description = stringResource(R.string.approximate_location_desc),
-                    icon = Icons.Default.LocationOn,
-                    isSelected = selectedConsent == LocationConsent.APPROXIMATE,
-                    isRecommended = false,
-                    onClick = { selectedConsent = LocationConsent.APPROXIMATE }
-                )
-
-                // Option 3: Don't share location
-                ConsentOptionCard(
-                    title = stringResource(R.string.dont_share_location),
-                    description = stringResource(R.string.dont_share_location_desc),
-                    icon = Icons.Default.Warning,
-                    isSelected = selectedConsent == LocationConsent.DECLINE,
-                    isRecommended = false,
-                    onClick = { selectedConsent = LocationConsent.DECLINE }
-                )
+                // Exact location toggle
+                Card(
+                    modifier = Modifier.fillMaxWidth(),
+                    shape = RoundedCornerShape(14.dp),
+                    colors = CardDefaults.cardColors(
+                        containerColor = MaterialTheme.colorScheme.surfaceContainerHigh
+                    )
+                ) {
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(horizontal = 16.dp, vertical = 12.dp),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.LocationOn,
+                            contentDescription = null,
+                            modifier = Modifier.size(24.dp),
+                            tint = if (shareExactLocation) TealAccent else MaterialTheme.colorScheme.onSurfaceVariant
+                        )
+                        Spacer(modifier = Modifier.width(12.dp))
+                        Column(modifier = Modifier.weight(1f)) {
+                            Text(
+                                text = stringResource(R.string.share_exact_location_toggle),
+                                style = MaterialTheme.typography.bodyLarge.copy(
+                                    fontWeight = FontWeight.SemiBold,
+                                    fontSize = 14.sp
+                                ),
+                                color = MaterialTheme.colorScheme.onSurface
+                            )
+                            Spacer(modifier = Modifier.height(2.dp))
+                            Text(
+                                text = if (shareExactLocation)
+                                    stringResource(R.string.precise_location_desc)
+                                else
+                                    stringResource(R.string.approximate_location_desc),
+                                style = MaterialTheme.typography.bodySmall.copy(fontSize = 11.sp),
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
+                            )
+                        }
+                        Switch(
+                            checked = shareExactLocation,
+                            onCheckedChange = { shareExactLocation = it },
+                            colors = SwitchDefaults.colors(
+                                checkedThumbColor = Color.White,
+                                checkedTrackColor = TealAccent,
+                                uncheckedThumbColor = Color.White,
+                                uncheckedTrackColor = MaterialTheme.colorScheme.outline
+                            )
+                        )
+                    }
+                }
             }
         },
         confirmButton = {
             Button(
                 onClick = {
-                    val consent = selectedConsent ?: return@Button
                     isSubmitting = true
-                    when (consent) {
-                        LocationConsent.DECLINE -> {
-                            qrScannerViewModel.shareLocation(qrCode, consent, onResult = { success, message ->
+                    val consent = if (shareExactLocation)
+                        LocationConsent.PRECISE
+                    else
+                        LocationConsent.APPROXIMATE
+
+                    val loc = currentLocation
+                    if (loc != null) {
+                        qrScannerViewModel.shareLocation(
+                            qrCode, consent,
+                            loc.latitude, loc.longitude, loc.accuracy.toDouble(),
+                            onResult = { success, message ->
                                 if (success) onSuccess() else onError(message)
-                            })
-                        }
-                        LocationConsent.APPROXIMATE, LocationConsent.PRECISE -> {
-                            val loc = currentLocation
-                            if (loc != null) {
+                            }
+                        )
+                    } else {
+                        // Try to fetch location one more time
+                        locationProvider.lastLocation.addOnSuccessListener { location ->
+                            if (location != null) {
                                 qrScannerViewModel.shareLocation(
                                     qrCode, consent,
-                                    loc.latitude, loc.longitude, loc.accuracy.toDouble(),
+                                    location.latitude, location.longitude, location.accuracy.toDouble(),
                                     onResult = { success, message ->
                                         if (success) onSuccess() else onError(message)
                                     }
                                 )
                             } else {
-                                // Try to fetch location one more time
-                                locationProvider.lastLocation.addOnSuccessListener { location ->
-                                    if (location != null) {
-                                        qrScannerViewModel.shareLocation(
-                                            qrCode, consent,
-                                            location.latitude, location.longitude, location.accuracy.toDouble(),
-                                            onResult = { success, message ->
-                                                if (success) onSuccess() else onError(message)
-                                            }
-                                        )
-                                    } else {
-                                        // Fallback to decline if no location available
-                                        qrScannerViewModel.shareLocation(
-                                            qrCode, LocationConsent.DECLINE,
-                                            onResult = { success, message ->
-                                                if (success) onSuccess() else onError(message)
-                                            }
-                                        )
+                                // Send with chosen consent but no coordinates
+                                // — backend will handle gracefully
+                                qrScannerViewModel.shareLocation(
+                                    qrCode, consent,
+                                    onResult = { success, message ->
+                                        if (success) onSuccess() else onError(message)
                                     }
-                                }.addOnFailureListener {
-                                    qrScannerViewModel.shareLocation(
-                                        qrCode, LocationConsent.DECLINE,
-                                        onResult = { success, message ->
-                                            if (success) onSuccess() else onError(message)
-                                        }
-                                    )
-                                }
+                                )
                             }
+                        }.addOnFailureListener {
+                            qrScannerViewModel.shareLocation(
+                                qrCode, consent,
+                                onResult = { success, message ->
+                                    if (success) onSuccess() else onError(message)
+                                }
+                            )
                         }
                     }
                 },
-                enabled = selectedConsent != null && !isSubmitting,
+                enabled = !isSubmitting,
                 colors = ButtonDefaults.buttonColors(containerColor = TealAccent),
                 shape = RoundedCornerShape(10.dp)
             ) {
                 if (isSubmitting) {
                     Text(stringResource(R.string.sending), fontWeight = FontWeight.SemiBold)
                 } else {
-                    Text(stringResource(R.string.confirm_notify_owner), fontWeight = FontWeight.SemiBold)
+                    Text(stringResource(R.string.share_location), fontWeight = FontWeight.SemiBold)
                 }
             }
         },
@@ -1580,104 +1722,119 @@ private fun ReportFoundDialog(
     )
 }
 
-@Composable
-private fun ConsentOptionCard(
-    title: String,
-    description: String,
-    icon: androidx.compose.ui.graphics.vector.ImageVector,
-    isSelected: Boolean,
-    isRecommended: Boolean,
-    onClick: () -> Unit
-) {
-    val borderColor = if (isSelected) TealAccent else MaterialTheme.colorScheme.outlineVariant
-    val backgroundColor = if (isSelected) TealAccent.copy(alpha = 0.1f) else MaterialTheme.colorScheme.surfaceContainerHigh
 
+@Composable
+private fun SightingCard(sighting: com.petsafety.app.data.model.Sighting) {
     Card(
-        modifier = Modifier
-            .fillMaxWidth()
-            .clickable(onClick = onClick),
-        shape = RoundedCornerShape(14.dp),
-        colors = CardDefaults.cardColors(containerColor = backgroundColor),
-        border = BorderStroke(
-            width = if (isSelected) 2.dp else 1.dp,
-            color = borderColor
-        )
+        modifier = Modifier.fillMaxWidth(),
+        shape = RoundedCornerShape(12.dp),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainerHigh),
+        elevation = CardDefaults.cardElevation(defaultElevation = 1.dp)
     ) {
-        Row(
+        Column(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(12.dp),
-            verticalAlignment = Alignment.CenterVertically
+            verticalArrangement = Arrangement.spacedBy(6.dp)
         ) {
-            // Icon
-            Box(
-                modifier = Modifier
-                    .size(36.dp)
-                    .background(
-                        if (isSelected) TealAccent.copy(alpha = 0.2f) else MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.3f),
-                        CircleShape
-                    ),
-                contentAlignment = Alignment.Center
-            ) {
-                Icon(
-                    imageVector = icon,
-                    contentDescription = null,
-                    modifier = Modifier.size(18.dp),
-                    tint = if (isSelected) TealAccent else MaterialTheme.colorScheme.onSurfaceVariant
-                )
-            }
-
-            Spacer(modifier = Modifier.width(12.dp))
-
-            // Text
-            Column(modifier = Modifier.weight(1f)) {
+            // Location
+            sighting.resolvedLocation?.let { location ->
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                    horizontalArrangement = Arrangement.spacedBy(6.dp)
                 ) {
-                    Text(
-                        text = title,
-                        style = MaterialTheme.typography.bodyLarge.copy(
-                            fontWeight = FontWeight.SemiBold,
-                            fontSize = 14.sp
-                        ),
-                        color = if (isSelected) TealAccent else MaterialTheme.colorScheme.onSurface
+                    Icon(
+                        imageVector = Icons.Default.LocationOn,
+                        contentDescription = null,
+                        modifier = Modifier.size(14.dp),
+                        tint = BrandOrange
                     )
-                    if (isRecommended) {
-                        Text(
-                            text = stringResource(R.string.recommended),
-                            style = MaterialTheme.typography.labelSmall.copy(
-                                fontSize = 10.sp,
-                                fontWeight = FontWeight.Medium
-                            ),
-                            color = Color.White,
-                            modifier = Modifier
-                                .background(TealAccent, RoundedCornerShape(4.dp))
-                                .padding(horizontal = 6.dp, vertical = 2.dp)
-                        )
-                    }
+                    Text(
+                        text = stringResource(R.string.sighting_at, location),
+                        style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.SemiBold),
+                        color = MaterialTheme.colorScheme.onSurface
+                    )
                 }
-                Spacer(modifier = Modifier.height(2.dp))
+            }
+
+            // Notes
+            sighting.resolvedNotes?.let { notes ->
+                if (notes.isNotBlank()) {
+                    Text(
+                        text = notes,
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                }
+            }
+
+            // Timestamp
+            val formattedTime = formatDateAbbreviated(sighting.resolvedCreatedAt)
+            if (formattedTime.isNotBlank()) {
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(6.dp)
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.Schedule,
+                        contentDescription = null,
+                        modifier = Modifier.size(12.dp),
+                        tint = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                    Text(
+                        text = stringResource(R.string.sighting_reported_at, formattedTime),
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                }
+            }
+
+            // Reporter info
+            val hasReporterInfo = !sighting.reporterName.isNullOrBlank() ||
+                !sighting.reporterPhone.isNullOrBlank() ||
+                !sighting.reporterEmail.isNullOrBlank()
+
+            if (hasReporterInfo) {
+                HorizontalDivider(modifier = Modifier.padding(vertical = 2.dp))
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(6.dp)
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.Pets,
+                        contentDescription = null,
+                        modifier = Modifier.size(12.dp),
+                        tint = TealAccent
+                    )
+                    val contactParts = buildList {
+                        sighting.reporterName?.takeIf { it.isNotBlank() }?.let { add(it) }
+                        sighting.reporterPhone?.takeIf { it.isNotBlank() }?.let { add(it) }
+                        sighting.reporterEmail?.takeIf { it.isNotBlank() }?.let { add(it) }
+                    }
+                    Text(
+                        text = contactParts.joinToString(" \u2022 "),
+                        style = MaterialTheme.typography.bodySmall.copy(fontWeight = FontWeight.Medium),
+                        color = TealAccent
+                    )
+                }
+            } else {
                 Text(
-                    text = description,
-                    style = MaterialTheme.typography.bodySmall.copy(fontSize = 11.sp),
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                    text = stringResource(R.string.sighting_anonymous),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.7f)
                 )
             }
 
-            // Selection indicator
-            if (isSelected) {
-                Icon(
-                    imageVector = Icons.Default.CheckCircle,
+            // Photo
+            sighting.photoUrl?.takeIf { it.isNotBlank() }?.let { url ->
+                AsyncImage(
+                    model = url,
                     contentDescription = null,
-                    modifier = Modifier.size(24.dp),
-                    tint = TealAccent
-                )
-            } else {
-                Box(
                     modifier = Modifier
-                        .size(24.dp)
-                        .background(MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.3f), CircleShape)
+                        .fillMaxWidth()
+                        .height(120.dp)
+                        .clip(RoundedCornerShape(8.dp)),
+                    contentScale = ContentScale.Crop
                 )
             }
         }

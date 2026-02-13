@@ -247,6 +247,18 @@ data class PortalSessionResponse(
 )
 
 @Serializable
+data class TagCheckoutResponse(
+    val checkout: TagCheckoutData? = null
+) {
+    @Serializable
+    data class TagCheckoutData(
+        val id: String? = null,
+        val url: String? = null
+    )
+}
+
+
+@Serializable
 data class InvoicesResponse(
     val invoices: List<Invoice>
 )

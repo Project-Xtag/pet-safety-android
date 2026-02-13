@@ -1,6 +1,7 @@
 package com.petsafety.app.ui.viewmodel
 
 import com.petsafety.app.R
+import com.petsafety.app.data.events.SubscriptionEventBus
 import com.petsafety.app.data.model.PetFoundEvent
 import com.petsafety.app.data.model.SightingReportedEvent
 import com.petsafety.app.data.model.TagScannedEvent
@@ -101,7 +102,8 @@ class AppStateViewModelTest {
             notificationHelper = notificationHelper,
             networkMonitor = networkMonitor,
             syncService = syncService,
-            stringProvider = stringProvider
+            stringProvider = stringProvider,
+            subscriptionEventBus = SubscriptionEventBus()
         )
     }
 

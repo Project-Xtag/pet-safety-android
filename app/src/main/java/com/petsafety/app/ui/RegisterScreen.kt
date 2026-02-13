@@ -510,7 +510,7 @@ fun RegisterScreen(
                     withStyle(style = SpanStyle(color = MaterialTheme.colorScheme.onSurfaceVariant, fontSize = 12.sp)) {
                         append(termsRegisterPrefix)
                     }
-                    pushStringAnnotation(tag = "terms", annotation = "https://pet-er.app/terms")
+                    pushStringAnnotation(tag = "terms", annotation = "https://senra.pet/terms")
                     withStyle(style = SpanStyle(color = BrandOrange, fontSize = 12.sp, fontWeight = FontWeight.Medium)) {
                         append(termsOfServiceText)
                     }
@@ -518,7 +518,7 @@ fun RegisterScreen(
                     withStyle(style = SpanStyle(color = MaterialTheme.colorScheme.onSurfaceVariant, fontSize = 12.sp)) {
                         append(termsAndText)
                     }
-                    pushStringAnnotation(tag = "privacy", annotation = "https://pet-er.app/privacy")
+                    pushStringAnnotation(tag = "privacy", annotation = "https://senra.pet/privacy")
                     withStyle(style = SpanStyle(color = BrandOrange, fontSize = 12.sp, fontWeight = FontWeight.Medium)) {
                         append(privacyPolicyText)
                     }

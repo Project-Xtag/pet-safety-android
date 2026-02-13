@@ -1,5 +1,7 @@
 package com.petsafety.app.ui.screens
 
+import android.net.Uri
+import androidx.browser.customtabs.CustomTabsIntent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -31,6 +33,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -39,6 +42,9 @@ import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -47,6 +53,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -68,10 +75,22 @@ fun OrderMoreTagsScreen(
     onDone: () -> Unit
 ) {
     val viewModel: OrdersViewModel = hiltViewModel()
+    val context = LocalContext.current
+    val checkoutUrl by viewModel.checkoutUrl.collectAsState()
+    val isLoading by viewModel.isLoading.collectAsState()
 
-    val orderCreatedMessage = stringResource(R.string.order_created_payment_pending)
-    val paymentIntentFailedMessage = stringResource(R.string.payment_intent_failed)
     val orderCreateFailedMessage = stringResource(R.string.order_create_failed)
+    val checkoutFailedMessage = stringResource(R.string.checkout_failed)
+
+    // Launch Chrome Custom Tab when checkout URL is available
+    LaunchedEffect(checkoutUrl) {
+        checkoutUrl?.let { url ->
+            val customTabsIntent = CustomTabsIntent.Builder().build()
+            customTabsIntent.launchUrl(context, Uri.parse(url))
+            viewModel.handleCheckoutCancelled() // Clear URL so it doesn't re-launch
+            onDone()
+        }
+    }
 
     val petNames = remember { mutableStateListOf("") }
     val ownerName = remember { mutableStateOf("") }
@@ -324,8 +343,11 @@ fun OrderMoreTagsScreen(
             ) {
                 Button(
                     onClick = {
+                        val validPetNames = petNames.filter { it.isNotBlank() }
+                        if (validPetNames.isEmpty()) return@Button
+
                         val request = CreateTagOrderRequest(
-                            petNames = petNames.filter { it.isNotBlank() },
+                            petNames = validPetNames,
                             ownerName = ownerName.value,
                             email = email.value,
                             shippingAddress = AddressDetails(
@@ -335,24 +357,17 @@ fun OrderMoreTagsScreen(
                                 country = country.value,
                                 phone = phone.value
                             ),
-                            paymentMethod = "free",
+                            paymentMethod = "stripe",
                             shippingCost = 3.90
                         )
+                        // Create order first, then redirect to Stripe Checkout
                         viewModel.createOrder(request) { response, message ->
                             if (response != null) {
-                                viewModel.createPaymentIntent(
-                                    orderId = response.order.id,
-                                    amount = response.order.totalAmount,
-                                    email = email.value,
-                                    paymentMethod = "card",
-                                    currency = "gbp"
-                                ) { paymentSuccess, paymentMessage ->
-                                    if (paymentSuccess) {
-                                        appStateViewModel.showSuccess(orderCreatedMessage)
-                                    } else {
-                                        appStateViewModel.showError(paymentMessage ?: paymentIntentFailedMessage)
-                                    }
-                                    onDone()
+                                viewModel.createTagCheckout(
+                                    quantity = validPetNames.size,
+                                    countryCode = country.value.takeIf { it.isNotBlank() }
+                                ) { errorMsg ->
+                                    appStateViewModel.showError(errorMsg ?: checkoutFailedMessage)
                                 }
                             } else {
                                 appStateViewModel.showError(message ?: orderCreateFailedMessage)
@@ -369,15 +384,24 @@ fun OrderMoreTagsScreen(
                             spotColor = BrandOrange.copy(alpha = 0.3f)
                         ),
                     shape = RoundedCornerShape(16.dp),
-                    colors = ButtonDefaults.buttonColors(containerColor = BrandOrange)
+                    colors = ButtonDefaults.buttonColors(containerColor = BrandOrange),
+                    enabled = !isLoading
                 ) {
-                    Text(
-                        text = stringResource(R.string.place_order),
-                        style = MaterialTheme.typography.labelLarge.copy(
-                            fontSize = 16.sp,
-                            fontWeight = FontWeight.SemiBold
+                    if (isLoading) {
+                        CircularProgressIndicator(
+                            modifier = Modifier.size(20.dp),
+                            color = Color.White,
+                            strokeWidth = 2.dp
                         )
-                    )
+                    } else {
+                        Text(
+                            text = stringResource(R.string.proceed_to_payment),
+                            style = MaterialTheme.typography.labelLarge.copy(
+                                fontSize = 16.sp,
+                                fontWeight = FontWeight.SemiBold
+                            )
+                        )
+                    }
                 }
             }
         }

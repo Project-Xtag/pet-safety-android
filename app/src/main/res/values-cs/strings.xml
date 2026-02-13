@@ -318,6 +318,7 @@
     <string name="dont_share_location">Nesdílet polohu</string>
     <string name="dont_share_location_desc">Pouze informovat majitele, že mazlíček byl nalezen</string>
     <string name="confirm_notify_owner">Potvrdit a informovat majitele</string>
+    <string name="share_exact_location_toggle">Sdílet přesnou polohu</string>
     <string name="contact_owner">Kontaktovat majitele</string>
     <string name="call_phone">Volat: %1$s</string>
     <string name="email_contact">E-mail: %1$s</string>
@@ -742,6 +743,11 @@
     <string name="pet_found_share">%1$s nalezen!</string>
     <string name="reunited_in">Shledáno za %1$s</string>
     <string name="shared_via_pet_safety">Sdíleno přes Pet Safety aplikaci</string>
+    <string name="story_share_good_news">Sdílej dobrou zprávu</string>
+    <string name="story_social_caption">%1$s se opět shledal se svou rodinou! Děkujeme komunitě TagMe Now za pomoc s návratem %1$s domů. senra.pet</string>
+    <string name="story_generating_card">Vytváření sdílecí karty\u2026</string>
+    <string name="story_pet_is_home_title">%1$s je doma!</string>
+    <string name="story_inspire_others_message">Pomozte inspirovat ostatní majitele sdílením příběhu o shledání s %1$s.</string>
     <string name="sighting_reports_desc">Hlášení pozorování</string>
 
     <!-- Success Story Time -->
@@ -1018,7 +1024,7 @@
     <string name="contact_support_sending">Odesílání\u2026</string>
     <string name="contact_support_success">Žádost o podporu odeslána! ID tiket: %1$s</string>
     <string name="contact_support_response">Odpovíme do 24 hodin.</string>
-    <string name="support_email">Podpora: support@petsafety.eu</string>
+    <string name="support_email">Podpora: hello@senra.pet</string>
     <string name="support_category_general">Obecné</string>
     <string name="support_category_technical">Technický problém</string>
     <string name="support_category_account">Účet</string>
@@ -1204,7 +1210,7 @@
     <string name="referral_copy">Kopírovat</string>
     <string name="referral_share">Sdílet</string>
     <string name="referral_pending">Čeká</string>
-    <string name="referral_share_text">Použijte můj doporučovací kód %1$s a získejte 2 měsíce Pet Safety zdarma! https://pet-er.app/choose-plan?referral=%2$s</string>
+    <string name="referral_share_text">Použijte můj doporučovací kód %1$s a získejte 2 měsíce Pet Safety zdarma! https://senra.pet/choose-plan?referral=%2$s</string>
     <string name="referral_clipboard_label">Doporučovací kód</string>
 
     <!-- ============================================ -->
@@ -1359,8 +1365,8 @@
     <!-- ============================================ -->
     <string name="app_name_label">Pet Safety</string>
     <string name="app_version">Verze 1.0.0</string>
-    <string name="terms_url">Podmínky: https://pet-er.app/terms</string>
-    <string name="privacy_url">Soukromí: https://pet-er.app/privacy</string>
+    <string name="terms_url">Podmínky: https://senra.pet/terms</string>
+    <string name="privacy_url">Soukromí: https://senra.pet/privacy</string>
 
     <!-- ============================================ -->
     <!-- MARK: Relative Time -->
@@ -1408,4 +1414,18 @@
         <item quantity="few">%d týdny</item>
         <item quantity="other">%d týdnů</item>
     </plurals>
+
+    <!-- ============================================ -->
+    <!-- MARK: Reward & Sighting Details -->
+    <!-- ============================================ -->
+    <string name="reward_optional">Odměna (volitelné)</string>
+    <string name="reward_badge">\u20AC%d Odměna</string>
+    <string name="sighting_details_title">Pozorování</string>
+    <string name="sighting_at">Spatřen(a) na %1$s</string>
+    <string name="sighting_reported_at">Nahlášeno %1$s</string>
+    <string name="sighting_no_details">Zatím žádná nahlášená pozorování</string>
+    <string name="sighting_anonymous">Anonymní oznamovatel</string>
+    <string name="reporter_name">Vaše jméno</string>
+    <string name="reporter_phone">Telefonní číslo</string>
+    <string name="reporter_email">E-mail</string>
 </resources>

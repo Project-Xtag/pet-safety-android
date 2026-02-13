@@ -69,7 +69,9 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -116,7 +118,6 @@ fun PetDetailScreen(
     var showMarkFoundConfirmation by remember { mutableStateOf(false) }
     var showRemoveStoryConfirmation by remember { mutableStateOf(false) }
     var isDeleting by remember { mutableStateOf(false) }
-    var foundPetName by remember { mutableStateOf("") }
     val petStories by successStoriesViewModel.petStories.collectAsState()
     val petSuccessStory = petStories.firstOrNull()
     val wasPreviouslyMissing = petStories.isNotEmpty()
@@ -303,7 +304,6 @@ fun PetDetailScreen(
                 } else {
                     Button(
                         onClick = {
-                            foundPetName = pet.name
                             showSuccessStoryDialog = true
                         },
                         modifier = Modifier
@@ -462,12 +462,13 @@ fun PetDetailScreen(
             pet = pet,
             currentUser = currentUser,
             onDismiss = { showMissingDialog = false },
-            onSubmit = { coordinate, locationText, description, notifSource, notifLocation, notifAddress ->
+            onSubmit = { coordinate, locationText, description, rewardAmount, notifSource, notifLocation, notifAddress ->
                 viewModel.markPetMissing(
                     pet.id,
                     location = coordinate,
                     address = locationText,
                     description = description,
+                    rewardAmount = rewardAmount,
                     notificationCenterSource = notifSource,
                     notificationCenterLocation = notifLocation,
                     notificationCenterAddress = notifAddress
@@ -485,7 +486,7 @@ fun PetDetailScreen(
 
     if (showSuccessStoryDialog) {
         SuccessStoryDialog(
-            petName = foundPetName,
+            pet = pet,
             onDismiss = {
                 showSuccessStoryDialog = false
                 onBack()
@@ -590,7 +591,6 @@ fun PetDetailScreen(
                         viewModel.markPetFound(pet.id) { success, message ->
                             if (success) {
                                 appStateViewModel.showSuccess(markedFoundMessage)
-                                foundPetName = pet.name
                                 showSuccessStoryDialog = true
                             } else {
                                 appStateViewModel.showError(message ?: markFoundFailedMessage)
@@ -890,7 +890,7 @@ private fun MarkMissingDialog(
     pet: Pet,
     currentUser: User?,
     onDismiss: () -> Unit,
-    onSubmit: (LocationCoordinate?, String?, String?, String?, LocationCoordinate?, String?) -> Unit
+    onSubmit: (LocationCoordinate?, String?, String?, Double?, String?, LocationCoordinate?, String?) -> Unit
 ) {
     val context = LocalContext.current
     val locationProvider = remember { LocationServices.getFusedLocationProviderClient(context) }
@@ -899,6 +899,7 @@ private fun MarkMissingDialog(
     var locationText by remember { mutableStateOf("") }
     var customAddress by remember { mutableStateOf("") }
     var notes by remember { mutableStateOf("") }
+    var rewardText by remember { mutableStateOf("") }
     var capturedCoordinate by remember { mutableStateOf<LocationCoordinate?>(null) }
     var isCapturingLocation by remember { mutableStateOf(false) }
     var isGeocoding by remember { mutableStateOf(false) }
@@ -963,6 +964,8 @@ private fun MarkMissingDialog(
 
         val notifSource = selectedSource.value
 
+        val parsedReward = rewardText.toDoubleOrNull()
+
         if (selectedSource == NotificationCenterSource.CURRENT_LOCATION) {
             // GPS already captured — reverse-geocode for a readable address
             @Suppress("DEPRECATION")
@@ -977,6 +980,7 @@ private fun MarkMissingDialog(
                 capturedCoordinate,
                 reverseAddress,
                 notes.ifBlank { null },
+                parsedReward,
                 notifSource,
                 capturedCoordinate,
                 reverseAddress
@@ -985,7 +989,7 @@ private fun MarkMissingDialog(
         }
 
         if (addressToGeocode == null) {
-            onSubmit(null, null, notes.ifBlank { null }, notifSource, null, null)
+            onSubmit(null, null, notes.ifBlank { null }, parsedReward, notifSource, null, null)
             return
         }
 
@@ -1000,13 +1004,14 @@ private fun MarkMissingDialog(
                 coord,
                 addressToGeocode,
                 notes.ifBlank { null },
+                parsedReward,
                 notifSource,
                 coord,
                 addressToGeocode
             )
         } catch (_: Exception) {
             // Geocoding failed, submit without coordinates — backend will handle it
-            onSubmit(null, addressToGeocode, notes.ifBlank { null }, notifSource, null, addressToGeocode)
+            onSubmit(null, addressToGeocode, notes.ifBlank { null }, parsedReward, notifSource, null, addressToGeocode)
         } finally {
             isGeocoding = false
         }
@@ -1128,6 +1133,16 @@ private fun MarkMissingDialog(
                     onValueChange = { notes = it },
                     label = { Text(stringResource(R.string.additional_info)) },
                     modifier = Modifier.fillMaxWidth()
+                )
+
+                Spacer(modifier = Modifier.height(8.dp))
+                OutlinedTextField(
+                    value = rewardText,
+                    onValueChange = { rewardText = it },
+                    label = { Text(stringResource(R.string.reward_optional)) },
+                    modifier = Modifier.fillMaxWidth(),
+                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal),
+                    prefix = { Text("\u20AC") }
                 )
 
                 Spacer(modifier = Modifier.height(8.dp))

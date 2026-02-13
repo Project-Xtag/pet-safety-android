@@ -7,6 +7,8 @@ import com.petsafety.app.data.model.AlertUpdatedEvent
 import com.petsafety.app.data.model.ConnectionEvent
 import com.petsafety.app.data.model.PetFoundEvent
 import com.petsafety.app.data.model.SightingReportedEvent
+import com.petsafety.app.data.model.ReferralUsedEvent
+import com.petsafety.app.data.model.SubscriptionChangedEvent
 import com.petsafety.app.data.model.TagScannedEvent
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
@@ -27,6 +29,8 @@ class SseService(private val tokenStore: AuthTokenStore) {
     var onPetFound: ((PetFoundEvent) -> Unit)? = null
     var onAlertCreated: ((AlertCreatedEvent) -> Unit)? = null
     var onAlertUpdated: ((AlertUpdatedEvent) -> Unit)? = null
+    var onSubscriptionChanged: ((SubscriptionChangedEvent) -> Unit)? = null
+    var onReferralUsed: ((ReferralUsedEvent) -> Unit)? = null
     var onConnected: ((ConnectionEvent) -> Unit)? = null
 
     private var eventSource: EventSource? = null
@@ -56,6 +60,8 @@ class SseService(private val tokenStore: AuthTokenStore) {
                         "pet_found" -> onPetFound?.invoke(json.decodeFromString(data))
                         "alert_created" -> onAlertCreated?.invoke(json.decodeFromString(data))
                         "alert_updated" -> onAlertUpdated?.invoke(json.decodeFromString(data))
+                        "subscription_changed" -> onSubscriptionChanged?.invoke(json.decodeFromString(data))
+                        "referral_used" -> onReferralUsed?.invoke(json.decodeFromString(data))
                     }
                 }
 

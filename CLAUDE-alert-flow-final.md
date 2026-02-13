@@ -722,7 +722,7 @@ export class NotificationService {
       accuracyMeters: location?.accuracy_meters?.toFixed(0) || 'Unknown',
       scanTime: new Date(scan.created_at).toLocaleString(),
       isMissing: pet.is_missing,
-      appDeepLink: `petsafety://scan/${scan.id}`,
+      appDeepLink: `senra://scan/${scan.id}`,
       settingsUrl: `${process.env.WEB_URL}/settings/notifications`,
       privacyUrl: `${process.env.WEB_URL}/privacy`,
       logoUrl: `${process.env.CDN_URL}/logo.png`,

@@ -98,7 +98,7 @@ data class LocationData(
 )
 
 /**
- * Location consent type for 3-tier GDPR compliance
+ * Location consent type for 2-tier GDPR compliance
  */
 @Serializable
 enum class LocationConsentType {
@@ -107,10 +107,9 @@ enum class LocationConsentType {
 }
 
 /**
- * Share location request with 3-tier GDPR consent
- * - No location: Don't include location field
- * - Approximate (~500m): consent_type = "approximate", coordinates rounded to 3 decimals
- * - Precise: consent_type = "precise", exact coordinates
+ * Share location request with 2-tier consent (toggle)
+ * - Toggle ON (default): consent_type = "precise", exact GPS coordinates
+ * - Toggle OFF: consent_type = "approximate", coordinates rounded to 3 decimals (~500m)
  */
 @Serializable
 data class ShareLocationRequest(
@@ -119,7 +118,8 @@ data class ShareLocationRequest(
     val longitude: Double? = null,
     @SerialName("accuracy_meters") val accuracyMeters: Double? = null,
     @SerialName("is_approximate") val isApproximate: Boolean? = null,
-    @SerialName("consent_type") val consentType: LocationConsentType? = null
+    @SerialName("consent_type") val consentType: LocationConsentType? = null,
+    @SerialName("share_exact_location") val shareExactLocation: Boolean? = null
 )
 
 /**
@@ -215,7 +215,16 @@ data class CreateCheckoutRequest(
     @SerialName("plan_name") val planName: String,
     @SerialName("billing_period") val billingPeriod: String,
     val platform: String = "android",
-    @SerialName("promo_code") val promoCode: String? = null
+    @SerialName("promo_code") val promoCode: String? = null,
+    @SerialName("country_code") val countryCode: String? = null
+)
+
+// Tag order checkout request (Stripe Checkout redirect flow)
+@Serializable
+data class CreateTagCheckoutRequest(
+    val quantity: Int,
+    @SerialName("country_code") val countryCode: String? = null,
+    val platform: String = "android"
 )
 
 @Serializable

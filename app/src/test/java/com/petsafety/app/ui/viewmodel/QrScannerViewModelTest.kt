@@ -180,16 +180,16 @@ class QrScannerViewModelTest {
     }
 
     @Test
-    fun `shareLocation - DECLINE consent - success without location`() = runTest {
+    fun `shareLocation - APPROXIMATE consent without coordinates - success`() = runTest {
         coEvery {
-            repository.shareLocation("ABC123", LocationConsent.DECLINE, null, null, null)
+            repository.shareLocation("ABC123", LocationConsent.APPROXIMATE, null, null, null)
         } returns mockk()
 
         var success = false
 
         viewModel.shareLocation(
             qrCode = "ABC123",
-            consent = LocationConsent.DECLINE
+            consent = LocationConsent.APPROXIMATE
         ) { s, _ ->
             success = s
         }
@@ -197,7 +197,7 @@ class QrScannerViewModelTest {
 
         assertTrue(success)
         coVerify {
-            repository.shareLocation("ABC123", LocationConsent.DECLINE, null, null, null)
+            repository.shareLocation("ABC123", LocationConsent.APPROXIMATE, null, null, null)
         }
     }
 

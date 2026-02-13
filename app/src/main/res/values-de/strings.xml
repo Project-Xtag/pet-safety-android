@@ -315,6 +315,7 @@
     <string name="dont_share_location">Standort nicht teilen</string>
     <string name="dont_share_location_desc">Den Besitzer nur informieren, dass das Haustier gefunden wurde</string>
     <string name="confirm_notify_owner">Bestätigen &amp; Besitzer informieren</string>
+    <string name="share_exact_location_toggle">Genauen Standort teilen</string>
     <string name="contact_owner">Besitzer kontaktieren</string>
     <string name="call_phone">Anrufen: %1$s</string>
     <string name="email_contact">E-Mail: %1$s</string>
@@ -738,6 +739,11 @@
     <string name="pet_found_share">%1$s gefunden!</string>
     <string name="reunited_in">Wieder vereint in %1$s</string>
     <string name="shared_via_pet_safety">Geteilt über die Pet Safety App</string>
+    <string name="story_share_good_news">Teile die gute Nachricht</string>
+    <string name="story_social_caption">%1$s ist wieder mit seiner Familie vereint! Danke an die TagMe Now Community, die geholfen hat, %1$s nach Hause zu bringen. senra.pet</string>
+    <string name="story_generating_card">Teilen-Karte wird erstellt\u2026</string>
+    <string name="story_pet_is_home_title">%1$s ist zu Hause!</string>
+    <string name="story_inspire_others_message">Inspiriere andere Tierbesitzer, indem du teilst, wie %1$s wiedervereint wurde.</string>
     <string name="sighting_reports_desc">Sichtungsmeldungen</string>
 
     <!-- Success Story Time -->
@@ -1014,7 +1020,7 @@
     <string name="contact_support_sending">Wird gesendet\u2026</string>
     <string name="contact_support_success">Support-Anfrage gesendet! Ticket-ID: %1$s</string>
     <string name="contact_support_response">Wir melden uns innerhalb von 24 Stunden.</string>
-    <string name="support_email">Support: support@petsafety.eu</string>
+    <string name="support_email">Support: hello@senra.pet</string>
     <string name="support_category_general">Allgemein</string>
     <string name="support_category_technical">Technisches Problem</string>
     <string name="support_category_account">Konto</string>
@@ -1199,7 +1205,7 @@
     <string name="referral_copy">Kopieren</string>
     <string name="referral_share">Teilen</string>
     <string name="referral_pending">Ausstehend</string>
-    <string name="referral_share_text">Nutze meinen Empfehlungscode %1$s und erhalte 2 Monate Pet Safety gratis! https://pet-er.app/choose-plan?referral=%2$s</string>
+    <string name="referral_share_text">Nutze meinen Empfehlungscode %1$s und erhalte 2 Monate Pet Safety gratis! https://senra.pet/choose-plan?referral=%2$s</string>
     <string name="referral_clipboard_label">Empfehlungscode</string>
 
     <!-- ============================================ -->
@@ -1353,8 +1359,8 @@
     <!-- ============================================ -->
     <string name="app_name_label">Pet Safety</string>
     <string name="app_version">Version 1.0.0</string>
-    <string name="terms_url">Bedingungen: https://pet-er.app/terms</string>
-    <string name="privacy_url">Datenschutz: https://pet-er.app/privacy</string>
+    <string name="terms_url">Bedingungen: https://senra.pet/terms</string>
+    <string name="privacy_url">Datenschutz: https://senra.pet/privacy</string>
 
     <!-- ============================================ -->
     <!-- MARK: Relative Time -->
@@ -1396,4 +1402,18 @@
         <item quantity="one">%d Woche</item>
         <item quantity="other">%d Wochen</item>
     </plurals>
+
+    <!-- ============================================ -->
+    <!-- MARK: Reward & Sighting Details -->
+    <!-- ============================================ -->
+    <string name="reward_optional">Belohnung (optional)</string>
+    <string name="reward_badge">\u20AC%d Belohnung</string>
+    <string name="sighting_details_title">Sichtungen</string>
+    <string name="sighting_at">Gesehen bei %1$s</string>
+    <string name="sighting_reported_at">Gemeldet %1$s</string>
+    <string name="sighting_no_details">Noch keine Sichtungen gemeldet</string>
+    <string name="sighting_anonymous">Anonymer Melder</string>
+    <string name="reporter_name">Ihr Name</string>
+    <string name="reporter_phone">Telefonnummer</string>
+    <string name="reporter_email">E-Mail</string>
 </resources>

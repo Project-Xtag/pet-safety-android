@@ -14,21 +14,20 @@ import java.util.concurrent.TimeUnit
 @kotlinx.serialization.ExperimentalSerializationApi
 object ApiClient {
     /**
-     * Certificate pins for pet-er.app
+     * Certificate pins for senra.pet
      *
      * These are SHA-256 hashes of the Subject Public Key Info (SPKI) of trusted certificates.
      * To generate a pin from a certificate:
-     * openssl s_client -connect pet-er.app:443 | openssl x509 -pubkey -noout | \
+     * openssl s_client -connect senra.pet:443 | openssl x509 -pubkey -noout | \
      *   openssl pkey -pubin -outform der | openssl dgst -sha256 -binary | openssl enc -base64
      *
      * Include multiple pins for certificate rotation (primary + backup).
      */
     private val certificatePinner = CertificatePinner.Builder()
-        // Primary certificate pin (pet-er.app current certificate)
-        // TODO: Replace with actual hash from production certificate
-        .add("pet-er.app", "sha256/BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB=")
-        // Backup pin (for certificate rotation)
-        .add("pet-er.app", "sha256/CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC=")
+        // Amazon RSA 2048 M01 (Intermediate CA) — stable for years
+        .add("api.senra.pet", "sha256/DxH4tt40L+eduF6szpY6TONlxhZhBd+pJ9wbHlQ2fuw=")
+        // Amazon Root CA 1 — stable indefinitely
+        .add("api.senra.pet", "sha256/++MBgDH5WGvL9Bcn5Be30cRcL0f5O+NyoXuWtQdX1aI=")
         .build()
 
     /**

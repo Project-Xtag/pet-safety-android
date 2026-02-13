@@ -107,4 +107,34 @@ class OrdersViewModel @Inject constructor(
             }
         }
     }
+
+    private val _checkoutUrl = MutableStateFlow<String?>(null)
+    val checkoutUrl: StateFlow<String?> = _checkoutUrl.asStateFlow()
+
+    fun createTagCheckout(
+        quantity: Int,
+        countryCode: String? = null,
+        onError: (String?) -> Unit = {}
+    ) {
+        viewModelScope.launch {
+            _isLoading.value = true
+            try {
+                val url = repository.createTagCheckout(quantity, countryCode)
+                _checkoutUrl.value = url
+            } catch (ex: Exception) {
+                onError(ex.localizedMessage)
+            } finally {
+                _isLoading.value = false
+            }
+        }
+    }
+
+    fun handleCheckoutComplete() {
+        _checkoutUrl.value = null
+        fetchOrders()
+    }
+
+    fun handleCheckoutCancelled() {
+        _checkoutUrl.value = null
+    }
 }

@@ -37,7 +37,9 @@ fun PetSafetyApp(
     pendingQrCode: String?,
     onQrCodeHandled: () -> Unit,
     pendingNotification: NotificationData? = null,
-    onNotificationHandled: () -> Unit = {}
+    onNotificationHandled: () -> Unit = {},
+    checkoutResult: String? = null,
+    onCheckoutResultHandled: () -> Unit = {}
 ) {
     val appStateViewModel: AppStateViewModel = hiltViewModel()
     val authViewModel: AuthViewModel = hiltViewModel()
@@ -107,6 +109,21 @@ fun PetSafetyApp(
                     onNotificationHandled()
                 }
             }
+        }
+    }
+
+    // Handle checkout deep link result (from Stripe redirect)
+    LaunchedEffect(checkoutResult) {
+        checkoutResult?.let { result ->
+            when (result) {
+                "success" -> appStateViewModel.showSuccess(
+                    context.getString(R.string.checkout_success_message)
+                )
+                "cancelled" -> appStateViewModel.showSuccess(
+                    context.getString(R.string.checkout_cancelled_message)
+                )
+            }
+            onCheckoutResultHandled()
         }
     }
 

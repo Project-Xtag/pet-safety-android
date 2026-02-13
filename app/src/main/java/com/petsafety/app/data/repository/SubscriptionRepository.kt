@@ -24,14 +24,16 @@ class SubscriptionRepository(private val apiService: ApiService) {
     suspend fun createCheckoutSession(
         planName: String,
         billingPeriod: String,
-        promoCode: String? = null
+        promoCode: String? = null,
+        countryCode: String? = null
     ): String {
         val response = apiService.createSubscriptionCheckout(
             CreateCheckoutRequest(
                 planName = planName,
                 billingPeriod = billingPeriod,
                 platform = "android",
-                promoCode = promoCode
+                promoCode = promoCode,
+                countryCode = countryCode
             )
         )
         return response.data?.resolvedUrl ?: error("Missing checkout URL")

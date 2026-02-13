@@ -6,7 +6,7 @@ Building a native Android app for the Pet Safety QR tag platform. This app must 
 
 **Reference:** The iOS app uses SwiftUI, Core Data, and follows MVVM. Mirror the same user flows and features, but implement using idiomatic Android/Kotlin patterns.
 
-**Backend API:** https://pet-er.app/api (production), https://staging.pet-er.app/api (staging)
+**Backend API:** https://senra.pet/api (production), https://staging.senra.pet/api (staging)
 **API Docs:** Refer to backend repo `/docs/api.md` or Postman collection
 **iOS Reference:** `/Users/viktorszasz/pet-safety-ios/PetSafety/`
 
@@ -148,8 +148,8 @@ app/
 - [ ] Native camera QR scanning
 - [ ] Flashlight toggle
 - [ ] Manual code entry fallback
-- [ ] Handle deep links: `petsafety://tag/{code}`
-- [ ] Handle universal links: `https://pet-er.app/qr/{code}`
+- [ ] Handle deep links: `senra://tag/{code}`
+- [ ] Handle universal links: `https://senra.pet/qr/{code}`
 
 ### Tag Activation
 - [ ] Link scanned tag to existing pet
@@ -231,8 +231,8 @@ app/
 ### Base Configuration
 ```kotlin
 // Base URL by build type (note: path includes /api)
-const val BASE_URL_PROD = "https://pet-er.app/api/"
-const val BASE_URL_STAGING = "https://staging.pet-er.app/api/"
+const val BASE_URL_PROD = "https://senra.pet/api/"
+const val BASE_URL_STAGING = "https://staging.senra.pet/api/"
 
 // Auth header interceptor pattern
 class AuthInterceptor @Inject constructor(
@@ -460,7 +460,7 @@ data class ApiResponse<T>(
     <action android:name="android.intent.action.VIEW" />
     <category android:name="android.intent.category.DEFAULT" />
     <category android:name="android.intent.category.BROWSABLE" />
-    <data android:scheme="https" android:host="pet-er.app" android:pathPrefix="/qr/" />
+    <data android:scheme="https" android:host="senra.pet" android:pathPrefix="/qr/" />
 </intent-filter>
 
 <intent-filter>
@@ -513,7 +513,7 @@ Button(onClick = { launchNavigation(context, sighting.lat, sighting.lng, "Pet si
 ---
 
 ### App Links Verification (assetlinks.json)
-Host this file at `https://pet-er.app/.well-known/assetlinks.json`:
+Host this file at `https://senra.pet/.well-known/assetlinks.json`:
 ```json
 [{
   "relation": ["delegate_permission/common.handle_all_urls"],
@@ -743,4 +743,4 @@ Sentry.addBreadcrumb(Breadcrumb().apply {
 - Keep feature branches small and focused
 - Test on physical devices, not just emulator (especially camera/QR)
 - Monitor Sentry for crashes during development
-- The iOS app uses `https://pet-er.app/api` as base URL (not api.pet-er.app)
+- The iOS app uses `https://senra.pet/api` as base URL (not api.senra.pet)

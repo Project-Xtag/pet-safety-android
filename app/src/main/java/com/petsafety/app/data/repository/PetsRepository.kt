@@ -63,6 +63,7 @@ class PetsRepository(
         location: LocationCoordinate?,
         address: String?,
         description: String?,
+        rewardAmount: Double? = null,
         notificationCenterSource: String? = null,
         notificationCenterLocation: LocationCoordinate? = null,
         notificationCenterAddress: String? = null
@@ -76,6 +77,7 @@ class PetsRepository(
             }
             if (!address.isNullOrBlank()) actionData["lastSeenAddress"] = address
             if (!description.isNullOrBlank()) actionData["description"] = description
+            if (rewardAmount != null) actionData["rewardAmount"] = rewardAmount
             if (!notificationCenterSource.isNullOrBlank()) actionData["notificationCenterSource"] = notificationCenterSource
             if (notificationCenterLocation != null) {
                 actionData["notificationCenterLatitude"] = notificationCenterLocation.lat
@@ -92,6 +94,7 @@ class PetsRepository(
                 lastSeenLocation = location,
                 lastSeenAddress = address,
                 description = description,
+                rewardAmount = rewardAmount,
                 notificationCenterSource = notificationCenterSource,
                 notificationCenterLocation = notificationCenterLocation,
                 notificationCenterAddress = notificationCenterAddress

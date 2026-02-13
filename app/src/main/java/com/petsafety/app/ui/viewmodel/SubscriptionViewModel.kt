@@ -2,6 +2,7 @@ package com.petsafety.app.ui.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.petsafety.app.data.events.SubscriptionEventBus
 import com.petsafety.app.data.model.Invoice
 import com.petsafety.app.data.model.Referral
 import com.petsafety.app.data.model.ReferralCode
@@ -17,7 +18,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SubscriptionViewModel @Inject constructor(
-    private val repository: SubscriptionRepository
+    private val repository: SubscriptionRepository,
+    private val subscriptionEventBus: SubscriptionEventBus
 ) : ViewModel() {
 
     private val _plans = MutableStateFlow<List<SubscriptionPlan>>(emptyList())
@@ -52,6 +54,16 @@ class SubscriptionViewModel @Inject constructor(
 
     val currentPlanName: String get() = _subscription.value?.resolvedPlanName ?: "None"
     val isOnStarterPlan: Boolean get() = _subscription.value?.resolvedPlanName?.lowercase() == "starter"
+
+    init {
+        // Auto-refresh when SSE subscription_changed event arrives
+        viewModelScope.launch {
+            subscriptionEventBus.refreshEvents.collect {
+                loadSubscription()
+                loadFeatures()
+            }
+        }
+    }
 
     fun loadPlans() {
         viewModelScope.launch {
@@ -100,7 +112,7 @@ class SubscriptionViewModel @Inject constructor(
         }
     }
 
-    fun selectPlan(plan: SubscriptionPlan, billingPeriod: String = "monthly") {
+    fun selectPlan(plan: SubscriptionPlan, billingPeriod: String = "monthly", countryCode: String? = null) {
         viewModelScope.launch {
             _isProcessing.value = true
             _error.value = null
@@ -108,7 +120,7 @@ class SubscriptionViewModel @Inject constructor(
                 if (plan.isFree) {
                     _subscription.value = repository.upgradeToStarter()
                 } else {
-                    val url = repository.createCheckoutSession(plan.name, billingPeriod)
+                    val url = repository.createCheckoutSession(plan.name, billingPeriod, countryCode = countryCode)
                     _checkoutUrl.value = url
                 }
             } catch (e: Exception) {

@@ -45,7 +45,9 @@ class MainActivity : FragmentActivity() {
                     pendingQrCode = deepLinkCodeState.value,
                     onQrCodeHandled = { deepLinkCodeState.value = null },
                     pendingNotification = notificationDataState.value,
-                    onNotificationHandled = { notificationDataState.value = null }
+                    onNotificationHandled = { notificationDataState.value = null },
+                    checkoutResult = checkoutResultState.value,
+                    onCheckoutResultHandled = { checkoutResultState.value = null }
                 )
             }
         }
@@ -97,7 +99,7 @@ class MainActivity : FragmentActivity() {
     private fun extractQrCode(intent: Intent?): String? {
         val data = intent?.data ?: return null
         return when (data.scheme) {
-            "petsafety" -> data.lastPathSegment
+            "senra" -> data.lastPathSegment
             "https" -> extractQrFromHttps(data)
             else -> null
         }
@@ -105,14 +107,14 @@ class MainActivity : FragmentActivity() {
 
     private fun extractCheckoutResult(intent: Intent?): String? {
         val data = intent?.data ?: return null
-        if (data.scheme == "petsafety" && data.host == "checkout") {
+        if (data.scheme == "senra" && data.host == "checkout") {
             return data.lastPathSegment // "success" or "cancelled"
         }
         return null
     }
 
     private fun extractQrFromHttps(uri: Uri): String? {
-        if (uri.host != "pet-er.app") return null
+        if (uri.host != "senra.pet") return null
         val segments = uri.pathSegments
         if (segments.size >= 2 && segments[0] == "qr") {
             return segments[1]

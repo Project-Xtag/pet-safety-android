@@ -143,6 +143,7 @@ class PetsViewModel @Inject constructor(
         location: LocationCoordinate?,
         address: String?,
         description: String?,
+        rewardAmount: Double? = null,
         notificationCenterSource: String? = null,
         notificationCenterLocation: LocationCoordinate? = null,
         notificationCenterAddress: String? = null,
@@ -156,6 +157,7 @@ class PetsViewModel @Inject constructor(
                     location,
                     address,
                     description,
+                    rewardAmount,
                     notificationCenterSource,
                     notificationCenterLocation,
                     notificationCenterAddress

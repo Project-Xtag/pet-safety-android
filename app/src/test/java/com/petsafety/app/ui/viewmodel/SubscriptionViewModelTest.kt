@@ -9,6 +9,7 @@ import com.petsafety.app.data.model.SubscriptionPlan
 import com.petsafety.app.data.model.SubscriptionStatus
 import com.petsafety.app.data.model.UserSubscription
 import com.petsafety.app.data.network.model.SubscriptionFeaturesResponse
+import com.petsafety.app.data.events.SubscriptionEventBus
 import com.petsafety.app.data.repository.SubscriptionRepository
 import io.mockk.coEvery
 import io.mockk.coVerify
@@ -66,7 +67,7 @@ class SubscriptionViewModelTest {
     fun setup() {
         Dispatchers.setMain(testDispatcher)
         repository = mockk(relaxed = true)
-        viewModel = SubscriptionViewModel(repository)
+        viewModel = SubscriptionViewModel(repository, SubscriptionEventBus())
     }
 
     @After

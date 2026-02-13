@@ -22,16 +22,14 @@
 
     <!-- Domain-specific configuration for our API -->
     <domain-config cleartextTrafficPermitted="false">
-        <domain includeSubdomains="true">pet-er.app</domain>
+        <domain includeSubdomains="false">api.senra.pet</domain>
 
-        <!-- Certificate pinning for pet-er.app -->
-        <!-- SHA-256 hashes of Subject Public Key Info (SPKI) -->
-        <!-- To generate: openssl s_client -connect pet-er.app:443 | openssl x509 -pubkey -noout | openssl pkey -pubin -outform der | openssl dgst -sha256 -binary | openssl enc -base64 -->
-        <pin-set expiration="2027-01-30">
-            <!-- Primary pin - TODO: Replace with actual production certificate pin -->
-            <pin digest="SHA-256">BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB=</pin>
-            <!-- Backup pin for certificate rotation -->
-            <pin digest="SHA-256">CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC=</pin>
+        <!-- Certificate pinning for api.senra.pet (Amazon CA pins — stable for years) -->
+        <pin-set expiration="2028-03-12">
+            <!-- Amazon RSA 2048 M01 (Intermediate CA) -->
+            <pin digest="SHA-256">DxH4tt40L+eduF6szpY6TONlxhZhBd+pJ9wbHlQ2fuw=</pin>
+            <!-- Amazon Root CA 1 -->
+            <pin digest="SHA-256">++MBgDH5WGvL9Bcn5Be30cRcL0f5O+NyoXuWtQdX1aI=</pin>
         </pin-set>
     </domain-config>
 

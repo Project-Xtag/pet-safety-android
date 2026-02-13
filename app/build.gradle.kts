@@ -52,21 +52,21 @@ android {
         debug {
             isMinifyEnabled = false
             // Use production API (same as iOS) for OTP to work
-            buildConfigField("String", "API_BASE_URL", "\"https://pet-er.app/api/\"")
-            buildConfigField("String", "SSE_BASE_URL", "\"https://pet-er.app/api/sse/events\"")
+            buildConfigField("String", "API_BASE_URL", "\"https://api.senra.pet/api/\"")
+            buildConfigField("String", "SSE_BASE_URL", "\"https://api.senra.pet/api/sse/events\"")
         }
         create("staging") {
             initWith(getByName("debug"))
             matchingFallbacks += listOf("debug")
             isDebuggable = true
-            buildConfigField("String", "API_BASE_URL", "\"https://staging.pet-er.app/api/\"")
-            buildConfigField("String", "SSE_BASE_URL", "\"https://staging.pet-er.app/api/sse/events\"")
+            buildConfigField("String", "API_BASE_URL", "\"https://staging.senra.pet/api/\"")
+            buildConfigField("String", "SSE_BASE_URL", "\"https://staging.senra.pet/api/sse/events\"")
         }
         release {
             isMinifyEnabled = true
             isShrinkResources = true
-            buildConfigField("String", "API_BASE_URL", "\"https://pet-er.app/api/\"")
-            buildConfigField("String", "SSE_BASE_URL", "\"https://pet-er.app/api/sse/events\"")
+            buildConfigField("String", "API_BASE_URL", "\"https://api.senra.pet/api/\"")
+            buildConfigField("String", "SSE_BASE_URL", "\"https://api.senra.pet/api/sse/events\"")
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -134,6 +134,7 @@ dependencies {
     implementation(libs.work.runtime)
     implementation(libs.security.crypto)
     implementation(libs.biometric)
+    implementation(libs.browser)
 
     implementation(libs.coil.compose)
 
@@ -165,6 +166,7 @@ dependencies {
     testImplementation(libs.datastore.preferences)
     testImplementation("org.robolectric:robolectric:4.14.1")
     testImplementation("androidx.work:work-testing:2.9.1")
+    testImplementation(libs.androidx.test.core)
     androidTestImplementation(libs.androidx.test.core)
     androidTestImplementation(libs.androidx.test.runner)
     androidTestImplementation(libs.espresso.core)

@@ -19,6 +19,7 @@ core-splashscreen = "1.0.1"
  coil = "2.6.0"
  material = "1.12.0"
 security-crypto = "1.1.0-alpha06"
+browser = "1.8.0"
 biometric = "1.1.0"
 hilt = "2.52"
 hilt-navigation-compose = "1.2.0"
@@ -67,6 +68,7 @@ androidx-core-splashscreen = { module = "androidx.core:core-splashscreen", versi
  datastore-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "datastore" }
  work-runtime = { module = "androidx.work:work-runtime-ktx", version.ref = "workmanager" }
 security-crypto = { module = "androidx.security:security-crypto", version.ref = "security-crypto" }
+browser = { module = "androidx.browser:browser", version.ref = "browser" }
 biometric = { module = "androidx.biometric:biometric", version.ref = "biometric" }
 hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
 hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hilt" }

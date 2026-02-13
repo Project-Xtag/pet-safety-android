@@ -40,12 +40,12 @@ class QrScannerViewModel @Inject constructor(
     }
 
     /**
-     * Share location with 3-tier GDPR consent
+     * Share location with 2-tier consent (toggle ON = precise, toggle OFF = approximate).
      *
      * @param qrCode The scanned QR code
-     * @param consent The user's location consent choice
-     * @param latitude Current latitude (optional for DECLINE)
-     * @param longitude Current longitude (optional for DECLINE)
+     * @param consent The user's location consent choice (PRECISE or APPROXIMATE)
+     * @param latitude Current latitude (required)
+     * @param longitude Current longitude (required)
      * @param accuracyMeters GPS accuracy in meters (optional)
      * @param onResult Callback with success status and optional error message
      */

@@ -308,6 +308,7 @@
     <string name="dont_share_location">Don\'t Share Location</string>
     <string name="dont_share_location_desc">Just notify the owner that their pet was found</string>
     <string name="confirm_notify_owner">Confirm &amp; Notify Owner</string>
+    <string name="share_exact_location_toggle">Share exact location</string>
     <string name="contact_owner">Contact Owner</string>
     <string name="call_phone">Call: %1$s</string>
     <string name="email_contact">Email: %1$s</string>
@@ -731,6 +732,11 @@
     <string name="pet_found_share">%1$s Found!</string>
     <string name="reunited_in">Reunited in %1$s</string>
     <string name="shared_via_pet_safety">Shared via Pet Safety App</string>
+    <string name="story_share_good_news">Share the Good News</string>
+    <string name="story_social_caption">%1$s has been reunited with their family! Thank you to the TagMe Now community for helping bring %1$s home. senra.pet</string>
+    <string name="story_generating_card">Creating share card\u2026</string>
+    <string name="story_pet_is_home_title">%1$s is home!</string>
+    <string name="story_inspire_others_message">Help inspire other pet owners by sharing how %1$s was reunited with you.</string>
     <string name="sighting_reports_desc">Sighting reports</string>
 
     <!-- Success Story Time -->
@@ -1007,7 +1013,7 @@
     <string name="contact_support_sending">Sending\u2026</string>
     <string name="contact_support_success">Support request submitted! Ticket ID: %1$s</string>
     <string name="contact_support_response">We\'ll get back to you within 24 hours.</string>
-    <string name="support_email">Support: support@petsafety.eu</string>
+    <string name="support_email">Support: hello@senra.pet</string>
     <string name="support_category_general">General</string>
     <string name="support_category_technical">Technical Issue</string>
     <string name="support_category_account">Account</string>
@@ -1192,7 +1198,7 @@
     <string name="referral_copy">Copy</string>
     <string name="referral_share">Share</string>
     <string name="referral_pending">Pending</string>
-    <string name="referral_share_text">Use my referral code %1$s to get 2 months free on Pet Safety! https://pet-er.app/choose-plan?referral=%2$s</string>
+    <string name="referral_share_text">Use my referral code %1$s to get 2 months free on Pet Safety! https://senra.pet/choose-plan?referral=%2$s</string>
     <string name="referral_clipboard_label">Referral Code</string>
 
     <!-- ============================================ -->
@@ -1346,8 +1352,8 @@
     <!-- ============================================ -->
     <string name="app_name_label">Pet Safety</string>
     <string name="app_version">Version 1.0.0</string>
-    <string name="terms_url">Terms: https://pet-er.app/terms</string>
-    <string name="privacy_url">Privacy: https://pet-er.app/privacy</string>
+    <string name="terms_url">Terms: https://senra.pet/terms</string>
+    <string name="privacy_url">Privacy: https://senra.pet/privacy</string>
 
     <!-- ============================================ -->
     <!-- MARK: Relative Time -->
@@ -1389,4 +1395,18 @@
         <item quantity="one">%d week</item>
         <item quantity="other">%d weeks</item>
     </plurals>
+
+    <!-- ============================================ -->
+    <!-- MARK: Reward & Sighting Details -->
+    <!-- ============================================ -->
+    <string name="reward_optional">Reward (optional)</string>
+    <string name="reward_badge">\u20AC%d Reward</string>
+    <string name="sighting_details_title">Sightings</string>
+    <string name="sighting_at">Seen at %1$s</string>
+    <string name="sighting_reported_at">Reported %1$s</string>
+    <string name="sighting_no_details">No sightings reported yet</string>
+    <string name="sighting_anonymous">Anonymous reporter</string>
+    <string name="reporter_name">Your name</string>
+    <string name="reporter_phone">Phone number</string>
+    <string name="reporter_email">Email</string>
 </resources>
