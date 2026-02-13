@@ -1034,17 +1034,16 @@
     <string name="char_count">%1$d/5000 znaků</string>
 
     <!-- FAQ Items -->
-    <string name="help_faq_q1">Jak přidám mazlíčka?</string>
-    <string name="help_faq_a1">Přejděte na záložku Moji mazlíčci a klepněte na +. Vyplňte údaje o mazlíčkovi a uložte.</string>
-    <string name="help_faq_q2">Jak fungují QR známky?</string>
-    <string name="help_faq_a2">Každá QR známka obsahuje unikátní kód propojený s profilem mazlíčka. Po naskenování lze zobrazit informace a kontaktovat vás.</string>
-    <string name="help_faq_q3">Co se stane, když je mazlíček označen jako ztracený?</string>
-    <string name="help_faq_a3">Upozornění se odešle uživatelům Pet Safety v okolí. Každý, kdo naskenuje známku, bude vyzván ke sdílení polohy.</string>
-    <string name="help_faq_q4">Jak aktualizuji kontaktní údaje?</string>
-    <string name="help_faq_a4">Přejděte na Účet > Kontakty a aktualizujte e-mail a telefon, které se zobrazují na známce.</string>
-    <string name="help_faq_q5">Jsou moje osobní údaje v bezpečí?</string>
-    <string name="help_faq_a5">Ano. Používáme šifrování a bezpečné servery. Viditelnost údajů můžete ovládat v režimu soukromí.</string>
-
+    <string name="help_faq_q1">Jak zaregistruji mazlíčka?</string>
+    <string name="help_faq_a1">Přejděte do \'Moje mazlíčky\' a klikněte na \'Přidat nového mazlíčka\'.</string>
+    <string name="help_faq_q2">Jaké informace mám uvést?</string>
+    <string name="help_faq_a2">Jméno, druh, plemeno, věk, zdravotní informace a kontakt.</string>
+    <string name="help_faq_q3">Jak funguje QR štítek?</string>
+    <string name="help_faq_a3">Každý mazlíček má unikátní QR štítek. Po načtení se zobrazí profil a kontakt.</string>
+    <string name="help_faq_q4">Mohu informace později aktualizovat?</string>
+    <string name="help_faq_a4">Ano, v \'Moje mazlíčky\' vyberte mazlíčka a klikněte na \'Upravit profil\'.</string>
+    <string name="help_faq_q5">Jak objednám náhradní štítek?</string>
+    <string name="help_faq_a5">V profilu mazlíčka klikněte na \'Objednat náhradní štítek\' a postupujte dle pokynů.</string>
     <!-- Guide Items -->
     <string name="help_guide_getting_started">Začínáme</string>
     <string name="help_guide_managing_pets">Správa mazlíčků</string>
@@ -1365,8 +1364,8 @@
     <!-- ============================================ -->
     <string name="app_name_label">Pet Safety</string>
     <string name="app_version">Verze 1.0.0</string>
-    <string name="terms_url">Podmínky: https://senra.pet/terms</string>
-    <string name="privacy_url">Soukromí: https://senra.pet/privacy</string>
+    <string name="terms_url">Podmínky: https://senra.pet/terms-conditions</string>
+    <string name="privacy_url">Soukromí: https://senra.pet/privacy-policy</string>
 
     <!-- ============================================ -->
     <!-- MARK: Relative Time -->
@@ -1428,4 +1427,87 @@
     <string name="reporter_name">Vaše jméno</string>
     <string name="reporter_phone">Telefonní číslo</string>
     <string name="reporter_email">E-mail</string>
+
+    <!-- Hardcoded String Fixes -->
+    <string name="someone_fallback">Někdo</string>
+    <string name="no_plan">Žádný</string>
+    <string name="current_location_fallback">Aktuální poloha</string>
+    <string name="share_card_reunited">Opět spolu!</string>
+    <string name="euro_currency_symbol">\u20AC</string>
+
+    <!-- FAQ Screen -->
+    <string name="faq_title">Často kladené otázky</string>
+    <string name="guides_title">Uživatelské příručky</string>
+
+    <!-- Checkout & SSE -->
+    <string name="checkout_success_message">Platba proběhla úspěšně! Vaše objednávka se zpracovává.</string>
+    <string name="checkout_cancelled_message">Platba byla zrušena. Zkuste to znovu, až budete připraveni.</string>
+    <string name="proceed_to_payment">Pokračovat k platbě</string>
+    <string name="redirecting_to_payment">Přesměrování na platbu…</string>
+    <string name="checkout_failed">Nepodařilo se zahájit platbu</string>
+    <string name="sse_subscription_activated">Váš plán %1$s je nyní aktivní!</string>
+    <string name="sse_subscription_cancelled">Vaše předplatné %1$s bylo zrušeno.</string>
+    <string name="sse_referral_used">%1$s použil váš doporučující kód!</string>
+    <string name="help_faq_q6">Jak aktivuji svůj štítek po doručení?</string>
+    <string name="help_faq_a6">Přejděte na \'Naskenovat štítek\' v aplikaci a namiřte kameru telefonu na QR kód na štítku. Tím se štítek propojí s vaším účtem. Poté budete vyzváni k výběru existujícího mazlíčka nebo vytvoření nového profilu. Po aktivaci si vyberte svůj předplatitelský plán.</string>
+    <string name="help_faq_q7">Mohu po registraci aktualizovat informace o svém mazlíčkovi?</string>
+    <string name="help_faq_a7">Ano — profil svého mazlíčka můžete upravit kdykoli. Přejděte na \'Moji mazlíčci\', vyberte mazlíčka a klepněte na \'Upravit\'. Můžete aktualizovat libovolné pole včetně fotografií. Změny se uloží okamžitě.</string>
+    <string name="help_faq_q8">Co mám dělat, když se můj mazlíček ztratí?</string>
+    <string name="help_faq_a8">Přejděte na \'Moji mazlíčci\' a klepněte na nabídku na kartě mazlíčka, pak vyberte \'Označit jako ztraceného\'. Tím se vytvoří upozornění na ztraceného mazlíčka viditelné pro komunitu Senra ve vašem okolí. Lidé ve vašem okolí uvidí upozornění a mohou hlásit pozorování s informacemi o poloze. O jakémkoli pozorování budete okamžitě informováni.</string>
+    <string name="help_faq_q9">Jak fungují upozornění na ztracené mazlíčky?</string>
+    <string name="help_faq_a9">Když označíte mazlíčka jako ztraceného, vytvoří se upozornění s fotografií a údaji vašeho mazlíčka. Ostatní uživatelé Senra v okruhu 10 km mohou upozornění vidět na mapě ztracených mazlíčků. Kdokoli z komunity může nahlásit pozorování, čímž vám zašle svou polohu a kontaktní údaje. Upozornění obdrží také veterináři a útulky registrovaní na Senra ve vašem okolí.</string>
+    <string name="help_faq_q10">Jak objednám náhradní štítek?</string>
+    <string name="help_faq_a10">Přejděte na stránku Účet a klepněte na \'Objednat náhradu\'. Vyberte mazlíčka, který potřebuje nový štítek. Členové plánu Ultimate mají neomezené bezplatné náhrady, členové plánu Standard mají jednu bezplatnou náhradu ročně a členové plánu Starter si mohou objednat náhrady za malý poplatek za dopravu.</string>
+    <string name="help_faq_q11">Co je to program doporučení?</string>
+    <string name="help_faq_a11">Sdílejte kód SENRAFRIEND s přáteli a rodinou. Když někdo použije tento kód a přihlásí se k placenému plánu (Standard nebo Ultimate), oba — vy i váš přítel — získáte 2 měsíce zdarma. Svá doporučení a jejich stav můžete sledovat na stránce Doporučení.</string>
+    <string name="help_faq_q12">Do jakých zemí zasíláte?</string>
+    <string name="help_faq_a12">V současné době zasíláme do Maďarska, Slovenska, Česka, Rakouska, Rumunska, Chorvatska, Španělska a Portugalska. Doprava stojí 3,90 £ za objednávku.</string>
+    <string name="help_faq_q13">Mohu mít více mazlíčků na jednom účtu?</string>
+    <string name="help_faq_a13">Ano. Na plánu Starter (zdarma) můžete zaregistrovat jednoho mazlíčka. Plán Standard také podporuje jednoho mazlíčka. Plán Ultimate podporuje neomezený počet mazlíčků. Svůj plán můžete kdykoli upgradovat na stránce Účet.</string>
+    <string name="help_faq_q14">Jak nahlásím nalezeného mazlíčka?</string>
+    <string name="help_faq_a14">Pokud má mazlíček štítek Senra, jednoduše naskenujte QR kód kamerou telefonu — není potřeba žádná aplikace. Uvidíte profil mazlíčka a můžete sdílet svou polohu s majitelem. Pokud štítek nemá, můžete zkontrolovat mapu ztracených mazlíčků na webu Senra a zjistit, zda byl mazlíček nahlášen jako ztracený ve vašem okolí.</string>
+    <string name="help_faq_q15">Jsou mé osobní údaje v bezpečí?</string>
+    <string name="help_faq_a15">Ano. Máte plnou kontrolu nad tím, jaké informace jsou viditelné při naskenování štítku vašeho mazlíčka. V Nastavení &gt; Soukromí si můžete zvolit, zda zobrazit nebo skrýt telefonní číslo, e-mail a adresu. Vaše přihlášení je zabezpečeno jednorázovými ověřovacími kódy — žádná hesla, která by mohla být ukradena. Svůj účet a všechna data můžete kdykoli smazat.</string>
+    <string name="help_faq_q16">Ztratil jsem štítek nebo je poškozený — co mám dělat?</string>
+    <string name="help_faq_a16">Nebojte se — digitální profil vašeho mazlíčka je v bezpečí a není uložen na samotném štítku. Přejděte na stránku Účet a klepněte na \'Objednat náhradu\'. Nový štítek s novým QR kódem bude propojen s vaším stávajícím profilem mazlíčka. Členové plánu Standard mají jednu bezplatnou náhradu ročně, členové Ultimate mají neomezené bezplatné náhrady a členové Starter zaplatí malý poplatek za dopravu. Váš starý štítek přestane fungovat po aktivaci nového.</string>
+    <string name="help_faq_q17">Můj štítek nejde naskenovat — jak to opravím?</string>
+    <string name="help_faq_a17">Zkuste tyto kroky: očistěte povrch štítku vlhkým hadříkem, zajistěte dobré osvětlení, držte kameru telefonu stabilně asi 10–15 cm od štítku a ujistěte se, že aplikace fotoaparátu nebo QR skener funguje. Pokud je QR kód poškrábaný nebo vybledlý, můžete použít možnost ručního zadání kódu v aplikaci pod \'Naskenovat štítek\'. Pokud je štítek příliš poškozený na čtení, objednejte si bezplatnou náhradu na stránce Účet (plány Standard a Ultimate).</string>
+    <string name="help_faq_q18">Našel jsem mazlíčka bez štítku Senra — co mohu udělat?</string>
+    <string name="help_faq_a18">Zkontrolujte mapu ztracených mazlíčků na webu Senra (senra.pet) — mazlíček mohl být nahlášen jako ztracený ve vašem okolí. Upozornění na ztracené mazlíčky si můžete prohlédnout bez účtu. Pokud najdete shodu, můžete nahlásit pozorování se svou polohou a pomoci tak sjednotit mazlíčka s majitelem. Můžete také vzít mazlíčka k místnímu veterináři na kontrolu mikročipu.</string>
+    <string name="help_faq_q19">Mohu změnit svou e-mailovou adresu?</string>
+    <string name="help_faq_a19">Vaše primární e-mailová adresa slouží jako identita vašeho účtu a nelze ji přímo změnit. Pokud potřebujete použít jiný e-mail, můžete přidat sekundární e-mail v Nastavení &gt; Kontaktní údaje — ten se také zobrazí na profilu vašeho mazlíčka. Pokud nezbytně potřebujete změnit primární e-mail, kontaktujte náš tým podpory a pomůžeme vám s migrací účtu.</string>
+    <string name="help_faq_q20">Jaký je rozdíl mezi mikročipem a QR štítkem Senra?</string>
+    <string name="help_faq_a20">Mikročip je drobný implantát pod kůží vašeho mazlíčka, který ukládá jedinečné ID číslo — ale k jeho přečtení je potřeba speciální skener (obvykle dostupný pouze u veterinářů a v útulcích). QR štítek Senra funguje okamžitě s jakoukoli kamerou chytrého telefonu a zobrazuje celý profil mazlíčka, fotografii a vaše kontaktní údaje na místě. Osoba, která vašeho mazlíčka najde, s vámi může sdílet i svou GPS polohu. Doporučujeme používat obojí: mikročip jako trvalou zálohu a štítek Senra pro okamžitou každodenní identifikaci.</string>
+    <string name="help_faq_q21">Co se stane s mými daty, pokud zruším předplatné?</string>
+    <string name="help_faq_a21">Pokud zrušíte předplatné, budete mít přístup k placeným funkcím až do konce aktuálního fakturačního období. Poté se váš účet automaticky přesune na bezplatný plán Starter. Profily mazlíčků, fotografie a QR štítky zůstanou aktivní — pouze ztratíte přístup k prémiovým funkcím jako SMS oznámení, upozornění veterinářů a bezplatné náhrady štítků. Vaše data se při zrušení nikdy nemažou. Pro trvalé odstranění všech dat použijte možnost Smazání účtu v Nastavení.</string>
+    <string name="help_faq_q22">Jak zaregistruji svého veterináře nebo útulok na Senra?</string>
+    <string name="help_faq_a22">Veterináři a útulky se mohou zaregistrovat na senra.pet/register-vet-shelter. Vyplňte údaje o vaší praxi nebo organizaci a my vám zašleme ověřovací e-mail. Po potvrzení budete automaticky dostávat e-mailová upozornění, když se ve vašem okolí ztratí mazlíčci — a pomáhat tak s jejich návratem k rodinám. Je to zdarma a není potřeba přihlášení. Majitelé mazlíčků mohou svého místního veterináře zaregistrovat také za něj.</string>
+    <string name="help_faq_q23">Jak sdílím příběh úspěchu, když je můj mazlíček nalezen?</string>
+    <string name="help_faq_a23">Když označíte svého mazlíčka jako nalezeného v \'Moji mazlíčci\', budete dotázáni, zda chcete sdílet svůj příběh shledání. Můžete přidat krátkou zprávu o tom, jak byl váš mazlíček nalezen, a potvrdit místo shledání. Veřejné příběhy se zobrazují na mapě nalezených mazlíčků, inspirují komunitu a ukazují, že systém funguje. Příběh úspěchu můžete také přidat nebo odebrat později ze stránky profilu mazlíčka.</string>
+    <string name="help_faq_q24">Které prohlížeče a zařízení jsou podporovány?</string>
+    <string name="help_faq_a24">Senra funguje ve všech moderních webových prohlížečích včetně Chrome, Safari, Firefox a Edge na mobilních zařízeních i počítačích. Skenování QR štítků funguje s jakoukoli kamerou chytrého telefonu — osoba, která najde vašeho mazlíčka, nepotřebuje aplikaci Senra ani účet. Push oznámení jsou podporována v Chrome a Edge na počítačích a Androidu. Pro nejlepší zážitek doporučujeme používat aktuální prohlížeč na vašem telefonu.</string>
+    <string name="help_faq_q25">Mohu objednat štítky pro více mazlíčků najednou?</string>
+    <string name="help_faq_a25">Každá objednávka štítků zahrnuje štítky pro jména mazlíčků, která zadáte při pokladně. V jedné objednávce můžete zadat více jmen mazlíčků. Po doručení štítků naskenujte každý z nich pro aktivaci a propojení se správným profilem mazlíčka. Pokud později potřebujete štítky pro další mazlíčky, můžete kdykoli zadat další objednávky na stránce Účet.</string>
+    <string name="help_faq_q26">Jak se upozornění na ztracené mazlíčky dostanou k veterinářům a útulkům?</string>
+    <string name="help_faq_a26">Když označíte svého mazlíčka jako ztraceného, Senra automaticky odešle e-mailová upozornění všem ověřeným veterinářům a útulkům registrovaným ve vašem okolí. To znamená, že místní odborníci na zvířata jsou okamžitě informováni o tom, že váš mazlíček je ztracený, a mohou po něm pátrat. Čím více veterinářů a útulků je ve vašem okolí registrováno, tím silnější je bezpečnostní síť. Můžete pomoci tím, že povzbudíte svého veterináře k registraci na Senra.</string>
+    <string name="help_faq_q27">Mohu převést štítek na jiného mazlíčka?</string>
+    <string name="help_faq_a27">Každý QR štítek je trvale propojen s jedním profilem mazlíčka a nelze ho přeřadit. Pokud mazlíček zemře nebo štítek již nepotřebujete, starý štítek se jednoduše deaktivuje. Pro označení nového mazlíčka objednejte nový štítek na stránce Účet. Pokud máte plán Standard nebo Ultimate, můžete mít nárok na bezplatný náhradní štítek pro svého nového mazlíčka.</string>
+    <string name="help_guide_qr_tags_title">QR štítky pro mazlíčky</string>
+    <string name="help_guide_qr_tags_desc">Zjistěte více o našich chytrých QR štítcích.</string>
+    <string name="help_guide_materials_title">Materiály a odolnost</string>
+    <string name="help_guide_materials_desc">Informace o materiálech a péči.</string>
+    <string name="help_guide_emergency_title">Funkce nouzového kontaktu</string>
+    <string name="help_guide_emergency_desc">Jak funguje náš systém nouzového kontaktu.</string>
+    <string name="help_guide_profile_title">Správa profilu</string>
+    <string name="help_guide_profile_desc">Správa a aktualizace profilu mazlíčka.</string>
+    <string name="help_guide_missing_alerts_title">Upozornění na ztracené mazlíčky a pozorování</string>
+    <string name="help_guide_missing_alerts_desc">Pokud se váš mazlíček ztratí, označte ho jako ztraceného v \'Moji mazlíčci\' a vytvořte okamžité komunitní upozornění. Fotografie a údaje vašeho mazlíčka se zobrazí na mapě ztracených mazlíčků viditelné pro všechny uživatele Senra ve vašem okolí. Členové komunity mohou hlásit pozorování se svou GPS polohou, která obdržíte jako oznámení. Registrovaní veterináři a útulky jsou také upozorněni. Jakmile je váš mazlíček nalezen, označte ho jako nalezeného a volitelně sdílejte svůj příběh shledání pro inspiraci komunity.</string>
+    <string name="help_guide_community_title">Komunita a nalezení mazlíčci</string>
+    <string name="help_guide_community_desc">Síla Senra je v její komunitě. Mapa ztracených mazlíčků zobrazuje aktivní upozornění ve vašem okolí — podívejte se, zda nebyli ve vašem okolí nahlášeni ztracení mazlíčci. Stránka nalezených mazlíčků oslavuje úspěšná shledání s příběhy majitelů. Můžete zaregistrovat svého místního veterináře nebo útulok na Senra, aby automaticky dostávali upozornění na ztracené mazlíčky, a pomoci tak vytvořit silnější bezpečnostní síť pro všechny mazlíčky ve vašem okolí.</string>
+    <string name="help_faq_group_getting_started">Začínáme</string>
+    <string name="help_faq_group_tags_scanning">Štítky a skenování</string>
+    <string name="help_faq_group_missing_pets">Ztracení mazlíčci a upozornění</string>
+    <string name="help_faq_group_billing_plans">Fakturace a plány</string>
+    <string name="help_faq_group_privacy_account">Soukromí a účet</string>
+    <string name="help_faq_group_troubleshooting">Řešení problémů</string>
 </resources>

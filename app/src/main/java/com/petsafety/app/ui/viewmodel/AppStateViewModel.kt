@@ -104,7 +104,7 @@ class AppStateViewModel @Inject constructor(
             subscriptionEventBus.requestRefresh()
         }
         sseService.onReferralUsed = { event: ReferralUsedEvent ->
-            val name = event.refereeName ?: event.refereeEmail ?: "Someone"
+            val name = event.refereeName ?: event.refereeEmail ?: stringProvider.getString(R.string.someone_fallback)
             showSuccess(stringProvider.getString(R.string.sse_referral_used, name))
         }
     }

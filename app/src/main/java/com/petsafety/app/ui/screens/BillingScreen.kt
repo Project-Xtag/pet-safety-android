@@ -257,7 +257,7 @@ private fun InvoiceRow(invoice: Invoice, onClick: () -> Unit) {
     ) {
         Column(modifier = Modifier.weight(1f)) {
             Text(
-                text = invoice.number ?: "Invoice",
+                text = invoice.number ?: stringResource(R.string.billing_invoice),
                 style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.Medium)
             )
             Text(
@@ -272,7 +272,7 @@ private fun InvoiceRow(invoice: Invoice, onClick: () -> Unit) {
                 style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.SemiBold)
             )
             Text(
-                text = invoice.status?.replaceFirstChar { it.uppercase() } ?: "Unknown",
+                text = invoice.status?.replaceFirstChar { it.uppercase() } ?: stringResource(R.string.billing_unknown),
                 style = MaterialTheme.typography.bodySmall,
                 color = if (invoice.status == "paid") Color(0xFF4CAF50) else BrandOrange
             )

@@ -304,7 +304,7 @@ private fun ReferralRow(referral: Referral) {
     ) {
         Column(modifier = Modifier.weight(1f)) {
             Text(
-                text = referral.refereeEmail ?: "Pending",
+                text = referral.refereeEmail ?: stringResource(R.string.referral_pending),
                 style = MaterialTheme.typography.bodyMedium
             )
             Text(

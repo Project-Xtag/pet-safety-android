@@ -1,6 +1,7 @@
 package com.petsafety.app.di
 
 import android.content.Context
+import android.util.Log
 import androidx.room.Room
 import androidx.work.WorkManager
 import com.petsafety.app.data.config.ConfigurationManager
@@ -38,6 +39,9 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object AppModule {
+    private const val DATABASE_NAME = "PetSafety.db"
+    private const val TAG = "AppModule"
+
     @Provides
     @Singleton
     fun provideDatabase(@ApplicationContext context: Context): AppDatabase {
@@ -46,10 +50,32 @@ object AppModule {
         System.loadLibrary("sqlcipher")
         val factory = SupportOpenHelperFactory(passphrase)
 
-        return Room.databaseBuilder(context, AppDatabase::class.java, "PetSafety.db")
-            .openHelperFactory(factory)
-            .fallbackToDestructiveMigration()
-            .build()
+        fun buildDatabase(): AppDatabase =
+            Room.databaseBuilder(context, AppDatabase::class.java, DATABASE_NAME)
+                .openHelperFactory(factory)
+                .fallbackToDestructiveMigration()
+                .build()
+
+        val database = buildDatabase()
+        return try {
+            // Force open here so we can recover instead of crashing later on first DAO call.
+            database.openHelper.writableDatabase
+            database
+        } catch (e: Exception) {
+            val isCorruptOrIncompatible = e.message?.contains("file is not a database", ignoreCase = true) == true
+            if (!isCorruptOrIncompatible) {
+                throw e
+            }
+
+            Log.w(TAG, "Incompatible local DB detected, recreating encrypted database", e)
+            runCatching { database.close() }
+            context.deleteDatabase(DATABASE_NAME)
+
+            val recreated = buildDatabase()
+            // If this fails, let it crash with the real root cause.
+            recreated.openHelper.writableDatabase
+            recreated
+        }
     }
 
     @Provides

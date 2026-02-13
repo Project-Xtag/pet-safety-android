@@ -1,5 +1,7 @@
 package com.petsafety.app.ui.screens
 
+import android.content.Intent
+import android.net.Uri
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -58,6 +60,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -1153,6 +1156,7 @@ private fun HelpSupportScreen(
     appStateViewModel: AppStateViewModel,
     onBack: () -> Unit
 ) {
+    val context = LocalContext.current
     var showContactForm by remember { mutableStateOf(false) }
     var showDeleteDialog by remember { mutableStateOf(false) }
     var showDeleteErrorDialog by remember { mutableStateOf(false) }
@@ -1160,11 +1164,24 @@ private fun HelpSupportScreen(
     var isCheckingDelete by remember { mutableStateOf(false) }
     var deleteErrorMessage by remember { mutableStateOf("") }
     var missingPetNames by remember { mutableStateOf<List<String>>(emptyList()) }
+    var showFaqScreen by remember { mutableStateOf(false) }
+    var showGuidesScreen by remember { mutableStateOf(false) }
 
     // Extract string resources outside lambdas
     val accountDeletedMessage = stringResource(R.string.account_deleted)
     val deleteAccountFailedMessage = stringResource(R.string.delete_account_failed)
     val cannotDeleteMissingPetsMessage = stringResource(R.string.cannot_delete_missing_pets)
+
+    // Sub-navigation for FAQ and Guides
+    if (showFaqScreen) {
+        FaqScreen(onBack = { showFaqScreen = false })
+        return
+    }
+
+    if (showGuidesScreen) {
+        GuidesScreen(onBack = { showGuidesScreen = false })
+        return
+    }
 
     Column(
         modifier = Modifier
@@ -1207,13 +1224,13 @@ private fun HelpSupportScreen(
                     ProfileMenuRow(
                         icon = Icons.Default.HelpOutline,
                         title = stringResource(R.string.faq),
-                        onClick = { /* Open FAQ */ }
+                        onClick = { showFaqScreen = true }
                     )
                     HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
                     ProfileMenuRow(
                         icon = Icons.Default.Person,
                         title = stringResource(R.string.user_guides),
-                        onClick = { /* Open guides */ }
+                        onClick = { showGuidesScreen = true }
                     )
                 }
             }
@@ -1238,13 +1255,21 @@ private fun HelpSupportScreen(
                     ProfileMenuRow(
                         icon = Icons.Default.Lock,
                         title = stringResource(R.string.terms_of_service),
-                        onClick = { /* Open terms */ }
+                        onClick = {
+                            context.startActivity(
+                                Intent(Intent.ACTION_VIEW, Uri.parse("https://senra.pet/terms-conditions"))
+                            )
+                        }
                     )
                     HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
                     ProfileMenuRow(
                         icon = Icons.Default.Lock,
                         title = stringResource(R.string.privacy_policy),
-                        onClick = { /* Open privacy */ }
+                        onClick = {
+                            context.startActivity(
+                                Intent(Intent.ACTION_VIEW, Uri.parse("https://senra.pet/privacy-policy"))
+                            )
+                        }
                     )
                 }
             }

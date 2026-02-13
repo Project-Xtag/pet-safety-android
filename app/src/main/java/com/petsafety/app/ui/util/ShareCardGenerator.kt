@@ -69,7 +69,7 @@ object ShareCardGenerator {
             textAlign = Paint.Align.CENTER
             isAntiAlias = true
         }
-        canvas.drawText("Reunited!", CARD_SIZE / 2f, 130f, reunitedPaint)
+        canvas.drawText(context.getString(R.string.share_card_reunited), CARD_SIZE / 2f, 130f, reunitedPaint)
 
         // Top divider
         val dividerPaint = Paint().apply {

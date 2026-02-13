@@ -1027,17 +1027,16 @@
     <string name="char_count">%1$d/5000 caractere</string>
 
     <!-- FAQ Items -->
-    <string name="help_faq_q1">Cum adaug un animal?</string>
-    <string name="help_faq_a1">Mergi la fila Animalele mele și apasă +. Completează datele și salvează.</string>
-    <string name="help_faq_q2">Cum funcționează etichetele QR?</string>
-    <string name="help_faq_a2">Fiecare etichetă QR conține un cod unic legat de profilul animalului tău. Când cineva o scanează, poate vedea informațiile și te poate contacta.</string>
-    <string name="help_faq_q3">Ce se întâmplă când animalul meu este marcat ca dispărut?</string>
-    <string name="help_faq_a3">O alertă este trimisă utilizatorilor Pet Safety din apropiere. Oricine scanează eticheta va fi invitat să își partajeze locația.</string>
-    <string name="help_faq_q4">Cum îmi actualizez informațiile de contact?</string>
-    <string name="help_faq_a4">Mergi la Cont > Contacte pentru a actualiza e-mailurile și telefoanele afișate pe etichetă.</string>
-    <string name="help_faq_q5">Sunt datele mele personale în siguranță?</string>
-    <string name="help_faq_a5">Da. Folosim criptare și servere securizate. Poți controla vizibilitatea în modul de confidențialitate.</string>
-
+    <string name="help_faq_q1">Cum îmi înregistrez animalul?</string>
+    <string name="help_faq_a1">Mergi la \'Animalele mele\' și apasă \'Adaugă animal\'.</string>
+    <string name="help_faq_q2">Ce informații trebuie să includ?</string>
+    <string name="help_faq_a2">Nume, specie, rasă, vârstă, informații medicale și contacte de urgență.</string>
+    <string name="help_faq_q3">Cum funcționează eticheta QR?</string>
+    <string name="help_faq_a3">Fiecare animal primește un QR unic. La scanare, se vede profilul.</string>
+    <string name="help_faq_q4">Pot actualiza informațiile ulterior?</string>
+    <string name="help_faq_a4">Da, în \'Animalele mele\' selectează animalul și apasă \'Editează profil\'.</string>
+    <string name="help_faq_q5">Cum comand o etichetă de înlocuire?</string>
+    <string name="help_faq_a5">În profilul animalului apasă \'Comandă înlocuire\' și urmează pașii.</string>
     <!-- Guide Items -->
     <string name="help_guide_getting_started">Introducere</string>
     <string name="help_guide_managing_pets">Gestionarea animalelor</string>
@@ -1358,8 +1357,8 @@
     <!-- ============================================ -->
     <string name="app_name_label">Pet Safety</string>
     <string name="app_version">Versiunea 1.0.0</string>
-    <string name="terms_url">Termeni: https://senra.pet/terms</string>
-    <string name="privacy_url">Confidențialitate: https://senra.pet/privacy</string>
+    <string name="terms_url">Termeni: https://senra.pet/terms-conditions</string>
+    <string name="privacy_url">Confidențialitate: https://senra.pet/privacy-policy</string>
 
     <!-- ============================================ -->
     <!-- MARK: Relative Time -->
@@ -1421,4 +1420,87 @@
     <string name="reporter_name">Numele tău</string>
     <string name="reporter_phone">Număr de telefon</string>
     <string name="reporter_email">E-mail</string>
+
+    <!-- Hardcoded String Fixes -->
+    <string name="someone_fallback">Cineva</string>
+    <string name="no_plan">Niciunul</string>
+    <string name="current_location_fallback">Locația curentă</string>
+    <string name="share_card_reunited">Reunit!</string>
+    <string name="euro_currency_symbol">\u20AC</string>
+
+    <!-- FAQ Screen -->
+    <string name="faq_title">Întrebări frecvente</string>
+    <string name="guides_title">Ghiduri pentru utilizatori</string>
+
+    <!-- Checkout & SSE -->
+    <string name="checkout_success_message">Plata a fost efectuată cu succes! Comanda ta este în curs de procesare.</string>
+    <string name="checkout_cancelled_message">Plata a fost anulată. Poți încerca din nou când ești pregătit.</string>
+    <string name="proceed_to_payment">Continuă la plată</string>
+    <string name="redirecting_to_payment">Redirecționare către plată…</string>
+    <string name="checkout_failed">Nu s-a putut iniția plata</string>
+    <string name="sse_subscription_activated">Planul tău %1$s este acum activ!</string>
+    <string name="sse_subscription_cancelled">Abonamentul tău %1$s a fost anulat.</string>
+    <string name="sse_referral_used">%1$s a folosit codul tău de recomandare!</string>
+    <string name="help_faq_q6">Cum activez eticheta după ce ajunge?</string>
+    <string name="help_faq_a6">Mergi la „Scaneață eticheta” în aplicație și îndreaptă camera telefonului spre codul QR de pe etichetă. Aceasta leagă eticheta de contul tău. Vei fi apoi rugat să alegi un animal existent sau să creezi un profil nou. După activare, selectează planul de abonament.</string>
+    <string name="help_faq_q7">Pot actualiza informațiile animalului meu după înregistrare?</string>
+    <string name="help_faq_a7">Da — poți edita profilul animalului oricând. Mergi la „Animalele mele”, selectează animalul și apasă „Editează”. Poți actualiza orice câmp, inclusiv fotografiile. Modificările sunt salvate imediat.</string>
+    <string name="help_faq_q8">Ce ar trebui să fac dacă animalul meu dispare?</string>
+    <string name="help_faq_a8">Mergi la „Animalele mele” și apasă meniul de pe cardul animalului, apoi selectează „Marchează ca dispărut”. Aceasta creează o alertă vizibilă pentru comunitatea Senra din zona ta. Persoanele din apropiere vor vedea alerta și pot raporta observări cu informații despre locație. Vei fi notificat imediat despre orice observare.</string>
+    <string name="help_faq_q9">Cum funcționează alertele pentru animale dispărute?</string>
+    <string name="help_faq_a9">Când marchezi un animal ca dispărut, se creează o alertă cu fotografia și detaliile animalului. Alți utilizatori Senra într-o rază de 10 km pot vedea alerta pe harta Animale dispărute. Oricine din comunitate poate raporta o observare, trimițându-ți locația și datele de contact. Veterinarii și adăposturile înregistrate la Senra din zona ta primesc de asemenea alerta.</string>
+    <string name="help_faq_q10">Cum comand o etichetă de înlocuire?</string>
+    <string name="help_faq_a10">Mergi la pagina Contul tău și apasă „Comandă înlocuire”. Selectează animalul care are nevoie de o etichetă nouă. Membrii Ultimate primesc înlocuiri gratuite nelimitate, membrii Standard primesc o înlocuire gratuită pe an, iar membrii Starter pot comanda înlocuiri contra unei mici taxe de livrare.</string>
+    <string name="help_faq_q11">Ce este programul de recomandare?</string>
+    <string name="help_faq_a11">Distribuie codul SENRAFRIEND prietenilor și familiei. Când cineva folosește acest cod și se abonează la un plan plătit (Standard sau Ultimate), amândoi primiți 2 luni gratuite. Poți urmări recomandările și statusul lor pe pagina de Recomandări.</string>
+    <string name="help_faq_q12">În ce țări livrați?</string>
+    <string name="help_faq_a12">În prezent livrăm în Ungaria, Slovacia, Cehia, Austria, România, Croația, Spania și Portugalia. Costul de livrare este de £3,90 pe comandă.</string>
+    <string name="help_faq_q13">Pot avea mai multe animale pe un singur cont?</string>
+    <string name="help_faq_a13">Da. Cu planul Starter (gratuit) poți înregistra un animal. Planul Standard permite de asemenea un animal. Planul Ultimate permite animale nelimitate. Poți face upgrade oricând din pagina Cont.</string>
+    <string name="help_faq_q14">Cum raportez un animal pe care l-am găsit?</string>
+    <string name="help_faq_a14">Dacă animalul are o etichetă Senra, pur și simplu scanează codul QR cu camera telefonului — nu ai nevoie de aplicație. Vei vedea profilul animalului și poți partaja locația cu proprietarul. Dacă nu are etichetă, poți verifica harta Animale dispărute pe site-ul Senra pentru a vedea dacă animalul a fost raportat ca dispărut în zona ta.</string>
+    <string name="help_faq_q15">Sunt în siguranță informațiile mele personale?</string>
+    <string name="help_faq_a15">Da. Tu controlezi exact ce informații sunt vizibile când cineva scanează eticheta animalului tău. În Setări &gt; Confidențialitate poți alege să afișezi sau să ascunzi numărul de telefon, e-mailul și adresa. Autentificarea este securizată cu coduri de verificare unice — nu există parole care să fie furate. Poți șterge contul și toate datele oricând.</string>
+    <string name="help_faq_q16">Am pierdut eticheta sau este deteriorată — ce ar trebui să fac?</string>
+    <string name="help_faq_a16">Nu-ți face griji — profilul digital al animalului este în siguranță și nu este stocat pe etichetă. Mergi la pagina Cont și apasă „Comandă înlocuire”. O etichetă nouă cu un cod QR proaspăt va fi legată de profilul existent al animalului. Membrii Standard primesc o înlocuire gratuită pe an, membrii Ultimate primesc înlocuiri gratuite nelimitate, iar membrii Starter plătesc o mică taxă de livrare. Eticheta veche nu va mai funcționa odată ce cea nouă este activată.</string>
+    <string name="help_faq_q17">Eticheta mea nu se scanează — cum o repar?</string>
+    <string name="help_faq_a17">Încearcă acești pași: curăță suprafața etichetei cu o cârpă umedă, asigură-te că ai iluminare bună, ține camera telefonului stabilă la aproximativ 10-15 cm de etichetă și verifică dacă aplicația camerei sau scanerul QR funcționează. Dacă codul QR este zgâriat sau decolorat, poți folosi opțiunea de introducere manuală din aplicație, la „Scanează eticheta”. Dacă eticheta este prea deteriorată pentru a fi citită, comandă o înlocuire gratuită din pagina Cont (planurile Standard și Ultimate).</string>
+    <string name="help_faq_q18">Am găsit un animal fără etichetă Senra — ce pot face?</string>
+    <string name="help_faq_a18">Verifică harta Animale dispărute de pe site-ul Senra (senra.pet) — animalul poate fi raportat ca dispărut în zona ta. Poți vedea alertele fără cont. Dacă găsești o potrivire, poți raporta o observare cu locația ta pentru a ajuta la reunirea animalului cu proprietarul. Poți de asemenea să duci animalul la un veterinar local pentru a verifica microcipul.</string>
+    <string name="help_faq_q19">Pot să-mi schimb adresa de e-mail?</string>
+    <string name="help_faq_a19">Adresa de e-mail principală este folosită ca identitate a contului și nu poate fi schimbată direct. Dacă ai nevoie să folosești un alt e-mail, poți adăuga un e-mail secundar în Setări &gt; Detalii contact — acesta va fi afișat și pe profilul animalului. Dacă ai neapărat nevoie să schimbi e-mailul principal, contactează echipa de suport și te ajutăm să migrezi contul.</string>
+    <string name="help_faq_q20">Care este diferența dintre un microcip și o etichetă QR Senra?</string>
+    <string name="help_faq_a20">Un microcip este un implant minuscul sub pielea animalului care stochează un număr unic de identificare — dar necesită un scaner special (disponibil de obicei doar la veterinari și adăposturi) pentru a fi citit. O etichetă QR Senra funcționează instant cu orice cameră de smartphone, afișând profilul complet al animalului, fotografia și datele tale de contact pe loc. Persoana care găsește animalul poate partaja și locația GPS cu tine. Recomandăm utilizarea ambelor: microcipul ca backup permanent și eticheta Senra pentru identificare instantanee, zilnică.</string>
+    <string name="help_faq_q21">Ce se întâmplă cu datele mele dacă anulez abonamentul?</string>
+    <string name="help_faq_a21">Dacă anulezi abonamentul, păstrezi accesul la funcțiile plătite până la sfârșitul perioadei curente de facturare. După aceea, contul trece automat pe planul gratuit Starter. Profilurile animalelor, fotografiile și etichetele QR rămân active — doar pierzi accesul la funcțiile premium precum notificările SMS, alertele veterinare și înlocuirile gratuite. Datele tale nu sunt niciodată șterse la anulare. Pentru a elimina permanent toate datele, folosește opțiunea de Ștergere cont din Setări.</string>
+    <string name="help_faq_q22">Cum îmi înregistrez cabinetul veterinar sau adăpostul la Senra?</string>
+    <string name="help_faq_a22">Veterinarii și adăposturile se pot înregistra la senra.pet/register-vet-shelter. Completează detaliile cabinetului sau organizației, iar noi trimitem un e-mail de verificare. Odată confirmat, vei primi automat alerte prin e-mail când animale dispar în zona ta — ajutând la reunirea animalelor pierdute cu familiile lor. Nu există costuri și nu este necesară autentificarea. Proprietarii de animale pot înregistra veterinarul local în numele lor.</string>
+    <string name="help_faq_q23">Cum partajez o poveste de succes când animalul meu este găsit?</string>
+    <string name="help_faq_a23">Când marchezi animalul ca găsit în „Animalele mele”, vei fi întrebat dacă dorești să partajezi povestea de reunire. Poți adăuga un mesaj scurt despre cum a fost găsit animalul și confirma locația reunirii. Poveștile publice apar pe harta Animale găsite, inspirând comunitatea și arătând că sistemul funcționează. Poți publica sau elimina o poveste de succes ulterior din pagina de profil a animalului.</string>
+    <string name="help_faq_q24">Ce browsere și dispozitive sunt suportate?</string>
+    <string name="help_faq_a24">Senra funcționează pe toate browserele web moderne, inclusiv Chrome, Safari, Firefox și Edge, atât pe mobil cât și pe desktop. Scanarea etichetei QR funcționează cu orice cameră de smartphone — persoana care găsește animalul tău nu are nevoie de aplicația Senra sau de un cont. Notificările push sunt suportate în Chrome și Edge pe desktop și Android. Pentru cea mai bună experiență, recomandăm utilizarea unui browser actualizat pe telefon.</string>
+    <string name="help_faq_q25">Pot comanda etichete pentru mai multe animale deodată?</string>
+    <string name="help_faq_a25">Fiecare comandă de etichete include etichete pentru numele animalelor specificate în timpul procesului de comandă. Poți introduce mai multe nume într-o singură comandă. După ce ajung etichetele, scanează fiecare pentru a o activa și a o lega de profilul corect. Dacă ai nevoie de etichete pentru mai multe animale ulterior, poți plasa comenzi suplimentare din pagina Cont oricând.</string>
+    <string name="help_faq_q26">Cum ajung alertele de animale dispărute la veterinari și adăposturi?</string>
+    <string name="help_faq_a26">Când marchezi animalul ca dispărut, Senra trimite automat alerte prin e-mail tuturor veterinarilor și adăposturilor verificate înregistrate în zona ta. Aceasta înseamnă că profesioniștii locali în domeniul animalelor sunt imediat conștienți că animalul tău este dispărut și pot fi atenți. Cu cât mai mulți veterinari și adăposturi sunt înregistrate în zona ta, cu atât rețeaua de siguranță este mai puternică. Poți ajuta încurajându-ți propriul veterinar să se înregistreze la Senra.</string>
+    <string name="help_faq_q27">Pot transfera o etichetă la un alt animal?</string>
+    <string name="help_faq_a27">Fiecare etichetă QR este legată permanent de un singur profil de animal și nu poate fi reatribuită. Dacă un animal trece la cele veșnice sau nu mai ai nevoie de o etichetă, eticheta veche devine pur și simplu inactivă. Pentru a eticheta un animal nou, comandă o etichetă nouă din pagina Cont. Dacă ai un plan Standard sau Ultimate, poți beneficia de o etichetă de înlocuire gratuită pentru noul animal.</string>
+    <string name="help_guide_qr_tags_title">Etichete QR pentru animale</string>
+    <string name="help_guide_qr_tags_desc">Află despre etichetele noastre smart QR.</string>
+    <string name="help_guide_materials_title">Materiale și durabilitate</string>
+    <string name="help_guide_materials_desc">Informații despre materiale și îngrijire.</string>
+    <string name="help_guide_emergency_title">Funcții de contact de urgență</string>
+    <string name="help_guide_emergency_desc">Cum funcționează sistemul de contact.</string>
+    <string name="help_guide_profile_title">Gestionare profil</string>
+    <string name="help_guide_profile_desc">Gestionează și actualizează profilul animalului.</string>
+    <string name="help_guide_missing_alerts_title">Alerte animale dispărute și observări</string>
+    <string name="help_guide_missing_alerts_desc">Dacă animalul tău dispare, marchează-l ca dispărut din „Animalele mele” pentru a crea o alertă instant către comunitate. Fotografia și detaliile animalului apar pe harta Animale dispărute, vizibilă tuturor utilizatorilor Senra din zona ta. Membrii comunității pot raporta observări cu locația GPS, pe care le primești ca notificări. Veterinarii și adăposturile înregistrate sunt de asemenea alertați. Odată ce animalul este găsit, marchează-l ca găsit și opțional partajează povestea de reunire pentru a inspira comunitatea.</string>
+    <string name="help_guide_community_title">Comunitate și animale găsite</string>
+    <string name="help_guide_community_desc">Puterea Senra este comunitatea. Harta Animale dispărute arată alertele active din apropierea ta — verifică pentru a vedea dacă vreun animal a fost raportat ca dispărut în zona ta. Pagina Animale găsite celebrează reunirile reușite cu povești de la proprietari. Poți înregistra veterinarul sau adăpostul local la Senra pentru a primi alerte automate despre animale dispărute, contribuind la crearea unei rețele mai puternice de siguranță pentru toate animalele din zona ta.</string>
+    <string name="help_faq_group_getting_started">Primii pași</string>
+    <string name="help_faq_group_tags_scanning">Etichete și scanare</string>
+    <string name="help_faq_group_missing_pets">Animale dispărute și alerte</string>
+    <string name="help_faq_group_billing_plans">Facturare și planuri</string>
+    <string name="help_faq_group_privacy_account">Confidențialitate și cont</string>
+    <string name="help_faq_group_troubleshooting">Depanare</string>
 </resources>

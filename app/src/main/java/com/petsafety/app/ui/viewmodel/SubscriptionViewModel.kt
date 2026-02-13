@@ -10,6 +10,8 @@ import com.petsafety.app.data.model.SubscriptionPlan
 import com.petsafety.app.data.model.UserSubscription
 import com.petsafety.app.data.network.model.SubscriptionFeaturesResponse
 import com.petsafety.app.data.repository.SubscriptionRepository
+import com.petsafety.app.util.StringProvider
+import com.petsafety.app.R
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -19,7 +21,8 @@ import javax.inject.Inject
 @HiltViewModel
 class SubscriptionViewModel @Inject constructor(
     private val repository: SubscriptionRepository,
-    private val subscriptionEventBus: SubscriptionEventBus
+    private val subscriptionEventBus: SubscriptionEventBus,
+    private val stringProvider: StringProvider
 ) : ViewModel() {
 
     private val _plans = MutableStateFlow<List<SubscriptionPlan>>(emptyList())
@@ -52,7 +55,7 @@ class SubscriptionViewModel @Inject constructor(
     private val _error = MutableStateFlow<String?>(null)
     val error: StateFlow<String?> = _error
 
-    val currentPlanName: String get() = _subscription.value?.resolvedPlanName ?: "None"
+    val currentPlanName: String get() = _subscription.value?.resolvedPlanName ?: stringProvider.getString(R.string.no_plan)
     val isOnStarterPlan: Boolean get() = _subscription.value?.resolvedPlanName?.lowercase() == "starter"
 
     init {

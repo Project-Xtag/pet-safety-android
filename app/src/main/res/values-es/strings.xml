@@ -1030,17 +1030,16 @@
     <string name="char_count">%1$d/5000 caracteres</string>
 
     <!-- FAQ Items -->
-    <string name="help_faq_q1">¿Cómo añado una mascota?</string>
-    <string name="help_faq_a1">Ve a la pestaña Mis mascotas y toca el botón +. Rellena los datos y guarda.</string>
-    <string name="help_faq_q2">¿Cómo funcionan las etiquetas QR?</string>
-    <string name="help_faq_a2">Cada etiqueta QR contiene un código único vinculado al perfil de tu mascota. Cuando alguien lo escanea, puede ver la información y contactarte.</string>
-    <string name="help_faq_q3">¿Qué ocurre cuando mi mascota se marca como perdida?</string>
-    <string name="help_faq_a3">Se envía una alerta a usuarios de Pet Safety cercanos. Quien escanee la etiqueta recibirá una solicitud para compartir su ubicación.</string>
-    <string name="help_faq_q4">¿Cómo actualizo mi información de contacto?</string>
-    <string name="help_faq_a4">Ve a Cuenta > Contactos para actualizar tus correos y teléfonos que aparecen en la etiqueta.</string>
-    <string name="help_faq_q5">¿Mis datos personales están seguros?</string>
-    <string name="help_faq_a5">Sí. Usamos cifrado y servidores seguros. Puedes controlar la visibilidad desde el modo de privacidad.</string>
-
+    <string name="help_faq_q1">¿Cómo registro a mi mascota?</string>
+    <string name="help_faq_a1">Ve a \'Mis mascotas\' y pulsa \'Añadir nueva mascota\'. Completa la información requerida y sube una foto.</string>
+    <string name="help_faq_q2">¿Qué información debo incluir en el perfil?</string>
+    <string name="help_faq_a2">Nombre, especie, raza, edad, condiciones médicas, contactos de emergencia y una foto reciente.</string>
+    <string name="help_faq_q3">¿Cómo funciona la etiqueta QR?</string>
+    <string name="help_faq_a3">Cada mascota recibe una etiqueta QR única. Al escanearla, pueden ver el perfil y contactarte.</string>
+    <string name="help_faq_q4">¿Puedo actualizar la información después?</string>
+    <string name="help_faq_a4">Sí, ve a \'Mis mascotas\', selecciona tu mascota y pulsa \'Editar perfil\'.</string>
+    <string name="help_faq_q5">¿Cómo pido una etiqueta de reemplazo?</string>
+    <string name="help_faq_a5">En el perfil de tu mascota, pulsa \'Pedir reemplazo\' y sigue los pasos.</string>
     <!-- Guide Items -->
     <string name="help_guide_getting_started">Primeros pasos</string>
     <string name="help_guide_managing_pets">Gestionar tus mascotas</string>
@@ -1359,8 +1358,8 @@
     <!-- ============================================ -->
     <string name="app_name_label">Pet Safety</string>
     <string name="app_version">Versión 1.0.0</string>
-    <string name="terms_url">Términos: https://senra.pet/terms</string>
-    <string name="privacy_url">Privacidad: https://senra.pet/privacy</string>
+    <string name="terms_url">Términos: https://senra.pet/terms-conditions</string>
+    <string name="privacy_url">Privacidad: https://senra.pet/privacy-policy</string>
 
     <!-- ============================================ -->
     <!-- MARK: Relative Time -->
@@ -1416,4 +1415,87 @@
     <string name="reporter_name">Tu nombre</string>
     <string name="reporter_phone">Número de teléfono</string>
     <string name="reporter_email">Correo electrónico</string>
+
+    <!-- Hardcoded String Fixes -->
+    <string name="someone_fallback">Alguien</string>
+    <string name="no_plan">Ninguno</string>
+    <string name="current_location_fallback">Ubicación actual</string>
+    <string name="share_card_reunited">\u00A1Reunido!</string>
+    <string name="euro_currency_symbol">\u20AC</string>
+
+    <!-- FAQ Screen -->
+    <string name="faq_title">Preguntas frecuentes</string>
+    <string name="guides_title">Guías de usuario</string>
+
+    <!-- Checkout & SSE -->
+    <string name="checkout_success_message">¡Pago exitoso! Tu pedido está siendo procesado.</string>
+    <string name="checkout_cancelled_message">El pago fue cancelado. Puedes intentarlo de nuevo cuando estés listo.</string>
+    <string name="proceed_to_payment">Continuar al pago</string>
+    <string name="redirecting_to_payment">Redirigiendo al pago…</string>
+    <string name="checkout_failed">No se pudo iniciar el pago</string>
+    <string name="sse_subscription_activated">¡Tu plan %1$s ya está activo!</string>
+    <string name="sse_subscription_cancelled">Tu suscripción %1$s ha sido cancelada.</string>
+    <string name="sse_referral_used">¡%1$s usó tu código de referencia!</string>
+    <string name="help_faq_q6">¿Cómo activo mi etiqueta después de recibirla?</string>
+    <string name="help_faq_a6">Ve a &quot;Escanear etiqueta&quot; en la app y apunta la cámara de tu teléfono al código QR. Esto vincula la etiqueta a tu cuenta. Luego se te pedirá elegir una mascota existente o crear un nuevo perfil. Después de la activación, selecciona tu plan de suscripción.</string>
+    <string name="help_faq_q7">¿Puedo actualizar la información de mi mascota después del registro?</string>
+    <string name="help_faq_a7">Sí, puedes editar el perfil de tu mascota en cualquier momento. Ve a &quot;Mis mascotas&quot;, selecciona tu mascota y pulsa &quot;Editar&quot;. Puedes actualizar cualquier campo incluyendo fotos. Los cambios se guardan inmediatamente.</string>
+    <string name="help_faq_q8">¿Qué debo hacer si mi mascota se pierde?</string>
+    <string name="help_faq_a8">Ve a &quot;Mis mascotas&quot; y pulsa el menú en la tarjeta de tu mascota, luego selecciona &quot;Marcar como perdido&quot;. Esto crea una alerta visible para la comunidad Senra en tu zona. Los usuarios cercanos verán la alerta y podrán reportar avistamientos con información de ubicación. Serás notificado inmediatamente de cualquier avistamiento.</string>
+    <string name="help_faq_q9">¿Cómo funcionan las alertas de mascotas perdidas?</string>
+    <string name="help_faq_a9">Al marcar una mascota como perdida, se crea una alerta con la foto y detalles. Otros usuarios de Senra en un radio de 10 km pueden ver la alerta en el mapa. Cualquier miembro de la comunidad puede reportar un avistamiento, enviándote su ubicación y contacto. Los veterinarios y refugios registrados en Senra también reciben la alerta.</string>
+    <string name="help_faq_q10">¿Cómo pido una etiqueta de reemplazo?</string>
+    <string name="help_faq_a10">Ve a tu página de cuenta y pulsa &quot;Pedir reemplazo&quot;. Selecciona la mascota que necesita una nueva etiqueta. Los miembros Ultimate obtienen reemplazos gratuitos ilimitados, los Standard uno gratis al año, y los Starter pueden pedir con un pequeño coste de envío.</string>
+    <string name="help_faq_q11">¿Qué es el programa de referidos?</string>
+    <string name="help_faq_a11">Comparte el código SENRAFRIEND con amigos y familiares. Cuando alguien usa este código y se suscribe a un plan de pago (Standard o Ultimate), ambos reciben 2 meses gratis. Puedes seguir tus referidos en la página de Referidos.</string>
+    <string name="help_faq_q12">¿A qué países envían?</string>
+    <string name="help_faq_a12">Actualmente enviamos a Hungría, Eslovaquia, Chequia, Austria, Rumania, Croacia, España y Portugal. El envío cuesta £3,90 por pedido.</string>
+    <string name="help_faq_q13">¿Puedo tener varias mascotas en una cuenta?</string>
+    <string name="help_faq_a13">Sí. En el plan Starter (gratis) puedes registrar una mascota. El plan Standard también soporta una. El plan Ultimate soporta mascotas ilimitadas. Puedes mejorar tu plan en cualquier momento desde la página de cuenta.</string>
+    <string name="help_faq_q14">¿Cómo reporto una mascota encontrada?</string>
+    <string name="help_faq_a14">Si la mascota tiene una etiqueta Senra, simplemente escanea el QR con la cámara de tu teléfono — no necesitas app. Verás el perfil y podrás compartir tu ubicación con el dueño. Si no tiene etiqueta, revisa el mapa de mascotas perdidas en la web de Senra.</string>
+    <string name="help_faq_q15">¿Mi información personal está segura?</string>
+    <string name="help_faq_a15">Sí. Tú controlas exactamente qué información es visible cuando alguien escanea la etiqueta. En Ajustes &gt; Privacidad, puedes mostrar u ocultar tu teléfono, correo y dirección. Tu inicio de sesión está protegido con códigos de un solo uso — no hay contraseñas que robar. Puedes eliminar tu cuenta en cualquier momento.</string>
+    <string name="help_faq_q16">Perdí mi etiqueta o está dañada — ¿qué hago?</string>
+    <string name="help_faq_a16">No te preocupes — el perfil digital de tu mascota está seguro y no se almacena en la etiqueta. Ve a tu cuenta y pulsa &quot;Pedir reemplazo&quot;. Una nueva etiqueta con QR nuevo se vinculará a tu perfil existente. Los miembros Standard obtienen un reemplazo gratis al año, los Ultimate ilimitados, y los Starter pagan un pequeño coste de envío. Tu etiqueta antigua dejará de funcionar al activar la nueva.</string>
+    <string name="help_faq_q17">Mi etiqueta no se escanea — ¿cómo lo soluciono?</string>
+    <string name="help_faq_a17">Prueba estos pasos: limpia la superficie con un paño húmedo, asegura buena iluminación, mantén la cámara estable a unos 10-15 cm, y verifica que tu cámara o escáner QR funcione. Si el QR está rayado o descolorido, usa la entrada manual en &quot;Escanear etiqueta&quot;. Si está muy dañada, pide un reemplazo gratuito (planes Standard y Ultimate).</string>
+    <string name="help_faq_q18">Encontré una mascota sin etiqueta Senra — ¿qué puedo hacer?</string>
+    <string name="help_faq_a18">Revisa el mapa de mascotas perdidas en la web de Senra (senra.pet) — la mascota podría estar reportada como perdida en tu zona. Puedes ver alertas sin cuenta. Si encuentras coincidencia, reporta un avistamiento con tu ubicación. También puedes llevar la mascota al veterinario para revisar el microchip.</string>
+    <string name="help_faq_q19">¿Puedo cambiar mi dirección de correo?</string>
+    <string name="help_faq_a19">Tu correo principal se usa como identidad de cuenta y no se puede cambiar directamente. Si necesitas usar otro correo, puedes añadir uno secundario en Ajustes &gt; Datos de contacto. Si absolutamente necesitas cambiar el principal, contacta a nuestro equipo de soporte.</string>
+    <string name="help_faq_q20">¿Cuál es la diferencia entre un microchip y una etiqueta QR Senra?</string>
+    <string name="help_faq_a20">Un microchip es un implante diminuto bajo la piel que almacena un número ID — pero requiere un escáner especial (generalmente solo disponible en veterinarios y refugios). Una etiqueta QR Senra funciona al instante con cualquier cámara de smartphone, mostrando el perfil completo, foto y tus datos de contacto. Quien encuentre tu mascota también puede compartir su ubicación GPS contigo. Recomendamos usar ambos: el microchip como respaldo permanente, y la etiqueta Senra para identificación diaria instantánea.</string>
+    <string name="help_faq_q21">¿Qué pasa con mis datos si cancelo la suscripción?</string>
+    <string name="help_faq_a21">Si cancelas, mantienes acceso hasta el final del periodo de facturación actual. Después, tu cuenta pasa automáticamente al plan Starter gratuito. Los perfiles, fotos y etiquetas QR siguen activos — solo pierdes funciones premium como SMS, alertas a veterinarios y reemplazos gratuitos. Tus datos nunca se eliminan al cancelar. Para eliminar todo permanentemente, usa la opción de eliminación de cuenta en Ajustes.</string>
+    <string name="help_faq_q22">¿Cómo registro mi veterinario o refugio en Senra?</string>
+    <string name="help_faq_a22">Los veterinarios y refugios pueden registrarse en senra.pet/register-vet-shelter. Completa los datos de tu clínica u organización y enviaremos un correo de verificación. Una vez confirmado, recibirás automáticamente alertas por correo cuando se pierdan mascotas en tu zona. No tiene coste ni requiere inicio de sesión. Los dueños también pueden registrar a su veterinario.</string>
+    <string name="help_faq_q23">¿Cómo comparto una historia de éxito cuando encuentran a mi mascota?</string>
+    <string name="help_faq_a23">Cuando marques a tu mascota como encontrada en &quot;Mis mascotas&quot;, se te preguntará si deseas compartir tu historia. Puedes añadir un mensaje corto y confirmar la ubicación. Las historias públicas aparecen en el mapa de mascotas encontradas. También puedes publicar o eliminar una historia después.</string>
+    <string name="help_faq_q24">¿Qué navegadores y dispositivos son compatibles?</string>
+    <string name="help_faq_a24">Senra funciona en todos los navegadores modernos incluyendo Chrome, Safari, Firefox y Edge en móvil y escritorio. El escaneo de etiquetas funciona con cualquier cámara de smartphone — quien encuentre tu mascota no necesita la app ni una cuenta. Las notificaciones push son compatibles con Chrome y Edge en escritorio y Android. Para la mejor experiencia, recomendamos un navegador actualizado.</string>
+    <string name="help_faq_q25">¿Puedo pedir etiquetas para varias mascotas a la vez?</string>
+    <string name="help_faq_a25">Cada pedido incluye etiquetas para los nombres de mascotas que especifiques al pagar. Puedes introducir varios nombres en un solo pedido. Cuando lleguen, escanea cada una para activarla y vincularla al perfil correcto. Si necesitas más etiquetas después, puedes hacer pedidos adicionales en cualquier momento.</string>
+    <string name="help_faq_q26">¿Cómo llegan las alertas a veterinarios y refugios?</string>
+    <string name="help_faq_a26">Cuando marcas a tu mascota como perdida, Senra envía automáticamente alertas por correo a todos los veterinarios y refugios verificados en tu zona. Esto significa que los profesionales locales saben inmediatamente que tu mascota está perdida. Cuantos más veterinarios y refugios registrados, más fuerte es la red de seguridad. Puedes ayudar animando a tu propio veterinario a registrarse en Senra.</string>
+    <string name="help_faq_q27">¿Puedo transferir una etiqueta a otra mascota?</string>
+    <string name="help_faq_a27">Cada etiqueta QR está vinculada permanentemente a un perfil y no se puede reasignar. Si una mascota fallece o ya no necesitas la etiqueta, simplemente queda inactiva. Para etiquetar una nueva mascota, pide una nueva etiqueta desde tu cuenta. Si tienes un plan Standard o Ultimate, podrías tener derecho a una etiqueta de reemplazo gratuita.</string>
+    <string name="help_guide_qr_tags_title">Etiquetas QR para mascotas</string>
+    <string name="help_guide_qr_tags_desc">Conoce nuestras etiquetas QR inteligentes.</string>
+    <string name="help_guide_materials_title">Materiales y durabilidad</string>
+    <string name="help_guide_materials_desc">Información sobre materiales y cuidado.</string>
+    <string name="help_guide_emergency_title">Funciones de contacto de emergencia</string>
+    <string name="help_guide_emergency_desc">Cómo funciona nuestro sistema de contacto.</string>
+    <string name="help_guide_profile_title">Gestión de perfil</string>
+    <string name="help_guide_profile_desc">Gestiona y actualiza el perfil de tu mascota.</string>
+    <string name="help_guide_missing_alerts_title">Alertas de mascotas perdidas y avistamientos</string>
+    <string name="help_guide_missing_alerts_desc">Si tu mascota se pierde, márcala como perdida desde &quot;Mis mascotas&quot; para crear una alerta comunitaria instantánea. La foto y los detalles de tu mascota aparecen en el mapa de mascotas perdidas visible para todos los usuarios de Senra en tu zona. Los miembros de la comunidad pueden reportar avistamientos con su ubicación GPS, que recibes como notificaciones. Los veterinarios y refugios registrados también son alertados. Cuando tu mascota sea encontrada, márcala como encontrada y opcionalmente comparte tu historia de reencuentro para inspirar a la comunidad.</string>
+    <string name="help_guide_community_title">Comunidad y mascotas encontradas</string>
+    <string name="help_guide_community_desc">La fortaleza de Senra es su comunidad. El mapa de mascotas perdidas muestra alertas activas cerca de ti — revísalo para ver si alguna mascota ha sido reportada como perdida en tu zona. La página de mascotas encontradas celebra reencuentros exitosos con historias de dueños. Puedes registrar a tu veterinario o refugio en Senra para que reciban alertas automáticas, ayudando a crear una red de seguridad más fuerte para todas las mascotas de tu zona.</string>
+    <string name="help_faq_group_getting_started">Primeros pasos</string>
+    <string name="help_faq_group_tags_scanning">Etiquetas y escaneo</string>
+    <string name="help_faq_group_missing_pets">Mascotas perdidas y alertas</string>
+    <string name="help_faq_group_billing_plans">Facturación y planes</string>
+    <string name="help_faq_group_privacy_account">Privacidad y cuenta</string>
+    <string name="help_faq_group_troubleshooting">Solución de problemas</string>
 </resources>

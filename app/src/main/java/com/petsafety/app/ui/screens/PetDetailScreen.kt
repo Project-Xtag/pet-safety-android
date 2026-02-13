@@ -895,6 +895,7 @@ private fun MarkMissingDialog(
     val context = LocalContext.current
     val locationProvider = remember { LocationServices.getFusedLocationProviderClient(context) }
 
+    val currentLocationFallback = stringResource(R.string.current_location_fallback)
     var selectedSource by remember { mutableStateOf(NotificationCenterSource.REGISTERED_ADDRESS) }
     var locationText by remember { mutableStateOf("") }
     var customAddress by remember { mutableStateOf("") }
@@ -975,7 +976,7 @@ private fun MarkMissingDialog(
                         ?.firstOrNull()
                         ?.getAddressLine(0)
                 } catch (_: Exception) { null }
-            } ?: locationText.ifBlank { "Current location" }
+            } ?: locationText.ifBlank { currentLocationFallback }
             onSubmit(
                 capturedCoordinate,
                 reverseAddress,
@@ -1048,7 +1049,16 @@ private fun MarkMissingDialog(
                                     captureLocation()
                                 }
                             },
-                            label = { Text(source.displayName, style = MaterialTheme.typography.labelSmall) },
+                            label = {
+                                Text(
+                                    text = when (source) {
+                                        NotificationCenterSource.CURRENT_LOCATION -> stringResource(R.string.notification_source_current_location)
+                                        NotificationCenterSource.REGISTERED_ADDRESS -> stringResource(R.string.notification_source_my_address)
+                                        NotificationCenterSource.CUSTOM_ADDRESS -> stringResource(R.string.notification_source_custom)
+                                    },
+                                    style = MaterialTheme.typography.labelSmall
+                                )
+                            },
                             modifier = Modifier.weight(1f)
                         )
                     }
@@ -1142,7 +1152,7 @@ private fun MarkMissingDialog(
                     label = { Text(stringResource(R.string.reward_optional)) },
                     modifier = Modifier.fillMaxWidth(),
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal),
-                    prefix = { Text("\u20AC") }
+                    prefix = { Text(stringResource(R.string.euro_currency_symbol)) }
                 )
 
                 Spacer(modifier = Modifier.height(8.dp))
