@@ -56,6 +56,9 @@
     <color name="background_color">@color/background_light</color>
     <color name="background_color_dark">@color/background_dark</color>
 
+    <!-- Launcher icon background -->
+    <color name="ic_launcher_background">#F9F5F0</color>
+
     <!-- Standard colors -->
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
