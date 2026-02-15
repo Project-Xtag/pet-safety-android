@@ -57,7 +57,7 @@ data class MarkMissingRequest(
     val lastSeenLocation: LocationCoordinate? = null,
     val lastSeenAddress: String? = null,
     val description: String? = null,
-    val rewardAmount: Double? = null,
+    val rewardAmount: String? = null,
     val notificationCenterSource: String? = null,
     val notificationCenterLocation: LocationCoordinate? = null,
     val notificationCenterAddress: String? = null
@@ -69,7 +69,7 @@ data class CreateAlertRequest(
     val lastSeenLocation: LocationCoordinate? = null,
     val lastSeenAddress: String? = null,
     val description: String? = null,
-    val rewardAmount: Double? = null,
+    val rewardAmount: String? = null,
     val alertRadiusKm: Double? = null
 )
 

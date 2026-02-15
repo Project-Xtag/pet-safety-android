@@ -513,9 +513,9 @@ private fun AlertCard(
                             )
                         }
 
-                        if (alert.rewardAmount != null && alert.rewardAmount > 0) {
+                        if (!alert.rewardAmount.isNullOrBlank()) {
                             Text(
-                                text = stringResource(R.string.reward_badge, alert.rewardAmount.toInt()),
+                                text = stringResource(R.string.reward_badge_text, alert.rewardAmount),
                                 modifier = Modifier
                                     .background(BrandOrange.copy(alpha = 0.15f), RoundedCornerShape(6.dp))
                                     .padding(horizontal = 8.dp, vertical = 4.dp),
@@ -694,9 +694,9 @@ private fun AlertDetailDialog(
                                 )
                             }
 
-                            if (alert.rewardAmount != null && alert.rewardAmount > 0) {
+                            if (!alert.rewardAmount.isNullOrBlank()) {
                                 Text(
-                                    text = stringResource(R.string.reward_badge, alert.rewardAmount.toInt()),
+                                    text = stringResource(R.string.reward_badge_text, alert.rewardAmount),
                                     modifier = Modifier
                                         .background(BrandOrange.copy(alpha = 0.15f), RoundedCornerShape(6.dp))
                                         .padding(horizontal = 8.dp, vertical = 4.dp),
@@ -1221,9 +1221,9 @@ private fun AlertDetailScreen(
             )
 
             // Reward badge
-            if (alert.rewardAmount != null && alert.rewardAmount > 0) {
+            if (!alert.rewardAmount.isNullOrBlank()) {
                 Text(
-                    text = stringResource(R.string.reward_badge, alert.rewardAmount.toInt()),
+                    text = stringResource(R.string.reward_badge_text, alert.rewardAmount),
                     modifier = Modifier
                         .background(BrandOrange.copy(alpha = 0.15f), RoundedCornerShape(8.dp))
                         .padding(horizontal = 12.dp, vertical = 6.dp),

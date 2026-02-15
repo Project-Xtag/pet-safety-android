@@ -1,7 +1,42 @@
 package com.petsafety.app.data.model
 
+import kotlinx.serialization.KSerializer
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.descriptors.PrimitiveKind
+import kotlinx.serialization.descriptors.PrimitiveSerialDescriptor
+import kotlinx.serialization.descriptors.SerialDescriptor
+import kotlinx.serialization.encoding.Decoder
+import kotlinx.serialization.encoding.Encoder
+import kotlinx.serialization.json.JsonDecoder
+import kotlinx.serialization.json.JsonPrimitive
+import kotlinx.serialization.json.doubleOrNull
+import kotlinx.serialization.json.jsonPrimitive
+
+/** Deserializes reward_amount as String whether the API sends a string or a number. */
+object FlexibleStringSerializer : KSerializer<String?> {
+    override val descriptor: SerialDescriptor =
+        PrimitiveSerialDescriptor("FlexibleString", PrimitiveKind.STRING)
+
+    override fun deserialize(decoder: Decoder): String? {
+        val jsonDecoder = decoder as? JsonDecoder ?: return decoder.decodeString()
+        val element = jsonDecoder.decodeJsonElement()
+        if (element is JsonPrimitive) {
+            if (element.isString) {
+                val s = element.content
+                return s.ifBlank { null }
+            }
+            element.doubleOrNull?.let { d ->
+                return if (d % 1.0 == 0.0) d.toLong().toString() else d.toString()
+            }
+        }
+        return null
+    }
+
+    override fun serialize(encoder: Encoder, value: String?) {
+        if (value != null) encoder.encodeString(value) else encoder.encodeNull()
+    }
+}
 
 @Serializable
 data class MissingPetAlert(
@@ -29,7 +64,8 @@ data class MissingPetAlert(
     @SerialName("profile_image") val flatProfileImage: String? = null,
     @SerialName("distance_km") val distanceKm: Double? = null,
     @SerialName("qr_code") val qrCode: String? = null,
-    @SerialName("reward_amount") val rewardAmount: Double? = null,
+    @Serializable(with = FlexibleStringSerializer::class)
+    @SerialName("reward_amount") val rewardAmount: String? = null,
     @SerialName("alert_radius_km") val alertRadiusKm: Double? = null,
     @SerialName("found_at") val foundAt: String? = null
 ) {

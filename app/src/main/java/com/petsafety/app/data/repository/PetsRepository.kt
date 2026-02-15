@@ -63,7 +63,7 @@ class PetsRepository(
         location: LocationCoordinate?,
         address: String?,
         description: String?,
-        rewardAmount: Double? = null,
+        rewardAmount: String? = null,
         notificationCenterSource: String? = null,
         notificationCenterLocation: LocationCoordinate? = null,
         notificationCenterAddress: String? = null

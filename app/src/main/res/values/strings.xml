@@ -1458,7 +1458,9 @@
     <!-- MARK: Reward & Sighting Details -->
     <!-- ============================================ -->
     <string name="reward_optional">Reward (optional)</string>
+    <string name="reward_placeholder">e.g., €50, $100, or a special gift</string>
     <string name="reward_badge">\u20AC%d Reward</string>
+    <string name="reward_badge_text">Reward: %1$s</string>
     <string name="sighting_details_title">Sightings</string>
     <string name="sighting_at">Seen at %1$s</string>
     <string name="sighting_reported_at">Reported %1$s</string>

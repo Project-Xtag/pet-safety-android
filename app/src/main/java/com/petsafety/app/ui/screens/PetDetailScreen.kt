@@ -69,9 +69,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
-import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -890,7 +888,7 @@ private fun MarkMissingDialog(
     pet: Pet,
     currentUser: User?,
     onDismiss: () -> Unit,
-    onSubmit: (LocationCoordinate?, String?, String?, Double?, String?, LocationCoordinate?, String?) -> Unit
+    onSubmit: (LocationCoordinate?, String?, String?, String?, String?, LocationCoordinate?, String?) -> Unit
 ) {
     val context = LocalContext.current
     val locationProvider = remember { LocationServices.getFusedLocationProviderClient(context) }
@@ -965,7 +963,7 @@ private fun MarkMissingDialog(
 
         val notifSource = selectedSource.value
 
-        val parsedReward = rewardText.toDoubleOrNull()
+        val parsedReward = rewardText.trim().ifBlank { null }
 
         if (selectedSource == NotificationCenterSource.CURRENT_LOCATION) {
             // GPS already captured — reverse-geocode for a readable address
@@ -1150,9 +1148,8 @@ private fun MarkMissingDialog(
                     value = rewardText,
                     onValueChange = { rewardText = it },
                     label = { Text(stringResource(R.string.reward_optional)) },
-                    modifier = Modifier.fillMaxWidth(),
-                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal),
-                    prefix = { Text(stringResource(R.string.euro_currency_symbol)) }
+                    placeholder = { Text(stringResource(R.string.reward_placeholder)) },
+                    modifier = Modifier.fillMaxWidth()
                 )
 
                 Spacer(modifier = Modifier.height(8.dp))
