@@ -10,6 +10,7 @@ import androidx.fragment.app.FragmentActivity
 import androidx.compose.runtime.mutableStateOf
 import com.petsafety.app.data.notifications.NotificationHelper
 import com.petsafety.app.ui.theme.PetSafetyTheme
+import com.petsafety.app.util.WebUrlHelper
 import dagger.hilt.android.AndroidEntryPoint
 
 /**
@@ -115,9 +116,11 @@ class MainActivity : FragmentActivity() {
 
     private fun extractQrFromHttps(uri: Uri): String? {
         if (uri.host != "senra.pet") return null
-        val segments = uri.pathSegments
-        if (segments.size >= 2 && segments[0] == "qr") {
-            return segments[1]
+        val path = uri.path ?: return null
+        val strippedPath = WebUrlHelper.stripCountryPrefix(path)
+        val strippedSegments = strippedPath.trimStart('/').split("/")
+        if (strippedSegments.size >= 2 && strippedSegments[0] == "qr") {
+            return strippedSegments[1]
         }
         return null
     }

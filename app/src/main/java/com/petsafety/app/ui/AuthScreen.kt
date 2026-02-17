@@ -3,6 +3,7 @@ package com.petsafety.app.ui
 import android.content.Intent
 import android.net.Uri
 import androidx.compose.foundation.Image
+import com.petsafety.app.util.WebUrlHelper
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -459,7 +460,7 @@ fun AuthScreen(
                     withStyle(style = SpanStyle(color = MaterialTheme.colorScheme.onSurfaceVariant, fontSize = 12.sp)) {
                         append(termsLoginPrefix)
                     }
-                    pushStringAnnotation(tag = "terms", annotation = "https://senra.pet/terms-conditions")
+                    pushStringAnnotation(tag = "terms", annotation = WebUrlHelper.termsUrl)
                     withStyle(style = SpanStyle(color = BrandOrange, fontSize = 12.sp, fontWeight = FontWeight.Medium)) {
                         append(termsOfServiceText)
                     }
@@ -467,7 +468,7 @@ fun AuthScreen(
                     withStyle(style = SpanStyle(color = MaterialTheme.colorScheme.onSurfaceVariant, fontSize = 12.sp)) {
                         append(termsAndText)
                     }
-                    pushStringAnnotation(tag = "privacy", annotation = "https://senra.pet/privacy-policy")
+                    pushStringAnnotation(tag = "privacy", annotation = WebUrlHelper.privacyUrl)
                     withStyle(style = SpanStyle(color = BrandOrange, fontSize = 12.sp, fontWeight = FontWeight.Medium)) {
                         append(privacyPolicyText)
                     }

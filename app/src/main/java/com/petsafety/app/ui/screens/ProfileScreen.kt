@@ -3,6 +3,7 @@ package com.petsafety.app.ui.screens
 import android.content.Intent
 import android.net.Uri
 import androidx.compose.foundation.background
+import com.petsafety.app.util.WebUrlHelper
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -1257,7 +1258,7 @@ private fun HelpSupportScreen(
                         title = stringResource(R.string.terms_of_service),
                         onClick = {
                             context.startActivity(
-                                Intent(Intent.ACTION_VIEW, Uri.parse("https://senra.pet/terms-conditions"))
+                                Intent(Intent.ACTION_VIEW, Uri.parse(WebUrlHelper.termsUrl))
                             )
                         }
                     )
@@ -1267,7 +1268,7 @@ private fun HelpSupportScreen(
                         title = stringResource(R.string.privacy_policy),
                         onClick = {
                             context.startActivity(
-                                Intent(Intent.ACTION_VIEW, Uri.parse("https://senra.pet/privacy-policy"))
+                                Intent(Intent.ACTION_VIEW, Uri.parse(WebUrlHelper.privacyUrl))
                             )
                         }
                     )
