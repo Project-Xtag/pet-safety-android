@@ -15,6 +15,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
@@ -46,6 +47,16 @@ fun PetSafetyApp(
     val isAuthenticated by authViewModel.isAuthenticated.collectAsState()
     val isLoading by appStateViewModel.isLoading.collectAsState()
     val showBiometricPrompt by authViewModel.showBiometricPrompt.collectAsState()
+
+    // Preserve QR code across auth state changes (e.g. user scans tag while logged out)
+    var savedQrCode by rememberSaveable { mutableStateOf<String?>(null) }
+
+    LaunchedEffect(pendingQrCode) {
+        if (!pendingQrCode.isNullOrBlank()) {
+            savedQrCode = pendingQrCode
+            onQrCodeHandled()
+        }
+    }
 
     // State for showing map picker dialog from notification
     var showMapPicker by remember { mutableStateOf(false) }
@@ -176,8 +187,8 @@ fun PetSafetyApp(
                 "main" -> MainTabScaffold(
                     appStateViewModel = appStateViewModel,
                     authViewModel = authViewModel,
-                    pendingQrCode = pendingQrCode,
-                    onQrCodeHandled = onQrCodeHandled
+                    pendingQrCode = savedQrCode,
+                    onQrCodeHandled = { savedQrCode = null }
                 )
                 "order_tags" -> OrderMoreTagsScreen(
                     appStateViewModel = appStateViewModel,

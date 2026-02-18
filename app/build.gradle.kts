@@ -156,6 +156,8 @@ dependencies {
     debugImplementation(libs.firebase.appcheck.debug)
     implementation(libs.firebase.config)
     implementation(libs.sentry.android)
+    implementation(libs.sentry.android.okhttp)
+    implementation(libs.timber)
 
     implementation(libs.hilt.android)
     implementation(libs.hilt.navigation.compose)

@@ -16,6 +16,7 @@ import coil.ImageLoader
 import coil.request.ImageRequest
 import coil.request.SuccessResult
 import com.petsafety.app.R
+import com.petsafety.app.util.LocalizedLogo
 
 object ShareCardGenerator {
     private const val CARD_SIZE = 1080
@@ -37,7 +38,7 @@ object ShareCardGenerator {
 
         // Logo (compact)
         try {
-            val logoDrawable = ResourcesCompat.getDrawable(context.resources, R.drawable.logo_new, null)
+            val logoDrawable = ResourcesCompat.getDrawable(context.resources, LocalizedLogo.drawableRes, null)
             if (logoDrawable != null) {
                 val logoBitmap = logoDrawable.toBitmap()
                 val logoHeight = 60f

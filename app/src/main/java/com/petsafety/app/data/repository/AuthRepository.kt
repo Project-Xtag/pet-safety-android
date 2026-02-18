@@ -1,6 +1,6 @@
 package com.petsafety.app.data.repository
 
-import android.util.Log
+import timber.log.Timber
 import com.petsafety.app.data.fcm.FCMRepository
 import com.petsafety.app.data.local.AuthTokenStore
 import com.petsafety.app.data.model.User
@@ -20,9 +20,6 @@ class AuthRepository(
     private val tokenStore: AuthTokenStore,
     private val fcmRepository: FCMRepository? = null // Optional for backward compatibility
 ) {
-    companion object {
-        private const val TAG = "AuthRepository"
-    }
     val isAuthenticated: Flow<Boolean> = tokenStore.authToken.map { !it.isNullOrBlank() }
 
     suspend fun login(email: String) {
@@ -66,10 +63,10 @@ class AuthRepository(
     private suspend fun registerFCMToken() {
         try {
             fcmRepository?.registerToken()
-            Log.d(TAG, "FCM token registered after login")
+            Timber.d("FCM token registered after login")
         } catch (e: Exception) {
             // Don't fail login if FCM registration fails
-            Log.e(TAG, "Failed to register FCM token", e)
+            Timber.e("Failed to register FCM token", e)
         }
     }
 
@@ -80,10 +77,10 @@ class AuthRepository(
     private suspend fun unregisterFCMToken() {
         try {
             fcmRepository?.removeToken()
-            Log.d(TAG, "FCM token unregistered before logout")
+            Timber.d("FCM token unregistered before logout")
         } catch (e: Exception) {
             // Don't fail logout if FCM unregistration fails
-            Log.e(TAG, "Failed to unregister FCM token", e)
+            Timber.e("Failed to unregister FCM token", e)
         }
     }
 
@@ -127,7 +124,7 @@ class AuthRepository(
         try {
             fcmRepository?.deleteInstanceId()
         } catch (e: Exception) {
-            Log.e(TAG, "Failed to delete FCM instance ID", e)
+            Timber.e("Failed to delete FCM instance ID", e)
         }
     }
 

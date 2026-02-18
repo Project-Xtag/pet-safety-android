@@ -9,6 +9,8 @@ import com.petsafety.app.data.network.TokenAuthenticator
 import com.petsafety.app.data.network.model.CanDeleteAccountResponse
 import com.petsafety.app.data.repository.AuthRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
+import io.sentry.Sentry
+import io.sentry.protocol.User as SentryUser
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharedFlow
@@ -61,6 +63,7 @@ class AuthViewModel @Inject constructor(
                 authRepository.logout()
                 _isAuthenticated.value = false
                 _currentUser.value = null
+                if (Sentry.isEnabled()) { Sentry.setUser(null) }
                 _sessionExpiredEvent.emit(application.getString(R.string.error_session_expired_message))
             }
         }
@@ -99,6 +102,10 @@ class AuthViewModel @Inject constructor(
                 val user = authRepository.verifyOtp(email, code)
                 _currentUser.value = user
                 _isAuthenticated.value = true
+                // Set Sentry user context
+                if (Sentry.isEnabled()) {
+                    Sentry.setUser(SentryUser().apply { id = user.id })
+                }
                 onSuccess()
             } catch (ex: Exception) {
                 val message = ex.localizedMessage ?: ex.message ?: application.getString(R.string.error_verification_failed)
@@ -115,6 +122,10 @@ class AuthViewModel @Inject constructor(
             authRepository.logout()
             _currentUser.value = null
             _isAuthenticated.value = false
+            // Clear Sentry user context
+            if (Sentry.isEnabled()) {
+                Sentry.setUser(null)
+            }
         }
     }
 
@@ -204,7 +215,12 @@ class AuthViewModel @Inject constructor(
 
     private suspend fun loadCurrentUser() {
         try {
-            _currentUser.value = authRepository.getCurrentUser()
+            val user = authRepository.getCurrentUser()
+            _currentUser.value = user
+            // Set Sentry user context for error tracking
+            if (user != null && Sentry.isEnabled()) {
+                Sentry.setUser(SentryUser().apply { id = user.id })
+            }
         } catch (_: Exception) {
             // Token might be invalid; let logout handle in UI
         }

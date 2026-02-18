@@ -12,6 +12,16 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+sealed class TagLookupState {
+    data object Idle : TagLookupState()
+    data object Loading : TagLookupState()
+    data class ActiveWithPet(val scanResponse: ScanResponse) : TagLookupState()
+    data class NeedsActivation(val qrCode: String) : TagLookupState()
+    data class NotActivated(val message: String) : TagLookupState()
+    data class NotFound(val message: String) : TagLookupState()
+    data class Error(val message: String) : TagLookupState()
+}
+
 @HiltViewModel
 class QrScannerViewModel @Inject constructor(
     private val repository: QrRepository
@@ -19,11 +29,50 @@ class QrScannerViewModel @Inject constructor(
     private val _scanResult = MutableStateFlow<ScanResponse?>(null)
     val scanResult: StateFlow<ScanResponse?> = _scanResult.asStateFlow()
 
+    private val _lookupState = MutableStateFlow<TagLookupState>(TagLookupState.Idle)
+    val lookupState: StateFlow<TagLookupState> = _lookupState.asStateFlow()
+
     private val _isLoading = MutableStateFlow(false)
     val isLoading: StateFlow<Boolean> = _isLoading.asStateFlow()
 
     private val _errorMessage = MutableStateFlow<String?>(null)
     val errorMessage: StateFlow<String?> = _errorMessage.asStateFlow()
+
+    fun lookupAndRoute(code: String) {
+        viewModelScope.launch {
+            if (_isLoading.value || _lookupState.value is TagLookupState.Loading) return@launch
+            _lookupState.value = TagLookupState.Loading
+            _isLoading.value = true
+            try {
+                val lookup = repository.lookupTag(code)
+                if (!lookup.exists) {
+                    _lookupState.value = TagLookupState.NotFound("This tag was not found.")
+                } else if (lookup.status == "active" && lookup.hasPet) {
+                    try {
+                        val scanResponse = repository.scanQr(code)
+                        _scanResult.value = scanResponse
+                        _lookupState.value = TagLookupState.ActiveWithPet(scanResponse)
+                    } catch (ex: Exception) {
+                        _lookupState.value = TagLookupState.Error(
+                            ex.localizedMessage ?: "Failed to load pet profile"
+                        )
+                    }
+                } else if (!lookup.hasPet && lookup.isOwner) {
+                    _lookupState.value = TagLookupState.NeedsActivation(code)
+                } else {
+                    _lookupState.value = TagLookupState.NotActivated(
+                        "This tag has not been activated yet."
+                    )
+                }
+            } catch (ex: Exception) {
+                _lookupState.value = TagLookupState.Error(
+                    ex.localizedMessage ?: "Failed to look up tag"
+                )
+            } finally {
+                _isLoading.value = false
+            }
+        }
+    }
 
     fun scanQr(code: String) {
         viewModelScope.launch {
@@ -39,16 +88,6 @@ class QrScannerViewModel @Inject constructor(
         }
     }
 
-    /**
-     * Share location with 2-tier consent (toggle ON = precise, toggle OFF = approximate).
-     *
-     * @param qrCode The scanned QR code
-     * @param consent The user's location consent choice (PRECISE or APPROXIMATE)
-     * @param latitude Current latitude (required)
-     * @param longitude Current longitude (required)
-     * @param accuracyMeters GPS accuracy in meters (optional)
-     * @param onResult Callback with success status and optional error message
-     */
     fun shareLocation(
         qrCode: String,
         consent: LocationConsent,
@@ -73,10 +112,6 @@ class QrScannerViewModel @Inject constructor(
         }
     }
 
-    /**
-     * Legacy method for backward compatibility
-     * @deprecated Use shareLocation with LocationConsent
-     */
     @Deprecated("Use shareLocation with LocationConsent", ReplaceWith("shareLocation(qrCode, LocationConsent.PRECISE, latitude, longitude)"))
     fun shareLocation(
         qrCode: String,
@@ -97,5 +132,6 @@ class QrScannerViewModel @Inject constructor(
     fun reset() {
         _scanResult.value = null
         _errorMessage.value = null
+        _lookupState.value = TagLookupState.Idle
     }
 }

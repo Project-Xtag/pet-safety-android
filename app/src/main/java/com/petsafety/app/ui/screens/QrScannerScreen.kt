@@ -92,6 +92,7 @@ import com.petsafety.app.ui.theme.BrandOrange
 import com.petsafety.app.ui.theme.TealAccent
 import com.petsafety.app.ui.viewmodel.AppStateViewModel
 import com.petsafety.app.ui.viewmodel.QrScannerViewModel
+import com.petsafety.app.ui.viewmodel.TagLookupState
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -99,11 +100,13 @@ fun QrScannerScreen(
     appStateViewModel: AppStateViewModel,
     pendingQrCode: String?,
     onQrCodeHandled: () -> Unit,
+    onNavigateToActivation: (String) -> Unit = {},
     modifier: Modifier = Modifier
 ) {
     val viewModel: QrScannerViewModel = hiltViewModel()
     val scanResult by viewModel.scanResult.collectAsState()
     val errorMessage by viewModel.errorMessage.collectAsState()
+    val lookupState by viewModel.lookupState.collectAsState()
     val lifecycleOwner = LocalLifecycleOwner.current
     val haptic = LocalHapticFeedback.current
     var hasPermission by remember { mutableStateOf(false) }
@@ -126,8 +129,31 @@ fun QrScannerScreen(
 
     LaunchedEffect(pendingQrCode) {
         if (!pendingQrCode.isNullOrBlank()) {
-            viewModel.scanQr(pendingQrCode)
+            viewModel.lookupAndRoute(pendingQrCode)
             onQrCodeHandled()
+        }
+    }
+
+    // Handle lookup state transitions
+    LaunchedEffect(lookupState) {
+        when (val state = lookupState) {
+            is TagLookupState.NeedsActivation -> {
+                onNavigateToActivation(state.qrCode)
+                viewModel.reset()
+            }
+            is TagLookupState.NotActivated -> {
+                appStateViewModel.showError(state.message)
+                viewModel.reset()
+            }
+            is TagLookupState.NotFound -> {
+                appStateViewModel.showError(state.message)
+                viewModel.reset()
+            }
+            is TagLookupState.Error -> {
+                appStateViewModel.showError(state.message)
+                viewModel.reset()
+            }
+            else -> {}
         }
     }
 
@@ -138,7 +164,7 @@ fun QrScannerScreen(
                 lifecycleOwner = lifecycleOwner,
                 onQrCodeScanned = { code ->
                     haptic.performHapticFeedback(HapticFeedbackType.LongPress)
-                    viewModel.scanQr(code)
+                    viewModel.lookupAndRoute(code)
                     appStateViewModel.showSuccess(qrScannedMessage)
                 },
                 onCameraReady = { camera -> cameraRef = camera }
@@ -238,7 +264,7 @@ fun QrScannerScreen(
                         if (trimmed.isBlank()) {
                             appStateViewModel.showError(invalidQrCodeMessage)
                         } else {
-                            viewModel.scanQr(trimmed)
+                            viewModel.lookupAndRoute(trimmed)
                         }
                     },
                     modifier = Modifier

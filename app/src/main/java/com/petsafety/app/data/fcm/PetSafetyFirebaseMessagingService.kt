@@ -1,6 +1,6 @@
 package com.petsafety.app.data.fcm
 
-import android.util.Log
+import timber.log.Timber
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 import com.petsafety.app.R
@@ -35,7 +35,7 @@ class PetSafetyFirebaseMessagingService : FirebaseMessagingService() {
 
     override fun onNewToken(token: String) {
         super.onNewToken(token)
-        Log.d(TAG, "FCM token refreshed: ${token.take(20)}...")
+        Timber.d("FCM token refreshed: ${token.take(20)}...")
 
         // Store token locally and register with backend
         serviceScope.launch {
@@ -43,19 +43,19 @@ class PetSafetyFirebaseMessagingService : FirebaseMessagingService() {
                 fcmRepository.saveTokenLocally(token)
                 fcmRepository.registerToken(token)
             } catch (e: Exception) {
-                Log.e(TAG, "Failed to register FCM token", e)
+                Timber.e("Failed to register FCM token", e)
             }
         }
     }
 
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
         super.onMessageReceived(remoteMessage)
-        Log.d(TAG, "FCM message received from: ${remoteMessage.from}")
+        Timber.d("FCM message received from: ${remoteMessage.from}")
 
         val data = remoteMessage.data
         val notificationType = data["type"]
 
-        Log.d(TAG, "Notification type: $notificationType, data: $data")
+        Timber.d("Notification type: $notificationType, data: $data")
 
         when (notificationType) {
             "PET_SCANNED" -> handleTagScannedNotification(data)
@@ -174,9 +174,7 @@ class PetSafetyFirebaseMessagingService : FirebaseMessagingService() {
         )
     }
 
-    companion object {
-        private const val TAG = "FCMService"
-    }
+    companion object
 }
 
 /**

@@ -1,7 +1,7 @@
 package com.petsafety.app.data.config
 
 import android.content.Context
-import android.util.Log
+import timber.log.Timber
 import com.google.firebase.FirebaseApp
 import com.google.firebase.appcheck.FirebaseAppCheck
 import com.google.firebase.appcheck.debug.DebugAppCheckProviderFactory
@@ -36,8 +36,6 @@ class ConfigurationManager @Inject constructor(
     @ApplicationContext private val context: Context
 ) {
     companion object {
-        private const val TAG = "ConfigurationManager"
-
         /**
          * Configure Firebase App Check
          *
@@ -49,10 +47,10 @@ class ConfigurationManager @Inject constructor(
         fun configureAppCheck(context: Context) {
             val firebaseAppCheck = FirebaseAppCheck.getInstance()
             val factory = if (BuildConfig.DEBUG) {
-                Log.d(TAG, "Using App Check debug provider")
+                Timber.d("Using App Check debug provider")
                 DebugAppCheckProviderFactory.getInstance()
             } else {
-                Log.d(TAG, "Using App Check Play Integrity provider")
+                Timber.d("Using App Check Play Integrity provider")
                 PlayIntegrityAppCheckProviderFactory.getInstance()
             }
 
@@ -105,14 +103,14 @@ class ConfigurationManager @Inject constructor(
     suspend fun fetchConfiguration(): Result<Unit> {
         return try {
             val activated = remoteConfig.fetchAndActivate().await()
-            Log.d(TAG, "Remote Config fetch and activate: $activated")
+            Timber.d("Remote Config fetch and activate: $activated")
 
             updateConfigValues()
             _isConfigured.value = true
 
             Result.success(Unit)
         } catch (e: Exception) {
-            Log.w(TAG, "Remote Config fetch failed: ${e.message}")
+            Timber.w("Remote Config fetch failed: ${e.message}")
 
             // Use cached/default values on failure
             updateConfigValues()
@@ -138,10 +136,7 @@ class ConfigurationManager @Inject constructor(
         val sseUrl = remoteConfig.getString("sse_base_url")
         _sseBaseUrl.value = sseUrl.ifEmpty { defaults["sse_base_url"]!! }
 
-        Log.d(TAG, "Config values updated:")
-        Log.d(TAG, "  - sentryDSN: ${if (dsn.isEmpty()) "(not configured)" else "(configured)"}")
-        Log.d(TAG, "  - apiBaseUrl: ${_apiBaseUrl.value}")
-        Log.d(TAG, "  - sseBaseUrl: ${_sseBaseUrl.value}")
+        Timber.d("Config values updated: sentryDSN=%s", if (dsn.isEmpty()) "not configured" else "configured")
     }
 
     /**
@@ -154,12 +149,17 @@ class ConfigurationManager @Inject constructor(
      * @return The App Check token, or null if retrieval fails
      */
     suspend fun getAppCheckToken(forceRefresh: Boolean = false): String? {
+        // In debug builds, skip App Check token retrieval entirely.
+        // The backend does not enforce App Check, so this avoids the 403 errors
+        // from Firebase's debug token exchange on physical devices.
+        if (BuildConfig.DEBUG) return null
+
         return try {
             val firebaseAppCheck = FirebaseAppCheck.getInstance()
             val token = firebaseAppCheck.getAppCheckToken(forceRefresh).await()
             token.token
         } catch (e: Exception) {
-            Log.w(TAG, "Failed to get App Check token: ${e.message}")
+            Timber.w("Failed to get App Check token: ${e.message}")
             null
         }
     }

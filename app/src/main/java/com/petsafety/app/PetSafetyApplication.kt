@@ -2,7 +2,7 @@ package com.petsafety.app
 
 import android.app.Application
 import android.os.Build
-import android.util.Log
+import timber.log.Timber
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.GoogleApiAvailability
 import com.google.firebase.FirebaseApp
@@ -33,11 +33,17 @@ class PetSafetyApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        Log.d(TAG, "=== Application.onCreate START ===")
+
+        // Plant Timber debug tree only in debug builds
+        if (BuildConfig.DEBUG) {
+            Timber.plant(Timber.DebugTree())
+        }
+
+        Timber.d("=== Application.onCreate START ===")
 
         // Skip Firebase on emulators - Firebase Installation Service doesn't work reliably
         if (isEmulator()) {
-            Log.w(TAG, "Running on emulator - Firebase/FCM disabled")
+            Timber.w("Running on emulator - Firebase/FCM disabled")
         } else if (isGooglePlayServicesAvailable()) {
             // Initialize Firebase first (required before any Firebase APIs)
             initializeFirebase()
@@ -52,23 +58,23 @@ class PetSafetyApplication : Application() {
                 initializeSentry()
             }
         } else {
-            Log.w(TAG, "Google Play Services not available - Firebase/FCM disabled")
+            Timber.w("Google Play Services not available - Firebase/FCM disabled")
         }
 
-        Log.d(TAG, "=== Scheduling periodic sync ===")
+        Timber.d("=== Scheduling periodic sync ===")
         // Schedule periodic sync
         syncScheduler.schedulePeriodicSync()
-        Log.d(TAG, "=== Application.onCreate END ===")
+        Timber.d("=== Application.onCreate END ===")
     }
 
     /**
      * Initialize Sentry error tracking with DSN from Remote Config
      */
     private fun initializeSentry() {
-        val dsn = configurationManager.sentryDSN.value
+        val dsn = configurationManager.sentryDSN.value.trim()
 
         if (dsn.isEmpty()) {
-            Log.w(TAG, "Sentry DSN not configured in Remote Config - error tracking disabled")
+            Timber.w("Sentry DSN not configured in Remote Config - error tracking disabled")
             return
         }
 
@@ -76,16 +82,30 @@ class PetSafetyApplication : Application() {
             options.dsn = dsn
             options.environment = if (BuildConfig.DEBUG) "development" else "production"
             options.isDebug = BuildConfig.DEBUG
-            options.tracesSampleRate = 0.2 // 20% of transactions for performance monitoring
+            options.tracesSampleRate = 0.1
+            options.isEnableAutoSessionTracking = true
+            options.isAttachScreenshot = BuildConfig.DEBUG
+            options.isAttachViewHierarchy = BuildConfig.DEBUG
 
-            // Strip sensitive data before sending
+            // Filter out noisy client errors and strip sensitive data
             options.setBeforeSend { event, _ ->
+                // Drop common client errors (matching iOS filter)
+                val exceptionValue = event.exceptions?.firstOrNull()?.value ?: ""
+                if (exceptionValue.contains("unauthorized", ignoreCase = true) ||
+                    exceptionValue.contains("401") ||
+                    exceptionValue.contains("400") ||
+                    exceptionValue.contains("403") ||
+                    exceptionValue.contains("404")
+                ) {
+                    return@setBeforeSend null
+                }
+                // Strip user email
                 event.user?.email = null
                 event
             }
         }
 
-        Log.d(TAG, "Sentry initialized successfully")
+        Timber.d("Sentry initialized successfully")
     }
 
     private fun isEmulator(): Boolean {
@@ -111,16 +131,16 @@ class PetSafetyApplication : Application() {
         try {
             val app = FirebaseApp.initializeApp(this)
             if (app == null) {
-                Log.w(TAG, "Firebase initialization returned null")
+                Timber.w("Firebase initialization returned null")
                 return
             }
-            Log.d(TAG, "Firebase initialized")
+            Timber.d("Firebase initialized")
 
             // Enable auto-init for messaging (disabled in manifest for safe startup)
             try {
                 FirebaseMessaging.getInstance().isAutoInitEnabled = true
             } catch (e: Exception) {
-                Log.w(TAG, "Could not enable FCM auto-init: ${e.message}")
+                Timber.w("Could not enable FCM auto-init: ${e.message}")
             }
 
             // Get initial FCM token (non-blocking, failure is ok)
@@ -128,20 +148,18 @@ class PetSafetyApplication : Application() {
                 try {
                     val token = fcmRepository.getCurrentToken()
                     if (token != null) {
-                        Log.d(TAG, "FCM token: ${token.take(20)}...")
+                        Timber.d("FCM token: ${token.take(20)}...")
                     } else {
-                        Log.w(TAG, "FCM token not available")
+                        Timber.w("FCM token not available")
                     }
                 } catch (e: Exception) {
-                    Log.w(TAG, "FCM not available: ${e.message}")
+                    Timber.w("FCM not available: ${e.message}")
                 }
             }
         } catch (e: Exception) {
-            Log.w(TAG, "Firebase not available: ${e.message}")
+            Timber.w("Firebase not available: ${e.message}")
         }
     }
 
-    companion object {
-        private const val TAG = "PetSafetyApp"
-    }
+    companion object
 }

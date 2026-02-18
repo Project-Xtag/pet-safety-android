@@ -6,9 +6,9 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class Pet(
     val id: String,
-    @SerialName("owner_id") val ownerId: String,
+    @SerialName("owner_id") val ownerId: String = "",
     val name: String,
-    val species: String,
+    val species: String = "",
     val breed: String? = null,
     val color: String? = null,
     val weight: Double? = null,

@@ -2,7 +2,7 @@ package com.petsafety.app.data.fcm
 
 import android.content.Context
 import android.os.Build
-import android.util.Log
+import timber.log.Timber
 import androidx.core.content.edit
 import androidx.security.crypto.EncryptedSharedPreferences
 import androidx.security.crypto.MasterKey
@@ -50,7 +50,7 @@ class FCMRepository @Inject constructor(
         } catch (e: Exception) {
             // Security: Do NOT fall back to unencrypted storage
             // FCM will provide a fresh token on each app launch
-            Log.w(TAG, "EncryptedSharedPreferences not available, token will not be persisted locally", e)
+            Timber.w("EncryptedSharedPreferences not available, token will not be persisted locally", e)
             null
         }
     }
@@ -65,7 +65,7 @@ class FCMRepository @Inject constructor(
             token
         } catch (e: Exception) {
             // Expected on emulators without Google Play Services
-            Log.w(TAG, "FCM token not available: ${e.message}")
+            Timber.w("FCM token not available: ${e.message}")
             getStoredToken()
         }
     }
@@ -100,9 +100,9 @@ class FCMRepository @Inject constructor(
                 platform = "android"
             )
             apiService.registerFCMToken(request)
-            Log.d(TAG, "FCM token registered with backend")
+            Timber.d("FCM token registered with backend")
         } catch (e: Exception) {
-            Log.e(TAG, "Failed to register FCM token with backend", e)
+            Timber.e("Failed to register FCM token with backend", e)
             throw e
         }
     }
@@ -115,9 +115,9 @@ class FCMRepository @Inject constructor(
 
         try {
             apiService.removeFCMToken(tokenToRemove)
-            Log.d(TAG, "FCM token removed from backend")
+            Timber.d("FCM token removed from backend")
         } catch (e: Exception) {
-            Log.e(TAG, "Failed to remove FCM token from backend", e)
+            Timber.e("Failed to remove FCM token from backend", e)
             // Don't throw - user is logging out anyway
         }
     }
@@ -138,14 +138,13 @@ class FCMRepository @Inject constructor(
         try {
             FirebaseMessaging.getInstance().deleteToken().await()
             clearStoredToken()
-            Log.d(TAG, "FCM instance ID deleted")
+            Timber.d("FCM instance ID deleted")
         } catch (e: Exception) {
-            Log.e(TAG, "Failed to delete FCM instance ID", e)
+            Timber.e("Failed to delete FCM instance ID", e)
         }
     }
 
     companion object {
-        private const val TAG = "FCMRepository"
         private const val KEY_FCM_TOKEN = "fcm_token"
     }
 }

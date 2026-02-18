@@ -3,6 +3,7 @@ package com.petsafety.app.data.network
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import com.petsafety.app.BuildConfig
 import com.petsafety.app.data.local.AuthTokenStore
+import io.sentry.android.okhttp.SentryOkHttpInterceptor
 import kotlinx.serialization.json.Json
 import okhttp3.CertificatePinner
 import okhttp3.MediaType.Companion.toMediaType
@@ -56,6 +57,9 @@ object ApiClient {
         if (!BuildConfig.DEBUG) {
             clientBuilder.certificatePinner(certificatePinner)
         }
+
+        // Sentry OkHttp interceptor for automatic breadcrumbs and HTTP span tracking
+        clientBuilder.addInterceptor(SentryOkHttpInterceptor())
 
         val client = clientBuilder
             .addInterceptor(logging)

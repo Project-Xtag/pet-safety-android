@@ -72,6 +72,7 @@ import com.petsafety.app.ui.viewmodel.AppStateViewModel
 import com.petsafety.app.ui.viewmodel.AuthViewModel
 import android.util.Patterns
 import com.petsafety.app.R
+import com.petsafety.app.util.LocalizedLogo
 
 @Composable
 fun AuthScreen(
@@ -130,7 +131,7 @@ fun AuthScreen(
                 contentAlignment = Alignment.Center
             ) {
                 Image(
-                    painter = painterResource(R.drawable.logo_new),
+                    painter = painterResource(LocalizedLogo.drawableRes),
                     contentDescription = stringResource(R.string.app_name),
                     modifier = Modifier.height(180.dp),
                     contentScale = ContentScale.Fit

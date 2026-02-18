@@ -1,6 +1,6 @@
 package com.petsafety.app.data.network
 
-import android.util.Log
+import timber.log.Timber
 import com.petsafety.app.BuildConfig
 import com.petsafety.app.data.local.AuthTokenStore
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -37,8 +37,6 @@ class TokenAuthenticator(
 ) : Authenticator {
 
     companion object {
-        private const val TAG = "TokenAuthenticator"
-
         // Shared flow to notify observers when auth expires
         private val _authExpiredEvent = MutableSharedFlow<Unit>(extraBufferCapacity = 1)
         val authExpiredEvent: SharedFlow<Unit> = _authExpiredEvent.asSharedFlow()
@@ -72,7 +70,7 @@ class TokenAuthenticator(
                 ?.removePrefix("Bearer ")
 
             if (!currentToken.isNullOrBlank() && currentToken != failedToken) {
-                Log.d(TAG, "Token already refreshed by another thread, retrying")
+                Timber.d("Token already refreshed by another thread, retrying")
                 return response.request.newBuilder()
                     .header("Authorization", "Bearer $currentToken")
                     .header("Retry-Auth", "true")
@@ -82,7 +80,7 @@ class TokenAuthenticator(
             // Attempt refresh
             val refreshToken = tokenStore.refreshToken.value
             if (refreshToken.isNullOrBlank()) {
-                Log.d(TAG, "No refresh token available, clearing session")
+                Timber.d("No refresh token available, clearing session")
                 clearAndNotify()
                 return null
             }
@@ -90,7 +88,7 @@ class TokenAuthenticator(
             return try {
                 val newTokens = executeRefresh(refreshToken)
                 if (newTokens != null) {
-                    Log.d(TAG, "Token refresh successful")
+                    Timber.d("Token refresh successful")
                     runBlocking {
                         tokenStore.saveAuthToken(newTokens.first)
                         tokenStore.saveRefreshToken(newTokens.second)
@@ -100,12 +98,12 @@ class TokenAuthenticator(
                         .header("Retry-Auth", "true")
                         .build()
                 } else {
-                    Log.w(TAG, "Token refresh returned null, clearing session")
+                    Timber.w("Token refresh returned null, clearing session")
                     clearAndNotify()
                     null
                 }
             } catch (e: Exception) {
-                Log.e(TAG, "Token refresh failed: ${e.message}")
+                Timber.e("Token refresh failed: ${e.message}")
                 clearAndNotify()
                 null
             }
@@ -130,7 +128,7 @@ class TokenAuthenticator(
         val response = refreshClient.newCall(request).execute()
 
         if (!response.isSuccessful) {
-            Log.w(TAG, "Refresh endpoint returned ${response.code}")
+            Timber.w("Refresh endpoint returned ${response.code}")
             response.close()
             return null
         }
@@ -149,7 +147,7 @@ class TokenAuthenticator(
 
             Pair(token, newRefreshToken)
         } catch (e: Exception) {
-            Log.e(TAG, "Failed to parse refresh response: ${e.message}")
+            Timber.e("Failed to parse refresh response: ${e.message}")
             null
         }
     }

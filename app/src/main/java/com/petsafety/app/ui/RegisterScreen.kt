@@ -57,6 +57,7 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.petsafety.app.R
+import com.petsafety.app.util.LocalizedLogo
 import com.petsafety.app.ui.components.BrandButton
 import com.petsafety.app.ui.theme.BrandOrange
 import com.petsafety.app.ui.theme.PeachBackground
@@ -116,7 +117,7 @@ fun RegisterScreen(
                 contentAlignment = Alignment.Center
             ) {
                 Image(
-                    painter = painterResource(R.drawable.logo_new),
+                    painter = painterResource(LocalizedLogo.drawableRes),
                     contentDescription = stringResource(R.string.app_name),
                     modifier = Modifier.height(180.dp),
                     contentScale = ContentScale.Fit

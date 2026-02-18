@@ -2,6 +2,7 @@ package com.petsafety.app.data.repository
 
 import com.petsafety.app.data.model.ScanResponse
 import com.petsafety.app.data.model.QrTag
+import com.petsafety.app.data.model.TagLookupResponse
 import com.petsafety.app.data.network.ApiService
 import com.petsafety.app.data.network.model.ActivateTagRequest
 import com.petsafety.app.data.network.model.LocationConsentType
@@ -21,6 +22,9 @@ enum class LocationConsent {
 }
 
 class QrRepository(private val apiService: ApiService) {
+    suspend fun lookupTag(code: String): TagLookupResponse =
+        apiService.lookupTag(code).data ?: error("Missing lookup response")
+
     suspend fun scanQr(code: String): ScanResponse =
         apiService.scanQrCode(code).data ?: error("Missing scan response")
 

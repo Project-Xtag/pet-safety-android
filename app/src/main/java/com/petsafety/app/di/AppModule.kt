@@ -1,7 +1,7 @@
 package com.petsafety.app.di
 
 import android.content.Context
-import android.util.Log
+import timber.log.Timber
 import androidx.room.Room
 import androidx.work.WorkManager
 import com.petsafety.app.data.config.ConfigurationManager
@@ -40,7 +40,6 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object AppModule {
     private const val DATABASE_NAME = "PetSafety.db"
-    private const val TAG = "AppModule"
 
     @Provides
     @Singleton
@@ -67,7 +66,7 @@ object AppModule {
                 throw e
             }
 
-            Log.w(TAG, "Incompatible local DB detected, recreating encrypted database", e)
+            Timber.w(e, "Incompatible local DB detected, recreating encrypted database")
             runCatching { database.close() }
             context.deleteDatabase(DATABASE_NAME)
 

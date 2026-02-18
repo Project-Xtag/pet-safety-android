@@ -1,6 +1,7 @@
 package com.petsafety.app.data.network
 
 import com.petsafety.app.data.model.ScanResponse
+import com.petsafety.app.data.model.TagLookupResponse
 import com.petsafety.app.data.model.SuccessStory
 import com.petsafety.app.data.model.SuccessStoryPhoto
 import com.petsafety.app.data.network.model.*
@@ -129,6 +130,9 @@ interface ApiService {
     ): ApiEnvelope<SightingResponse>
 
     // QR Tags
+    @GET("qr-tags/lookup/{code}")
+    suspend fun lookupTag(@Path("code") code: String): ApiEnvelope<TagLookupResponse>
+
     @GET("qr-tags/scan/{code}")
     suspend fun scanQrCode(@Path("code") code: String): ApiEnvelope<ScanResponse>
 

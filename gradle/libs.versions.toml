@@ -38,6 +38,7 @@ hilt-navigation-compose = "1.2.0"
  coroutines-test = "1.9.0"
 sqlcipher = "4.6.1"
 sqlite-ktx = "2.4.0"
+timber = "5.0.1"
 
  [libraries]
  androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "core-ktx" }
@@ -97,6 +98,8 @@ hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", ve
  firebase-appcheck-debug = { module = "com.google.firebase:firebase-appcheck-debug" }
  firebase-config = { module = "com.google.firebase:firebase-config-ktx" }
  sentry-android = { module = "io.sentry:sentry-android", version = "7.3.0" }
+sentry-android-okhttp = { module = "io.sentry:sentry-android-okhttp", version = "7.3.0" }
+timber = { module = "com.jakewharton.timber:timber", version.ref = "timber" }
 
  junit = { module = "junit:junit", version.ref = "junit" }
  androidx-test-core = { module = "androidx.test:core-ktx", version.ref = "androidxtest" }

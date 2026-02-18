@@ -20,3 +20,12 @@ data class QrTag(
 data class ScanResponse(
     val pet: Pet
 )
+
+@Serializable
+data class TagLookupResponse(
+    val exists: Boolean,
+    val status: String? = null,
+    @SerialName("has_pet") val hasPet: Boolean = false,
+    @SerialName("is_owner") val isOwner: Boolean = false,
+    val pet: Pet? = null
+)

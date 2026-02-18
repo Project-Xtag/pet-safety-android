@@ -3,7 +3,7 @@ package com.petsafety.app.ui
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
+import timber.log.Timber
 import androidx.activity.compose.setContent
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.fragment.app.FragmentActivity
@@ -35,11 +35,11 @@ class MainActivity : FragmentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         val splashScreen = installSplashScreen()
-        Log.d(TAG, "=== MainActivity.onCreate START ===")
+        Timber.d("=== MainActivity.onCreate START ===")
         super.onCreate(savedInstanceState)
-        Log.d(TAG, "=== handleIntent ===")
+        Timber.d("=== handleIntent ===")
         handleIntent(intent)
-        Log.d(TAG, "=== setContent ===")
+        Timber.d("=== setContent ===")
         setContent {
             PetSafetyTheme {
                 PetSafetyApp(
@@ -52,7 +52,7 @@ class MainActivity : FragmentActivity() {
                 )
             }
         }
-        Log.d(TAG, "=== MainActivity.onCreate END ===")
+        Timber.d("=== MainActivity.onCreate END ===")
     }
 
     override fun onNewIntent(intent: Intent) {
@@ -67,7 +67,7 @@ class MainActivity : FragmentActivity() {
         // Check for notification extras first
         val notificationType = intent.getStringExtra(NotificationHelper.EXTRA_NOTIFICATION_TYPE)
         if (notificationType != null) {
-            Log.d(TAG, "Handling notification intent: type=$notificationType")
+            Timber.d("Handling notification intent: type=$notificationType")
             notificationDataState.value = NotificationData(
                 type = notificationType,
                 petId = intent.getStringExtra(NotificationHelper.EXTRA_PET_ID),
@@ -88,7 +88,7 @@ class MainActivity : FragmentActivity() {
         // Check for checkout deep link
         val checkoutResult = extractCheckoutResult(intent)
         if (checkoutResult != null) {
-            Log.d(TAG, "Handling checkout deep link: $checkoutResult")
+            Timber.d("Handling checkout deep link: $checkoutResult")
             checkoutResultState.value = checkoutResult
             return
         }
@@ -125,7 +125,5 @@ class MainActivity : FragmentActivity() {
         return null
     }
 
-    companion object {
-        private const val TAG = "MainActivity"
-    }
+    companion object
 }

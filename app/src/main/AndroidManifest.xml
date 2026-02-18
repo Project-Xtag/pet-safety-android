@@ -21,6 +21,7 @@
         android:label="Pet Safety"
         android:supportsRtl="true"
         android:theme="@style/Theme.PetSafety"
+        android:localeConfig="@xml/locales_config"
         android:networkSecurityConfig="@xml/network_security_config">
 
         <meta-data

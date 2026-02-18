@@ -1475,4 +1475,21 @@
     <string name="help_faq_group_billing_plans">Billing &amp; Plans</string>
     <string name="help_faq_group_privacy_account">Privacy &amp; Account</string>
     <string name="help_faq_group_troubleshooting">Troubleshooting</string>
+
+    <!-- Checkout & Payment -->
+    <string name="checkout_success_message">Payment successful! Your order is being processed.</string>
+    <string name="checkout_cancelled_message">Payment was cancelled. You can try again when ready.</string>
+    <string name="proceed_to_payment">Proceed to Payment</string>
+    <string name="redirecting_to_payment">Redirecting to payment…</string>
+    <string name="checkout_failed">Failed to start checkout</string>
+
+    <!-- SSE Events -->
+    <string name="sse_subscription_activated">Your %1$s plan is now active!</string>
+    <string name="sse_subscription_cancelled">Your %1$s subscription has been cancelled.</string>
+    <string name="sse_referral_used">%1$s used your referral code!</string>
+
+    <!-- Reward -->
+    <string name="reward_placeholder">e.g., €50, $100, or a special gift</string>
+    <string name="reward_badge_text">Reward: %1$s</string>
+
 </resources>
