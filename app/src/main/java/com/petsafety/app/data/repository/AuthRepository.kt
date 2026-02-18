@@ -23,7 +23,8 @@ class AuthRepository(
     val isAuthenticated: Flow<Boolean> = tokenStore.authToken.map { !it.isNullOrBlank() }
 
     suspend fun login(email: String) {
-        val response = apiService.login(LoginRequest(email))
+        val locale = java.util.Locale.getDefault().language
+        val response = apiService.login(LoginRequest(email, locale))
         if (!response.success) {
             throw Exception(response.error ?: "Failed to send OTP")
         }
