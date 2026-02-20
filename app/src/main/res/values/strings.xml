@@ -872,6 +872,8 @@
     <string name="post_code">Post Code</string>
     <string name="country">Country</string>
     <string name="street">Street</string>
+    <string name="street2">Apt / Suite / Floor (Optional)</string>
+    <string name="province">Province / State</string>
     <string name="address_updated">Address updated</string>
     <string name="address_shipping_footer">Enter your complete address for shipping and billing purposes</string>
     <string name="address_delivery_prompt">Add your address to enable shipping and delivery of QR tags</string>
