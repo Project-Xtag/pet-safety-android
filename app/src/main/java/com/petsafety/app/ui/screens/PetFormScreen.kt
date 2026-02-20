@@ -104,7 +104,7 @@ fun PetFormScreen(
     var weight by remember { mutableStateOf(existing?.weight?.let { String.format("%.1f", it) } ?: "") }
     var uniqueFeatures by remember { mutableStateOf(existing?.uniqueFeatures ?: "") }
     val sexOptions = listOf("", "Male", "Female")
-    val notSpecifiedLabel = stringResource(R.string.not_specified)
+    val notSpecifiedLabel = stringResource(R.string.sex_optional)
     val maleLabel = stringResource(R.string.male)
     val femaleLabel = stringResource(R.string.female)
 
@@ -114,6 +114,12 @@ fun PetFormScreen(
     val petUpdateFailedMessage = stringResource(R.string.pet_update_failed)
     val petDeletedMessage = stringResource(R.string.pet_deleted, existing?.name ?: stringResource(R.string.pet_default_name))
     val deleteFailedMessage = stringResource(R.string.delete_pet_failed)
+    val cannotDeleteMissingTitle = stringResource(R.string.cannot_delete_missing_pet)
+    val cannotDeleteMissingMessage = stringResource(R.string.cannot_delete_missing_pet_message)
+    var showCannotDeleteAlert by remember { mutableStateOf(false) }
+    var customBreedText by remember { mutableStateOf("") }
+    var isOtherBreed by remember { mutableStateOf(false) }
+    val otherBreedLabel = stringResource(R.string.breed_other)
 
     LaunchedEffect(species) {
         viewModel.fetchBreeds(species)
@@ -256,10 +262,27 @@ fun PetFormScreen(
                     selectedBreed = selectedBreed,
                     breedText = breedText,
                     onBreedSelected = { breed ->
-                        selectedBreed = breed
-                        breedText = breed.name
-                    }
+                        if (breed.id == "other") {
+                            isOtherBreed = true
+                            selectedBreed = breed
+                            breedText = ""
+                        } else {
+                            isOtherBreed = false
+                            selectedBreed = breed
+                            breedText = breed.name
+                        }
+                    },
+                    otherBreedLabel = otherBreedLabel
                 )
+
+                if (isOtherBreed) {
+                    FormTextField(
+                        label = stringResource(R.string.breed_custom_label),
+                        value = customBreedText,
+                        onValueChange = { customBreedText = it },
+                        placeholder = stringResource(R.string.breed_custom_hint)
+                    )
+                }
 
                 FormTextField(
                     label = stringResource(R.string.colour),
@@ -332,7 +355,7 @@ fun PetFormScreen(
             // Save Button
             Button(
                 onClick = {
-                    val breedValue = selectedBreed?.name ?: breedText.ifBlank { null }
+                    val breedValue = if (isOtherBreed) customBreedText.ifBlank { null } else selectedBreed?.name ?: breedText.ifBlank { null }
                     if (petId == null) {
                         viewModel.createPet(
                             CreatePetRequest(
@@ -423,7 +446,13 @@ fun PetFormScreen(
                 Spacer(modifier = Modifier.height(24.dp))
 
                 Button(
-                    onClick = { showDeleteDialog = true },
+                    onClick = {
+                        if (existing.isMissing) {
+                            showCannotDeleteAlert = true
+                        } else {
+                            showDeleteDialog = true
+                        }
+                    },
                     modifier = Modifier
                         .fillMaxWidth()
                         .height(52.dp),
@@ -490,6 +519,20 @@ fun PetFormScreen(
             dismissButton = {
                 TextButton(onClick = { showDeleteDialog = false }) {
                     Text(stringResource(R.string.cancel))
+                }
+            }
+        )
+    }
+
+    // Cannot Delete Missing Pet Dialog
+    if (showCannotDeleteAlert) {
+        AlertDialog(
+            onDismissRequest = { showCannotDeleteAlert = false },
+            title = { Text(cannotDeleteMissingTitle) },
+            text = { Text(cannotDeleteMissingMessage) },
+            confirmButton = {
+                TextButton(onClick = { showCannotDeleteAlert = false }) {
+                    Text(stringResource(R.string.ok))
                 }
             }
         )
@@ -618,8 +661,13 @@ private fun FormBreedField(
     breeds: List<Breed>,
     selectedBreed: Breed?,
     breedText: String,
-    onBreedSelected: (Breed) -> Unit
+    onBreedSelected: (Breed) -> Unit,
+    otherBreedLabel: String = "Other"
 ) {
+    val breedsWithOther = remember(breeds) {
+        breeds + Breed(id = "other", name = otherBreedLabel, species = "")
+    }
+
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -633,7 +681,7 @@ private fun FormBreedField(
             modifier = Modifier.width(90.dp)
         )
         SearchableDropdown(
-            items = breeds,
+            items = breedsWithOther,
             selectedItem = selectedBreed,
             onItemSelected = onBreedSelected,
             itemToString = { it.name },

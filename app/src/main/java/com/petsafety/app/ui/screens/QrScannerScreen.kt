@@ -110,12 +110,10 @@ fun QrScannerScreen(
     val lifecycleOwner = LocalLifecycleOwner.current
     val haptic = LocalHapticFeedback.current
     var hasPermission by remember { mutableStateOf(false) }
-    var manualCode by remember { mutableStateOf("") }
     var isTorchOn by remember { mutableStateOf(false) }
     var cameraRef by remember { mutableStateOf<androidx.camera.core.Camera?>(null) }
 
     val qrScannedMessage = stringResource(R.string.qr_scanned)
-    val invalidQrCodeMessage = stringResource(R.string.invalid_qr_code)
     val locationSharedMessage = stringResource(R.string.location_shared)
     val shareLocationFailedMessage = stringResource(R.string.share_location_failed)
 
@@ -237,48 +235,6 @@ fun QrScannerScreen(
                 )
             }
 
-            // Manual Code Entry
-            Column(
-                modifier = Modifier
-                    .align(Alignment.BottomCenter)
-                    .fillMaxWidth()
-                    .background(
-                        Color.Black.copy(alpha = 0.7f),
-                        RoundedCornerShape(topStart = 28.dp, topEnd = 28.dp)
-                    )
-                    .padding(24.dp)
-            ) {
-                OutlinedTextField(
-                    value = manualCode,
-                    onValueChange = { manualCode = it },
-                    modifier = Modifier.fillMaxWidth(),
-                    label = { Text(stringResource(R.string.manual_code_label)) },
-                    singleLine = true
-                )
-
-                Spacer(modifier = Modifier.height(12.dp))
-
-                Button(
-                    onClick = {
-                        val trimmed = manualCode.trim()
-                        if (trimmed.isBlank()) {
-                            appStateViewModel.showError(invalidQrCodeMessage)
-                        } else {
-                            viewModel.lookupAndRoute(trimmed)
-                        }
-                    },
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(52.dp),
-                    shape = RoundedCornerShape(16.dp),
-                    colors = ButtonDefaults.buttonColors(containerColor = BrandOrange)
-                ) {
-                    Text(
-                        text = stringResource(R.string.submit_code),
-                        style = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.SemiBold)
-                    )
-                }
-            }
         } else {
             // Camera Permission Required
             Box(

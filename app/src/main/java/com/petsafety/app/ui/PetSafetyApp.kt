@@ -127,9 +127,12 @@ fun PetSafetyApp(
     LaunchedEffect(checkoutResult) {
         checkoutResult?.let { result ->
             when (result) {
-                "success" -> appStateViewModel.showSuccess(
-                    context.getString(R.string.checkout_success_message)
-                )
+                "success" -> {
+                    appStateViewModel.showSuccess(
+                        context.getString(R.string.checkout_success_message)
+                    )
+                    appStateViewModel.refreshSubscription()
+                }
                 "cancelled" -> appStateViewModel.showSuccess(
                     context.getString(R.string.checkout_cancelled_message)
                 )

@@ -75,15 +75,15 @@ class OrdersViewModel @Inject constructor(
     fun createReplacementOrder(
         petId: String,
         request: CreateReplacementOrderRequest,
-        onResult: (Boolean, String?) -> Unit
+        onResult: (com.petsafety.app.data.network.model.ReplacementOrderResponse?, String?) -> Unit
     ) {
         viewModelScope.launch {
             _isLoading.value = true
             try {
-                repository.createReplacementOrder(petId, request)
-                onResult(true, null)
+                val response = repository.createReplacementOrder(petId, request)
+                onResult(response, null)
             } catch (ex: Exception) {
-                onResult(false, ex.localizedMessage)
+                onResult(null, ex.localizedMessage)
             } finally {
                 _isLoading.value = false
             }

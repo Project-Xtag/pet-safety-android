@@ -166,6 +166,7 @@
     <string name="delete_pet_confirm_title">Delete %1$s?</string>
     <string name="delete_pet_confirm_message">This action cannot be undone. All data for %1$s will be permanently deleted.</string>
     <string name="cannot_delete_missing_pet">Cannot Delete Missing Pet</string>
+    <string name="cannot_delete_missing_pet_message">You cannot delete a pet that is currently reported as missing. Please mark the pet as found first.</string>
     <string name="cannot_delete_missing_message">%1$s is currently marked as missing. Please mark them as found before deleting.</string>
     <string name="mark_found_confirm_title">Mark %1$s as Found?</string>
     <string name="mark_found_confirm_message">This will close the missing alert for %1$s. Are you sure?</string>
@@ -195,6 +196,7 @@
     <string name="microchip_optional">Microchip Number (optional)</string>
     <string name="sex">Sex</string>
     <string name="not_specified">Not specified</string>
+    <string name="sex_optional">Optional</string>
     <string name="neutered_spayed">Neutered/Spayed</string>
     <string name="neutered">Neutered</string>
     <string name="health_information">Health Information</string>
@@ -207,6 +209,18 @@
     <string name="delete_pet_dialog_message">Are you sure you want to delete this pet? This action cannot be undone.</string>
     <string name="male">Male</string>
     <string name="female">Female</string>
+    <string name="breed_other">Other</string>
+    <string name="breed_custom_label">Breed name</string>
+    <string name="breed_custom_hint">Enter breed name…</string>
+    <string name="health_info_empty_hint">No health information added</string>
+    <string name="add_health_info">Add health information</string>
+    <string name="additional_info_empty_hint">No additional information added</string>
+    <string name="add_additional_info">Add additional information</string>
+    <string name="edit_alert">Edit Alert</string>
+    <string name="alert_updated">Alert updated successfully</string>
+    <string name="alert_update_failed">Failed to update alert</string>
+    <string name="at_least_one_channel_required">At least one notification channel must remain active</string>
+    <string name="notification_channel_info">At least one notification channel must be active so you can be notified when your pet\'s QR tag is scanned.</string>
     <string name="default_species_dog">Dog</string>
     <string name="species_cat">Cat</string>
     <string name="search_breed">Search breed\u2026</string>
@@ -895,7 +909,7 @@
     <string name="primary_phone">Primary Phone</string>
     <string name="show_on_qr_tag">Show on QR tag</string>
     <string name="secondary_phone_optional">Secondary Phone (Optional)</string>
-    <string name="contacts_qr_tag_info">Contacts marked as visible will be displayed on your pet\'s QR tag when scanned by someone who finds your pet.</string>
+    <string name="contacts_qr_tag_info">These contact details will be shown when someone scans your pet\'s QR tag. You can add up to two email addresses and phone numbers.</string>
     <string name="contact_details">Contact Details</string>
     <string name="contacts_coming_soon">Coming Soon</string>
     <string name="contacts_info_full">These contact details will be shown when someone scans your pet\'s QR tag. You can add up to two email addresses and phone numbers.</string>
@@ -910,19 +924,19 @@
     <!-- MARK: Contact Visibility -->
     <!-- ============================================ -->
     <string name="contact_visibility">Contact Visibility</string>
-    <string name="contact_visibility_desc">Control what contact information is visible when someone scans your pet\'s QR tag</string>
+    <string name="contact_visibility_desc">Control what contact information is visible on your pet\'s public profile</string>
     <string name="show_phone_number">Show Phone Number</string>
-    <string name="show_phone_subtitle">Your phone number will be visible to finders</string>
+    <string name="show_phone_subtitle">Your primary and secondary phone numbers will be visible on your pet\'s public profile</string>
     <string name="show_email_address">Show Email Address</string>
-    <string name="show_email_subtitle">Your email will be visible to finders</string>
+    <string name="show_email_subtitle">Your primary and secondary email addresses will be visible on your pet\'s public profile</string>
     <string name="show_address">Show Address</string>
-    <string name="show_address_subtitle">Your address will be visible to finders</string>
+    <string name="show_address_subtitle">Your address will be visible on your pet\'s public profile</string>
 
     <!-- ============================================ -->
     <!-- MARK: Privacy Mode -->
     <!-- ============================================ -->
     <string name="privacy_contact_visibility">Contact Visibility</string>
-    <string name="privacy_contact_footer">Control which contact details are visible when someone scans your pet\'s QR tag.</string>
+    <string name="privacy_contact_footer">Control which contact details are visible on your pet\'s public profile.</string>
     <string name="privacy_show_phone">Show Phone Number</string>
     <string name="privacy_show_email">Show Email Address</string>
     <string name="privacy_show_address">Show Address</string>
@@ -930,7 +944,7 @@
     <string name="privacy_privacy_policy">Privacy Policy</string>
     <string name="privacy_data_management">Data Management</string>
     <string name="privacy_title">Privacy Mode</string>
-    <string name="privacy_mode_footer">Privacy settings help you control what information is shared when someone scans your pet\'s QR tag.</string>
+    <string name="privacy_mode_footer">Privacy settings help you control what information is shared on your pet\'s public profile.</string>
     <string name="privacy_policy_title">Privacy Policy</string>
     <string name="privacy_policy_updated">Last updated: November 2024</string>
     <string name="privacy_policy_section1_title">1. Information We Collect</string>
@@ -1235,6 +1249,9 @@
     <string name="billing_loading_invoices">Loading invoices\u2026</string>
     <string name="billing_invoice">Invoice</string>
     <string name="billing_unknown">Unknown</string>
+    <string name="billing_past_due_title">Payment Past Due</string>
+    <string name="billing_past_due_message">Your last payment failed. Please update your payment method to avoid service interruption.</string>
+    <string name="billing_update_payment">Update Payment Method</string>
 
     <!-- ============================================ -->
     <!-- MARK: Referral -->

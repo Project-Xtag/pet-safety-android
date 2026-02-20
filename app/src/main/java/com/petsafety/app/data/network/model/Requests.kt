@@ -75,6 +75,13 @@ data class CreateAlertRequest(
 )
 
 @Serializable
+data class UpdateAlertRequest(
+    val description: String? = null,
+    val lastSeenAddress: String? = null,
+    val rewardAmount: String? = null
+)
+
+@Serializable
 data class ReportSightingRequest(
     val reporterName: String? = null,
     val reporterPhone: String? = null,
@@ -168,7 +175,8 @@ data class AddressDetails(
 
 @Serializable
 data class CreateReplacementOrderRequest(
-    val shippingAddress: AddressDetails
+    val shippingAddress: AddressDetails,
+    val platform: String = "android"
 )
 
 @Serializable

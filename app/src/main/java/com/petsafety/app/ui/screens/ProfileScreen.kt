@@ -29,8 +29,10 @@ import androidx.compose.material.icons.filled.ExitToApp
 import androidx.compose.material.icons.filled.HelpOutline
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Lock
+import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material.icons.filled.People
+import androidx.compose.material.icons.filled.Sms
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.CardGiftcard
 import androidx.compose.material.icons.filled.CreditCard
@@ -51,6 +53,7 @@ import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -113,7 +116,7 @@ fun ProfileScreen(
         ProfileSection.ADDRESS -> AddressScreen(authViewModel, appStateViewModel) { section = ProfileSection.MAIN }
         ProfileSection.CONTACTS -> ContactsScreen(authViewModel, appStateViewModel) { section = ProfileSection.MAIN }
         ProfileSection.PRIVACY -> PrivacyModeScreen(authViewModel, appStateViewModel) { section = ProfileSection.MAIN }
-        ProfileSection.NOTIFICATIONS -> NotificationPreferencesScreen(prefsViewModel) { section = ProfileSection.MAIN }
+        ProfileSection.NOTIFICATIONS -> NotificationPreferencesScreen(prefsViewModel, appStateViewModel) { section = ProfileSection.MAIN }
         ProfileSection.HELP -> HelpSupportScreen(authViewModel, appStateViewModel) { section = ProfileSection.MAIN }
         ProfileSection.ORDERS -> OrdersScreen { section = ProfileSection.MAIN }
         ProfileSection.BILLING -> BillingScreen(onBack = { section = ProfileSection.MAIN })
@@ -383,6 +386,7 @@ private fun PersonalInfoScreen(
     onBack: () -> Unit
 ) {
     val user by authViewModel.currentUser.collectAsState()
+    var isEditing by remember { mutableStateOf(false) }
     var firstName by remember { mutableStateOf(user?.firstName ?: "") }
     var lastName by remember { mutableStateOf(user?.lastName ?: "") }
     var phone by remember { mutableStateOf(user?.phone ?: "") }
@@ -391,15 +395,46 @@ private fun PersonalInfoScreen(
     val updatedMessage = stringResource(R.string.updated)
     val updateFailedMessage = stringResource(R.string.update_failed)
 
+    val firstNameLabel = stringResource(R.string.first_name)
+    val lastNameLabel = stringResource(R.string.last_name)
+    val emailLabel = stringResource(R.string.email)
+    val phoneLabel = stringResource(R.string.phone)
+
     Column(
         modifier = Modifier
             .fillMaxSize()
             .background(MaterialTheme.colorScheme.background)
     ) {
-        // Header
         SubScreenHeader(
             title = stringResource(R.string.personal_information),
-            onBack = onBack
+            onBack = {
+                if (isEditing) {
+                    // Cancel edit: reset fields and exit edit mode
+                    firstName = user?.firstName ?: ""
+                    lastName = user?.lastName ?: ""
+                    phone = user?.phone ?: ""
+                    isEditing = false
+                } else {
+                    onBack()
+                }
+            },
+            trailingContent = if (!isEditing) {
+                {
+                    TextButton(onClick = {
+                        // Reset fields to current values when entering edit mode
+                        firstName = user?.firstName ?: ""
+                        lastName = user?.lastName ?: ""
+                        phone = user?.phone ?: ""
+                        isEditing = true
+                    }) {
+                        Text(
+                            text = stringResource(R.string.edit),
+                            color = BrandOrange,
+                            fontWeight = FontWeight.SemiBold
+                        )
+                    }
+                }
+            } else null
         )
 
         Column(
@@ -416,73 +451,102 @@ private fun PersonalInfoScreen(
                 elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
             ) {
                 Column(modifier = Modifier.padding(16.dp)) {
-                    StyledOutlinedTextField(
-                        value = firstName,
-                        onValueChange = { firstName = it },
-                        label = stringResource(R.string.first_name)
-                    )
-                    Spacer(modifier = Modifier.height(12.dp))
-                    StyledOutlinedTextField(
-                        value = lastName,
-                        onValueChange = { lastName = it },
-                        label = stringResource(R.string.last_name)
-                    )
-                    Spacer(modifier = Modifier.height(12.dp))
-                    StyledOutlinedTextField(
-                        value = user?.email ?: "",
-                        onValueChange = {},
-                        label = stringResource(R.string.email),
-                        enabled = false
-                    )
-                    Spacer(modifier = Modifier.height(12.dp))
-                    StyledOutlinedTextField(
-                        value = phone,
-                        onValueChange = { phone = it },
-                        label = stringResource(R.string.phone)
-                    )
+                    if (isEditing) {
+                        StyledOutlinedTextField(
+                            value = firstName,
+                            onValueChange = { firstName = it },
+                            label = firstNameLabel
+                        )
+                        Spacer(modifier = Modifier.height(12.dp))
+                        StyledOutlinedTextField(
+                            value = lastName,
+                            onValueChange = { lastName = it },
+                            label = lastNameLabel
+                        )
+                        Spacer(modifier = Modifier.height(12.dp))
+                        StyledOutlinedTextField(
+                            value = user?.email ?: "",
+                            onValueChange = {},
+                            label = emailLabel,
+                            enabled = false
+                        )
+                        Spacer(modifier = Modifier.height(12.dp))
+                        StyledOutlinedTextField(
+                            value = phone,
+                            onValueChange = { phone = it },
+                            label = phoneLabel
+                        )
+                    } else {
+                        ReadOnlyField(label = firstNameLabel, value = user?.firstName ?: "")
+                        HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
+                        ReadOnlyField(label = lastNameLabel, value = user?.lastName ?: "")
+                        HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
+                        ReadOnlyField(label = emailLabel, value = user?.email ?: "")
+                        HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
+                        ReadOnlyField(label = phoneLabel, value = user?.phone ?: "")
+                    }
                 }
             }
 
-            Spacer(modifier = Modifier.height(24.dp))
+            if (isEditing) {
+                Spacer(modifier = Modifier.height(24.dp))
 
-            Button(
-                onClick = {
-                    isSaving = true
-                    authViewModel.updateProfile(
-                        updates = mapOf("first_name" to firstName, "last_name" to lastName, "phone" to phone)
-                    ) { success, message ->
-                        isSaving = false
-                        if (success) {
-                            appStateViewModel.showSuccess(updatedMessage)
-                            onBack()
-                        } else {
-                            appStateViewModel.showError(message ?: updateFailedMessage)
+                Button(
+                    onClick = {
+                        isSaving = true
+                        authViewModel.updateProfile(
+                            updates = mapOf("first_name" to firstName, "last_name" to lastName, "phone" to phone)
+                        ) { success, message ->
+                            isSaving = false
+                            if (success) {
+                                appStateViewModel.showSuccess(updatedMessage)
+                                isEditing = false
+                            } else {
+                                appStateViewModel.showError(message ?: updateFailedMessage)
+                            }
                         }
+                    },
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(52.dp)
+                        .shadow(
+                            elevation = 8.dp,
+                            shape = RoundedCornerShape(16.dp),
+                            ambientColor = BrandOrange.copy(alpha = 0.3f),
+                            spotColor = BrandOrange.copy(alpha = 0.3f)
+                        ),
+                    shape = RoundedCornerShape(16.dp),
+                    colors = ButtonDefaults.buttonColors(containerColor = BrandOrange),
+                    enabled = !isSaving
+                ) {
+                    if (isSaving) {
+                        CircularProgressIndicator(
+                            modifier = Modifier.size(18.dp),
+                            color = Color.White,
+                            strokeWidth = 2.dp
+                        )
+                    } else {
+                        Text(
+                            text = stringResource(R.string.save),
+                            style = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.SemiBold)
+                        )
                     }
-                },
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(52.dp)
-                    .shadow(
-                        elevation = 8.dp,
-                        shape = RoundedCornerShape(16.dp),
-                        ambientColor = BrandOrange.copy(alpha = 0.3f),
-                        spotColor = BrandOrange.copy(alpha = 0.3f)
-                    ),
-                shape = RoundedCornerShape(16.dp),
-                colors = ButtonDefaults.buttonColors(containerColor = BrandOrange),
-                enabled = !isSaving
-            ) {
-                if (isSaving) {
-                    CircularProgressIndicator(
-                        modifier = Modifier.size(18.dp),
-                        color = Color.White,
-                        strokeWidth = 2.dp
-                    )
-                } else {
+                }
+
+                Spacer(modifier = Modifier.height(12.dp))
+
+                TextButton(
+                    onClick = {
+                        firstName = user?.firstName ?: ""
+                        lastName = user?.lastName ?: ""
+                        phone = user?.phone ?: ""
+                        isEditing = false
+                    },
+                    modifier = Modifier.fillMaxWidth()
+                ) {
                     Text(
-                        text = stringResource(R.string.save),
-                        style = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.SemiBold)
+                        text = stringResource(R.string.cancel),
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
                 }
             }
@@ -497,6 +561,7 @@ private fun AddressScreen(
     onBack: () -> Unit
 ) {
     val user by authViewModel.currentUser.collectAsState()
+    var isEditing by remember { mutableStateOf(false) }
     var address by remember { mutableStateOf(user?.address ?: "") }
     var addressLine2 by remember { mutableStateOf("") }
     var city by remember { mutableStateOf(user?.city ?: "") }
@@ -507,6 +572,20 @@ private fun AddressScreen(
     val addressUpdatedMessage = stringResource(R.string.address_updated)
     val addressUpdateFailedMessage = stringResource(R.string.update_failed)
 
+    val streetLabel = stringResource(R.string.street_address)
+    val line2Label = stringResource(R.string.address_line_2_optional)
+    val cityLabel = stringResource(R.string.city)
+    val postCodeLabel = stringResource(R.string.post_code)
+    val countryLabel = stringResource(R.string.country)
+
+    fun resetFields() {
+        address = user?.address ?: ""
+        addressLine2 = ""
+        city = user?.city ?: ""
+        postalCode = user?.postalCode ?: ""
+        country = user?.country ?: ""
+    }
+
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -514,7 +593,28 @@ private fun AddressScreen(
     ) {
         SubScreenHeader(
             title = stringResource(R.string.address),
-            onBack = onBack
+            onBack = {
+                if (isEditing) {
+                    resetFields()
+                    isEditing = false
+                } else {
+                    onBack()
+                }
+            },
+            trailingContent = if (!isEditing) {
+                {
+                    TextButton(onClick = {
+                        resetFields()
+                        isEditing = true
+                    }) {
+                        Text(
+                            text = stringResource(R.string.edit),
+                            color = BrandOrange,
+                            fontWeight = FontWeight.SemiBold
+                        )
+                    }
+                }
+            } else null
         )
 
         Column(
@@ -531,83 +631,110 @@ private fun AddressScreen(
                 elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
             ) {
                 Column(modifier = Modifier.padding(16.dp)) {
-                    StyledOutlinedTextField(
-                        value = address,
-                        onValueChange = { address = it },
-                        label = stringResource(R.string.street_address)
-                    )
-                    Spacer(modifier = Modifier.height(12.dp))
-                    StyledOutlinedTextField(
-                        value = addressLine2,
-                        onValueChange = { addressLine2 = it },
-                        label = stringResource(R.string.address_line_2_optional)
-                    )
-                    Spacer(modifier = Modifier.height(12.dp))
-                    StyledOutlinedTextField(
-                        value = city,
-                        onValueChange = { city = it },
-                        label = stringResource(R.string.city)
-                    )
-                    Spacer(modifier = Modifier.height(12.dp))
-                    StyledOutlinedTextField(
-                        value = postalCode,
-                        onValueChange = { postalCode = it },
-                        label = stringResource(R.string.post_code)
-                    )
-                    Spacer(modifier = Modifier.height(12.dp))
-                    StyledOutlinedTextField(
-                        value = country,
-                        onValueChange = { country = it },
-                        label = stringResource(R.string.country)
-                    )
+                    if (isEditing) {
+                        StyledOutlinedTextField(
+                            value = address,
+                            onValueChange = { address = it },
+                            label = streetLabel
+                        )
+                        Spacer(modifier = Modifier.height(12.dp))
+                        StyledOutlinedTextField(
+                            value = addressLine2,
+                            onValueChange = { addressLine2 = it },
+                            label = line2Label
+                        )
+                        Spacer(modifier = Modifier.height(12.dp))
+                        StyledOutlinedTextField(
+                            value = city,
+                            onValueChange = { city = it },
+                            label = cityLabel
+                        )
+                        Spacer(modifier = Modifier.height(12.dp))
+                        StyledOutlinedTextField(
+                            value = postalCode,
+                            onValueChange = { postalCode = it },
+                            label = postCodeLabel
+                        )
+                        Spacer(modifier = Modifier.height(12.dp))
+                        StyledOutlinedTextField(
+                            value = country,
+                            onValueChange = { country = it },
+                            label = countryLabel
+                        )
+                    } else {
+                        ReadOnlyField(label = streetLabel, value = user?.address ?: "")
+                        HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
+                        ReadOnlyField(label = cityLabel, value = user?.city ?: "")
+                        HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
+                        ReadOnlyField(label = postCodeLabel, value = user?.postalCode ?: "")
+                        HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
+                        ReadOnlyField(label = countryLabel, value = user?.country ?: "")
+                    }
                 }
             }
 
-            Spacer(modifier = Modifier.height(24.dp))
+            if (isEditing) {
+                Spacer(modifier = Modifier.height(24.dp))
 
-            Button(
-                onClick = {
-                    isSaving = true
-                    authViewModel.updateProfile(
-                        updates = mapOf(
-                            "address" to address,
-                            "city" to city,
-                            "postal_code" to postalCode,
-                            "country" to country
-                        )
-                    ) { success, message ->
-                        isSaving = false
-                        if (success) {
-                            appStateViewModel.showSuccess(addressUpdatedMessage)
-                            onBack()
-                        } else {
-                            appStateViewModel.showError(message ?: addressUpdateFailedMessage)
+                Button(
+                    onClick = {
+                        isSaving = true
+                        authViewModel.updateProfile(
+                            updates = mapOf(
+                                "address" to address,
+                                "city" to city,
+                                "postal_code" to postalCode,
+                                "country" to country
+                            )
+                        ) { success, message ->
+                            isSaving = false
+                            if (success) {
+                                appStateViewModel.showSuccess(addressUpdatedMessage)
+                                isEditing = false
+                            } else {
+                                appStateViewModel.showError(message ?: addressUpdateFailedMessage)
+                            }
                         }
+                    },
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(52.dp)
+                        .shadow(
+                            elevation = 8.dp,
+                            shape = RoundedCornerShape(16.dp),
+                            ambientColor = BrandOrange.copy(alpha = 0.3f),
+                            spotColor = BrandOrange.copy(alpha = 0.3f)
+                        ),
+                    shape = RoundedCornerShape(16.dp),
+                    colors = ButtonDefaults.buttonColors(containerColor = BrandOrange),
+                    enabled = !isSaving
+                ) {
+                    if (isSaving) {
+                        CircularProgressIndicator(
+                            modifier = Modifier.size(18.dp),
+                            color = Color.White,
+                            strokeWidth = 2.dp
+                        )
+                    } else {
+                        Text(
+                            text = stringResource(R.string.save),
+                            style = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.SemiBold)
+                        )
                     }
-                },
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(52.dp)
-                    .shadow(
-                        elevation = 8.dp,
-                        shape = RoundedCornerShape(16.dp),
-                        ambientColor = BrandOrange.copy(alpha = 0.3f),
-                        spotColor = BrandOrange.copy(alpha = 0.3f)
-                    ),
-                shape = RoundedCornerShape(16.dp),
-                colors = ButtonDefaults.buttonColors(containerColor = BrandOrange),
-                enabled = !isSaving
-            ) {
-                if (isSaving) {
-                    CircularProgressIndicator(
-                        modifier = Modifier.size(18.dp),
-                        color = Color.White,
-                        strokeWidth = 2.dp
-                    )
-                } else {
+                }
+
+                Spacer(modifier = Modifier.height(12.dp))
+
+                TextButton(
+                    onClick = {
+                        resetFields()
+                        isEditing = false
+                    },
+                    modifier = Modifier.fillMaxWidth()
+                ) {
                     Text(
-                        text = stringResource(R.string.save),
-                        style = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.SemiBold)
+                        text = stringResource(R.string.cancel),
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
                 }
             }
@@ -622,16 +749,25 @@ private fun ContactsScreen(
     onBack: () -> Unit
 ) {
     val user by authViewModel.currentUser.collectAsState()
-    var primaryEmail by remember { mutableStateOf(user?.email ?: "") }
+    var isEditing by remember { mutableStateOf(false) }
     var secondaryEmail by remember { mutableStateOf(user?.secondaryEmail ?: "") }
     var primaryPhone by remember { mutableStateOf(user?.phone ?: "") }
     var secondaryPhone by remember { mutableStateOf(user?.secondaryPhone ?: "") }
-    var showPrimaryOnTag by remember { mutableStateOf(user?.showPhonePublicly ?: true) }
-    var showSecondaryOnTag by remember { mutableStateOf(!(user?.secondaryPhone.isNullOrBlank())) }
     var isSaving by remember { mutableStateOf(false) }
 
     val contactsUpdatedMessage = stringResource(R.string.updated)
     val contactsUpdateFailedMessage = stringResource(R.string.update_failed)
+
+    val primaryEmailLabel = stringResource(R.string.primary_email)
+    val secondaryEmailLabel = stringResource(R.string.secondary_email_optional)
+    val primaryPhoneLabel = stringResource(R.string.primary_phone)
+    val secondaryPhoneLabel = stringResource(R.string.secondary_phone_optional)
+
+    fun resetFields() {
+        secondaryEmail = user?.secondaryEmail ?: ""
+        primaryPhone = user?.phone ?: ""
+        secondaryPhone = user?.secondaryPhone ?: ""
+    }
 
     Column(
         modifier = Modifier
@@ -640,7 +776,28 @@ private fun ContactsScreen(
     ) {
         SubScreenHeader(
             title = stringResource(R.string.contacts),
-            onBack = onBack
+            onBack = {
+                if (isEditing) {
+                    resetFields()
+                    isEditing = false
+                } else {
+                    onBack()
+                }
+            },
+            trailingContent = if (!isEditing) {
+                {
+                    TextButton(onClick = {
+                        resetFields()
+                        isEditing = true
+                    }) {
+                        Text(
+                            text = stringResource(R.string.edit),
+                            color = BrandOrange,
+                            fontWeight = FontWeight.SemiBold
+                        )
+                    }
+                }
+            } else null
         )
 
         Column(
@@ -650,6 +807,22 @@ private fun ContactsScreen(
                 .padding(horizontal = 20.dp)
                 .padding(top = 20.dp, bottom = 100.dp)
         ) {
+            // Info Card (above contacts)
+            Card(
+                modifier = Modifier.fillMaxWidth(),
+                shape = RoundedCornerShape(14.dp),
+                colors = CardDefaults.cardColors(containerColor = TealAccent.copy(alpha = 0.1f))
+            ) {
+                Text(
+                    text = stringResource(R.string.contacts_qr_tag_info),
+                    style = MaterialTheme.typography.bodySmall.copy(fontSize = 13.sp),
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    modifier = Modifier.padding(16.dp)
+                )
+            }
+
+            Spacer(modifier = Modifier.height(16.dp))
+
             // Email Section
             Text(
                 text = stringResource(R.string.email_addresses),
@@ -665,18 +838,24 @@ private fun ContactsScreen(
                 elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
             ) {
                 Column(modifier = Modifier.padding(16.dp)) {
-                    StyledOutlinedTextField(
-                        value = primaryEmail,
-                        onValueChange = { primaryEmail = it },
-                        label = stringResource(R.string.primary_email),
-                        enabled = false
-                    )
-                    Spacer(modifier = Modifier.height(12.dp))
-                    StyledOutlinedTextField(
-                        value = secondaryEmail,
-                        onValueChange = { secondaryEmail = it },
-                        label = stringResource(R.string.secondary_email_optional)
-                    )
+                    if (isEditing) {
+                        StyledOutlinedTextField(
+                            value = user?.email ?: "",
+                            onValueChange = {},
+                            label = primaryEmailLabel,
+                            enabled = false
+                        )
+                        Spacer(modifier = Modifier.height(12.dp))
+                        StyledOutlinedTextField(
+                            value = secondaryEmail,
+                            onValueChange = { secondaryEmail = it },
+                            label = secondaryEmailLabel
+                        )
+                    } else {
+                        ReadOnlyField(label = primaryEmailLabel, value = user?.email ?: "")
+                        HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
+                        ReadOnlyField(label = secondaryEmailLabel, value = user?.secondaryEmail ?: "")
+                    }
                 }
             }
 
@@ -697,120 +876,90 @@ private fun ContactsScreen(
                 elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
             ) {
                 Column(modifier = Modifier.padding(16.dp)) {
-                    StyledOutlinedTextField(
-                        value = primaryPhone,
-                        onValueChange = { primaryPhone = it },
-                        label = stringResource(R.string.primary_phone)
-                    )
-                    Row(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(top = 8.dp),
-                        horizontalArrangement = Arrangement.SpaceBetween,
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        Text(
-                            text = stringResource(R.string.show_on_qr_tag),
-                            style = MaterialTheme.typography.bodyMedium,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                    if (isEditing) {
+                        StyledOutlinedTextField(
+                            value = primaryPhone,
+                            onValueChange = { primaryPhone = it },
+                            label = primaryPhoneLabel
                         )
-                        Switch(
-                            checked = showPrimaryOnTag,
-                            onCheckedChange = { showPrimaryOnTag = it }
+                        HorizontalDivider(
+                            modifier = Modifier.padding(vertical = 12.dp),
+                            color = MaterialTheme.colorScheme.surfaceContainerHigh
                         )
-                    }
-                    HorizontalDivider(
-                        modifier = Modifier.padding(vertical = 12.dp),
-                        color = MaterialTheme.colorScheme.surfaceContainerHigh
-                    )
-                    StyledOutlinedTextField(
-                        value = secondaryPhone,
-                        onValueChange = { secondaryPhone = it },
-                        label = stringResource(R.string.secondary_phone_optional)
-                    )
-                    Row(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(top = 8.dp),
-                        horizontalArrangement = Arrangement.SpaceBetween,
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        Text(
-                            text = stringResource(R.string.show_on_qr_tag),
-                            style = MaterialTheme.typography.bodyMedium,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                        StyledOutlinedTextField(
+                            value = secondaryPhone,
+                            onValueChange = { secondaryPhone = it },
+                            label = secondaryPhoneLabel
                         )
-                        Switch(
-                            checked = showSecondaryOnTag,
-                            onCheckedChange = { showSecondaryOnTag = it }
-                        )
+                    } else {
+                        ReadOnlyField(label = primaryPhoneLabel, value = user?.phone ?: "")
+                        HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
+                        ReadOnlyField(label = secondaryPhoneLabel, value = user?.secondaryPhone ?: "")
                     }
                 }
             }
 
-            Spacer(modifier = Modifier.height(16.dp))
+            if (isEditing) {
+                Spacer(modifier = Modifier.height(24.dp))
 
-            // Info Card
-            Card(
-                modifier = Modifier.fillMaxWidth(),
-                shape = RoundedCornerShape(14.dp),
-                colors = CardDefaults.cardColors(containerColor = TealAccent.copy(alpha = 0.1f))
-            ) {
-                Text(
-                    text = stringResource(R.string.contacts_qr_tag_info),
-                    style = MaterialTheme.typography.bodySmall.copy(fontSize = 13.sp),
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    modifier = Modifier.padding(16.dp)
-                )
-            }
-
-            Spacer(modifier = Modifier.height(24.dp))
-
-            // Save Button
-            Button(
-                onClick = {
-                    isSaving = true
-                    authViewModel.updateProfile(
-                        updates = mapOf(
-                            "phone" to primaryPhone.trim(),
-                            "secondary_phone" to secondaryPhone.trim(),
-                            "secondary_email" to secondaryEmail.trim(),
-                            "show_phone_publicly" to showPrimaryOnTag,
-                            "show_email_publicly" to showSecondaryOnTag
-                        )
-                    ) { success, message ->
-                        isSaving = false
-                        if (success) {
-                            appStateViewModel.showSuccess(contactsUpdatedMessage)
-                            onBack()
-                        } else {
-                            appStateViewModel.showError(message ?: contactsUpdateFailedMessage)
+                Button(
+                    onClick = {
+                        isSaving = true
+                        authViewModel.updateProfile(
+                            updates = mapOf(
+                                "phone" to primaryPhone.trim(),
+                                "secondary_phone" to secondaryPhone.trim(),
+                                "secondary_email" to secondaryEmail.trim()
+                            )
+                        ) { success, message ->
+                            isSaving = false
+                            if (success) {
+                                appStateViewModel.showSuccess(contactsUpdatedMessage)
+                                isEditing = false
+                            } else {
+                                appStateViewModel.showError(message ?: contactsUpdateFailedMessage)
+                            }
                         }
+                    },
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(52.dp)
+                        .shadow(
+                            elevation = 8.dp,
+                            shape = RoundedCornerShape(16.dp),
+                            ambientColor = BrandOrange.copy(alpha = 0.3f),
+                            spotColor = BrandOrange.copy(alpha = 0.3f)
+                        ),
+                    shape = RoundedCornerShape(16.dp),
+                    colors = ButtonDefaults.buttonColors(containerColor = BrandOrange),
+                    enabled = !isSaving
+                ) {
+                    if (isSaving) {
+                        CircularProgressIndicator(
+                            modifier = Modifier.size(18.dp),
+                            color = Color.White,
+                            strokeWidth = 2.dp
+                        )
+                    } else {
+                        Text(
+                            text = stringResource(R.string.save),
+                            style = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.SemiBold)
+                        )
                     }
-                },
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(52.dp)
-                    .shadow(
-                        elevation = 8.dp,
-                        shape = RoundedCornerShape(16.dp),
-                        ambientColor = BrandOrange.copy(alpha = 0.3f),
-                        spotColor = BrandOrange.copy(alpha = 0.3f)
-                    ),
-                shape = RoundedCornerShape(16.dp),
-                colors = ButtonDefaults.buttonColors(containerColor = BrandOrange),
-                enabled = !isSaving
-            ) {
-                if (isSaving) {
-                    CircularProgressIndicator(
-                        modifier = Modifier.size(18.dp),
-                        color = Color.White,
-                        strokeWidth = 2.dp
-                    )
-                } else {
+                }
+
+                Spacer(modifier = Modifier.height(12.dp))
+
+                TextButton(
+                    onClick = {
+                        resetFields()
+                        isEditing = false
+                    },
+                    modifier = Modifier.fillMaxWidth()
+                ) {
                     Text(
-                        text = stringResource(R.string.save),
-                        style = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.SemiBold)
+                        text = stringResource(R.string.cancel),
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
                 }
             }
@@ -824,6 +973,7 @@ private fun PrivacyModeScreen(
     appStateViewModel: AppStateViewModel,
     onBack: () -> Unit
 ) {
+    val context = LocalContext.current
     val currentUser by authViewModel.currentUser.collectAsState()
     val isLoading by authViewModel.isLoading.collectAsState()
 
@@ -953,13 +1103,10 @@ private fun PrivacyModeScreen(
                     ProfileMenuRow(
                         icon = Icons.Default.Lock,
                         title = stringResource(R.string.privacy_policy),
-                        onClick = { /* Open privacy policy */ }
-                    )
-                    HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
-                    ProfileMenuRow(
-                        icon = Icons.Default.Person,
-                        title = stringResource(R.string.data_management),
-                        onClick = { /* Open data management */ }
+                        onClick = {
+                            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(WebUrlHelper.privacyUrl))
+                            context.startActivity(intent)
+                        }
                     )
                 }
             }
@@ -970,19 +1117,62 @@ private fun PrivacyModeScreen(
 @Composable
 private fun NotificationPreferencesScreen(
     viewModel: NotificationPreferencesViewModel,
+    appStateViewModel: AppStateViewModel,
     onBack: () -> Unit
 ) {
     val preferences by viewModel.preferences.collectAsState()
+    val isSaving by viewModel.isSaving.collectAsState()
 
     var pushEnabled by remember { mutableStateOf(preferences.notifyByPush) }
     var emailEnabled by remember { mutableStateOf(preferences.notifyByEmail) }
     var smsEnabled by remember { mutableStateOf(preferences.notifyBySms) }
     var missingPetAlerts by remember { mutableStateOf(true) }
-    var nearbyAlerts by remember { mutableStateOf(true) }
     var orderUpdates by remember { mutableStateOf(true) }
     var accountActivity by remember { mutableStateOf(true) }
-    var productUpdates by remember { mutableStateOf(false) }
-    var marketingEmails by remember { mutableStateOf(false) }
+
+    val atLeastOneChannelMessage = stringResource(R.string.at_least_one_channel_required)
+    val savedMessage = stringResource(R.string.updated)
+    val failedMessage = stringResource(R.string.update_failed)
+
+    // Load preferences from backend on screen entry
+    LaunchedEffect(Unit) {
+        viewModel.loadPreferences()
+    }
+
+    // Sync local state when backend preferences arrive
+    LaunchedEffect(preferences) {
+        pushEnabled = preferences.notifyByPush
+        emailEnabled = preferences.notifyByEmail
+        smsEnabled = preferences.notifyBySms
+    }
+
+    // Helper to persist channel changes
+    fun saveChannels(push: Boolean, email: Boolean, sms: Boolean) {
+        viewModel.updatePreferences(
+            com.petsafety.app.data.model.NotificationPreferences(
+                notifyByPush = push,
+                notifyByEmail = email,
+                notifyBySms = sms
+            )
+        )
+        viewModel.savePreferences()
+    }
+
+    // Show save result
+    val showSuccess by viewModel.showSuccess.collectAsState()
+    val errorMessage by viewModel.errorMessage.collectAsState()
+    LaunchedEffect(showSuccess) {
+        if (showSuccess) {
+            appStateViewModel.showSuccess(savedMessage)
+            viewModel.clearMessages()
+        }
+    }
+    LaunchedEffect(errorMessage) {
+        errorMessage?.let {
+            appStateViewModel.showError(it)
+            viewModel.clearMessages()
+        }
+    }
 
     Column(
         modifier = Modifier
@@ -1001,6 +1191,22 @@ private fun NotificationPreferencesScreen(
                 .padding(horizontal = 20.dp)
                 .padding(top = 20.dp, bottom = 100.dp)
         ) {
+            // Info card at top
+            Card(
+                modifier = Modifier.fillMaxWidth(),
+                shape = RoundedCornerShape(14.dp),
+                colors = CardDefaults.cardColors(containerColor = BrandOrange.copy(alpha = 0.1f))
+            ) {
+                Text(
+                    text = stringResource(R.string.notification_channel_info),
+                    style = MaterialTheme.typography.bodySmall.copy(fontSize = 13.sp),
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    modifier = Modifier.padding(16.dp)
+                )
+            }
+
+            Spacer(modifier = Modifier.height(20.dp))
+
             // Notification Channels
             Text(
                 text = stringResource(R.string.notification_channels),
@@ -1020,21 +1226,51 @@ private fun NotificationPreferencesScreen(
                         title = stringResource(R.string.push_notifications),
                         subtitle = stringResource(R.string.push_notifications_subtitle),
                         checked = pushEnabled,
-                        onCheckedChange = { pushEnabled = it }
+                        onCheckedChange = {
+                            if (!it && !emailEnabled && !smsEnabled) {
+                                appStateViewModel.showError(atLeastOneChannelMessage)
+                            } else {
+                                pushEnabled = it
+                                saveChannels(it, emailEnabled, smsEnabled)
+                            }
+                        },
+                        enabled = !isSaving,
+                        leadingIcon = Icons.Default.Notifications,
+                        iconTint = BrandOrange
                     )
                     HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
                     SettingsToggleRow(
                         title = stringResource(R.string.email_notifications),
                         subtitle = stringResource(R.string.email_notifications_subtitle),
                         checked = emailEnabled,
-                        onCheckedChange = { emailEnabled = it }
+                        onCheckedChange = {
+                            if (!it && !pushEnabled && !smsEnabled) {
+                                appStateViewModel.showError(atLeastOneChannelMessage)
+                            } else {
+                                emailEnabled = it
+                                saveChannels(pushEnabled, it, smsEnabled)
+                            }
+                        },
+                        enabled = !isSaving,
+                        leadingIcon = Icons.Default.Email,
+                        iconTint = Color(0xFF2196F3)
                     )
                     HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
                     SettingsToggleRow(
                         title = stringResource(R.string.sms_notifications),
                         subtitle = stringResource(R.string.sms_notifications_subtitle),
                         checked = smsEnabled,
-                        onCheckedChange = { smsEnabled = it }
+                        onCheckedChange = {
+                            if (!it && !pushEnabled && !emailEnabled) {
+                                appStateViewModel.showError(atLeastOneChannelMessage)
+                            } else {
+                                smsEnabled = it
+                                saveChannels(pushEnabled, emailEnabled, it)
+                            }
+                        },
+                        enabled = !isSaving,
+                        leadingIcon = Icons.Default.Sms,
+                        iconTint = Color(0xFF4CAF50)
                     )
                 }
             }
@@ -1061,13 +1297,6 @@ private fun NotificationPreferencesScreen(
                         subtitle = stringResource(R.string.missing_pet_alerts_subtitle),
                         checked = missingPetAlerts,
                         onCheckedChange = { missingPetAlerts = it }
-                    )
-                    HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
-                    SettingsToggleRow(
-                        title = stringResource(R.string.nearby_alerts_10km),
-                        subtitle = stringResource(R.string.nearby_alerts_subtitle),
-                        checked = nearbyAlerts,
-                        onCheckedChange = { nearbyAlerts = it }
                     )
                 }
             }
@@ -1104,49 +1333,6 @@ private fun NotificationPreferencesScreen(
                     )
                 }
             }
-
-            Spacer(modifier = Modifier.height(24.dp))
-
-            // Optional Updates
-            Text(
-                text = stringResource(R.string.optional_updates),
-                style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.SemiBold),
-                color = MaterialTheme.colorScheme.onSurface
-            )
-            Spacer(modifier = Modifier.height(12.dp))
-
-            Card(
-                modifier = Modifier.fillMaxWidth(),
-                shape = RoundedCornerShape(16.dp),
-                colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
-                elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
-            ) {
-                Column(modifier = Modifier.padding(16.dp)) {
-                    SettingsToggleRow(
-                        title = stringResource(R.string.product_updates),
-                        subtitle = stringResource(R.string.product_updates_subtitle),
-                        checked = productUpdates,
-                        onCheckedChange = { productUpdates = it }
-                    )
-                    HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
-                    SettingsToggleRow(
-                        title = stringResource(R.string.marketing_emails),
-                        subtitle = stringResource(R.string.marketing_emails_subtitle),
-                        checked = marketingEmails,
-                        onCheckedChange = { marketingEmails = it }
-                    )
-                }
-            }
-
-            Spacer(modifier = Modifier.height(16.dp))
-
-            Text(
-                text = stringResource(R.string.critical_alerts_note),
-                style = MaterialTheme.typography.bodySmall.copy(fontSize = 12.sp),
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                textAlign = TextAlign.Center,
-                modifier = Modifier.fillMaxWidth()
-            )
         }
     }
 }
@@ -1642,7 +1828,8 @@ private fun ContactSupportDialog(
 @Composable
 private fun SubScreenHeader(
     title: String,
-    onBack: () -> Unit
+    onBack: () -> Unit,
+    trailingContent: @Composable (() -> Unit)? = null
 ) {
     Box(
         modifier = Modifier
@@ -1673,6 +1860,41 @@ private fun SubScreenHeader(
             color = MaterialTheme.colorScheme.onSurface,
             modifier = Modifier.align(Alignment.Center)
         )
+
+        if (trailingContent != null) {
+            Box(
+                modifier = Modifier
+                    .align(Alignment.CenterEnd)
+                    .padding(end = 8.dp)
+            ) {
+                trailingContent()
+            }
+        }
+    }
+}
+
+@Composable
+private fun ReadOnlyField(
+    label: String,
+    value: String
+) {
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(vertical = 8.dp)
+    ) {
+        Text(
+            text = label,
+            style = MaterialTheme.typography.bodySmall.copy(fontSize = 12.sp),
+            color = MaterialTheme.colorScheme.onSurfaceVariant
+        )
+        Spacer(modifier = Modifier.height(2.dp))
+        Text(
+            text = value.ifBlank { "—" },
+            style = MaterialTheme.typography.bodyMedium.copy(fontSize = 15.sp),
+            color = if (value.isBlank()) MaterialTheme.colorScheme.onSurfaceVariant
+                    else MaterialTheme.colorScheme.onSurface
+        )
     }
 }
 
@@ -1700,7 +1922,9 @@ private fun SettingsToggleRow(
     subtitle: String,
     checked: Boolean,
     onCheckedChange: (Boolean) -> Unit,
-    enabled: Boolean = true
+    enabled: Boolean = true,
+    leadingIcon: ImageVector? = null,
+    iconTint: Color = MaterialTheme.colorScheme.onSurfaceVariant
 ) {
     Row(
         modifier = Modifier
@@ -1709,6 +1933,15 @@ private fun SettingsToggleRow(
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically
     ) {
+        if (leadingIcon != null) {
+            Icon(
+                imageVector = leadingIcon,
+                contentDescription = null,
+                modifier = Modifier.size(24.dp),
+                tint = iconTint
+            )
+            Spacer(modifier = Modifier.width(12.dp))
+        }
         Column(modifier = Modifier.weight(1f)) {
             Text(
                 text = title,

@@ -6,6 +6,7 @@ import android.content.pm.PackageManager
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -365,24 +366,22 @@ fun PetDetailScreen(
                 }
             }
 
-            // Health Information
-            if (pet.medicalNotes?.isNotBlank() == true || pet.allergies?.isNotBlank() == true || pet.medications?.isNotBlank() == true) {
-                Spacer(modifier = Modifier.height(16.dp))
-                HealthInfoSection(
-                    medicalNotes = pet.medicalNotes,
-                    allergies = pet.allergies,
-                    medications = pet.medications
-                )
-            }
+            // Health Information — always show, with empty hint if no data
+            Spacer(modifier = Modifier.height(16.dp))
+            HealthInfoSection(
+                medicalNotes = pet.medicalNotes,
+                allergies = pet.allergies,
+                medications = pet.medications,
+                onEditPet = onEditPet
+            )
 
-            // Additional Information
-            if (pet.uniqueFeatures?.isNotBlank() == true || pet.notes?.isNotBlank() == true) {
-                Spacer(modifier = Modifier.height(16.dp))
-                AdditionalInfoSection(
-                    uniqueFeatures = pet.uniqueFeatures,
-                    behaviorNotes = pet.notes
-                )
-            }
+            // Additional Information — always show, with empty hint if no data
+            Spacer(modifier = Modifier.height(16.dp))
+            AdditionalInfoSection(
+                uniqueFeatures = pet.uniqueFeatures,
+                behaviorNotes = pet.notes,
+                onEditPet = onEditPet
+            )
 
             Spacer(modifier = Modifier.height(24.dp))
 
@@ -419,35 +418,6 @@ fun PetDetailScreen(
                     icon = Icons.Default.Edit
                 )
 
-                // Delete Button
-                Button(
-                    onClick = {
-                        if (pet.isMissing) {
-                            showCannotDeleteAlert = true
-                        } else {
-                            showDeleteConfirmation = true
-                        }
-                    },
-                    modifier = Modifier.fillMaxWidth(),
-                    colors = ButtonDefaults.buttonColors(
-                        containerColor = MaterialTheme.colorScheme.error.copy(alpha = 0.1f),
-                        contentColor = MaterialTheme.colorScheme.error
-                    ),
-                    shape = RoundedCornerShape(10.dp),
-                    enabled = !isDeleting
-                ) {
-                    if (isDeleting) {
-                        CircularProgressIndicator(
-                            modifier = Modifier.size(20.dp),
-                            color = MaterialTheme.colorScheme.error,
-                            strokeWidth = 2.dp
-                        )
-                    } else {
-                        Icon(Icons.Default.Delete, contentDescription = null)
-                    }
-                    Spacer(modifier = Modifier.width(8.dp))
-                    Text(stringResource(R.string.delete_pet_name, pet.name), fontWeight = FontWeight.SemiBold)
-                }
             }
 
             Spacer(modifier = Modifier.height(100.dp))
@@ -733,8 +703,11 @@ private fun InfoSection(
 private fun HealthInfoSection(
     medicalNotes: String?,
     allergies: String?,
-    medications: String?
+    medications: String?,
+    onEditPet: () -> Unit = {}
 ) {
+    val hasContent = medicalNotes?.isNotBlank() == true || allergies?.isNotBlank() == true || medications?.isNotBlank() == true
+
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -760,6 +733,20 @@ private fun HealthInfoSection(
                     text = stringResource(R.string.health_information),
                     style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.SemiBold),
                     color = MaterialTheme.colorScheme.onSurface
+                )
+            }
+
+            if (!hasContent) {
+                Text(
+                    text = stringResource(R.string.health_info_empty_hint),
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+                Text(
+                    text = stringResource(R.string.add_health_info),
+                    style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.Medium),
+                    color = BrandOrange,
+                    modifier = Modifier.clickable { onEditPet() }
                 )
             }
 
@@ -817,8 +804,11 @@ private fun HealthInfoSection(
 @Composable
 private fun AdditionalInfoSection(
     uniqueFeatures: String?,
-    behaviorNotes: String?
+    behaviorNotes: String?,
+    onEditPet: () -> Unit = {}
 ) {
+    val hasContent = uniqueFeatures?.isNotBlank() == true || behaviorNotes?.isNotBlank() == true
+
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -844,6 +834,20 @@ private fun AdditionalInfoSection(
                     text = stringResource(R.string.additional_information),
                     style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.SemiBold),
                     color = MaterialTheme.colorScheme.onSurface
+                )
+            }
+
+            if (!hasContent) {
+                Text(
+                    text = stringResource(R.string.additional_info_empty_hint),
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+                Text(
+                    text = stringResource(R.string.add_additional_info),
+                    style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.Medium),
+                    color = BrandOrange,
+                    modifier = Modifier.clickable { onEditPet() }
                 )
             }
 

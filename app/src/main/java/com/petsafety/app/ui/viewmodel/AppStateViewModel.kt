@@ -56,6 +56,10 @@ class AppStateViewModel @Inject constructor(
         _isLoading.value = isLoading
     }
 
+    fun refreshSubscription() {
+        subscriptionEventBus.requestRefresh()
+    }
+
     fun connectSse() {
         sseService.connect()
     }

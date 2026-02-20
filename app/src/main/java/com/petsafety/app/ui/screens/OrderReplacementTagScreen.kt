@@ -1,5 +1,7 @@
 package com.petsafety.app.ui.screens
 
+import android.net.Uri
+import androidx.browser.customtabs.CustomTabsIntent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -66,6 +68,7 @@ fun OrderReplacementTagScreen(
     onDone: () -> Unit
 ) {
     val viewModel: OrdersViewModel = hiltViewModel()
+    val context = androidx.compose.ui.platform.LocalContext.current
 
     val replacementOrderedMessage = stringResource(R.string.replacement_ordered)
     val replacementFailedMessage = stringResource(R.string.replacement_failed)
@@ -322,12 +325,19 @@ fun OrderReplacementTagScreen(
                                 country = country.value
                             )
                         )
-                        viewModel.createReplacementOrder(pet.id, request) { success, message ->
-                            if (success) {
-                                appStateViewModel.showSuccess(replacementOrderedMessage)
-                                onDone()
+                        viewModel.createReplacementOrder(pet.id, request) { response, errorMsg ->
+                            if (response != null) {
+                                val checkoutUrl = response.checkoutUrl
+                                if (!checkoutUrl.isNullOrBlank() && checkoutUrl.startsWith("https://checkout.stripe.com/")) {
+                                    // Redirect to Stripe Checkout for shipping payment
+                                    val customTabsIntent = CustomTabsIntent.Builder().build()
+                                    customTabsIntent.launchUrl(context, Uri.parse(checkoutUrl))
+                                } else {
+                                    appStateViewModel.showSuccess(replacementOrderedMessage)
+                                    onDone()
+                                }
                             } else {
-                                appStateViewModel.showError(message ?: replacementFailedMessage)
+                                appStateViewModel.showError(errorMsg ?: replacementFailedMessage)
                             }
                         }
                     },

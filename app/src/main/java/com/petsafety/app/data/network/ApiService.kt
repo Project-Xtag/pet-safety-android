@@ -120,6 +120,12 @@ interface ApiService {
     @POST("alerts/missing")
     suspend fun createAlert(@Body request: CreateAlertRequest): ApiEnvelope<AlertResponse>
 
+    @PUT("alerts/{id}")
+    suspend fun updateAlert(
+        @Path("id") id: String,
+        @Body request: UpdateAlertRequest
+    ): ApiEnvelope<AlertResponse>
+
     @POST("alerts/{id}/found")
     suspend fun updateAlertStatus(@Path("id") id: String): ApiEnvelope<AlertResponse>
 

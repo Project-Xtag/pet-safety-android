@@ -151,6 +151,9 @@ data class GetTagResponse(
 @Serializable
 data class ReplacementOrderResponse(
     val order: Order,
+    val requiresPayment: Boolean = false,
+    val shippingCost: Double = 0.0,
+    val checkoutUrl: String? = null,
     val message: String? = null
 )
 

@@ -128,21 +128,16 @@ fun MissingAlertsScreen(
     val currentUser by authViewModel.currentUser.collectAsState()
     var showMap by remember { mutableStateOf(false) }
     var selectedAlert by remember { mutableStateOf<MissingPetAlert?>(null) }
-    var mapDetailAlert by remember { mutableStateOf<MissingPetAlert?>(null) }
-    var showReport by remember { mutableStateOf(false) }
 
-    val sightingReportedMessage = stringResource(R.string.sighting_reported)
-    val reportFailedMessage = stringResource(R.string.report_failed)
-
-    // Full detail screen when a map marker is tapped
-    mapDetailAlert?.let { alert ->
+    // Full detail screen when an alert is tapped (from list or map)
+    selectedAlert?.let { alert ->
         AlertDetailScreen(
             alert = alert,
             currentUserId = currentUser?.id,
             viewModel = viewModel,
             qrScannerViewModel = qrScannerViewModel,
             appStateViewModel = appStateViewModel,
-            onBack = { mapDetailAlert = null }
+            onBack = { selectedAlert = null }
         )
         return
     }
@@ -216,7 +211,7 @@ fun MissingAlertsScreen(
                         modifier = Modifier.weight(1f)
                     ) {
                         if (showMap) {
-                            AlertsMap(alerts = alerts, userLocation = userLocation, onAlertSelected = { mapDetailAlert = it })
+                            AlertsMap(alerts = alerts, userLocation = userLocation, onAlertSelected = { selectedAlert = it })
                         } else {
                             AlertsList(alerts) { selectedAlert = it }
                         }
@@ -226,35 +221,6 @@ fun MissingAlertsScreen(
         }
     }
 
-    // List view dialog (unchanged)
-    selectedAlert?.let { alert ->
-        AlertDetailDialog(
-            alert = alert,
-            onDismiss = { selectedAlert = null },
-            onReportSighting = { showReport = true }
-        )
-        if (showReport) {
-            ReportSightingDialog(
-                alertId = alert.id,
-                onDismiss = { showReport = false },
-                onSubmit = { coordinate, locationText, notes, name, phone, email ->
-                    viewModel.reportSighting(
-                        alertId = alert.id,
-                        reporterName = name,
-                        reporterPhone = phone,
-                        reporterEmail = email,
-                        location = locationText,
-                        coordinate = coordinate,
-                        notes = notes
-                    ) { success, message ->
-                        if (success) appStateViewModel.showSuccess(sightingReportedMessage)
-                        else appStateViewModel.showError(message ?: reportFailedMessage)
-                        showReport = false
-                    }
-                }
-            )
-        }
-    }
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -1148,11 +1114,14 @@ private fun AlertDetailScreen(
         }
     }
 
+    var showEditAlertDialog by remember { mutableStateOf(false) }
     val sightingReportedMessage = stringResource(R.string.sighting_reported)
     val reportFailedMessage = stringResource(R.string.report_failed)
     val markedFoundMessage = stringResource(R.string.mark_as_found)
     val ownerNotifiedMessage = stringResource(R.string.share_owner_notified)
     val shareLocationFailedMessage = stringResource(R.string.share_location_failed)
+    val alertUpdatedMessage = stringResource(R.string.alert_updated)
+    val alertUpdateFailedMessage = stringResource(R.string.alert_update_failed)
     val petName = alert.resolvedPetName ?: stringResource(R.string.unknown_pet)
     val resolvedQrCode = alert.qrCode ?: alert.pet?.qrCode
 
@@ -1413,6 +1382,21 @@ private fun AlertDetailScreen(
             // Action buttons
             if (isOwner) {
                 Button(
+                    onClick = { showEditAlertDialog = true },
+                    modifier = Modifier.fillMaxWidth(),
+                    colors = ButtonDefaults.buttonColors(containerColor = BrandOrange),
+                    shape = RoundedCornerShape(12.dp)
+                ) {
+                    Text(
+                        text = stringResource(R.string.edit_alert),
+                        fontWeight = FontWeight.SemiBold,
+                        modifier = Modifier.padding(vertical = 4.dp)
+                    )
+                }
+
+                Spacer(modifier = Modifier.height(8.dp))
+
+                Button(
                     onClick = { showMarkFoundConfirmation = true },
                     modifier = Modifier.fillMaxWidth(),
                     colors = ButtonDefaults.buttonColors(containerColor = TealAccent),
@@ -1530,6 +1514,87 @@ private fun AlertDetailScreen(
             }
         )
     }
+
+    if (showEditAlertDialog) {
+        EditAlertDialog(
+            alert = alert,
+            onDismiss = { showEditAlertDialog = false },
+            onSave = { description, lastSeenAddress, rewardAmount ->
+                viewModel.updateAlert(
+                    alertId = alert.id,
+                    description = description,
+                    lastSeenAddress = lastSeenAddress,
+                    rewardAmount = rewardAmount
+                ) { success, message ->
+                    if (success) {
+                        appStateViewModel.showSuccess(alertUpdatedMessage)
+                        viewModel.refresh()
+                        showEditAlertDialog = false
+                    } else {
+                        appStateViewModel.showError(message ?: alertUpdateFailedMessage)
+                    }
+                }
+            }
+        )
+    }
+}
+
+@Composable
+private fun EditAlertDialog(
+    alert: MissingPetAlert,
+    onDismiss: () -> Unit,
+    onSave: (String?, String?, String?) -> Unit
+) {
+    var description by remember { mutableStateOf(alert.additionalInfo ?: "") }
+    var lastSeenAddress by remember { mutableStateOf(alert.resolvedLastSeenLocation ?: "") }
+    var rewardAmount by remember { mutableStateOf(alert.rewardAmount ?: "") }
+
+    AlertDialog(
+        onDismissRequest = onDismiss,
+        title = { Text(stringResource(R.string.edit_alert)) },
+        text = {
+            Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
+                OutlinedTextField(
+                    value = description,
+                    onValueChange = { description = it },
+                    label = { Text(stringResource(R.string.additional_info)) },
+                    modifier = Modifier.fillMaxWidth(),
+                    minLines = 3
+                )
+                OutlinedTextField(
+                    value = lastSeenAddress,
+                    onValueChange = { lastSeenAddress = it },
+                    label = { Text(stringResource(R.string.last_seen_location)) },
+                    modifier = Modifier.fillMaxWidth()
+                )
+                OutlinedTextField(
+                    value = rewardAmount,
+                    onValueChange = { rewardAmount = it },
+                    label = { Text(stringResource(R.string.reward_optional)) },
+                    modifier = Modifier.fillMaxWidth()
+                )
+            }
+        },
+        confirmButton = {
+            Button(
+                onClick = {
+                    onSave(
+                        description.ifBlank { null },
+                        lastSeenAddress.ifBlank { null },
+                        rewardAmount.ifBlank { null }
+                    )
+                },
+                colors = ButtonDefaults.buttonColors(containerColor = BrandOrange)
+            ) {
+                Text(stringResource(R.string.save))
+            }
+        },
+        dismissButton = {
+            TextButton(onClick = onDismiss) {
+                Text(stringResource(R.string.cancel))
+            }
+        }
+    )
 }
 
 @SuppressLint("MissingPermission")

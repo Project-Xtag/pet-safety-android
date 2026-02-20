@@ -64,9 +64,9 @@ class AlertsViewModel @Inject constructor(
         viewModelScope.launch {
             _isLoading.value = true
             try {
-                val alerts = repository.fetchNearbyAlerts(latitude, longitude, radiusKm)
-                _missingAlerts.value = alerts.filter { it.status == "active" }
-                _foundAlerts.value = alerts.filter { it.status == "found" }
+                val nearbyAlerts = repository.fetchNearbyAlerts(latitude, longitude, radiusKm)
+                _missingAlerts.value = nearbyAlerts.filter { it.status == "active" }
+                _foundAlerts.value = nearbyAlerts.filter { it.status == "found" }
             } catch (ex: Exception) {
                 _errorMessage.value = ex.localizedMessage
             } finally {
@@ -79,9 +79,9 @@ class AlertsViewModel @Inject constructor(
         viewModelScope.launch {
             _isRefreshing.value = true
             try {
-                val alerts = repository.fetchNearbyAlerts(lastLatitude, lastLongitude, lastRadiusKm)
-                _missingAlerts.value = alerts.filter { it.status == "active" }
-                _foundAlerts.value = alerts.filter { it.status == "found" }
+                val nearbyAlerts = repository.fetchNearbyAlerts(lastLatitude, lastLongitude, lastRadiusKm)
+                _missingAlerts.value = nearbyAlerts.filter { it.status == "active" }
+                _foundAlerts.value = nearbyAlerts.filter { it.status == "found" }
             } catch (ex: Exception) {
                 _errorMessage.value = ex.localizedMessage
             } finally {
@@ -103,6 +103,26 @@ class AlertsViewModel @Inject constructor(
                 repository.createAlert(petId, location, coordinate, additionalInfo).getOrThrow()
                 onResult(true, null)
             } catch (ex: OfflineQueuedException) {
+                onResult(true, null)
+            } catch (ex: Exception) {
+                onResult(false, ex.localizedMessage)
+            } finally {
+                _isLoading.value = false
+            }
+        }
+    }
+
+    fun updateAlert(
+        alertId: String,
+        description: String?,
+        lastSeenAddress: String?,
+        rewardAmount: String?,
+        onResult: (Boolean, String?) -> Unit
+    ) {
+        viewModelScope.launch {
+            _isLoading.value = true
+            try {
+                repository.updateAlert(alertId, description, lastSeenAddress, rewardAmount)
                 onResult(true, null)
             } catch (ex: Exception) {
                 onResult(false, ex.localizedMessage)
