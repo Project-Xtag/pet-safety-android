@@ -76,7 +76,6 @@ fun OrderReplacementTagScreen(
     val street1 = remember { mutableStateOf("") }
     val street2 = remember { mutableStateOf("") }
     val city = remember { mutableStateOf("") }
-    val province = remember { mutableStateOf("") }
     val postCode = remember { mutableStateOf("") }
     val country = remember { mutableStateOf("") }
 
@@ -282,23 +281,11 @@ fun OrderReplacementTagScreen(
 
                         Spacer(modifier = Modifier.height(12.dp))
 
-                        Row(
-                            modifier = Modifier.fillMaxWidth(),
-                            horizontalArrangement = Arrangement.spacedBy(12.dp)
-                        ) {
-                            StyledTextField(
-                                value = province.value,
-                                onValueChange = { province.value = it },
-                                label = stringResource(R.string.province),
-                                modifier = Modifier.weight(1f)
-                            )
-                            StyledTextField(
-                                value = country.value,
-                                onValueChange = { country.value = it },
-                                label = stringResource(R.string.country),
-                                modifier = Modifier.weight(1f)
-                            )
-                        }
+                        StyledTextField(
+                            value = country.value,
+                            onValueChange = { country.value = it },
+                            label = stringResource(R.string.country)
+                        )
                     }
                 }
 
@@ -344,7 +331,7 @@ fun OrderReplacementTagScreen(
                                 street1 = street1.value,
                                 street2 = street2.value.ifBlank { null },
                                 city = city.value,
-                                province = province.value.ifBlank { null },
+                                province = null,
                                 postCode = postCode.value,
                                 country = country.value
                             )
