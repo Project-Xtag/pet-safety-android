@@ -142,7 +142,7 @@ fun PetSafetyApp(
                                 context.getString(R.string.checkout_tag_order_success)
                             )
                         }
-                        "replacement_shipping" -> {
+                        "replacement_shipping", "replacement_tag" -> {
                             appStateViewModel.showSuccess(
                                 context.getString(R.string.checkout_replacement_success)
                             )
