@@ -246,7 +246,7 @@ private fun OrderCard(
                     color = MaterialTheme.colorScheme.onSurface
                 )
                 Text(
-                    text = formatCurrency(order.totalAmount),
+                    text = formatCurrency(order.totalAmount, order.currency),
                     style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold),
                     color = MaterialTheme.colorScheme.onSurface
                 )
@@ -352,7 +352,7 @@ private fun OrderDetailScreen(
                 }
 
                 HorizontalDivider(color = MaterialTheme.colorScheme.outlineVariant, modifier = Modifier.padding(vertical = 12.dp))
-                DetailRow(label = stringResource(R.string.total_amount), value = formatCurrency(order.totalAmount), isBold = true)
+                DetailRow(label = stringResource(R.string.total_amount), value = formatCurrency(order.totalAmount, order.currency), isBold = true)
                 HorizontalDivider(color = MaterialTheme.colorScheme.outlineVariant, modifier = Modifier.padding(vertical = 12.dp))
                 DetailRow(label = stringResource(R.string.order_date), value = formatDateLong(order.createdAt))
             }
@@ -394,7 +394,7 @@ private fun OrderDetailScreen(
                                         color = if (item.qrTagId == null) BrandOrange else InfoBlue
                                     )
                                     Text(
-                                        text = formatCurrency(item.price),
+                                        text = formatCurrency(item.price, order.currency),
                                         style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.Medium),
                                         color = MaterialTheme.colorScheme.onSurface
                                     )
@@ -468,10 +468,16 @@ private fun localizedStatus(status: String): String {
     }
 }
 
-private fun formatCurrency(amount: Double): String {
-    val formatter = NumberFormat.getCurrencyInstance(Locale.GERMANY)
-    formatter.currency = Currency.getInstance("EUR")
-    return formatter.format(amount)
+private fun formatCurrency(amount: Double, currencyCode: String = "eur"): String {
+    return try {
+        val formatter = NumberFormat.getCurrencyInstance(Locale.getDefault())
+        formatter.currency = Currency.getInstance(currencyCode.uppercase())
+        formatter.format(amount)
+    } catch (_: Exception) {
+        val formatter = NumberFormat.getCurrencyInstance(Locale.getDefault())
+        formatter.currency = Currency.getInstance("EUR")
+        formatter.format(amount)
+    }
 }
 
 private fun formatDate(dateString: String): String {

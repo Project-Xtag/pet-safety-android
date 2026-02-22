@@ -16,6 +16,7 @@ data class Order(
     @SerialName("payment_status") val paymentStatus: String,
     @SerialName("payment_intent_id") val paymentIntentId: String? = null,
     @SerialName("order_status") val orderStatus: String,
+    val currency: String = "eur",
     @SerialName("created_at") val createdAt: String,
     @SerialName("updated_at") val updatedAt: String,
     val items: List<OrderItem>? = null

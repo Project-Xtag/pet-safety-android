@@ -18,10 +18,18 @@ data class SubscriptionPlan(
     val isFree: Boolean get() = priceMonthly == 0.0
 
     val formattedMonthlyPrice: String
-        get() = if (isFree) "Free" else "£%.2f/mo".format(priceMonthly)
+        get() = if (isFree) "Free" else "${currencySymbol}%.2f/mo".format(priceMonthly)
 
     val formattedYearlyPrice: String
-        get() = if (isFree) "Free" else "£%.2f/yr".format(priceYearly)
+        get() = if (isFree) "Free" else "${currencySymbol}%.2f/yr".format(priceYearly)
+
+    private val currencySymbol: String
+        get() = when (currency.uppercase()) {
+            "HUF" -> "Ft "
+            "GBP" -> "£"
+            "EUR" -> "€"
+            else -> "€"
+        }
 }
 
 @Serializable
