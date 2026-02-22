@@ -1120,7 +1120,7 @@
     <string name="pet_names">Kedvencek nevei</string>
     <string name="shipping_address">Szállítási cím</string>
     <string name="shipping">Szállítás</string>
-    <string name="shipping_price">\u00a33.90</string>
+    <string name="shipping_price">Calculated at checkout</string>
 
     <!-- Order Replacement Tag -->
     <string name="order_replace_title">Biléta csere rendelése</string>
@@ -1498,4 +1498,16 @@
     <string name="help_faq_group_billing_plans">Számlázás és csomagok</string>
     <string name="help_faq_group_privacy_account">Adatvédelem és fiók</string>
     <string name="help_faq_group_troubleshooting">Hibaelhárítás</string>
+    <!-- Checkout & Order Status -->
+    <string name="checkout_subscription_success">Your subscription is now active!</string>
+    <string name="checkout_tag_order_success">Payment successful! Your tag order is being processed.</string>
+    <string name="checkout_replacement_success">Payment successful! Your replacement tag is on the way.</string>
+    <string name="order_status_completed">Completed</string>
+    <string name="order_status_pending">Pending</string>
+    <string name="order_status_failed">Failed</string>
+    <string name="order_status_processing">Processing</string>
+    <string name="order_status_shipped">Shipped</string>
+    <string name="order_status_delivered">Delivered</string>
+    <string name="order_status_cancelled">Cancelled</string>
+
 </resources>

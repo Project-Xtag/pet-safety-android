@@ -32,6 +32,7 @@ class MainActivity : FragmentActivity() {
     private val deepLinkCodeState = mutableStateOf<String?>(null)
     private val notificationDataState = mutableStateOf<NotificationData?>(null)
     val checkoutResultState = mutableStateOf<String?>(null)
+    val checkoutTypeState = mutableStateOf<String?>(null)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         val splashScreen = installSplashScreen()
@@ -48,7 +49,9 @@ class MainActivity : FragmentActivity() {
                     pendingNotification = notificationDataState.value,
                     onNotificationHandled = { notificationDataState.value = null },
                     checkoutResult = checkoutResultState.value,
-                    onCheckoutResultHandled = { checkoutResultState.value = null }
+                    onCheckoutResultHandled = { checkoutResultState.value = null },
+                    checkoutType = checkoutTypeState.value,
+                    onCheckoutTypeHandled = { checkoutTypeState.value = null }
                 )
             }
         }
@@ -88,8 +91,9 @@ class MainActivity : FragmentActivity() {
         // Check for checkout deep link
         val checkoutResult = extractCheckoutResult(intent)
         if (checkoutResult != null) {
-            Timber.d("Handling checkout deep link: $checkoutResult")
-            checkoutResultState.value = checkoutResult
+            Timber.d("Handling checkout deep link: ${checkoutResult.first}, type: ${checkoutResult.second}")
+            checkoutResultState.value = checkoutResult.first
+            checkoutTypeState.value = checkoutResult.second
             return
         }
 
@@ -106,10 +110,12 @@ class MainActivity : FragmentActivity() {
         }
     }
 
-    private fun extractCheckoutResult(intent: Intent?): String? {
+    private fun extractCheckoutResult(intent: Intent?): Pair<String, String?>? {
         val data = intent?.data ?: return null
         if (data.scheme == "senra" && data.host == "checkout") {
-            return data.lastPathSegment // "success" or "cancelled"
+            val result = data.lastPathSegment ?: return null // "success" or "cancelled"
+            val type = data.getQueryParameter("type") // "subscription", "qr_tag_order", "replacement_shipping"
+            return Pair(result, type)
         }
         return null
     }

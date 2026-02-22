@@ -40,7 +40,9 @@ fun PetSafetyApp(
     pendingNotification: NotificationData? = null,
     onNotificationHandled: () -> Unit = {},
     checkoutResult: String? = null,
-    onCheckoutResultHandled: () -> Unit = {}
+    onCheckoutResultHandled: () -> Unit = {},
+    checkoutType: String? = null,
+    onCheckoutTypeHandled: () -> Unit = {}
 ) {
     val appStateViewModel: AppStateViewModel = hiltViewModel()
     val authViewModel: AuthViewModel = hiltViewModel()
@@ -128,16 +130,37 @@ fun PetSafetyApp(
         checkoutResult?.let { result ->
             when (result) {
                 "success" -> {
-                    appStateViewModel.showSuccess(
-                        context.getString(R.string.checkout_success_message)
-                    )
-                    appStateViewModel.refreshSubscription()
+                    when (checkoutType) {
+                        "subscription" -> {
+                            appStateViewModel.showSuccess(
+                                context.getString(R.string.checkout_subscription_success)
+                            )
+                            appStateViewModel.refreshSubscription()
+                        }
+                        "qr_tag_order" -> {
+                            appStateViewModel.showSuccess(
+                                context.getString(R.string.checkout_tag_order_success)
+                            )
+                        }
+                        "replacement_shipping" -> {
+                            appStateViewModel.showSuccess(
+                                context.getString(R.string.checkout_replacement_success)
+                            )
+                        }
+                        else -> {
+                            appStateViewModel.showSuccess(
+                                context.getString(R.string.checkout_success_message)
+                            )
+                            appStateViewModel.refreshSubscription()
+                        }
+                    }
                 }
                 "cancelled" -> appStateViewModel.showSuccess(
                     context.getString(R.string.checkout_cancelled_message)
                 )
             }
             onCheckoutResultHandled()
+            onCheckoutTypeHandled()
         }
     }
 

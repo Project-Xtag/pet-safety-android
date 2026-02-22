@@ -268,7 +268,7 @@ private fun OrderCard(
                     )
                     Spacer(modifier = Modifier.width(6.dp))
                     Text(
-                        text = order.orderStatus.replaceFirstChar { it.uppercase() },
+                        text = localizedStatus(order.orderStatus),
                         style = MaterialTheme.typography.bodyMedium,
                         color = statusColor
                     )
@@ -344,7 +344,7 @@ private fun OrderDetailScreen(
                         )
                         Spacer(modifier = Modifier.width(6.dp))
                         Text(
-                            text = order.orderStatus.replaceFirstChar { it.uppercase() },
+                            text = localizedStatus(order.orderStatus),
                             style = MaterialTheme.typography.bodyMedium,
                             color = statusColor
                         )
@@ -454,9 +454,23 @@ private fun DetailRow(
     }
 }
 
+@Composable
+private fun localizedStatus(status: String): String {
+    return when (status.lowercase()) {
+        "completed" -> stringResource(R.string.order_status_completed)
+        "pending" -> stringResource(R.string.order_status_pending)
+        "failed" -> stringResource(R.string.order_status_failed)
+        "processing" -> stringResource(R.string.order_status_processing)
+        "shipped" -> stringResource(R.string.order_status_shipped)
+        "delivered" -> stringResource(R.string.order_status_delivered)
+        "cancelled" -> stringResource(R.string.order_status_cancelled)
+        else -> status.replaceFirstChar { it.uppercase() }
+    }
+}
+
 private fun formatCurrency(amount: Double): String {
-    val formatter = NumberFormat.getCurrencyInstance(Locale.UK)
-    formatter.currency = Currency.getInstance("GBP")
+    val formatter = NumberFormat.getCurrencyInstance(Locale.GERMANY)
+    formatter.currency = Currency.getInstance("EUR")
     return formatter.format(amount)
 }
 

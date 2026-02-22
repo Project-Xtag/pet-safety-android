@@ -1120,7 +1120,7 @@
     <string name="pet_names">Namen der Haustiere</string>
     <string name="shipping_address">Lieferadresse</string>
     <string name="shipping">Versand</string>
-    <string name="shipping_price">\u00a33.90</string>
+    <string name="shipping_price">Calculated at checkout</string>
 
     <!-- Order Replacement Tag -->
     <string name="order_replace_title">Ersatz-Tag bestellen</string>
@@ -1498,4 +1498,16 @@
     <string name="help_faq_group_billing_plans">Abrechnung &amp; Pläne</string>
     <string name="help_faq_group_privacy_account">Datenschutz &amp; Konto</string>
     <string name="help_faq_group_troubleshooting">Fehlerbehebung</string>
+    <!-- Checkout & Order Status -->
+    <string name="checkout_subscription_success">Your subscription is now active!</string>
+    <string name="checkout_tag_order_success">Payment successful! Your tag order is being processed.</string>
+    <string name="checkout_replacement_success">Payment successful! Your replacement tag is on the way.</string>
+    <string name="order_status_completed">Completed</string>
+    <string name="order_status_pending">Pending</string>
+    <string name="order_status_failed">Failed</string>
+    <string name="order_status_processing">Processing</string>
+    <string name="order_status_shipped">Shipped</string>
+    <string name="order_status_delivered">Delivered</string>
+    <string name="order_status_cancelled">Cancelled</string>
+
 </resources>

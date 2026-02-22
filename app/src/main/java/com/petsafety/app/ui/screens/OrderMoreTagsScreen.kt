@@ -369,7 +369,7 @@ fun OrderMoreTagsScreen(
                                 phone = phone.value
                             ),
                             paymentMethod = "stripe",
-                            shippingCost = 3.90
+                            shippingCost = 0.0
                         )
                         // Create order first, then redirect to Stripe Checkout
                         viewModel.createOrder(request) { response, message ->
@@ -396,7 +396,14 @@ fun OrderMoreTagsScreen(
                         ),
                     shape = RoundedCornerShape(16.dp),
                     colors = ButtonDefaults.buttonColors(containerColor = BrandOrange),
-                    enabled = !isLoading
+                    enabled = !isLoading &&
+                        petNames.any { it.isNotBlank() } &&
+                        ownerName.value.isNotBlank() &&
+                        email.value.isNotBlank() && email.value.contains("@") &&
+                        street1.value.isNotBlank() &&
+                        city.value.isNotBlank() &&
+                        postCode.value.isNotBlank() &&
+                        country.value.isNotBlank()
                 ) {
                     if (isLoading) {
                         CircularProgressIndicator(
