@@ -1510,4 +1510,28 @@
     <string name="order_status_delivered">Delivered</string>
     <string name="order_status_cancelled">Cancelled</string>
 
+
+    <!-- Missing translations added -->
+    <string name="add_additional_info">Adicionar informação adicional</string>
+    <string name="add_health_info">Adicionar informação de saúde</string>
+    <string name="additional_info_empty_hint">Sem informação adicional</string>
+    <string name="alert_update_failed">Não foi possível atualizar o alerta</string>
+    <string name="alert_updated">Alerta atualizado com sucesso</string>
+    <string name="at_least_one_channel_required">Pelo menos um canal de notificação deve permanecer ativo</string>
+    <string name="billing_past_due_message">O seu último pagamento falhou. Atualize o método de pagamento para evitar a interrupção do serviço.</string>
+    <string name="billing_past_due_title">Pagamento em atraso</string>
+    <string name="billing_update_payment">Atualizar método de pagamento</string>
+    <string name="breed_custom_hint">Introduza o nome da raça…</string>
+    <string name="breed_custom_label">Nome da raça</string>
+    <string name="breed_other">Outra</string>
+    <string name="cannot_delete_missing_pet_message">Não pode eliminar um animal reportado como desaparecido. Marque-o como encontrado primeiro.</string>
+    <string name="edit_alert">Editar alerta</string>
+    <string name="health_info_empty_hint">Sem informação de saúde</string>
+    <string name="notification_channel_info">Pelo menos um canal de notificação deve estar ativo para que seja notificado quando a etiqueta QR do seu animal for lida.</string>
+    <string name="province">Distrito / Estado</string>
+    <string name="reward_badge_text">Recompensa: %1$s</string>
+    <string name="reward_placeholder">ex. €50, $100 ou um presente especial</string>
+    <string name="sex_optional">Opcional</string>
+    <string name="street2">Apt. / Andar / Bloco (Opcional)</string>
+
 </resources>

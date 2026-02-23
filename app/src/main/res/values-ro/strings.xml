@@ -1515,4 +1515,28 @@
     <string name="order_status_delivered">Delivered</string>
     <string name="order_status_cancelled">Cancelled</string>
 
+
+    <!-- Missing translations added -->
+    <string name="add_additional_info">Adaugă informații suplimentare</string>
+    <string name="add_health_info">Adaugă informații de sănătate</string>
+    <string name="additional_info_empty_hint">Nicio informație suplimentară adăugată</string>
+    <string name="alert_update_failed">Nu s-a putut actualiza alerta</string>
+    <string name="alert_updated">Alertă actualizată cu succes</string>
+    <string name="at_least_one_channel_required">Cel puțin un canal de notificare trebuie să rămână activ</string>
+    <string name="billing_past_due_message">Ultima ta plată a eșuat. Te rugăm să actualizezi metoda de plată pentru a evita întreruperea serviciului.</string>
+    <string name="billing_past_due_title">Plată restantă</string>
+    <string name="billing_update_payment">Actualizează metoda de plată</string>
+    <string name="breed_custom_hint">Introdu numele rasei…</string>
+    <string name="breed_custom_label">Numele rasei</string>
+    <string name="breed_other">Alta</string>
+    <string name="cannot_delete_missing_pet_message">Nu poți șterge un animal raportat ca dispărut. Te rugăm să-l marchezi ca găsit mai întâi.</string>
+    <string name="edit_alert">Editează alerta</string>
+    <string name="health_info_empty_hint">Nicio informație de sănătate adăugată</string>
+    <string name="notification_channel_info">Cel puțin un canal de notificare trebuie să fie activ pentru a fi notificat când eticheta QR a animalului tău este scanată.</string>
+    <string name="province">Județ / Regiune</string>
+    <string name="reward_badge_text">Recompensă: %1$s</string>
+    <string name="reward_placeholder">ex. €50, $100 sau un cadou special</string>
+    <string name="sex_optional">Opțional</string>
+    <string name="street2">Apt. / Etaj / Bloc (Opțional)</string>
+
 </resources>

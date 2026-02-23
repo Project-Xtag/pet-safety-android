@@ -1510,4 +1510,28 @@
     <string name="order_status_delivered">Delivered</string>
     <string name="order_status_cancelled">Cancelled</string>
 
+
+    <!-- Missing translations added -->
+    <string name="add_additional_info">További információ hozzáadása</string>
+    <string name="add_health_info">Egészségügyi információ hozzáadása</string>
+    <string name="additional_info_empty_hint">Nincs további információ megadva</string>
+    <string name="alert_update_failed">Nem sikerült frissíteni a riasztást</string>
+    <string name="alert_updated">A riasztás sikeresen frissítve</string>
+    <string name="at_least_one_channel_required">Legalább egy értesítési csatornának aktívnak kell maradnia</string>
+    <string name="billing_past_due_message">Az utolsó fizetés sikertelen volt. Kérjük, frissítsd a fizetési módodat a szolgáltatás megszakításának elkerülése érdekében.</string>
+    <string name="billing_past_due_title">Lejárt fizetés</string>
+    <string name="billing_update_payment">Fizetési mód frissítése</string>
+    <string name="breed_custom_hint">Add meg a fajta nevét…</string>
+    <string name="breed_custom_label">Fajta neve</string>
+    <string name="breed_other">Egyéb</string>
+    <string name="cannot_delete_missing_pet_message">Nem törölheted az eltűntként bejelentett kedvencet. Kérjük, előbb jelöld megtaláltként.</string>
+    <string name="edit_alert">Riasztás szerkesztése</string>
+    <string name="health_info_empty_hint">Nincs egészségügyi információ megadva</string>
+    <string name="notification_channel_info">Legalább egy értesítési csatornának aktívnak kell lennie, hogy értesülhess, amikor a kedvenced QR bilétáját beolvassák.</string>
+    <string name="province">Megye / Tartomány</string>
+    <string name="reward_badge_text">Jutalom: %1$s</string>
+    <string name="reward_placeholder">pl. €50, $100 vagy különleges ajándék</string>
+    <string name="sex_optional">Opcionális</string>
+    <string name="street2">Lh. / Emelet / Ajtó (Opcionális)</string>
+
 </resources>

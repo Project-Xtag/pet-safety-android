@@ -1510,4 +1510,28 @@
     <string name="order_status_delivered">Delivered</string>
     <string name="order_status_cancelled">Cancelled</string>
 
+
+    <!-- Missing translations added -->
+    <string name="add_additional_info">Zusätzliche Informationen hinzufügen</string>
+    <string name="add_health_info">Gesundheitsinformationen hinzufügen</string>
+    <string name="additional_info_empty_hint">Keine zusätzlichen Informationen vorhanden</string>
+    <string name="alert_update_failed">Warnung konnte nicht aktualisiert werden</string>
+    <string name="alert_updated">Warnung erfolgreich aktualisiert</string>
+    <string name="at_least_one_channel_required">Mindestens ein Benachrichtigungskanal muss aktiv bleiben</string>
+    <string name="billing_past_due_message">Ihre letzte Zahlung ist fehlgeschlagen. Bitte aktualisieren Sie Ihre Zahlungsmethode, um eine Dienstunterbrechung zu vermeiden.</string>
+    <string name="billing_past_due_title">Zahlung überfällig</string>
+    <string name="billing_update_payment">Zahlungsmethode aktualisieren</string>
+    <string name="breed_custom_hint">Rassename eingeben…</string>
+    <string name="breed_custom_label">Rassename</string>
+    <string name="breed_other">Sonstige</string>
+    <string name="cannot_delete_missing_pet_message">Sie können ein als vermisst gemeldetes Haustier nicht löschen. Bitte markieren Sie es zuerst als gefunden.</string>
+    <string name="edit_alert">Warnung bearbeiten</string>
+    <string name="health_info_empty_hint">Keine Gesundheitsinformationen vorhanden</string>
+    <string name="notification_channel_info">Mindestens ein Benachrichtigungskanal muss aktiv sein, damit Sie benachrichtigt werden, wenn der QR-Tag Ihres Haustieres gescannt wird.</string>
+    <string name="province">Bundesland / Region</string>
+    <string name="reward_badge_text">Belohnung: %1$s</string>
+    <string name="reward_placeholder">z.B. €50, $100 oder ein besonderes Geschenk</string>
+    <string name="sex_optional">Optional</string>
+    <string name="street2">Whg. / Etage / Stiege (Optional)</string>
+
 </resources>

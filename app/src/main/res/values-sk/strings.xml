@@ -1521,4 +1521,28 @@
     <string name="order_status_delivered">Delivered</string>
     <string name="order_status_cancelled">Cancelled</string>
 
+
+    <!-- Missing translations added -->
+    <string name="add_additional_info">Pridať ďalšie informácie</string>
+    <string name="add_health_info">Pridať zdravotné informácie</string>
+    <string name="additional_info_empty_hint">Žiadne ďalšie informácie</string>
+    <string name="alert_update_failed">Nepodarilo sa aktualizovať upozornenie</string>
+    <string name="alert_updated">Upozornenie úspešne aktualizované</string>
+    <string name="at_least_one_channel_required">Aspoň jeden kanál upozornení musí zostať aktívny</string>
+    <string name="billing_past_due_message">Vaša posledná platba zlyhala. Aktualizujte spôsob platby, aby ste predišli prerušeniu služby.</string>
+    <string name="billing_past_due_title">Platba po splatnosti</string>
+    <string name="billing_update_payment">Aktualizovať spôsob platby</string>
+    <string name="breed_custom_hint">Zadajte názov plemena…</string>
+    <string name="breed_custom_label">Názov plemena</string>
+    <string name="breed_other">Iné</string>
+    <string name="cannot_delete_missing_pet_message">Nemôžete vymazať zviera, ktoré je nahlásené ako stratené. Najprv ho označte ako nájdené.</string>
+    <string name="edit_alert">Upraviť upozornenie</string>
+    <string name="health_info_empty_hint">Žiadne zdravotné informácie</string>
+    <string name="notification_channel_info">Aspoň jeden kanál upozornení musí byť aktívny, aby ste boli upozornení, keď je QR štítok vášho zvieraťa naskenovaný.</string>
+    <string name="province">Kraj / Okres</string>
+    <string name="reward_badge_text">Odmena: %1$s</string>
+    <string name="reward_placeholder">napr. €50, $100 alebo špeciálny darček</string>
+    <string name="sex_optional">Voliteľné</string>
+    <string name="street2">Byt / Poschodie (Voliteľné)</string>
+
 </resources>

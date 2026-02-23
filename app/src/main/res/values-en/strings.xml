@@ -1504,4 +1504,26 @@
     <string name="order_status_delivered">Delivered</string>
     <string name="order_status_cancelled">Cancelled</string>
 
+
+    <!-- Missing translations added -->
+    <string name="add_additional_info">Add additional information</string>
+    <string name="add_health_info">Add health information</string>
+    <string name="additional_info_empty_hint">No additional information added</string>
+    <string name="alert_update_failed">Failed to update alert</string>
+    <string name="alert_updated">Alert updated successfully</string>
+    <string name="at_least_one_channel_required">At least one notification channel must remain active</string>
+    <string name="billing_past_due_message">Your last payment failed. Please update your payment method to avoid service interruption.</string>
+    <string name="billing_past_due_title">Payment Past Due</string>
+    <string name="billing_update_payment">Update Payment Method</string>
+    <string name="breed_custom_hint">Enter breed name…</string>
+    <string name="breed_custom_label">Breed name</string>
+    <string name="breed_other">Other</string>
+    <string name="cannot_delete_missing_pet_message">You cannot delete a pet that is currently reported as missing. Please mark the pet as found first.</string>
+    <string name="edit_alert">Edit Alert</string>
+    <string name="health_info_empty_hint">No health information added</string>
+    <string name="notification_channel_info">At least one notification channel must be active so you can be notified when your pet\'s QR tag is scanned.</string>
+    <string name="province">Province / State</string>
+    <string name="sex_optional">Optional</string>
+    <string name="street2">Apt / Suite / Floor (Optional)</string>
+
 </resources>
