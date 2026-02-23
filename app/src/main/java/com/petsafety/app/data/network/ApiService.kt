@@ -168,6 +168,10 @@ interface ApiService {
     @POST("orders/create-checkout")
     suspend fun createTagCheckout(@Body request: CreateTagCheckoutRequest): ApiEnvelope<TagCheckoutResponse>
 
+    // Delivery Points (PostaPoint picker)
+    @GET("orders/delivery-points")
+    suspend fun getDeliveryPoints(@Query("zipCode") zipCode: String): ApiEnvelope<List<DeliveryPoint>>
+
     // Payments
     @POST("payments/intent")
     suspend fun createPaymentIntent(@Body request: CreatePaymentIntentRequest): ApiEnvelope<PaymentIntentResponse>

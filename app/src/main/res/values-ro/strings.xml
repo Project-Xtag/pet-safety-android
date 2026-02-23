@@ -1150,6 +1150,15 @@
     <string name="order_replace_delivery_time">Vei primi noua etichetă în 5-7 zile lucrătoare</string>
     <string name="order_replace_scan_activate">După ce primești noua etichetă, trebuie să o scanezi pentru activare</string>
     <string name="order_replace_province">Județ / stat (opțional)</string>
+    <string name="delivery_method_title">Metodă de livrare</string>
+    <string name="home_delivery_option">Livrare la domiciliu</string>
+    <string name="home_delivery_price">2.490 Ft</string>
+    <string name="postapoint_delivery_option">Ridicare PostaPoint</string>
+    <string name="postapoint_delivery_price">1.490 Ft</string>
+    <string name="postapoint_zip_placeholder">Cod poștal</string>
+    <string name="postapoint_search">Căutare</string>
+    <string name="postapoint_no_results">Nu s-au găsit locații PostaPoint pentru acest cod poștal</string>
+    <string name="postapoint_search_failed">Căutarea punctelor de livrare a eșuat</string>
 
     <!-- ============================================ -->
     <!-- MARK: Subscription / Pricing -->
@@ -1454,7 +1463,7 @@
     <string name="help_faq_q11">Ce este programul de recomandare?</string>
     <string name="help_faq_a11">Distribuie codul SENRAFRIEND prietenilor și familiei. Când cineva folosește acest cod și se abonează la un plan plătit (Standard sau Ultimate), amândoi primiți 2 luni gratuite. Poți urmări recomandările și statusul lor pe pagina de Recomandări.</string>
     <string name="help_faq_q12">În ce țări livrați?</string>
-    <string name="help_faq_a12">În prezent livrăm în Ungaria, Slovacia, Cehia, Austria, România, Croația, Spania și Portugalia. Costul de livrare este de £3,90 pe comandă.</string>
+    <string name="help_faq_a12">În prezent livrăm în Ungaria, Slovacia, Cehia, Austria, România, Croația, Spania și Portugalia. Livrarea în Ungaria costă 1490 Ft (PostaPont) sau 2490 Ft (livrare la domiciliu). Livrarea internațională costă €9,95 per comandă.</string>
     <string name="help_faq_q13">Pot avea mai multe animale pe un singur cont?</string>
     <string name="help_faq_a13">Da. Cu planul Starter (gratuit) poți înregistra un animal. Planul Standard permite de asemenea un animal. Planul Ultimate permite animale nelimitate. Poți face upgrade oricând din pagina Cont.</string>
     <string name="help_faq_q14">Cum raportez un animal pe care l-am găsit?</string>

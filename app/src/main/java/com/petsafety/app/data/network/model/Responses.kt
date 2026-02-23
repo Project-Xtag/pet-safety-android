@@ -269,6 +269,16 @@ data class TagCheckoutResponse(
 
 
 @Serializable
+data class DeliveryPoint(
+    val id: String,
+    val name: String,
+    val address: String? = null,
+    val city: String? = null,
+    val postcode: String? = null,
+    @SerialName("opening_hours") val openingHours: String? = null
+)
+
+@Serializable
 data class InvoicesResponse(
     val invoices: List<Invoice>
 )

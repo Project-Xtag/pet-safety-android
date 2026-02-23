@@ -345,9 +345,9 @@ class PetsRepositoryTest {
             )
         )
 
-        repository.markPetMissing("pet-1", location, "London", "Lost in park", rewardAmount = 50.0)
+        repository.markPetMissing("pet-1", location, "London", "Lost in park", rewardAmount = "50.0")
 
-        assertEquals(50.0, requestSlot.captured.rewardAmount!!, 0.0)
+        assertEquals("50.0", requestSlot.captured.rewardAmount)
     }
 
     @Test
@@ -372,7 +372,7 @@ class PetsRepositoryTest {
         every { networkMonitor.isConnected } returns MutableStateFlow(false)
         val location = LocationCoordinate(51.5074, -0.1278)
 
-        repository.markPetMissing("pet-1", location, "London", "Lost", rewardAmount = 100.0)
+        repository.markPetMissing("pet-1", location, "London", "Lost", rewardAmount = "100.0")
 
         coVerify {
             syncService.queueAction(

@@ -3,6 +3,7 @@ package com.petsafety.app.ui.screens
 import android.net.Uri
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -40,6 +41,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
+import androidx.compose.material3.RadioButton
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -62,6 +64,8 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.petsafety.app.R
 import com.petsafety.app.data.network.model.AddressDetails
 import com.petsafety.app.data.network.model.CreateTagOrderRequest
+import com.petsafety.app.data.network.model.PostaPointDetails
+import com.petsafety.app.ui.components.PostaPointPicker
 import com.petsafety.app.ui.theme.BrandOrange
 import com.petsafety.app.ui.theme.TealAccent
 import com.petsafety.app.ui.util.AdaptiveLayout
@@ -78,9 +82,12 @@ fun OrderMoreTagsScreen(
     val context = LocalContext.current
     val checkoutUrl by viewModel.checkoutUrl.collectAsState()
     val isLoading by viewModel.isLoading.collectAsState()
+    val deliveryPoints by viewModel.deliveryPoints.collectAsState()
+    val isSearchingPoints by viewModel.isSearchingPoints.collectAsState()
 
     val orderCreateFailedMessage = stringResource(R.string.order_create_failed)
     val checkoutFailedMessage = stringResource(R.string.checkout_failed)
+    val searchFailedMessage = stringResource(R.string.postapoint_search_failed)
 
     // Launch Chrome Custom Tab when checkout URL is available
     LaunchedEffect(checkoutUrl) {
@@ -101,6 +108,13 @@ fun OrderMoreTagsScreen(
     val city = remember { mutableStateOf("") }
     val postCode = remember { mutableStateOf("") }
     val country = remember { mutableStateOf("") }
+    val deliveryMethod = remember { mutableStateOf("home_delivery") }
+    val selectedPostaPoint = remember { mutableStateOf<PostaPointDetails?>(null) }
+    val hasSearchedPoints = remember { mutableStateOf(false) }
+
+    val isHungary = country.value.lowercase().let {
+        it == "hu" || it == "hungary" || it == "magyarország" || it == "magyarorszag"
+    }
 
     Box(
         modifier = Modifier
@@ -315,6 +329,67 @@ fun OrderMoreTagsScreen(
                     )
                 }
 
+                // Delivery Method Section (Hungary only)
+                if (isHungary) {
+                    Spacer(modifier = Modifier.height(16.dp))
+
+                    SectionCard(
+                        title = stringResource(R.string.delivery_method_title),
+                        icon = Icons.Default.LocalShipping
+                    ) {
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .clickable { deliveryMethod.value = "home_delivery" },
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            RadioButton(
+                                selected = deliveryMethod.value == "home_delivery",
+                                onClick = { deliveryMethod.value = "home_delivery" }
+                            )
+                            Text(
+                                text = "${stringResource(R.string.home_delivery_option)} (${stringResource(R.string.home_delivery_price)})",
+                                style = MaterialTheme.typography.bodyMedium,
+                                modifier = Modifier.weight(1f)
+                            )
+                        }
+
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .clickable { deliveryMethod.value = "postapoint" },
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            RadioButton(
+                                selected = deliveryMethod.value == "postapoint",
+                                onClick = { deliveryMethod.value = "postapoint" }
+                            )
+                            Text(
+                                text = "${stringResource(R.string.postapoint_delivery_option)} (${stringResource(R.string.postapoint_delivery_price)})",
+                                style = MaterialTheme.typography.bodyMedium,
+                                modifier = Modifier.weight(1f)
+                            )
+                        }
+
+                        if (deliveryMethod.value == "postapoint") {
+                            Spacer(modifier = Modifier.height(12.dp))
+                            PostaPointPicker(
+                                deliveryPoints = deliveryPoints,
+                                selectedPoint = selectedPostaPoint.value,
+                                isSearching = isSearchingPoints,
+                                hasSearched = hasSearchedPoints.value,
+                                onSearch = { zip ->
+                                    hasSearchedPoints.value = true
+                                    viewModel.getDeliveryPoints(zip) { errorMsg ->
+                                        appStateViewModel.showError(errorMsg ?: searchFailedMessage)
+                                    }
+                                },
+                                onSelect = { selectedPostaPoint.value = it }
+                            )
+                        }
+                    }
+                }
+
                 Spacer(modifier = Modifier.height(16.dp))
 
                 // Pricing Info
@@ -335,7 +410,14 @@ fun OrderMoreTagsScreen(
                             color = MaterialTheme.colorScheme.onSurfaceVariant
                         )
                         Text(
-                            text = stringResource(R.string.shipping_price),
+                            text = if (isHungary) {
+                                if (deliveryMethod.value == "postapoint")
+                                    stringResource(R.string.postapoint_delivery_price)
+                                else
+                                    stringResource(R.string.home_delivery_price)
+                            } else {
+                                stringResource(R.string.shipping_price)
+                            },
                             style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.SemiBold),
                             color = MaterialTheme.colorScheme.onSurface
                         )
@@ -376,7 +458,9 @@ fun OrderMoreTagsScreen(
                             if (response != null) {
                                 viewModel.createTagCheckout(
                                     quantity = validPetNames.size,
-                                    countryCode = country.value.takeIf { it.isNotBlank() }
+                                    countryCode = country.value.takeIf { it.isNotBlank() },
+                                    deliveryMethod = if (isHungary) deliveryMethod.value else null,
+                                    postapointDetails = if (isHungary && deliveryMethod.value == "postapoint") selectedPostaPoint.value else null
                                 ) { errorMsg ->
                                     appStateViewModel.showError(errorMsg ?: checkoutFailedMessage)
                                 }
@@ -403,7 +487,8 @@ fun OrderMoreTagsScreen(
                         street1.value.isNotBlank() &&
                         city.value.isNotBlank() &&
                         postCode.value.isNotBlank() &&
-                        country.value.isNotBlank()
+                        country.value.isNotBlank() &&
+                        (!isHungary || deliveryMethod.value != "postapoint" || selectedPostaPoint.value != null)
                 ) {
                     if (isLoading) {
                         CircularProgressIndicator(

@@ -67,7 +67,7 @@ class SubscriptionViewModelTest {
     fun setup() {
         Dispatchers.setMain(testDispatcher)
         repository = mockk(relaxed = true)
-        viewModel = SubscriptionViewModel(repository, SubscriptionEventBus())
+        viewModel = SubscriptionViewModel(repository, SubscriptionEventBus(), mockk(relaxed = true))
     }
 
     @After

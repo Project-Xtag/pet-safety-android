@@ -1152,6 +1152,15 @@
     <string name="order_replace_delivery_time">Az új bilétád 5-7 munkanapon belül megérkezik</string>
     <string name="order_replace_scan_activate">A biléta megérkezése után be kell olvasnod az aktiváláshoz</string>
     <string name="order_replace_province">Megye / állam (opcionális)</string>
+    <string name="delivery_method_title">Szállítási mód</string>
+    <string name="home_delivery_option">Házhozszállítás</string>
+    <string name="home_delivery_price">2 490 Ft</string>
+    <string name="postapoint_delivery_option">PostaPont átvétel</string>
+    <string name="postapoint_delivery_price">1 490 Ft</string>
+    <string name="postapoint_zip_placeholder">Irányítószám</string>
+    <string name="postapoint_search">Keresés</string>
+    <string name="postapoint_no_results">Nem található PostaPont ezen az irányítószámon</string>
+    <string name="postapoint_search_failed">Nem sikerült keresni az átvételi pontokat</string>
 
     <!-- ============================================ -->
     <!-- MARK: Subscription / Pricing -->
@@ -1449,7 +1458,7 @@
     <string name="help_faq_q11">Mi az ajánlói program?</string>
     <string name="help_faq_a11">Oszd meg a SENRAFRIEND kódot barátaiddal és családtagjaiddal. Amikor valaki felhasználja ezt a kódot és előfizet egy fizetős csomagra (Standard vagy Ultimate), te és a barátod is 2 hónap ingyenességet kaptok. Az ajánlásaidat és azok állapotát az Ajánló oldalon követheted nyomon.</string>
     <string name="help_faq_q12">Mely országokba szállítotok?</string>
-    <string name="help_faq_a12">Jelenleg Magyarországra, Szlovákiába, Csehországba, Ausztriába, Romániába, Horvátországba, Spanyolországba és Portugáliába szállítunk. A szállítási költség £3.90 rendelésenként.</string>
+    <string name="help_faq_a12">Jelenleg Magyarországra, Szlovákiába, Csehországba, Ausztriába, Romániába, Horvátországba, Spanyolországba és Portugáliába szállítunk. Magyarországi szállítás: 1 490 Ft (PostaPont) vagy 2 490 Ft (házhozszállítás). Nemzetközi szállítás: €9,95 rendelésenként.</string>
     <string name="help_faq_q13">Lehet több kedvencem egy fiókon?</string>
     <string name="help_faq_a13">Igen. A Starter (ingyenes) csomagnál egy kedvencet regisztrálhatsz. A Standard csomag szintén egy kedvencet támogat. Az Ultimate csomag korlátlan számú kedvencet támogat. A csomagodat bármikor frissítheted a Fiók oldalon.</string>
     <string name="help_faq_q14">Hogyan jelenthetek egy megtalált kedvencet?</string>

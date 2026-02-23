@@ -1152,6 +1152,15 @@
     <string name="order_replace_delivery_time">Sie erhalten Ihren neuen Tag innerhalb von 5\u20137 Werktagen</string>
     <string name="order_replace_scan_activate">Sobald Sie den neuen Tag erhalten, müssen Sie ihn zum Aktivieren scannen</string>
     <string name="order_replace_province">Bundesland / Staat (optional)</string>
+    <string name="delivery_method_title">Liefermethode</string>
+    <string name="home_delivery_option">Hauslieferung</string>
+    <string name="home_delivery_price">2.490 Ft</string>
+    <string name="postapoint_delivery_option">PostaPoint Abholung</string>
+    <string name="postapoint_delivery_price">1.490 Ft</string>
+    <string name="postapoint_zip_placeholder">Postleitzahl</string>
+    <string name="postapoint_search">Suchen</string>
+    <string name="postapoint_no_results">Keine PostaPoint-Standorte für diese PLZ gefunden</string>
+    <string name="postapoint_search_failed">Lieferpunkte konnten nicht gesucht werden</string>
 
     <!-- ============================================ -->
     <!-- MARK: Subscription / Pricing -->
@@ -1449,7 +1458,7 @@
     <string name="help_faq_q11">Was ist das Empfehlungsprogramm?</string>
     <string name="help_faq_a11">Teile den Code SENRAFRIEND mit Freunden und Familie. Wenn jemand diesen Code verwendet und einen bezahlten Plan (Standard oder Ultimate) abschließt, erhaltet ihr beide 2 Monate gratis. Du kannst deine Empfehlungen auf der Empfehlungsseite verfolgen.</string>
     <string name="help_faq_q12">In welche Länder liefert ihr?</string>
-    <string name="help_faq_a12">Wir liefern derzeit nach Ungarn, in die Slowakei, nach Tschechien, Österreich, Rumänien, Kroatien, Spanien und Portugal. Der Versand kostet £3,90 pro Bestellung.</string>
+    <string name="help_faq_a12">Wir liefern derzeit nach Ungarn, in die Slowakei, nach Tschechien, Österreich, Rumänien, Kroatien, Spanien und Portugal. Versand innerhalb Ungarns: 1 490 Ft (PostaPont) oder 2 490 Ft (Hauszustellung). Internationaler Versand: €9,95 pro Bestellung.</string>
     <string name="help_faq_q13">Kann ich mehrere Tiere in einem Konto haben?</string>
     <string name="help_faq_a13">Ja. Im Starter (kostenlos) Plan kannst du ein Tier registrieren. Der Standard-Plan unterstützt ebenfalls ein Tier. Der Ultimate-Plan unterstützt unbegrenzt viele Tiere. Du kannst deinen Plan jederzeit auf der Kontoseite upgraden.</string>
     <string name="help_faq_q14">Wie melde ich ein gefundenes Tier?</string>

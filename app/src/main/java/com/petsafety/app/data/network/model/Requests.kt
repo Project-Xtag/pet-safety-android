@@ -176,7 +176,9 @@ data class AddressDetails(
 @Serializable
 data class CreateReplacementOrderRequest(
     val shippingAddress: AddressDetails,
-    val platform: String = "android"
+    val platform: String = "android",
+    val deliveryMethod: String? = null,
+    val postapointDetails: PostaPointDetails? = null
 )
 
 @Serializable
@@ -233,7 +235,16 @@ data class CreateCheckoutRequest(
 data class CreateTagCheckoutRequest(
     val quantity: Int,
     @SerialName("country_code") val countryCode: String? = null,
-    val platform: String = "android"
+    val platform: String = "android",
+    val deliveryMethod: String? = null,
+    val postapointDetails: PostaPointDetails? = null
+)
+
+@Serializable
+data class PostaPointDetails(
+    val id: String,
+    val name: String,
+    val address: String? = null
 )
 
 @Serializable

@@ -5,6 +5,8 @@ import androidx.lifecycle.viewModelScope
 import com.petsafety.app.data.model.Order
 import com.petsafety.app.data.network.model.CreateReplacementOrderRequest
 import com.petsafety.app.data.network.model.CreateTagOrderRequest
+import com.petsafety.app.data.network.model.DeliveryPoint
+import com.petsafety.app.data.network.model.PostaPointDetails
 import com.petsafety.app.data.repository.OrdersRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -111,20 +113,44 @@ class OrdersViewModel @Inject constructor(
     private val _checkoutUrl = MutableStateFlow<String?>(null)
     val checkoutUrl: StateFlow<String?> = _checkoutUrl.asStateFlow()
 
+    private val _deliveryPoints = MutableStateFlow<List<DeliveryPoint>>(emptyList())
+    val deliveryPoints: StateFlow<List<DeliveryPoint>> = _deliveryPoints.asStateFlow()
+
+    private val _isSearchingPoints = MutableStateFlow(false)
+    val isSearchingPoints: StateFlow<Boolean> = _isSearchingPoints.asStateFlow()
+
     fun createTagCheckout(
         quantity: Int,
         countryCode: String? = null,
+        deliveryMethod: String? = null,
+        postapointDetails: PostaPointDetails? = null,
         onError: (String?) -> Unit = {}
     ) {
         viewModelScope.launch {
             _isLoading.value = true
             try {
-                val url = repository.createTagCheckout(quantity, countryCode)
+                val url = repository.createTagCheckout(
+                    quantity, countryCode, deliveryMethod, postapointDetails
+                )
                 _checkoutUrl.value = url
             } catch (ex: Exception) {
                 onError(ex.localizedMessage)
             } finally {
                 _isLoading.value = false
+            }
+        }
+    }
+
+    fun getDeliveryPoints(zipCode: String, onError: (String?) -> Unit = {}) {
+        viewModelScope.launch {
+            _isSearchingPoints.value = true
+            try {
+                _deliveryPoints.value = repository.getDeliveryPoints(zipCode)
+            } catch (ex: Exception) {
+                onError(ex.localizedMessage)
+                _deliveryPoints.value = emptyList()
+            } finally {
+                _isSearchingPoints.value = false
             }
         }
     }

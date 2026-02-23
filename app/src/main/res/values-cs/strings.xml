@@ -1157,6 +1157,15 @@
     <string name="order_replace_delivery_time">Novou známku obdržíte do 5-7 pracovních dnů</string>
     <string name="order_replace_scan_activate">Jakmile obdržíte novou známku, musíte ji naskenovat pro aktivaci</string>
     <string name="order_replace_province">Kraj / stát (volitelné)</string>
+    <string name="delivery_method_title">Způsob doručení</string>
+    <string name="home_delivery_option">Doručení domů</string>
+    <string name="home_delivery_price">2 490 Ft</string>
+    <string name="postapoint_delivery_option">PostaPoint vyzvednutí</string>
+    <string name="postapoint_delivery_price">1 490 Ft</string>
+    <string name="postapoint_zip_placeholder">PSČ</string>
+    <string name="postapoint_search">Hledat</string>
+    <string name="postapoint_no_results">Pro toto PSČ nebyla nalezena žádná místa PostaPoint</string>
+    <string name="postapoint_search_failed">Nepodařilo se vyhledat místa doručení</string>
 
     <!-- ============================================ -->
     <!-- MARK: Subscription / Pricing -->
@@ -1461,7 +1470,7 @@
     <string name="help_faq_q11">Co je to program doporučení?</string>
     <string name="help_faq_a11">Sdílejte kód SENRAFRIEND s přáteli a rodinou. Když někdo použije tento kód a přihlásí se k placenému plánu (Standard nebo Ultimate), oba — vy i váš přítel — získáte 2 měsíce zdarma. Svá doporučení a jejich stav můžete sledovat na stránce Doporučení.</string>
     <string name="help_faq_q12">Do jakých zemí zasíláte?</string>
-    <string name="help_faq_a12">V současné době zasíláme do Maďarska, Slovenska, Česka, Rakouska, Rumunska, Chorvatska, Španělska a Portugalska. Doprava stojí 3,90 £ za objednávku.</string>
+    <string name="help_faq_a12">V současné době zasíláme do Maďarska, Slovenska, Česka, Rakouska, Rumunska, Chorvatska, Španělska a Portugalska. Doprava v Maďarsku stojí 1 490 Ft (PostaPont) nebo 2 490 Ft (doručení domů). Mezinárodní doprava stojí €9,95 za objednávku.</string>
     <string name="help_faq_q13">Mohu mít více mazlíčků na jednom účtu?</string>
     <string name="help_faq_a13">Ano. Na plánu Starter (zdarma) můžete zaregistrovat jednoho mazlíčka. Plán Standard také podporuje jednoho mazlíčka. Plán Ultimate podporuje neomezený počet mazlíčků. Svůj plán můžete kdykoli upgradovat na stránce Účet.</string>
     <string name="help_faq_q14">Jak nahlásím nalezeného mazlíčka?</string>

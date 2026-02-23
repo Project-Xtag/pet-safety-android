@@ -1152,6 +1152,15 @@
     <string name="order_replace_delivery_time">Recibirás tu nueva etiqueta en 5-7 días laborables</string>
     <string name="order_replace_scan_activate">Cuando recibas la nueva etiqueta, deberás escanearla para activarla</string>
     <string name="order_replace_province">Provincia / Estado (opcional)</string>
+    <string name="delivery_method_title">Método de entrega</string>
+    <string name="home_delivery_option">Entrega a domicilio</string>
+    <string name="home_delivery_price">2.490 Ft</string>
+    <string name="postapoint_delivery_option">Recogida PostaPoint</string>
+    <string name="postapoint_delivery_price">1.490 Ft</string>
+    <string name="postapoint_zip_placeholder">Código postal</string>
+    <string name="postapoint_search">Buscar</string>
+    <string name="postapoint_no_results">No se encontraron ubicaciones PostaPoint para este código postal</string>
+    <string name="postapoint_search_failed">Error al buscar puntos de entrega</string>
 
     <!-- ============================================ -->
     <!-- MARK: Subscription / Pricing -->
@@ -1449,7 +1458,7 @@
     <string name="help_faq_q11">¿Qué es el programa de referidos?</string>
     <string name="help_faq_a11">Comparte el código SENRAFRIEND con amigos y familiares. Cuando alguien usa este código y se suscribe a un plan de pago (Standard o Ultimate), ambos reciben 2 meses gratis. Puedes seguir tus referidos en la página de Referidos.</string>
     <string name="help_faq_q12">¿A qué países envían?</string>
-    <string name="help_faq_a12">Actualmente enviamos a Hungría, Eslovaquia, Chequia, Austria, Rumania, Croacia, España y Portugal. El envío cuesta £3,90 por pedido.</string>
+    <string name="help_faq_a12">Actualmente enviamos a Hungría, Eslovaquia, Chequia, Austria, Rumanía, Croacia, España y Portugal. El envío en Hungría cuesta 1490 Ft (PostaPont) o 2490 Ft (entrega a domicilio). El envío internacional cuesta €9,95 por pedido.</string>
     <string name="help_faq_q13">¿Puedo tener varias mascotas en una cuenta?</string>
     <string name="help_faq_a13">Sí. En el plan Starter (gratis) puedes registrar una mascota. El plan Standard también soporta una. El plan Ultimate soporta mascotas ilimitadas. Puedes mejorar tu plan en cualquier momento desde la página de cuenta.</string>
     <string name="help_faq_q14">¿Cómo reporto una mascota encontrada?</string>

@@ -20,6 +20,7 @@ import kotlinx.coroutines.test.setMain
 import org.junit.After
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
+import org.junit.Assert.assertNotNull
 import org.junit.Assert.assertNull
 import org.junit.Assert.assertTrue
 import org.junit.Before
@@ -261,21 +262,21 @@ class OrdersViewModelTest {
     // ==================== createReplacementOrder tests ====================
 
     @Test
-    fun `createReplacementOrder - success - returns true via callback`() = runTest {
+    fun `createReplacementOrder - success - returns response via callback`() = runTest {
         val request = CreateReplacementOrderRequest(shippingAddress = testNetworkAddress)
         val response = ReplacementOrderResponse(order = testOrder, message = "Replacement order created")
         coEvery { repository.createReplacementOrder("pet-1", request) } returns response
 
-        var success = false
+        var result: ReplacementOrderResponse? = null
         var error: String? = null
 
-        viewModel.createReplacementOrder("pet-1", request) { s, e ->
-            success = s
+        viewModel.createReplacementOrder("pet-1", request) { r, e ->
+            result = r
             error = e
         }
         testDispatcher.scheduler.advanceUntilIdle()
 
-        assertTrue(success)
+        assertNotNull(result)
         assertNull(error)
         coVerify { repository.createReplacementOrder("pet-1", request) }
     }
@@ -286,16 +287,16 @@ class OrdersViewModelTest {
         val errorMsg = "Not eligible for replacement"
         coEvery { repository.createReplacementOrder("pet-1", request) } throws RuntimeException(errorMsg)
 
-        var success = false
+        var result: ReplacementOrderResponse? = null
         var error: String? = null
 
-        viewModel.createReplacementOrder("pet-1", request) { s, e ->
-            success = s
+        viewModel.createReplacementOrder("pet-1", request) { r, e ->
+            result = r
             error = e
         }
         testDispatcher.scheduler.advanceUntilIdle()
 
-        assertFalse(success)
+        assertNull(result)
         assertEquals(errorMsg, error)
     }
 
@@ -402,6 +403,154 @@ class OrdersViewModelTest {
 
         assertFalse(success)
         assertEquals(errorMsg, error)
+    }
+
+    // ==================== createTagCheckout tests ====================
+
+    @Test
+    fun `createTagCheckout - success - sets checkoutUrl`() = runTest {
+        val expectedUrl = "https://checkout.stripe.com/c/pay/cs_test_123"
+        coEvery { repository.createTagCheckout(2, "HU", null, null) } returns expectedUrl
+
+        viewModel.createTagCheckout(quantity = 2, countryCode = "HU")
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        assertEquals(expectedUrl, viewModel.checkoutUrl.value)
+    }
+
+    @Test
+    fun `createTagCheckout - failure - calls onError`() = runTest {
+        val errorMsg = "Checkout failed"
+        coEvery { repository.createTagCheckout(any(), any(), any(), any()) } throws RuntimeException(errorMsg)
+
+        var receivedError: String? = null
+        viewModel.createTagCheckout(quantity = 1, countryCode = "HU") { error ->
+            receivedError = error
+        }
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        assertEquals(errorMsg, receivedError)
+        assertNull(viewModel.checkoutUrl.value)
+    }
+
+    @Test
+    fun `createTagCheckout - with deliveryMethod - passes to repository`() = runTest {
+        coEvery { repository.createTagCheckout(any(), any(), any(), any()) } returns "https://checkout.stripe.com/test"
+
+        viewModel.createTagCheckout(
+            quantity = 1,
+            countryCode = "HU",
+            deliveryMethod = "home_delivery"
+        )
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        coVerify { repository.createTagCheckout(1, "HU", "home_delivery", null) }
+    }
+
+    @Test
+    fun `createTagCheckout - with postapoint details - passes to repository`() = runTest {
+        val postapointDetails = com.petsafety.app.data.network.model.PostaPointDetails(
+            id = "pp-1",
+            name = "Budapest Posta 1",
+            address = "Kossuth u. 10"
+        )
+        coEvery { repository.createTagCheckout(any(), any(), any(), any()) } returns "https://checkout.stripe.com/test"
+
+        viewModel.createTagCheckout(
+            quantity = 1,
+            countryCode = "HU",
+            deliveryMethod = "postapoint",
+            postapointDetails = postapointDetails
+        )
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        coVerify { repository.createTagCheckout(1, "HU", "postapoint", postapointDetails) }
+    }
+
+    @Test
+    fun `createTagCheckout - shows loading state`() = runTest {
+        coEvery { repository.createTagCheckout(any(), any(), any(), any()) } returns "https://checkout.stripe.com/test"
+
+        viewModel.isLoading.test {
+            assertEquals(false, awaitItem())
+
+            viewModel.createTagCheckout(quantity = 1)
+            assertEquals(true, awaitItem())
+
+            testDispatcher.scheduler.advanceUntilIdle()
+            assertEquals(false, awaitItem())
+        }
+    }
+
+    // ==================== handleCheckout tests ====================
+
+    @Test
+    fun `handleCheckoutComplete - clears checkoutUrl and fetches orders`() = runTest {
+        coEvery { repository.createTagCheckout(any(), any(), any(), any()) } returns "https://test.com"
+        coEvery { repository.getOrders() } returns listOf(testOrder)
+
+        viewModel.createTagCheckout(quantity = 1)
+        testDispatcher.scheduler.advanceUntilIdle()
+        assertEquals("https://test.com", viewModel.checkoutUrl.value)
+
+        viewModel.handleCheckoutComplete()
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        assertNull(viewModel.checkoutUrl.value)
+        assertEquals(listOf(testOrder), viewModel.orders.value)
+    }
+
+    @Test
+    fun `handleCheckoutCancelled - clears checkoutUrl without fetching`() = runTest {
+        coEvery { repository.createTagCheckout(any(), any(), any(), any()) } returns "https://test.com"
+
+        viewModel.createTagCheckout(quantity = 1)
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        viewModel.handleCheckoutCancelled()
+
+        assertNull(viewModel.checkoutUrl.value)
+    }
+
+    // ==================== createReplacementOrder with deliveryMethod tests ====================
+
+    @Test
+    fun `createReplacementOrder - with deliveryMethod - passes to repository`() = runTest {
+        val request = CreateReplacementOrderRequest(
+            shippingAddress = testNetworkAddress,
+            deliveryMethod = "postapoint",
+            postapointDetails = com.petsafety.app.data.network.model.PostaPointDetails(
+                id = "pp-1",
+                name = "Test Point",
+                address = "Test Address"
+            )
+        )
+        val response = ReplacementOrderResponse(order = testOrder, message = "Created")
+        coEvery { repository.createReplacementOrder("pet-1", request) } returns response
+
+        var resultResponse: ReplacementOrderResponse? = null
+        viewModel.createReplacementOrder("pet-1", request) { r, _ ->
+            resultResponse = r
+        }
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        assertEquals(response, resultResponse)
+        coVerify { repository.createReplacementOrder("pet-1", request) }
+    }
+
+    @Test
+    fun `createReplacementOrder - without deliveryMethod backward compat - succeeds`() = runTest {
+        val request = CreateReplacementOrderRequest(shippingAddress = testNetworkAddress)
+        val response = ReplacementOrderResponse(order = testOrder, message = "Created")
+        coEvery { repository.createReplacementOrder("pet-1", request) } returns response
+
+        var resultResponse: ReplacementOrderResponse? = null
+        viewModel.createReplacementOrder("pet-1", request) { r, _ ->
+            resultResponse = r
+        }
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        assertEquals(response, resultResponse)
     }
 
     // ==================== Initial state tests ====================

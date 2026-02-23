@@ -3,6 +3,7 @@ package com.petsafety.app.ui.screens
 import android.net.Uri
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -23,6 +24,7 @@ import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Pets
 import androidx.compose.material.icons.filled.Refresh
+import androidx.compose.material.icons.filled.LocalShipping
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
@@ -33,6 +35,7 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
+import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -57,6 +60,8 @@ import com.petsafety.app.R
 import com.petsafety.app.data.model.Pet
 import com.petsafety.app.data.network.model.AddressDetails
 import com.petsafety.app.data.network.model.CreateReplacementOrderRequest
+import com.petsafety.app.data.network.model.PostaPointDetails
+import com.petsafety.app.ui.components.PostaPointPicker
 import com.petsafety.app.ui.theme.BrandOrange
 import com.petsafety.app.ui.theme.TealAccent
 import com.petsafety.app.ui.util.AdaptiveLayout
@@ -73,15 +78,25 @@ fun OrderReplacementTagScreen(
     val viewModel: OrdersViewModel = hiltViewModel()
     val context = androidx.compose.ui.platform.LocalContext.current
     val isLoading by viewModel.isLoading.collectAsState()
+    val deliveryPoints by viewModel.deliveryPoints.collectAsState()
+    val isSearchingPoints by viewModel.isSearchingPoints.collectAsState()
 
     val replacementOrderedMessage = stringResource(R.string.replacement_ordered)
     val replacementFailedMessage = stringResource(R.string.replacement_failed)
+    val searchFailedMessage = stringResource(R.string.postapoint_search_failed)
 
     val street1 = remember { mutableStateOf("") }
     val street2 = remember { mutableStateOf("") }
     val city = remember { mutableStateOf("") }
     val postCode = remember { mutableStateOf("") }
     val country = remember { mutableStateOf("") }
+    val deliveryMethod = remember { mutableStateOf("home_delivery") }
+    val selectedPostaPoint = remember { mutableStateOf<PostaPointDetails?>(null) }
+    val hasSearchedPoints = remember { mutableStateOf(false) }
+
+    val isHungary = country.value.lowercase().let {
+        it == "hu" || it == "hungary" || it == "magyarország" || it == "magyarorszag"
+    }
 
     Box(
         modifier = Modifier
@@ -293,6 +308,93 @@ fun OrderReplacementTagScreen(
                     }
                 }
 
+                // Delivery Method Section (Hungary only)
+                if (isHungary) {
+                    Spacer(modifier = Modifier.height(20.dp))
+
+                    Card(
+                        modifier = Modifier.fillMaxWidth(),
+                        shape = RoundedCornerShape(16.dp),
+                        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
+                        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
+                    ) {
+                        Column(modifier = Modifier.padding(16.dp)) {
+                            Row(
+                                verticalAlignment = Alignment.CenterVertically,
+                                horizontalArrangement = Arrangement.spacedBy(10.dp)
+                            ) {
+                                Icon(
+                                    imageVector = Icons.Default.LocalShipping,
+                                    contentDescription = null,
+                                    modifier = Modifier.size(20.dp),
+                                    tint = TealAccent
+                                )
+                                Text(
+                                    text = stringResource(R.string.delivery_method_title),
+                                    style = MaterialTheme.typography.titleMedium.copy(
+                                        fontSize = 17.sp,
+                                        fontWeight = FontWeight.SemiBold
+                                    ),
+                                    color = MaterialTheme.colorScheme.onSurface
+                                )
+                            }
+
+                            Spacer(modifier = Modifier.height(12.dp))
+
+                            Row(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .clickable { deliveryMethod.value = "home_delivery" },
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                RadioButton(
+                                    selected = deliveryMethod.value == "home_delivery",
+                                    onClick = { deliveryMethod.value = "home_delivery" }
+                                )
+                                Text(
+                                    text = "${stringResource(R.string.home_delivery_option)} (${stringResource(R.string.home_delivery_price)})",
+                                    style = MaterialTheme.typography.bodyMedium,
+                                    modifier = Modifier.weight(1f)
+                                )
+                            }
+
+                            Row(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .clickable { deliveryMethod.value = "postapoint" },
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                RadioButton(
+                                    selected = deliveryMethod.value == "postapoint",
+                                    onClick = { deliveryMethod.value = "postapoint" }
+                                )
+                                Text(
+                                    text = "${stringResource(R.string.postapoint_delivery_option)} (${stringResource(R.string.postapoint_delivery_price)})",
+                                    style = MaterialTheme.typography.bodyMedium,
+                                    modifier = Modifier.weight(1f)
+                                )
+                            }
+
+                            if (deliveryMethod.value == "postapoint") {
+                                Spacer(modifier = Modifier.height(12.dp))
+                                PostaPointPicker(
+                                    deliveryPoints = deliveryPoints,
+                                    selectedPoint = selectedPostaPoint.value,
+                                    isSearching = isSearchingPoints,
+                                    hasSearched = hasSearchedPoints.value,
+                                    onSearch = { zip ->
+                                        hasSearchedPoints.value = true
+                                        viewModel.getDeliveryPoints(zip) { errorMsg ->
+                                            appStateViewModel.showError(errorMsg ?: searchFailedMessage)
+                                        }
+                                    },
+                                    onSelect = { selectedPostaPoint.value = it }
+                                )
+                            }
+                        }
+                    }
+                }
+
                 Spacer(modifier = Modifier.height(20.dp))
 
                 // Info Card
@@ -338,7 +440,9 @@ fun OrderReplacementTagScreen(
                                 province = null,
                                 postCode = postCode.value,
                                 country = country.value
-                            )
+                            ),
+                            deliveryMethod = if (isHungary) deliveryMethod.value else null,
+                            postapointDetails = if (isHungary && deliveryMethod.value == "postapoint") selectedPostaPoint.value else null
                         )
                         viewModel.createReplacementOrder(pet.id, request) { response, errorMsg ->
                             if (response != null) {
@@ -371,7 +475,8 @@ fun OrderReplacementTagScreen(
                         street1.value.isNotBlank() &&
                         city.value.isNotBlank() &&
                         postCode.value.isNotBlank() &&
-                        country.value.isNotBlank()
+                        country.value.isNotBlank() &&
+                        (!isHungary || deliveryMethod.value != "postapoint" || selectedPostaPoint.value != null)
                 ) {
                     if (isLoading) {
                         CircularProgressIndicator(
