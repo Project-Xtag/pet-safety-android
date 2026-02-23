@@ -844,7 +844,7 @@
     <string name="address_details_footer">Tu dirección se utiliza para enviar etiquetas y encontrar alertas cercanas.</string>
     <string name="address_street">Calle y número</string>
     <string name="address_street_placeholder">Introduce calle y número</string>
-    <string name="address_line2">Dirección línea 2 (opcional)</string>
+    <string name="address_line2">Piso, puerta (opcional)</string>
     <string name="address_line2_placeholder">Piso, suite, etc.</string>
     <string name="address_city">Ciudad / localidad</string>
     <string name="address_city_placeholder">Introduce ciudad o localidad</string>
@@ -858,7 +858,7 @@
     <string name="address_edit">Editar dirección</string>
     <string name="address_title">Dirección</string>
     <string name="address_select_country_title">Seleccionar país</string>
-    <string name="address_line2_label">Dirección línea 2</string>
+    <string name="address_line2_label">Piso, puerta</string>
     <string name="address_postal_label">Código postal</string>
     <string name="street_address">Calle y número</string>
     <string name="address_line_2_optional">Dirección línea 2 (opcional)</string>
@@ -1104,7 +1104,7 @@
     <string name="order_more_shipping">Dirección de envío</string>
     <string name="order_more_street">Calle y número</string>
     <string name="order_more_street_placeholder">Introduce calle y número</string>
-    <string name="order_more_line2">Dirección línea 2 (opcional)</string>
+    <string name="order_more_line2">Piso, puerta (opcional)</string>
     <string name="order_more_line2_placeholder">Piso, suite, etc.</string>
     <string name="order_more_city">Ciudad</string>
     <string name="order_more_province">Provincia / Estado (opcional)</string>
@@ -1134,7 +1134,7 @@
     <string name="order_replace_shipping_footer">Enviaremos la etiqueta de reemplazo a esta dirección.</string>
     <string name="order_replace_street">Calle y número</string>
     <string name="order_replace_street_placeholder">Introduce calle y número</string>
-    <string name="order_replace_line2">Dirección línea 2 (opcional)</string>
+    <string name="order_replace_line2">Piso, puerta (opcional)</string>
     <string name="order_replace_line2_placeholder">Piso, suite, etc.</string>
     <string name="order_replace_city">Ciudad</string>
     <string name="order_replace_postal">Código postal</string>

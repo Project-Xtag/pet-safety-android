@@ -841,7 +841,7 @@
     <string name="address_details_footer">Adresa ta este folosită pentru livrarea etichetelor și găsirea alertelor din apropiere.</string>
     <string name="address_street">Stradă și număr</string>
     <string name="address_street_placeholder">Introdu strada și numărul</string>
-    <string name="address_line2">Linia 2 adresă (opțional)</string>
+    <string name="address_line2">Etaj, apartament (opțional)</string>
     <string name="address_line2_placeholder">Apartament, etaj, etc.</string>
     <string name="address_city">Oraș / localitate</string>
     <string name="address_city_placeholder">Introdu orașul sau localitatea</string>
@@ -855,7 +855,7 @@
     <string name="address_edit">Editează adresă</string>
     <string name="address_title">Adresă</string>
     <string name="address_select_country_title">Selectează țara</string>
-    <string name="address_line2_label">Linia 2 adresă</string>
+    <string name="address_line2_label">Etaj, apartament</string>
     <string name="address_postal_label">Cod poștal</string>
     <string name="street_address">Stradă și număr</string>
     <string name="address_line_2_optional">Linia 2 adresă (opțional)</string>
@@ -1102,7 +1102,7 @@
     <string name="order_more_shipping">Adresă de livrare</string>
     <string name="order_more_street">Stradă și număr</string>
     <string name="order_more_street_placeholder">Introdu strada și numărul</string>
-    <string name="order_more_line2">Linia 2 adresă (opțional)</string>
+    <string name="order_more_line2">Etaj, apartament (opțional)</string>
     <string name="order_more_line2_placeholder">Apartament, etaj, etc.</string>
     <string name="order_more_city">Oraș</string>
     <string name="order_more_province">Județ / stat (opțional)</string>
@@ -1132,7 +1132,7 @@
     <string name="order_replace_shipping_footer">Vom expedia eticheta de înlocuire la această adresă.</string>
     <string name="order_replace_street">Stradă și număr</string>
     <string name="order_replace_street_placeholder">Introdu strada și numărul</string>
-    <string name="order_replace_line2">Linia 2 adresă (opțional)</string>
+    <string name="order_replace_line2">Etaj, apartament (opțional)</string>
     <string name="order_replace_line2_placeholder">Apartament, etaj, etc.</string>
     <string name="order_replace_city">Oraș</string>
     <string name="order_replace_postal">Cod poștal</string>

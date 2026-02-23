@@ -847,7 +847,7 @@
     <string name="address_details_footer">Vaša adresa sa používa na doručenie štítkov a vyhľadávanie upozornení v okolí.</string>
     <string name="address_street">Ulica a číslo</string>
     <string name="address_street_placeholder">Zadajte ulicu a číslo</string>
-    <string name="address_line2">Adresný riadok 2 (voliteľné)</string>
+    <string name="address_line2">Poschodie, byt (voliteľné)</string>
     <string name="address_line2_placeholder">Byt, poschodie, atď.</string>
     <string name="address_city">Mesto / obec</string>
     <string name="address_city_placeholder">Zadajte mesto alebo obec</string>
@@ -861,7 +861,7 @@
     <string name="address_edit">Upraviť adresu</string>
     <string name="address_title">Adresa</string>
     <string name="address_select_country_title">Vybrať krajinu</string>
-    <string name="address_line2_label">Adresný riadok 2</string>
+    <string name="address_line2_label">Poschodie, byt</string>
     <string name="address_postal_label">PSČ</string>
     <string name="street_address">Ulica a číslo</string>
     <string name="address_line_2_optional">Adresný riadok 2 (voliteľné)</string>
@@ -1108,7 +1108,7 @@
     <string name="order_more_shipping">Dodacia adresa</string>
     <string name="order_more_street">Ulica a číslo</string>
     <string name="order_more_street_placeholder">Zadajte ulicu a číslo</string>
-    <string name="order_more_line2">Adresný riadok 2 (voliteľné)</string>
+    <string name="order_more_line2">Poschodie, byt (voliteľné)</string>
     <string name="order_more_line2_placeholder">Byt, poschodie, atď.</string>
     <string name="order_more_city">Mesto</string>
     <string name="order_more_province">Kraj/štát (voliteľné)</string>
@@ -1138,7 +1138,7 @@
     <string name="order_replace_shipping_footer">Náhradný štítok pošleme na túto adresu.</string>
     <string name="order_replace_street">Ulica a číslo</string>
     <string name="order_replace_street_placeholder">Zadajte ulicu a číslo</string>
-    <string name="order_replace_line2">Adresný riadok 2 (voliteľné)</string>
+    <string name="order_replace_line2">Poschodie, byt (voliteľné)</string>
     <string name="order_replace_line2_placeholder">Byt, poschodie, atď.</string>
     <string name="order_replace_city">Mesto</string>
     <string name="order_replace_postal">PSČ</string>

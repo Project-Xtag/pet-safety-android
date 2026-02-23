@@ -205,7 +205,7 @@ fun OrderMoreTagsScreen(
                             StyledTextField(
                                 value = value,
                                 onValueChange = { petNames[index] = it },
-                                label = "${stringResource(R.string.pet_name)} ${index + 1}",
+                                label = stringResource(R.string.pet_name),
                                 modifier = Modifier.weight(1f)
                             )
                             if (petNames.size > 1) {

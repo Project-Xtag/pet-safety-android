@@ -848,7 +848,7 @@
     <string name="address_details_footer">Vaše adresa se používá pro doručení známek a hledání upozornění v okolí.</string>
     <string name="address_street">Ulice a číslo</string>
     <string name="address_street_placeholder">Zadejte ulici a číslo</string>
-    <string name="address_line2">Adresní řádek 2 (volitelné)</string>
+    <string name="address_line2">Patro, byt (volitelné)</string>
     <string name="address_line2_placeholder">Byt, patro apod.</string>
     <string name="address_city">Město / obec</string>
     <string name="address_city_placeholder">Zadejte město nebo obec</string>
@@ -862,7 +862,7 @@
     <string name="address_edit">Upravit adresu</string>
     <string name="address_title">Adresa</string>
     <string name="address_select_country_title">Vybrat zemi</string>
-    <string name="address_line2_label">Adresní řádek 2</string>
+    <string name="address_line2_label">Patro, byt</string>
     <string name="address_postal_label">PSČ</string>
     <string name="street_address">Ulice a číslo</string>
     <string name="address_line_2_optional">Adresní řádek 2 (volitelné)</string>
@@ -1109,7 +1109,7 @@
     <string name="order_more_shipping">Doručovací adresa</string>
     <string name="order_more_street">Ulice a číslo</string>
     <string name="order_more_street_placeholder">Zadejte ulici a číslo</string>
-    <string name="order_more_line2">Adresní řádek 2 (volitelné)</string>
+    <string name="order_more_line2">Patro, byt (volitelné)</string>
     <string name="order_more_line2_placeholder">Byt, patro apod.</string>
     <string name="order_more_city">Město</string>
     <string name="order_more_province">Kraj / stát (volitelné)</string>
@@ -1139,7 +1139,7 @@
     <string name="order_replace_shipping_footer">Náhradní známku odešleme na tuto adresu.</string>
     <string name="order_replace_street">Ulice a číslo</string>
     <string name="order_replace_street_placeholder">Zadejte ulici a číslo</string>
-    <string name="order_replace_line2">Adresní řádek 2 (volitelné)</string>
+    <string name="order_replace_line2">Patro, byt (volitelné)</string>
     <string name="order_replace_line2_placeholder">Byt, patro apod.</string>
     <string name="order_replace_city">Město</string>
     <string name="order_replace_postal">PSČ</string>

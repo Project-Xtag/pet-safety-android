@@ -844,7 +844,7 @@
     <string name="address_details_footer">A címedet a biléták szállításához és a közeli riasztásokhoz használjuk.</string>
     <string name="address_street">Utca, házszám</string>
     <string name="address_street_placeholder">Add meg az utcát és házszámot</string>
-    <string name="address_line2">Cím 2. sora (opcionális)</string>
+    <string name="address_line2">Emelet, ajtó (opcionális)</string>
     <string name="address_line2_placeholder">Lakás, emelet, stb.</string>
     <string name="address_city">Város / település</string>
     <string name="address_city_placeholder">Add meg a várost vagy települést</string>
@@ -858,7 +858,7 @@
     <string name="address_edit">Cím szerkesztése</string>
     <string name="address_title">Cím</string>
     <string name="address_select_country_title">Ország kiválasztása</string>
-    <string name="address_line2_label">Cím 2. sora</string>
+    <string name="address_line2_label">Emelet, ajtó</string>
     <string name="address_postal_label">Irányítószám</string>
     <string name="street_address">Utca, házszám</string>
     <string name="address_line_2_optional">Cím 2. sora (opcionális)</string>
@@ -1104,7 +1104,7 @@
     <string name="order_more_shipping">Szállítási cím</string>
     <string name="order_more_street">Utca, házszám</string>
     <string name="order_more_street_placeholder">Add meg az utcát és házszámot</string>
-    <string name="order_more_line2">Cím 2. sora (opcionális)</string>
+    <string name="order_more_line2">Emelet, ajtó (opcionális)</string>
     <string name="order_more_line2_placeholder">Lakás, emelet, stb.</string>
     <string name="order_more_city">Város</string>
     <string name="order_more_province">Megye / állam (opcionális)</string>
@@ -1134,7 +1134,7 @@
     <string name="order_replace_shipping_footer">A cserebilétát erre a címre szállítjuk.</string>
     <string name="order_replace_street">Utca, házszám</string>
     <string name="order_replace_street_placeholder">Add meg az utcát és házszámot</string>
-    <string name="order_replace_line2">Cím 2. sora (opcionális)</string>
+    <string name="order_replace_line2">Emelet, ajtó (opcionális)</string>
     <string name="order_replace_line2_placeholder">Lakás, emelet, stb.</string>
     <string name="order_replace_city">Város</string>
     <string name="order_replace_postal">Irányítószám</string>

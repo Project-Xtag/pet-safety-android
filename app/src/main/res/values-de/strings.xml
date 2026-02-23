@@ -844,7 +844,7 @@
     <string name="address_details_footer">Ihre Adresse wird für den Versand von Tags und das Finden von Warnungen in der Nähe verwendet.</string>
     <string name="address_street">Straße und Hausnummer</string>
     <string name="address_street_placeholder">Straße und Hausnummer eingeben</string>
-    <string name="address_line2">Adresszeile 2 (optional)</string>
+    <string name="address_line2">Stockwerk, Wohnung (optional)</string>
     <string name="address_line2_placeholder">Wohnung, Etage usw.</string>
     <string name="address_city">Stadt / Ort</string>
     <string name="address_city_placeholder">Stadt oder Ort eingeben</string>
@@ -858,7 +858,7 @@
     <string name="address_edit">Adresse bearbeiten</string>
     <string name="address_title">Adresse</string>
     <string name="address_select_country_title">Land auswählen</string>
-    <string name="address_line2_label">Adresszeile 2</string>
+    <string name="address_line2_label">Stockwerk, Wohnung</string>
     <string name="address_postal_label">Postleitzahl</string>
     <string name="street_address">Straße und Hausnummer</string>
     <string name="address_line_2_optional">Adresszeile 2 (optional)</string>
@@ -1104,7 +1104,7 @@
     <string name="order_more_shipping">Lieferadresse</string>
     <string name="order_more_street">Straße und Hausnummer</string>
     <string name="order_more_street_placeholder">Straße und Hausnummer eingeben</string>
-    <string name="order_more_line2">Adresszeile 2 (optional)</string>
+    <string name="order_more_line2">Stockwerk, Wohnung (optional)</string>
     <string name="order_more_line2_placeholder">Wohnung, Etage usw.</string>
     <string name="order_more_city">Stadt</string>
     <string name="order_more_province">Bundesland / Staat (optional)</string>
@@ -1134,7 +1134,7 @@
     <string name="order_replace_shipping_footer">Wir senden den Ersatz-Tag an diese Adresse.</string>
     <string name="order_replace_street">Straße und Hausnummer</string>
     <string name="order_replace_street_placeholder">Straße und Hausnummer eingeben</string>
-    <string name="order_replace_line2">Adresszeile 2 (optional)</string>
+    <string name="order_replace_line2">Stockwerk, Wohnung (optional)</string>
     <string name="order_replace_line2_placeholder">Wohnung, Etage usw.</string>
     <string name="order_replace_city">Stadt</string>
     <string name="order_replace_postal">Postleitzahl</string>
