@@ -6,6 +6,7 @@ import com.petsafety.app.data.model.PlanFeatures
 import com.petsafety.app.data.model.Referral
 import com.petsafety.app.data.model.ReferralCode
 import com.petsafety.app.data.model.SubscriptionPlan
+import com.petsafety.app.data.model.SubscriptionPlanRef
 import com.petsafety.app.data.model.SubscriptionStatus
 import com.petsafety.app.data.model.UserSubscription
 import com.petsafety.app.data.network.model.SubscriptionFeaturesResponse
@@ -23,6 +24,7 @@ import kotlinx.coroutines.test.setMain
 import org.junit.After
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
+import org.junit.Assert.assertNotNull
 import org.junit.Assert.assertNull
 import org.junit.Assert.assertTrue
 import org.junit.Before
@@ -61,6 +63,12 @@ class SubscriptionViewModelTest {
     private val testSubscription = UserSubscription(
         id = "sub_123", userId = "user_456", planId = "plan_1",
         planName = "standard", status = SubscriptionStatus.ACTIVE
+    )
+
+    private val ultimatePlan = SubscriptionPlan(
+        id = "plan_2", name = "ultimate", displayName = "Ultimate",
+        description = "All premium features", priceMonthly = 9.95, priceYearly = 99.50,
+        currency = "GBP", features = testFeatures.copy(maxPets = null, freeTagReplacement = true, prioritySupport = true)
     )
 
     @Before
@@ -257,5 +265,147 @@ class SubscriptionViewModelTest {
 
         viewModel.clearError()
         assertNull(viewModel.error.value)
+    }
+
+    @Test
+    fun `selectPlan - ultimate plan - creates checkout URL with correct plan name`() = runTest {
+        coEvery { repository.createCheckoutSession("ultimate", "monthly", null) } returns "https://checkout.stripe.com/ultimate"
+
+        viewModel.selectPlan(ultimatePlan, "monthly")
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        assertEquals("https://checkout.stripe.com/ultimate", viewModel.checkoutUrl.value)
+        coVerify { repository.createCheckoutSession("ultimate", "monthly", null) }
+    }
+
+    @Test
+    fun `selectPlan - paid plan with yearly billing - passes correct period`() = runTest {
+        coEvery { repository.createCheckoutSession("standard", "yearly", null) } returns "https://checkout.stripe.com/yearly"
+
+        viewModel.selectPlan(standardPlan, "yearly")
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        assertEquals("https://checkout.stripe.com/yearly", viewModel.checkoutUrl.value)
+        coVerify { repository.createCheckoutSession("standard", "yearly", null) }
+    }
+
+    @Test
+    fun `selectPlan - paid plan with country code HU - passes country code`() = runTest {
+        coEvery { repository.createCheckoutSession("standard", "monthly", null, "HU") } returns "https://checkout.stripe.com/hu"
+
+        viewModel.selectPlan(standardPlan, "monthly", "HU")
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        assertEquals("https://checkout.stripe.com/hu", viewModel.checkoutUrl.value)
+        coVerify { repository.createCheckoutSession("standard", "monthly", null, "HU") }
+    }
+
+    @Test
+    fun `selectPlan - failure - sets error and stops processing`() = runTest {
+        coEvery { repository.upgradeToStarter() } throws RuntimeException("Upgrade failed")
+
+        viewModel.selectPlan(starterPlan)
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        assertEquals("Upgrade failed", viewModel.error.value)
+        assertFalse(viewModel.isProcessing.value)
+    }
+
+    @Test
+    fun `cancelSubscription - failure - sets error`() = runTest {
+        coEvery { repository.cancelSubscription() } throws RuntimeException("Cannot cancel")
+
+        viewModel.cancelSubscription()
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        assertEquals("Cannot cancel", viewModel.error.value)
+    }
+
+    @Test
+    fun `loadAll - success - loads plans subscription and features`() = runTest {
+        coEvery { repository.getPlans() } returns listOf(starterPlan, standardPlan)
+        coEvery { repository.getMySubscription() } returns testSubscription
+        coEvery { repository.getFeatures() } returns null
+
+        viewModel.loadAll()
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        assertEquals(2, viewModel.plans.value.size)
+        assertNotNull(viewModel.subscription.value)
+    }
+
+    @Test
+    fun `loadAll - partial failure - sets error and stops loading`() = runTest {
+        coEvery { repository.getPlans() } throws RuntimeException("Plans error")
+
+        viewModel.loadAll()
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        assertEquals("Plans error", viewModel.error.value)
+        assertFalse(viewModel.isLoading.value)
+    }
+
+    @Test
+    fun `handleCheckoutCancelled - clears checkout URL`() = runTest {
+        coEvery { repository.createCheckoutSession(any(), any(), any()) } returns "https://checkout.stripe.com/abc"
+
+        viewModel.selectPlan(standardPlan)
+        testDispatcher.scheduler.advanceUntilIdle()
+        assertEquals("https://checkout.stripe.com/abc", viewModel.checkoutUrl.value)
+
+        viewModel.handleCheckoutCancelled()
+
+        assertNull(viewModel.checkoutUrl.value)
+    }
+
+    @Test
+    fun `subscription status SUSPENDED - displayStatus and isActive`() {
+        val sub = testSubscription.copy(status = SubscriptionStatus.SUSPENDED)
+
+        assertEquals("Suspended", sub.displayStatus)
+        assertFalse(sub.isActive)
+    }
+
+    @Test
+    fun `resolvedPlanName - uses plan ref name when planName null`() {
+        val sub = UserSubscription(
+            id = "s1", userId = "u1", planName = null,
+            status = SubscriptionStatus.ACTIVE,
+            plan = SubscriptionPlanRef(name = "ultimate")
+        )
+
+        assertEquals("ultimate", sub.resolvedPlanName)
+    }
+
+    @Test
+    fun `resolvedPlanName - defaults to starter when both null`() {
+        val sub = UserSubscription(
+            id = "s1", userId = "u1", planName = null,
+            status = SubscriptionStatus.ACTIVE,
+            plan = null
+        )
+
+        assertEquals("starter", sub.resolvedPlanName)
+    }
+
+    @Test
+    fun `loadFeatures - success - updates features`() = runTest {
+        val featuresResponse = SubscriptionFeaturesResponse()
+        coEvery { repository.getFeatures() } returns featuresResponse
+
+        viewModel.loadFeatures()
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        assertNotNull(viewModel.features.value)
+    }
+
+    @Test
+    fun `loadFeatures - failure - sets error`() = runTest {
+        coEvery { repository.getFeatures() } throws RuntimeException("Features error")
+
+        viewModel.loadFeatures()
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        assertEquals("Features error", viewModel.error.value)
     }
 }
