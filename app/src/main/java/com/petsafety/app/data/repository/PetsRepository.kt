@@ -5,7 +5,9 @@ import com.petsafety.app.data.model.Breed
 import com.petsafety.app.data.model.LocationCoordinate
 import com.petsafety.app.data.model.Pet
 import com.petsafety.app.data.network.ApiService
+import com.petsafety.app.data.network.model.ApiErrorResponse
 import com.petsafety.app.data.network.model.CreatePetRequest
+import kotlinx.serialization.json.Json
 import com.petsafety.app.data.network.model.MarkMissingRequest
 import com.petsafety.app.data.network.model.UpdatePetRequest
 import com.petsafety.app.data.sync.NetworkMonitor
@@ -14,6 +16,7 @@ import kotlinx.coroutines.flow.first
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.toRequestBody
+import retrofit2.HttpException
 
 class PetsRepository(
     private val apiService: ApiService,
@@ -33,9 +36,25 @@ class PetsRepository(
     }
 
     suspend fun createPet(request: CreatePetRequest): Pet {
-        val pet = apiService.createPet(request).data?.pet ?: error("Missing pet")
-        offlineManager.savePet(pet)
-        return pet
+        try {
+            val pet = apiService.createPet(request).data?.pet ?: error("Missing pet")
+            offlineManager.savePet(pet)
+            return pet
+        } catch (e: HttpException) {
+            if (e.code() == 403) {
+                val errorBody = e.response()?.errorBody()?.string()
+                if (errorBody != null) {
+                    try {
+                        val json = Json { ignoreUnknownKeys = true }
+                        val parsed = json.decodeFromString<ApiErrorResponse>(errorBody)
+                        if (parsed.subscription != null) {
+                            throw PetLimitExceededException(parsed.subscription)
+                        }
+                    } catch (_: kotlinx.serialization.SerializationException) { }
+                }
+            }
+            throw e
+        }
     }
 
     suspend fun updatePet(id: String, request: UpdatePetRequest): Pet {
@@ -135,3 +154,7 @@ class PetsRepository(
 }
 
 class OfflineQueuedException : Exception()
+
+data class PetLimitExceededException(
+    val subscription: com.petsafety.app.data.network.model.SubscriptionLimitInfo
+) : Exception("Pet registration limit reached. Upgrade to ${subscription.upgradeTo} for unlimited pets.")

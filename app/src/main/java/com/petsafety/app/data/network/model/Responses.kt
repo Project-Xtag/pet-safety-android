@@ -322,3 +322,20 @@ data class ReferralStatusResponse(
     @SerialName("expires_at") val expiresAt: String? = null,
     val referrals: List<Referral> = emptyList()
 )
+
+/** Error response from backend 403 when pet limit is reached */
+@Serializable
+data class SubscriptionLimitInfo(
+    @SerialName("current_plan") val currentPlan: String = "",
+    @SerialName("current_pet_count") val currentPetCount: Int = 0,
+    @SerialName("max_pets") val maxPets: Int = 0,
+    @SerialName("upgrade_to") val upgradeTo: String = "",
+    @SerialName("upgrade_price") val upgradePrice: String = ""
+)
+
+@Serializable
+data class ApiErrorResponse(
+    val success: Boolean = false,
+    val error: String = "",
+    val subscription: SubscriptionLimitInfo? = null
+)

@@ -78,6 +78,7 @@ fun PetFormScreen(
 ) {
     val pets by viewModel.pets.collectAsState()
     val breeds by viewModel.breeds.collectAsState()
+    val upgradePromptInfo by viewModel.showUpgradePrompt.collectAsState()
     val existing = pets.firstOrNull { it.id == petId }
     val isEditMode = petId != null
     val defaultSpecies = stringResource(R.string.default_species_dog)
@@ -376,9 +377,10 @@ fun PetFormScreen(
                                 uploadPhotoIfNeeded(viewModel, capturedPhotoBytes, pet.id)
                                 appStateViewModel.showSuccess(petCreatedMessage)
                                 onDone()
-                            } else {
-                                appStateViewModel.showError(message ?: petCreateFailedMessage)
+                            } else if (message != null) {
+                                appStateViewModel.showError(message)
                             }
+                            // If both null, pet limit dialog handles it
                         }
                     } else {
                         viewModel.updatePet(
@@ -533,6 +535,38 @@ fun PetFormScreen(
             confirmButton = {
                 TextButton(onClick = { showCannotDeleteAlert = false }) {
                     Text(stringResource(R.string.ok))
+                }
+            }
+        )
+    }
+
+    // Pet Limit Upgrade Dialog
+    upgradePromptInfo?.let { info ->
+        val context = androidx.compose.ui.platform.LocalContext.current
+        AlertDialog(
+            onDismissRequest = { viewModel.dismissUpgradePrompt() },
+            title = { Text("Pet Limit Reached") },
+            text = {
+                Text(
+                    "Your ${info.currentPlan.replaceFirstChar { it.uppercase() }} plan allows ${info.maxPets} pet. " +
+                    "Upgrade to ${info.upgradeTo.replaceFirstChar { it.uppercase() }} for ${info.upgradePrice} to add unlimited pets."
+                )
+            },
+            confirmButton = {
+                TextButton(onClick = {
+                    viewModel.dismissUpgradePrompt()
+                    val intent = android.content.Intent(
+                        android.content.Intent.ACTION_VIEW,
+                        android.net.Uri.parse("https://senra.pet/manage-subscription")
+                    )
+                    context.startActivity(intent)
+                }) {
+                    Text("Upgrade to ${info.upgradeTo.replaceFirstChar { it.uppercase() }}")
+                }
+            },
+            dismissButton = {
+                TextButton(onClick = { viewModel.dismissUpgradePrompt() }) {
+                    Text(stringResource(R.string.cancel))
                 }
             }
         )

@@ -8,8 +8,10 @@ import com.petsafety.app.data.model.Breed
 import com.petsafety.app.data.model.LocationCoordinate
 import com.petsafety.app.data.model.Pet
 import com.petsafety.app.data.network.model.CreatePetRequest
+import com.petsafety.app.data.network.model.SubscriptionLimitInfo
 import com.petsafety.app.data.network.model.UpdatePetRequest
 import com.petsafety.app.data.repository.OfflineQueuedException
+import com.petsafety.app.data.repository.PetLimitExceededException
 import com.petsafety.app.data.repository.PetsRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -37,6 +39,11 @@ class PetsViewModel @Inject constructor(
 
     private val _errorMessage = MutableStateFlow<String?>(null)
     val errorMessage: StateFlow<String?> = _errorMessage.asStateFlow()
+
+    private val _showUpgradePrompt = MutableStateFlow<SubscriptionLimitInfo?>(null)
+    val showUpgradePrompt: StateFlow<SubscriptionLimitInfo?> = _showUpgradePrompt.asStateFlow()
+
+    fun dismissUpgradePrompt() { _showUpgradePrompt.value = null }
 
     fun fetchPets() {
         viewModelScope.launch {
@@ -85,6 +92,9 @@ class PetsViewModel @Inject constructor(
                 val pet = repository.createPet(request)
                 _pets.value = _pets.value + pet
                 onResult(pet, null)
+            } catch (ex: PetLimitExceededException) {
+                _showUpgradePrompt.value = ex.subscription
+                onResult(null, null) // Don't show generic error; dialog handles it
             } catch (ex: Exception) {
                 onResult(null, ex.localizedMessage)
             } finally {

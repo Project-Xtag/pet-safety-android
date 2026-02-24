@@ -6,8 +6,10 @@ import com.petsafety.app.data.model.Breed
 import com.petsafety.app.data.model.LocationCoordinate
 import com.petsafety.app.data.model.Pet
 import com.petsafety.app.data.network.model.CreatePetRequest
+import com.petsafety.app.data.network.model.SubscriptionLimitInfo
 import com.petsafety.app.data.network.model.UpdatePetRequest
 import com.petsafety.app.data.repository.OfflineQueuedException
+import com.petsafety.app.data.repository.PetLimitExceededException
 import com.petsafety.app.data.repository.PetsRepository
 import io.mockk.coEvery
 import io.mockk.coVerify
@@ -432,5 +434,63 @@ class PetsViewModelTest {
 
         assertFalse(success)
         assertEquals("Failed", error)
+    }
+
+    // ==================== Pet limit exceeded tests ====================
+
+    @Test
+    fun `createPet - pet limit exceeded - emits upgrade prompt`() = runTest {
+        val request = CreatePetRequest(name = "Second Pet", species = "Cat")
+        val limitInfo = SubscriptionLimitInfo(
+            currentPlan = "standard",
+            currentPetCount = 1,
+            maxPets = 1,
+            upgradeTo = "ultimate",
+            upgradePrice = "€6.95/month"
+        )
+        coEvery { repository.createPet(request) } throws PetLimitExceededException(limitInfo)
+
+        var resultPet: Pet? = null
+        var resultError: String? = null
+
+        viewModel.createPet(request) { pet, error ->
+            resultPet = pet
+            resultError = error
+        }
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        // Should not return generic error — dialog handles it
+        assertNull(resultPet)
+        assertNull(resultError)
+
+        // Should show upgrade prompt with correct info
+        val promptInfo = viewModel.showUpgradePrompt.value
+        assertEquals("standard", promptInfo?.currentPlan)
+        assertEquals("ultimate", promptInfo?.upgradeTo)
+        assertEquals("€6.95/month", promptInfo?.upgradePrice)
+        assertEquals(1, promptInfo?.maxPets)
+    }
+
+    @Test
+    fun `createPet - pet limit exceeded - contains upgrade info`() = runTest {
+        val request = CreatePetRequest(name = "Third Pet", species = "Dog")
+        val limitInfo = SubscriptionLimitInfo(
+            currentPlan = "standard",
+            currentPetCount = 1,
+            maxPets = 1,
+            upgradeTo = "ultimate",
+            upgradePrice = "€6.95/month"
+        )
+        coEvery { repository.createPet(request) } throws PetLimitExceededException(limitInfo)
+
+        viewModel.createPet(request) { _, _ -> }
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        val info = viewModel.showUpgradePrompt.value
+        assertEquals(limitInfo, info)
+
+        // Dismiss should clear the prompt
+        viewModel.dismissUpgradePrompt()
+        assertNull(viewModel.showUpgradePrompt.value)
     }
 }
