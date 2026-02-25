@@ -7,8 +7,10 @@ import com.petsafety.app.R
 import com.petsafety.app.data.model.User
 import com.petsafety.app.data.network.TokenAuthenticator
 import com.petsafety.app.data.network.model.CanDeleteAccountResponse
+import com.petsafety.app.data.fcm.FCMRepository
 import com.petsafety.app.data.repository.AuthRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
+import timber.log.Timber
 import io.sentry.Sentry
 import io.sentry.protocol.User as SentryUser
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -23,7 +25,8 @@ import javax.inject.Inject
 @HiltViewModel
 class AuthViewModel @Inject constructor(
     private val application: Application,
-    private val authRepository: AuthRepository
+    private val authRepository: AuthRepository,
+    private val fcmRepository: FCMRepository
 ) : ViewModel() {
     private val _isAuthenticated = MutableStateFlow(false)
     val isAuthenticated: StateFlow<Boolean> = _isAuthenticated.asStateFlow()
@@ -53,6 +56,7 @@ class AuthViewModel @Inject constructor(
                 _isAuthenticated.value = isAuth
                 if (isAuth) {
                     loadCurrentUser()
+                    registerFCMToken()
                 }
             }
         }
@@ -106,6 +110,7 @@ class AuthViewModel @Inject constructor(
                 if (Sentry.isEnabled()) {
                     Sentry.setUser(SentryUser().apply { id = user.id })
                 }
+                registerFCMToken()
                 onSuccess()
             } catch (ex: Exception) {
                 val message = ex.localizedMessage ?: ex.message ?: application.getString(R.string.error_verification_failed)
@@ -139,6 +144,7 @@ class AuthViewModel @Inject constructor(
             _showBiometricPrompt.value = false
             loadCurrentUser()
             _isAuthenticated.value = true
+            registerFCMToken()
         }
     }
 
@@ -209,6 +215,17 @@ class AuthViewModel @Inject constructor(
                 onSuccess(ticketId)
             } catch (ex: Exception) {
                 onError(ex.localizedMessage ?: application.getString(R.string.error_submit_support))
+            }
+        }
+    }
+
+    private fun registerFCMToken() {
+        viewModelScope.launch {
+            try {
+                fcmRepository.registerToken()
+                Timber.d("FCM token registered after auth")
+            } catch (e: Exception) {
+                Timber.w("Failed to register FCM token after auth: ${e.message}")
             }
         }
     }
