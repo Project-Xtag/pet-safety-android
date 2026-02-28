@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <string name="app_name">Pet Safety</string>
+    <string name="app_name">Senra Pet</string>
     <!--
         Google Maps API key is injected via build.gradle.kts from:
         1. local.properties (for local development - add GOOGLE_MAPS_API_KEY=your_key)
@@ -22,29 +22,19 @@
     <string name="back">Zurück</string>
     <string name="submit">Absenden</string>
     <string name="skip">Überspringen</string>
-    <string name="loading">Wird geladen\u2026</string>
-    <string name="error">Fehler</string>
     <string name="success">Erfolg</string>
     <string name="confirm">Bestätigen</string>
-    <string name="retry">Erneut versuchen</string>
-    <string name="done">Fertig</string>
     <string name="edit">Bearbeiten</string>
-    <string name="add">Hinzufügen</string>
     <string name="remove">Entfernen</string>
     <string name="search">Suchen</string>
-    <string name="settings">Einstellungen</string>
     <string name="updated">Aktualisiert</string>
     <string name="update_failed">Aktualisierung fehlgeschlagen</string>
     <string name="enable">Aktivieren</string>
     <string name="change">Ändern</string>
     <string name="primary">Primär</string>
     <string name="share">Teilen</string>
-    <string name="saving">Wird gespeichert\u2026</string>
     <string name="sending">Wird gesendet\u2026</string>
     <string name="yes">Ja</string>
-    <string name="no">Nein</string>
-    <string name="not_set">Nicht festgelegt</string>
-    <string name="recommended">Empfohlen</string>
     <string name="details">Details</string>
 
     <!-- ============================================ -->
@@ -65,12 +55,10 @@
     <!-- ============================================ -->
     <!-- MARK: Auth -->
     <!-- ============================================ -->
-    <string name="auth_tagline">Schützen Sie Ihre Haustiere mit QR-Tags</string>
     <string name="welcome_back">Willkommen zurück!</string>
     <string name="enter_email_subtitle">Geben Sie Ihre E-Mail ein, um einen Login-Code zu erhalten.</string>
     <string name="email_address">E-Mail-Adresse</string>
     <string name="send_login_code">Login-Code senden</string>
-    <string name="enter_otp_code">6-stelligen Code eingeben</string>
     <string name="verify_code">Code bestätigen</string>
     <string name="use_different_email">Andere E-Mail verwenden</string>
     <string name="code_sent_to_email">Code gesendet an %1$s</string>
@@ -92,13 +80,10 @@
     <string name="terms_and"> und </string>
     <string name="terms_of_service">Nutzungsbedingungen</string>
     <string name="privacy_policy">Datenschutzrichtlinie</string>
-    <string name="terms_disclaimer">Mit dem Einloggen stimmen Sie unseren Nutzungsbedingungen und der Datenschutzrichtlinie zu</string>
     <string name="first_name">Vorname</string>
     <string name="last_name">Nachname</string>
     <string name="email">E-Mail</string>
     <string name="phone">Telefon</string>
-    <string name="new_code_sent_to_email">Neuer Code gesendet an %1$s</string>
-    <string name="by_creating_account_agree">Mit der Erstellung eines Kontos stimmen Sie unseren zu</string>
 
     <!-- ============================================ -->
     <!-- MARK: Biometric -->
@@ -110,10 +95,6 @@
     <string name="enable_biometric_title">Biometrischen Login aktivieren?</string>
     <string name="enable_biometric_message">Nutzen Sie Fingerabdruck oder Gesicht für den schnellen Login beim nächsten Mal.</string>
     <string name="biometric_enabled">Biometrischer Login aktiviert</string>
-    <string name="enable_biometric_type">%1$s aktivieren?</string>
-    <string name="biometric_type_enabled">%1$s aktiviert</string>
-    <string name="use_biometric_quick_login">Nutzen Sie %1$s für den schnellen Login beim nächsten Mal.</string>
-    <string name="login_with_biometric_type">Einloggen mit %1$s</string>
 
     <!-- ============================================ -->
     <!-- MARK: Session -->
@@ -140,7 +121,6 @@
     <string name="missing_badge">VERMISST</string>
     <string name="add_pet">Haustier hinzufügen</string>
     <string name="pet_name">Name des Haustiers</string>
-    <string name="pet_safety_user">Pet Safety Nutzer</string>
     <string name="failed_load_pets">Haustiere konnten nicht geladen werden</string>
     <string name="clear_search">Suche löschen</string>
     <string name="pet_photo">Haustierfoto</string>
@@ -156,21 +136,15 @@
     <string name="breed_label">Rasse: %1$s</string>
     <string name="color_label">Farbe: %1$s</string>
     <string name="age_label">Alter: %1$s</string>
-    <string name="microchip_label">Mikrochip: %1$s</string>
-    <string name="species_label">Tierart: %1$s</string>
     <string name="medical_information">Medizinische Informationen</string>
     <string name="additional_information">Zusätzliche Informationen</string>
-    <string name="photo_gallery">Fotogalerie</string>
     <string name="edit_pet">Haustier bearbeiten</string>
     <string name="view_pet_photos">Fotos von %1$s ansehen</string>
     <string name="mark_as_found">Als gefunden markieren</string>
     <string name="mark_as_lost">Als vermisst markieren</string>
-    <string name="mark_found">Als gefunden markieren</string>
-    <string name="mark_missing">Als vermisst markieren</string>
     <string name="age">Alter</string>
     <string name="view_public_profile">Öffentliches Profil von %1$s anzeigen</string>
     <string name="edit_pet_profile">Profil von %1$s bearbeiten</string>
-    <string name="delete_pet_name">%1$s löschen</string>
     <string name="delete_pet_confirm_title">%1$s löschen?</string>
     <string name="delete_pet_confirm_message">Diese Aktion kann nicht rückgängig gemacht werden. Alle Daten von %1$s werden dauerhaft gelöscht.</string>
     <string name="cannot_delete_missing_pet">Vermisstes Haustier kann nicht gelöscht werden</string>
@@ -202,12 +176,10 @@
     <string name="colour_optional">Farbe (optional)</string>
     <string name="microchip_optional">Mikrochip-Nummer (optional)</string>
     <string name="sex">Geschlecht</string>
-    <string name="not_specified">Nicht angegeben</string>
     <string name="neutered_spayed">Kastriert/Sterilisiert</string>
     <string name="neutered">Kastriert</string>
     <string name="health_information">Gesundheitsinformationen</string>
     <string name="medical_notes_hint">Medizinische Notizen (Erkrankungen, OPs usw.)</string>
-    <string name="health_info_hint">Allergien, Medikamente, gesundheitliche Zustände\u2026</string>
     <string name="behavior_notes_hint">Verhaltensnotizen (Temperament, Training usw.)</string>
     <string name="save_changes">Änderungen speichern</string>
     <string name="delete_pet_button">Haustier löschen</string>
@@ -219,21 +191,13 @@
     <string name="species_cat">Katze</string>
     <string name="search_breed">Rasse suchen\u2026</string>
     <string name="select_photo">Foto auswählen</string>
-    <string name="select_pet">Haustier auswählen</string>
-    <string name="select_pet_for_replacement">Haustier für Ersatz-Tag auswählen</string>
-    <string name="physical_details">Körperliche Details</string>
     <string name="weight">Gewicht</string>
     <string name="weight_optional">Gewicht in kg (optional)</string>
-    <string name="date_of_birth">Geburtsdatum</string>
-    <string name="allergies_hint">Allergien (Futter, Medikamente usw.)</string>
-    <string name="medications_hint">Aktuelle Medikamente</string>
     <string name="unique_features_hint">Besondere Merkmale (Zeichnungen, Narben, auffällige Merkmale\u2026)</string>
-    <string name="photo_selected">Foto ausgewählt</string>
     <string name="pet_created">Haustier erstellt</string>
     <string name="pet_create_failed">Haustier konnte nicht erstellt werden</string>
     <string name="pet_updated">Haustier aktualisiert</string>
     <string name="pet_update_failed">Haustier konnte nicht aktualisiert werden</string>
-    <string name="pet_updated_photo_failed">Haustier aktualisiert! Foto-Upload fehlgeschlagen - bitte später erneut versuchen.</string>
     <string name="pet_default_name">Haustier</string>
 
     <!-- ============================================ -->
@@ -264,29 +228,11 @@
     <string name="use_camera">Gerätekamera öffnen</string>
     <string name="choose_from_gallery">Aus der Galerie wählen</string>
     <string name="select_existing_photo">Vorhandenes Foto auswählen</string>
-    <string name="choose_photos">Fotos auswählen</string>
     <string name="take_photo">Foto aufnehmen</string>
     <string name="pet_photo_fullscreen">Haustierfoto im Vollbild</string>
     <string name="view_photo">Foto ansehen</string>
     <string name="primary_photo">Primärfoto</string>
     <string name="set_as_primary">Als primär festlegen</string>
-    <string name="photo_uploading">Foto wird hochgeladen\u2026</string>
-    <string name="photo_primary_updated">Primärfoto aktualisiert</string>
-    <string name="photo_primary_failed">Primärfoto konnte nicht gesetzt werden</string>
-    <string name="photo_upload_single_failed">Foto konnte nicht hochgeladen werden</string>
-    <string name="photo_delete_failed">Foto konnte nicht gelöscht werden</string>
-    <plurals name="photo_count">
-        <item quantity="one">%d Foto</item>
-        <item quantity="other">%d Fotos</item>
-    </plurals>
-    <plurals name="photos_uploaded">
-        <item quantity="one">%d Foto hochgeladen</item>
-        <item quantity="other">%d Fotos hochgeladen</item>
-    </plurals>
-    <plurals name="photos_upload_failed">
-        <item quantity="one">%d Foto konnte nicht hochgeladen werden</item>
-        <item quantity="other">%d Fotos konnten nicht hochgeladen werden</item>
-    </plurals>
 
     <!-- ============================================ -->
     <!-- MARK: QR Scanner -->
@@ -330,60 +276,10 @@
     <!-- ============================================ -->
     <!-- MARK: Share Location Flow -->
     <!-- ============================================ -->
-    <string name="share_help_get_home">Hilf %1$s, nach Hause zu kommen</string>
-    <string name="share_choose_desc">Wählen Sie, wie viele Standortinformationen Sie mit dem Besitzer teilen möchten</string>
-    <string name="share_dont_share">Nicht teilen</string>
-    <string name="share_dont_share_desc">Besitzer nur informieren, dass der Tag gescannt wurde</string>
-    <string name="share_approximate">Ungefährer Bereich</string>
-    <string name="share_approximate_desc">Teilen Sie Ihren ungefähren Bereich (~500 m)</string>
-    <string name="share_exact">Genauer Standort</string>
-    <string name="share_exact_desc">Teilen Sie Ihren genauen Standort für eine schnellere Wiedervereinigung</string>
-    <string name="share_your_location">Ihr Standort</string>
-    <string name="share_accuracy">(~500 m Genauigkeit)</string>
-    <string name="share_getting_location">Standort wird ermittelt\u2026</string>
-    <string name="share_owner_notified">Besitzer informiert!</string>
-    <string name="share_owner_knows">Er weiß, dass der Tag seines Haustiers gescannt wurde</string>
-    <string name="share_on_their_way">Sie sind unterwegs!</string>
-    <string name="share_notifying">Besitzer wird informiert\u2026</string>
-    <string name="share_notify_no_location">Besitzer informieren (ohne Standort)</string>
-    <string name="share_notify_with_location">Teilen &amp; Besitzer informieren</string>
-    <string name="share_privacy_note">Ihr genauer Standort wird nie gespeichert. Es wird nur der ungefähre Bereich mit dem Besitzer geteilt.</string>
-    <string name="share_found_pet">%1$s gefunden!</string>
 
     <!-- ============================================ -->
     <!-- MARK: Scanner Detail -->
     <!-- ============================================ -->
-    <string name="scanner_title">QR-Code scannen</string>
-    <string name="scanner_subtitle">Richten Sie Ihre Kamera auf den QR-Tag des Haustiers</string>
-    <string name="scanner_camera_required">Kamerazugriff erforderlich</string>
-    <string name="scanner_camera_message">Bitte Kamerazugriff in den Einstellungen aktivieren, um QR-Codes zu scannen</string>
-    <string name="scanner_open_settings">Einstellungen öffnen</string>
-    <string name="scanner_greeting">Hallo! Ich bin %1$s</string>
-    <string name="scanner_scanned_message">Du hast gerade meinen Tag gescannt. Danke, dass du mir hilfst!</string>
-    <string name="scanner_breed">Rasse</string>
-    <string name="scanner_age">Alter</string>
-    <string name="scanner_color">Farbe</string>
-    <string name="scanner_share_location">Meinen Standort mit dem Besitzer teilen</string>
-    <string name="scanner_owner_notified">Der Besitzer wurde informiert, dass der Tag seines Haustiers gescannt wurde.</string>
-    <string name="scanner_contact_owner">Besitzer kontaktieren</string>
-    <string name="scanner_contact_instructions">Bitte kontaktieren Sie den Besitzer und teilen Sie mit, dass Sie sein Haustier gefunden haben:</string>
-    <string name="scanner_call">Anrufen: %1$s</string>
-    <string name="scanner_email">E-Mail: %1$s</string>
-    <string name="scanner_owner_location">Standort des Besitzers</string>
-    <string name="scanner_medical_info">Medizinische Informationen</string>
-    <string name="scanner_allergies">Allergien</string>
-    <string name="scanner_notes">Notizen</string>
-    <string name="scanner_how_it_works">So funktioniert es</string>
-    <string name="scanner_step1_title">1. Tag scannen</string>
-    <string name="scanner_step1_desc">Das haben Sie bereits getan! Der Tag enthält einen eindeutigen QR-Code.</string>
-    <string name="scanner_step2_title">2. Standort teilen</string>
-    <string name="scanner_step2_desc">Tippen Sie auf die Schaltfläche oben, um mitzuteilen, wo Sie das Haustier gefunden haben.</string>
-    <string name="scanner_step3_title">3. Besitzer kontaktieren</string>
-    <string name="scanner_step3_desc">Nutzen Sie die Kontaktdaten, um den Besitzer direkt zu erreichen.</string>
-    <string name="scanner_privacy_notice">Ihr genauer Standort wird nicht geteilt. Es ist nur der ungefähre Bereich (~500 m) sichtbar.</string>
-    <string name="scanner_found_pet">%1$s gefunden!</string>
-    <string name="scanner_step1_dynamic_desc">Klicken Sie oben, um zu teilen, wo Sie %1$s gefunden haben</string>
-    <string name="scanner_step3_dynamic_desc">Bleiben Sie in der Nähe, damit der Besitzer Sie und %1$s finden kann</string>
 
     <!-- ============================================ -->
     <!-- MARK: Tag Activation -->
@@ -391,7 +287,7 @@
     <string name="tag_activate_title">Tag aktivieren</string>
     <string name="tag_loading_pets">Haustiere werden geladen\u2026</string>
     <string name="tag_activated">Tag aktiviert!</string>
-    <string name="tag_activated_message">Der Tag von %1$s ist jetzt aktiv</string>
+    <string name="tag_activated_message">Dieses Tag ist jetzt mit %1$s verknüpft</string>
     <string name="tag_choose_plan">Wählen Sie ein Abonnement, um alle Funktionen für Ihr Haustier freizuschalten.</string>
     <string name="tag_choose_plan_button">Plan wählen</string>
     <string name="tag_skip_for_now">Jetzt überspringen</string>
@@ -406,37 +302,6 @@
     <!-- ============================================ -->
     <!-- MARK: Plan Selection -->
     <!-- ============================================ -->
-    <string name="plan_choose_title">Plan auswählen</string>
-    <string name="plan_tag_activated">Tag aktiviert!</string>
-    <string name="plan_choose_subtitle">Wählen Sie einen Plan, um alle Funktionen freizuschalten</string>
-    <string name="plan_upgrade_title">Plan upgraden</string>
-    <string name="plan_upgrade_subtitle">Mehr Funktionen für Ihre Haustiere</string>
-    <string name="plan_loading">Pläne werden geladen\u2026</string>
-    <string name="plan_failed_to_load">Pläne konnten nicht geladen werden</string>
-    <string name="plan_load_failed">Pläne konnten nicht geladen werden</string>
-    <string name="plan_choose_your_plan">Plan auswählen</string>
-    <string name="plan_popular">Beliebt</string>
-    <string name="plan_current">Aktueller Plan</string>
-    <string name="plan_select_free">Kostenlosen Plan wählen</string>
-    <string name="plan_select">%1$s auswählen</string>
-    <string name="plan_skip_free">Jetzt überspringen (Kostenloser Plan)</string>
-    <string name="plan_all_include">Alle Pläne enthalten:</string>
-    <string name="plan_feature_qr">QR-Tag für Ihr Haustier</string>
-    <string name="plan_feature_profile">Profilseite des Haustiers</string>
-    <string name="plan_feature_scan_notify">Scan-Benachrichtigungen</string>
-    <string name="plan_paid_add">Bezahlte Pläne bieten zusätzlich:</string>
-    <string name="plan_feature_alerts">Vermisstenwarnungen</string>
-    <string name="plan_feature_location">Standort teilen</string>
-    <string name="plan_feature_priority">Priorisierter Support</string>
-    <string name="plan_feature_qr_tag">QR-Tag für Ihr Haustier</string>
-    <string name="plan_feature_scan_notif">Sofortige Scan-Benachrichtigungen</string>
-    <string name="plan_feature_public_profile">Öffentliches Haustierprofil</string>
-    <string name="plan_feature_secure_storage">Sichere Datenspeicherung</string>
-    <string name="plan_feature_lost_alerts">Vermisstenwarnungen an Tierärzte &amp; Community</string>
-    <string name="plan_feature_lost_alerts_short">Vermisstenwarnungen</string>
-    <string name="plan_feature_sms">SMS-Benachrichtigungen</string>
-    <string name="plan_feature_photos">Bis zu 10 Fotos pro Haustier</string>
-    <string name="plan_feature_replacements">Kostenlose Tag-Ersatzlieferungen</string>
 
     <!-- ============================================ -->
     <!-- MARK: Alerts -->
@@ -445,10 +310,6 @@
     <string name="show_map">Karte anzeigen</string>
     <string name="unknown_pet">Unbekanntes Haustier</string>
     <string name="pet_alert">Haustier-Alarm</string>
-    <string name="alert_status">Status: %1$s</string>
-    <string name="alert_last_seen">Zuletzt gesehen: %1$s</string>
-    <string name="alert_info">Info: %1$s</string>
-    <string name="alert_sightings_count">Sichtungen: %1$d</string>
     <string name="alert_marker">Warnung</string>
     <string name="loading_alerts">Warnungen werden geladen\u2026</string>
     <string name="failed_load_alerts">Warnungen konnten nicht geladen werden</string>
@@ -457,8 +318,6 @@
     <string name="no_found_alerts">Keine Fundmeldungen</string>
     <string name="no_found_alerts_message">In Ihrer Nähe wurden kürzlich keine Haustiere gefunden</string>
     <string name="missing_pet_alerts_title">Vermisstenwarnungen</string>
-    <string name="create_alert">Warnung erstellen</string>
-    <string name="create_new_alert">Neue Warnung erstellen</string>
     <string name="sighting_count_singular">1 Sichtung</string>
     <string name="unknown_breed">Unbekannte Rasse</string>
     <string name="last_seen_label">Zuletzt gesehen</string>
@@ -474,39 +333,14 @@
     </plurals>
 
     <!-- Alerts Tab -->
-    <string name="alerts_loading">Warnungen werden geladen\u2026</string>
-    <string name="alerts_missing_pets_title">Vermisstenwarnungen</string>
-    <string name="alerts_list">Liste</string>
-    <string name="alerts_map">Karte</string>
-    <string name="alerts_no_nearby_title">Keine %1$s-Warnungen in der Nähe</string>
-    <string name="alerts_no_nearby_message">Aktuell gibt es in Ihrer Nähe keine %1$s-Warnungen</string>
-    <string name="alerts_location_required">Standort erforderlich</string>
-    <string name="alerts_location_required_message">Um Vermisstenwarnungen in Ihrer Nähe zu sehen, aktivieren Sie die Standortdienste oder fügen Sie Ihre Adresse hinzu.</string>
-    <string name="alerts_enable_location">Standortdienste in den Einstellungen aktivieren</string>
-    <string name="alerts_or">ODER</string>
-    <string name="alerts_add_address_profile">Fügen Sie Ihre Adresse im Profil hinzu</string>
-    <string name="alerts_add_my_address">Meine Adresse hinzufügen</string>
-    <string name="alerts_no_missing_nearby">Keine Vermisstenwarnungen in der Nähe</string>
 
     <!-- Alert Status & Details -->
     <string name="alert_status_missing">Vermisst</string>
-    <string name="alert_status_found">Gefunden</string>
     <string name="alert_missing_since">Vermisst seit %1$s</string>
     <string name="alert_missing_for">Vermisst seit %1$s</string>
-    <string name="alert_found_on">Gefunden am %1$s</string>
-    <string name="alert_found_reunited">Gefunden &amp; wieder vereint</string>
-    <string name="alert_mark_found_title">%1$s als gefunden markieren?</string>
-    <string name="alert_mark_found_message">Damit wird die Vermisstenwarnung für %1$s geschlossen. Sind Sie sicher?</string>
-    <string name="alert_mark_found_failed">Als gefunden markieren fehlgeschlagen</string>
-    <string name="alert_marked_found_success">%1$s wurde als gefunden markiert!</string>
-    <string name="alert_mark_found_error">Als gefunden markieren fehlgeschlagen: %1$s</string>
-    <string name="pet_default">Haustier</string>
     <string name="report_found">Fund melden</string>
 
     <!-- Map Annotations -->
-    <string name="map_you">Sie</string>
-    <string name="map_missing_alert">Vermisstenwarnung</string>
-    <string name="map_found_alert">Fundmeldung</string>
     <string name="time_less_than_hour">Weniger als eine Stunde</string>
 
     <!-- ============================================ -->
@@ -525,7 +359,6 @@
     <string name="use_current_location">Aktuellen Standort verwenden</string>
     <string name="location_captured">Standort über GPS erfasst</string>
     <string name="getting_location">Standort wird ermittelt\u2026</string>
-    <string name="create_alert_failed">Warnung konnte nicht erstellt werden</string>
     <string name="update_alert_failed">Warnung konnte nicht aktualisiert werden</string>
     <string name="report_sighting_failed">Sichtung konnte nicht gemeldet werden</string>
     <string name="report_missing_pet">Vermisstes Haustier melden</string>
@@ -546,8 +379,6 @@
     <string name="enter_location">Ort eingeben</string>
     <string name="additional_information_header">Zusätzliche Informationen</string>
     <string name="additional_details_placeholder">Geben Sie weitere Details an, wann und wo Sie Ihr Haustier zuletzt gesehen haben\u2026</string>
-    <string name="alert_created_success">Vermisstenwarnung erfolgreich erstellt!</string>
-    <string name="alert_queued_offline">Warnung in Warteschlange. Synchronisiert, sobald online.</string>
     <string name="your_contact_information">Ihre Kontaktdaten</string>
     <string name="name_optional">Name (optional)</string>
     <string name="phone_optional">Telefon (optional)</string>
@@ -584,23 +415,6 @@
     <string name="no_registered_address">Keine registrierte Adresse gefunden. Bitte Profil aktualisieren.</string>
 
     <!-- Mark Lost Flow -->
-    <string name="location_current">Aktueller Standort</string>
-    <string name="location_my_address">Meine Adresse</string>
-    <string name="location_custom">Benutzerdefinierte Adresse</string>
-    <string name="mark_lost_pet_info">Haustierinformationen</string>
-    <string name="mark_lost_last_seen">Zuletzt gesehener Ort</string>
-    <string name="mark_lost_alerts_footer">Warnungen werden an nahe Nutzer, Tierärzte und Tierheime im Umkreis von 10 km gesendet.</string>
-    <string name="mark_lost_getting_location">Standort wird ermittelt\u2026</string>
-    <string name="mark_lost_no_address">Keine Adresse registriert. Gehen Sie zu Profil > Adresse.</string>
-    <string name="mark_lost_address_placeholder">Adresse oder Ort eingeben</string>
-    <string name="mark_lost_additional_info">Zusätzliche Informationen</string>
-    <string name="mark_lost_additional_placeholder">Beschreiben Sie, wann und wo Sie Ihr Haustier zuletzt gesehen haben, was es trug usw.</string>
-    <string name="mark_lost_sends_to">Diese Warnung wird gesendet an:</string>
-    <string name="mark_lost_nearby_owners">Haustierbesitzer in der Nähe</string>
-    <string name="mark_lost_vet_clinics">Tierarztpraxen in der Nähe</string>
-    <string name="mark_lost_shelters">Tierheime in der Nähe</string>
-    <string name="mark_lost_report">Vermisst melden</string>
-    <string name="mark_lost_title">Vermisst melden</string>
 
     <!-- ============================================ -->
     <!-- MARK: Notifications -->
@@ -648,31 +462,6 @@
     <!-- ============================================ -->
     <!-- MARK: Notification Settings -->
     <!-- ============================================ -->
-    <string name="notif_channels">Benachrichtigungskanäle</string>
-    <string name="notif_channels_footer">Wählen Sie, wie Sie Benachrichtigungen erhalten möchten. Mindestens eine Methode muss aktiviert bleiben.</string>
-    <string name="notif_push">Push-Benachrichtigungen</string>
-    <string name="notif_push_desc">Echtzeit-In-App-Warnungen</string>
-    <string name="notif_email">E-Mail-Benachrichtigungen</string>
-    <string name="notif_email_desc">Detaillierte E-Mail-Warnungen</string>
-    <string name="notif_sms">SMS-Benachrichtigungen</string>
-    <string name="notif_sms_desc">Warnungen per SMS</string>
-    <string name="notif_pet_alerts">Haustier-Warnungen</string>
-    <string name="notif_pet_alerts_footer">Warnungen über vermisste Haustiere in Ihrer Nähe</string>
-    <string name="notif_missing_pet_alerts">Vermisstenwarnungen</string>
-    <string name="notif_nearby_alerts">Warnungen in der Nähe (10 km)</string>
-    <string name="notif_account_orders">Konto &amp; Bestellungen</string>
-    <string name="notif_account_orders_footer">Bleiben Sie über Ihre Kontoaktivität und Bestellungen informiert</string>
-    <string name="notif_order_updates">Bestell-Updates</string>
-    <string name="notif_account_activity">Kontoaktivität</string>
-    <string name="notif_optional_updates">Optionale Updates</string>
-    <string name="notif_optional_footer">News, Tipps und Werbeinhalte</string>
-    <string name="notif_product_updates">Produkt-Updates</string>
-    <string name="notif_marketing_emails">Marketing-E-Mails</string>
-    <string name="notif_save_changes">Änderungen speichern</string>
-    <string name="notif_title">Benachrichtigungen</string>
-    <string name="notif_saved">Gespeichert</string>
-    <string name="notif_saved_message">Benachrichtigungseinstellungen erfolgreich gespeichert</string>
-    <string name="notif_critical_footer">Sie können diese Einstellungen jederzeit ändern. Kritische Warnungen zu Ihren Haustieren werden immer gesendet.</string>
     <string name="notification_channels">Benachrichtigungskanäle</string>
     <string name="notification_preferences_title">Benachrichtigungseinstellungen</string>
     <string name="notifications">Benachrichtigungen</string>
@@ -700,33 +489,17 @@
     <string name="critical_alerts_note">Hinweis: Kritische Warnungen zu Ihren Haustieren werden immer gesendet, unabhängig von diesen Einstellungen.</string>
 
     <!-- Notification Preferences -->
-    <string name="notif_pref_intro">Wählen Sie, wie Sie wichtige Updates zu Ihren Haustieren und Ihrem Konto erhalten möchten.</string>
-    <string name="notif_pref_methods">Benachrichtigungsmethoden</string>
-    <string name="notif_pref_email">E-Mail-Benachrichtigungen</string>
-    <string name="notif_pref_email_desc">Detaillierte E-Mail-Warnungen erhalten</string>
-    <string name="notif_pref_sms">SMS-Benachrichtigungen</string>
-    <string name="notif_pref_sms_desc">Warnungen per SMS erhalten</string>
-    <string name="notif_pref_push">Push-Benachrichtigungen</string>
-    <string name="notif_pref_push_desc">Echtzeit-In-App-Warnungen erhalten</string>
-    <string name="notif_pref_warning">Mindestens eine Benachrichtigungsmethode muss aktiviert sein</string>
-    <string name="notif_pref_save">Änderungen speichern</string>
-    <string name="notif_pref_title">Benachrichtigungseinstellungen</string>
-    <string name="notif_pref_success">Benachrichtigungseinstellungen erfolgreich gespeichert</string>
-    <string name="notif_pref_loading">Einstellungen werden geladen\u2026</string>
 
     <!-- ============================================ -->
     <!-- MARK: Success Stories -->
     <!-- ============================================ -->
-    <string name="success_stories_title">Erfolgsgeschichten</string>
     <string name="share_your_story">Teilen Sie Ihre Geschichte</string>
     <string name="success_story_prompt">Gute Nachrichten! %1$s wurde gefunden! Möchten Sie Ihre Wiedervereinigungsgeschichte teilen, um andere zu inspirieren?</string>
     <string name="your_story">Ihre Geschichte</string>
-    <string name="story_placeholder">Erzählen Sie uns, wie Sie wieder zusammengefunden haben\u2026</string>
     <string name="share_story">Geschichte teilen</string>
     <string name="story_shared">Geschichte erfolgreich geteilt</string>
     <string name="story_share_failed">Geschichte konnte nicht geteilt werden</string>
     <string name="loading_success_stories">Erfolgsgeschichten werden geladen\u2026</string>
-    <string name="success_stories_loading">Geschichten werden geladen\u2026</string>
     <string name="no_success_stories">Keine Erfolgsgeschichten in der Nähe</string>
     <string name="no_success_stories_message">Seien Sie die/der Erste und teilen Sie eine glückliche Wiedervereinigung in Ihrer Nähe!</string>
     <string name="found_and_reunited">Gefunden &amp; wieder vereint</string>
@@ -747,67 +520,15 @@
     <string name="sighting_reports_desc">Sichtungsmeldungen</string>
 
     <!-- Success Story Time -->
-    <string name="success_just_now">gerade eben</string>
-    <string name="success_day_ago">vor 1 Tag</string>
-    <string name="success_days_ago">vor %1$d Tagen</string>
-    <string name="success_hour_ago">vor 1 Stunde</string>
-    <string name="success_hours_ago">vor %1$d Stunden</string>
-    <string name="success_minute_ago">vor 1 Minute</string>
-    <string name="success_minutes_ago">vor %1$d Minuten</string>
 
     <!-- Success Stories Tab -->
-    <string name="success_tab_title">Erfolgsgeschichten</string>
-    <string name="success_tab_list">Liste</string>
-    <string name="success_tab_map">Karte</string>
 
     <!-- Success Story Prompt -->
-    <string name="story_great_news">Gute Nachrichten!</string>
-    <string name="story_post">Posten</string>
-    <string name="story_pet_home">%1$s ist zu Hause!</string>
-    <string name="story_reunited">Wieder vereint!</string>
-    <string name="story_share_prompt">Teilen Sie Ihre Wiedervereinigungsgeschichte!</string>
-    <string name="story_inspiration">Ihre Geschichte kann anderen Haustierbesitzern in Ihrer Nähe Hoffnung geben.</string>
-    <string name="story_share_button">Meine Geschichte teilen</string>
-    <string name="story_maybe_later">Vielleicht später</string>
-    <string name="story_your_story">Ihre Geschichte</string>
-    <string name="story_placeholder_named">Teilen Sie, wie %1$s gefunden wurde und wieder vereint wurde</string>
-    <string name="story_city_optional">Stadt/Region (optional)</string>
-    <string name="story_city_placeholder">z. B. Berlin, Bezirk Mitte</string>
-    <string name="story_share_publicly">Öffentlich teilen</string>
-    <string name="story_share_publicly_desc">Erlauben Sie anderen in der Nähe, Ihre Geschichte zu sehen</string>
-    <string name="story_posting">Wird gepostet\u2026</string>
-    <string name="story_share_story">Geschichte teilen</string>
-    <string name="story_contact_note">Ihre Kontaktdaten werden nicht geteilt.</string>
-    <string name="story_posted_success">Ihre Erfolgsgeschichte wurde geteilt!</string>
-    <string name="story_share_title">Teilen Sie Ihre Geschichte</string>
-    <string name="story_pet_is_home">%1$s ist zu Hause!</string>
-    <string name="story_share_reunion">Teilen Sie Ihre Wiedervereinigungsgeschichte!</string>
-    <string name="story_inspire_others">Ihre Geschichte über %1$s kann anderen Haustierbesitzern Hoffnung geben.</string>
-    <string name="story_share_my_story">Meine Geschichte teilen</string>
-    <string name="story_share_how">Teilen Sie, wie %1$s gefunden wurde und wieder vereint wurde</string>
-    <string name="story_privacy_note">Ihre Kontaktdaten werden nicht geteilt.</string>
-    <string name="story_shared_success">Ihre Erfolgsgeschichte wurde geteilt!</string>
 
     <!-- ============================================ -->
     <!-- MARK: Profile -->
     <!-- ============================================ -->
-    <string name="profile_title">Konto</string>
     <string name="account_title">Konto</string>
-    <string name="profile_personal_info">Persönliche Informationen</string>
-    <string name="profile_address">Adresse</string>
-    <string name="profile_contacts">Kontakte</string>
-    <string name="profile_privacy_mode">Privatsphäre-Modus</string>
-    <string name="profile_notifications">Benachrichtigungen</string>
-    <string name="profile_help_support">Hilfe &amp; Support</string>
-    <string name="profile_log_out">Ausloggen</string>
-    <string name="profile_logout_confirm">Möchten Sie sich wirklich ausloggen?</string>
-    <string name="profile_delete_account">Konto löschen</string>
-    <string name="profile_delete_confirm">Möchten Sie Ihr Konto wirklich löschen? Diese Aktion kann nicht rückgängig gemacht werden.</string>
-    <string name="profile_cannot_delete">Konto kann nicht gelöscht werden</string>
-    <string name="profile_cannot_delete_message">Bitte markieren Sie alle vermissten Haustiere als gefunden, bevor Sie Ihr Konto löschen.</string>
-    <string name="profile_danger_zone">Gefahrenzone</string>
-    <string name="profile_deleting">Wird gelöscht\u2026</string>
-    <string name="profile_delete_permanent">Dadurch wird Ihr Konto und alle Daten dauerhaft gelöscht</string>
     <string name="log_out">Ausloggen</string>
     <string name="personal_information">Persönliche Informationen</string>
     <string name="address">Adresse</string>
@@ -823,43 +544,10 @@
     <!-- ============================================ -->
     <!-- MARK: Personal Information -->
     <!-- ============================================ -->
-    <string name="personal_details">Persönliche Daten</string>
-    <string name="personal_first_name">Vorname</string>
-    <string name="personal_first_name_placeholder">Vorname eingeben</string>
-    <string name="personal_last_name">Nachname</string>
-    <string name="personal_last_name_placeholder">Nachname eingeben</string>
-    <string name="personal_email">E-Mail</string>
-    <string name="personal_email_placeholder">E-Mail eingeben</string>
-    <string name="personal_phone">Telefon</string>
-    <string name="personal_phone_placeholder">Telefonnummer eingeben</string>
-    <string name="personal_edit_info">Informationen bearbeiten</string>
-    <string name="personal_title">Persönliche Informationen</string>
-    <string name="edit_information">Informationen bearbeiten</string>
-    <string name="registered_address">Registrierte Adresse</string>
 
     <!-- ============================================ -->
     <!-- MARK: Address -->
     <!-- ============================================ -->
-    <string name="address_details">Adressdetails</string>
-    <string name="address_details_footer">Ihre Adresse wird für den Versand von Tags und das Finden von Warnungen in der Nähe verwendet.</string>
-    <string name="address_street">Straße und Hausnummer</string>
-    <string name="address_street_placeholder">Straße und Hausnummer eingeben</string>
-    <string name="address_line2">Stockwerk, Wohnung (optional)</string>
-    <string name="address_line2_placeholder">Wohnung, Etage usw.</string>
-    <string name="address_city">Stadt / Ort</string>
-    <string name="address_city_placeholder">Stadt oder Ort eingeben</string>
-    <string name="address_postal">Postleitzahl</string>
-    <string name="address_postal_placeholder">Postleitzahl eingeben</string>
-    <string name="address_country">Land</string>
-    <string name="address_select_country">Land auswählen</string>
-    <string name="address_no_address">Keine Adresse registriert</string>
-    <string name="address_add_prompt">Fügen Sie Ihre Adresse hinzu, um Versand und ortsbasierte Warnungen zu ermöglichen.</string>
-    <string name="address_add">Adresse hinzufügen</string>
-    <string name="address_edit">Adresse bearbeiten</string>
-    <string name="address_title">Adresse</string>
-    <string name="address_select_country_title">Land auswählen</string>
-    <string name="address_line2_label">Stockwerk, Wohnung</string>
-    <string name="address_postal_label">Postleitzahl</string>
     <string name="street_address">Straße und Hausnummer</string>
     <string name="address_line_2_optional">Adresszeile 2 (optional)</string>
     <string name="city">Stadt</string>
@@ -867,35 +555,10 @@
     <string name="country">Land</string>
     <string name="street">Straße</string>
     <string name="address_updated">Adresse aktualisiert</string>
-    <string name="address_shipping_footer">Geben Sie Ihre vollständige Adresse für Versand und Abrechnung ein</string>
-    <string name="address_delivery_prompt">Fügen Sie Ihre Adresse hinzu, um den Versand von QR-Tags zu ermöglichen</string>
 
     <!-- ============================================ -->
     <!-- MARK: Contacts -->
     <!-- ============================================ -->
-    <string name="contacts_settings">Kontakt-Einstellungen</string>
-    <string name="contacts_info_text">Diese Kontaktdaten werden angezeigt, wenn jemand den QR-Tag Ihres Haustiers scannt. Mindestens eine Kontaktmethode ist erforderlich.</string>
-    <string name="contacts_email_section">E-Mail-Adressen</string>
-    <string name="contacts_phone_section">Telefonnummern</string>
-    <string name="contacts_edit_title">Kontaktdaten bearbeiten</string>
-    <string name="contacts_primary_email">Primäre E-Mail</string>
-    <string name="contacts_primary_email_footer">Diese E-Mail wird angezeigt, wenn jemand den QR-Tag Ihres Haustiers scannt.</string>
-    <string name="contacts_email_placeholder">E-Mail-Adresse</string>
-    <string name="contacts_show_on_tag">Auf dem Tag anzeigen</string>
-    <string name="contacts_secondary_email">Sekundäre E-Mail (optional)</string>
-    <string name="contacts_secondary_email_footer">Eine Backup-E-Mail für Kontakt.</string>
-    <string name="contacts_secondary_email_placeholder">Sekundäre E-Mail-Adresse</string>
-    <string name="contacts_primary_phone">Primäre Telefonnummer</string>
-    <string name="contacts_primary_phone_footer">Diese Telefonnummer wird angezeigt, wenn jemand den QR-Tag Ihres Haustiers scannt.</string>
-    <string name="contacts_phone_placeholder">Telefonnummer</string>
-    <string name="contacts_secondary_phone">Sekundäre Telefonnummer (optional)</string>
-    <string name="contacts_secondary_phone_footer">Eine Backup-Telefonnummer für Kontakt.</string>
-    <string name="contacts_secondary_phone_placeholder">Sekundäre Telefonnummer</string>
-    <string name="contacts_title">Kontaktdaten</string>
-    <string name="contacts_primary_badge">PRIMÄR</string>
-    <string name="contacts_visible_badge">Sichtbar auf dem Tag</string>
-    <string name="contacts_hidden_badge">Ausgeblendet</string>
-    <string name="contacts_none_added">Keine %1$s hinzugefügt</string>
     <string name="email_addresses">E-Mail-Adressen</string>
     <string name="primary_email">Primäre E-Mail</string>
     <string name="secondary_email_optional">Sekundäre E-Mail (optional)</string>
@@ -905,14 +568,6 @@
     <string name="secondary_phone_optional">Sekundäre Telefonnummer (optional)</string>
     <string name="contacts_qr_tag_info">Als sichtbar markierte Kontakte werden auf dem QR-Tag Ihres Haustiers angezeigt, wenn dieser gescannt wird.</string>
     <string name="contact_details">Kontaktdaten</string>
-    <string name="contacts_coming_soon">Kommt bald</string>
-    <string name="contacts_info_full">Diese Kontaktdaten werden angezeigt, wenn jemand den QR-Tag Ihres Haustiers scannt. Sie können bis zu zwei E-Mail-Adressen und Telefonnummern hinzufügen.</string>
-    <string name="contacts_primary_email_edit_footer">Ihre Haupt-E-Mail-Adresse</string>
-    <string name="contacts_secondary_email_edit_footer">Backup-E-Mail für Benachrichtigungen zur Wiedervereinigung</string>
-    <string name="contacts_primary_phone_edit_footer">Ihre Haupt-Telefonnummer</string>
-    <string name="contacts_secondary_phone_edit_footer">Backup-Nummer für Notfälle</string>
-    <string name="contacts_visible_on_tag">Sichtbar auf dem Tag</string>
-    <string name="contacts_no_type_added">Keine %1$s hinzugefügt</string>
 
     <!-- ============================================ -->
     <!-- MARK: Contact Visibility -->
@@ -929,40 +584,10 @@
     <!-- ============================================ -->
     <!-- MARK: Privacy Mode -->
     <!-- ============================================ -->
-    <string name="privacy_contact_visibility">Sichtbarkeit der Kontakte</string>
-    <string name="privacy_contact_footer">Steuern Sie, welche Kontaktdaten sichtbar sind, wenn jemand den QR-Tag Ihres Haustiers scannt.</string>
-    <string name="privacy_show_phone">Telefonnummer anzeigen</string>
-    <string name="privacy_show_email">E-Mail-Adresse anzeigen</string>
-    <string name="privacy_show_address">Adresse anzeigen</string>
-    <string name="privacy_data_privacy">Datenschutz</string>
-    <string name="privacy_privacy_policy">Datenschutzrichtlinie</string>
-    <string name="privacy_data_management">Datenverwaltung</string>
-    <string name="privacy_title">Privatsphäre-Modus</string>
-    <string name="privacy_mode_footer">Datenschutzeinstellungen helfen Ihnen zu steuern, welche Informationen geteilt werden, wenn jemand den QR-Tag Ihres Haustiers scannt.</string>
-    <string name="privacy_policy_title">Datenschutzrichtlinie</string>
-    <string name="privacy_policy_updated">Zuletzt aktualisiert: November 2024</string>
-    <string name="privacy_policy_section1_title">1. Informationen, die wir sammeln</string>
-    <string name="privacy_policy_section1_body">Wir sammeln Informationen, die Sie direkt bereitstellen, einschließlich Name, E-Mail, Telefonnummer, Adresse und Haustierinformationen. Wir sammeln auch Standortdaten, wenn Sie sich entscheiden, diese zu teilen.</string>
-    <string name="privacy_policy_section2_title">2. Wie wir Ihre Informationen verwenden</string>
-    <string name="privacy_policy_section2_body">Ihre Informationen werden verwendet, um unsere Haustiersicherheitsdienste bereitzustellen, Benachrichtigungen über vermisste Haustiere zu senden und Wiedervereinigungen zu erleichtern.</string>
-    <string name="privacy_policy_section3_title">3. Weitergabe von Informationen</string>
-    <string name="privacy_policy_section3_body">Wir teilen Ihre Kontaktdaten nur gemäß Ihren Datenschutzeinstellungen. Standortdaten werden nur geteilt, wenn Sie dies ausdrücklich wählen.</string>
-    <string name="privacy_policy_section4_title">4. Datensicherheit</string>
-    <string name="privacy_policy_section4_body">Wir verwenden branchenübliche Verschlüsselung und Sicherheitsmaßnahmen, um Ihre persönlichen Informationen zu schützen.</string>
-    <string name="privacy_policy_section5_title">5. Ihre Rechte</string>
-    <string name="privacy_policy_section5_body">Sie haben das Recht, Ihre persönlichen Daten jederzeit über die App-Einstellungen einzusehen, zu aktualisieren und zu löschen.</string>
-    <string name="privacy_your_data">Ihre Daten</string>
-    <string name="privacy_your_data_footer">Fordern Sie eine Kopie aller Ihrer persönlichen Daten an, die in unserem System gespeichert sind.</string>
-    <string name="privacy_export_data">Meine Daten exportieren</string>
-    <string name="privacy_deletion_section">Datenlöschung</string>
-    <string name="privacy_deletion_footer">Ihr Konto und alle zugehörigen Daten dauerhaft löschen.</string>
-    <string name="privacy_delete_account">Mein Konto löschen</string>
-    <string name="privacy_delete_confirm">Möchten Sie Ihr Konto wirklich löschen? Dadurch werden alle Ihre Daten einschließlich Haustiere, Warnungen und Bestellverlauf dauerhaft entfernt. Diese Aktion kann nicht rückgängig gemacht werden.</string>
     <string name="data_privacy">Datenschutz</string>
     <string name="data_management">Datenverwaltung</string>
     <string name="privacy_settings_updated">Datenschutzeinstellungen aktualisiert</string>
     <string name="privacy_settings_failed">Datenschutzeinstellungen konnten nicht aktualisiert werden</string>
-    <string name="privacy_settings_placeholder">Datenschutzeinstellungen werden hier verfügbar sein.</string>
 
     <!-- ============================================ -->
     <!-- MARK: Delete Account -->
@@ -981,30 +606,6 @@
     <!-- ============================================ -->
     <!-- MARK: Help & Support -->
     <!-- ============================================ -->
-    <string name="help_quick_actions">Schnellaktionen</string>
-    <string name="help_contact_support">Support kontaktieren</string>
-    <string name="help_resources">Ressourcen</string>
-    <string name="help_faq">Häufig gestellte Fragen</string>
-    <string name="help_user_guides">Benutzerhandbücher</string>
-    <string name="help_legal">Rechtliches</string>
-    <string name="help_terms">Nutzungsbedingungen</string>
-    <string name="help_privacy">Datenschutzrichtlinie</string>
-    <string name="help_app_info">App-Informationen</string>
-    <string name="help_version">Version</string>
-    <string name="help_build">Build</string>
-    <string name="help_title">Hilfe &amp; Support</string>
-    <string name="help_support_footer">Brauchen Sie Hilfe? Unser Support-Team ist für Sie da.</string>
-    <string name="help_category">Kategorie</string>
-    <string name="help_subject">Betreff</string>
-    <string name="help_subject_placeholder">Kurze Beschreibung Ihres Problems</string>
-    <string name="help_message">Nachricht</string>
-    <string name="help_message_placeholder">Beschreiben Sie Ihr Problem ausführlich\u2026</string>
-    <string name="help_sending">Wird gesendet\u2026</string>
-    <string name="help_submit_request">Anfrage senden</string>
-    <string name="help_contact_title">Support kontaktieren</string>
-    <string name="help_faq_title">FAQ</string>
-    <string name="help_guides_title">Benutzerhandbücher</string>
-    <string name="help_guide_placeholder">Detaillierte Inhalte werden hier verfügbar sein.</string>
     <string name="get_help">Hilfe erhalten</string>
     <string name="faq">Häufig gestellte Fragen</string>
     <string name="user_guides">Benutzerhandbücher</string>
@@ -1064,7 +665,6 @@
     <string name="payment_intent_failed">Zahlungsabsicht fehlgeschlagen</string>
     <string name="order_create_failed">Bestellung konnte nicht erstellt werden</string>
     <string name="order_replacement_title">Ersatz-Tag bestellen</string>
-    <string name="pet_label">Haustier: %1$s</string>
     <string name="order_replacement_button">Ersatz bestellen</string>
     <string name="replacement_ordered">Ersatz bestellt</string>
     <string name="replacement_failed">Ersatz konnte nicht bestellt werden</string>
@@ -1089,33 +689,6 @@
     </plurals>
 
     <!-- Order More Tags -->
-    <string name="order_more_title">Weitere Tags bestellen</string>
-    <string name="order_more_complete">Bestellung abgeschlossen!</string>
-    <string name="order_more_payment_pending">Ihre Bestellung wurde aufgegeben. Sie erhalten in Kürze eine E-Mail mit Zahlungsanweisungen.</string>
-    <string name="order_more_confirmation">Wir versenden Ihre Tags, sobald die Zahlung bestätigt ist.</string>
-    <string name="order_more_pet_names">Namen der Haustiere</string>
-    <string name="order_more_pet_names_footer">Geben Sie die Namen der Haustiere ein, für die Sie Tags möchten. Wir gravieren den Namen auf jeden Tag.</string>
-    <string name="order_more_pet_name_placeholder">Name des Haustiers</string>
-    <string name="order_more_add_another">Weiteres Haustier hinzufügen</string>
-    <string name="order_more_your_info">Ihre Informationen</string>
-    <string name="order_more_full_name">Vollständiger Name</string>
-    <string name="order_more_email">E-Mail</string>
-    <string name="order_more_phone">Telefon</string>
-    <string name="order_more_shipping">Lieferadresse</string>
-    <string name="order_more_street">Straße und Hausnummer</string>
-    <string name="order_more_street_placeholder">Straße und Hausnummer eingeben</string>
-    <string name="order_more_line2">Stockwerk, Wohnung (optional)</string>
-    <string name="order_more_line2_placeholder">Wohnung, Etage usw.</string>
-    <string name="order_more_city">Stadt</string>
-    <string name="order_more_province">Bundesland / Staat (optional)</string>
-    <string name="order_more_postal">Postleitzahl</string>
-    <string name="order_more_country">Land</string>
-    <string name="order_more_summary">Bestellübersicht</string>
-    <string name="order_more_tags_count">Tags (%1$d)</string>
-    <string name="order_more_shipping_cost">Versand</string>
-    <string name="order_more_total">Gesamt</string>
-    <string name="order_more_creating">Bestellung wird erstellt\u2026</string>
-    <string name="order_more_place_order">Bestellung aufgeben</string>
     <string name="get_qr_tags_subtitle">QR-Tags für Ihre Haustiere erhalten</string>
     <string name="pet_names">Namen der Haustiere</string>
     <string name="shipping_address">Lieferadresse</string>
@@ -1123,35 +696,9 @@
     <string name="shipping_price">Calculated at checkout</string>
 
     <!-- Order Replacement Tag -->
-    <string name="order_replace_title">Ersatz-Tag bestellen</string>
-    <string name="order_replace_complete">Bestellung abgeschlossen!</string>
-    <string name="order_replace_confirmation">Ihr Ersatz-Tag wird an die angegebene Adresse versendet.</string>
-    <string name="order_replace_pet_info">Haustierinformationen</string>
-    <string name="order_replace_important">Wichtige Informationen</string>
-    <string name="order_replace_eligible_free">Erster Ersatz ist kostenlos</string>
-    <string name="order_replace_additional_fee">Weitere Ersatz-Tags: %1$s</string>
-    <string name="order_replace_shipping">Lieferadresse</string>
-    <string name="order_replace_shipping_footer">Wir senden den Ersatz-Tag an diese Adresse.</string>
-    <string name="order_replace_street">Straße und Hausnummer</string>
-    <string name="order_replace_street_placeholder">Straße und Hausnummer eingeben</string>
-    <string name="order_replace_line2">Stockwerk, Wohnung (optional)</string>
-    <string name="order_replace_line2_placeholder">Wohnung, Etage usw.</string>
-    <string name="order_replace_city">Stadt</string>
-    <string name="order_replace_postal">Postleitzahl</string>
-    <string name="order_replace_country">Land</string>
-    <string name="order_replace_phone">Telefonnummer (optional)</string>
-    <string name="order_replace_phone_placeholder">Telefonnummer eingeben</string>
-    <string name="order_replace_creating">Bestellung wird erstellt\u2026</string>
-    <string name="order_replace_free_button">Bestätigen &amp; kostenlosen Ersatz-Tag bestellen</string>
-    <string name="order_replace_paid_button">Bestätigen &amp; %1$s bezahlen</string>
     <string name="replacement_subtitle">Verloren oder beschädigt? Wir senden einen neuen</string>
     <string name="free_replacement">Kostenloser Ersatz</string>
     <string name="replacement_shipping_info">Ihr Ersatz-Tag wird innerhalb von 2\u20133 Werktagen versendet\u2026</string>
-    <string name="order_replace_upgrade_hint">Upgrade auf Standard oder Ultimate für kostenlose Ersatz-Tags</string>
-    <string name="order_replace_old_deactivated">Ihr alter QR-Code wird deaktiviert, sobald Sie diese Bestellung aufgeben</string>
-    <string name="order_replace_delivery_time">Sie erhalten Ihren neuen Tag innerhalb von 5\u20137 Werktagen</string>
-    <string name="order_replace_scan_activate">Sobald Sie den neuen Tag erhalten, müssen Sie ihn zum Aktivieren scannen</string>
-    <string name="order_replace_province">Bundesland / Staat (optional)</string>
     <string name="delivery_method_title">Liefermethode</string>
     <string name="home_delivery_option">Hauslieferung</string>
     <string name="home_delivery_price">2.490 Ft</string>
@@ -1231,30 +778,10 @@
     <!-- ============================================ -->
     <!-- MARK: Quick Mark Lost/Found -->
     <!-- ============================================ -->
-    <string name="quick_lost_select_pet">Wählen Sie ein Haustier, das als vermisst gemeldet werden soll</string>
-    <string name="quick_lost_all_missing">Alle Ihre Haustiere sind bereits als vermisst markiert.</string>
-    <string name="quick_lost_title">Vermisst melden</string>
-    <string name="quick_found_select_pet">Wählen Sie ein Haustier, das als gefunden markiert werden soll</string>
-    <string name="quick_found_currently_missing">Derzeit vermisst</string>
-    <string name="quick_found_no_missing">Keine vermissten Haustiere zum Markieren als gefunden.</string>
-    <string name="quick_found_title">Haustier als gefunden markieren</string>
-    <string name="quick_found_mark_failed">Konnte %1$s nicht als gefunden markieren: %2$s</string>
 
     <!-- ============================================ -->
     <!-- MARK: Breed Picker -->
     <!-- ============================================ -->
-    <string name="breed_select_title">Rasse auswählen</string>
-    <string name="breed_search_placeholder">Rassen suchen\u2026</string>
-    <string name="breed_no_results">Keine Rassen gefunden</string>
-    <string name="breed_use_custom">„%1$s“ als eigene Rasse verwenden</string>
-    <string name="breed_manual_entry">Rasse manuell eingeben</string>
-    <string name="breed_clear_selection">Auswahl löschen</string>
-    <string name="breed_enter_name">Rassenname eingeben</string>
-    <string name="breed_custom">Eigene Rasse</string>
-    <string name="breed_custom_footer">Geben Sie eine eigene Rasse ein, wenn sie nicht aufgeführt ist</string>
-    <string name="breed_back_to_list">Zurück zur Rassenliste</string>
-    <string name="breed_select_optional">Rasse auswählen (optional)</string>
-    <string name="breed_optional">Rasse (optional)</string>
 
     <!-- ============================================ -->
     <!-- MARK: Public Pet Profile -->
@@ -1302,14 +829,6 @@
     <string name="connected">Verbunden</string>
     <string name="sync_now">Jetzt synchronisieren</string>
     <string name="changes_sync_restored">Änderungen werden automatisch synchronisiert, sobald die Verbindung wiederhergestellt ist.</string>
-    <string name="offline_pending_changes">Ausstehende Änderungen</string>
-    <string name="offline_online">Online</string>
-    <string name="offline_sync_message">Änderungen werden synchronisiert, sobald online</string>
-    <string name="offline_tap_to_view">Tippen, um ausstehende Aktionen anzuzeigen</string>
-    <string name="offline_actions_queued">%1$d Aktion(en) in Warteschlange</string>
-    <string name="offline_last_synced">Zuletzt synchronisiert: %1$s</string>
-    <string name="offline_sync_now">Jetzt synchronisieren</string>
-    <string name="offline_last_sync_label">Letzte Synchronisationszeit</string>
     <plurals name="queued_actions">
         <item quantity="one">%d Aktion in Warteschlange</item>
         <item quantity="other">%d Aktionen in Warteschlange</item>
@@ -1343,13 +862,6 @@
     <!-- ============================================ -->
     <!-- MARK: Map App Picker -->
     <!-- ============================================ -->
-    <string name="map_approximate_notice">Dies ist ein approximierter Standort (~500 m). Suchen Sie die Umgebung ab.</string>
-    <string name="map_coordinates">Koordinaten</string>
-    <string name="map_open_in">Öffnen in</string>
-    <string name="map_apple_maps">Apple Karten</string>
-    <string name="map_google_maps">Google Maps</string>
-    <string name="map_waze">Waze</string>
-    <string name="map_pet_location">Standort von %1$s</string>
     <string name="location_title">Standort von %1$s</string>
     <string name="approximate_location_note">Dies ist ein approximierter Standort (~500 m). Suchen Sie die Umgebung ab.</string>
     <string name="coordinates_label">Koordinaten: %1$s</string>
@@ -1365,10 +877,8 @@
     <!-- ============================================ -->
     <!-- MARK: App Info -->
     <!-- ============================================ -->
-    <string name="app_name_label">Pet Safety</string>
+    <string name="app_name_label">Senra Pet</string>
     <string name="app_version">Version 1.0.0</string>
-    <string name="terms_url">Bedingungen: https://senra.pet/terms-conditions</string>
-    <string name="privacy_url">Datenschutz: https://senra.pet/privacy-policy</string>
 
     <!-- ============================================ -->
     <!-- MARK: Relative Time -->
@@ -1415,7 +925,6 @@
     <!-- MARK: Reward & Sighting Details -->
     <!-- ============================================ -->
     <string name="reward_optional">Belohnung (optional)</string>
-    <string name="reward_badge">\u20AC%d Belohnung</string>
     <string name="sighting_details_title">Sichtungen</string>
     <string name="sighting_at">Gesehen bei %1$s</string>
     <string name="sighting_reported_at">Gemeldet %1$s</string>
@@ -1430,7 +939,6 @@
     <string name="no_plan">Keiner</string>
     <string name="current_location_fallback">Aktueller Standort</string>
     <string name="share_card_reunited">Wiedervereint!</string>
-    <string name="euro_currency_symbol">\u20AC</string>
 
     <!-- FAQ Screen -->
     <string name="faq_title">Häufig gestellte Fragen</string>
@@ -1518,7 +1026,6 @@
     <string name="order_status_shipped">Shipped</string>
     <string name="order_status_delivered">Delivered</string>
     <string name="order_status_cancelled">Cancelled</string>
-
 
     <!-- Missing translations added -->
     <string name="add_additional_info">Zusätzliche Informationen hinzufügen</string>

@@ -27,5 +27,6 @@ data class TagLookupResponse(
     val status: String? = null,
     @SerialName("has_pet") val hasPet: Boolean = false,
     @SerialName("is_owner") val isOwner: Boolean = false,
+    @SerialName("can_activate") val canActivate: Boolean = false,
     val pet: Pet? = null
 )

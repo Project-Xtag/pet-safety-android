@@ -57,7 +57,7 @@ class QrScannerViewModel @Inject constructor(
                             ex.localizedMessage ?: "Failed to load pet profile"
                         )
                     }
-                } else if (!lookup.hasPet && lookup.isOwner) {
+                } else if (!lookup.hasPet && lookup.canActivate) {
                     _lookupState.value = TagLookupState.NeedsActivation(code)
                 } else {
                     _lookupState.value = TagLookupState.NotActivated(

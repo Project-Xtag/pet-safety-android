@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <string name="app_name">Pet Safety</string>
+    <string name="app_name">Senra Pet</string>
     <!--
         Google Maps API key is injected via build.gradle.kts from:
         1. local.properties (for local development - add GOOGLE_MAPS_API_KEY=your_key)
@@ -22,29 +22,19 @@
     <string name="back">Voltar</string>
     <string name="submit">Enviar</string>
     <string name="skip">Ignorar</string>
-    <string name="loading">A carregar\u2026</string>
-    <string name="error">Erro</string>
     <string name="success">Sucesso</string>
     <string name="confirm">Confirmar</string>
-    <string name="retry">Tentar novamente</string>
-    <string name="done">Concluído</string>
     <string name="edit">Editar</string>
-    <string name="add">Adicionar</string>
     <string name="remove">Remover</string>
     <string name="search">Pesquisar</string>
-    <string name="settings">Definições</string>
     <string name="updated">Atualizado</string>
     <string name="update_failed">Falha na atualização</string>
     <string name="enable">Ativar</string>
     <string name="change">Alterar</string>
     <string name="primary">Principal</string>
     <string name="share">Partilhar</string>
-    <string name="saving">A guardar\u2026</string>
     <string name="sending">A enviar\u2026</string>
     <string name="yes">Sim</string>
-    <string name="no">Não</string>
-    <string name="not_set">Não definido</string>
-    <string name="recommended">Recomendado</string>
     <string name="details">Detalhes</string>
 
     <!-- ============================================ -->
@@ -65,12 +55,10 @@
     <!-- ============================================ -->
     <!-- MARK: Auth -->
     <!-- ============================================ -->
-    <string name="auth_tagline">Mantenha os seus animais seguros com etiquetas QR</string>
     <string name="welcome_back">Bem-vindo de volta!</string>
     <string name="enter_email_subtitle">Introduza o seu e-mail para receber um código de acesso.</string>
     <string name="email_address">Endereço de e-mail</string>
     <string name="send_login_code">Enviar código de acesso</string>
-    <string name="enter_otp_code">Introduza o código de 6 dígitos</string>
     <string name="verify_code">Verificar código</string>
     <string name="use_different_email">Usar outro e-mail</string>
     <string name="code_sent_to_email">Código enviado para %1$s</string>
@@ -92,13 +80,10 @@
     <string name="terms_and"> e </string>
     <string name="terms_of_service">Termos de Serviço</string>
     <string name="privacy_policy">Política de Privacidade</string>
-    <string name="terms_disclaimer">Ao iniciar sessão, aceita os Termos de Serviço e a Política de Privacidade</string>
     <string name="first_name">Nome</string>
     <string name="last_name">Apelido</string>
     <string name="email">E-mail</string>
     <string name="phone">Telefone</string>
-    <string name="new_code_sent_to_email">Novo código enviado para %1$s</string>
-    <string name="by_creating_account_agree">Ao criar uma conta, aceita os nossos</string>
 
     <!-- ============================================ -->
     <!-- MARK: Biometric -->
@@ -110,10 +95,6 @@
     <string name="enable_biometric_title">Ativar login biométrico?</string>
     <string name="enable_biometric_message">Use a sua impressão digital ou o rosto para iniciar sessão rapidamente da próxima vez.</string>
     <string name="biometric_enabled">Login biométrico ativado</string>
-    <string name="enable_biometric_type">Ativar %1$s?</string>
-    <string name="biometric_type_enabled">%1$s ativado</string>
-    <string name="use_biometric_quick_login">Use %1$s para iniciar sessão rapidamente da próxima vez.</string>
-    <string name="login_with_biometric_type">Iniciar sessão com %1$s</string>
 
     <!-- ============================================ -->
     <!-- MARK: Session -->
@@ -140,7 +121,6 @@
     <string name="missing_badge">DESAPARECIDO</string>
     <string name="add_pet">Adicionar animal</string>
     <string name="pet_name">Nome do animal</string>
-    <string name="pet_safety_user">Utilizador Pet Safety</string>
     <string name="failed_load_pets">Falha ao carregar animais</string>
     <string name="clear_search">Limpar pesquisa</string>
     <string name="pet_photo">Foto do animal</string>
@@ -156,21 +136,15 @@
     <string name="breed_label">Raça: %1$s</string>
     <string name="color_label">Cor: %1$s</string>
     <string name="age_label">Idade: %1$s</string>
-    <string name="microchip_label">Microchip: %1$s</string>
-    <string name="species_label">Espécie: %1$s</string>
     <string name="medical_information">Informação médica</string>
     <string name="additional_information">Informação adicional</string>
-    <string name="photo_gallery">Galeria de fotos</string>
     <string name="edit_pet">Editar animal</string>
     <string name="view_pet_photos">Ver fotos de %1$s</string>
     <string name="mark_as_found">Marcar como encontrado</string>
     <string name="mark_as_lost">Marcar como desaparecido</string>
-    <string name="mark_found">Marcar encontrado</string>
-    <string name="mark_missing">Marcar desaparecido</string>
     <string name="age">Idade</string>
     <string name="view_public_profile">Ver perfil público de %1$s</string>
     <string name="edit_pet_profile">Editar perfil de %1$s</string>
-    <string name="delete_pet_name">Eliminar %1$s</string>
     <string name="delete_pet_confirm_title">Eliminar %1$s?</string>
     <string name="delete_pet_confirm_message">Esta ação não pode ser desfeita. Todos os dados de %1$s serão eliminados permanentemente.</string>
     <string name="cannot_delete_missing_pet">Não é possível eliminar um animal desaparecido</string>
@@ -202,12 +176,10 @@
     <string name="colour_optional">Cor (opcional)</string>
     <string name="microchip_optional">Número do microchip (opcional)</string>
     <string name="sex">Sexo</string>
-    <string name="not_specified">Não especificado</string>
     <string name="neutered_spayed">Castrado/Esterilizado</string>
     <string name="neutered">Castrado</string>
     <string name="health_information">Informação de saúde</string>
     <string name="medical_notes_hint">Notas médicas (condições, cirurgias, etc.)</string>
-    <string name="health_info_hint">Alergias, medicação, condições médicas\u2026</string>
     <string name="behavior_notes_hint">Notas de comportamento (temperamento, treino, etc.)</string>
     <string name="save_changes">Guardar alterações</string>
     <string name="delete_pet_button">Eliminar animal</string>
@@ -219,21 +191,13 @@
     <string name="species_cat">Gato</string>
     <string name="search_breed">Pesquisar raça\u2026</string>
     <string name="select_photo">Selecionar foto</string>
-    <string name="select_pet">Selecionar animal</string>
-    <string name="select_pet_for_replacement">Selecionar animal para etiqueta de substituição</string>
-    <string name="physical_details">Detalhes físicos</string>
     <string name="weight">Peso</string>
     <string name="weight_optional">Peso em kg (opcional)</string>
-    <string name="date_of_birth">Data de nascimento</string>
-    <string name="allergies_hint">Alergias (comida, medicação, etc.)</string>
-    <string name="medications_hint">Medicamentos atuais</string>
     <string name="unique_features_hint">Características únicas (marcas, cicatrizes, traços distintivos\u2026)</string>
-    <string name="photo_selected">Foto selecionada</string>
     <string name="pet_created">Animal criado</string>
     <string name="pet_create_failed">Falha ao criar o animal</string>
     <string name="pet_updated">Animal atualizado</string>
     <string name="pet_update_failed">Falha ao atualizar o animal</string>
-    <string name="pet_updated_photo_failed">Animal atualizado! O upload da foto falhou - tente mais tarde.</string>
     <string name="pet_default_name">Animal</string>
 
     <!-- ============================================ -->
@@ -264,29 +228,11 @@
     <string name="use_camera">Abrir câmara do dispositivo</string>
     <string name="choose_from_gallery">Escolher da galeria</string>
     <string name="select_existing_photo">Selecionar foto existente</string>
-    <string name="choose_photos">Escolher fotos</string>
     <string name="take_photo">Tirar foto</string>
     <string name="pet_photo_fullscreen">Foto do animal em ecrã inteiro</string>
     <string name="view_photo">Ver foto</string>
     <string name="primary_photo">Foto principal</string>
     <string name="set_as_primary">Definir como principal</string>
-    <string name="photo_uploading">A enviar foto\u2026</string>
-    <string name="photo_primary_updated">Foto principal atualizada</string>
-    <string name="photo_primary_failed">Falha ao definir foto principal</string>
-    <string name="photo_upload_single_failed">Falha ao enviar a foto</string>
-    <string name="photo_delete_failed">Falha ao eliminar a foto</string>
-    <plurals name="photo_count">
-        <item quantity="one">%d foto</item>
-        <item quantity="other">%d fotos</item>
-    </plurals>
-    <plurals name="photos_uploaded">
-        <item quantity="one">%d foto enviada</item>
-        <item quantity="other">%d fotos enviadas</item>
-    </plurals>
-    <plurals name="photos_upload_failed">
-        <item quantity="one">%d foto não foi enviada</item>
-        <item quantity="other">%d fotos não foram enviadas</item>
-    </plurals>
 
     <!-- ============================================ -->
     <!-- MARK: QR Scanner -->
@@ -330,60 +276,10 @@
     <!-- ============================================ -->
     <!-- MARK: Share Location Flow -->
     <!-- ============================================ -->
-    <string name="share_help_get_home">Ajude %1$s a voltar para casa</string>
-    <string name="share_choose_desc">Escolha quanta informação de localização partilhar com o dono</string>
-    <string name="share_dont_share">Não partilhar</string>
-    <string name="share_dont_share_desc">Apenas notificar o dono de que a etiqueta foi lida</string>
-    <string name="share_approximate">Área aproximada</string>
-    <string name="share_approximate_desc">Partilhe a sua área geral (~500 m)</string>
-    <string name="share_exact">Localização exata</string>
-    <string name="share_exact_desc">Partilhe a localização exata para uma reunião mais rápida</string>
-    <string name="share_your_location">A sua localização</string>
-    <string name="share_accuracy">(~500 m de precisão)</string>
-    <string name="share_getting_location">A obter a sua localização\u2026</string>
-    <string name="share_owner_notified">Dono notificado!</string>
-    <string name="share_owner_knows">Sabe que a etiqueta do seu animal foi lida</string>
-    <string name="share_on_their_way">Está a caminho!</string>
-    <string name="share_notifying">A notificar o dono\u2026</string>
-    <string name="share_notify_no_location">Notificar o dono (sem localização)</string>
-    <string name="share_notify_with_location">Partilhar e notificar o dono</string>
-    <string name="share_privacy_note">A sua localização exata nunca é armazenada. Apenas a área aproximada é partilhada com o dono.</string>
-    <string name="share_found_pet">%1$s encontrado!</string>
 
     <!-- ============================================ -->
     <!-- MARK: Scanner Detail -->
     <!-- ============================================ -->
-    <string name="scanner_title">Ler código QR</string>
-    <string name="scanner_subtitle">Aponte a câmara para a etiqueta QR do animal</string>
-    <string name="scanner_camera_required">Acesso à câmara necessário</string>
-    <string name="scanner_camera_message">Ative o acesso à câmara em Definições para ler códigos QR</string>
-    <string name="scanner_open_settings">Abrir definições</string>
-    <string name="scanner_greeting">Olá! Eu sou %1$s</string>
-    <string name="scanner_scanned_message">Acabou de ler a minha etiqueta. Obrigado por me ajudar!</string>
-    <string name="scanner_breed">Raça</string>
-    <string name="scanner_age">Idade</string>
-    <string name="scanner_color">Cor</string>
-    <string name="scanner_share_location">Partilhar a minha localização com o dono</string>
-    <string name="scanner_owner_notified">O dono foi notificado de que a etiqueta do seu animal foi lida.</string>
-    <string name="scanner_contact_owner">Contactar o dono</string>
-    <string name="scanner_contact_instructions">Contacte o dono para informar que encontrou o animal:</string>
-    <string name="scanner_call">Ligar: %1$s</string>
-    <string name="scanner_email">E-mail: %1$s</string>
-    <string name="scanner_owner_location">Localização do dono</string>
-    <string name="scanner_medical_info">Informação médica</string>
-    <string name="scanner_allergies">Alergias</string>
-    <string name="scanner_notes">Notas</string>
-    <string name="scanner_how_it_works">Como funciona</string>
-    <string name="scanner_step1_title">1. Ler a etiqueta</string>
-    <string name="scanner_step1_desc">Já o fez! A etiqueta contém um código QR único.</string>
-    <string name="scanner_step2_title">2. Partilhar localização</string>
-    <string name="scanner_step2_desc">Toque no botão acima para partilhar onde encontrou o animal.</string>
-    <string name="scanner_step3_title">3. Contactar o dono</string>
-    <string name="scanner_step3_desc">Use os contactos para falar diretamente com o dono.</string>
-    <string name="scanner_privacy_notice">A sua localização exata não é partilhada. Apenas a área aproximada (~500 m) é visível.</string>
-    <string name="scanner_found_pet">%1$s encontrado!</string>
-    <string name="scanner_step1_dynamic_desc">Clique no botão acima para partilhar onde encontrou %1$s</string>
-    <string name="scanner_step3_dynamic_desc">Fique por perto para o dono poder encontrá-lo a si e a %1$s</string>
 
     <!-- ============================================ -->
     <!-- MARK: Tag Activation -->
@@ -391,7 +287,7 @@
     <string name="tag_activate_title">Ativar etiqueta</string>
     <string name="tag_loading_pets">A carregar os seus animais\u2026</string>
     <string name="tag_activated">Etiqueta ativada!</string>
-    <string name="tag_activated_message">A etiqueta de %1$s está agora ativa</string>
+    <string name="tag_activated_message">Esta etiqueta está agora associada a %1$s</string>
     <string name="tag_choose_plan">Escolha um plano de subscrição para desbloquear todas as funcionalidades do seu animal.</string>
     <string name="tag_choose_plan_button">Escolher plano</string>
     <string name="tag_skip_for_now">Ignorar por agora</string>
@@ -406,37 +302,6 @@
     <!-- ============================================ -->
     <!-- MARK: Plan Selection -->
     <!-- ============================================ -->
-    <string name="plan_choose_title">Escolha o seu plano</string>
-    <string name="plan_tag_activated">Etiqueta ativada!</string>
-    <string name="plan_choose_subtitle">Escolha um plano para desbloquear todas as funcionalidades</string>
-    <string name="plan_upgrade_title">Atualizar plano</string>
-    <string name="plan_upgrade_subtitle">Obtenha mais funcionalidades para os seus animais</string>
-    <string name="plan_loading">A carregar planos\u2026</string>
-    <string name="plan_failed_to_load">Falha ao carregar planos</string>
-    <string name="plan_load_failed">Falha ao carregar planos</string>
-    <string name="plan_choose_your_plan">Escolha o seu plano</string>
-    <string name="plan_popular">Popular</string>
-    <string name="plan_current">Plano atual</string>
-    <string name="plan_select_free">Selecionar plano gratuito</string>
-    <string name="plan_select">Selecionar %1$s</string>
-    <string name="plan_skip_free">Ignorar por agora (Plano gratuito)</string>
-    <string name="plan_all_include">Todos os planos incluem:</string>
-    <string name="plan_feature_qr">Etiqueta QR para o seu animal</string>
-    <string name="plan_feature_profile">Página de perfil do animal</string>
-    <string name="plan_feature_scan_notify">Notificações de leitura</string>
-    <string name="plan_paid_add">Os planos pagos incluem:</string>
-    <string name="plan_feature_alerts">Alertas de animais desaparecidos</string>
-    <string name="plan_feature_location">Partilha de localização</string>
-    <string name="plan_feature_priority">Suporte prioritário</string>
-    <string name="plan_feature_qr_tag">Etiqueta QR para o seu animal</string>
-    <string name="plan_feature_scan_notif">Notificações instantâneas de leitura</string>
-    <string name="plan_feature_public_profile">Perfil público do animal</string>
-    <string name="plan_feature_secure_storage">Armazenamento seguro de dados</string>
-    <string name="plan_feature_lost_alerts">Alertas de animal perdido para veterinários &amp; comunidade</string>
-    <string name="plan_feature_lost_alerts_short">Alertas de animal perdido</string>
-    <string name="plan_feature_sms">Notificações por SMS</string>
-    <string name="plan_feature_photos">Até 10 fotos por animal</string>
-    <string name="plan_feature_replacements">Substituições gratuitas de etiquetas</string>
 
     <!-- ============================================ -->
     <!-- MARK: Alerts -->
@@ -445,10 +310,6 @@
     <string name="show_map">Mostrar mapa</string>
     <string name="unknown_pet">Animal desconhecido</string>
     <string name="pet_alert">Alerta de animal</string>
-    <string name="alert_status">Estado: %1$s</string>
-    <string name="alert_last_seen">Visto pela última vez: %1$s</string>
-    <string name="alert_info">Info: %1$s</string>
-    <string name="alert_sightings_count">Avistamentos: %1$d</string>
     <string name="alert_marker">Alerta</string>
     <string name="loading_alerts">A carregar alertas\u2026</string>
     <string name="failed_load_alerts">Falha ao carregar alertas</string>
@@ -457,8 +318,6 @@
     <string name="no_found_alerts">Sem alertas de encontrados</string>
     <string name="no_found_alerts_message">Nenhum animal foi encontrado recentemente na sua área</string>
     <string name="missing_pet_alerts_title">Alertas de animais desaparecidos</string>
-    <string name="create_alert">Criar alerta</string>
-    <string name="create_new_alert">Criar novo alerta</string>
     <string name="sighting_count_singular">1 avistamento</string>
     <string name="unknown_breed">Raça desconhecida</string>
     <string name="last_seen_label">Visto pela última vez</string>
@@ -474,39 +333,14 @@
     </plurals>
 
     <!-- Alerts Tab -->
-    <string name="alerts_loading">A carregar alertas\u2026</string>
-    <string name="alerts_missing_pets_title">Alertas de animais desaparecidos</string>
-    <string name="alerts_list">Lista</string>
-    <string name="alerts_map">Mapa</string>
-    <string name="alerts_no_nearby_title">Sem alertas de %1$s nas proximidades</string>
-    <string name="alerts_no_nearby_message">Não há alertas de animais %1$s na sua área neste momento</string>
-    <string name="alerts_location_required">Localização necessária</string>
-    <string name="alerts_location_required_message">Para ver alertas de animais desaparecidos perto de si, ative a localização ou adicione a sua morada.</string>
-    <string name="alerts_enable_location">Ativar serviços de localização nas Definições</string>
-    <string name="alerts_or">OU</string>
-    <string name="alerts_add_address_profile">Adicione a sua morada no perfil</string>
-    <string name="alerts_add_my_address">Adicionar a minha morada</string>
-    <string name="alerts_no_missing_nearby">Sem alertas de animais desaparecidos nas proximidades</string>
 
     <!-- Alert Status & Details -->
     <string name="alert_status_missing">Desaparecido</string>
-    <string name="alert_status_found">Encontrado</string>
     <string name="alert_missing_since">Desaparecido desde %1$s</string>
     <string name="alert_missing_for">Desaparecido há %1$s</string>
-    <string name="alert_found_on">Encontrado em %1$s</string>
-    <string name="alert_found_reunited">Encontrado e reunido</string>
-    <string name="alert_mark_found_title">Marcar %1$s como encontrado?</string>
-    <string name="alert_mark_found_message">Isto irá fechar o alerta de desaparecimento de %1$s. Tem a certeza?</string>
-    <string name="alert_mark_found_failed">Falha ao marcar como encontrado</string>
-    <string name="alert_marked_found_success">%1$s foi marcado como encontrado!</string>
-    <string name="alert_mark_found_error">Falha ao marcar como encontrado: %1$s</string>
-    <string name="pet_default">animal</string>
     <string name="report_found">Reportar encontrado</string>
 
     <!-- Map Annotations -->
-    <string name="map_you">Você</string>
-    <string name="map_missing_alert">Alerta de desaparecido</string>
-    <string name="map_found_alert">Alerta de encontrado</string>
     <string name="time_less_than_hour">Menos de uma hora</string>
 
     <!-- ============================================ -->
@@ -525,7 +359,6 @@
     <string name="use_current_location">Usar localização atual</string>
     <string name="location_captured">Localização capturada por GPS</string>
     <string name="getting_location">A obter a sua localização\u2026</string>
-    <string name="create_alert_failed">Falha ao criar alerta</string>
     <string name="update_alert_failed">Falha ao atualizar alerta</string>
     <string name="report_sighting_failed">Falha ao reportar avistamento</string>
     <string name="report_missing_pet">Reportar animal desaparecido</string>
@@ -546,8 +379,6 @@
     <string name="enter_location">Introduzir localização</string>
     <string name="additional_information_header">Informação adicional</string>
     <string name="additional_details_placeholder">Forneça detalhes sobre quando e onde viu o seu animal pela última vez\u2026</string>
-    <string name="alert_created_success">Alerta de animal desaparecido criado com sucesso!</string>
-    <string name="alert_queued_offline">Alerta em fila. Será sincronizado quando estiver online.</string>
     <string name="your_contact_information">A sua informação de contacto</string>
     <string name="name_optional">Nome (opcional)</string>
     <string name="phone_optional">Telefone (opcional)</string>
@@ -584,23 +415,6 @@
     <string name="no_registered_address">Não foi encontrada morada registada. Atualize o seu perfil.</string>
 
     <!-- Mark Lost Flow -->
-    <string name="location_current">Localização atual</string>
-    <string name="location_my_address">A minha morada</string>
-    <string name="location_custom">Morada personalizada</string>
-    <string name="mark_lost_pet_info">Informação do animal</string>
-    <string name="mark_lost_last_seen">Localização onde foi visto pela última vez</string>
-    <string name="mark_lost_alerts_footer">Alertas serão enviados a utilizadores próximos, veterinários e abrigos num raio de 10 km.</string>
-    <string name="mark_lost_getting_location">A obter a sua localização\u2026</string>
-    <string name="mark_lost_no_address">Sem morada registada. Vá a Perfil > Morada.</string>
-    <string name="mark_lost_address_placeholder">Introduza a morada ou localização</string>
-    <string name="mark_lost_additional_info">Informação adicional</string>
-    <string name="mark_lost_additional_placeholder">Descreva quando e onde viu o animal pela última vez, o que usava, etc.</string>
-    <string name="mark_lost_sends_to">Este alerta será enviado para:</string>
-    <string name="mark_lost_nearby_owners">Donos de animais próximos</string>
-    <string name="mark_lost_vet_clinics">Clínicas veterinárias na área</string>
-    <string name="mark_lost_shelters">Abrigos de animais próximos</string>
-    <string name="mark_lost_report">Reportar desaparecido</string>
-    <string name="mark_lost_title">Reportar desaparecido</string>
 
     <!-- ============================================ -->
     <!-- MARK: Notifications -->
@@ -648,31 +462,6 @@
     <!-- ============================================ -->
     <!-- MARK: Notification Settings -->
     <!-- ============================================ -->
-    <string name="notif_channels">Canais de notificação</string>
-    <string name="notif_channels_footer">Escolha como quer receber notificações. Pelo menos um método deve permanecer ativo.</string>
-    <string name="notif_push">Notificações push</string>
-    <string name="notif_push_desc">Alertas em tempo real na app</string>
-    <string name="notif_email">Notificações por e-mail</string>
-    <string name="notif_email_desc">Alertas detalhados por e-mail</string>
-    <string name="notif_sms">Notificações por SMS</string>
-    <string name="notif_sms_desc">Alertas por mensagem de texto</string>
-    <string name="notif_pet_alerts">Alertas de animais</string>
-    <string name="notif_pet_alerts_footer">Notificações sobre animais desaparecidos na sua área</string>
-    <string name="notif_missing_pet_alerts">Alertas de animais desaparecidos</string>
-    <string name="notif_nearby_alerts">Alertas nas proximidades (10 km)</string>
-    <string name="notif_account_orders">Conta e encomendas</string>
-    <string name="notif_account_orders_footer">Mantenha-se atualizado sobre a atividade da sua conta e encomendas</string>
-    <string name="notif_order_updates">Atualizações de encomendas</string>
-    <string name="notif_account_activity">Atividade da conta</string>
-    <string name="notif_optional_updates">Atualizações opcionais</string>
-    <string name="notif_optional_footer">Notícias, dicas e conteúdo promocional</string>
-    <string name="notif_product_updates">Atualizações do produto</string>
-    <string name="notif_marketing_emails">E-mails de marketing</string>
-    <string name="notif_save_changes">Guardar alterações</string>
-    <string name="notif_title">Notificações</string>
-    <string name="notif_saved">Guardado</string>
-    <string name="notif_saved_message">Preferências de notificação guardadas com sucesso</string>
-    <string name="notif_critical_footer">Pode alterar estas definições a qualquer momento. Alertas críticos sobre os seus animais serão sempre enviados.</string>
     <string name="notification_channels">Canais de notificação</string>
     <string name="notification_preferences_title">Preferências de notificação</string>
     <string name="notifications">Notificações</string>
@@ -700,33 +489,17 @@
     <string name="critical_alerts_note">Nota: Alertas críticos sobre os seus animais serão sempre enviados, independentemente destas definições.</string>
 
     <!-- Notification Preferences -->
-    <string name="notif_pref_intro">Escolha como deseja receber atualizações importantes sobre os seus animais e a sua conta.</string>
-    <string name="notif_pref_methods">Métodos de notificação</string>
-    <string name="notif_pref_email">Notificações por e-mail</string>
-    <string name="notif_pref_email_desc">Receba alertas detalhados por e-mail</string>
-    <string name="notif_pref_sms">Notificações por SMS</string>
-    <string name="notif_pref_sms_desc">Receba alertas por mensagem de texto</string>
-    <string name="notif_pref_push">Notificações push</string>
-    <string name="notif_pref_push_desc">Receba alertas em tempo real na app</string>
-    <string name="notif_pref_warning">Pelo menos um método de notificação deve estar ativado</string>
-    <string name="notif_pref_save">Guardar alterações</string>
-    <string name="notif_pref_title">Definições de notificação</string>
-    <string name="notif_pref_success">Preferências de notificação guardadas com sucesso</string>
-    <string name="notif_pref_loading">A carregar preferências\u2026</string>
 
     <!-- ============================================ -->
     <!-- MARK: Success Stories -->
     <!-- ============================================ -->
-    <string name="success_stories_title">Histórias de sucesso</string>
     <string name="share_your_story">Partilhe a sua história</string>
     <string name="success_story_prompt">Boas notícias! %1$s foi encontrado! Quer partilhar a sua história de reencontro para inspirar outros?</string>
     <string name="your_story">A sua história</string>
-    <string name="story_placeholder">Conte-nos como se reencontraram\u2026</string>
     <string name="share_story">Partilhar história</string>
     <string name="story_shared">História partilhada com sucesso</string>
     <string name="story_share_failed">Falha ao partilhar história</string>
     <string name="loading_success_stories">A carregar histórias de sucesso\u2026</string>
-    <string name="success_stories_loading">A carregar histórias\u2026</string>
     <string name="no_success_stories">Sem histórias de sucesso nas proximidades</string>
     <string name="no_success_stories_message">Seja o primeiro a partilhar um reencontro feliz na sua área!</string>
     <string name="found_and_reunited">Encontrado e reunido</string>
@@ -747,67 +520,15 @@
     <string name="sighting_reports_desc">Relatórios de avistamentos</string>
 
     <!-- Success Story Time -->
-    <string name="success_just_now">agora mesmo</string>
-    <string name="success_day_ago">há 1 dia</string>
-    <string name="success_days_ago">há %1$d dias</string>
-    <string name="success_hour_ago">há 1 hora</string>
-    <string name="success_hours_ago">há %1$d horas</string>
-    <string name="success_minute_ago">há 1 minuto</string>
-    <string name="success_minutes_ago">há %1$d minutos</string>
 
     <!-- Success Stories Tab -->
-    <string name="success_tab_title">Histórias de sucesso</string>
-    <string name="success_tab_list">Lista</string>
-    <string name="success_tab_map">Mapa</string>
 
     <!-- Success Story Prompt -->
-    <string name="story_great_news">Boas notícias!</string>
-    <string name="story_post">Publicar</string>
-    <string name="story_pet_home">%1$s está em casa!</string>
-    <string name="story_reunited">Reunidos!</string>
-    <string name="story_share_prompt">Partilhe a sua história de reencontro!</string>
-    <string name="story_inspiration">A sua história pode inspirar esperança a outros donos de animais na sua área.</string>
-    <string name="story_share_button">Partilhar a minha história</string>
-    <string name="story_maybe_later">Talvez mais tarde</string>
-    <string name="story_your_story">A sua história</string>
-    <string name="story_placeholder_named">Partilhe como %1$s foi encontrado e reunido</string>
-    <string name="story_city_optional">Cidade/Área (opcional)</string>
-    <string name="story_city_placeholder">ex. Lisboa, Bairro Alto</string>
-    <string name="story_share_publicly">Partilhar publicamente</string>
-    <string name="story_share_publicly_desc">Permita que outros nas proximidades vejam a sua história</string>
-    <string name="story_posting">A publicar\u2026</string>
-    <string name="story_share_story">Partilhar história</string>
-    <string name="story_contact_note">A sua informação de contacto não será partilhada.</string>
-    <string name="story_posted_success">A sua história de sucesso foi partilhada!</string>
-    <string name="story_share_title">Partilhe a sua história</string>
-    <string name="story_pet_is_home">%1$s está em casa!</string>
-    <string name="story_share_reunion">Partilhe a sua história de reencontro!</string>
-    <string name="story_inspire_others">A sua história sobre %1$s pode inspirar outros donos de animais.</string>
-    <string name="story_share_my_story">Partilhar a minha história</string>
-    <string name="story_share_how">Partilhe como %1$s foi encontrado e reunido</string>
-    <string name="story_privacy_note">A sua informação de contacto não será partilhada.</string>
-    <string name="story_shared_success">A sua história de sucesso foi partilhada!</string>
 
     <!-- ============================================ -->
     <!-- MARK: Profile -->
     <!-- ============================================ -->
-    <string name="profile_title">Conta</string>
     <string name="account_title">Conta</string>
-    <string name="profile_personal_info">Informação pessoal</string>
-    <string name="profile_address">Morada</string>
-    <string name="profile_contacts">Contactos</string>
-    <string name="profile_privacy_mode">Modo de privacidade</string>
-    <string name="profile_notifications">Notificações</string>
-    <string name="profile_help_support">Ajuda &amp; suporte</string>
-    <string name="profile_log_out">Terminar sessão</string>
-    <string name="profile_logout_confirm">Tem a certeza que quer terminar sessão?</string>
-    <string name="profile_delete_account">Eliminar conta</string>
-    <string name="profile_delete_confirm">Tem a certeza que quer eliminar a sua conta? Esta ação não pode ser desfeita.</string>
-    <string name="profile_cannot_delete">Não é possível eliminar a conta</string>
-    <string name="profile_cannot_delete_message">Marque todos os animais desaparecidos como encontrados antes de eliminar a sua conta.</string>
-    <string name="profile_danger_zone">Zona de perigo</string>
-    <string name="profile_deleting">A eliminar\u2026</string>
-    <string name="profile_delete_permanent">Isto irá eliminar permanentemente a sua conta e todos os dados</string>
     <string name="log_out">Terminar sessão</string>
     <string name="personal_information">Informação pessoal</string>
     <string name="address">Morada</string>
@@ -823,43 +544,10 @@
     <!-- ============================================ -->
     <!-- MARK: Personal Information -->
     <!-- ============================================ -->
-    <string name="personal_details">Dados pessoais</string>
-    <string name="personal_first_name">Nome</string>
-    <string name="personal_first_name_placeholder">Introduza o nome</string>
-    <string name="personal_last_name">Apelido</string>
-    <string name="personal_last_name_placeholder">Introduza o apelido</string>
-    <string name="personal_email">E-mail</string>
-    <string name="personal_email_placeholder">Introduza o e-mail</string>
-    <string name="personal_phone">Telefone</string>
-    <string name="personal_phone_placeholder">Introduza o telefone</string>
-    <string name="personal_edit_info">Editar informação</string>
-    <string name="personal_title">Informação pessoal</string>
-    <string name="edit_information">Editar informação</string>
-    <string name="registered_address">Morada registada</string>
 
     <!-- ============================================ -->
     <!-- MARK: Address -->
     <!-- ============================================ -->
-    <string name="address_details">Detalhes da morada</string>
-    <string name="address_details_footer">A sua morada é usada para envio de etiquetas e alertas próximos.</string>
-    <string name="address_street">Rua e número</string>
-    <string name="address_street_placeholder">Introduza rua e número</string>
-    <string name="address_line2">Andar, apartamento (opcional)</string>
-    <string name="address_line2_placeholder">Apartamento, suíte, etc.</string>
-    <string name="address_city">Cidade / localidade</string>
-    <string name="address_city_placeholder">Introduza cidade ou localidade</string>
-    <string name="address_postal">Código postal</string>
-    <string name="address_postal_placeholder">Introduza o código postal</string>
-    <string name="address_country">País</string>
-    <string name="address_select_country">Selecionar país</string>
-    <string name="address_no_address">Sem morada registada</string>
-    <string name="address_add_prompt">Adicione a sua morada para envio e alertas baseados na localização.</string>
-    <string name="address_add">Adicionar morada</string>
-    <string name="address_edit">Editar morada</string>
-    <string name="address_title">Morada</string>
-    <string name="address_select_country_title">Selecionar país</string>
-    <string name="address_line2_label">Andar, apartamento</string>
-    <string name="address_postal_label">Código postal</string>
     <string name="street_address">Rua e número</string>
     <string name="address_line_2_optional">Linha de morada 2 (opcional)</string>
     <string name="city">Cidade</string>
@@ -867,35 +555,10 @@
     <string name="country">País</string>
     <string name="street">Rua</string>
     <string name="address_updated">Morada atualizada</string>
-    <string name="address_shipping_footer">Introduza a sua morada completa para envio e faturação</string>
-    <string name="address_delivery_prompt">Adicione a sua morada para permitir o envio de etiquetas QR</string>
 
     <!-- ============================================ -->
     <!-- MARK: Contacts -->
     <!-- ============================================ -->
-    <string name="contacts_settings">Definições de contacto</string>
-    <string name="contacts_info_text">Estes contactos serão mostrados quando alguém ler a etiqueta QR do seu animal. É necessário pelo menos um método de contacto.</string>
-    <string name="contacts_email_section">Endereços de e-mail</string>
-    <string name="contacts_phone_section">Números de telefone</string>
-    <string name="contacts_edit_title">Editar contactos</string>
-    <string name="contacts_primary_email">E-mail principal</string>
-    <string name="contacts_primary_email_footer">Este e-mail será mostrado quando alguém ler a etiqueta QR do seu animal.</string>
-    <string name="contacts_email_placeholder">Endereço de e-mail</string>
-    <string name="contacts_show_on_tag">Mostrar na etiqueta</string>
-    <string name="contacts_secondary_email">E-mail secundário (opcional)</string>
-    <string name="contacts_secondary_email_footer">Um e-mail de backup para contacto.</string>
-    <string name="contacts_secondary_email_placeholder">Endereço de e-mail secundário</string>
-    <string name="contacts_primary_phone">Telefone principal</string>
-    <string name="contacts_primary_phone_footer">Este número será mostrado quando alguém ler a etiqueta QR do seu animal.</string>
-    <string name="contacts_phone_placeholder">Número de telefone</string>
-    <string name="contacts_secondary_phone">Telefone secundário (opcional)</string>
-    <string name="contacts_secondary_phone_footer">Um telefone de backup para contacto.</string>
-    <string name="contacts_secondary_phone_placeholder">Número de telefone secundário</string>
-    <string name="contacts_title">Contactos</string>
-    <string name="contacts_primary_badge">PRINCIPAL</string>
-    <string name="contacts_visible_badge">Visível na etiqueta</string>
-    <string name="contacts_hidden_badge">Oculto</string>
-    <string name="contacts_none_added">Nenhum %1$s adicionado</string>
     <string name="email_addresses">Endereços de e-mail</string>
     <string name="primary_email">E-mail principal</string>
     <string name="secondary_email_optional">E-mail secundário (opcional)</string>
@@ -905,14 +568,6 @@
     <string name="secondary_phone_optional">Telefone secundário (opcional)</string>
     <string name="contacts_qr_tag_info">Contactos marcados como visíveis serão apresentados na etiqueta QR do seu animal quando for lida.</string>
     <string name="contact_details">Contactos</string>
-    <string name="contacts_coming_soon">Brevemente</string>
-    <string name="contacts_info_full">Estes contactos serão mostrados quando alguém ler a etiqueta QR do seu animal. Pode adicionar até dois e-mails e números de telefone.</string>
-    <string name="contacts_primary_email_edit_footer">O seu e-mail principal da conta</string>
-    <string name="contacts_secondary_email_edit_footer">E-mail de backup para notificações de recuperação</string>
-    <string name="contacts_primary_phone_edit_footer">O seu número principal de contacto</string>
-    <string name="contacts_secondary_phone_edit_footer">Telefone de backup para emergências</string>
-    <string name="contacts_visible_on_tag">Visível na etiqueta</string>
-    <string name="contacts_no_type_added">Nenhum %1$s adicionado</string>
 
     <!-- ============================================ -->
     <!-- MARK: Contact Visibility -->
@@ -929,40 +584,10 @@
     <!-- ============================================ -->
     <!-- MARK: Privacy Mode -->
     <!-- ============================================ -->
-    <string name="privacy_contact_visibility">Visibilidade de contacto</string>
-    <string name="privacy_contact_footer">Controle quais contactos são visíveis quando alguém lê a etiqueta QR do seu animal.</string>
-    <string name="privacy_show_phone">Mostrar número de telefone</string>
-    <string name="privacy_show_email">Mostrar e-mail</string>
-    <string name="privacy_show_address">Mostrar morada</string>
-    <string name="privacy_data_privacy">Privacidade de dados</string>
-    <string name="privacy_privacy_policy">Política de Privacidade</string>
-    <string name="privacy_data_management">Gestão de dados</string>
-    <string name="privacy_title">Modo de privacidade</string>
-    <string name="privacy_mode_footer">As definições de privacidade ajudam a controlar que informações são partilhadas quando alguém lê a etiqueta QR do seu animal.</string>
-    <string name="privacy_policy_title">Política de Privacidade</string>
-    <string name="privacy_policy_updated">Última atualização: novembro de 2024</string>
-    <string name="privacy_policy_section1_title">1. Informação que recolhemos</string>
-    <string name="privacy_policy_section1_body">Recolhemos as informações que fornece diretamente, incluindo nome, e-mail, telefone, morada e informações do animal. Também recolhemos dados de localização quando escolhe partilhá-los.</string>
-    <string name="privacy_policy_section2_title">2. Como usamos as suas informações</string>
-    <string name="privacy_policy_section2_body">As suas informações são usadas para fornecer os nossos serviços de segurança de animais, enviar notificações sobre animais desaparecidos e facilitar reunificações.</string>
-    <string name="privacy_policy_section3_title">3. Partilha de informação</string>
-    <string name="privacy_policy_section3_body">Partilhamos a sua informação de contacto apenas conforme as suas definições de privacidade. Os dados de localização só são partilhados quando escolhe explicitamente partilhar.</string>
-    <string name="privacy_policy_section4_title">4. Segurança dos dados</string>
-    <string name="privacy_policy_section4_body">Usamos encriptação e medidas de segurança padrão da indústria para proteger a sua informação pessoal.</string>
-    <string name="privacy_policy_section5_title">5. Os seus direitos</string>
-    <string name="privacy_policy_section5_body">Tem o direito de aceder, atualizar e eliminar os seus dados pessoais a qualquer momento nas definições da app.</string>
-    <string name="privacy_your_data">Os seus dados</string>
-    <string name="privacy_your_data_footer">Peça uma cópia de todos os dados pessoais armazenados no nosso sistema.</string>
-    <string name="privacy_export_data">Exportar os meus dados</string>
-    <string name="privacy_deletion_section">Eliminação de dados</string>
-    <string name="privacy_deletion_footer">Eliminar permanentemente a sua conta e todos os dados associados.</string>
-    <string name="privacy_delete_account">Eliminar a minha conta</string>
-    <string name="privacy_delete_confirm">Tem a certeza que quer eliminar a sua conta? Isto eliminará permanentemente todos os seus dados, incluindo animais, alertas e histórico de encomendas. Esta ação não pode ser desfeita.</string>
     <string name="data_privacy">Privacidade de dados</string>
     <string name="data_management">Gestão de dados</string>
     <string name="privacy_settings_updated">Definições de privacidade atualizadas</string>
     <string name="privacy_settings_failed">Falha ao atualizar definições de privacidade</string>
-    <string name="privacy_settings_placeholder">As definições de privacidade estarão disponíveis aqui.</string>
 
     <!-- ============================================ -->
     <!-- MARK: Delete Account -->
@@ -981,30 +606,6 @@
     <!-- ============================================ -->
     <!-- MARK: Help & Support -->
     <!-- ============================================ -->
-    <string name="help_quick_actions">Ações rápidas</string>
-    <string name="help_contact_support">Contactar suporte</string>
-    <string name="help_resources">Recursos</string>
-    <string name="help_faq">Perguntas frequentes</string>
-    <string name="help_user_guides">Guias do utilizador</string>
-    <string name="help_legal">Legal</string>
-    <string name="help_terms">Termos de serviço</string>
-    <string name="help_privacy">Política de Privacidade</string>
-    <string name="help_app_info">Informação da app</string>
-    <string name="help_version">Versão</string>
-    <string name="help_build">Build</string>
-    <string name="help_title">Ajuda &amp; suporte</string>
-    <string name="help_support_footer">Precisa de ajuda? A nossa equipa de suporte está aqui para ajudar.</string>
-    <string name="help_category">Categoria</string>
-    <string name="help_subject">Assunto</string>
-    <string name="help_subject_placeholder">Descrição breve do seu problema</string>
-    <string name="help_message">Mensagem</string>
-    <string name="help_message_placeholder">Descreva o seu problema em detalhe\u2026</string>
-    <string name="help_sending">A enviar\u2026</string>
-    <string name="help_submit_request">Enviar pedido</string>
-    <string name="help_contact_title">Contactar suporte</string>
-    <string name="help_faq_title">FAQ</string>
-    <string name="help_guides_title">Guias do utilizador</string>
-    <string name="help_guide_placeholder">O conteúdo detalhado do guia estará disponível aqui.</string>
     <string name="get_help">Obter ajuda</string>
     <string name="faq">Perguntas frequentes</string>
     <string name="user_guides">Guias do utilizador</string>
@@ -1064,7 +665,6 @@
     <string name="payment_intent_failed">Falha na intenção de pagamento</string>
     <string name="order_create_failed">Falha ao criar encomenda</string>
     <string name="order_replacement_title">Encomendar etiqueta de substituição</string>
-    <string name="pet_label">Animal: %1$s</string>
     <string name="order_replacement_button">Encomendar substituição</string>
     <string name="replacement_ordered">Substituição encomendada</string>
     <string name="replacement_failed">Falha ao encomendar substituição</string>
@@ -1089,33 +689,6 @@
     </plurals>
 
     <!-- Order More Tags -->
-    <string name="order_more_title">Encomendar mais etiquetas</string>
-    <string name="order_more_complete">Encomenda completa!</string>
-    <string name="order_more_payment_pending">A sua encomenda foi efetuada. Receberá um e-mail com instruções de pagamento em breve.</string>
-    <string name="order_more_confirmation">Enviaremos as etiquetas após confirmação do pagamento.</string>
-    <string name="order_more_pet_names">Nomes dos animais</string>
-    <string name="order_more_pet_names_footer">Introduza os nomes dos animais para os quais pretende etiquetas. Vamos gravar o nome em cada etiqueta.</string>
-    <string name="order_more_pet_name_placeholder">Nome do animal</string>
-    <string name="order_more_add_another">Adicionar outro animal</string>
-    <string name="order_more_your_info">A sua informação</string>
-    <string name="order_more_full_name">Nome completo</string>
-    <string name="order_more_email">E-mail</string>
-    <string name="order_more_phone">Telefone</string>
-    <string name="order_more_shipping">Morada de envio</string>
-    <string name="order_more_street">Rua e número</string>
-    <string name="order_more_street_placeholder">Introduza rua e número</string>
-    <string name="order_more_line2">Andar, apartamento (opcional)</string>
-    <string name="order_more_line2_placeholder">Apartamento, suíte, etc.</string>
-    <string name="order_more_city">Cidade</string>
-    <string name="order_more_province">Distrito / estado (opcional)</string>
-    <string name="order_more_postal">Código postal</string>
-    <string name="order_more_country">País</string>
-    <string name="order_more_summary">Resumo da encomenda</string>
-    <string name="order_more_tags_count">Etiquetas (%1$d)</string>
-    <string name="order_more_shipping_cost">Envio</string>
-    <string name="order_more_total">Total</string>
-    <string name="order_more_creating">A criar encomenda\u2026</string>
-    <string name="order_more_place_order">Fazer encomenda</string>
     <string name="get_qr_tags_subtitle">Obtenha etiquetas QR para os seus animais</string>
     <string name="pet_names">Nomes dos animais</string>
     <string name="shipping_address">Morada de envio</string>
@@ -1123,35 +696,9 @@
     <string name="shipping_price">Calculated at checkout</string>
 
     <!-- Order Replacement Tag -->
-    <string name="order_replace_title">Encomendar etiqueta de substituição</string>
-    <string name="order_replace_complete">Encomenda completa!</string>
-    <string name="order_replace_confirmation">A sua etiqueta de substituição será enviada para a morada indicada.</string>
-    <string name="order_replace_pet_info">Informação do animal</string>
-    <string name="order_replace_important">Informação importante</string>
-    <string name="order_replace_eligible_free">A primeira substituição é grátis</string>
-    <string name="order_replace_additional_fee">Substituições adicionais: %1$s</string>
-    <string name="order_replace_shipping">Morada de envio</string>
-    <string name="order_replace_shipping_footer">Enviaremos a etiqueta de substituição para esta morada.</string>
-    <string name="order_replace_street">Rua e número</string>
-    <string name="order_replace_street_placeholder">Introduza rua e número</string>
-    <string name="order_replace_line2">Andar, apartamento (opcional)</string>
-    <string name="order_replace_line2_placeholder">Apartamento, suíte, etc.</string>
-    <string name="order_replace_city">Cidade</string>
-    <string name="order_replace_postal">Código postal</string>
-    <string name="order_replace_country">País</string>
-    <string name="order_replace_phone">Telefone (opcional)</string>
-    <string name="order_replace_phone_placeholder">Introduza o telefone</string>
-    <string name="order_replace_creating">A criar encomenda\u2026</string>
-    <string name="order_replace_free_button">Confirmar e encomendar etiqueta de substituição grátis</string>
-    <string name="order_replace_paid_button">Confirmar e pagar %1$s</string>
     <string name="replacement_subtitle">Perdida ou danificada? Enviaremos uma nova</string>
     <string name="free_replacement">Substituição gratuita</string>
     <string name="replacement_shipping_info">A sua etiqueta de substituição será enviada em 2\u20133 dias úteis\u2026</string>
-    <string name="order_replace_upgrade_hint">Faça upgrade para Standard ou Ultimate para substituições gratuitas</string>
-    <string name="order_replace_old_deactivated">O seu antigo código QR será desativado quando fizer esta encomenda</string>
-    <string name="order_replace_delivery_time">Receberá a sua nova etiqueta em 5-7 dias úteis</string>
-    <string name="order_replace_scan_activate">Assim que receber a nova etiqueta, deverá lê-la para a ativar</string>
-    <string name="order_replace_province">Distrito / estado (opcional)</string>
     <string name="delivery_method_title">Método de entrega</string>
     <string name="home_delivery_option">Entrega ao domicílio</string>
     <string name="home_delivery_price">2.490 Ft</string>
@@ -1231,30 +778,10 @@
     <!-- ============================================ -->
     <!-- MARK: Quick Mark Lost/Found -->
     <!-- ============================================ -->
-    <string name="quick_lost_select_pet">Selecione um animal para reportar como desaparecido</string>
-    <string name="quick_lost_all_missing">Todos os seus animais já estão marcados como desaparecidos.</string>
-    <string name="quick_lost_title">Reportar desaparecido</string>
-    <string name="quick_found_select_pet">Selecione um animal para marcar como encontrado</string>
-    <string name="quick_found_currently_missing">Atualmente desaparecido</string>
-    <string name="quick_found_no_missing">Sem animais desaparecidos para marcar como encontrados.</string>
-    <string name="quick_found_title">Marcar animal como encontrado</string>
-    <string name="quick_found_mark_failed">Falha ao marcar %1$s como encontrado: %2$s</string>
 
     <!-- ============================================ -->
     <!-- MARK: Breed Picker -->
     <!-- ============================================ -->
-    <string name="breed_select_title">Selecionar raça</string>
-    <string name="breed_search_placeholder">Pesquisar raças\u2026</string>
-    <string name="breed_no_results">Nenhuma raça encontrada</string>
-    <string name="breed_use_custom">Usar \"%1$s\" como raça personalizada</string>
-    <string name="breed_manual_entry">Introduzir raça manualmente</string>
-    <string name="breed_clear_selection">Limpar seleção</string>
-    <string name="breed_enter_name">Introduza o nome da raça</string>
-    <string name="breed_custom">Raça personalizada</string>
-    <string name="breed_custom_footer">Introduza uma raça personalizada se não estiver listada</string>
-    <string name="breed_back_to_list">Voltar à lista de raças</string>
-    <string name="breed_select_optional">Selecionar raça (opcional)</string>
-    <string name="breed_optional">Raça (opcional)</string>
 
     <!-- ============================================ -->
     <!-- MARK: Public Pet Profile -->
@@ -1302,14 +829,6 @@
     <string name="connected">Ligado</string>
     <string name="sync_now">Sincronizar agora</string>
     <string name="changes_sync_restored">As alterações serão sincronizadas automaticamente quando a ligação for restaurada.</string>
-    <string name="offline_pending_changes">Alterações pendentes</string>
-    <string name="offline_online">Online</string>
-    <string name="offline_sync_message">As alterações serão sincronizadas quando estiver online</string>
-    <string name="offline_tap_to_view">Toque para ver ações em fila</string>
-    <string name="offline_actions_queued">%1$d ação(ões) em fila</string>
-    <string name="offline_last_synced">Última sincronização: %1$s</string>
-    <string name="offline_sync_now">Sincronizar agora</string>
-    <string name="offline_last_sync_label">Hora da última sincronização</string>
     <plurals name="queued_actions">
         <item quantity="one">%d ação em fila</item>
         <item quantity="other">%d ações em fila</item>
@@ -1343,13 +862,6 @@
     <!-- ============================================ -->
     <!-- MARK: Map App Picker -->
     <!-- ============================================ -->
-    <string name="map_approximate_notice">Esta é uma localização aproximada (~500 m). Procure a área ao redor.</string>
-    <string name="map_coordinates">Coordenadas</string>
-    <string name="map_open_in">Abrir em</string>
-    <string name="map_apple_maps">Apple Maps</string>
-    <string name="map_google_maps">Google Maps</string>
-    <string name="map_waze">Waze</string>
-    <string name="map_pet_location">Localização de %1$s</string>
     <string name="location_title">Localização de %1$s</string>
     <string name="approximate_location_note">Esta é uma localização aproximada (~500 m). Procure a área ao redor.</string>
     <string name="coordinates_label">Coordenadas: %1$s</string>
@@ -1365,10 +877,8 @@
     <!-- ============================================ -->
     <!-- MARK: App Info -->
     <!-- ============================================ -->
-    <string name="app_name_label">Pet Safety</string>
+    <string name="app_name_label">Senra Pet</string>
     <string name="app_version">Versão 1.0.0</string>
-    <string name="terms_url">Termos: https://senra.pet/terms-conditions</string>
-    <string name="privacy_url">Privacidade: https://senra.pet/privacy-policy</string>
 
     <!-- ============================================ -->
     <!-- MARK: Relative Time -->
@@ -1415,7 +925,6 @@
     <!-- MARK: Reward & Sighting Details -->
     <!-- ============================================ -->
     <string name="reward_optional">Recompensa (opcional)</string>
-    <string name="reward_badge">\u20AC%d Recompensa</string>
     <string name="sighting_details_title">Avistamentos</string>
     <string name="sighting_at">Visto em %1$s</string>
     <string name="sighting_reported_at">Reportado %1$s</string>
@@ -1430,7 +939,6 @@
     <string name="no_plan">Nenhum</string>
     <string name="current_location_fallback">Localização atual</string>
     <string name="share_card_reunited">Reunido!</string>
-    <string name="euro_currency_symbol">\u20AC</string>
 
     <!-- FAQ Screen -->
     <string name="faq_title">Perguntas frequentes</string>
@@ -1518,7 +1026,6 @@
     <string name="order_status_shipped">Shipped</string>
     <string name="order_status_delivered">Delivered</string>
     <string name="order_status_cancelled">Cancelled</string>
-
 
     <!-- Missing translations added -->
     <string name="add_additional_info">Adicionar informação adicional</string>

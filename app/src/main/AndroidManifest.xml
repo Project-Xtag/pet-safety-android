@@ -18,7 +18,7 @@
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:label="Pet Safety"
+        android:label="Senra Pet"
         android:supportsRtl="true"
         android:theme="@style/Theme.PetSafety"
         android:localeConfig="@xml/locales_config"
