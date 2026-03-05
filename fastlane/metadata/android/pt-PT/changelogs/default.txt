@@ -1,0 +1,1 @@
+Lançamento inicial com etiquetas QR, alertas comunitários e suporte multilingue.

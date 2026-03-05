@@ -545,11 +545,16 @@ fun PetFormScreen(
         val context = androidx.compose.ui.platform.LocalContext.current
         AlertDialog(
             onDismissRequest = { viewModel.dismissUpgradePrompt() },
-            title = { Text("Pet Limit Reached") },
+            title = { Text(stringResource(R.string.pet_limit_reached)) },
             text = {
                 Text(
-                    "Your ${info.currentPlan.replaceFirstChar { it.uppercase() }} plan allows ${info.maxPets} pet. " +
-                    "Upgrade to ${info.upgradeTo.replaceFirstChar { it.uppercase() }} for ${info.upgradePrice} to add unlimited pets."
+                    stringResource(
+                        R.string.pet_limit_reached_message,
+                        info.currentPlan.replaceFirstChar { it.uppercase() },
+                        info.maxPets,
+                        info.upgradeTo.replaceFirstChar { it.uppercase() },
+                        info.upgradePrice
+                    )
                 )
             },
             confirmButton = {
@@ -561,7 +566,7 @@ fun PetFormScreen(
                     )
                     context.startActivity(intent)
                 }) {
-                    Text("Upgrade to ${info.upgradeTo.replaceFirstChar { it.uppercase() }}")
+                    Text(stringResource(R.string.upgrade_to_plan, info.upgradeTo.replaceFirstChar { it.uppercase() }))
                 }
             },
             dismissButton = {

@@ -1,0 +1,1 @@
+Initial release with pet QR tags, community alerts, and multi-language support.

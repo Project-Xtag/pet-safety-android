@@ -2,6 +2,7 @@ package com.petsafety.app.ui.viewmodel
 
 import android.app.Application
 import com.petsafety.app.data.model.User
+import com.petsafety.app.data.fcm.FCMRepository
 import com.petsafety.app.data.repository.AuthRepository
 import io.mockk.*
 import io.mockk.impl.annotations.MockK
@@ -26,6 +27,9 @@ class PrivacySettingsViewModelTest {
 
     @MockK
     private lateinit var authRepository: AuthRepository
+
+    @MockK
+    private lateinit var fcmRepository: FCMRepository
 
     private lateinit var application: Application
     private lateinit var viewModel: AuthViewModel
@@ -63,7 +67,7 @@ class PrivacySettingsViewModelTest {
         every { authRepository.isAuthenticated } returns authStateFlow
         coEvery { authRepository.getCurrentUser() } returns testUser
 
-        viewModel = AuthViewModel(application, authRepository)
+        viewModel = AuthViewModel(application, authRepository, fcmRepository)
     }
 
     @After

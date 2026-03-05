@@ -383,7 +383,7 @@ class PetsRepositoryTest {
                     map["longitude"] == -0.1278 &&
                     map["lastSeenAddress"] == "London" &&
                     map["description"] == "Lost" &&
-                    map["rewardAmount"] == 100.0
+                    map["rewardAmount"] == "100.0"
                 }
             )
         }

@@ -1,0 +1,13 @@
+default_platform(:android)
+
+platform :android do
+  desc "Upload metadata to Google Play"
+  lane :metadata do
+    supply(
+      skip_upload_apk: true,
+      skip_upload_aab: true,
+      skip_upload_images: true,
+      skip_upload_screenshots: true
+    )
+  end
+end
