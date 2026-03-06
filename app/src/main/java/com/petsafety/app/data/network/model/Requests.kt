@@ -117,7 +117,7 @@ enum class LocationConsentType {
 /**
  * Share location request with 2-tier consent (toggle)
  * - Toggle ON (default): consent_type = "precise", exact GPS coordinates
- * - Toggle OFF: consent_type = "approximate", coordinates rounded to 3 decimals (~500m)
+ * - Toggle OFF: consent_type = "approximate", coordinates rounded to 3 decimals
  */
 @Serializable
 data class ShareLocationRequest(

@@ -250,7 +250,7 @@
     <string name="precise_location">Locație precisă</string>
     <string name="precise_location_desc">Partajează coordonatele GPS exacte</string>
     <string name="approximate_location">Locație aproximativă</string>
-    <string name="approximate_location_desc">Partajează cu o precizie de ~500 m (conform GDPR)</string>
+    <string name="approximate_location_desc">Partajare aproximativă a locației (conform GDPR)</string>
     <string name="dont_share_location">Nu partaja locația</string>
     <string name="dont_share_location_desc">Doar notifică proprietarul că animalul a fost găsit</string>
     <string name="confirm_notify_owner">Confirmă și notifică proprietarul</string>
@@ -446,10 +446,10 @@
     <string name="notif_fallback_a_pet">Un animal</string>
     <string name="notif_fallback_your_area">zona ta</string>
     <string name="notif_location_shared">Locație partajată</string>
-    <string name="notif_location_approximate">Locație aproximativă (~500 m)</string>
+    <string name="notif_location_approximate">Locație aproximativă</string>
 
     <!-- Notification Action Buttons -->
-    <string name="notif_action_view_area">Vezi zona (~500 m)</string>
+    <string name="notif_action_view_area">Vezi zona</string>
     <string name="notif_action_view_map">Vezi pe hartă</string>
     <string name="notif_action_get_directions">Obține direcții</string>
 
@@ -865,7 +865,7 @@
     <!-- MARK: Map App Picker -->
     <!-- ============================================ -->
     <string name="location_title">Locația lui %1$s</string>
-    <string name="approximate_location_note">Aceasta este o locație aproximativă (~500 m). Caută în zona din jur.</string>
+    <string name="approximate_location_note">Aceasta este o locație aproximativă. Caută în zona din jur.</string>
     <string name="coordinates_label">Coordonate: %1$s</string>
     <string name="open_in">Deschide în:</string>
     <string name="google_maps">Google Maps</string>

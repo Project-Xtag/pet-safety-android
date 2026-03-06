@@ -256,7 +256,7 @@
     <string name="precise_location">Presná poloha</string>
     <string name="precise_location_desc">Zdieľajte presné GPS súradnice</string>
     <string name="approximate_location">Približná poloha</string>
-    <string name="approximate_location_desc">Zdieľajte s presnosťou ~500 m (v súlade s GDPR)</string>
+    <string name="approximate_location_desc">Približné zdieľanie polohy (v súlade s GDPR)</string>
     <string name="dont_share_location">Nezdieľať polohu</string>
     <string name="dont_share_location_desc">Iba informujte majiteľa, že zviera bolo nájdené</string>
     <string name="confirm_notify_owner">Potvrdiť a informovať majiteľa</string>
@@ -452,10 +452,10 @@
     <string name="notif_fallback_a_pet">Zviera</string>
     <string name="notif_fallback_your_area">vaša oblasť</string>
     <string name="notif_location_shared">Poloha zdieľaná</string>
-    <string name="notif_location_approximate">Približná poloha (~500 m)</string>
+    <string name="notif_location_approximate">Približná poloha</string>
 
     <!-- Notification Action Buttons -->
-    <string name="notif_action_view_area">Zobraziť oblasť (~500 m)</string>
+    <string name="notif_action_view_area">Zobraziť oblasť</string>
     <string name="notif_action_view_map">Zobraziť na mape</string>
     <string name="notif_action_get_directions">Získať trasu</string>
 
@@ -871,7 +871,7 @@
     <!-- MARK: Map App Picker -->
     <!-- ============================================ -->
     <string name="location_title">Poloha %1$s</string>
-    <string name="approximate_location_note">Toto je približná poloha (~500 m). Prehľadajte okolie.</string>
+    <string name="approximate_location_note">Toto je približná poloha. Prehľadajte okolie.</string>
     <string name="coordinates_label">Súradnice: %1$s</string>
     <string name="open_in">Otvoriť v:</string>
     <string name="google_maps">Google Mapy</string>

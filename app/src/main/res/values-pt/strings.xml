@@ -257,7 +257,7 @@
     <string name="precise_location">Localização precisa</string>
     <string name="precise_location_desc">Partilhe as suas coordenadas GPS exatas</string>
     <string name="approximate_location">Localização aproximada</string>
-    <string name="approximate_location_desc">Partilhar com precisão de ~500 m (compatível com RGPD)</string>
+    <string name="approximate_location_desc">Partilha de localização aproximada (compatível com RGPD)</string>
     <string name="dont_share_location">Não partilhar localização</string>
     <string name="dont_share_location_desc">Apenas notificar o dono de que o animal foi encontrado</string>
     <string name="confirm_notify_owner">Confirmar e notificar o dono</string>
@@ -452,10 +452,10 @@
     <string name="notif_fallback_a_pet">Um animal</string>
     <string name="notif_fallback_your_area">a sua área</string>
     <string name="notif_location_shared">Localização partilhada</string>
-    <string name="notif_location_approximate">Localização aproximada (~500 m)</string>
+    <string name="notif_location_approximate">Localização aproximada</string>
 
     <!-- Notification Action Buttons -->
-    <string name="notif_action_view_area">Ver área (~500 m)</string>
+    <string name="notif_action_view_area">Ver área</string>
     <string name="notif_action_view_map">Ver no mapa</string>
     <string name="notif_action_get_directions">Obter direções</string>
 
@@ -869,7 +869,7 @@
     <!-- MARK: Map App Picker -->
     <!-- ============================================ -->
     <string name="location_title">Localização de %1$s</string>
-    <string name="approximate_location_note">Esta é uma localização aproximada (~500 m). Procure a área ao redor.</string>
+    <string name="approximate_location_note">Esta é uma localização aproximada. Procure a área ao redor.</string>
     <string name="coordinates_label">Coordenadas: %1$s</string>
     <string name="open_in">Abrir em:</string>
     <string name="google_maps">Google Maps</string>

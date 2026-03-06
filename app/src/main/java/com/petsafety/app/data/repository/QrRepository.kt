@@ -15,7 +15,7 @@ import kotlin.math.roundToInt
  * 2-tier model: precise (toggle ON) or approximate (toggle OFF).
  */
 enum class LocationConsent {
-    /** Share approximate location (~500m accuracy) — toggle OFF */
+    /** Share approximate location — toggle OFF */
     APPROXIMATE,
     /** Share precise/exact location — toggle ON (default) */
     PRECISE

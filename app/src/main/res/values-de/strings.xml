@@ -257,7 +257,7 @@
     <string name="precise_location">Genauer Standort</string>
     <string name="precise_location_desc">Teilen Sie Ihre exakten GPS-Koordinaten</string>
     <string name="approximate_location">Ungefährer Standort</string>
-    <string name="approximate_location_desc">Teilen mit ~500 m Genauigkeit (DSGVO-konform)</string>
+    <string name="approximate_location_desc">Ungefähre Standortfreigabe (DSGVO-konform)</string>
     <string name="dont_share_location">Standort nicht teilen</string>
     <string name="dont_share_location_desc">Den Besitzer nur informieren, dass das Haustier gefunden wurde</string>
     <string name="confirm_notify_owner">Bestätigen &amp; Besitzer informieren</string>
@@ -452,10 +452,10 @@
     <string name="notif_fallback_a_pet">Ein Haustier</string>
     <string name="notif_fallback_your_area">Ihre Gegend</string>
     <string name="notif_location_shared">Standort geteilt</string>
-    <string name="notif_location_approximate">Ungefährer Standort (~500 m)</string>
+    <string name="notif_location_approximate">Ungefährer Standort</string>
 
     <!-- Notification Action Buttons -->
-    <string name="notif_action_view_area">Bereich anzeigen (~500 m)</string>
+    <string name="notif_action_view_area">Bereich anzeigen</string>
     <string name="notif_action_view_map">Auf Karte anzeigen</string>
     <string name="notif_action_get_directions">Route berechnen</string>
 
@@ -869,7 +869,7 @@
     <!-- MARK: Map App Picker -->
     <!-- ============================================ -->
     <string name="location_title">Standort von %1$s</string>
-    <string name="approximate_location_note">Dies ist ein approximierter Standort (~500 m). Suchen Sie die Umgebung ab.</string>
+    <string name="approximate_location_note">Dies ist ein ungefährer Standort. Suchen Sie die Umgebung ab.</string>
     <string name="coordinates_label">Koordinaten: %1$s</string>
     <string name="open_in">Öffnen in:</string>
     <string name="google_maps">Google Maps</string>

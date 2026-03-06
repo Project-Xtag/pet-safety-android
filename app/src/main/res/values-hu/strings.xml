@@ -257,7 +257,7 @@
     <string name="precise_location">Pontos hely</string>
     <string name="precise_location_desc">Oszd meg a pontos GPS koordinátáid</string>
     <string name="approximate_location">Közelítő hely</string>
-    <string name="approximate_location_desc">Megosztás ~500m pontossággal (GDPR-kompatibilis)</string>
+    <string name="approximate_location_desc">Közelítő helymeghatározás (GDPR-kompatibilis)</string>
     <string name="dont_share_location">Ne ossz meg helyet</string>
     <string name="dont_share_location_desc">Csak értesítsd a gazdát, hogy a kedvencét megtalálták</string>
     <string name="confirm_notify_owner">Megerősítés &amp; gazda értesítése</string>
@@ -452,10 +452,10 @@
     <string name="notif_fallback_a_pet">Egy kedvenc</string>
     <string name="notif_fallback_your_area">a környéked</string>
     <string name="notif_location_shared">Hely megosztva</string>
-    <string name="notif_location_approximate">Közelítő hely (~500m)</string>
+    <string name="notif_location_approximate">Közelítő hely</string>
 
     <!-- Notification Action Buttons -->
-    <string name="notif_action_view_area">Terület megtekintése (~500m)</string>
+    <string name="notif_action_view_area">Terület megtekintése</string>
     <string name="notif_action_view_map">Megtekintés térképen</string>
     <string name="notif_action_get_directions">Útvonaltervezés</string>
 
@@ -869,7 +869,7 @@
     <!-- MARK: Map App Picker -->
     <!-- ============================================ -->
     <string name="location_title">%1$s helye</string>
-    <string name="approximate_location_note">Ez egy közelítő hely (~100m).</string>
+    <string name="approximate_location_note">Ez egy közelítő helymeghatározás. Nézz körül a közelben.</string>
     <string name="coordinates_label">Koordináták: %1$s</string>
     <string name="open_in">Megnyitás itt:</string>
     <string name="google_maps">Google Térkép</string>

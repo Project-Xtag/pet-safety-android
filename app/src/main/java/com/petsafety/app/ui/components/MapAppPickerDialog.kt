@@ -36,7 +36,7 @@ import com.petsafety.app.R
  * Map App Picker Dialog
  *
  * Presents options for opening a location in different map apps.
- * Shows a warning when location is approximate (~500m accuracy).
+ * Shows a warning when location is approximate.
  */
 @Composable
 fun MapAppPickerDialog(
