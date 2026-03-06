@@ -580,6 +580,10 @@
     <string name="show_email_subtitle">Tu correo será visible para quienes encuentren a tu mascota</string>
     <string name="show_address">Mostrar dirección</string>
     <string name="show_address_subtitle">Tu dirección será visible para quienes encuentren a tu mascota</string>
+    <string name="show_secondary_phone">Mostrar teléfono secundario</string>
+    <string name="show_secondary_phone_subtitle">Mostrar tu número de teléfono secundario en el perfil público de tu mascota</string>
+    <string name="show_secondary_email">Mostrar correo secundario</string>
+    <string name="show_secondary_email_subtitle">Mostrar tu dirección de correo secundaria en el perfil público de tu mascota</string>
 
     <!-- ============================================ -->
     <!-- MARK: Privacy Mode -->
@@ -699,6 +703,8 @@
     <string name="replacement_subtitle">¿Perdida o dañada? Te enviaremos una nueva</string>
     <string name="free_replacement">Reemplazo gratuito</string>
     <string name="replacement_shipping_info">Tu etiqueta de reemplazo se enviará en 2\u20133 días laborables\u2026</string>
+    <string name="replacement_shipping_required">Gastos de envío necesarios</string>
+    <string name="replacement_shipping_cost">Se aplica un gasto de envío de %1$s a tu pedido de placa de reemplazo.</string>
     <string name="delivery_method_title">Método de entrega</string>
     <string name="home_delivery_option">Entrega a domicilio</string>
     <string name="home_delivery_price">2.490 Ft</string>

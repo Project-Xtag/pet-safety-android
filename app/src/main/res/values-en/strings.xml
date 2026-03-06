@@ -742,6 +742,8 @@
     <string name="replacement_subtitle">Lost or damaged? We\'ll send you a new one</string>
     <string name="free_replacement">Free Replacement</string>
     <string name="replacement_shipping_info">Your replacement tag will be shipped within 2\u20133 business days\u2026</string>
+    <string name="replacement_shipping_required">Shipping Fee Required</string>
+    <string name="replacement_shipping_cost">A shipping fee of %1$s applies to your replacement tag order.</string>
     <string name="delivery_method_title">Delivery Method</string>
     <string name="home_delivery_option">Home Delivery</string>
     <string name="home_delivery_price">2,490 Ft</string>

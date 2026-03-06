@@ -9,6 +9,8 @@ import com.petsafety.app.data.network.model.CreateTagOrderRequest
 import com.petsafety.app.data.network.model.CreateReplacementOrderRequest
 import com.petsafety.app.data.network.model.DeliveryPoint
 import com.petsafety.app.data.network.model.PostaPointDetails
+import com.petsafety.app.data.network.model.ReplacementEligibilityResponse
+import com.petsafety.app.data.network.model.ShippingPricesResponse
 
 class OrdersRepository(private val apiService: ApiService) {
     suspend fun getOrders(): List<Order> =
@@ -16,6 +18,9 @@ class OrdersRepository(private val apiService: ApiService) {
 
     suspend fun createTagOrder(request: CreateTagOrderRequest) =
         apiService.createTagOrder(request).data ?: error("Missing order response")
+
+    suspend fun checkReplacementEligibility(): ReplacementEligibilityResponse =
+        apiService.checkReplacementEligibility().data ?: error("Missing eligibility response")
 
     suspend fun createReplacementOrder(petId: String, request: CreateReplacementOrderRequest) =
         apiService.createReplacementOrder(petId, request).data ?: error("Missing replacement response")
@@ -37,6 +42,9 @@ class OrdersRepository(private val apiService: ApiService) {
         )
         return response.data?.checkout?.url ?: error("Missing checkout URL")
     }
+
+    suspend fun getShippingPrices(): ShippingPricesResponse =
+        apiService.getShippingPrices().data ?: error("Missing shipping prices")
 
     suspend fun getDeliveryPoints(zipCode: String): List<DeliveryPoint> =
         apiService.getDeliveryPoints(zipCode).data ?: emptyList()

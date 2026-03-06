@@ -7,6 +7,8 @@ import com.petsafety.app.data.network.model.CreateReplacementOrderRequest
 import com.petsafety.app.data.network.model.CreateTagOrderRequest
 import com.petsafety.app.data.network.model.DeliveryPoint
 import com.petsafety.app.data.network.model.PostaPointDetails
+import com.petsafety.app.data.network.model.ReplacementEligibilityResponse
+import com.petsafety.app.data.network.model.ShippingPricesResponse
 import com.petsafety.app.data.repository.OrdersRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -107,6 +109,42 @@ class OrdersViewModel @Inject constructor(
             } catch (ex: Exception) {
                 onResult(false, ex.localizedMessage)
             }
+        }
+    }
+
+    private val _replacementEligibility = MutableStateFlow<ReplacementEligibilityResponse?>(null)
+    val replacementEligibility: StateFlow<ReplacementEligibilityResponse?> = _replacementEligibility.asStateFlow()
+
+    private val _isCheckingEligibility = MutableStateFlow(false)
+    val isCheckingEligibility: StateFlow<Boolean> = _isCheckingEligibility.asStateFlow()
+
+    fun checkReplacementEligibility() {
+        viewModelScope.launch {
+            _isCheckingEligibility.value = true
+            try {
+                _replacementEligibility.value = repository.checkReplacementEligibility()
+            } catch (ex: Exception) {
+                // Default to paid replacement if check fails
+                _replacementEligibility.value = ReplacementEligibilityResponse(
+                    isFreeReplacement = false,
+                    planName = "starter",
+                    shippingCost = 0.0,
+                    currency = "EUR"
+                )
+            } finally {
+                _isCheckingEligibility.value = false
+            }
+        }
+    }
+
+    private val _shippingPrices = MutableStateFlow<ShippingPricesResponse?>(null)
+    val shippingPrices: StateFlow<ShippingPricesResponse?> = _shippingPrices.asStateFlow()
+
+    fun fetchShippingPrices() {
+        viewModelScope.launch {
+            try {
+                _shippingPrices.value = repository.getShippingPrices()
+            } catch (_: Exception) { }
         }
     }
 

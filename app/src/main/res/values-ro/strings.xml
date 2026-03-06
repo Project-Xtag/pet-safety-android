@@ -574,6 +574,10 @@
     <string name="show_email_subtitle">E-mailul tău va fi vizibil pentru cei care găsesc animalul</string>
     <string name="show_address">Afișează adresa</string>
     <string name="show_address_subtitle">Adresa ta va fi vizibilă pentru cei care găsesc animalul</string>
+    <string name="show_secondary_phone">Afișează telefonul secundar</string>
+    <string name="show_secondary_phone_subtitle">Afișează numărul tău de telefon secundar pe profilul public al animalului</string>
+    <string name="show_secondary_email">Afișează e-mailul secundar</string>
+    <string name="show_secondary_email_subtitle">Afișează adresa ta de e-mail secundară pe profilul public al animalului</string>
 
     <!-- ============================================ -->
     <!-- MARK: Privacy Mode -->
@@ -694,6 +698,8 @@
     <string name="replacement_subtitle">Pierdută sau deteriorată? Îți trimitem una nouă</string>
     <string name="free_replacement">Înlocuire gratuită</string>
     <string name="replacement_shipping_info">Eticheta de înlocuire va fi expediată în 2\u20133 zile lucrătoare\u2026</string>
+    <string name="replacement_shipping_required">Taxă de livrare necesară</string>
+    <string name="replacement_shipping_cost">Se aplică o taxă de livrare de %1$s pentru comanda ta de medalion de înlocuire.</string>
     <string name="delivery_method_title">Metodă de livrare</string>
     <string name="home_delivery_option">Livrare la domiciliu</string>
     <string name="home_delivery_price">2.490 Ft</string>

@@ -605,6 +605,10 @@
     <string name="show_email_subtitle">Your primary and secondary email addresses will be visible on your pet\'s public profile</string>
     <string name="show_address">Show Address</string>
     <string name="show_address_subtitle">Your address will be visible on your pet\'s public profile</string>
+    <string name="show_secondary_phone">Show Secondary Phone</string>
+    <string name="show_secondary_phone_subtitle">Display your secondary phone number on your pet\'s public profile</string>
+    <string name="show_secondary_email">Show Secondary Email</string>
+    <string name="show_secondary_email_subtitle">Display your secondary email address on your pet\'s public profile</string>
 
     <!-- ============================================ -->
     <!-- MARK: Privacy Mode -->
@@ -782,6 +786,8 @@
     <string name="replacement_subtitle">Lost or damaged? We\'ll send you a new one</string>
     <string name="free_replacement">Free Replacement</string>
     <string name="replacement_shipping_info">Your replacement tag will be shipped within 2\u20133 business days\u2026</string>
+    <string name="replacement_shipping_required">Shipping Fee Required</string>
+    <string name="replacement_shipping_cost">A shipping fee of %1$s applies to your replacement tag order.</string>
 
     <!-- MARK: Delivery Method (PostaPoint) -->
     <string name="delivery_method_title">Delivery Method</string>

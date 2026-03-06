@@ -580,6 +580,10 @@
     <string name="show_email_subtitle">O seu e-mail será visível para quem encontrar o seu animal</string>
     <string name="show_address">Mostrar morada</string>
     <string name="show_address_subtitle">A sua morada será visível para quem encontrar o seu animal</string>
+    <string name="show_secondary_phone">Mostrar telefone secundário</string>
+    <string name="show_secondary_phone_subtitle">Mostrar o seu número de telefone secundário no perfil público do seu animal</string>
+    <string name="show_secondary_email">Mostrar e-mail secundário</string>
+    <string name="show_secondary_email_subtitle">Mostrar o seu endereço de e-mail secundário no perfil público do seu animal</string>
 
     <!-- ============================================ -->
     <!-- MARK: Privacy Mode -->
@@ -699,6 +703,8 @@
     <string name="replacement_subtitle">Perdida ou danificada? Enviaremos uma nova</string>
     <string name="free_replacement">Substituição gratuita</string>
     <string name="replacement_shipping_info">A sua etiqueta de substituição será enviada em 2\u20133 dias úteis\u2026</string>
+    <string name="replacement_shipping_required">Taxa de envio necessária</string>
+    <string name="replacement_shipping_cost">Aplica-se uma taxa de envio de %1$s à sua encomenda de placa de substituição.</string>
     <string name="delivery_method_title">Método de entrega</string>
     <string name="home_delivery_option">Entrega ao domicílio</string>
     <string name="home_delivery_price">2.490 Ft</string>

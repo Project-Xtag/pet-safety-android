@@ -581,6 +581,10 @@
     <string name="show_email_subtitle">Váš e-mail bude viditelný pro nálezce</string>
     <string name="show_address">Zobrazit adresu</string>
     <string name="show_address_subtitle">Vaše adresa bude viditelná pro nálezce</string>
+    <string name="show_secondary_phone">Zobrazit sekundární telefon</string>
+    <string name="show_secondary_phone_subtitle">Zobrazit vaše sekundární telefonní číslo na veřejném profilu mazlíčka</string>
+    <string name="show_secondary_email">Zobrazit sekundární e-mail</string>
+    <string name="show_secondary_email_subtitle">Zobrazit vaši sekundární e-mailovou adresu na veřejném profilu mazlíčka</string>
 
     <!-- ============================================ -->
     <!-- MARK: Privacy Mode -->
@@ -701,6 +705,8 @@
     <string name="replacement_subtitle">Ztracená nebo poškozená? Pošleme novou</string>
     <string name="free_replacement">Bezplatná náhrada</string>
     <string name="replacement_shipping_info">Náhradní známka bude odeslána do 2\u20133 pracovních dnů\u2026</string>
+    <string name="replacement_shipping_required">Vyžaduje se poštovné</string>
+    <string name="replacement_shipping_cost">Na objednávku náhradní známky se vztahuje poštovné %1$s.</string>
     <string name="delivery_method_title">Způsob doručení</string>
     <string name="home_delivery_option">Doručení domů</string>
     <string name="home_delivery_price">2 490 Ft</string>

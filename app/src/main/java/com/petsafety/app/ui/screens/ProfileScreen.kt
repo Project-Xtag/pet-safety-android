@@ -37,6 +37,7 @@ import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.CardGiftcard
 import androidx.compose.material.icons.filled.CreditCard
 import androidx.compose.material.icons.filled.Star
+import androidx.compose.material.icons.filled.ShoppingBag
 import androidx.compose.material.icons.filled.WorkspacePremium
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
@@ -256,6 +257,12 @@ private fun ProfileMain(
                         icon = Icons.Default.HelpOutline,
                         title = stringResource(R.string.help_support),
                         onClick = { onNavigate(ProfileSection.HELP) }
+                    )
+                    HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
+                    ProfileMenuRow(
+                        icon = Icons.Default.ShoppingBag,
+                        title = stringResource(R.string.orders_title),
+                        onClick = { onNavigate(ProfileSection.ORDERS) }
                     )
                     HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
                     ProfileMenuRow(
@@ -987,6 +994,12 @@ private fun PrivacyModeScreen(
     var showAddressPublicly by remember(currentUser?.showAddressPublicly) {
         mutableStateOf(currentUser?.showAddressPublicly ?: true)
     }
+    var showSecondaryPhonePublicly by remember(currentUser?.showSecondaryPhonePublicly) {
+        mutableStateOf(currentUser?.showSecondaryPhonePublicly ?: false)
+    }
+    var showSecondaryEmailPublicly by remember(currentUser?.showSecondaryEmailPublicly) {
+        mutableStateOf(currentUser?.showSecondaryEmailPublicly ?: false)
+    }
 
     val privacyUpdatedMessage = stringResource(R.string.privacy_settings_updated)
     val privacyFailedMessage = stringResource(R.string.privacy_settings_failed)
@@ -1005,6 +1018,8 @@ private fun PrivacyModeScreen(
                     "show_phone_publicly" -> showPhonePublicly = !value
                     "show_email_publicly" -> showEmailPublicly = !value
                     "show_address_publicly" -> showAddressPublicly = !value
+                    "show_secondary_phone_publicly" -> showSecondaryPhonePublicly = !value
+                    "show_secondary_email_publicly" -> showSecondaryEmailPublicly = !value
                 }
             }
         }
@@ -1080,6 +1095,35 @@ private fun PrivacyModeScreen(
                         },
                         enabled = !isLoading
                     )
+
+                    // Secondary contact toggles (only shown when secondary contacts exist)
+                    if (!currentUser?.secondaryPhone.isNullOrBlank()) {
+                        HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
+                        SettingsToggleRow(
+                            title = stringResource(R.string.show_secondary_phone),
+                            subtitle = stringResource(R.string.show_secondary_phone_subtitle),
+                            checked = showSecondaryPhonePublicly,
+                            onCheckedChange = {
+                                showSecondaryPhonePublicly = it
+                                updatePrivacySetting("show_secondary_phone_publicly", it)
+                            },
+                            enabled = !isLoading
+                        )
+                    }
+
+                    if (!currentUser?.secondaryEmail.isNullOrBlank()) {
+                        HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
+                        SettingsToggleRow(
+                            title = stringResource(R.string.show_secondary_email),
+                            subtitle = stringResource(R.string.show_secondary_email_subtitle),
+                            checked = showSecondaryEmailPublicly,
+                            onCheckedChange = {
+                                showSecondaryEmailPublicly = it
+                                updatePrivacySetting("show_secondary_email_publicly", it)
+                            },
+                            enabled = !isLoading
+                        )
+                    }
                 }
             }
 

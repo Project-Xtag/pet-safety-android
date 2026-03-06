@@ -158,6 +158,9 @@ interface ApiService {
     @GET("orders")
     suspend fun getOrders(): ApiEnvelope<OrdersResponse>
 
+    @GET("orders/replacement/check-eligibility")
+    suspend fun checkReplacementEligibility(): ApiEnvelope<ReplacementEligibilityResponse>
+
     @POST("orders/replacement/{petId}")
     suspend fun createReplacementOrder(
         @Path("petId") petId: String,
@@ -167,6 +170,10 @@ interface ApiService {
     // Tag Checkout (Stripe Checkout redirect)
     @POST("orders/create-checkout")
     suspend fun createTagCheckout(@Body request: CreateTagCheckoutRequest): ApiEnvelope<TagCheckoutResponse>
+
+    // Shipping Prices (dynamic)
+    @GET("orders/shipping-prices")
+    suspend fun getShippingPrices(): ApiEnvelope<ShippingPricesResponse>
 
     // Delivery Points (PostaPoint picker)
     @GET("orders/delivery-points")

@@ -149,6 +149,15 @@ data class GetTagResponse(
 )
 
 @Serializable
+data class ReplacementEligibilityResponse(
+    val isFreeReplacement: Boolean = false,
+    val planName: String = "starter",
+    val shippingCost: Double = 0.0,
+    val currency: String = "EUR",
+    val message: String? = null
+)
+
+@Serializable
 data class ReplacementOrderResponse(
     val order: Order,
     val requiresPayment: Boolean = false,
@@ -338,4 +347,24 @@ data class ApiErrorResponse(
     val success: Boolean = false,
     val error: String = "",
     val subscription: SubscriptionLimitInfo? = null
+)
+
+// Shipping prices (dynamic from API)
+@Serializable
+data class ShippingPriceInfo(
+    val amount: Double,
+    val currency: String,
+    val label: String
+)
+
+@Serializable
+data class ShippingPricesCountry(
+    @SerialName("home_delivery") val homeDelivery: ShippingPriceInfo? = null,
+    val postapoint: ShippingPriceInfo? = null
+)
+
+@Serializable
+data class ShippingPricesResponse(
+    val HU: ShippingPricesCountry? = null,
+    @SerialName("default") val defaultPrice: ShippingPriceInfo? = null
 )

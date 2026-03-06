@@ -28,7 +28,9 @@ data class User(
     @SerialName("updated_at") val updatedAt: String? = null,
     @SerialName("show_phone_publicly") val showPhonePublicly: Boolean? = null,
     @SerialName("show_email_publicly") val showEmailPublicly: Boolean? = null,
-    @SerialName("show_address_publicly") val showAddressPublicly: Boolean? = null
+    @SerialName("show_address_publicly") val showAddressPublicly: Boolean? = null,
+    @SerialName("show_secondary_phone_publicly") val showSecondaryPhonePublicly: Boolean? = null,
+    @SerialName("show_secondary_email_publicly") val showSecondaryEmailPublicly: Boolean? = null
 ) {
     val fullName: String
         get() = listOfNotNull(firstName, lastName).joinToString(" ")

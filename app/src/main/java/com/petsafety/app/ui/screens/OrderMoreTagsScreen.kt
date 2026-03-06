@@ -84,6 +84,12 @@ fun OrderMoreTagsScreen(
     val isLoading by viewModel.isLoading.collectAsState()
     val deliveryPoints by viewModel.deliveryPoints.collectAsState()
     val isSearchingPoints by viewModel.isSearchingPoints.collectAsState()
+    val shippingPrices by viewModel.shippingPrices.collectAsState()
+
+    // Fetch shipping prices on screen load
+    LaunchedEffect(Unit) {
+        viewModel.fetchShippingPrices()
+    }
 
     val orderCreateFailedMessage = stringResource(R.string.order_create_failed)
     val checkoutFailedMessage = stringResource(R.string.checkout_failed)
@@ -337,6 +343,14 @@ fun OrderMoreTagsScreen(
                         title = stringResource(R.string.delivery_method_title),
                         icon = Icons.Default.LocalShipping
                     ) {
+                        val huPrices = shippingPrices?.HU
+                        val homeDeliveryPriceText = huPrices?.homeDelivery?.let { info ->
+                            if (info.currency == "HUF") "${info.amount.toInt()} Ft" else "€${"%.2f".format(info.amount)}"
+                        } ?: "..."
+                        val postapointPriceText = huPrices?.postapoint?.let { info ->
+                            if (info.currency == "HUF") "${info.amount.toInt()} Ft" else "€${"%.2f".format(info.amount)}"
+                        } ?: "..."
+
                         Row(
                             modifier = Modifier
                                 .fillMaxWidth()
@@ -348,7 +362,7 @@ fun OrderMoreTagsScreen(
                                 onClick = { deliveryMethod.value = "home_delivery" }
                             )
                             Text(
-                                text = "${stringResource(R.string.home_delivery_option)} (${stringResource(R.string.home_delivery_price)})",
+                                text = "${stringResource(R.string.home_delivery_option)} ($homeDeliveryPriceText)",
                                 style = MaterialTheme.typography.bodyMedium,
                                 modifier = Modifier.weight(1f)
                             )
@@ -365,7 +379,7 @@ fun OrderMoreTagsScreen(
                                 onClick = { deliveryMethod.value = "postapoint" }
                             )
                             Text(
-                                text = "${stringResource(R.string.postapoint_delivery_option)} (${stringResource(R.string.postapoint_delivery_price)})",
+                                text = "${stringResource(R.string.postapoint_delivery_option)} ($postapointPriceText)",
                                 style = MaterialTheme.typography.bodyMedium,
                                 modifier = Modifier.weight(1f)
                             )
@@ -409,15 +423,24 @@ fun OrderMoreTagsScreen(
                             style = MaterialTheme.typography.bodyMedium,
                             color = MaterialTheme.colorScheme.onSurfaceVariant
                         )
-                        Text(
-                            text = if (isHungary) {
-                                if (deliveryMethod.value == "postapoint")
-                                    stringResource(R.string.postapoint_delivery_price)
-                                else
-                                    stringResource(R.string.home_delivery_price)
+                        val shippingDisplayPrice = if (isHungary) {
+                            val huPricesBottom = shippingPrices?.HU
+                            if (deliveryMethod.value == "postapoint") {
+                                huPricesBottom?.postapoint?.let { info ->
+                                    if (info.currency == "HUF") "${info.amount.toInt()} Ft" else "€${"%.2f".format(info.amount)}"
+                                } ?: "..."
                             } else {
-                                stringResource(R.string.shipping_price)
-                            },
+                                huPricesBottom?.homeDelivery?.let { info ->
+                                    if (info.currency == "HUF") "${info.amount.toInt()} Ft" else "€${"%.2f".format(info.amount)}"
+                                } ?: "..."
+                            }
+                        } else {
+                            shippingPrices?.defaultPrice?.let { info ->
+                                if (info.currency == "HUF") "${info.amount.toInt()} Ft" else "€${"%.2f".format(info.amount)}"
+                            } ?: "..."
+                        }
+                        Text(
+                            text = shippingDisplayPrice,
                             style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.SemiBold),
                             color = MaterialTheme.colorScheme.onSurface
                         )

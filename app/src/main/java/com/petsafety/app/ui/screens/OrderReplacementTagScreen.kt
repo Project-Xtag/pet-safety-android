@@ -38,6 +38,7 @@ import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -80,10 +81,19 @@ fun OrderReplacementTagScreen(
     val isLoading by viewModel.isLoading.collectAsState()
     val deliveryPoints by viewModel.deliveryPoints.collectAsState()
     val isSearchingPoints by viewModel.isSearchingPoints.collectAsState()
+    val eligibility by viewModel.replacementEligibility.collectAsState()
+    val isCheckingEligibility by viewModel.isCheckingEligibility.collectAsState()
+    val shippingPrices by viewModel.shippingPrices.collectAsState()
 
     val replacementOrderedMessage = stringResource(R.string.replacement_ordered)
     val replacementFailedMessage = stringResource(R.string.replacement_failed)
     val searchFailedMessage = stringResource(R.string.postapoint_search_failed)
+
+    // Check eligibility and fetch shipping prices on screen load
+    LaunchedEffect(Unit) {
+        viewModel.checkReplacementEligibility()
+        viewModel.fetchShippingPrices()
+    }
 
     val street1 = remember { mutableStateOf("") }
     val street2 = remember { mutableStateOf("") }
@@ -341,6 +351,14 @@ fun OrderReplacementTagScreen(
 
                             Spacer(modifier = Modifier.height(12.dp))
 
+                            val huPrices = shippingPrices?.HU
+                            val homeDeliveryPriceText = huPrices?.homeDelivery?.let { info ->
+                                if (info.currency == "HUF") "${info.amount.toInt()} Ft" else "€${"%.2f".format(info.amount)}"
+                            } ?: "..."
+                            val postapointPriceText = huPrices?.postapoint?.let { info ->
+                                if (info.currency == "HUF") "${info.amount.toInt()} Ft" else "€${"%.2f".format(info.amount)}"
+                            } ?: "..."
+
                             Row(
                                 modifier = Modifier
                                     .fillMaxWidth()
@@ -352,7 +370,7 @@ fun OrderReplacementTagScreen(
                                     onClick = { deliveryMethod.value = "home_delivery" }
                                 )
                                 Text(
-                                    text = "${stringResource(R.string.home_delivery_option)} (${stringResource(R.string.home_delivery_price)})",
+                                    text = "${stringResource(R.string.home_delivery_option)} ($homeDeliveryPriceText)",
                                     style = MaterialTheme.typography.bodyMedium,
                                     modifier = Modifier.weight(1f)
                                 )
@@ -369,7 +387,7 @@ fun OrderReplacementTagScreen(
                                     onClick = { deliveryMethod.value = "postapoint" }
                                 )
                                 Text(
-                                    text = "${stringResource(R.string.postapoint_delivery_option)} (${stringResource(R.string.postapoint_delivery_price)})",
+                                    text = "${stringResource(R.string.postapoint_delivery_option)} ($postapointPriceText)",
                                     style = MaterialTheme.typography.bodyMedium,
                                     modifier = Modifier.weight(1f)
                                 )
@@ -397,28 +415,67 @@ fun OrderReplacementTagScreen(
 
                 Spacer(modifier = Modifier.height(20.dp))
 
-                // Info Card
-                Card(
-                    modifier = Modifier.fillMaxWidth(),
-                    shape = RoundedCornerShape(14.dp),
-                    colors = CardDefaults.cardColors(containerColor = TealAccent.copy(alpha = 0.1f))
-                ) {
-                    Column(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(16.dp)
+                // Info Card - dynamic based on eligibility
+                if (isCheckingEligibility) {
+                    Card(
+                        modifier = Modifier.fillMaxWidth(),
+                        shape = RoundedCornerShape(14.dp),
+                        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainerHigh)
                     ) {
-                        Text(
-                            text = stringResource(R.string.free_replacement),
-                            style = MaterialTheme.typography.titleSmall.copy(fontWeight = FontWeight.SemiBold),
-                            color = TealAccent
+                        Box(
+                            modifier = Modifier.fillMaxWidth().padding(24.dp),
+                            contentAlignment = Alignment.Center
+                        ) {
+                            CircularProgressIndicator(modifier = Modifier.size(24.dp), strokeWidth = 2.dp)
+                        }
+                    }
+                } else {
+                    val isFree = eligibility?.isFreeReplacement == true
+                    Card(
+                        modifier = Modifier.fillMaxWidth(),
+                        shape = RoundedCornerShape(14.dp),
+                        colors = CardDefaults.cardColors(
+                            containerColor = if (isFree) TealAccent.copy(alpha = 0.1f) else BrandOrange.copy(alpha = 0.1f)
                         )
-                        Spacer(modifier = Modifier.height(4.dp))
-                        Text(
-                            text = stringResource(R.string.replacement_shipping_info),
-                            style = MaterialTheme.typography.bodySmall.copy(fontSize = 13.sp),
-                            color = MaterialTheme.colorScheme.onSurfaceVariant
-                        )
+                    ) {
+                        Column(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(16.dp)
+                        ) {
+                            if (isFree) {
+                                Text(
+                                    text = stringResource(R.string.free_replacement),
+                                    style = MaterialTheme.typography.titleSmall.copy(fontWeight = FontWeight.SemiBold),
+                                    color = TealAccent
+                                )
+                                Spacer(modifier = Modifier.height(4.dp))
+                                Text(
+                                    text = stringResource(R.string.replacement_shipping_info),
+                                    style = MaterialTheme.typography.bodySmall.copy(fontSize = 13.sp),
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                                )
+                            } else {
+                                val cost = eligibility?.shippingCost ?: 0.0
+                                val currency = eligibility?.currency ?: "EUR"
+                                val formattedCost = if (currency == "HUF") {
+                                    "${cost.toInt()} Ft"
+                                } else {
+                                    "€${"%.2f".format(cost)}"
+                                }
+                                Text(
+                                    text = stringResource(R.string.replacement_shipping_required),
+                                    style = MaterialTheme.typography.titleSmall.copy(fontWeight = FontWeight.SemiBold),
+                                    color = BrandOrange
+                                )
+                                Spacer(modifier = Modifier.height(4.dp))
+                                Text(
+                                    text = stringResource(R.string.replacement_shipping_cost, formattedCost),
+                                    style = MaterialTheme.typography.bodySmall.copy(fontSize = 13.sp),
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                                )
+                            }
+                        }
                     }
                 }
             }
