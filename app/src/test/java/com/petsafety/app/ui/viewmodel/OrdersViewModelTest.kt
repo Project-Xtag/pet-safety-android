@@ -6,7 +6,11 @@ import com.petsafety.app.data.model.PaymentIntent
 import com.petsafety.app.data.network.model.CreateReplacementOrderRequest
 import com.petsafety.app.data.network.model.CreateTagOrderRequest
 import com.petsafety.app.data.network.model.CreateTagOrderResponse
+import com.petsafety.app.data.network.model.ReplacementEligibilityResponse
 import com.petsafety.app.data.network.model.ReplacementOrderResponse
+import com.petsafety.app.data.network.model.ShippingPriceInfo
+import com.petsafety.app.data.network.model.ShippingPricesCountry
+import com.petsafety.app.data.network.model.ShippingPricesResponse
 import com.petsafety.app.data.repository.OrdersRepository
 import io.mockk.coEvery
 import io.mockk.coVerify
@@ -551,6 +555,133 @@ class OrdersViewModelTest {
         testDispatcher.scheduler.advanceUntilIdle()
 
         assertEquals(response, resultResponse)
+    }
+
+    // ==================== checkReplacementEligibility tests ====================
+
+    @Test
+    fun `checkReplacementEligibility - success free plan - updates eligibility state`() = runTest {
+        val eligibility = ReplacementEligibilityResponse(
+            isFreeReplacement = true,
+            planName = "standard",
+            shippingCost = 0.0,
+            currency = "EUR"
+        )
+        coEvery { repository.checkReplacementEligibility() } returns eligibility
+
+        viewModel.checkReplacementEligibility()
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        val result = viewModel.replacementEligibility.value
+        assertNotNull(result)
+        assertTrue(result!!.isFreeReplacement)
+        assertEquals("standard", result.planName)
+        assertEquals(0.0, result.shippingCost, 0.001)
+    }
+
+    @Test
+    fun `checkReplacementEligibility - success paid plan - updates eligibility state`() = runTest {
+        val eligibility = ReplacementEligibilityResponse(
+            isFreeReplacement = false,
+            planName = "starter",
+            shippingCost = 3.90,
+            currency = "EUR"
+        )
+        coEvery { repository.checkReplacementEligibility() } returns eligibility
+
+        viewModel.checkReplacementEligibility()
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        val result = viewModel.replacementEligibility.value
+        assertNotNull(result)
+        assertFalse(result!!.isFreeReplacement)
+        assertEquals("starter", result.planName)
+        assertEquals(3.90, result.shippingCost, 0.001)
+    }
+
+    @Test
+    fun `checkReplacementEligibility - failure - defaults to paid replacement`() = runTest {
+        coEvery { repository.checkReplacementEligibility() } throws RuntimeException("Network error")
+
+        viewModel.checkReplacementEligibility()
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        val result = viewModel.replacementEligibility.value
+        assertNotNull(result)
+        assertFalse(result!!.isFreeReplacement)
+        assertEquals("starter", result.planName)
+    }
+
+    @Test
+    fun `checkReplacementEligibility - shows checking state`() = runTest {
+        coEvery { repository.checkReplacementEligibility() } returns ReplacementEligibilityResponse(
+            isFreeReplacement = true,
+            planName = "standard"
+        )
+
+        viewModel.isCheckingEligibility.test {
+            assertEquals(false, awaitItem())
+
+            viewModel.checkReplacementEligibility()
+            assertEquals(true, awaitItem())
+
+            testDispatcher.scheduler.advanceUntilIdle()
+            assertEquals(false, awaitItem())
+        }
+    }
+
+    // ==================== fetchShippingPrices tests ====================
+
+    @Test
+    fun `fetchShippingPrices - success - updates shipping prices state`() = runTest {
+        val prices = ShippingPricesResponse(
+            HU = ShippingPricesCountry(
+                homeDelivery = ShippingPriceInfo(amount = 1490.0, currency = "HUF", label = "Home Delivery"),
+                postapoint = ShippingPriceInfo(amount = 990.0, currency = "HUF", label = "PostaPoint")
+            ),
+            defaultPrice = ShippingPriceInfo(amount = 3.90, currency = "EUR", label = "Standard Shipping")
+        )
+        coEvery { repository.getShippingPrices() } returns prices
+
+        viewModel.fetchShippingPrices()
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        val result = viewModel.shippingPrices.value
+        assertNotNull(result)
+        assertNotNull(result!!.HU)
+        assertEquals(1490.0, result.HU!!.homeDelivery!!.amount, 0.001)
+        assertEquals(3.90, result.defaultPrice!!.amount, 0.001)
+    }
+
+    @Test
+    fun `fetchShippingPrices - failure - silently fails`() = runTest {
+        coEvery { repository.getShippingPrices() } throws RuntimeException("Network error")
+
+        viewModel.fetchShippingPrices()
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        assertNull(viewModel.shippingPrices.value)
+    }
+
+    @Test
+    fun `fetchShippingPrices - HU prices have HUF currency`() = runTest {
+        val prices = ShippingPricesResponse(
+            HU = ShippingPricesCountry(
+                homeDelivery = ShippingPriceInfo(amount = 1490.0, currency = "HUF", label = "Házhozszállítás"),
+                postapoint = ShippingPriceInfo(amount = 990.0, currency = "HUF", label = "PostaPont")
+            ),
+            defaultPrice = ShippingPriceInfo(amount = 3.90, currency = "EUR", label = "Standard")
+        )
+        coEvery { repository.getShippingPrices() } returns prices
+
+        viewModel.fetchShippingPrices()
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        val result = viewModel.shippingPrices.value
+        assertNotNull(result)
+        assertEquals("HUF", result!!.HU!!.homeDelivery!!.currency)
+        assertEquals("HUF", result.HU!!.postapoint!!.currency)
+        assertEquals("EUR", result.defaultPrice!!.currency)
     }
 
     // ==================== Initial state tests ====================

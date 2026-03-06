@@ -6,6 +6,10 @@ import com.petsafety.app.data.network.model.CreateTagOrderRequest
 import com.petsafety.app.data.network.model.CreateTagOrderResponse
 import com.petsafety.app.data.network.model.CreateReplacementOrderRequest
 import com.petsafety.app.data.network.model.PostaPointDetails
+import com.petsafety.app.data.network.model.ReplacementEligibilityResponse
+import com.petsafety.app.data.network.model.ShippingPriceInfo
+import com.petsafety.app.data.network.model.ShippingPricesCountry
+import com.petsafety.app.data.network.model.ShippingPricesResponse
 import com.petsafety.app.data.network.model.TagCheckoutResponse
 import com.petsafety.app.data.network.model.AddressDetails as NetworkAddressDetails
 import com.petsafety.app.data.model.AddressDetails as ModelAddressDetails
@@ -17,6 +21,7 @@ import kotlinx.serialization.json.int
 import kotlinx.serialization.json.jsonArray
 import kotlinx.serialization.json.jsonObject
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertFalse
 import org.junit.Assert.assertNotNull
 import org.junit.Assert.assertNull
 import org.junit.Assert.assertTrue
@@ -376,5 +381,73 @@ class OrderFlowTests {
 
         val order = json.decodeFromString<Order>(jsonStr)
         assertEquals("eur", order.currency)
+    }
+
+    // ==================== ReplacementEligibilityResponse serialization ====================
+
+    @Test
+    fun `ReplacementEligibilityResponse - deserializes correctly`() {
+        val jsonStr = """
+            {
+                "isFreeReplacement": true,
+                "planName": "standard",
+                "shippingCost": 0.0,
+                "currency": "EUR",
+                "message": "Free replacement available"
+            }
+        """.trimIndent()
+
+        val response = json.decodeFromString<ReplacementEligibilityResponse>(jsonStr)
+
+        assertTrue(response.isFreeReplacement)
+        assertEquals("standard", response.planName)
+        assertEquals(0.0, response.shippingCost, 0.001)
+        assertEquals("EUR", response.currency)
+        assertEquals("Free replacement available", response.message)
+    }
+
+    // ==================== ShippingPricesResponse serialization ====================
+
+    @Test
+    fun `ShippingPricesResponse - deserializes HU and default prices`() {
+        val jsonStr = """
+            {
+                "HU": {
+                    "home_delivery": {
+                        "amount": 1490.0,
+                        "currency": "HUF",
+                        "label": "Házhozszállítás"
+                    },
+                    "postapoint": {
+                        "amount": 990.0,
+                        "currency": "HUF",
+                        "label": "PostaPont"
+                    }
+                },
+                "default": {
+                    "amount": 3.90,
+                    "currency": "EUR",
+                    "label": "Standard Shipping"
+                }
+            }
+        """.trimIndent()
+
+        val response = json.decodeFromString<ShippingPricesResponse>(jsonStr)
+
+        assertNotNull(response.HU)
+        assertNotNull(response.HU!!.homeDelivery)
+        assertEquals(1490.0, response.HU!!.homeDelivery!!.amount, 0.001)
+        assertEquals("HUF", response.HU!!.homeDelivery!!.currency)
+        assertEquals("Házhozszállítás", response.HU!!.homeDelivery!!.label)
+
+        assertNotNull(response.HU!!.postapoint)
+        assertEquals(990.0, response.HU!!.postapoint!!.amount, 0.001)
+        assertEquals("HUF", response.HU!!.postapoint!!.currency)
+        assertEquals("PostaPont", response.HU!!.postapoint!!.label)
+
+        assertNotNull(response.defaultPrice)
+        assertEquals(3.90, response.defaultPrice!!.amount, 0.001)
+        assertEquals("EUR", response.defaultPrice!!.currency)
+        assertEquals("Standard Shipping", response.defaultPrice!!.label)
     }
 }
