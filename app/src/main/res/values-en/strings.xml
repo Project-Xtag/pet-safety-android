@@ -647,7 +647,7 @@
     <string name="help_faq_q11">What is the referral programme?</string>
     <string name="help_faq_a11">Share the code SENRAFRIEND with friends and family. When someone uses this code and subscribes to a paid plan (Standard or Ultimate), both you and your friend receive 2 months free. You can track your referrals and their status on the Referral page.</string>
     <string name="help_faq_q12">Which countries do you ship to?</string>
-    <string name="help_faq_a12">We currently ship to Hungary, Slovakia, Czechia, Austria, Romania, Croatia, Spain, and Portugal. Shipping within Hungary costs 1,490 Ft (PostaPont) or 2,490 Ft (home delivery). International shipping is €9.95 per order.</string>
+    <string name="help_faq_a12">We currently ship to Hungary, Slovakia, Czechia, Austria, Romania, Croatia, Spain, and Portugal. Shipping within Hungary costs %1$s (PostaPont) or %2$s (home delivery). International shipping is %3$s per order.</string>
     <string name="help_faq_q13">Can I have multiple pets on one account?</string>
     <string name="help_faq_a13">Yes. On the Starter (free) plan you can register one pet. The Standard plan also supports one pet. The Ultimate plan supports unlimited pets. You can upgrade your plan at any time from the Account page.</string>
     <string name="help_faq_q14">How do I report a pet I\'ve found?</string>
@@ -746,9 +746,7 @@
     <string name="replacement_shipping_cost">A shipping fee of %1$s applies to your replacement tag order.</string>
     <string name="delivery_method_title">Delivery Method</string>
     <string name="home_delivery_option">Home Delivery</string>
-    <string name="home_delivery_price">2,490 Ft</string>
     <string name="postapoint_delivery_option">PostaPont Pickup</string>
-    <string name="postapoint_delivery_price">1,490 Ft</string>
     <string name="postapoint_zip_placeholder">Zip Code</string>
     <string name="postapoint_search">Search</string>
     <string name="postapoint_no_results">No PostaPont locations found for this zip code</string>

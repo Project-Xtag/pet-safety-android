@@ -707,9 +707,7 @@
     <string name="replacement_shipping_cost">Aplica-se uma taxa de envio de %1$s à sua encomenda de placa de substituição.</string>
     <string name="delivery_method_title">Método de entrega</string>
     <string name="home_delivery_option">Entrega ao domicílio</string>
-    <string name="home_delivery_price">2.490 Ft</string>
     <string name="postapoint_delivery_option">Recolha PostaPont</string>
-    <string name="postapoint_delivery_price">1.490 Ft</string>
     <string name="postapoint_zip_placeholder">Código postal</string>
     <string name="postapoint_search">Pesquisar</string>
     <string name="postapoint_no_results">Nenhum local PostaPont encontrado para este código postal</string>
@@ -972,7 +970,7 @@
     <string name="help_faq_q11">O que é o programa de referência?</string>
     <string name="help_faq_a11">Partilhe o código SENRAFRIEND com amigos e familiares. Quando alguém usar este código e subscrever um plano pago (Standard ou Ultimate), ambos recebem 2 meses grátis. Pode acompanhar as suas referências e o seu estado na página de Referências.</string>
     <string name="help_faq_q12">Para que países fazem envio?</string>
-    <string name="help_faq_a12">Atualmente enviamos para Hungria, Eslováquia, Chéquia, Áustria, Roménia, Croácia, Espanha e Portugal. O envio na Hungria custa 1490 Ft (PostaPont) ou 2490 Ft (entrega ao domicílio). O envio internacional custa €9,95 por encomenda.</string>
+    <string name="help_faq_a12">Atualmente enviamos para Hungria, Eslováquia, Chéquia, Áustria, Roménia, Croácia, Espanha e Portugal. O envio na Hungria custa %1$s (PostaPont) ou %2$s (entrega ao domicílio). O envio internacional custa %3$s por encomenda.</string>
     <string name="help_faq_q13">Posso ter vários animais numa conta?</string>
     <string name="help_faq_a13">Sim. No plano Starter (gratuito) pode registar um animal. O plano Standard também suporta um animal. O plano Ultimate suporta animais ilimitados. Pode atualizar o plano a qualquer momento na página da Conta.</string>
     <string name="help_faq_q14">Como reporto um animal que encontrei?</string>

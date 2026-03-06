@@ -32,6 +32,8 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -42,9 +44,11 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.petsafety.app.R
 import com.petsafety.app.ui.theme.PeachBackground
 import com.petsafety.app.ui.theme.TealAccent
+import com.petsafety.app.ui.viewmodel.OrdersViewModel
 
 /**
  * FAQ screen displaying frequently asked questions in an expandable accordion layout.
@@ -52,6 +56,13 @@ import com.petsafety.app.ui.theme.TealAccent
  */
 @Composable
 fun FaqScreen(onBack: () -> Unit) {
+    val ordersViewModel: OrdersViewModel = hiltViewModel()
+    val shippingPrices by ordersViewModel.shippingPrices.collectAsState()
+
+    LaunchedEffect(Unit) {
+        ordersViewModel.fetchShippingPrices()
+    }
+
     val faqGroups = listOf(
         Pair(
             R.string.help_faq_group_getting_started,
@@ -193,9 +204,23 @@ fun FaqScreen(onBack: () -> Unit) {
                 ) {
                     Column {
                         groupItems.forEachIndexed { index, (questionRes, answerRes) ->
+                            val rawAnswer = stringResource(answerRes)
+                            val formattedAnswer = if (answerRes == R.string.help_faq_a12 && shippingPrices != null) {
+                                val huPP = shippingPrices?.HU?.postapoint?.let {
+                                    if (it.currency == "HUF") "${it.amount.toInt()} Ft" else "€${"%.2f".format(it.amount)}"
+                                } ?: "..."
+                                val huHome = shippingPrices?.HU?.homeDelivery?.let {
+                                    if (it.currency == "HUF") "${it.amount.toInt()} Ft" else "€${"%.2f".format(it.amount)}"
+                                } ?: "..."
+                                val intl = shippingPrices?.defaultPrice?.let {
+                                    "€${"%.2f".format(it.amount)}"
+                                } ?: "..."
+                                String.format(rawAnswer, huPP, huHome, intl)
+                            } else rawAnswer
+
                             FaqAccordionItem(
                                 question = stringResource(questionRes),
-                                answer = stringResource(answerRes)
+                                answer = formattedAnswer
                             )
                             if (index < groupItems.lastIndex) {
                                 HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
