@@ -710,11 +710,11 @@
     <string name="delivery_method_title">Způsob doručení</string>
     <string name="home_delivery_option">Doručení domů</string>
     <string name="home_delivery_price">2 490 Ft</string>
-    <string name="postapoint_delivery_option">PostaPoint vyzvednutí</string>
+    <string name="postapoint_delivery_option">PostaPont vyzvednutí</string>
     <string name="postapoint_delivery_price">1 490 Ft</string>
     <string name="postapoint_zip_placeholder">PSČ</string>
     <string name="postapoint_search">Hledat</string>
-    <string name="postapoint_no_results">Pro toto PSČ nebyla nalezena žádná místa PostaPoint</string>
+    <string name="postapoint_no_results">Pro toto PSČ nebyla nalezena žádná místa PostaPont</string>
     <string name="postapoint_search_failed">Nepodařilo se vyhledat místa doručení</string>
 
     <!-- ============================================ -->

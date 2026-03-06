@@ -703,11 +703,11 @@
     <string name="delivery_method_title">Metodă de livrare</string>
     <string name="home_delivery_option">Livrare la domiciliu</string>
     <string name="home_delivery_price">2.490 Ft</string>
-    <string name="postapoint_delivery_option">Ridicare PostaPoint</string>
+    <string name="postapoint_delivery_option">Ridicare PostaPont</string>
     <string name="postapoint_delivery_price">1.490 Ft</string>
     <string name="postapoint_zip_placeholder">Cod poștal</string>
     <string name="postapoint_search">Căutare</string>
-    <string name="postapoint_no_results">Nu s-au găsit locații PostaPoint pentru acest cod poștal</string>
+    <string name="postapoint_no_results">Nu s-au găsit locații PostaPont pentru acest cod poștal</string>
     <string name="postapoint_search_failed">Căutarea punctelor de livrare a eșuat</string>
 
     <!-- ============================================ -->

@@ -175,7 +175,7 @@ interface ApiService {
     @GET("orders/shipping-prices")
     suspend fun getShippingPrices(): ApiEnvelope<ShippingPricesResponse>
 
-    // Delivery Points (PostaPoint picker)
+    // Delivery Points (PostaPont picker)
     @GET("orders/delivery-points")
     suspend fun getDeliveryPoints(@Query("zipCode") zipCode: String): ApiEnvelope<List<DeliveryPoint>>
 

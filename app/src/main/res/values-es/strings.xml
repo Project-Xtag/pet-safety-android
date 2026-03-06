@@ -708,11 +708,11 @@
     <string name="delivery_method_title">Método de entrega</string>
     <string name="home_delivery_option">Entrega a domicilio</string>
     <string name="home_delivery_price">2.490 Ft</string>
-    <string name="postapoint_delivery_option">Recogida PostaPoint</string>
+    <string name="postapoint_delivery_option">Recogida PostaPont</string>
     <string name="postapoint_delivery_price">1.490 Ft</string>
     <string name="postapoint_zip_placeholder">Código postal</string>
     <string name="postapoint_search">Buscar</string>
-    <string name="postapoint_no_results">No se encontraron ubicaciones PostaPoint para este código postal</string>
+    <string name="postapoint_no_results">No se encontraron ubicaciones PostaPont para este código postal</string>
     <string name="postapoint_search_failed">Error al buscar puntos de entrega</string>
 
     <!-- ============================================ -->

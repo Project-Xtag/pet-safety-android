@@ -709,11 +709,11 @@
     <string name="delivery_method_title">Spôsob doručenia</string>
     <string name="home_delivery_option">Doručenie domov</string>
     <string name="home_delivery_price">2 490 Ft</string>
-    <string name="postapoint_delivery_option">PostaPoint vyzdvihnutie</string>
+    <string name="postapoint_delivery_option">PostaPont vyzdvihnutie</string>
     <string name="postapoint_delivery_price">1 490 Ft</string>
     <string name="postapoint_zip_placeholder">PSČ</string>
     <string name="postapoint_search">Hľadať</string>
-    <string name="postapoint_no_results">Pre toto PSČ sa nenašli žiadne PostaPoint miesta</string>
+    <string name="postapoint_no_results">Pre toto PSČ sa nenašli žiadne PostaPont miesta</string>
     <string name="postapoint_search_failed">Nepodarilo sa vyhľadať miesta doručenia</string>
 
     <!-- ============================================ -->

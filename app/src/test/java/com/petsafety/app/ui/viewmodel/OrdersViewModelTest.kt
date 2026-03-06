@@ -637,7 +637,7 @@ class OrdersViewModelTest {
         val prices = ShippingPricesResponse(
             HU = ShippingPricesCountry(
                 homeDelivery = ShippingPriceInfo(amount = 1490.0, currency = "HUF", label = "Home Delivery"),
-                postapoint = ShippingPriceInfo(amount = 990.0, currency = "HUF", label = "PostaPoint")
+                postapoint = ShippingPriceInfo(amount = 990.0, currency = "HUF", label = "PostaPont")
             ),
             defaultPrice = ShippingPriceInfo(amount = 3.90, currency = "EUR", label = "Standard Shipping")
         )
