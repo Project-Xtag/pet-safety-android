@@ -12,8 +12,7 @@ class BiometricHelper(private val context: Context) {
 
     fun canUseBiometric(): Boolean {
         return biometricManager.canAuthenticate(
-            BiometricManager.Authenticators.BIOMETRIC_STRONG or
-            BiometricManager.Authenticators.BIOMETRIC_WEAK
+            BiometricManager.Authenticators.BIOMETRIC_STRONG
         ) == BiometricManager.BIOMETRIC_SUCCESS
     }
 

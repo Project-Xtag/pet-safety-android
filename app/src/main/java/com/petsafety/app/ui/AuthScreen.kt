@@ -34,6 +34,7 @@ import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
+import com.petsafety.app.ui.components.SecureScreen
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
@@ -81,6 +82,8 @@ fun AuthScreen(
     onNavigateToOrderTags: () -> Unit = {},
     onNavigateToRegister: () -> Unit = {}
 ) {
+    SecureScreen()
+
     var email by remember { mutableStateOf("") }
     var otpCode by remember { mutableStateOf("") }
     var showOtpField by remember { mutableStateOf(false) }

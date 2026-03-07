@@ -2,6 +2,7 @@ package com.petsafety.app.ui.screens
 
 import android.Manifest
 import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Looper
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
@@ -12,6 +13,7 @@ import androidx.compose.material3.Tab
 import androidx.compose.material3.TabRow
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -59,6 +61,16 @@ fun AlertsTabScreen(
     val locationProvider = LocationServices.getFusedLocationProviderClient(context)
     val currentUser by authViewModel.currentUser.collectAsState()
 
+    // Track active location callback for cleanup
+    var activeLocationCallback by remember { mutableStateOf<LocationCallback?>(null) }
+
+    // Clean up location callback when composable leaves composition
+    DisposableEffect(locationProvider) {
+        onDispose {
+            activeLocationCallback?.let { locationProvider.removeLocationUpdates(it) }
+        }
+    }
+
     // Helper function to fallback to user's registered address
     fun fallbackToRegisteredAddress() {
         val user = currentUser
@@ -67,13 +79,22 @@ fun AlertsTabScreen(
                 .filter { it.isNotBlank() }
                 .joinToString(", ")
             if (address.isNotBlank()) {
-                @Suppress("DEPRECATION")
                 try {
                     val geocoder = android.location.Geocoder(context)
-                    val results = geocoder.getFromLocationName(address, 1)
-                    results?.firstOrNull()?.let {
-                        userLocation = LatLng(it.latitude, it.longitude)
-                        alertsViewModel.fetchNearbyAlerts(it.latitude, it.longitude, 10.0)
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                        geocoder.getFromLocationName(address, 1) { results ->
+                            results.firstOrNull()?.let {
+                                userLocation = LatLng(it.latitude, it.longitude)
+                                alertsViewModel.fetchNearbyAlerts(it.latitude, it.longitude, 10.0)
+                            }
+                        }
+                    } else {
+                        @Suppress("DEPRECATION")
+                        val results = geocoder.getFromLocationName(address, 1)
+                        results?.firstOrNull()?.let {
+                            userLocation = LatLng(it.latitude, it.longitude)
+                            alertsViewModel.fetchNearbyAlerts(it.latitude, it.longitude, 10.0)
+                        }
                     }
                 } catch (_: Exception) {
                     // Geocoding failed, no fallback available
@@ -106,8 +127,10 @@ fun AlertsTabScreen(
                             fallbackToRegisteredAddress()
                         }
                         locationProvider.removeLocationUpdates(this)
+                        activeLocationCallback = null
                     }
                 }
+                activeLocationCallback = locationCallback
 
                 @Suppress("MissingPermission")
                 locationProvider.requestLocationUpdates(
