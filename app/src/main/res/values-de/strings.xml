@@ -760,6 +760,12 @@
     <string name="referral_pending">Ausstehend</string>
     <string name="referral_share_text">Nutze meinen Empfehlungscode %1$s und erhalte 2 Monate Pet Safety gratis! https://senra.pet/choose-plan?referral=%2$s</string>
     <string name="referral_clipboard_label">Empfehlungscode</string>
+    <string name="referral_use_friend_code">Code eines Freundes verwenden</string>
+    <string name="enter_friend_code">Empfehlungscode eingeben</string>
+    <string name="apply_code">Anwenden</string>
+    <string name="referral_code_applied">Empfehlungscode angewendet! Sie erhalten 2 Monate gratis.</string>
+    <string name="referral_code_invalid">Ungültiger oder abgelaufener Empfehlungscode</string>
+    <string name="referral_use_friend_footer">Geben Sie den Empfehlungscode eines Freundes ein und erhalten Sie 2 Monate gratis.</string>
 
     <!-- ============================================ -->
     <!-- MARK: Push Notification Prompt -->

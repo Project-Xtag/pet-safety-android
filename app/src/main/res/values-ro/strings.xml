@@ -755,6 +755,12 @@
     <string name="referral_pending">În așteptare</string>
     <string name="referral_share_text">Folosește codul meu de recomandare %1$s pentru 2 luni gratuite la Pet Safety! https://senra.pet/choose-plan?referral=%2$s</string>
     <string name="referral_clipboard_label">Cod de recomandare</string>
+    <string name="referral_use_friend_code">Folosește codul unui prieten</string>
+    <string name="enter_friend_code">Introduceți codul de recomandare</string>
+    <string name="apply_code">Aplică</string>
+    <string name="referral_code_applied">Cod de recomandare aplicat! Vei primi 2 luni gratuit.</string>
+    <string name="referral_code_invalid">Cod de recomandare invalid sau expirat</string>
+    <string name="referral_use_friend_footer">Introduceți codul de recomandare al unui prieten și primiți 2 luni de abonament gratuit.</string>
 
     <!-- ============================================ -->
     <!-- MARK: Push Notification Prompt -->

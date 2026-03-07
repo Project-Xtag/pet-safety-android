@@ -34,6 +34,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -70,8 +71,11 @@ fun ReferralScreen(
     val isLoading by viewModel.isLoading.collectAsState()
     val isProcessing by viewModel.isProcessing.collectAsState()
     val error by viewModel.error.collectAsState()
+    val friendCodeApplied by viewModel.friendCodeApplied.collectAsState()
+    val friendCodeMessage by viewModel.friendCodeMessage.collectAsState()
     val context = LocalContext.current
     var copied by remember { mutableStateOf(false) }
+    var friendCode by remember { mutableStateOf("") }
 
     LaunchedEffect(Unit) { viewModel.loadReferralStatus() }
 
@@ -203,6 +207,71 @@ fun ReferralScreen(
                             }
                             Text(stringResource(R.string.referral_generate))
                         }
+                    }
+                }
+            }
+
+            Spacer(modifier = Modifier.height(16.dp))
+
+            // Enter a friend's code
+            Text(
+                text = stringResource(R.string.referral_use_friend_code),
+                style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.SemiBold)
+            )
+            Spacer(modifier = Modifier.height(8.dp))
+            Card(
+                modifier = Modifier.fillMaxWidth(),
+                shape = RoundedCornerShape(16.dp),
+                colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
+                elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
+            ) {
+                Column(modifier = Modifier.padding(16.dp)) {
+                    if (friendCodeApplied) {
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Icon(
+                                Icons.Default.CardGiftcard,
+                                contentDescription = null,
+                                tint = Color(0xFF4CAF50),
+                                modifier = Modifier.size(20.dp)
+                            )
+                            Spacer(modifier = Modifier.width(8.dp))
+                            Text(
+                                text = friendCodeMessage ?: stringResource(R.string.referral_code_applied),
+                                color = Color(0xFF4CAF50),
+                                style = MaterialTheme.typography.bodyMedium
+                            )
+                        }
+                    } else {
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.spacedBy(8.dp)
+                        ) {
+                            OutlinedTextField(
+                                value = friendCode,
+                                onValueChange = { friendCode = it.uppercase() },
+                                label = { Text(stringResource(R.string.enter_friend_code)) },
+                                singleLine = true,
+                                modifier = Modifier.weight(1f)
+                            )
+                            Button(
+                                onClick = { viewModel.applyFriendCode(friendCode) },
+                                colors = ButtonDefaults.buttonColors(containerColor = BrandOrange),
+                                enabled = friendCode.isNotBlank() && !isProcessing
+                            ) {
+                                if (isProcessing) {
+                                    CircularProgressIndicator(modifier = Modifier.size(18.dp), color = Color.White, strokeWidth = 2.dp)
+                                } else {
+                                    Text(stringResource(R.string.apply_code))
+                                }
+                            }
+                        }
+                        Text(
+                            text = stringResource(R.string.referral_use_friend_footer),
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            modifier = Modifier.padding(top = 8.dp)
+                        )
                     }
                 }
             }

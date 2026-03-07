@@ -18,7 +18,7 @@ import com.petsafety.app.data.local.entity.SuccessStoryEntity
         ActionQueueEntity::class,
         SuccessStoryEntity::class
     ],
-    version = 2,
+    version = 3,
     exportSchema = true
 )
 abstract class AppDatabase : RoomDatabase() {

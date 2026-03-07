@@ -56,6 +56,15 @@ class SubscriptionViewModel @Inject constructor(
     private val _error = MutableStateFlow<String?>(null)
     val error: StateFlow<String?> = _error.asStateFlow()
 
+    private val _appliedPromoCodeId = MutableStateFlow<String?>(null)
+    val appliedPromoCodeId: StateFlow<String?> = _appliedPromoCodeId.asStateFlow()
+
+    private val _friendCodeApplied = MutableStateFlow(false)
+    val friendCodeApplied: StateFlow<Boolean> = _friendCodeApplied.asStateFlow()
+
+    private val _friendCodeMessage = MutableStateFlow<String?>(null)
+    val friendCodeMessage: StateFlow<String?> = _friendCodeMessage.asStateFlow()
+
     val currentPlanName: String get() = _subscription.value?.resolvedPlanName ?: stringProvider.getString(R.string.no_plan)
     val isOnStarterPlan: Boolean get() = _subscription.value?.resolvedPlanName?.lowercase() == "starter"
 
@@ -124,7 +133,7 @@ class SubscriptionViewModel @Inject constructor(
                 if (plan.isFree) {
                     _subscription.value = repository.upgradeToStarter()
                 } else {
-                    val url = repository.createCheckoutSession(plan.name, billingPeriod, countryCode = countryCode)
+                    val url = repository.createCheckoutSession(plan.name, billingPeriod, promoCode = _appliedPromoCodeId.value, countryCode = countryCode)
                     _checkoutUrl.value = url
                 }
             } catch (e: Exception) {
@@ -207,6 +216,28 @@ class SubscriptionViewModel @Inject constructor(
                 _referralCode.value = repository.generateReferralCode()
             } catch (e: Exception) {
                 _error.value = e.message
+            }
+            _isProcessing.value = false
+        }
+    }
+
+    fun applyFriendCode(code: String) {
+        viewModelScope.launch {
+            _isProcessing.value = true
+            _error.value = null
+            try {
+                val response = repository.applyReferralCode(code.trim())
+                _friendCodeApplied.value = true
+                _friendCodeMessage.value = response.message
+                _appliedPromoCodeId.value = response.stripePromoCodeId
+            } catch (e: retrofit2.HttpException) {
+                val body = e.response()?.errorBody()?.string()
+                val serverMessage = try {
+                    kotlinx.serialization.json.Json.decodeFromString<com.petsafety.app.data.network.model.ErrorResponse>(body ?: "").error
+                } catch (_: Exception) { null }
+                _error.value = serverMessage ?: stringProvider.getString(R.string.referral_code_invalid)
+            } catch (e: Exception) {
+                _error.value = stringProvider.getString(R.string.referral_code_invalid)
             }
             _isProcessing.value = false
         }

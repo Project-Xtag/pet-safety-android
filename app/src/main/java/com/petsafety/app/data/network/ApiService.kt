@@ -270,7 +270,7 @@ interface ApiService {
     suspend fun generateReferralCode(): ApiEnvelope<ReferralCodeResponse>
 
     @POST("referrals/apply")
-    suspend fun applyReferralCode(@Body request: ApplyReferralRequest): ApiEnvelope<EmptyResponse>
+    suspend fun applyReferralCode(@Body request: ApplyReferralRequest): ApiEnvelope<ReferralApplyResponse>
 
     @GET("referrals/status")
     suspend fun getReferralStatus(): ApiEnvelope<ReferralStatusResponse>

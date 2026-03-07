@@ -33,6 +33,10 @@ import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.ExposedDropdownMenuBox
+import androidx.compose.material3.ExposedDropdownMenuDefaults
+import androidx.compose.material3.DropdownMenuItem
+import androidx.compose.material3.MenuAnchorType
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.RadioButton
@@ -63,6 +67,7 @@ import com.petsafety.app.data.network.model.AddressDetails
 import com.petsafety.app.data.network.model.CreateReplacementOrderRequest
 import com.petsafety.app.data.network.model.PostaPointDetails
 import com.petsafety.app.ui.components.PostaPointPicker
+import com.petsafety.app.util.SupportedCountries
 import com.petsafety.app.ui.theme.BrandOrange
 import com.petsafety.app.ui.theme.TealAccent
 import com.petsafety.app.ui.util.AdaptiveLayout
@@ -100,7 +105,8 @@ fun OrderReplacementTagScreen(
     val street2 = remember { mutableStateOf("") }
     val city = remember { mutableStateOf("") }
     val postCode = remember { mutableStateOf("") }
-    val country = remember { mutableStateOf("") }
+    val selectedCountryCode = remember { mutableStateOf("") }
+    val countryDropdownExpanded = remember { mutableStateOf(false) }
     val deliveryMethod = remember { mutableStateOf("home_delivery") }
     val selectedPostaPoint = remember { mutableStateOf<PostaPointDetails?>(null) }
     val hasSearchedPoints = remember { mutableStateOf(false) }
@@ -115,18 +121,20 @@ fun OrderReplacementTagScreen(
             if (street1.value.isBlank()) user.address?.let { street1.value = it }
             if (city.value.isBlank()) user.city?.let { city.value = it }
             if (postCode.value.isBlank()) user.postalCode?.let { postCode.value = it }
-            if (country.value.isBlank()) {
-                country.value = user.country ?: java.util.Locale.getDefault().country ?: ""
+            if (selectedCountryCode.value.isBlank()) {
+                val rawCountry = user.country ?: java.util.Locale.getDefault().country ?: ""
+                selectedCountryCode.value = SupportedCountries.find(rawCountry)?.code ?: ""
             }
         }
-        if (currentUser == null && country.value.isBlank()) {
-            country.value = java.util.Locale.getDefault().country ?: ""
+        if (currentUser == null && selectedCountryCode.value.isBlank()) {
+            val detected = java.util.Locale.getDefault().country ?: ""
+            if (SupportedCountries.findByCode(detected) != null) {
+                selectedCountryCode.value = detected
+            }
         }
     }
 
-    val isHungary = country.value.lowercase().let {
-        it == "hu" || it == "hungary" || it == "magyarország" || it == "magyarorszag"
-    }
+    val isHungary = selectedCountryCode.value.equals("HU", ignoreCase = true)
 
     Box(
         modifier = Modifier
@@ -330,10 +338,14 @@ fun OrderReplacementTagScreen(
 
                         Spacer(modifier = Modifier.height(12.dp))
 
-                        StyledTextField(
-                            value = country.value,
-                            onValueChange = { country.value = it },
-                            label = stringResource(R.string.country)
+                        CountryDropdown(
+                            selectedCode = selectedCountryCode.value,
+                            expanded = countryDropdownExpanded.value,
+                            onExpandedChange = { countryDropdownExpanded.value = it },
+                            onSelect = { code ->
+                                selectedCountryCode.value = code
+                                countryDropdownExpanded.value = false
+                            }
                         )
                     }
                 }
@@ -516,7 +528,7 @@ fun OrderReplacementTagScreen(
                                 city = city.value,
                                 province = null,
                                 postCode = postCode.value,
-                                country = country.value
+                                country = selectedCountryCode.value
                             ),
                             deliveryMethod = if (isHungary) deliveryMethod.value else null,
                             postapointDetails = if (isHungary && deliveryMethod.value == "postapoint") selectedPostaPoint.value else null
@@ -552,7 +564,7 @@ fun OrderReplacementTagScreen(
                         street1.value.isNotBlank() &&
                         city.value.isNotBlank() &&
                         postCode.value.isNotBlank() &&
-                        country.value.isNotBlank() &&
+                        selectedCountryCode.value.isNotBlank() &&
                         (!isHungary || deliveryMethod.value != "postapoint" || selectedPostaPoint.value != null)
                 ) {
                     if (isLoading) {
@@ -605,4 +617,51 @@ private fun StyledTextField(
             focusedBorderColor = TealAccent
         )
     )
+}
+
+@OptIn(androidx.compose.material3.ExperimentalMaterial3Api::class)
+@Composable
+private fun CountryDropdown(
+    selectedCode: String,
+    expanded: Boolean,
+    onExpandedChange: (Boolean) -> Unit,
+    onSelect: (String) -> Unit,
+    modifier: Modifier = Modifier
+) {
+    val selectedName = SupportedCountries.findByCode(selectedCode)?.name ?: ""
+
+    ExposedDropdownMenuBox(
+        expanded = expanded,
+        onExpandedChange = onExpandedChange,
+        modifier = modifier
+    ) {
+        OutlinedTextField(
+            value = selectedName,
+            onValueChange = {},
+            readOnly = true,
+            label = { Text(stringResource(R.string.country)) },
+            trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded) },
+            modifier = Modifier
+                .fillMaxWidth()
+                .menuAnchor(MenuAnchorType.PrimaryNotEditable),
+            singleLine = true,
+            shape = RoundedCornerShape(14.dp),
+            colors = OutlinedTextFieldDefaults.colors(
+                unfocusedBorderColor = MaterialTheme.colorScheme.outline,
+                focusedBorderColor = TealAccent
+            )
+        )
+
+        ExposedDropdownMenu(
+            expanded = expanded,
+            onDismissRequest = { onExpandedChange(false) }
+        ) {
+            SupportedCountries.all.forEach { country ->
+                DropdownMenuItem(
+                    text = { Text(country.name) },
+                    onClick = { onSelect(country.code) }
+                )
+            }
+        }
+    }
 }

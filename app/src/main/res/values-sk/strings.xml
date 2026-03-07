@@ -761,6 +761,12 @@
     <string name="referral_pending">Čaká sa</string>
     <string name="referral_share_text">Použite môj odporúčací kód %1$s a získajte 2 mesiace Pet Safety zdarma! https://senra.pet/choose-plan?referral=%2$s</string>
     <string name="referral_clipboard_label">Odporúčací kód</string>
+    <string name="referral_use_friend_code">Použiť kód priateľa</string>
+    <string name="enter_friend_code">Zadajte odporúčací kód</string>
+    <string name="apply_code">Použiť</string>
+    <string name="referral_code_applied">Odporúčací kód bol použitý! Získate 2 mesiace zadarmo.</string>
+    <string name="referral_code_invalid">Neplatný alebo vypršaný odporúčací kód</string>
+    <string name="referral_use_friend_footer">Zadajte odporúčací kód priateľa a získajte 2 mesiace predplatného zadarmo.</string>
 
     <!-- ============================================ -->
     <!-- MARK: Push Notification Prompt -->

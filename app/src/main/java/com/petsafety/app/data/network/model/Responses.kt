@@ -332,6 +332,12 @@ data class ReferralStatusResponse(
     val referrals: List<Referral> = emptyList()
 )
 
+@Serializable
+data class ReferralApplyResponse(
+    val message: String = "",
+    @SerialName("stripe_promo_code_id") val stripePromoCodeId: String? = null
+)
+
 /** Error response from backend 403 when pet limit is reached */
 @Serializable
 data class SubscriptionLimitInfo(

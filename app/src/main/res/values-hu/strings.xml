@@ -760,6 +760,12 @@
     <string name="referral_pending">Függőben</string>
     <string name="referral_share_text">Használd az ajánlókódomat %1$s, és kapj 2 hónap ingyenes Pet Safety előfizetést! https://senra.pet/choose-plan?referral=%2$s</string>
     <string name="referral_clipboard_label">Ajánlókód</string>
+    <string name="referral_use_friend_code">Barát kódjának használata</string>
+    <string name="enter_friend_code">Ajánlókód megadása</string>
+    <string name="apply_code">Alkalmazás</string>
+    <string name="referral_code_applied">Ajánlókód alkalmazva! 2 hónapot kapsz ingyen.</string>
+    <string name="referral_code_invalid">Érvénytelen vagy lejárt ajánlókód</string>
+    <string name="referral_use_friend_footer">Add meg egy barátod ajánlókódját, és kapj 2 hónap ingyen előfizetést.</string>
 
     <!-- ============================================ -->
     <!-- MARK: Push Notification Prompt -->

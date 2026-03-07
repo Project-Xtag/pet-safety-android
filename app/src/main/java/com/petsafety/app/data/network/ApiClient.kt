@@ -73,6 +73,7 @@ object ApiClient {
             ignoreUnknownKeys = true
             isLenient = true
             encodeDefaults = true
+            explicitNulls = false
         }
 
         val retrofit = Retrofit.Builder()
