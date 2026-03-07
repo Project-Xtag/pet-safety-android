@@ -47,7 +47,14 @@ class OfflineDataManager(private val database: AppDatabase) {
                 dateOfBirth = pet.dateOfBirth,
                 ownerName = pet.ownerName,
                 ownerPhone = pet.ownerPhone,
+                ownerSecondaryPhone = pet.ownerSecondaryPhone,
                 ownerEmail = pet.ownerEmail,
+                ownerSecondaryEmail = pet.ownerSecondaryEmail,
+                ownerAddress = pet.ownerAddress,
+                ownerAddressLine2 = pet.ownerAddressLine2,
+                ownerCity = pet.ownerCity,
+                ownerPostalCode = pet.ownerPostalCode,
+                ownerCountry = pet.ownerCountry,
                 lastSyncedAt = System.currentTimeMillis()
             )
         )
@@ -87,7 +94,14 @@ class OfflineDataManager(private val database: AppDatabase) {
                 dateOfBirth = entity.dateOfBirth,
                 ownerName = entity.ownerName,
                 ownerPhone = entity.ownerPhone,
-                ownerEmail = entity.ownerEmail
+                ownerSecondaryPhone = entity.ownerSecondaryPhone,
+                ownerEmail = entity.ownerEmail,
+                ownerSecondaryEmail = entity.ownerSecondaryEmail,
+                ownerAddress = entity.ownerAddress,
+                ownerAddressLine2 = entity.ownerAddressLine2,
+                ownerCity = entity.ownerCity,
+                ownerPostalCode = entity.ownerPostalCode,
+                ownerCountry = entity.ownerCountry
             )
         }
 

@@ -32,6 +32,13 @@ data class PetEntity(
     val dateOfBirth: String?,
     val ownerName: String?,
     val ownerPhone: String?,
+    val ownerSecondaryPhone: String?,
     val ownerEmail: String?,
+    val ownerSecondaryEmail: String?,
+    val ownerAddress: String?,
+    val ownerAddressLine2: String?,
+    val ownerCity: String?,
+    val ownerPostalCode: String?,
+    val ownerCountry: String?,
     val lastSyncedAt: Long
 )
