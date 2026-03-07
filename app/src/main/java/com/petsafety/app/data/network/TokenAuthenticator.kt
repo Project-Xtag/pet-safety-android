@@ -6,8 +6,9 @@ import com.petsafety.app.data.local.AuthTokenStore
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
-import kotlinx.coroutines.runBlocking
 import kotlinx.serialization.json.Json
+import kotlinx.serialization.json.JsonObject
+import kotlinx.serialization.json.JsonPrimitive
 import kotlinx.serialization.json.jsonObject
 import kotlinx.serialization.json.jsonPrimitive
 import okhttp3.Authenticator
@@ -89,10 +90,7 @@ class TokenAuthenticator(
                 val newTokens = executeRefresh(refreshToken)
                 if (newTokens != null) {
                     Timber.d("Token refresh successful")
-                    runBlocking {
-                        tokenStore.saveAuthToken(newTokens.first)
-                        tokenStore.saveRefreshToken(newTokens.second)
-                    }
+                    tokenStore.saveTokensSync(newTokens.first, newTokens.second)
                     response.request.newBuilder()
                         .header("Authorization", "Bearer ${newTokens.first}")
                         .header("Retry-Auth", "true")
@@ -117,7 +115,8 @@ class TokenAuthenticator(
      * @return Pair of (accessToken, refreshToken) on success, null on failure
      */
     private fun executeRefresh(refreshToken: String): Pair<String, String>? {
-        val requestBody = """{"refreshToken":"$refreshToken"}"""
+        val jsonBody = JsonObject(mapOf("refreshToken" to JsonPrimitive(refreshToken)))
+        val requestBody = jsonBody.toString()
             .toRequestBody("application/json".toMediaType())
 
         val request = Request.Builder()
@@ -156,11 +155,7 @@ class TokenAuthenticator(
      * Clear all stored tokens and user info, then notify observers.
      */
     private fun clearAndNotify() {
-        runBlocking {
-            tokenStore.clearAuthToken()
-            tokenStore.clearRefreshToken()
-            tokenStore.clearUserInfo()
-        }
+        tokenStore.clearAllSync()
         _authExpiredEvent.tryEmit(Unit)
     }
 }

@@ -9,6 +9,7 @@ import com.google.firebase.FirebaseApp
 import com.google.firebase.messaging.FirebaseMessaging
 import com.petsafety.app.data.config.ConfigurationManager
 import com.petsafety.app.data.fcm.FCMRepository
+import com.petsafety.app.data.network.AppCheckInterceptor
 import com.petsafety.app.data.sync.SyncScheduler
 import dagger.hilt.android.HiltAndroidApp
 import io.sentry.android.core.SentryAndroid
@@ -28,6 +29,9 @@ class PetSafetyApplication : Application() {
 
     @Inject
     lateinit var configurationManager: ConfigurationManager
+
+    @Inject
+    lateinit var appCheckInterceptor: AppCheckInterceptor
 
     private val applicationScope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
 
@@ -52,10 +56,11 @@ class PetSafetyApplication : Application() {
             // This protects Firebase APIs from abuse
             ConfigurationManager.configureAppCheck(this)
 
-            // Fetch remote configuration and initialize Sentry
+            // Fetch remote configuration, initialize Sentry, and pre-cache App Check token
             applicationScope.launch {
                 configurationManager.fetchConfiguration()
                 initializeSentry()
+                appCheckInterceptor.prefetchToken()
             }
         } else {
             Timber.w("Google Play Services not available - Firebase/FCM disabled")

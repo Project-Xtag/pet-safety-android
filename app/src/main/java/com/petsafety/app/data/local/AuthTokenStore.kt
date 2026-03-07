@@ -88,4 +88,34 @@ class AuthTokenStore(context: Context) {
         _userId.value = null
         _userEmail.value = null
     }
+
+    /**
+     * Synchronous token save for use from OkHttp's Authenticator thread.
+     * Uses commit() (blocking write) instead of apply() to guarantee persistence
+     * before returning. Avoids runBlocking which can deadlock on OkHttp threads.
+     */
+    fun saveTokensSync(authToken: String, refreshToken: String) {
+        prefs.edit()
+            .putString(authTokenKey, authToken)
+            .putString(refreshTokenKey, refreshToken)
+            .commit()
+        _authToken.value = authToken
+        _refreshToken.value = refreshToken
+    }
+
+    /**
+     * Synchronous clear for use from OkHttp's Authenticator thread.
+     */
+    fun clearAllSync() {
+        prefs.edit()
+            .remove(authTokenKey)
+            .remove(refreshTokenKey)
+            .remove(userIdKey)
+            .remove(userEmailKey)
+            .commit()
+        _authToken.value = null
+        _refreshToken.value = null
+        _userId.value = null
+        _userEmail.value = null
+    }
 }

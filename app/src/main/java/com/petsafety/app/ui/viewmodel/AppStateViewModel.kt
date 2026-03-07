@@ -68,6 +68,21 @@ class AppStateViewModel @Inject constructor(
         sseService.disconnect()
     }
 
+    override fun onCleared() {
+        super.onCleared()
+        // Clean up SSE handlers to prevent memory leaks and stale callbacks
+        sseService.onTagScanned = null
+        sseService.onSightingReported = null
+        sseService.onPetFound = null
+        sseService.onAlertCreated = null
+        sseService.onAlertUpdated = null
+        sseService.onSubscriptionChanged = null
+        sseService.onReferralUsed = null
+        sseService.onConnected = null
+        sseService.onConnectionLost = null
+        sseService.disconnect()
+    }
+
     private fun setupSseHandlers() {
         sseService.onTagScanned = { event: TagScannedEvent ->
             val location = event.address ?: stringProvider.getString(R.string.unknown_location)
@@ -110,6 +125,9 @@ class AppStateViewModel @Inject constructor(
         sseService.onReferralUsed = { event: ReferralUsedEvent ->
             val name = event.refereeName ?: event.refereeEmail ?: stringProvider.getString(R.string.someone_fallback)
             showSuccess(stringProvider.getString(R.string.sse_referral_used, name))
+        }
+        sseService.onConnectionLost = {
+            showError(stringProvider.getString(R.string.sse_connection_lost))
         }
     }
 }
