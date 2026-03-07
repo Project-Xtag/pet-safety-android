@@ -1,6 +1,7 @@
 package com.petsafety.app.ui.screens
 
 import android.net.Uri
+import com.petsafety.app.util.InputValidators
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -506,7 +507,7 @@ fun OrderMoreTagsScreen(
                     enabled = !isLoading &&
                         petNames.any { it.isNotBlank() } &&
                         ownerName.value.isNotBlank() &&
-                        email.value.isNotBlank() && email.value.contains("@") &&
+                        InputValidators.isValidEmail(email.value) &&
                         street1.value.isNotBlank() &&
                         city.value.isNotBlank() &&
                         postCode.value.isNotBlank() &&

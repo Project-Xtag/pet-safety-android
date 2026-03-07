@@ -1,5 +1,6 @@
 package com.petsafety.app.ui.screens
 
+import com.petsafety.app.util.InputValidators
 import android.Manifest
 import android.annotation.SuppressLint
 import android.content.pm.PackageManager
@@ -1556,22 +1557,23 @@ private fun EditAlertDialog(
             Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
                 OutlinedTextField(
                     value = description,
-                    onValueChange = { description = it },
+                    onValueChange = { description = it.take(InputValidators.MAX_ALERT_DESCRIPTION) },
                     label = { Text(stringResource(R.string.additional_info)) },
                     modifier = Modifier.fillMaxWidth(),
                     minLines = 3
                 )
                 OutlinedTextField(
                     value = lastSeenAddress,
-                    onValueChange = { lastSeenAddress = it },
+                    onValueChange = { lastSeenAddress = it.take(InputValidators.MAX_LOCATION_TEXT) },
                     label = { Text(stringResource(R.string.last_seen_location)) },
                     modifier = Modifier.fillMaxWidth()
                 )
                 OutlinedTextField(
                     value = rewardAmount,
-                    onValueChange = { rewardAmount = it },
+                    onValueChange = { rewardAmount = it.take(InputValidators.MAX_REWARD_AMOUNT) },
                     label = { Text(stringResource(R.string.reward_optional)) },
-                    modifier = Modifier.fillMaxWidth()
+                    modifier = Modifier.fillMaxWidth(),
+                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal)
                 )
             }
         },

@@ -1,5 +1,6 @@
 package com.petsafety.app.ui.screens
 
+import com.petsafety.app.util.InputValidators
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -240,7 +241,7 @@ fun PetFormScreen(
                 FormTextField(
                     label = stringResource(R.string.name),
                     value = name,
-                    onValueChange = { name = it },
+                    onValueChange = { name = it.take(InputValidators.MAX_PET_NAME) },
                     placeholder = stringResource(R.string.pet_name)
                 )
 
@@ -280,7 +281,7 @@ fun PetFormScreen(
                     FormTextField(
                         label = stringResource(R.string.breed_custom_label),
                         value = customBreedText,
-                        onValueChange = { customBreedText = it },
+                        onValueChange = { customBreedText = it.take(InputValidators.MAX_BREED) },
                         placeholder = stringResource(R.string.breed_custom_hint)
                     )
                 }
@@ -288,14 +289,14 @@ fun PetFormScreen(
                 FormTextField(
                     label = stringResource(R.string.colour),
                     value = color,
-                    onValueChange = { color = it },
+                    onValueChange = { color = it.take(InputValidators.MAX_COLOR) },
                     placeholder = stringResource(R.string.colour_optional)
                 )
 
                 FormTextField(
                     label = stringResource(R.string.microchip),
                     value = microchipNumber,
-                    onValueChange = { microchipNumber = it },
+                    onValueChange = { microchipNumber = it.take(InputValidators.MAX_MICROCHIP) },
                     placeholder = stringResource(R.string.microchip_optional)
                 )
 
@@ -327,7 +328,7 @@ fun PetFormScreen(
             FormSection(title = stringResource(R.string.health_information)) {
                 FormTextArea(
                     value = medicalNotes,
-                    onValueChange = { medicalNotes = it },
+                    onValueChange = { medicalNotes = it.take(InputValidators.MAX_MEDICAL_NOTES) },
                     placeholder = stringResource(R.string.medical_notes_hint)
                 )
             }
@@ -338,7 +339,7 @@ fun PetFormScreen(
             FormSection(title = stringResource(R.string.additional_information)) {
                 FormTextArea(
                     value = uniqueFeatures,
-                    onValueChange = { uniqueFeatures = it },
+                    onValueChange = { uniqueFeatures = it.take(InputValidators.MAX_UNIQUE_FEATURES) },
                     placeholder = stringResource(R.string.unique_features_hint)
                 )
 
@@ -346,7 +347,7 @@ fun PetFormScreen(
 
                 FormTextArea(
                     value = notes,
-                    onValueChange = { notes = it },
+                    onValueChange = { notes = it.take(InputValidators.MAX_NOTES) },
                     placeholder = stringResource(R.string.behavior_notes_hint)
                 )
             }
