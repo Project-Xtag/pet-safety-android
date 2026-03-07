@@ -73,6 +73,7 @@ import com.petsafety.app.ui.viewmodel.OrdersViewModel
 fun OrderReplacementTagScreen(
     pet: Pet,
     appStateViewModel: AppStateViewModel,
+    authViewModel: com.petsafety.app.ui.viewmodel.AuthViewModel? = null,
     onBack: () -> Unit = {},
     onDone: () -> Unit
 ) {
@@ -103,6 +104,25 @@ fun OrderReplacementTagScreen(
     val deliveryMethod = remember { mutableStateOf("home_delivery") }
     val selectedPostaPoint = remember { mutableStateOf<PostaPointDetails?>(null) }
     val hasSearchedPoints = remember { mutableStateOf(false) }
+
+    // Pre-fill from user profile + device locale country detection
+    val currentUser = authViewModel?.let {
+        val user by it.currentUser.collectAsState()
+        user
+    }
+    LaunchedEffect(currentUser) {
+        currentUser?.let { user ->
+            if (street1.value.isBlank()) user.address?.let { street1.value = it }
+            if (city.value.isBlank()) user.city?.let { city.value = it }
+            if (postCode.value.isBlank()) user.postalCode?.let { postCode.value = it }
+            if (country.value.isBlank()) {
+                country.value = user.country ?: java.util.Locale.getDefault().country ?: ""
+            }
+        }
+        if (currentUser == null && country.value.isBlank()) {
+            country.value = java.util.Locale.getDefault().country ?: ""
+        }
+    }
 
     val isHungary = country.value.lowercase().let {
         it == "hu" || it == "hungary" || it == "magyarország" || it == "magyarorszag"

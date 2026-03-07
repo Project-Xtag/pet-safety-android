@@ -218,6 +218,7 @@ fun PetSafetyApp(
                 )
                 "order_tags" -> OrderMoreTagsScreen(
                     appStateViewModel = appStateViewModel,
+                    authViewModel = authViewModel,
                     onDone = { showOrderTagsScreen = false }
                 )
                 "register" -> RegisterScreen(

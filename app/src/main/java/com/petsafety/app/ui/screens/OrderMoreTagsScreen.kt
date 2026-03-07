@@ -76,6 +76,7 @@ import com.petsafety.app.ui.viewmodel.OrdersViewModel
 @Composable
 fun OrderMoreTagsScreen(
     appStateViewModel: AppStateViewModel,
+    authViewModel: com.petsafety.app.ui.viewmodel.AuthViewModel? = null,
     onBack: () -> Unit = {},
     onDone: () -> Unit
 ) {
@@ -118,6 +119,30 @@ fun OrderMoreTagsScreen(
     val deliveryMethod = remember { mutableStateOf("home_delivery") }
     val selectedPostaPoint = remember { mutableStateOf<PostaPointDetails?>(null) }
     val hasSearchedPoints = remember { mutableStateOf(false) }
+
+    // Pre-fill from user profile + device locale country detection
+    val currentUser = authViewModel?.let {
+        val user by it.currentUser.collectAsState()
+        user
+    }
+    LaunchedEffect(currentUser) {
+        currentUser?.let { user ->
+            if (ownerName.value.isBlank()) {
+                ownerName.value = listOfNotNull(user.firstName, user.lastName).joinToString(" ")
+            }
+            if (email.value.isBlank()) email.value = user.email
+            if (phone.value.isBlank()) user.phone?.let { phone.value = it }
+            if (street1.value.isBlank()) user.address?.let { street1.value = it }
+            if (city.value.isBlank()) user.city?.let { city.value = it }
+            if (postCode.value.isBlank()) user.postalCode?.let { postCode.value = it }
+            if (country.value.isBlank()) {
+                country.value = user.country ?: java.util.Locale.getDefault().country ?: ""
+            }
+        }
+        if (currentUser == null && country.value.isBlank()) {
+            country.value = java.util.Locale.getDefault().country ?: ""
+        }
+    }
 
     val isHungary = country.value.lowercase().let {
         it == "hu" || it == "hungary" || it == "magyarország" || it == "magyarorszag"

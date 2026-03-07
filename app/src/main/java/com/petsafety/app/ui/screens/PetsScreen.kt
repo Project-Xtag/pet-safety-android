@@ -122,6 +122,7 @@ fun PetsScreen(appStateViewModel: AppStateViewModel, authViewModel: AuthViewMode
         composable("order_more_tags") {
             OrderMoreTagsScreen(
                 appStateViewModel = appStateViewModel,
+                authViewModel = authViewModel,
                 onBack = { navController.popBackStack() },
                 onDone = { navController.popBackStack() }
             )
@@ -135,6 +136,7 @@ fun PetsScreen(appStateViewModel: AppStateViewModel, authViewModel: AuthViewMode
             OrderReplacementTagScreen(
                 pet = pet,
                 appStateViewModel = appStateViewModel,
+                authViewModel = authViewModel,
                 onBack = { navController.popBackStack() },
                 onDone = { navController.popBackStack() }
             )
