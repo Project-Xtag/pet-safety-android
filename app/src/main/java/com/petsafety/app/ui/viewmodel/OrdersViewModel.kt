@@ -124,13 +124,7 @@ class OrdersViewModel @Inject constructor(
             try {
                 _replacementEligibility.value = repository.checkReplacementEligibility()
             } catch (ex: Exception) {
-                // Default to paid replacement if check fails
-                _replacementEligibility.value = ReplacementEligibilityResponse(
-                    isFreeReplacement = false,
-                    planName = "starter",
-                    shippingCost = 0.0,
-                    currency = "EUR"
-                )
+                _errorMessage.value = ex.localizedMessage
             } finally {
                 _isCheckingEligibility.value = false
             }

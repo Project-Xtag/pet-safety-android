@@ -172,9 +172,11 @@ class PetsViewModel @Inject constructor(
                     notificationCenterLocation,
                     notificationCenterAddress
                 )
-                result.getOrThrow()
+                val updatedPet = result.getOrThrow()
+                _pets.value = _pets.value.map { if (it.id == petId) updatedPet else it }
                 onResult(true, null)
             } catch (ex: OfflineQueuedException) {
+                _pets.value = _pets.value.map { if (it.id == petId) it.copy(isMissing = true) else it }
                 onResult(true, null)
             } catch (ex: Exception) {
                 onResult(false, ex.localizedMessage)
@@ -189,9 +191,11 @@ class PetsViewModel @Inject constructor(
             _isLoading.value = true
             try {
                 val result = repository.markPetFound(petId)
-                result.getOrThrow()
+                val updatedPet = result.getOrThrow()
+                _pets.value = _pets.value.map { if (it.id == petId) updatedPet else it }
                 onResult(true, null)
             } catch (ex: OfflineQueuedException) {
+                _pets.value = _pets.value.map { if (it.id == petId) it.copy(isMissing = false) else it }
                 onResult(true, null)
             } catch (ex: Exception) {
                 onResult(false, ex.localizedMessage)

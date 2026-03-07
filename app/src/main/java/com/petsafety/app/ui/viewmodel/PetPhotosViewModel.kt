@@ -49,6 +49,14 @@ class PetPhotosViewModel @Inject constructor(
     }
 
     fun uploadPhoto(petId: String, bytes: ByteArray, isPrimary: Boolean, onResult: (Boolean, String?) -> Unit) {
+        if (bytes.isEmpty()) {
+            onResult(false, "Image data is empty")
+            return
+        }
+        if (bytes.size > MAX_IMAGE_SIZE) {
+            onResult(false, "Image is too large (max ${MAX_IMAGE_SIZE / 1_048_576}MB)")
+            return
+        }
         viewModelScope.launch {
             _isUploading.value = true
             _uploadProgress.value = 0f
@@ -122,5 +130,9 @@ class PetPhotosViewModel @Inject constructor(
                 onResult(false, ex.localizedMessage)
             }
         }
+    }
+
+    companion object {
+        const val MAX_IMAGE_SIZE = 10 * 1_048_576 // 10MB
     }
 }

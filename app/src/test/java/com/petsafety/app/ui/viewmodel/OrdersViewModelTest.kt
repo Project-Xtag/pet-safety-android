@@ -600,16 +600,15 @@ class OrdersViewModelTest {
     }
 
     @Test
-    fun `checkReplacementEligibility - failure - defaults to paid replacement`() = runTest {
+    fun `checkReplacementEligibility - failure - sets error message`() = runTest {
         coEvery { repository.checkReplacementEligibility() } throws RuntimeException("Network error")
 
         viewModel.checkReplacementEligibility()
         testDispatcher.scheduler.advanceUntilIdle()
 
         val result = viewModel.replacementEligibility.value
-        assertNotNull(result)
-        assertFalse(result!!.isFreeReplacement)
-        assertEquals("starter", result.planName)
+        assertNull(result)
+        assertEquals("Network error", viewModel.errorMessage.value)
     }
 
     @Test

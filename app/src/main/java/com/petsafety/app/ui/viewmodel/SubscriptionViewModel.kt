@@ -15,6 +15,7 @@ import com.petsafety.app.R
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -26,34 +27,34 @@ class SubscriptionViewModel @Inject constructor(
 ) : ViewModel() {
 
     private val _plans = MutableStateFlow<List<SubscriptionPlan>>(emptyList())
-    val plans: StateFlow<List<SubscriptionPlan>> = _plans
+    val plans: StateFlow<List<SubscriptionPlan>> = _plans.asStateFlow()
 
     private val _subscription = MutableStateFlow<UserSubscription?>(null)
-    val subscription: StateFlow<UserSubscription?> = _subscription
+    val subscription: StateFlow<UserSubscription?> = _subscription.asStateFlow()
 
     private val _features = MutableStateFlow<SubscriptionFeaturesResponse?>(null)
-    val features: StateFlow<SubscriptionFeaturesResponse?> = _features
+    val features: StateFlow<SubscriptionFeaturesResponse?> = _features.asStateFlow()
 
     private val _invoices = MutableStateFlow<List<Invoice>>(emptyList())
-    val invoices: StateFlow<List<Invoice>> = _invoices
+    val invoices: StateFlow<List<Invoice>> = _invoices.asStateFlow()
 
     private val _referralCode = MutableStateFlow<ReferralCode?>(null)
-    val referralCode: StateFlow<ReferralCode?> = _referralCode
+    val referralCode: StateFlow<ReferralCode?> = _referralCode.asStateFlow()
 
     private val _referrals = MutableStateFlow<List<Referral>>(emptyList())
-    val referrals: StateFlow<List<Referral>> = _referrals
+    val referrals: StateFlow<List<Referral>> = _referrals.asStateFlow()
 
     private val _checkoutUrl = MutableStateFlow<String?>(null)
-    val checkoutUrl: StateFlow<String?> = _checkoutUrl
+    val checkoutUrl: StateFlow<String?> = _checkoutUrl.asStateFlow()
 
     private val _isLoading = MutableStateFlow(false)
-    val isLoading: StateFlow<Boolean> = _isLoading
+    val isLoading: StateFlow<Boolean> = _isLoading.asStateFlow()
 
     private val _isProcessing = MutableStateFlow(false)
-    val isProcessing: StateFlow<Boolean> = _isProcessing
+    val isProcessing: StateFlow<Boolean> = _isProcessing.asStateFlow()
 
     private val _error = MutableStateFlow<String?>(null)
-    val error: StateFlow<String?> = _error
+    val error: StateFlow<String?> = _error.asStateFlow()
 
     val currentPlanName: String get() = _subscription.value?.resolvedPlanName ?: stringProvider.getString(R.string.no_plan)
     val isOnStarterPlan: Boolean get() = _subscription.value?.resolvedPlanName?.lowercase() == "starter"

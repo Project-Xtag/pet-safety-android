@@ -57,6 +57,7 @@ class SuccessStoriesViewModel @Inject constructor(
             lastLongitude = longitude
             lastRadiusKm = radiusKm
             _isLoading.value = true
+            _errorMessage.value = null
             try {
                 val response = repository.fetchPublicStories(latitude, longitude, radiusKm, page, 10)
                 _stories.value = if (loadMore) _stories.value + response.stories else response.stories
@@ -73,6 +74,7 @@ class SuccessStoriesViewModel @Inject constructor(
     fun refresh() {
         viewModelScope.launch {
             _isRefreshing.value = true
+            _errorMessage.value = null
             try {
                 val response = repository.fetchPublicStories(lastLatitude, lastLongitude, lastRadiusKm, 1, 10)
                 _stories.value = response.stories

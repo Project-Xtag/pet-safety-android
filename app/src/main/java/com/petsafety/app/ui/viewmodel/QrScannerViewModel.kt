@@ -10,6 +10,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import java.util.concurrent.atomic.AtomicBoolean
 import javax.inject.Inject
 
 sealed class TagLookupState {
@@ -38,9 +39,11 @@ class QrScannerViewModel @Inject constructor(
     private val _errorMessage = MutableStateFlow<String?>(null)
     val errorMessage: StateFlow<String?> = _errorMessage.asStateFlow()
 
+    private val _processingGuard = AtomicBoolean(false)
+
     fun lookupAndRoute(code: String) {
         viewModelScope.launch {
-            if (_isLoading.value || _lookupState.value is TagLookupState.Loading) return@launch
+            if (!_processingGuard.compareAndSet(false, true)) return@launch
             _lookupState.value = TagLookupState.Loading
             _isLoading.value = true
             try {
@@ -70,13 +73,15 @@ class QrScannerViewModel @Inject constructor(
                 )
             } finally {
                 _isLoading.value = false
+                _processingGuard.set(false)
             }
         }
     }
 
     fun scanQr(code: String) {
         viewModelScope.launch {
-            if (_isLoading.value || _scanResult.value != null) return@launch
+            if (_scanResult.value != null) return@launch
+            if (!_processingGuard.compareAndSet(false, true)) return@launch
             _isLoading.value = true
             try {
                 _scanResult.value = repository.scanQr(code)
@@ -84,6 +89,7 @@ class QrScannerViewModel @Inject constructor(
                 _errorMessage.value = ex.localizedMessage
             } finally {
                 _isLoading.value = false
+                _processingGuard.set(false)
             }
         }
     }
@@ -133,5 +139,6 @@ class QrScannerViewModel @Inject constructor(
         _scanResult.value = null
         _errorMessage.value = null
         _lookupState.value = TagLookupState.Idle
+        _processingGuard.set(false)
     }
 }

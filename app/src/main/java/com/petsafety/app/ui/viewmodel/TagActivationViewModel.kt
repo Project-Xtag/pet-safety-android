@@ -56,7 +56,10 @@ class TagActivationViewModel @Inject constructor(
     }
 
     fun activateTag(qrCode: String) {
-        val petId = _selectedPetId.value ?: return
+        val petId = _selectedPetId.value ?: run {
+            _activationState.value = ActivationState.Error("Please select a pet first")
+            return
+        }
         val petName = _pets.value.firstOrNull { it.id == petId }?.name ?: ""
         viewModelScope.launch {
             _activationState.value = ActivationState.Loading

@@ -8,6 +8,7 @@ import com.petsafety.app.data.model.LocationCoordinate
 import com.petsafety.app.data.model.MissingPetAlert
 import com.petsafety.app.data.repository.AlertsRepository
 import com.petsafety.app.data.repository.OfflineQueuedException
+import com.petsafety.app.util.InputValidators
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -41,6 +42,16 @@ class AlertsViewModel @Inject constructor(
     private var lastLatitude: Double = 51.5074
     private var lastLongitude: Double = -0.1278
     private var lastRadiusKm: Double = 10.0
+
+    fun clearState() {
+        _alerts.value = emptyList()
+        _missingAlerts.value = emptyList()
+        _foundAlerts.value = emptyList()
+        _errorMessage.value = null
+        lastLatitude = 51.5074
+        lastLongitude = -0.1278
+        lastRadiusKm = 10.0
+    }
 
     fun fetchAlerts() {
         viewModelScope.launch {
@@ -99,8 +110,12 @@ class AlertsViewModel @Inject constructor(
     ) {
         viewModelScope.launch {
             _isLoading.value = true
+            // Validate coordinates if provided
+            val validatedCoordinate = coordinate?.let {
+                if (InputValidators.isValidCoordinate(it.lat, it.lng)) it else null
+            }
             try {
-                repository.createAlert(petId, location, coordinate, additionalInfo).getOrThrow()
+                repository.createAlert(petId, location, validatedCoordinate, additionalInfo).getOrThrow()
                 onResult(true, null)
             } catch (ex: OfflineQueuedException) {
                 onResult(true, null)
