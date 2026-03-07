@@ -548,7 +548,7 @@ private suspend fun loadCircularMarkerBitmap(
 }
 
 private fun computeTimeMissing(story: SuccessStory, resources: Resources): String {
-    val missingSince = story.missingSince ?: return resources.getString(R.string.some_time)
+    val missingSince = story.missingSince ?: return "—"
     return try {
         val inputFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.getDefault())
         val missingDate = inputFormat.parse(missingSince.take(19))
@@ -566,10 +566,10 @@ private fun computeTimeMissing(story: SuccessStory, resources: Resources): Strin
                 }
             }
         } else {
-            resources.getString(R.string.some_time)
+            "—"
         }
     } catch (e: Exception) {
-        resources.getString(R.string.some_time)
+        "—"
     }
 }
 

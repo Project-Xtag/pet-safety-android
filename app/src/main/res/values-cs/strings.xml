@@ -243,7 +243,6 @@
     <string name="camera_access_message">Povolte přístup ke kameře pro skenování QR kódů</string>
     <string name="enable_camera">Povolit kameru</string>
     <string name="qr_scanned">QR naskenováno</string>
-    <string name="manual_code_entry">Zadat kód ručně</string>
     <string name="manual_code_label">QR kód</string>
     <string name="submit_code">Odeslat kód</string>
     <string name="invalid_qr_code">Zadejte platný kód</string>
@@ -352,7 +351,7 @@
     <string name="additional_info">Další info</string>
     <string name="report">Nahlásit</string>
     <string name="report_sighting">Nahlásit pozorování</string>
-    <string name="report_sighting_prompt">Sdílejte detaily o tom, kde jste mazlíčka viděli.</string>
+    <string name="report_sighting_prompt">Sdílejte detaily o tom, kde jste viděli %1$s.</string>
     <string name="notes">Poznámky</string>
     <string name="sighting_reported">Pozorování nahlášeno</string>
     <string name="report_failed">Nahlášení se nezdařilo</string>
@@ -482,11 +481,6 @@
     <string name="order_updates_subtitle">Oznámení o dopravě a doručení</string>
     <string name="account_activity">Aktivita účtu</string>
     <string name="account_activity_subtitle">Oznámení o přihlášení a bezpečnosti</string>
-    <string name="optional_updates">Volitelné aktualizace</string>
-    <string name="product_updates">Aktualizace produktu</string>
-    <string name="product_updates_subtitle">Nové funkce a vylepšení</string>
-    <string name="marketing_emails">Marketingové e-maily</string>
-    <string name="marketing_emails_subtitle">Nabídky a akce</string>
     <string name="critical_alerts_note">Poznámka: Kritická upozornění o vašich mazlíčcích budou vždy odeslána bez ohledu na toto nastavení.</string>
 
     <!-- Notification Preferences -->
@@ -911,7 +905,6 @@
     <string name="reunion_template">%1$s se vrátil domů. Po %2$s postrádání se %3$s úspěšně shledal se svou rodinou. Děkujeme naší úžasné komunitě za přivedení %4$s domů!</string>
     <string name="reunion_template_no_time">%1$s se shledal se svou rodinou! Děkujeme naší úžasné komunitě za přivedení %2$s domů!</string>
     <string name="owners_story">Příběh majitele:</string>
-    <string name="some_time">nějaký čas</string>
     <string name="post_to_success_stories">Přidat k úspěšným příběhům</string>
     <string name="remove_from_success_stories">Odstranit z úspěšných příběhů</string>
     <string name="removed_from_success_stories">Odstraněno z úspěšných příběhů</string>
@@ -1029,16 +1022,16 @@
     <string name="help_faq_group_privacy_account">Soukromí a účet</string>
     <string name="help_faq_group_troubleshooting">Řešení problémů</string>
     <!-- Checkout & Order Status -->
-    <string name="checkout_subscription_success">Your subscription is now active!</string>
-    <string name="checkout_tag_order_success">Payment successful! Your tag order is being processed.</string>
-    <string name="checkout_replacement_success">Payment successful! Your replacement tag is on the way.</string>
-    <string name="order_status_completed">Completed</string>
-    <string name="order_status_pending">Pending</string>
-    <string name="order_status_failed">Failed</string>
-    <string name="order_status_processing">Processing</string>
-    <string name="order_status_shipped">Shipped</string>
-    <string name="order_status_delivered">Delivered</string>
-    <string name="order_status_cancelled">Cancelled</string>
+    <string name="checkout_subscription_success">Vaše předplatné je nyní aktivní!</string>
+    <string name="checkout_tag_order_success">Platba proběhla úspěšně! Vaše objednávka známky se zpracovává.</string>
+    <string name="checkout_replacement_success">Platba proběhla úspěšně! Vaše náhradní známka je na cestě.</string>
+    <string name="order_status_completed">Dokončeno</string>
+    <string name="order_status_pending">Čeká na vyřízení</string>
+    <string name="order_status_failed">Neúspěšné</string>
+    <string name="order_status_processing">Zpracovává se</string>
+    <string name="order_status_shipped">Odesláno</string>
+    <string name="order_status_delivered">Doručeno</string>
+    <string name="order_status_cancelled">Zrušeno</string>
 
     <!-- Missing translations added -->
     <string name="add_additional_info">Přidat další informace</string>

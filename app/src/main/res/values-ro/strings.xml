@@ -236,7 +236,6 @@
     <string name="camera_access_message">Activează accesul la cameră pentru a scana coduri QR</string>
     <string name="enable_camera">Activează camera</string>
     <string name="qr_scanned">QR scanat</string>
-    <string name="manual_code_entry">Introdu codul manual</string>
     <string name="manual_code_label">Cod QR</string>
     <string name="submit_code">Trimite cod</string>
     <string name="invalid_qr_code">Introdu un cod valid</string>
@@ -345,7 +344,7 @@
     <string name="additional_info">Informații suplimentare</string>
     <string name="report">Raportează</string>
     <string name="report_sighting">Raportează observație</string>
-    <string name="report_sighting_prompt">Împărtășește detalii despre unde ai văzut animalul.</string>
+    <string name="report_sighting_prompt">Împărtășește detalii despre unde l-ai văzut pe %1$s.</string>
     <string name="notes">Note</string>
     <string name="sighting_reported">Observație raportată</string>
     <string name="report_failed">Raportarea a eșuat</string>
@@ -475,11 +474,6 @@
     <string name="order_updates_subtitle">Notificări despre livrare și expediere</string>
     <string name="account_activity">Activitatea contului</string>
     <string name="account_activity_subtitle">Notificări de autentificare și securitate</string>
-    <string name="optional_updates">Actualizări opționale</string>
-    <string name="product_updates">Actualizări produs</string>
-    <string name="product_updates_subtitle">Funcții noi și îmbunătățiri</string>
-    <string name="marketing_emails">E-mailuri de marketing</string>
-    <string name="marketing_emails_subtitle">Oferte și promoții</string>
     <string name="critical_alerts_note">Notă: Alertele critice despre animalele tale vor fi întotdeauna trimise indiferent de aceste setări.</string>
 
     <!-- Notification Preferences -->
@@ -904,7 +898,6 @@
     <string name="reunion_template">%1$s s-a reunit. După %2$s dispărut, %3$s s-a reunit cu succes cu familia sa. Mulțumim comunității noastre uimitoare pentru aducerea lui %4$s acasă!</string>
     <string name="reunion_template_no_time">%1$s s-a reunit cu familia sa! Mulțumim comunității noastre uimitoare pentru aducerea lui %2$s acasă!</string>
     <string name="owners_story">Povestea proprietarului:</string>
-    <string name="some_time">ceva timp</string>
     <string name="post_to_success_stories">Publică în poveștile de succes</string>
     <string name="remove_from_success_stories">Elimină din poveștile de succes</string>
     <string name="removed_from_success_stories">Eliminat din poveștile de succes</string>
@@ -1022,16 +1015,16 @@
     <string name="help_faq_group_privacy_account">Confidențialitate și cont</string>
     <string name="help_faq_group_troubleshooting">Depanare</string>
     <!-- Checkout & Order Status -->
-    <string name="checkout_subscription_success">Your subscription is now active!</string>
-    <string name="checkout_tag_order_success">Payment successful! Your tag order is being processed.</string>
-    <string name="checkout_replacement_success">Payment successful! Your replacement tag is on the way.</string>
-    <string name="order_status_completed">Completed</string>
-    <string name="order_status_pending">Pending</string>
-    <string name="order_status_failed">Failed</string>
-    <string name="order_status_processing">Processing</string>
-    <string name="order_status_shipped">Shipped</string>
-    <string name="order_status_delivered">Delivered</string>
-    <string name="order_status_cancelled">Cancelled</string>
+    <string name="checkout_subscription_success">Abonamentul tău este acum activ!</string>
+    <string name="checkout_tag_order_success">Plată reușită! Comanda ta de etichetă este în curs de procesare.</string>
+    <string name="checkout_replacement_success">Plată reușită! Eticheta de înlocuire este pe drum.</string>
+    <string name="order_status_completed">Finalizată</string>
+    <string name="order_status_pending">În așteptare</string>
+    <string name="order_status_failed">Eșuată</string>
+    <string name="order_status_processing">Se procesează</string>
+    <string name="order_status_shipped">Expediată</string>
+    <string name="order_status_delivered">Livrată</string>
+    <string name="order_status_cancelled">Anulată</string>
 
     <!-- Missing translations added -->
     <string name="add_additional_info">Adaugă informații suplimentare</string>

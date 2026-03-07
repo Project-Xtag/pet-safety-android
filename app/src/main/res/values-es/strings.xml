@@ -243,7 +243,6 @@
     <string name="camera_access_message">Habilita el acceso a la cámara para escanear códigos QR</string>
     <string name="enable_camera">Habilitar cámara</string>
     <string name="qr_scanned">QR escaneado</string>
-    <string name="manual_code_entry">Introducir código manualmente</string>
     <string name="manual_code_label">Código QR</string>
     <string name="submit_code">Enviar código</string>
     <string name="invalid_qr_code">Introduce un código válido</string>
@@ -351,7 +350,7 @@
     <string name="additional_info">Información adicional</string>
     <string name="report">Reportar</string>
     <string name="report_sighting">Reportar avistamiento</string>
-    <string name="report_sighting_prompt">Comparte detalles sobre dónde viste a la mascota.</string>
+    <string name="report_sighting_prompt">Comparte detalles sobre dónde viste a %1$s.</string>
     <string name="notes">Notas</string>
     <string name="sighting_reported">Avistamiento reportado</string>
     <string name="report_failed">No se pudo reportar</string>
@@ -481,11 +480,6 @@
     <string name="order_updates_subtitle">Notificaciones de envío y entrega</string>
     <string name="account_activity">Actividad de la cuenta</string>
     <string name="account_activity_subtitle">Notificaciones de inicio de sesión y seguridad</string>
-    <string name="optional_updates">Actualizaciones opcionales</string>
-    <string name="product_updates">Actualizaciones de producto</string>
-    <string name="product_updates_subtitle">Nuevas funciones y mejoras</string>
-    <string name="marketing_emails">Correos de marketing</string>
-    <string name="marketing_emails_subtitle">Ofertas y promociones</string>
     <string name="critical_alerts_note">Nota: Las alertas críticas sobre tus mascotas siempre se enviarán independientemente de estos ajustes.</string>
 
     <!-- Notification Preferences -->
@@ -905,7 +899,6 @@
     <string name="reunion_template">%1$s se ha reunido. Después de %2$s desaparecido, %3$s se reunió exitosamente con su familia. ¡Gracias a nuestra increíble comunidad por traer a %4$s a casa!</string>
     <string name="reunion_template_no_time">¡%1$s se reunió con su familia! ¡Gracias a nuestra increíble comunidad por traer a %2$s a casa!</string>
     <string name="owners_story">Historia del dueño:</string>
-    <string name="some_time">algún tiempo</string>
     <string name="post_to_success_stories">Publicar en historias de éxito</string>
     <string name="remove_from_success_stories">Eliminar de historias de éxito</string>
     <string name="removed_from_success_stories">Eliminado de historias de éxito</string>
@@ -1020,16 +1013,16 @@
     <string name="help_faq_group_privacy_account">Privacidad y cuenta</string>
     <string name="help_faq_group_troubleshooting">Solución de problemas</string>
     <!-- Checkout & Order Status -->
-    <string name="checkout_subscription_success">Your subscription is now active!</string>
-    <string name="checkout_tag_order_success">Payment successful! Your tag order is being processed.</string>
-    <string name="checkout_replacement_success">Payment successful! Your replacement tag is on the way.</string>
-    <string name="order_status_completed">Completed</string>
-    <string name="order_status_pending">Pending</string>
-    <string name="order_status_failed">Failed</string>
-    <string name="order_status_processing">Processing</string>
-    <string name="order_status_shipped">Shipped</string>
-    <string name="order_status_delivered">Delivered</string>
-    <string name="order_status_cancelled">Cancelled</string>
+    <string name="checkout_subscription_success">¡Tu suscripción ya está activa!</string>
+    <string name="checkout_tag_order_success">¡Pago exitoso! Tu pedido de etiqueta se está procesando.</string>
+    <string name="checkout_replacement_success">¡Pago exitoso! Tu etiqueta de reemplazo está en camino.</string>
+    <string name="order_status_completed">Completado</string>
+    <string name="order_status_pending">Pendiente</string>
+    <string name="order_status_failed">Fallido</string>
+    <string name="order_status_processing">Procesando</string>
+    <string name="order_status_shipped">Enviado</string>
+    <string name="order_status_delivered">Entregado</string>
+    <string name="order_status_cancelled">Cancelado</string>
 
     <!-- Missing translations added -->
     <string name="add_additional_info">Agregar información adicional</string>

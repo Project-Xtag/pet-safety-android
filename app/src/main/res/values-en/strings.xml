@@ -236,7 +236,6 @@
     <string name="camera_access_message">Please enable camera access to scan QR codes</string>
     <string name="enable_camera">Enable Camera</string>
     <string name="qr_scanned">QR scanned</string>
-    <string name="manual_code_entry">Enter code manually</string>
     <string name="manual_code_label">QR code</string>
     <string name="submit_code">Submit code</string>
     <string name="invalid_qr_code">Enter a valid code</string>
@@ -344,7 +343,7 @@
     <string name="additional_info">Additional info</string>
     <string name="report">Report</string>
     <string name="report_sighting">Report Sighting</string>
-    <string name="report_sighting_prompt">Share any details about where you saw the pet.</string>
+    <string name="report_sighting_prompt">Share any details about where you saw %1$s.</string>
     <string name="notes">Notes</string>
     <string name="sighting_reported">Sighting reported</string>
     <string name="report_failed">Failed to report</string>
@@ -474,11 +473,6 @@
     <string name="order_updates_subtitle">Shipping and delivery notifications</string>
     <string name="account_activity">Account Activity</string>
     <string name="account_activity_subtitle">Login and security notifications</string>
-    <string name="optional_updates">Optional Updates</string>
-    <string name="product_updates">Product Updates</string>
-    <string name="product_updates_subtitle">New features and improvements</string>
-    <string name="marketing_emails">Marketing Emails</string>
-    <string name="marketing_emails_subtitle">Offers and promotions</string>
     <string name="critical_alerts_note">Note: Critical alerts about your pets will always be sent regardless of these settings.</string>
 
     <!-- Notification Preferences -->
@@ -944,7 +938,6 @@
     <string name="reunion_template">%1$s has been reunited. After %2$s missing, %3$s was successfully reunited with their family. Thank you to our amazing community for bringing %4$s home!</string>
     <string name="reunion_template_no_time">%1$s has been reunited with their family! Thank you to our amazing community for bringing %2$s home!</string>
     <string name="owners_story">Owner\'s story:</string>
-    <string name="some_time">some time</string>
     <string name="post_to_success_stories">Post to Success Stories</string>
     <string name="remove_from_success_stories">Remove from Success Stories</string>
     <string name="removed_from_success_stories">Removed from Success Stories</string>

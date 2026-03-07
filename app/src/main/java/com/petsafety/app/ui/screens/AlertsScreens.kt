@@ -788,6 +788,7 @@ private fun AlertDetailDialog(
 @Composable
 private fun ReportSightingDialog(
     alertId: String,
+    petName: String,
     onDismiss: () -> Unit,
     onSubmit: (LocationCoordinate?, String?, String?, String?, String?, String?) -> Unit
 ) {
@@ -851,7 +852,7 @@ private fun ReportSightingDialog(
         title = { Text(stringResource(R.string.report_sighting)) },
         text = {
             Column {
-                Text(stringResource(R.string.report_sighting_prompt))
+                Text(stringResource(R.string.report_sighting_prompt, petName))
                 Spacer(modifier = Modifier.height(12.dp))
                 OutlinedButton(
                     onClick = { captureLocation() },
@@ -1448,6 +1449,7 @@ private fun AlertDetailScreen(
     if (showReportSighting) {
         ReportSightingDialog(
             alertId = alert.id,
+            petName = alert.flatPetName ?: "",
             onDismiss = { showReportSighting = false },
             onSubmit = { coordinate, locationText, notes, name, phone, email ->
                 viewModel.reportSighting(
@@ -1976,9 +1978,9 @@ private fun computeMissingDuration(dateString: String, resources: Resources): St
                 else -> resources.getQuantityString(R.plurals.time_hours_duration, 1, 1)
             }
         } else {
-            resources.getString(R.string.some_time)
+            "—"
         }
     } catch (e: Exception) {
-        resources.getString(R.string.some_time)
+        "—"
     }
 }

@@ -243,7 +243,6 @@
     <string name="camera_access_message">Kérjük, engedélyezd a kamera hozzáférést a QR-kódok beolvasásához</string>
     <string name="enable_camera">Kamera engedélyezése</string>
     <string name="qr_scanned">QR beolvasva</string>
-    <string name="manual_code_entry">Kód kézi megadása</string>
     <string name="manual_code_label">QR-kód</string>
     <string name="submit_code">Kód beküldése</string>
     <string name="invalid_qr_code">Adj meg érvényes kódot</string>
@@ -351,7 +350,7 @@
     <string name="additional_info">További információ</string>
     <string name="report">Jelentés</string>
     <string name="report_sighting">Észlelés bejelentése</string>
-    <string name="report_sighting_prompt">Oszd meg azokat a részleteket, ahol láttad a kedvencet.</string>
+    <string name="report_sighting_prompt">Oszd meg azokat a részleteket, ahol láttad %1$s-t.</string>
     <string name="notes">Megjegyzések</string>
     <string name="sighting_reported">Észlelés bejelentve</string>
     <string name="report_failed">Nem sikerült bejelenteni</string>
@@ -481,11 +480,6 @@
     <string name="order_updates_subtitle">Szállítási és kézbesítési értesítések</string>
     <string name="account_activity">Fióktevékenység</string>
     <string name="account_activity_subtitle">Bejelentkezési és biztonsági értesítések</string>
-    <string name="optional_updates">Opcionális frissítések</string>
-    <string name="product_updates">Termékfrissítések</string>
-    <string name="product_updates_subtitle">Új funkciók és fejlesztések</string>
-    <string name="marketing_emails">Marketing emailek</string>
-    <string name="marketing_emails_subtitle">Ajánlatok és promóciók</string>
     <string name="critical_alerts_note">Megjegyzés: a kedvenceid kritikus riasztásai mindig elküldésre kerülnek, függetlenül a beállításoktól.</string>
 
     <!-- Notification Preferences -->
@@ -905,7 +899,6 @@
     <string name="reunion_template">%1$s hazatalált. %2$s eltűnés után %3$s sikeresen újra a családjával van. Köszönet a csodálatos közösségünknek, amiért hazahozták %4$s-t!</string>
     <string name="reunion_template_no_time">%1$s újra a családjával van! Köszönjük a fantasztikus közösségünknek, hogy segítettek hazajuttatni %2$s-t!</string>
     <string name="owners_story">A gazdi története:</string>
-    <string name="some_time">egy idő</string>
     <string name="post_to_success_stories">Közzététel a sikertörténeteknél</string>
     <string name="remove_from_success_stories">Eltávolítás a sikertörténetek közzül</string>
     <string name="removed_from_success_stories">Eltávolítva a sikertörténetek közzül</string>
@@ -1020,16 +1013,16 @@
     <string name="help_faq_group_privacy_account">Adatvédelem és fiók</string>
     <string name="help_faq_group_troubleshooting">Hibaelhárítás</string>
     <!-- Checkout & Order Status -->
-    <string name="checkout_subscription_success">Your subscription is now active!</string>
-    <string name="checkout_tag_order_success">Payment successful! Your tag order is being processed.</string>
-    <string name="checkout_replacement_success">Payment successful! Your replacement tag is on the way.</string>
-    <string name="order_status_completed">Completed</string>
-    <string name="order_status_pending">Pending</string>
-    <string name="order_status_failed">Failed</string>
-    <string name="order_status_processing">Processing</string>
-    <string name="order_status_shipped">Shipped</string>
-    <string name="order_status_delivered">Delivered</string>
-    <string name="order_status_cancelled">Cancelled</string>
+    <string name="checkout_subscription_success">Az előfizetésed most már aktív!</string>
+    <string name="checkout_tag_order_success">Sikeres fizetés! A biléta rendelésed feldolgozás alatt.</string>
+    <string name="checkout_replacement_success">Sikeres fizetés! A cserebiléta úton van hozzád.</string>
+    <string name="order_status_completed">Teljesítve</string>
+    <string name="order_status_pending">Függőben</string>
+    <string name="order_status_failed">Sikertelen</string>
+    <string name="order_status_processing">Feldolgozás alatt</string>
+    <string name="order_status_shipped">Feladva</string>
+    <string name="order_status_delivered">Kézbesítve</string>
+    <string name="order_status_cancelled">Törölve</string>
 
     <!-- Missing translations added -->
     <string name="add_additional_info">További információ hozzáadása</string>

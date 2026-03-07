@@ -243,7 +243,6 @@
     <string name="camera_access_message">Ative o acesso à câmara para ler códigos QR</string>
     <string name="enable_camera">Ativar câmara</string>
     <string name="qr_scanned">QR lido</string>
-    <string name="manual_code_entry">Introduzir código manualmente</string>
     <string name="manual_code_label">Código QR</string>
     <string name="submit_code">Enviar código</string>
     <string name="invalid_qr_code">Introduza um código válido</string>
@@ -351,7 +350,7 @@
     <string name="additional_info">Informação adicional</string>
     <string name="report">Reportar</string>
     <string name="report_sighting">Reportar avistamento</string>
-    <string name="report_sighting_prompt">Partilhe detalhes sobre onde viu o animal.</string>
+    <string name="report_sighting_prompt">Partilha detalhes sobre onde viste %1$s.</string>
     <string name="notes">Notas</string>
     <string name="sighting_reported">Avistamento reportado</string>
     <string name="report_failed">Falha ao reportar</string>
@@ -481,11 +480,6 @@
     <string name="order_updates_subtitle">Notificações de envio e entrega</string>
     <string name="account_activity">Atividade da conta</string>
     <string name="account_activity_subtitle">Notificações de login e segurança</string>
-    <string name="optional_updates">Atualizações opcionais</string>
-    <string name="product_updates">Atualizações do produto</string>
-    <string name="product_updates_subtitle">Novas funcionalidades e melhorias</string>
-    <string name="marketing_emails">E-mails de marketing</string>
-    <string name="marketing_emails_subtitle">Ofertas e promoções</string>
     <string name="critical_alerts_note">Nota: Alertas críticos sobre os seus animais serão sempre enviados, independentemente destas definições.</string>
 
     <!-- Notification Preferences -->
@@ -905,7 +899,6 @@
     <string name="reunion_template">%1$s foi reunido. Após %2$s desaparecido, %3$s foi reunido com sucesso com sua família. Obrigado à nossa incrível comunidade por trazer %4$s para casa!</string>
     <string name="reunion_template_no_time">%1$s foi reunido com sua família! Obrigado à nossa incrível comunidade por trazer %2$s para casa!</string>
     <string name="owners_story">História do dono:</string>
-    <string name="some_time">algum tempo</string>
     <string name="post_to_success_stories">Publicar nas histórias de sucesso</string>
     <string name="remove_from_success_stories">Remover das histórias de sucesso</string>
     <string name="removed_from_success_stories">Removido das histórias de sucesso</string>
@@ -1020,16 +1013,16 @@
     <string name="help_faq_group_privacy_account">Privacidade e conta</string>
     <string name="help_faq_group_troubleshooting">Resolução de problemas</string>
     <!-- Checkout & Order Status -->
-    <string name="checkout_subscription_success">Your subscription is now active!</string>
-    <string name="checkout_tag_order_success">Payment successful! Your tag order is being processed.</string>
-    <string name="checkout_replacement_success">Payment successful! Your replacement tag is on the way.</string>
-    <string name="order_status_completed">Completed</string>
-    <string name="order_status_pending">Pending</string>
-    <string name="order_status_failed">Failed</string>
-    <string name="order_status_processing">Processing</string>
-    <string name="order_status_shipped">Shipped</string>
-    <string name="order_status_delivered">Delivered</string>
-    <string name="order_status_cancelled">Cancelled</string>
+    <string name="checkout_subscription_success">A tua subscrição já está ativa!</string>
+    <string name="checkout_tag_order_success">Pagamento bem-sucedido! A tua encomenda de etiqueta está a ser processada.</string>
+    <string name="checkout_replacement_success">Pagamento bem-sucedido! A tua etiqueta de substituição está a caminho.</string>
+    <string name="order_status_completed">Concluído</string>
+    <string name="order_status_pending">Pendente</string>
+    <string name="order_status_failed">Falhado</string>
+    <string name="order_status_processing">Em processamento</string>
+    <string name="order_status_shipped">Enviado</string>
+    <string name="order_status_delivered">Entregue</string>
+    <string name="order_status_cancelled">Cancelado</string>
 
     <!-- Missing translations added -->
     <string name="add_additional_info">Adicionar informação adicional</string>
