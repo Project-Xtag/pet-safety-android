@@ -1,0 +1,1063 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">Senra Pet</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Common -->
+    <!-- ============================================ -->
+    <string name="cancel">Avbryt</string>
+    <string name="pet_limit_reached">Grense for dyr nådd</string>
+    <string name="pet_limit_reached_message">Din %1$s-plan tillater %2$d dyr. Oppgrader til %3$s for %4$s for å legge til ubegrenset antall dyr.</string>
+    <string name="upgrade_to_plan">Oppgrader til %1$s</string>
+    <string name="story_placeholder">Fortell om gjenforeningen din…</string>
+    <string name="share_owner_notified">Eieren har blitt varslet</string>
+    <plurals name="photos_uploaded">
+        <item quantity="one">%d bilde lastet opp</item>
+        <item quantity="other">%d bilder lastet opp</item>
+    </plurals>
+    <plurals name="photos_upload_failed">
+        <item quantity="one">%d bilde mislyktes å laste opp</item>
+        <item quantity="other">%d bilder mislyktes å laste opp</item>
+    </plurals>
+    <string name="save">Lagre</string>
+    <string name="delete">Slett</string>
+    <string name="close">Lukk</string>
+    <string name="ok">OK</string>
+    <string name="back">Tilbake</string>
+    <string name="submit">Send inn</string>
+    <string name="skip">Hopp over</string>
+    <string name="success">Vellykket</string>
+    <string name="confirm">Bekreft</string>
+    <string name="edit">Rediger</string>
+    <string name="remove">Fjern</string>
+    <string name="search">Søk</string>
+    <string name="updated">Oppdatert</string>
+    <string name="update_failed">Oppdatering mislyktes</string>
+    <string name="enable">Aktiver</string>
+    <string name="change">Endre</string>
+    <string name="primary">Primær</string>
+    <string name="share">Del</string>
+    <string name="sending">Sender\u2026</string>
+    <string name="yes">Ja</string>
+    <string name="details">Detaljer</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Tab Bar -->
+    <!-- ============================================ -->
+    <string name="my_pets">Dyrene mine</string>
+    <string name="scan_qr">Skann QR</string>
+    <string name="alerts">Varsler</string>
+    <string name="profile">Profil</string>
+    <string name="tab_my_pets">Dyrene mine</string>
+    <string name="tab_scan_qr">Skann QR-kode</string>
+    <string name="tab_alerts">Varsler</string>
+    <string name="tab_profile">Profil</string>
+    <string name="tab_missing">Savnet</string>
+    <string name="tab_found">Funnet</string>
+    <string name="tab_success">Funne dyr</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Auth -->
+    <!-- ============================================ -->
+    <string name="welcome_back">Velkommen tilbake!</string>
+    <string name="enter_email_subtitle">Oppgi e-postadressen din for å motta en innloggingskode.</string>
+    <string name="email_address">E-postadresse</string>
+    <string name="send_login_code">Send innloggingskode</string>
+    <string name="verify_code">Verifiser kode</string>
+    <string name="use_different_email">Bruk en annen e-post</string>
+    <string name="code_sent_to_email">Kode sendt til %1$s</string>
+    <string name="otp_sent_to">Oppgi den 6-sifrede koden sendt til</string>
+    <string name="login_failed">Innlogging mislyktes</string>
+    <string name="verification_failed">Verifisering mislyktes</string>
+    <string name="invalid_email">Oppgi en gyldig e-postadresse</string>
+    <string name="otp_placeholder" translatable="false">000000</string>
+    <string name="resend_code_cooldown">Send kode på nytt om %1$ds</string>
+    <string name="resend_code_prompt">Fikk du ikke koden? Send på nytt</string>
+    <string name="dont_have_account">Har du ikke konto?</string>
+    <string name="start_here_order_free_tag">Start her &amp; bestill ditt gratis merke</string>
+    <string name="create_account">Opprett konto</string>
+    <string name="enter_details_subtitle">Oppgi opplysningene dine for å komme i gang.</string>
+    <string name="register">Registrer</string>
+    <string name="already_have_account">Har du allerede konto?</string>
+    <string name="log_in">Logg inn</string>
+    <string name="terms_login_prefix">Ved å logge inn godtar du </string>
+    <string name="terms_register_prefix">Ved å registrere deg godtar du </string>
+    <string name="terms_and"> og </string>
+    <string name="terms_of_service">Vilkårene for bruk</string>
+    <string name="privacy_policy">Personvernreglene</string>
+    <string name="first_name">Fornavn</string>
+    <string name="last_name">Etternavn</string>
+    <string name="email">E-post</string>
+    <string name="phone">Telefon</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Biometric -->
+    <!-- ============================================ -->
+    <string name="biometric_login_title">Biometrisk innlogging</string>
+    <string name="biometric_login_subtitle">Bruk fingeravtrykket eller ansiktet ditt for å logge inn</string>
+    <string name="use_password">Bruk e-post</string>
+    <string name="login_with_biometric">Logg inn med biometri</string>
+    <string name="enable_biometric_title">Aktiver biometrisk innlogging?</string>
+    <string name="enable_biometric_message">Bruk fingeravtrykket eller ansiktet ditt for å logge inn raskt neste gang.</string>
+    <string name="biometric_enabled">Biometrisk innlogging aktivert</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Session -->
+    <!-- ============================================ -->
+    <string name="session_expired_title">Økten er utløpt</string>
+    <string name="session_expired_message">Økten din er utløpt. Logg inn på nytt.</string>
+    <string name="session_expired_log_in">Logg inn</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Home / Pets List -->
+    <!-- ============================================ -->
+    <string name="pet_owner_default">Dyreier</string>
+    <string name="welcome_back_greeting">Velkommen tilbake,</string>
+    <string name="view_all">Vis alle</string>
+    <string name="search_pets_hint">Søk etter navn, rase, art\u2026</string>
+    <string name="quick_actions">Hurtighandlinger</string>
+    <string name="action_add_pet">LEGG TIL DYR</string>
+    <string name="action_mark_found">MERK SOM FUNNET</string>
+    <string name="action_report_missing">MELD SAVNET</string>
+    <string name="action_order_tags">BESTILL MERKER</string>
+    <string name="action_replace_tag">BYTT MERKE</string>
+    <string name="empty_pets_title">Ingen dyr ennå</string>
+    <string name="empty_pets_message">Legg til ditt første dyr for å komme i gang med Senra</string>
+    <string name="missing_badge">SAVNET</string>
+    <string name="add_pet">Legg til dyr</string>
+    <string name="pet_name">Dyrets navn</string>
+    <string name="failed_load_pets">Kunne ikke laste inn dyrene</string>
+    <string name="clear_search">Tøm søk</string>
+    <string name="pet_photo">Bilde av dyret</string>
+    <string name="pet_photo_placeholder">Plassholder for bilde av dyret</string>
+    <string name="no_pets">Ingen dyr</string>
+    <string name="success_stories">Suksesshistorier</string>
+    <string name="found_pets">Funne dyr</string>
+    <string name="success_stories_subtitle">Se glade gjenforeninger i nærheten av deg</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Pet Detail -->
+    <!-- ============================================ -->
+    <string name="breed_label">Rase: %1$s</string>
+    <string name="color_label">Farge: %1$s</string>
+    <string name="age_label">Alder: %1$s</string>
+    <string name="medical_information">Helseinformasjon</string>
+    <string name="additional_information">Tilleggsinformasjon</string>
+    <string name="edit_pet">Rediger dyrets profil</string>
+    <string name="view_pet_photos">Vis bilder av %1$s</string>
+    <string name="mark_as_found">Merk som funnet</string>
+    <string name="mark_as_lost">Merk som savnet</string>
+    <string name="age">Alder</string>
+    <string name="view_public_profile">Vis %1$s sin offentlige profil</string>
+    <string name="edit_pet_profile">Rediger %1$s sin profil</string>
+    <string name="delete_pet_confirm_title">Slette %1$s?</string>
+    <string name="delete_pet_confirm_message">Denne handlingen kan ikke angres. Alle data for %1$s vil bli permanent slettet.</string>
+    <string name="cannot_delete_missing_pet">Kan ikke slette savnet dyr</string>
+    <string name="cannot_delete_missing_pet_message">Du kan ikke slette et dyr som for øyeblikket er meldt savnet. Merk dyret som funnet først.</string>
+    <string name="cannot_delete_missing_message">%1$s er for øyeblikket merket som savnet. Merk dem som funnet før du sletter.</string>
+    <string name="mark_found_confirm_title">Merke %1$s som funnet?</string>
+    <string name="mark_found_confirm_message">Dette vil lukke det savnede varselet for %1$s. Er du sikker?</string>
+    <string name="marked_found_message">%1$s merket som funnet.</string>
+    <string name="marked_missing_message">%1$s merket som savnet.</string>
+    <string name="mark_found_failed">Kunne ikke merke som funnet</string>
+    <string name="mark_missing_failed">Kunne ikke merke som savnet</string>
+    <string name="pet_deleted">%1$s er slettet</string>
+    <string name="delete_pet_failed">Kunne ikke slette dyret</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Pet Form -->
+    <!-- ============================================ -->
+    <string name="name">Navn</string>
+    <string name="species">Art</string>
+    <string name="breed">Rase</string>
+    <string name="color">Farge</string>
+    <string name="microchip">Mikrochip</string>
+    <string name="medical_notes">Helsenotater</string>
+    <string name="photo">Bilde</string>
+    <string name="edit_photo">Rediger bilde</string>
+    <string name="photo_selected_hint">Bilde valgt</string>
+    <string name="choose_photo_hint">Velg et bilde av dyret ditt</string>
+    <string name="basic_information">Grunnleggende informasjon</string>
+    <string name="colour">Farge</string>
+    <string name="colour_optional">Farge (valgfritt)</string>
+    <string name="microchip_optional">Mikrochipnummer (valgfritt)</string>
+    <string name="sex">Kjønn</string>
+    <string name="sex_optional">Valgfritt</string>
+    <string name="neutered_spayed">Kastrert/sterilisert</string>
+    <string name="neutered">Kastrert</string>
+    <string name="health_information">Helseinformasjon</string>
+    <string name="medical_notes_hint">Helsenotater (tilstander, operasjoner, osv.)</string>
+    <string name="behavior_notes_hint">Atferdsnotater (temperament, trening, osv.)</string>
+    <string name="save_changes">Lagre endringer</string>
+    <string name="delete_pet_button">Slett dyr</string>
+    <string name="delete_pet_dialog_title">Slette %1$s?</string>
+    <string name="delete_pet_dialog_message">Er du sikker på at du vil slette dette dyret? Denne handlingen kan ikke angres.</string>
+    <string name="male">Hann</string>
+    <string name="female">Hunn</string>
+    <string name="breed_other">Annen</string>
+    <string name="breed_custom_label">Rasenavn</string>
+    <string name="breed_custom_hint">Skriv inn rasenavn…</string>
+    <string name="health_info_empty_hint">Ingen helseinformasjon lagt til</string>
+    <string name="add_health_info">Legg til helseinformasjon</string>
+    <string name="additional_info_empty_hint">Ingen tilleggsinformasjon lagt til</string>
+    <string name="add_additional_info">Legg til tilleggsinformasjon</string>
+    <string name="edit_alert">Rediger varsel</string>
+    <string name="alert_updated">Varsel oppdatert</string>
+    <string name="alert_update_failed">Kunne ikke oppdatere varsel</string>
+    <string name="at_least_one_channel_required">Minst én varslingskanal må være aktiv</string>
+    <string name="notification_channel_info">Minst én varslingskanal må være aktiv slik at du kan bli varslet når dyrets QR-merke skannes.</string>
+    <string name="default_species_dog">Hund</string>
+    <string name="species_cat">Katt</string>
+    <string name="search_breed">Søk etter rase\u2026</string>
+    <string name="select_photo">Velg bilde</string>
+    <string name="weight">Vekt</string>
+    <string name="weight_optional">Vekt i kg (valgfritt)</string>
+    <string name="unique_features_hint">Unike kjennetegn (merker, arr, særtrekk\u2026)</string>
+    <string name="pet_created">Dyr opprettet</string>
+    <string name="pet_create_failed">Kunne ikke opprette dyret</string>
+    <string name="pet_updated">Dyr oppdatert</string>
+    <string name="pet_update_failed">Kunne ikke oppdatere dyret</string>
+    <string name="pet_default_name">Dyr</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Photo Gallery -->
+    <!-- ============================================ -->
+    <string name="photo_gallery_title">Bildegalleri</string>
+    <string name="pet_photos_title">%1$s sine bilder</string>
+    <string name="add_photos">Legg til bilder</string>
+    <string name="uploading_photos">Laster opp bilder\u2026</string>
+    <string name="loading_photos">Laster inn bilder\u2026</string>
+    <string name="no_photos_yet">Ingen bilder ennå</string>
+    <string name="add_photos_gallery_hint">Legg til bilder for å lage et galleri for %1$s</string>
+    <string name="add_photos_gallery_generic">Legg til bilder for å lage et galleri</string>
+    <string name="choose_photo_source">Velg bildekilde</string>
+    <string name="camera">Kamera</string>
+    <string name="library">Galleri</string>
+    <string name="delete_photo">Slett bilde</string>
+    <string name="delete_photo_confirm">Er du sikker på at du vil slette dette bildet? Denne handlingen kan ikke angres.</string>
+    <string name="photo_tip">Tips: Trykk og hold på et bilde for å angi som primær eller slette</string>
+    <string name="photo_uploaded">Bilde lastet opp</string>
+    <string name="upload_failed">Opplasting mislyktes</string>
+    <string name="primary_updated">Primærbilde oppdatert</string>
+    <string name="primary_failed">Kunne ikke angi som primær</string>
+    <string name="photo_deleted">Bilde slettet</string>
+    <string name="delete_photo_failed">Kunne ikke slette bildet</string>
+    <string name="upload_photo_failed">Kunne ikke laste opp bildet</string>
+    <string name="add_photo">Legg til bilde</string>
+    <string name="use_camera">Åpne enhetskamera</string>
+    <string name="choose_from_gallery">Velg fra galleri</string>
+    <string name="select_existing_photo">Velg et eksisterende bilde</string>
+    <string name="take_photo">Ta bilde</string>
+    <string name="pet_photo_fullscreen">Bilde av dyret i fullskjerm</string>
+    <string name="view_photo">Vis bilde</string>
+    <string name="primary_photo">Primærbilde</string>
+    <string name="set_as_primary">Angi som primær</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: QR Scanner -->
+    <!-- ============================================ -->
+    <string name="scan_qr_code">Skann QR-kode</string>
+    <string name="scan_qr_subtitle">Pek kameraet mot dyrets QR-merke</string>
+    <string name="camera_access_required">Kameratilgang kreves</string>
+    <string name="camera_access_message">Aktiver kameratilgang for å skanne QR-koder</string>
+    <string name="enable_camera">Aktiver kamera</string>
+    <string name="qr_scanned">QR skannet</string>
+    <string name="manual_code_label">QR-kode</string>
+    <string name="submit_code">Send inn kode</string>
+    <string name="invalid_qr_code">Oppgi en gyldig kode</string>
+    <string name="turn_off_flashlight">Slå av lommelykt</string>
+    <string name="turn_on_flashlight">Slå på lommelykt</string>
+    <string name="hello_pet_name">Hei! Jeg er %1$s</string>
+    <string name="scanned_tag_thanks">Du har nettopp skannet merket mitt. Takk for at du hjelper meg!</string>
+    <string name="share_location_with_owner">Del posisjonen min med eieren</string>
+    <string name="owner_notified_message">%1$s sin eier vil motta et varsel med posisjonen din</string>
+    <string name="share_location_help">Hjelp %1$s sin eier med å finne dem ved å dele posisjonen din</string>
+    <string name="precise_location">Nøyaktig posisjon</string>
+    <string name="precise_location_desc">Del de nøyaktige GPS-koordinatene dine</string>
+    <string name="approximate_location">Omtrentlig posisjon</string>
+    <string name="approximate_location_desc">Omtrentlig posisjonsdeling (GDPR-kompatibel)</string>
+    <string name="dont_share_location">Del ikke posisjon</string>
+    <string name="dont_share_location_desc">Varsle kun eieren om at dyret ble funnet</string>
+    <string name="confirm_notify_owner">Bekreft &amp; varsle eieren</string>
+    <string name="share_exact_location_toggle">Del nøyaktig posisjon</string>
+    <string name="contact_owner">Kontakt eieren</string>
+    <string name="call_phone">Ring: %1$s</string>
+    <string name="email_contact">E-post: %1$s</string>
+    <string name="privacy_notice">Personvernet ditt er viktig. Vi deler kun posisjonen din med %1$s sin eier for å hjelpe dem med å gjenforenes.</string>
+    <string name="found_pet_title">Fant %1$s</string>
+    <string name="share_location">Del posisjon</string>
+    <string name="location_shared">Posisjon delt</string>
+    <string name="share_location_failed">Kunne ikke dele posisjon</string>
+    <string name="qr_scanner_icon">QR-skanner</string>
+    <string name="privacy_notice_icon">Personvernvarsel</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Share Location Flow -->
+    <!-- ============================================ -->
+
+    <!-- ============================================ -->
+    <!-- MARK: Scanner Detail -->
+    <!-- ============================================ -->
+
+    <!-- ============================================ -->
+    <!-- MARK: Tag Activation -->
+    <!-- ============================================ -->
+    <string name="tag_activate_title">Aktiver merke</string>
+    <string name="tag_loading_pets">Laster inn dyrene dine\u2026</string>
+    <string name="tag_activated">Merke aktivert!</string>
+    <string name="tag_activated_message">Dette merket er nå knyttet til %1$s</string>
+    <string name="tag_choose_plan">Velg et abonnement for å låse opp alle funksjoner for dyret ditt.</string>
+    <string name="tag_choose_plan_button">Velg abonnement</string>
+    <string name="tag_skip_for_now">Hopp over for nå</string>
+    <string name="tag_no_pets">Ingen dyr ennå</string>
+    <string name="tag_no_pets_message">Legg til et dyr først før du aktiverer et merke</string>
+    <string name="tag_code_label">Merkekode</string>
+    <string name="tag_select_pet">Velg et dyr å knytte dette merket til</string>
+    <string name="tag_activating">Aktiverer\u2026</string>
+    <string name="tag_activate_button">Aktiver merke</string>
+    <string name="tag_link_message">Dette merket vil bli knyttet til det valgte dyret</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Plan Selection -->
+    <!-- ============================================ -->
+
+    <!-- ============================================ -->
+    <!-- MARK: Alerts -->
+    <!-- ============================================ -->
+    <string name="show_list">Vis liste</string>
+    <string name="show_map">Vis kart</string>
+    <string name="unknown_pet">Ukjent dyr</string>
+    <string name="pet_alert">Dyrevarsel</string>
+    <string name="alert_marker">Varsel</string>
+    <string name="loading_alerts">Laster inn varsler\u2026</string>
+    <string name="failed_load_alerts">Kunne ikke laste inn varsler</string>
+    <string name="no_active_alerts">Ingen aktive varsler</string>
+    <string name="no_active_alerts_message">Du har ingen aktive varsler om savnede dyr for øyeblikket</string>
+    <string name="no_found_alerts">Ingen funne varsler</string>
+    <string name="no_found_alerts_message">Ingen dyr er blitt funnet nylig i ditt område</string>
+    <string name="missing_pet_alerts_title">Varsler om savnede dyr</string>
+    <string name="sighting_count_singular">1 observasjon</string>
+    <string name="unknown_breed">Ukjent rase</string>
+    <string name="last_seen_label">Sist sett</string>
+    <string name="reported_sightings_count">Rapporterte observasjoner (%1$d)</string>
+    <string name="report_a_sighting">Rapporter en observasjon</string>
+    <string name="anonymous">Anonym</string>
+    <string name="contact_label">Kontakt: %1$s</string>
+    <string name="pet_marked_found">%1$s er merket som funnet!</string>
+    <string name="mark_found_failed_message">Kunne ikke merke som funnet: %1$s</string>
+    <plurals name="sighting_count">
+        <item quantity="one">%d observasjon</item>
+        <item quantity="other">%d observasjoner</item>
+    </plurals>
+    <plurals name="photo_count">
+        <item quantity="one">%d bilde</item>
+        <item quantity="other">%d bilder</item>
+    </plurals>
+
+    <!-- Alerts Tab -->
+
+    <!-- Alert Status & Details -->
+    <string name="alert_status_missing">Savnet</string>
+    <string name="alert_missing_since">Savnet siden %1$s</string>
+    <string name="alert_missing_for">Savnet i %1$s</string>
+    <string name="report_found">Rapporter funnet</string>
+
+    <!-- Map Annotations -->
+    <string name="time_less_than_hour">Mindre enn en time</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Report Missing / Sighting -->
+    <!-- ============================================ -->
+    <string name="report_missing_title">Meld %1$s savnet</string>
+    <string name="last_seen_location">Sist sett-sted</string>
+    <string name="additional_info">Tilleggsinformasjon</string>
+    <string name="report">Rapporter</string>
+    <string name="report_sighting">Rapporter observasjon</string>
+    <string name="report_sighting_prompt">Del detaljer om hvor du så %1$s.</string>
+    <string name="notes">Notater</string>
+    <string name="sighting_reported">Observasjon rapportert</string>
+    <string name="report_failed">Rapportering mislyktes</string>
+    <string name="sighting_location">Observasjonssted</string>
+    <string name="use_current_location">Bruk gjeldende posisjon</string>
+    <string name="location_captured">Posisjon hentet fra GPS</string>
+    <string name="getting_location">Henter posisjonen din\u2026</string>
+    <string name="update_alert_failed">Kunne ikke oppdatere varsel</string>
+    <string name="report_sighting_failed">Kunne ikke rapportere observasjonen</string>
+    <string name="report_missing_pet">Meld savnet dyr</string>
+    <string name="select_pet_to_report">Velg et dyr</string>
+    <string name="add_missing_details">Legg til detaljer om forsvinningen</string>
+    <string name="enter_address_or_location">Oppgi adresse eller stedsbeskrivelse</string>
+    <string name="additional_details">Ytterligere detaljer</string>
+    <string name="describe_circumstances">Beskriv omstendighetene, særtrekk, osv.</string>
+    <string name="report_missing">Meld savnet</string>
+    <string name="no_pets_to_report_message">Legg til et dyr først for å melde det savnet</string>
+    <string name="mark_pet_found">Merk dyret som funnet</string>
+    <string name="select_pet_to_mark_found">Velg dyret som er funnet</string>
+    <string name="no_missing_pets_message">Du har ingen dyr merket som savnet</string>
+    <string name="select_pet_header">Velg dyr</string>
+    <string name="no_pets_available">Ingen dyr tilgjengelig. Legg til et dyr først.</string>
+    <string name="pet_picker_label">Dyr</string>
+    <string name="last_seen_location_header">Sist kjente sted</string>
+    <string name="enter_location">Oppgi sted</string>
+    <string name="additional_information_header">Tilleggsinformasjon</string>
+    <string name="additional_details_placeholder">Oppgi ytterligere detaljer om når og hvor du sist så dyret ditt\u2026</string>
+    <string name="your_contact_information">Kontaktinformasjonen din</string>
+    <string name="name_optional">Navn (valgfritt)</string>
+    <string name="phone_optional">Telefon (valgfritt)</string>
+    <string name="email_optional">E-post (valgfritt)</string>
+    <string name="sighting_reported_success">Observasjon rapportert!</string>
+    <string name="report_sighting_header">Rapporter en observasjon</string>
+    <string name="report_sighting_help">Hjelp et savnet dyr med å gjenforenes med eieren sin ved å dele hvor du så det.</string>
+    <string name="share_contact_info">Del kontaktinformasjonen min</string>
+    <string name="share_contact_info_desc">Gi dyreieren muligheten til å kontakte deg direkte</string>
+    <string name="your_name">Navnet ditt</string>
+    <string name="your_phone_number">Telefonnummeret ditt</string>
+    <string name="your_email">E-postadressen din</string>
+    <string name="address_or_description">Adresse eller beskrivelse</string>
+    <string name="where_did_you_see">Hvor så du dyret?</string>
+    <string name="sighting_notes_placeholder">Beskriv hva du så, dyrets tilstand, bevegelsesretning\u2026</string>
+    <string name="submit_sighting_report">Send inn observasjonsrapport</string>
+    <string name="sighting_reported_owner_notified">Observasjon rapportert! Eieren er varslet.</string>
+    <string name="sighting_queued_offline">Observasjon satt i kø – sendes inn når du er online igjen.</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Mark Lost/Found Sheet -->
+    <!-- ============================================ -->
+    <string name="mark_pet_found_confirm">Merke %1$s som funnet?</string>
+    <string name="mark_found_confirm_alert">Dette vil lukke det savnede varselet for %1$s. Er du sikker?</string>
+    <string name="notification_center">Varselsenter</string>
+    <string name="alerts_radius_info">Varsler sendes innenfor 10 km av denne posisjonen</string>
+    <string name="current_location">Gjeldende posisjon</string>
+    <string name="tap_get_location">Trykk for å hente gjeldende posisjon\u2026</string>
+    <string name="using_registered_address">Bruker den registrerte adressen din</string>
+    <string name="enter_address_notifications">Oppgi adresse for varsler</string>
+    <string name="notification_source_current_location">Gjeldende posisjon</string>
+    <string name="notification_source_my_address">Min adresse</string>
+    <string name="notification_source_custom">Egendefinert</string>
+    <string name="no_registered_address">Ingen registrert adresse funnet. Oppdater profilen din.</string>
+
+    <!-- Mark Lost Flow -->
+
+    <!-- ============================================ -->
+    <!-- MARK: Notifications -->
+    <!-- ============================================ -->
+    <string name="tag_scanned_message">%1$s sitt merke ble skannet kl. %2$s!</string>
+    <string name="unknown_location">et ukjent sted</string>
+    <string name="sighting_message_with_location">%1$s er blitt observert på %2$s!</string>
+    <string name="sighting_message_no_location">%1$s er blitt observert!</string>
+    <string name="pet_found_message">Gode nyheter! %1$s er funnet!</string>
+    <string name="notification_tag_scanned_title">%1$s funnet!</string>
+    <string name="notification_sighting_title">%1$s observert!</string>
+    <string name="notification_pet_found_title">Gode nyheter!</string>
+    <string name="notification_channel_name">Senra Pet-varsler</string>
+    <string name="notification_channel_tag_scans">Merkeskanning</string>
+    <string name="notification_channel_tag_scans_desc">Varsler når dyrets merke skannes</string>
+    <string name="notification_channel_alerts">Varsler om savnede dyr</string>
+    <string name="notification_channel_alerts_desc">Varsler om savnede dyr i nærheten av deg</string>
+    <string name="notification_channel_sightings">Observasjonsrapporter</string>
+    <string name="notification_channel_sightings_desc">Varsler når det savnede dyret ditt observeres</string>
+    <string name="notification_method_required">Minst én varslingsmetode må være aktivert</string>
+
+    <!-- FCM Notification Strings -->
+    <string name="notif_tag_scanned_title">Merke skannet</string>
+    <string name="notif_tag_scanned_body">%1$s sitt merke ble skannet!</string>
+    <string name="notif_tag_scanned_body_location">%1$s sitt merke ble skannet! %2$s</string>
+    <string name="notif_missing_pet_title">Savnet dyr i nærheten</string>
+    <string name="notif_missing_pet_body">%1$s er savnet i %2$s. Hold øynene åpne!</string>
+    <string name="notif_pet_found_title">Dyr funnet!</string>
+    <string name="notif_pet_found_body">Gode nyheter! %1$s er funnet!</string>
+    <string name="notif_sighting_title">Observasjon rapportert</string>
+    <string name="notif_sighting_body_location">%1$s ble observert på %2$s!</string>
+    <string name="notif_sighting_body_no_location">%1$s ble observert! Sjekk observasjonsstedet.</string>
+    <string name="notif_fallback_title">Senra Pet</string>
+    <string name="notif_fallback_pet_name">Dyret ditt</string>
+    <string name="notif_fallback_a_pet">Et dyr</string>
+    <string name="notif_fallback_your_area">ditt område</string>
+    <string name="notif_location_shared">Posisjon delt</string>
+    <string name="notif_location_approximate">Omtrentlig posisjon</string>
+
+    <!-- Notification Action Buttons -->
+    <string name="notif_action_view_area">Vis område</string>
+    <string name="notif_action_view_map">Vis på kart</string>
+    <string name="notif_action_get_directions">Få veibeskrivelse</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Notification Settings -->
+    <!-- ============================================ -->
+    <string name="notification_channels">Varslingskanaler</string>
+    <string name="notification_preferences_title">Varslingsinnstillinger</string>
+    <string name="notifications">Varsler</string>
+    <string name="push_notifications">Push-varsler</string>
+    <string name="push_notifications_subtitle">Motta push-varsler på enheten din</string>
+    <string name="email_notifications">E-postvarsler</string>
+    <string name="email_notifications_subtitle">Motta varsler via e-post</string>
+    <string name="sms_notifications">SMS-varsler</string>
+    <string name="sms_notifications_subtitle">Motta varsler via SMS</string>
+    <string name="pet_alerts">Dyrevarsler</string>
+    <string name="missing_pet_alerts">Varsler om savnede dyr</string>
+    <string name="missing_pet_alerts_subtitle">Bli varslet om savnede dyr i nærheten av deg</string>
+    <string name="nearby_alerts_10km">Nærliggende varsler (10 km)</string>
+    <string name="nearby_alerts_subtitle">Varsler for dyr innenfor 10 km av posisjonen din</string>
+    <string name="account_and_orders">Konto &amp; bestillinger</string>
+    <string name="order_updates">Bestillingsoppdateringer</string>
+    <string name="order_updates_subtitle">Varsler om frakt og levering</string>
+    <string name="account_activity">Kontoaktivitet</string>
+    <string name="account_activity_subtitle">Varsler om innlogging og sikkerhet</string>
+    <string name="critical_alerts_note">Merk: Kritiske varsler om dyrene dine sendes alltid, uavhengig av disse innstillingene.</string>
+
+    <!-- Notification Preferences -->
+
+    <!-- ============================================ -->
+    <!-- MARK: Success Stories -->
+    <!-- ============================================ -->
+    <string name="share_your_story">Del historien din</string>
+    <string name="success_story_prompt">Gode nyheter! %1$s er funnet! Vil du dele gjenforeningshistorien din for å inspirere andre?</string>
+    <string name="your_story">Historien din</string>
+    <string name="share_story">Del historien</string>
+    <string name="story_shared">Historien er delt</string>
+    <string name="story_share_failed">Kunne ikke dele historien</string>
+    <string name="loading_success_stories">Laster inn suksesshistorier\u2026</string>
+    <string name="no_success_stories">Ingen suksesshistorier i nærheten</string>
+    <string name="no_success_stories_message">Bli den første som deler en glad gjenforening i ditt område!</string>
+    <string name="found_and_reunited">Funnet &amp; gjenforent</string>
+    <string name="distance_km">%.1f km unna</string>
+    <string name="missing_since">Savnet siden %1$s</string>
+    <string name="found_on">Funnet %1$s</string>
+    <string name="success_story_marker">Suksesshistorie</string>
+    <string name="load_more">Last inn mer</string>
+    <string name="missing_for">Savnet i %1$s</string>
+    <string name="pet_found_share">%1$s funnet!</string>
+    <string name="reunited_in">Gjenforent på %1$s</string>
+
+</resources>
+    <string name="shared_via_pet_safety">Delt via Pet Safety-appen</string>
+    <string name="story_share_good_news">Del de gode nyhetene</string>
+    <string name="story_social_caption">%1$s er gjenforent med familien sin! Takk til Senra-fellesskapet for å ha hjulpet %1$s hjem. senra.pet</string>
+    <string name="story_generating_card">Lager delekort\u2026</string>
+    <string name="story_pet_is_home_title">%1$s er hjemme!</string>
+    <string name="story_inspire_others_message">Inspirer andre dyreeiere ved å dele hvordan %1$s ble gjenforent med deg.</string>
+    <string name="sighting_reports_desc">Observasjonsrapporter</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Profile -->
+    <!-- ============================================ -->
+    <string name="account_title">Konto</string>
+    <string name="log_out">Logg ut</string>
+    <string name="personal_information">Personlig informasjon</string>
+    <string name="address">Adresse</string>
+    <string name="contacts">Kontakter</string>
+    <string name="privacy_mode">Personvernmodus</string>
+    <string name="help_support">Hjelp og støtte</string>
+    <string name="danger_zone">FARESONE</string>
+    <string name="deleting">Sletter\u2026</string>
+    <string name="delete_account_permanent">Dette vil permanent slette kontoen din og alle data</string>
+    <string name="logout_confirm">Er du sikker på at du vil logge ut?</string>
+    <string name="delete_account_full_warning">Denne handlingen kan ikke angres. Kontoen din slettes permanent, alle personlige data fjernes, og aktive abonnementer avsluttes.</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Personal Information -->
+    <!-- ============================================ -->
+
+    <!-- ============================================ -->
+    <!-- MARK: Address -->
+    <!-- ============================================ -->
+    <string name="street_address">Gate og husnummer</string>
+    <string name="address_line_2_optional">Adresselinje 2 (valgfritt)</string>
+    <string name="city">By</string>
+    <string name="post_code">Postnummer</string>
+    <string name="country">Land</string>
+    <string name="street">Gate</string>
+    <string name="street2">Leilighet / etasje (valgfritt)</string>
+    <string name="province">Fylke / region</string>
+    <string name="address_updated">Adresse oppdatert</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Contacts -->
+    <!-- ============================================ -->
+    <string name="email_addresses">E-postadresser</string>
+    <string name="primary_email">Primær e-post</string>
+    <string name="secondary_email_optional">Sekundær e-post (valgfritt)</string>
+    <string name="phone_numbers">Telefonnumre</string>
+    <string name="primary_phone">Primært telefonnummer</string>
+    <string name="show_on_qr_tag">Vis på QR-merket</string>
+    <string name="secondary_phone_optional">Sekundært telefonnummer (valgfritt)</string>
+    <string name="contacts_qr_tag_info">Kontaktdetaljer som er merket som synlige, vises på dyrets QR-merke når noen skanner det.</string>
+    <string name="contact_details">Kontaktdetaljer</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Contact Visibility -->
+    <!-- ============================================ -->
+    <string name="contact_visibility">Kontaktsynlighet</string>
+    <string name="contact_visibility_desc">Styr hvilken kontaktinformasjon som er synlig når noen skanner dyrets QR-merke</string>
+    <string name="show_phone_number">Vis telefonnummer</string>
+    <string name="show_phone_subtitle">Telefonnummeret ditt vil være synlig for den som finner dyret</string>
+    <string name="show_email_address">Vis e-postadresse</string>
+    <string name="show_email_subtitle">E-postadressen din vil være synlig for den som finner dyret</string>
+    <string name="show_address">Vis adresse</string>
+    <string name="show_address_subtitle">Adressen din vil være synlig for den som finner dyret</string>
+    <string name="show_secondary_phone">Vis sekundært telefonnummer</string>
+    <string name="show_secondary_phone_subtitle">Vis sekundært telefonnummer på dyrets offentlige profil</string>
+    <string name="show_secondary_email">Vis sekundær e-post</string>
+    <string name="show_secondary_email_subtitle">Vis sekundær e-postadresse på dyrets offentlige profil</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Privacy Mode -->
+    <!-- ============================================ -->
+    <string name="data_privacy">Datapersonvern</string>
+    <string name="data_management">Databehandling</string>
+    <string name="privacy_settings_updated">Personverninnstillinger oppdatert</string>
+    <string name="privacy_settings_failed">Kunne ikke oppdatere personverninnstillinger</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Delete Account -->
+    <!-- ============================================ -->
+    <string name="delete_account">Slett konto</string>
+    <string name="delete_account_warning">Denne handlingen kan ikke angres. Alle data, inkludert dyr, varsler og bilder, slettes permanent.</string>
+    <string name="delete_account_confirm_prompt">Skriv DELETE nedenfor for å bekrefte:</string>
+    <string name="type_delete_to_confirm">Skriv DELETE</string>
+    <string name="account_deleted">Konto slettet</string>
+    <string name="delete_account_failed">Kunne ikke slette konto</string>
+    <string name="cannot_delete_account">Kan ikke slette konto</string>
+    <string name="cannot_delete_missing_pets">Du kan ikke slette kontoen din mens du har dyr merket som savnet. Merk dem som funnet først.</string>
+    <string name="missing_pets_label">Savnede dyr: %1$s</string>
+    <string name="checking_delete_eligibility">Sjekker\u2026</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Help & Support -->
+    <!-- ============================================ -->
+    <string name="get_help">Få hjelp</string>
+    <string name="faq">Ofte stilte spørsmål</string>
+    <string name="user_guides">Brukerveiledninger</string>
+    <string name="legal">Juridisk</string>
+    <string name="support_response_time">Supportteamet vårt svarer vanligvis innen 24 timer.</string>
+    <string name="contact_support">Kontakt support</string>
+    <string name="contact_support_category">Kategori</string>
+    <string name="contact_support_subject">Emne</string>
+    <string name="contact_support_subject_hint">Kort beskrivelse av problemet ditt</string>
+    <string name="contact_support_message">Melding</string>
+    <string name="contact_support_message_hint">Beskriv problemet ditt i detalj\u2026</string>
+    <string name="contact_support_submit">Send inn</string>
+    <string name="contact_support_sending">Sender\u2026</string>
+    <string name="contact_support_success">Støtteforespørsel sendt! Billett-ID: %1$s</string>
+    <string name="contact_support_response">Vi svarer deg innen 24 timer.</string>
+    <string name="support_email">Support: hello@senra.pet</string>
+    <string name="support_category_general">Generelt</string>
+    <string name="support_category_technical">Teknisk problem</string>
+    <string name="support_category_account">Konto</string>
+    <string name="support_category_billing">Fakturering</string>
+    <string name="support_category_feature">Funksjonsønske</string>
+    <string name="support_category_other">Annet</string>
+    <string name="char_count">%1$d/5000 tegn</string>
+
+    <!-- FAQ Items -->
+    <string name="help_faq_q1">Hvordan oppretter jeg en konto?</string>
+    <string name="help_faq_a1">Senra bruker passordløs innlogging. Skriv inn e-postadressen din på innloggingssiden, så sender vi deg en 6-sifret bekreftelseskode. Skriv inn koden for å logge inn. Er du ny, opprettes kontoen automatisk ved første innlogging — ingen separat registrering er nødvendig.</string>
+    <string name="help_faq_q2">Hvordan registrerer jeg kjæledyret mitt?</string>
+    <string name="help_faq_a2">Gå til \'Mine dyr\' og trykk på \'Legg til nytt dyr\'. Fyll inn dyrets navn, art, rase og alder, og last opp et bilde. Har du allerede mottatt QR-merket ditt, kan du skanne det under registreringen for å koble det til dyrets profil med en gang.</string>
+    <string name="help_faq_q3">Hvilken informasjon bør jeg ta med i dyrets profil?</string>
+    <string name="help_faq_a3">Som minimum legger du inn dyrets navn, art og et tydelig bilde. For best mulig sjanse for rask gjenforening hvis dyret forsvinner, bør du også legge til: rase, alder, vekt, farge, mikrochipnummer, medisinske notater, allergier, medisiner og særlige kjennetegn (merker, arr osv.). Jo mer detaljer, jo lettere er det for noen å identifisere dyret ditt.</string>
+    <string name="help_faq_q4">Hvordan fungerer QR-kodemerket?</string>
+    <string name="help_faq_a4">Hvert Senra-merke har en unik QR-kode. Når noen finner dyret ditt og skanner den med telefonkameraet, ser de umiddelbart dyrets profil — bilde, navn, medisinsk informasjon og kontaktdetaljene dine. De kan også dele posisjonen sin med deg, slik at du vet nøyaktig hvor dyret er. Den som skanner, trenger ikke laste ned noen app.</string>
+    <string name="help_faq_q5">Hva skjer når noen skanner dyrets merke?</string>
+    <string name="help_faq_a5">Den som skanner, ser dyrets offentlige profil med detaljene du har valgt å dele (navn, bilde, medisinsk informasjon, kontaktdetaljer). De kan trykke på \'Jeg fant dette dyret!\' for å dele posisjonen sin med deg. Du mottar umiddelbart en varsling på e-post (og SMS hvis du har Standard- eller Maximum-abonnement) med finnerens posisjon og detaljer.</string>
+    <string name="help_faq_q6">Hvordan aktiverer jeg merket etter at det ankommer?</string>
+    <string name="help_faq_a6">Gå til \'Skann merke\' i appen og pek telefonkameraet mot QR-koden på merket. Dette kobler merket til kontoen din. Du blir deretter bedt om å velge et eksisterende dyr eller opprette en ny dyreprofil. Etter aktivering velger du abonnementsplan.</string>
+    <string name="help_faq_q7">Kan jeg oppdatere dyrets informasjon etter registrering?</string>
+    <string name="help_faq_a7">Ja — du kan redigere dyrets profil når som helst. Gå til \'Mine dyr\', velg dyret ditt og trykk på \'Rediger\'. Du kan oppdatere alle felt, inkludert bilder. Endringer lagres umiddelbart.</string>
+    <string name="help_faq_q8">Hva bør jeg gjøre hvis dyret mitt forsvinner?</string>
+    <string name="help_faq_a8">Gå til \'Mine dyr\' og trykk på menyen på dyrets kort, velg deretter \'Merk som savnet\'. Dette oppretter et varsler om savnet dyr som er synlig for Senra-fellesskapet i ditt område. Folk nær deg vil se varselet og kan rapportere observasjoner med posisjonsinformasjon. Du varsles umiddelbart om alle observasjoner.</string>
+    <string name="help_faq_q9">Hvordan fungerer varsler om savnede dyr?</string>
+    <string name="help_faq_a9">Når du merker et dyr som savnet, opprettes et varsel med dyrets bilde og detaljer. Andre Senra-brukere innen 10 km kan se varselet på kartet over savnede dyr. Hvem som helst i fellesskapet kan rapportere en observasjon, som sender deg posisjonen og kontaktinformasjonen deres. Registrerte veterinærer og dyrehjemmene i ditt område mottar også varselet.</string>
+    <string name="help_faq_q10">Hvordan bestiller jeg et erstatningsmerke?</string>
+    <string name="help_faq_a10">Gå til kontosiden din og trykk på \'Bestill erstatning\'. Velg dyret som trenger et nytt merke. Maximum-abonnenter får ubegrenset gratis erstatning, Standard-abonnenter får én gratis erstatning per år, og Starter-abonnenter kan bestille erstatning mot et lite fraktgebyr.</string>
+    <string name="help_faq_q11">Hva er verveordningen?</string>
+    <string name="help_faq_a11">Del koden SENRAFRIEND med venner og familie. Når noen bruker denne koden og abonnerer på en betalt plan (Standard eller Maximum), får dere begge 2 måneder gratis. Du kan følge med på vervingene dine og statusen deres på Verv-siden.</string>
+    <string name="help_faq_q12">Hvilke land sender dere til?</string>
+    <string name="help_faq_a12">Vi sender for øyeblikket til Ungarn, Slovakia, Tsjekkia, Østerrike, Romania, Kroatia, Spania og Portugal. Frakt innen Ungarn koster %1$s (PostaPont) eller %2$s (hjemlevering). Internasjonal frakt er %3$s per bestilling.</string>
+    <string name="help_faq_q13">Kan jeg ha flere dyr på én konto?</string>
+    <string name="help_faq_a13">Ja. Med Starter-planen (gratis) kan du registrere ett dyr. Standard-planen støtter også ett dyr. Maximum-planen støtter ubegrenset antall dyr. Du kan oppgradere planen din når som helst fra kontosiden.</string>
+    <string name="help_faq_q14">Hvordan rapporterer jeg et dyr jeg har funnet?</string>
+    <string name="help_faq_a14">Har dyret et Senra-merke, skanner du bare QR-koden med telefonkameraet — ingen app er nødvendig. Du ser dyrets profil og kan dele posisjonen din med eieren. Er det inget merke, kan du sjekke kartet over savnede dyr på Senra-nettstedet for å se om dyret er rapportert savnet i ditt område.</string>
+    <string name="help_faq_q15">Er personopplysningene mine trygge?</string>
+    <string name="help_faq_a15">Ja. Du bestemmer nøyaktig hvilken informasjon som er synlig når noen skanner dyrets merke. Under Innstillinger &gt; Personvern kan du velge å vise eller skjule telefonnummer, e-post og adresse. Innloggingen er sikret med engangskoder — ingen passord som kan stjeles. Du kan slette kontoen og alle data når som helst.</string>
+    <string name="help_faq_q16">Jeg har mistet merket eller det er skadet — hva gjør jeg?</string>
+    <string name="help_faq_a16">Ikke bekymre deg — dyrets digitale profil er trygg og er ikke lagret på merket. Gå til kontosiden og trykk på \'Bestill erstatning\'. Et nytt merke med en fersk QR-kode kobles til den eksisterende dyreprofilen din. Standard-abonnenter får én gratis erstatning per år, Maximum-abonnenter får ubegrenset gratis erstatning, og Starter-abonnenter betaler et lite fraktgebyr. Det gamle merket slutter å fungere når det nye aktiveres.</string>
+    <string name="help_faq_q17">Merket mitt lar seg ikke skanne — hvordan fikser jeg det?</string>
+    <string name="help_faq_a17">Prøv disse trinnene: rengjør merkoverflaten med en fuktig klut, sørg for godt lys, hold telefonkameraet stabilt ca. 10–15 cm fra merket, og kontroller at kameraappen eller QR-skanneren fungerer. Er QR-koden ripet eller falmet, kan du bruke alternativet for manuell koderegistrering i appen under \'Skann merke\'. Er merket for skadet til å lese, bestiller du et gratis erstatningsmerke fra kontosiden (Standard- og Maximum-planer).</string>
+    <string name="help_faq_q18">Jeg fant et dyr uten Senra-merke — hva kan jeg gjøre?</string>
+    <string name="help_faq_a18">Sjekk kartet over savnede dyr på Senra-nettstedet (senra.pet) — dyret kan ha blitt rapportert savnet i ditt område. Du kan se varsler om savnede dyr uten konto. Finner du en match, kan du rapportere en observasjon med posisjonen din for å hjelpe dyret hjem. Du kan også ta dyret til en lokal veterinær for å sjekke om det har mikrochip.</string>
+    <string name="help_faq_q19">Kan jeg endre e-postadressen min?</string>
+    <string name="help_faq_a19">Den primære e-postadressen din brukes som kontoidentitet og kan ikke endres direkte. Trenger du å bruke en annen e-post, kan du legge til en sekundær e-post under Innstillinger &gt; Kontaktdetaljer — denne vil også vises på dyrets profil. Trenger du absolutt å endre primær e-post, kontakter du supportteamet vårt, så hjelper vi deg med å flytte kontoen.</string>
+    <string name="help_faq_q20">Hva er forskjellen mellom en mikrochip og et Senra QR-merke?</string>
+    <string name="help_faq_a20">En mikrochip er et lite implantat under dyrets hud som lagrer et unikt ID-nummer — men det krever en spesiell skanner (vanligvis bare tilgjengelig hos veterinærer og dyrehjem) for å lese. Et Senra QR-merke fungerer umiddelbart med ethvert smarttelefonkamera og viser dyrets fulle profil, bilde og kontaktdetaljene dine på stedet. Den som finner dyret, kan også dele GPS-posisjonen sin med deg. Vi anbefaler å bruke begge: mikrochipen som permanent sikkerhetskopi og Senra-merket for øyeblikkelig, daglig identifikasjon.</string>
+    <string name="help_faq_q21">Hva skjer med dataene mine hvis jeg avslutter abonnementet?</string>
+    <string name="help_faq_a21">Avslutter du abonnementet, beholder du tilgang til betalte funksjoner til slutten av gjeldende faktureringsperiode. Deretter flyttes kontoen automatisk til den gratis Starter-planen. Dyreprofilene, bildene og QR-merkene forblir aktive — du mister bare tilgang til premiumfunksjoner som SMS-varsler, veterinærvarsler og gratis merkeerstatning. Dataene dine slettes aldri ved kansellering. For permanent fjerning av alle data bruker du alternativet for kontosletting under Innstillinger.</string>
+    <string name="help_faq_q22">Hvordan registrerer jeg veterinærpraksisen min eller dyrehjemmet hos Senra?</string>
+    <string name="help_faq_a22">Veterinærer og dyrehjem kan registrere seg på senra.pet/register-vet-shelter. Fyll inn opplysninger om praksisen eller organisasjonen din, så sender vi en bekreftelsese-post. Når bekreftelsen er gjort, mottar du automatisk e-postvarsler når dyr forsvinner i ditt område — slik at du kan bidra til å gjenforene savnede dyr med familien deres. Det er gratis og krever ingen innlogging. Dyreeiere kan også registrere sin lokale veterinær på vegne av dem.</string>
+    <string name="help_faq_q23">Hvordan deler jeg en suksesshistorie når dyret mitt er funnet?</string>
+    <string name="help_faq_a23">Når du merker dyret som funnet under \'Mine dyr\', spør vi om du ønsker å dele historien om gjenforeningen. Du kan legge til en kort melding om hvordan dyret ble funnet og bekrefte gjenforeningsstedet. Offentlige historier vises på kartet over gjenforente dyr, og inspirerer fellesskapet og viser at systemet virker. Du kan også legge ut eller fjerne en suksesshistorie senere fra dyrets profilside.</string>
+    <string name="help_faq_q24">Hvilke nettlesere og enheter støttes?</string>
+    <string name="help_faq_a24">Senra fungerer på alle moderne nettlesere, inkludert Chrome, Safari, Firefox og Edge, på både mobil og datamaskin. QR-merkeskanning fungerer med ethvert smarttelefonkamera — den som finner dyret ditt, trenger ikke Senra-appen eller en konto. Push-varsler støttes i Chrome og Edge på datamaskin og Android. For best opplevelse anbefaler vi å bruke en oppdatert nettleser på telefonen.</string>
+    <string name="help_faq_q25">Kan jeg bestille merker til flere dyr på én gang?</string>
+    <string name="help_faq_a25">Hver merkbestilling inkluderer merker for dyrenavnene du angir ved kassen. Du kan angi flere dyrenavn i én bestilling. Etter at merkene ankommer, skanner du hvert enkelt for å aktivere det og koble det til riktig dyreprofil. Trenger du merker til flere dyr senere, kan du legge inn ytterligere bestillinger fra kontosiden når som helst.</string>
+    <string name="help_faq_q26">Hvordan når varsler om savnede dyr frem til veterinærer og dyrehjem?</string>
+    <string name="help_faq_a26">Når du merker dyret ditt som savnet, sender Senra automatisk e-postvarsler til alle verifiserte veterinærer og dyrehjem i ditt område. Det betyr at lokale dyrefaglige umiddelbart er klar over at dyret ditt er savnet og kan holde utkikk. Jo flere veterinærer og dyrehjem som er registrert i ditt område, jo sterkere er sikkerhetsnettet. Du kan bidra ved å oppfordre din egen veterinær til å registrere seg hos Senra.</string>
+    <string name="help_faq_q27">Kan jeg overføre et merke til et annet dyr?</string>
+    <string name="help_faq_a27">Hvert QR-merke er permanent koblet til én dyreprofil og kan ikke tilordnes på nytt. Hvis et dyr dør eller du ikke lenger trenger et merke, blir det gamle merket rett og slett inaktivt. For å merke et nytt dyr bestiller du et nytt merke fra kontosiden. Er du på Standard- eller Maximum-planen, kan du ha krav på et gratis erstatningsmerke til det nye dyret ditt.</string>
+    <!-- Guide Items -->
+    <string name="help_guide_qr_tags_title">QR-kodemerkene for kjæledyr</string>
+    <string name="help_guide_qr_tags_desc">Hvert Senra-merke har en unik QR-kode som kobler til dyrets digitale profil. Alle som finner dyret ditt, kan skanne koden med telefonkameraet — ingen app er nødvendig. Den som skanner, ser umiddelbart dyrets bilde, navn, medisinsk informasjon og kontaktdetaljene dine. De kan også dele GPS-posisjonen sin med deg slik at du vet nøyaktig hvor dyret er. Merkene fungerer med alle moderne smarttelefoner.</string>
+    <string name="help_guide_materials_title">Merkets materialer og holdbarhet</string>
+    <string name="help_guide_materials_desc">Senra-merkene er laget av holdbart, lett metall med epoksybelegg for ekstra beskyttelse. De er vanntette og UV-bestandige, egnet for alle værforhold. QR-koden er trykket med blekningsmotstandig blekk for å forbli skannbar over tid. Merkene festes trygt til dyrets halsbånd. Blir et merke skadet eller QR-koden kan ikke lenger skannes, kan du bestille et erstatningsmerke fra kontosiden — gratis for Standard- og Maximum-abonnenter.</string>
+    <string name="help_guide_emergency_title">Nødkontakt og varsler</string>
+    <string name="help_guide_emergency_desc">Når noen skanner dyrets merke, mottar du umiddelbart en e-postvarsling med finnerens posisjon. Standard- og Maximum-abonnenter mottar også SMS-varsler for raskere respons. Merker du dyret som savnet, sendes et fellesskapsvarsler til alle Senra-brukere innen 10 km, og registrerte veterinærer og dyrehjem i ditt område varsles også. Hvem som helst i fellesskapet kan rapportere observasjoner med posisjonen sin, noe som skaper et spor for å hjelpe deg å finne dyret ditt.</string>
+    <string name="help_guide_profile_title">Administrasjon av dyreprofil</string>
+    <string name="help_guide_profile_desc">Dyrets digitale profil er hjertet i Senra. Legg til viktige detaljer som navn, art, rase, alder og et tydelig bilde. Du kan også inkludere medisinsk informasjon (allergier, medisiner, tilstander), mikrochipnummer og særlige kjennetegn som hjelper med å identifisere dyret ditt. Last opp flere bilder til et galleri. All informasjon kan oppdateres når som helst fra \'Mine dyr\'-seksjonen. Du styrer hvilke av dine personopplysninger (telefon, e-post, adresse) som er synlige for folk som skanner merket.</string>
+    <string name="help_guide_missing_alerts_title">Varsler om savnede dyr og observasjoner</string>
+    <string name="help_guide_missing_alerts_desc">Forsvinner dyret ditt, merker du det som savnet fra \'Mine dyr\' for å opprette et øyeblikkelig felsskapsvarsler. Dyrets bilde og detaljer vises på kartet over savnede dyr, synlig for alle Senra-brukere i ditt område. Fellesskapsmedlemmer kan rapportere observasjoner med GPS-posisjonen sin, som du mottar som varsler. Registrerte veterinærer og dyrehjem varsles også. Når dyret er funnet, merker du det som funnet og kan eventuelt dele historien om gjenforeningen for å inspirere fellesskapet.</string>
+    <string name="help_guide_community_title">Fellesskap og gjenforente dyr</string>
+    <string name="help_guide_community_desc">Senras styrke ligger i fellesskapet. Kartet over savnede dyr viser aktive varsler nær deg — sjekk om noen dyr er rapportert savnet i ditt område. Siden for gjenforente dyr feirer vellykkede gjenforeninger med historier fra dyreeiere. Du kan registrere din lokale veterinær eller dyrehjem hos Senra slik at de automatisk mottar varsler om savnede dyr, og bidrar til å skape et sterkere sikkerhetsnettverk for alle dyr i ditt område.</string>
+    <!-- ============================================ -->
+    <!-- MARK: Orders -->
+    <!-- ============================================ -->
+    <string name="orders_title">Bestillinger</string>
+    <string name="order_number">Bestilling #%1$s</string>
+    <string name="order_total">Totalt: %1$s</string>
+    <string name="order_tags">Bestill merker</string>
+    <string name="replace_tag">Bytt merke</string>
+    <string name="add_pet_first_replacement">Legg til et dyr først for å bestille et erstatningsmerke.</string>
+    <string name="order_more_tags_title">Bestill flere merker</string>
+    <string name="add_another_pet">Legg til et dyr</string>
+    <string name="full_name">Fullt navn</string>
+    <string name="place_order">Legg inn bestilling</string>
+    <string name="order_created_payment_pending">Bestilling opprettet. Betaling venter.</string>
+    <string name="payment_intent_failed">Betalingsintensjon mislyktes</string>
+    <string name="order_create_failed">Kunne ikke opprette bestilling</string>
+    <string name="checkout_success_message">Betaling vellykket! Bestillingen din behandles.</string>
+    <string name="checkout_cancelled_message">Betalingen ble avbrutt. Du kan prøve igjen når du er klar.</string>
+    <string name="proceed_to_payment">Gå til betaling</string>
+    <string name="redirecting_to_payment">Omdirigerer til betaling…</string>
+    <string name="checkout_failed">Kunne ikke starte kassen</string>
+    <string name="sse_subscription_activated">%1$s-planen din er nå aktiv!</string>
+    <string name="sse_subscription_cancelled">%1$s-abonnementet ditt er kansellert.</string>
+    <string name="sse_referral_used">%1$s brukte vervekoden din!</string>
+    <string name="sse_connection_lost">Sanntidsoppdateringer utilgjengelige. Trekk ned for å oppdatere.</string>
+    <string name="order_replacement_title">Bestill erstatningsmerke</string>
+    <string name="order_replacement_button">Bestill erstatning</string>
+    <string name="replacement_ordered">Erstatning bestilt</string>
+    <string name="replacement_failed">Kunne ikke bestille erstatning</string>
+    <string name="replacement_order_failed">Kunne ikke opprette erstatningsbestilling</string>
+    <string name="create_payment_intent_failed">Kunne ikke opprette betalingsintensjon</string>
+    <string name="failed_load_orders">Kunne ikke laste bestillinger</string>
+    <string name="no_orders">Ingen bestillinger</string>
+    <string name="no_orders_message">Du har ikke lagt inn noen bestillinger ennå</string>
+    <string name="order_id_short">Bestilling #%1$s</string>
+    <string name="order_information">Bestillingsinformasjon</string>
+    <string name="order_id_label">Bestillings-ID</string>
+    <string name="status">Status</string>
+    <string name="total_amount">Totalbeløp</string>
+    <string name="order_date">Bestillingsdato</string>
+    <string name="items">Varer</string>
+    <string name="quantity_label">Antall: %1$d</string>
+    <string name="qr_tag_pending">QR-merke venter</string>
+    <string name="qr_tag_assigned">QR-merke tildelt</string>
+    <plurals name="item_count">
+        <item quantity="one">%d vare</item>
+        <item quantity="other">%d varer</item>
+    </plurals>
+
+    <!-- Order More Tags -->
+    <string name="get_qr_tags_subtitle">Få QR-merker til dyrene dine</string>
+    <string name="pet_names">Dyrenavn</string>
+    <string name="shipping_address">Leveringsadresse</string>
+    <string name="shipping">Frakt</string>
+    <string name="shipping_price">Beregnes ved kassen</string>
+
+    <!-- Order Replacement Tag -->
+    <string name="replacement_subtitle">Mistet eller skadet? Vi sender deg et nytt</string>
+    <string name="free_replacement">Gratis erstatning</string>
+    <string name="replacement_shipping_info">Erstatningsmerket ditt sendes innen 2\u20133 virkedager\u2026</string>
+    <string name="replacement_shipping_required">Fraktgebyr kreves</string>
+    <string name="replacement_shipping_cost">Et fraktgebyr på %1$s gjelder for erstatningsmerkebestillingen din.</string>
+
+    <!-- MARK: Delivery Method (PostaPont) -->
+    <string name="delivery_method_title">Leveringsmetode</string>
+    <string name="home_delivery_option">Hjemlevering</string>
+    <string name="postapoint_delivery_option">PostaPont-henting</string>
+    <string name="postapoint_zip_placeholder">Postnummer</string>
+    <string name="postapoint_search">Søk</string>
+    <string name="postapoint_no_results">Ingen PostaPont-steder funnet for dette postnummeret</string>
+    <string name="postapoint_search_failed">Kunne ikke søke etter leveringssteder</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Subscription / Pricing -->
+    <!-- ============================================ -->
+    <string name="subscription_title">Abonnement</string>
+    <string name="subscription_choose_plan">Velg plan</string>
+    <string name="subscription_monthly">Månedlig</string>
+    <string name="subscription_yearly">Årlig</string>
+    <string name="subscription_popular">Populær</string>
+    <string name="subscription_current_plan">Gjeldende plan</string>
+    <string name="subscription_select">Velg plan</string>
+    <string name="subscription_max_pets">Maks dyr: %1$s</string>
+    <string name="subscription_vet_alerts">Veterinær- og redningsvarsler</string>
+    <string name="subscription_sms">SMS-varsler</string>
+    <string name="subscription_community_alerts">Fellesskapsvarsler</string>
+    <string name="subscription_free_replacement">Gratis merkeerstatning</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Billing -->
+    <!-- ============================================ -->
+    <string name="billing_title">Fakturering og fakturaer</string>
+    <string name="billing_manage_subscription">Administrer abonnement</string>
+    <string name="billing_manage_description">Endre plan, oppdater betalingsmetode eller kanseller</string>
+    <string name="billing_current_plan">Gjeldende plan</string>
+    <string name="billing_plan_label">Plan</string>
+    <string name="billing_status_label">Status</string>
+    <string name="billing_invoices">Fakturaer</string>
+    <string name="billing_no_invoices">Ingen fakturaer ennå</string>
+    <string name="billing_subscription">Abonnement</string>
+    <string name="billing_portal_footer">Administrer abonnementet, betalingsmetoden og faktureringsdetaljene via Stripe.</string>
+    <string name="billing_loading_invoices">Laster fakturaer\u2026</string>
+    <string name="billing_invoice">Faktura</string>
+    <string name="billing_unknown">Ukjent</string>
+    <string name="billing_past_due_title">Betaling forfalt</string>
+    <string name="billing_past_due_message">Den siste betalingen mislyktes. Oppdater betalingsmetoden din for å unngå avbrudd i tjenesten.</string>
+    <string name="billing_update_payment">Oppdater betalingsmetode</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Referral -->
+    <!-- ============================================ -->
+    <string name="referral_title">Verv en venn</string>
+    <string name="referral_loading">Laster\u2026</string>
+    <string name="referral_your_code">Din vervekode</string>
+    <string name="referral_share_footer">Del koden din med venner. Når de abonnerer, belønnes dere begge!</string>
+    <string name="referral_how_it_works">Slik fungerer det</string>
+    <string name="referral_step_1">Del den unike koden din med venner</string>
+    <string name="referral_step_2">De bruker den ved abonnement på en betalt plan</string>
+    <string name="referral_step_3">Dere nyter begge 2 måneder gratis</string>
+    <string name="referral_history">Vervehistorikk</string>
+    <string name="referral_no_referrals">Ingen verv ennå. Del koden din for å komme i gang!</string>
+    <string name="referral_generate">Generer vervekode</string>
+    <string name="referral_copied">Kopiert!</string>
+    <string name="referral_copy">Kopier</string>
+    <string name="referral_share">Del</string>
+    <string name="referral_pending">Venter</string>
+    <string name="referral_share_text">Bruk vervekoden min %1$s og få 2 måneder gratis Pet Safety! https://senra.pet/choose-plan?referral=%2$s</string>
+    <string name="referral_clipboard_label">Vervekode</string>
+    <string name="referral_use_friend_code">Bruk en venns kode</string>
+    <string name="enter_friend_code">Skriv inn vervekode</string>
+    <string name="apply_code">Bruk</string>
+    <string name="referral_code_applied">Vervekode brukt! Du får 2 måneder gratis.</string>
+    <string name="referral_code_invalid">Ugyldig eller utløpt vervekode</string>
+    <string name="referral_use_friend_footer">Skriv inn en venns vervekode for å få 2 måneder gratis når du abonnerer.</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Push Notification Prompt -->
+    <!-- ============================================ -->
+    <string name="push_prompt_title">Hold kontakten</string>
+    <string name="push_prompt_subtitle">Aktiver varsler for aldri å gå glipp av viktige oppdateringer om dyret ditt:</string>
+    <string name="push_prompt_benefit_scan">Øyeblikkelige varsler når dyrets merke skannes</string>
+    <string name="push_prompt_benefit_sighting">Observasjonsrapporter fra fellesskapet</string>
+    <string name="push_prompt_benefit_found">Vet umiddelbart når dyret ditt er funnet</string>
+    <string name="push_prompt_benefit_missing">Varsler om savnede dyr i ditt område</string>
+    <string name="push_prompt_enable">Aktiver varsler</string>
+    <string name="push_prompt_later">Kanskje senere</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Quick Mark Lost/Found -->
+    <!-- ============================================ -->
+
+    <!-- ============================================ -->
+    <!-- MARK: Breed Picker -->
+    <!-- ============================================ -->
+
+    <!-- ============================================ -->
+    <!-- MARK: Public Pet Profile -->
+    <!-- ============================================ -->
+    <string name="public_profile_preview">Forhåndsvisning av offentlig profil</string>
+    <string name="failed_load_profile">Kunne ikke laste profil</string>
+    <string name="public_profile_subtitle">Slik ser andre %1$s sin profil</string>
+    <string name="owner_notified_sms_email">%1$s sin eier mottar en SMS og e-post med posisjonen din</string>
+    <string name="contact_owner_plea">Vennligst gi eieren min beskjed om at du har funnet meg\u2026</string>
+    <string name="contact_owner_plea_full">Vennligst gi eieren min beskjed om at du har funnet meg. Trykk på del posisjon-knappen eller ring nummeret nedenfor.</string>
+    <string name="contact_info_not_set">Kontaktinformasjon er ikke satt opp ennå</string>
+    <string name="contact_info_hidden">Kontaktinformasjon er skjult</string>
+    <string name="contact_info_hidden_hint">Kontaktdetaljene dine er angitt, men er skjult på grunn av personverninnstillingene. Oppdater under Konto \u2192 Personvernmodus.</string>
+    <string name="allergies">Allergier</string>
+    <string name="medications">Medisiner</string>
+    <string name="unique_features">Særlige kjennetegn</string>
+    <string name="behavior_notes">Atferdsnotater</string>
+    <string name="how_it_works">Slik fungerer det</string>
+    <string name="help_reunite_pet">Hjelp %1$s trygt tilbake til eieren sin</string>
+    <string name="step_share_location">Del posisjonen din</string>
+    <string name="step_share_location_desc">Trykk på knappen ovenfor for å dele posisjonen din med eieren</string>
+    <string name="step_owner_notified">Eieren varsles</string>
+    <string name="step_owner_notified_desc">Eieren mottar en SMS og e-post med posisjonen din</string>
+    <string name="step_quick_reunion">Rask gjenforening</string>
+    <string name="step_quick_reunion_desc">Eieren kan navigere til posisjonen din for å hente dyret sitt</string>
+    <string name="step_share_location_desc_public">Klikk på knappen ovenfor for å dele hvor du fant %1$s</string>
+    <string name="step_owner_notified_desc_public">Eieren mottar en SMS med posisjonen din på Google Maps</string>
+    <string name="step_quick_reunion_desc_public">Bli nær stedet slik at eieren kan finne deg og %1$s</string>
+    <string name="owner_phone_label">Eierens telefon: %1$s</string>
+    <string name="owner_email_label">Eierens e-post: %1$s</string>
+    <string name="your_privacy_notice">Personvernet ditt er viktig. Vi deler bare posisjonen din med %1$s sin eier med ditt eksplisitte samtykke.</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Offline Mode -->
+    <!-- ============================================ -->
+    <string name="offline_mode">Frakoblet modus</string>
+    <string name="syncing">Synkroniserer\u2026</string>
+    <string name="sync_completed">Synkronisering fullført</string>
+    <string name="sync_failed">Synkronisering mislyktes: %1$s</string>
+    <string name="sync_no_connection">Kan ikke synkronisere: ingen internettilkobling</string>
+    <string name="pending_changes">Ventende endringer</string>
+    <string name="online">Tilkoblet</string>
+    <string name="offline_changes_sync">Endringer synkroniseres når du er tilkoblet</string>
+    <string name="tap_view_queued_actions">Trykk for å se køete handlinger</string>
+    <string name="connected">Tilkoblet</string>
+    <string name="sync_now">Synkroniser nå</string>
+    <string name="changes_sync_restored">Endringer synkroniseres automatisk når tilkoblingen er gjenopprettet.</string>
+    <plurals name="queued_actions">
+        <item quantity="one">%d handling i kø</item>
+        <item quantity="other">%d handlinger i kø</item>
+    </plurals>
+
+    <!-- Sync Error Banner -->
+    <string name="sync_actions_failed">%1$d handling(er) mislyktes ved synkronisering</string>
+    <string name="sync_tried_count">Prøvde %1$d gang(er)</string>
+    <string name="sync_retry_all">Prøv alle på nytt</string>
+    <string name="sync_dismiss_all">Avvis alle</string>
+    <string name="sync_syncing">Synkroniserer\u2026</string>
+    <string name="sync_count_failed">%1$d mislyktes</string>
+    <string name="sync_count_pending">%1$d venter</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Error / Retry -->
+    <!-- ============================================ -->
+    <string name="error_something_wrong">Noe gikk galt</string>
+    <string name="something_went_wrong">Noe gikk galt</string>
+    <string name="try_again">Prøv igjen</string>
+    <string name="error_session_expired_message">Økten din har utløpt. Logg inn på nytt.</string>
+    <string name="error_login_failed">Innlogging mislyktes</string>
+    <string name="error_verification_failed">Bekreftelse mislyktes</string>
+    <string name="error_submit_support">Kunne ikke sende inn støtteforespørsel</string>
+    <string name="error_load_pets">Kunne ikke laste dyr</string>
+    <string name="error_refresh_pets">Kunne ikke oppdatere dyr</string>
+    <string name="error_load_alerts">Kunne ikke laste varsler</string>
+    <string name="error_load_pet_profile">Kunne ikke laste dyreprofil</string>
+    <string name="error_load_stories">Kunne ikke laste historier</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Map App Picker -->
+    <!-- ============================================ -->
+    <string name="location_title">%1$s sin posisjon</string>
+    <string name="approximate_location_note">Dette er en omtrentlig posisjon. Søk i det omkringliggende området.</string>
+    <string name="coordinates_label">Koordinater: %1$s</string>
+    <string name="open_in">Åpne i:</string>
+    <string name="google_maps">Google Maps</string>
+    <string name="waze">Waze</string>
+    <string name="other_maps_app">Annen kartapp</string>
+    <string name="open_with">Åpne med\u2026</string>
+    <string name="map_label_pet_location">Dyrets posisjon</string>
+    <string name="map_label_tag_scanned">Dyremerke skannet</string>
+    <string name="map_label_sighting">Dyreobservasjon</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: App Info -->
+    <!-- ============================================ -->
+    <string name="app_name_label">Senra Pet</string>
+    <string name="app_version">Versjon 1.0.0</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Relative Time -->
+    <!-- ============================================ -->
+    <string name="time_ago_just_now">akkurat nå</string>
+    <plurals name="time_ago_days">
+        <item quantity="one">%d dag siden</item>
+        <item quantity="other">%d dager siden</item>
+    </plurals>
+    <plurals name="time_ago_hours">
+        <item quantity="one">%d time siden</item>
+        <item quantity="other">%d timer siden</item>
+    </plurals>
+    <plurals name="time_ago_minutes">
+        <item quantity="one">%d minutt siden</item>
+        <item quantity="other">%d minutter siden</item>
+    </plurals>
+
+    <!-- ============================================ -->
+    <!-- MARK: Success Stories Reunion -->
+    <!-- ============================================ -->
+    <string name="reunion_template">%1$s er gjenforent. Etter %2$s savnet ble %3$s vellykket gjenforent med familien sin. Takk til det fantastiske fellesskapet vårt for å ha brakt %4$s hjem!</string>
+    <string name="reunion_template_no_time">%1$s er gjenforent med familien sin! Takk til det fantastiske fellesskapet vårt for å ha brakt %2$s hjem!</string>
+    <string name="owners_story">Eierens historie:</string>
+    <string name="post_to_success_stories">Publiser i suksesshistorier</string>
+    <string name="remove_from_success_stories">Fjern fra suksesshistorier</string>
+    <string name="removed_from_success_stories">Fjernet fra suksesshistorier</string>
+    <string name="remove_story_confirm_title">Fjerne suksesshistorie?</string>
+    <string name="remove_story_confirm_message">Dette fjerner dyrets historie fra den offentlige suksesshistoriefeeden.</string>
+    <string name="remove_story_failed">Kunne ikke fjerne historien</string>
+    <plurals name="time_hours_duration">
+        <item quantity="one">%d time</item>
+        <item quantity="other">%d timer</item>
+    </plurals>
+    <plurals name="time_days_duration">
+        <item quantity="one">%d dag</item>
+        <item quantity="other">%d dager</item>
+    </plurals>
+    <plurals name="time_weeks_duration">
+        <item quantity="one">%d uke</item>
+        <item quantity="other">%d uker</item>
+    </plurals>
+
+    <!-- ============================================ -->
+    <!-- MARK: Reward & Sighting Details -->
+    <!-- ============================================ -->
+    <string name="reward_optional">Belønning (valgfritt)</string>
+    <string name="reward_placeholder">f.eks. €50, $100 eller en spesiell gave</string>
+    <string name="reward_badge_text">Belønning: %1$s</string>
+    <string name="sighting_details_title">Observasjoner</string>
+    <string name="sighting_at">Sett ved %1$s</string>
+    <string name="sighting_reported_at">Rapportert %1$s</string>
+    <string name="sighting_no_details">Ingen observasjoner rapportert ennå</string>
+    <string name="sighting_anonymous">Anonym rapportør</string>
+    <string name="reporter_name">Ditt navn</string>
+    <string name="reporter_phone">Telefonnummer</string>
+    <string name="reporter_email">E-post</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Hardcoded String Fixes -->
+    <!-- ============================================ -->
+    <string name="someone_fallback">Noen</string>
+    <string name="no_plan">Ingen</string>
+    <string name="current_location_fallback">Gjeldende posisjon</string>
+    <string name="share_card_reunited">Gjenforent!</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: FAQ Screen -->
+    <!-- ============================================ -->
+    <string name="faq_title">Ofte stilte spørsmål</string>
+    <string name="guides_title">Brukerveiledninger</string>
+    <string name="help_faq_group_getting_started">Kom i gang</string>
+    <string name="help_faq_group_tags_scanning">Merker og skanning</string>
+    <string name="help_faq_group_missing_pets">Savnede dyr og varsler</string>
+    <string name="help_faq_group_billing_plans">Fakturering og planer</string>
+    <string name="help_faq_group_privacy_account">Personvern og konto</string>
+    <string name="help_faq_group_troubleshooting">Feilsøking</string>
+
+    <!-- Checkout & Order Status -->
+    <string name="checkout_subscription_success">Abonnementet ditt er nå aktivt!</string>
+    <string name="checkout_tag_order_success">Betaling vellykket! Merkebestillingen din behandles.</string>
+    <string name="checkout_replacement_success">Betaling vellykket! Erstatningsmerket ditt er på vei.</string>
+    <string name="order_status_completed">Fullført</string>
+    <string name="order_status_pending">Venter</string>
+    <string name="order_status_failed">Mislyktes</string>
+    <string name="order_status_processing">Behandles</string>
+    <string name="order_status_shipped">Sendt</string>
+    <string name="order_status_delivered">Levert</string>
+    <string name="order_status_cancelled">Kansellert</string>
+
+    <!-- Missing translations added -->
+
+</resources>
