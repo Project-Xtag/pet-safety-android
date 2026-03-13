@@ -1,0 +1,1062 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">Senra Pet</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Common -->
+    <!-- ============================================ -->
+    <string name="cancel">Annulla</string>
+    <string name="pet_limit_reached">Limite animali raggiunto</string>
+    <string name="pet_limit_reached_message">Il tuo piano %1$s consente %2$d animale. Passa a %3$s per %4$s e aggiungi animali illimitati.</string>
+    <string name="upgrade_to_plan">Passa a %1$s</string>
+    <string name="story_placeholder">Racconta la tua storia di ritrovamento...</string>
+    <string name="share_owner_notified">Il proprietario è stato avvisato</string>
+    <plurals name="photos_uploaded">
+        <item quantity="one">%d foto caricata</item>
+        <item quantity="other">%d foto caricate</item>
+    </plurals>
+    <plurals name="photos_upload_failed">
+        <item quantity="one">%d foto non caricata</item>
+        <item quantity="other">%d foto non caricate</item>
+    </plurals>
+    <string name="save">Salva</string>
+    <string name="delete">Elimina</string>
+    <string name="close">Chiudi</string>
+    <string name="ok">OK</string>
+    <string name="back">Indietro</string>
+    <string name="submit">Invia</string>
+    <string name="skip">Salta</string>
+    <string name="success">Operazione riuscita</string>
+    <string name="confirm">Conferma</string>
+    <string name="edit">Modifica</string>
+    <string name="remove">Rimuovi</string>
+    <string name="search">Cerca</string>
+    <string name="updated">Aggiornato</string>
+    <string name="update_failed">Aggiornamento non riuscito</string>
+    <string name="enable">Attiva</string>
+    <string name="change">Modifica</string>
+    <string name="primary">Principale</string>
+    <string name="share">Condividi</string>
+    <string name="sending">Invio in corso\u2026</string>
+    <string name="yes">Sì</string>
+    <string name="details">Dettagli</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Tab Bar -->
+    <!-- ============================================ -->
+    <string name="my_pets">I miei animali</string>
+    <string name="scan_qr">Scansiona QR</string>
+    <string name="alerts">Avvisi</string>
+    <string name="profile">Profilo</string>
+    <string name="tab_my_pets">I miei animali</string>
+    <string name="tab_scan_qr">Scansione QR</string>
+    <string name="tab_alerts">Avvisi</string>
+    <string name="tab_profile">Profilo</string>
+    <string name="tab_missing">Scomparsi</string>
+    <string name="tab_found">Trovati</string>
+    <string name="tab_success">Animali ritrovati</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Auth -->
+    <!-- ============================================ -->
+    <string name="welcome_back">Bentornato!</string>
+    <string name="enter_email_subtitle">Inserisci la tua email per ricevere un codice di accesso.</string>
+    <string name="email_address">Indirizzo email</string>
+    <string name="send_login_code">Invia codice di accesso</string>
+    <string name="verify_code">Verifica codice</string>
+    <string name="use_different_email">Usa un\'altra email</string>
+    <string name="code_sent_to_email">Codice inviato a: %1$s</string>
+    <string name="otp_sent_to">Inserisci il codice a 6 cifre inviato a</string>
+    <string name="login_failed">Accesso non riuscito</string>
+    <string name="verification_failed">Verifica non riuscita</string>
+    <string name="invalid_email">Inserisci un indirizzo email valido</string>
+    <string name="otp_placeholder" translatable="false">000000</string>
+    <string name="resend_code_cooldown">Rinvia codice tra %1$d s</string>
+    <string name="resend_code_prompt">Non hai ricevuto il codice? Rinvia</string>
+    <string name="dont_have_account">Non hai ancora un account?</string>
+    <string name="start_here_order_free_tag">Inizia qui &amp; ordina la tua medaglietta gratuita</string>
+    <string name="create_account">Crea account</string>
+    <string name="enter_details_subtitle">Inserisci i tuoi dati per iniziare.</string>
+    <string name="register">Registrati</string>
+    <string name="already_have_account">Hai già un account?</string>
+    <string name="log_in">Accedi</string>
+    <string name="terms_login_prefix">Accedendo, accetti i nostri </string>
+    <string name="terms_register_prefix">Registrandoti, accetti i nostri </string>
+    <string name="terms_and"> e </string>
+    <string name="terms_of_service">Termini di servizio</string>
+    <string name="privacy_policy">Informativa sulla privacy</string>
+    <string name="first_name">Nome</string>
+    <string name="last_name">Cognome</string>
+    <string name="email">Email</string>
+    <string name="phone">Telefono</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Biometric -->
+    <!-- ============================================ -->
+    <string name="biometric_login_title">Accesso biometrico</string>
+    <string name="biometric_login_subtitle">Usa l\'impronta digitale o il viso per accedere</string>
+    <string name="use_password">Usa email</string>
+    <string name="login_with_biometric">Accedi con biometria</string>
+    <string name="enable_biometric_title">Attivare l\'accesso biometrico?</string>
+    <string name="enable_biometric_message">Usa l\'impronta digitale o il viso per accedere rapidamente la prossima volta.</string>
+    <string name="biometric_enabled">Accesso biometrico attivato</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Session -->
+    <!-- ============================================ -->
+    <string name="session_expired_title">Sessione scaduta</string>
+    <string name="session_expired_message">La sessione è scaduta. Effettua di nuovo l\'accesso.</string>
+    <string name="session_expired_log_in">Accedi</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Home / Pets List -->
+    <!-- ============================================ -->
+    <string name="pet_owner_default">Proprietario dell\'animale</string>
+    <string name="welcome_back_greeting">Bentornato,</string>
+    <string name="view_all">Vedi tutti</string>
+    <string name="search_pets_hint">Cerca per nome, razza, specie\u2026</string>
+    <string name="quick_actions">Azioni rapide</string>
+    <string name="action_add_pet">AGGIUNGI ANIMALE</string>
+    <string name="action_mark_found">SEGNA COME TROVATO</string>
+    <string name="action_report_missing">SEGNALA SCOMPARSO</string>
+    <string name="action_order_tags">ORDINA MEDAGLIETTE</string>
+    <string name="action_replace_tag">SOSTITUISCI MEDAGLIETTA</string>
+    <string name="empty_pets_title">Nessun animale registrato</string>
+    <string name="empty_pets_message">Aggiungi il tuo primo animale per iniziare a usare Senra</string>
+    <string name="missing_badge">SCOMPARSO</string>
+    <string name="add_pet">Aggiungi animale</string>
+    <string name="pet_name">Nome dell\'animale</string>
+    <string name="failed_load_pets">Impossibile caricare gli animali</string>
+    <string name="clear_search">Cancella ricerca</string>
+    <string name="pet_photo">Foto dell\'animale</string>
+    <string name="pet_photo_placeholder">Segnaposto foto animale</string>
+    <string name="no_pets">Nessun animale</string>
+    <string name="success_stories">Storie di successo</string>
+    <string name="found_pets">Animali ritrovati</string>
+    <string name="success_stories_subtitle">Riunioni felici vicino a te</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Pet Detail -->
+    <!-- ============================================ -->
+    <string name="breed_label">Razza: %1$s</string>
+    <string name="color_label">Colore: %1$s</string>
+    <string name="age_label">Età: %1$s</string>
+    <string name="medical_information">Informazioni mediche</string>
+    <string name="additional_information">Informazioni aggiuntive</string>
+    <string name="edit_pet">Modifica profilo dell\'animale</string>
+    <string name="view_pet_photos">Visualizza le foto di %1$s</string>
+    <string name="mark_as_found">Segna come trovato</string>
+    <string name="mark_as_lost">Segna come scomparso</string>
+    <string name="age">Età</string>
+    <string name="view_public_profile">Visualizza il profilo pubblico di %1$s</string>
+    <string name="edit_pet_profile">Modifica il profilo di %1$s</string>
+    <string name="delete_pet_confirm_title">Eliminare %1$s?</string>
+    <string name="delete_pet_confirm_message">Questa azione non può essere annullata. Tutti i dati di %1$s verranno eliminati definitivamente.</string>
+    <string name="cannot_delete_missing_pet">Impossibile eliminare un animale scomparso</string>
+    <string name="cannot_delete_missing_pet_message">Non puoi eliminare un animale attualmente segnalato come scomparso. Segna prima l\'animale come trovato.</string>
+    <string name="cannot_delete_missing_message">%1$s è attualmente segnalato come scomparso. Segna come trovato prima di eliminarlo.</string>
+    <string name="mark_found_confirm_title">Segnare %1$s come trovato?</string>
+    <string name="mark_found_confirm_message">Questa operazione chiuderà l\'avviso di scomparsa per %1$s. Sei sicuro?</string>
+    <string name="marked_found_message">%1$s segnato come trovato.</string>
+    <string name="marked_missing_message">%1$s segnato come scomparso.</string>
+    <string name="mark_found_failed">Impossibile segnare come trovato</string>
+    <string name="mark_missing_failed">Impossibile segnare come scomparso</string>
+    <string name="pet_deleted">%1$s è stato eliminato</string>
+    <string name="delete_pet_failed">Impossibile eliminare l\'animale</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Pet Form -->
+    <!-- ============================================ -->
+    <string name="name">Nome</string>
+    <string name="species">Specie</string>
+    <string name="breed">Razza</string>
+    <string name="color">Colore</string>
+    <string name="microchip">Microchip</string>
+    <string name="medical_notes">Note mediche</string>
+    <string name="photo">Foto</string>
+    <string name="edit_photo">Modifica foto</string>
+    <string name="photo_selected_hint">Foto selezionata</string>
+    <string name="choose_photo_hint">Scegli una foto del tuo animale</string>
+    <string name="basic_information">Informazioni di base</string>
+    <string name="colour">Colore</string>
+    <string name="colour_optional">Colore (opzionale)</string>
+    <string name="microchip_optional">Numero microchip (opzionale)</string>
+    <string name="sex">Sesso</string>
+    <string name="sex_optional">Opzionale</string>
+    <string name="neutered_spayed">Sterilizzato</string>
+    <string name="neutered">Sterilizzato</string>
+    <string name="health_information">Informazioni sulla salute</string>
+    <string name="medical_notes_hint">Note mediche (condizioni, interventi, ecc.)</string>
+    <string name="behavior_notes_hint">Note comportamentali (temperamento, addestramento, ecc.)</string>
+    <string name="save_changes">Salva modifiche</string>
+    <string name="delete_pet_button">Elimina animale</string>
+    <string name="delete_pet_dialog_title">Eliminare %1$s?</string>
+    <string name="delete_pet_dialog_message">Sei sicuro di voler eliminare questo animale? Questa azione non può essere annullata.</string>
+    <string name="male">Maschio</string>
+    <string name="female">Femmina</string>
+    <string name="breed_other">Altro</string>
+    <string name="breed_custom_label">Nome della razza</string>
+    <string name="breed_custom_hint">Inserisci il nome della razza\u2026</string>
+    <string name="health_info_empty_hint">Nessuna informazione sulla salute aggiunta</string>
+    <string name="add_health_info">Aggiungi informazioni sulla salute</string>
+    <string name="additional_info_empty_hint">Nessuna informazione aggiuntiva aggiunta</string>
+    <string name="add_additional_info">Aggiungi informazioni aggiuntive</string>
+    <string name="edit_alert">Modifica avviso</string>
+    <string name="alert_updated">Avviso aggiornato con successo</string>
+    <string name="alert_update_failed">Impossibile aggiornare l\'avviso</string>
+    <string name="at_least_one_channel_required">Almeno un canale di notifica deve rimanere attivo</string>
+    <string name="notification_channel_info">Almeno un canale di notifica deve essere attivo per ricevere una notifica quando la medaglietta QR del tuo animale viene scansionata.</string>
+    <string name="default_species_dog">Cane</string>
+    <string name="species_cat">Gatto</string>
+    <string name="search_breed">Cerca razza\u2026</string>
+    <string name="select_photo">Seleziona foto</string>
+    <string name="weight">Peso</string>
+    <string name="weight_optional">Peso in kg (opzionale)</string>
+    <string name="unique_features_hint">Caratteristiche distintive (macchie, cicatrici, segni particolari\u2026)</string>
+    <string name="pet_created">Animale creato</string>
+    <string name="pet_create_failed">Impossibile creare l\'animale</string>
+    <string name="pet_updated">Animale aggiornato</string>
+    <string name="pet_update_failed">Impossibile aggiornare l\'animale</string>
+    <string name="pet_default_name">Animale</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Photo Gallery -->
+    <!-- ============================================ -->
+    <string name="photo_gallery_title">Galleria foto</string>
+    <string name="pet_photos_title">Foto di %1$s</string>
+    <string name="add_photos">Aggiungi foto</string>
+    <string name="uploading_photos">Caricamento foto in corso\u2026</string>
+    <string name="loading_photos">Caricamento foto\u2026</string>
+    <string name="no_photos_yet">Ancora nessuna foto</string>
+    <string name="add_photos_gallery_hint">Aggiungi foto per creare una galleria per %1$s</string>
+    <string name="add_photos_gallery_generic">Aggiungi foto per creare una galleria</string>
+    <string name="choose_photo_source">Scegli fonte foto</string>
+    <string name="camera">Fotocamera</string>
+    <string name="library">Libreria</string>
+    <string name="delete_photo">Elimina foto</string>
+    <string name="delete_photo_confirm">Sei sicuro di voler eliminare questa foto? Questa azione non può essere annullata.</string>
+    <string name="photo_tip">Suggerimento: tieni premuta una foto per impostarla come principale o eliminarla</string>
+    <string name="photo_uploaded">Foto caricata</string>
+    <string name="upload_failed">Caricamento non riuscito</string>
+    <string name="primary_updated">Foto principale aggiornata</string>
+    <string name="primary_failed">Impossibile impostare come principale</string>
+    <string name="photo_deleted">Foto eliminata</string>
+    <string name="delete_photo_failed">Impossibile eliminare la foto</string>
+    <string name="upload_photo_failed">Impossibile caricare la foto</string>
+    <string name="add_photo">Aggiungi foto</string>
+    <string name="use_camera">Apri fotocamera</string>
+    <string name="choose_from_gallery">Scegli dalla galleria</string>
+    <string name="select_existing_photo">Seleziona una foto esistente</string>
+    <string name="take_photo">Scatta foto</string>
+    <string name="pet_photo_fullscreen">Foto animale a schermo intero</string>
+    <string name="view_photo">Visualizza foto</string>
+    <string name="primary_photo">Foto principale</string>
+    <string name="set_as_primary">Imposta come principale</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: QR Scanner -->
+    <!-- ============================================ -->
+    <string name="scan_qr_code">Scansiona codice QR</string>
+    <string name="scan_qr_subtitle">Punta la fotocamera sulla medaglietta QR dell\'animale</string>
+    <string name="camera_access_required">Accesso alla fotocamera necessario</string>
+    <string name="camera_access_message">Attiva l\'accesso alla fotocamera per scansionare i codici QR</string>
+    <string name="enable_camera">Attiva fotocamera</string>
+    <string name="qr_scanned">QR scansionato</string>
+    <string name="manual_code_label">Codice QR</string>
+    <string name="submit_code">Invia codice</string>
+    <string name="invalid_qr_code">Inserisci un codice valido</string>
+    <string name="turn_off_flashlight">Spegni torcia</string>
+    <string name="turn_on_flashlight">Accendi torcia</string>
+    <string name="hello_pet_name">Ciao! Sono %1$s</string>
+    <string name="scanned_tag_thanks">Hai appena scansionato la mia medaglietta. Grazie per avermi aiutato!</string>
+    <string name="share_location_with_owner">Condividi la tua posizione con il proprietario</string>
+    <string name="owner_notified_message">Il proprietario di %1$s riceverà una notifica con la tua posizione</string>
+    <string name="share_location_help">Aiuta il proprietario di %1$s a trovarlo condividendo la tua posizione</string>
+    <string name="precise_location">Posizione precisa</string>
+    <string name="precise_location_desc">Condividi le tue coordinate GPS esatte</string>
+    <string name="approximate_location">Posizione approssimativa</string>
+    <string name="approximate_location_desc">Condivisione posizione approssimativa (conforme al GDPR)</string>
+    <string name="dont_share_location">Non condividere la posizione</string>
+    <string name="dont_share_location_desc">Avvisa solo il proprietario che il suo animale è stato trovato</string>
+    <string name="confirm_notify_owner">Conferma &amp; avvisa il proprietario</string>
+    <string name="share_exact_location_toggle">Condividi posizione esatta</string>
+    <string name="contact_owner">Contatta il proprietario</string>
+    <string name="call_phone">Chiama: %1$s</string>
+    <string name="email_contact">Email: %1$s</string>
+    <string name="privacy_notice">La tua privacy è importante. Condivideremo la tua posizione solo con il proprietario di %1$s per aiutarli a riunirsi.</string>
+    <string name="found_pet_title">%1$s trovato</string>
+    <string name="share_location">Condividi posizione</string>
+    <string name="location_shared">Posizione condivisa</string>
+    <string name="share_location_failed">Impossibile condividere la posizione</string>
+    <string name="qr_scanner_icon">Scanner QR</string>
+    <string name="privacy_notice_icon">Avviso sulla privacy</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Share Location Flow -->
+    <!-- ============================================ -->
+
+    <!-- ============================================ -->
+    <!-- MARK: Scanner Detail -->
+    <!-- ============================================ -->
+
+    <!-- ============================================ -->
+    <!-- MARK: Tag Activation -->
+    <!-- ============================================ -->
+    <string name="tag_activate_title">Attiva medaglietta</string>
+    <string name="tag_loading_pets">Caricamento animali\u2026</string>
+    <string name="tag_activated">Medaglietta attivata!</string>
+    <string name="tag_activated_message">Questa medaglietta è ora collegata a %1$s</string>
+    <string name="tag_choose_plan">Scegli un piano di abbonamento per sbloccare tutte le funzionalità per il tuo animale.</string>
+    <string name="tag_choose_plan_button">Scegli piano</string>
+    <string name="tag_skip_for_now">Forse più tardi</string>
+    <string name="tag_no_pets">Nessun animale registrato</string>
+    <string name="tag_no_pets_message">Aggiungi prima un animale, poi attiva la medaglietta</string>
+    <string name="tag_code_label">Codice medaglietta</string>
+    <string name="tag_select_pet">Seleziona un animale a cui collegare questa medaglietta</string>
+    <string name="tag_activating">Attivazione in corso\u2026</string>
+    <string name="tag_activate_button">Attiva medaglietta</string>
+    <string name="tag_link_message">La medaglietta verrà collegata all\'animale selezionato</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Plan Selection -->
+    <!-- ============================================ -->
+
+    <!-- ============================================ -->
+    <!-- MARK: Alerts -->
+    <!-- ============================================ -->
+    <string name="show_list">Mostra elenco</string>
+    <string name="show_map">Mostra mappa</string>
+    <string name="unknown_pet">Animale sconosciuto</string>
+    <string name="pet_alert">Avviso animale</string>
+    <string name="alert_marker">Avviso</string>
+    <string name="loading_alerts">Caricamento avvisi\u2026</string>
+    <string name="failed_load_alerts">Impossibile caricare gli avvisi</string>
+    <string name="no_active_alerts">Nessun avviso attivo</string>
+    <string name="no_active_alerts_message">Al momento non hai avvisi di animali scomparsi</string>
+    <string name="no_found_alerts">Nessun avviso di ritrovamento</string>
+    <string name="no_found_alerts_message">Nessun animale è stato trovato di recente nella tua zona</string>
+    <string name="missing_pet_alerts_title">Avvisi animali scomparsi</string>
+    <string name="sighting_count_singular">1 avvistamento</string>
+    <string name="unknown_breed">Razza sconosciuta</string>
+    <string name="last_seen_label">Ultimo avvistamento</string>
+    <string name="reported_sightings_count">Avvistamenti segnalati (%1$d)</string>
+    <string name="report_a_sighting">Segnala un avvistamento</string>
+    <string name="anonymous">Anonimo</string>
+    <string name="contact_label">Contatto: %1$s</string>
+    <string name="pet_marked_found">%1$s segnato come trovato!</string>
+    <string name="mark_found_failed_message">Impossibile segnare come trovato: %1$s</string>
+    <plurals name="sighting_count">
+        <item quantity="one">%d avvistamento</item>
+        <item quantity="other">%d avvistamenti</item>
+    </plurals>
+    <plurals name="photo_count">
+        <item quantity="one">%d foto</item>
+        <item quantity="other">%d foto</item>
+    </plurals>
+
+    <!-- Alerts Tab -->
+
+    <!-- Alert Status & Details -->
+    <string name="alert_status_missing">Scomparso</string>
+    <string name="alert_missing_since">Scomparso il: %1$s</string>
+    <string name="alert_missing_for">Scomparso da: %1$s</string>
+    <string name="report_found">Segnala come trovato</string>
+
+    <!-- Map Annotations -->
+    <string name="time_less_than_hour">Meno di un\'ora</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Report Missing / Sighting -->
+    <!-- ============================================ -->
+    <string name="report_missing_title">Segnala la scomparsa di %1$s</string>
+    <string name="last_seen_location">Ultimo luogo visto</string>
+    <string name="additional_info">Informazioni aggiuntive</string>
+    <string name="report">Segnala</string>
+    <string name="report_sighting">Segnala avvistamento</string>
+    <string name="report_sighting_prompt">Condividi i dettagli su dove hai visto %1$s.</string>
+    <string name="notes">Note</string>
+    <string name="sighting_reported">Avvistamento segnalato</string>
+    <string name="report_failed">Segnalazione non riuscita</string>
+    <string name="sighting_location">Luogo dell\'avvistamento</string>
+    <string name="use_current_location">Usa posizione attuale</string>
+    <string name="location_captured">Posizione acquisita dal GPS</string>
+    <string name="getting_location">Acquisizione posizione in corso\u2026</string>
+    <string name="update_alert_failed">Impossibile aggiornare l\'avviso</string>
+    <string name="report_sighting_failed">Impossibile segnalare l\'avvistamento</string>
+    <string name="report_missing_pet">Segnala animale scomparso</string>
+    <string name="select_pet_to_report">Seleziona un animale</string>
+    <string name="add_missing_details">Aggiungi dettagli sulla scomparsa</string>
+    <string name="enter_address_or_location">Inserisci l\'indirizzo o la descrizione del luogo</string>
+    <string name="additional_details">Ulteriori dettagli</string>
+    <string name="describe_circumstances">Descrivi le circostanze, le caratteristiche distintive, ecc.</string>
+    <string name="report_missing">Segnala scomparso</string>
+    <string name="no_pets_to_report_message">Aggiungi prima un animale per poterlo segnalare come scomparso</string>
+    <string name="mark_pet_found">Segna animale come trovato</string>
+    <string name="select_pet_to_mark_found">Seleziona l\'animale che è stato trovato</string>
+    <string name="no_missing_pets_message">Non hai animali segnalati come scomparsi</string>
+    <string name="select_pet_header">Seleziona animale</string>
+    <string name="no_pets_available">Nessun animale disponibile. Aggiungi prima un animale.</string>
+    <string name="pet_picker_label">Animale</string>
+    <string name="last_seen_location_header">Ultimo luogo conosciuto</string>
+    <string name="enter_location">Inserisci posizione</string>
+    <string name="additional_information_header">Informazioni aggiuntive</string>
+    <string name="additional_details_placeholder">Fornisci ulteriori dettagli su quando e dove hai visto il tuo animale per l\'ultima volta\u2026</string>
+    <string name="your_contact_information">I tuoi recapiti</string>
+    <string name="name_optional">Nome (opzionale)</string>
+    <string name="phone_optional">Telefono (opzionale)</string>
+    <string name="email_optional">Email (opzionale)</string>
+    <string name="sighting_reported_success">Avvistamento segnalato con successo!</string>
+    <string name="report_sighting_header">Segnala un avvistamento</string>
+    <string name="report_sighting_help">Aiuta un animale scomparso a ritrovare il proprio proprietario condividendo dove l\'hai visto.</string>
+    <string name="share_contact_info">Condividi i miei recapiti</string>
+    <string name="share_contact_info_desc">Consenti al proprietario dell\'animale di contattarti direttamente</string>
+    <string name="your_name">Il tuo nome</string>
+    <string name="your_phone_number">Il tuo numero di telefono</string>
+    <string name="your_email">La tua email</string>
+    <string name="address_or_description">Indirizzo o descrizione</string>
+    <string name="where_did_you_see">Dove hai visto l\'animale?</string>
+    <string name="sighting_notes_placeholder">Descrivi cosa hai visto, le condizioni dell\'animale, la direzione di marcia\u2026</string>
+    <string name="submit_sighting_report">Invia segnalazione avvistamento</string>
+    <string name="sighting_reported_owner_notified">Avvistamento segnalato! Il proprietario è stato avvisato.</string>
+    <string name="sighting_queued_offline">Segnalazione in coda — verrà inviata quando sei online.</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Mark Lost/Found Sheet -->
+    <!-- ============================================ -->
+    <string name="mark_pet_found_confirm">Segnare %1$s come trovato?</string>
+    <string name="mark_found_confirm_alert">Questa operazione chiuderà l\'avviso di scomparsa per %1$s. Sei sicuro?</string>
+    <string name="notification_center">Centro notifiche</string>
+    <string name="alerts_radius_info">Gli avvisi verranno inviati entro 10 km da questa posizione</string>
+    <string name="current_location">Posizione attuale</string>
+    <string name="tap_get_location">Tocca per ottenere la posizione attuale\u2026</string>
+    <string name="using_registered_address">Viene utilizzato il tuo indirizzo registrato</string>
+    <string name="enter_address_notifications">Inserisci un indirizzo per le notifiche</string>
+    <string name="notification_source_current_location">Posizione attuale</string>
+    <string name="notification_source_my_address">Il mio indirizzo</string>
+    <string name="notification_source_custom">Personalizzato</string>
+    <string name="no_registered_address">Nessun indirizzo registrato. Aggiorna il tuo profilo.</string>
+
+    <!-- Mark Lost Flow -->
+
+    <!-- ============================================ -->
+    <!-- MARK: Notifications -->
+    <!-- ============================================ -->
+    <string name="tag_scanned_message">La medaglietta di %1$s è stata scansionata: %2$s!</string>
+    <string name="unknown_location">in un luogo sconosciuto</string>
+    <string name="sighting_message_with_location">%1$s è stato avvistato a: %2$s!</string>
+    <string name="sighting_message_no_location">%1$s è stato avvistato!</string>
+    <string name="pet_found_message">Buone notizie! %1$s è stato ritrovato!</string>
+    <string name="notification_tag_scanned_title">%1$s trovato!</string>
+    <string name="notification_sighting_title">%1$s avvistato!</string>
+    <string name="notification_pet_found_title">Buone notizie!</string>
+    <string name="notification_channel_name">Avvisi Senra Pet</string>
+    <string name="notification_channel_tag_scans">Scansioni medaglietta</string>
+    <string name="notification_channel_tag_scans_desc">Notifiche quando la medaglietta del tuo animale viene scansionata</string>
+    <string name="notification_channel_alerts">Avvisi animali scomparsi</string>
+    <string name="notification_channel_alerts_desc">Notifiche per animali scomparsi nella tua zona</string>
+    <string name="notification_channel_sightings">Segnalazioni avvistamenti</string>
+    <string name="notification_channel_sightings_desc">Notifiche quando il tuo animale scomparso viene avvistato</string>
+    <string name="notification_method_required">Almeno un metodo di notifica deve essere attivato</string>
+
+    <!-- FCM Notification Strings -->
+    <string name="notif_tag_scanned_title">Medaglietta scansionata</string>
+    <string name="notif_tag_scanned_body">La medaglietta di %1$s è stata scansionata!</string>
+    <string name="notif_tag_scanned_body_location">La medaglietta di %1$s è stata scansionata! %2$s</string>
+    <string name="notif_missing_pet_title">Animale scomparso nelle vicinanze</string>
+    <string name="notif_missing_pet_body">%1$s è scomparso a %2$s. Tieni gli occhi aperti!</string>
+    <string name="notif_pet_found_title">Animale ritrovato!</string>
+    <string name="notif_pet_found_body">Buone notizie! %1$s è stato ritrovato!</string>
+    <string name="notif_sighting_title">Avvistamento segnalato</string>
+    <string name="notif_sighting_body_location">%1$s è stato avvistato a %2$s!</string>
+    <string name="notif_sighting_body_no_location">%1$s è stato avvistato! Controlla il luogo dell\'avvistamento.</string>
+    <string name="notif_fallback_title">Senra Pet</string>
+    <string name="notif_fallback_pet_name">Il tuo animale</string>
+    <string name="notif_fallback_a_pet">Un animale</string>
+    <string name="notif_fallback_your_area">la tua zona</string>
+    <string name="notif_location_shared">Posizione condivisa</string>
+    <string name="notif_location_approximate">Posizione approssimativa</string>
+
+    <!-- Notification Action Buttons -->
+    <string name="notif_action_view_area">Visualizza zona</string>
+    <string name="notif_action_view_map">Visualizza sulla mappa</string>
+    <string name="notif_action_get_directions">Ottieni indicazioni</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Notification Settings -->
+    <!-- ============================================ -->
+    <string name="notification_channels">Canali di notifica</string>
+    <string name="notification_preferences_title">Preferenze notifiche</string>
+    <string name="notifications">Notifiche</string>
+    <string name="push_notifications">Notifiche push</string>
+    <string name="push_notifications_subtitle">Ricevi notifiche push sul tuo dispositivo</string>
+    <string name="email_notifications">Notifiche email</string>
+    <string name="email_notifications_subtitle">Ricevi notifiche via email</string>
+    <string name="sms_notifications">Notifiche SMS</string>
+    <string name="sms_notifications_subtitle">Ricevi notifiche via SMS</string>
+    <string name="pet_alerts">Avvisi animali</string>
+    <string name="missing_pet_alerts">Avvisi animali scomparsi</string>
+    <string name="missing_pet_alerts_subtitle">Ricevi notifiche per animali scomparsi nella tua zona</string>
+    <string name="nearby_alerts_10km">Avvisi nelle vicinanze (10 km)</string>
+    <string name="nearby_alerts_subtitle">Avvisi per animali entro 10 km dalla tua posizione</string>
+    <string name="account_and_orders">Account &amp; ordini</string>
+    <string name="order_updates">Aggiornamenti ordini</string>
+    <string name="order_updates_subtitle">Notifiche di spedizione e consegna</string>
+    <string name="account_activity">Attività dell\'account</string>
+    <string name="account_activity_subtitle">Notifiche di accesso e sicurezza</string>
+    <string name="critical_alerts_note">Nota: gli avvisi critici riguardanti i tuoi animali verranno sempre inviati indipendentemente da queste impostazioni.</string>
+
+    <!-- Notification Preferences -->
+
+    <!-- ============================================ -->
+    <!-- MARK: Success Stories -->
+    <!-- ============================================ -->
+    <string name="share_your_story">Condividi la tua storia</string>
+    <string name="success_story_prompt">Buone notizie! %1$s è stato ritrovato! Vuoi condividere la storia del vostro ritrovamento per ispirare altri?</string>
+    <string name="your_story">La tua storia</string>
+    <string name="share_story">Condividi storia</string>
+    <string name="story_shared">Storia condivisa con successo</string>
+    <string name="story_share_failed">Impossibile condividere la storia</string>
+    <string name="loading_success_stories">Caricamento storie di successo\u2026</string>
+    <string name="no_success_stories">Nessuna storia di successo nelle vicinanze</string>
+    <string name="no_success_stories_message">Sii il primo a condividere un lieto ritrovamento nella tua zona!</string>
+    <string name="found_and_reunited">Trovato &amp; riunito con il proprietario</string>
+    <string name="distance_km">%.1f km di distanza</string>
+    <string name="missing_since">Scomparso il: %1$s</string>
+    <string name="found_on">%1$s trovato</string>
+    <string name="success_story_marker">Storia di successo</string>
+    <string name="load_more">Carica altri</string>
+    <string name="missing_for">Scomparso da: %1$s</string>
+    <string name="pet_found_share">%1$s ritrovato!</string>
+    <string name="reunited_in">Riunito in %1$s</string>
+
+    <string name="shared_via_pet_safety">Condiviso tramite l\'app Pet Safety</string>
+    <string name="story_share_good_news">Condividi la buona notizia</string>
+    <string name="story_social_caption">%1$s è stato riunito alla sua famiglia! Grazie alla community di Senra per aver aiutato a riportare a casa %1$s. senra.pet</string>
+    <string name="story_generating_card">Creazione della card di condivisione\u2026</string>
+    <string name="story_pet_is_home_title">%1$s è a casa!</string>
+    <string name="story_inspire_others_message">Ispira altri proprietari raccontando come %1$s è tornato da te.</string>
+    <string name="sighting_reports_desc">Segnalazioni di avvistamento</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Profile -->
+    <!-- ============================================ -->
+    <string name="account_title">Account</string>
+    <string name="log_out">Esci</string>
+    <string name="personal_information">Informazioni personali</string>
+    <string name="address">Indirizzo</string>
+    <string name="contacts">Contatti</string>
+    <string name="privacy_mode">Modalità privacy</string>
+    <string name="help_support">Aiuto e supporto</string>
+    <string name="danger_zone">ZONA PERICOLOSA</string>
+    <string name="deleting">Eliminazione\u2026</string>
+    <string name="delete_account_permanent">Questo eliminerà definitivamente il tuo account e tutti i dati</string>
+    <string name="logout_confirm">Sei sicuro di voler uscire?</string>
+    <string name="delete_account_full_warning">Questa azione non può essere annullata. Il tuo account verrà eliminato definitivamente, tutti i dati personali verranno rimossi e gli abbonamenti attivi verranno cancellati.</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Personal Information -->
+    <!-- ============================================ -->
+
+    <!-- ============================================ -->
+    <!-- MARK: Address -->
+    <!-- ============================================ -->
+    <string name="street_address">Via e numero civico</string>
+    <string name="address_line_2_optional">Indirizzo riga 2 (opzionale)</string>
+    <string name="city">Città</string>
+    <string name="post_code">Codice postale</string>
+    <string name="country">Paese</string>
+    <string name="street">Via</string>
+    <string name="street2">Interno / Piano / Scala (opzionale)</string>
+    <string name="province">Provincia / Regione</string>
+    <string name="address_updated">Indirizzo aggiornato</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Contacts -->
+    <!-- ============================================ -->
+    <string name="email_addresses">Indirizzi email</string>
+    <string name="primary_email">Email principale</string>
+    <string name="secondary_email_optional">Email secondaria (opzionale)</string>
+    <string name="phone_numbers">Numeri di telefono</string>
+    <string name="primary_phone">Telefono principale</string>
+    <string name="show_on_qr_tag">Mostra sulla medaglietta QR</string>
+    <string name="secondary_phone_optional">Telefono secondario (opzionale)</string>
+    <string name="contacts_qr_tag_info">I recapiti contrassegnati come visibili appariranno sulla medaglietta QR del tuo animale quando viene scansionata.</string>
+    <string name="contact_details">Recapiti</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Contact Visibility -->
+    <!-- ============================================ -->
+    <string name="contact_visibility">Visibilità contatti</string>
+    <string name="contact_visibility_desc">Controlla quali contatti sono visibili quando viene scansionata la medaglietta QR del tuo animale</string>
+    <string name="show_phone_number">Mostra numero di telefono</string>
+    <string name="show_phone_subtitle">Il tuo numero di telefono sarà visibile a chi trova il tuo animale</string>
+    <string name="show_email_address">Mostra indirizzo email</string>
+    <string name="show_email_subtitle">La tua email sarà visibile a chi trova il tuo animale</string>
+    <string name="show_address">Mostra indirizzo</string>
+    <string name="show_address_subtitle">Il tuo indirizzo sarà visibile a chi trova il tuo animale</string>
+    <string name="show_secondary_phone">Mostra telefono secondario</string>
+    <string name="show_secondary_phone_subtitle">Visualizza il tuo numero di telefono secondario sul profilo pubblico del tuo animale</string>
+    <string name="show_secondary_email">Mostra email secondaria</string>
+    <string name="show_secondary_email_subtitle">Visualizza il tuo indirizzo email secondario sul profilo pubblico del tuo animale</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Privacy Mode -->
+    <!-- ============================================ -->
+    <string name="data_privacy">Privacy dei dati</string>
+    <string name="data_management">Gestione dati</string>
+    <string name="privacy_settings_updated">Impostazioni privacy aggiornate</string>
+    <string name="privacy_settings_failed">Impossibile aggiornare le impostazioni privacy</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Delete Account -->
+    <!-- ============================================ -->
+    <string name="delete_account">Elimina account</string>
+    <string name="delete_account_warning">Questa azione non può essere annullata. Tutti i tuoi dati, inclusi animali, avvisi e foto, verranno eliminati definitivamente.</string>
+    <string name="delete_account_confirm_prompt">Per confermare, scrivi DELETE qui sotto:</string>
+    <string name="type_delete_to_confirm">Scrivi DELETE</string>
+    <string name="account_deleted">Account eliminato</string>
+    <string name="delete_account_failed">Impossibile eliminare l\'account</string>
+    <string name="cannot_delete_account">Impossibile eliminare l\'account</string>
+    <string name="cannot_delete_missing_pets">Non puoi eliminare l\'account mentre hai animali segnalati come scomparsi. Prima contrassegnali come ritrovati.</string>
+    <string name="missing_pets_label">Animali scomparsi: %1$s</string>
+    <string name="checking_delete_eligibility">Verifica in corso\u2026</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Help & Support -->
+    <!-- ============================================ -->
+    <string name="get_help">Ottieni assistenza</string>
+    <string name="faq">Domande frequenti</string>
+    <string name="user_guides">Guide per l\'utente</string>
+    <string name="legal">Note legali</string>
+    <string name="support_response_time">Il nostro team di supporto risponde solitamente entro 24 ore.</string>
+    <string name="contact_support">Contatta il supporto</string>
+    <string name="contact_support_category">Categoria</string>
+    <string name="contact_support_subject">Oggetto</string>
+    <string name="contact_support_subject_hint">Breve descrizione del problema</string>
+    <string name="contact_support_message">Messaggio</string>
+    <string name="contact_support_message_hint">Descrivi il problema in dettaglio\u2026</string>
+    <string name="contact_support_submit">Invia</string>
+    <string name="contact_support_sending">Invio in corso\u2026</string>
+    <string name="contact_support_success">Richiesta di supporto inviata! ID ticket: %1$s</string>
+    <string name="contact_support_response">Ti risponderemo entro 24 ore.</string>
+    <string name="support_email">Supporto: hello@senra.pet</string>
+    <string name="support_category_general">Generale</string>
+    <string name="support_category_technical">Problema tecnico</string>
+    <string name="support_category_account">Account</string>
+    <string name="support_category_billing">Fatturazione</string>
+    <string name="support_category_feature">Richiesta funzionalità</string>
+    <string name="support_category_other">Altro</string>
+    <string name="char_count">%1$d/5000 caratteri</string>
+
+    <!-- FAQ Items -->
+    <string name="help_faq_q1">Come posso registrare il mio animale?</string>
+    <string name="help_faq_a1">Puoi registrare il tuo animale nella sezione \'I miei animali\' toccando \'Aggiungi nuovo animale\'. Compila le informazioni necessarie e carica una foto.</string>
+    <string name="help_faq_q2">Quali informazioni devo inserire nel profilo del mio animale?</string>
+    <string name="help_faq_a2">Inserisci il nome del tuo animale, la specie, la razza, l\'età, eventuali condizioni di salute, i tuoi recapiti per essere contattato in caso di smarrimento e una foto recente. Questo facilita l\'identificazione rapida e il ritorno a casa.</string>
+    <string name="help_faq_q3">Come funziona la medaglietta con QR code?</string>
+    <string name="help_faq_a3">Ogni animale riceve una medaglietta con QR code univoco. Quando qualcuno trova il tuo animale e scansiona il codice, può visualizzare il profilo pubblico del tuo animale e i tuoi recapiti per un rapido ritorno a casa.</string>
+    <string name="help_faq_q4">Posso aggiornare i dati del mio animale in seguito?</string>
+    <string name="help_faq_a4">Sì! Puoi aggiornare i dati del tuo animale in qualsiasi momento nella sezione \'I miei animali\', selezionando l\'animale e toccando \'Modifica profilo\'.</string>
+    <string name="help_faq_q5">Come posso ordinare una medaglietta di ricambio?</string>
+    <string name="help_faq_a5">Se la medaglietta è andata persa o danneggiata, vai al profilo del tuo animale e tocca \'Ordina medaglietta di ricambio\'. Segui i passaggi per completare l\'ordine. La medaglietta di ricambio è gratuita per gli abbonati ai piani Standard e Maximum.</string>
+    <string name="help_faq_q6">Come attivo la medaglietta dopo che è arrivata?</string>
+    <string name="help_faq_a6">Vai a \'Scansiona medaglietta\' nell\'app e punta la fotocamera del telefono verso il QR code sulla medaglietta. Questo collegherà la medaglietta al tuo account. Ti verrà poi chiesto di scegliere un animale già registrato o di creare un nuovo profilo. Dopo l\'attivazione, potrai selezionare il tuo piano di abbonamento.</string>
+    <string name="help_faq_q7">Posso aggiornare i dati del mio animale dopo la registrazione?</string>
+    <string name="help_faq_a7">Sì — puoi modificare il profilo del tuo animale in qualsiasi momento. Vai a \'I miei animali\', seleziona il tuo animale e tocca \'Modifica\'. Puoi aggiornare qualsiasi campo, incluse le foto. Le modifiche vengono salvate immediatamente.</string>
+    <string name="help_faq_q8">Cosa devo fare se il mio animale si smarrisce?</string>
+    <string name="help_faq_a8">Vai a \'I miei animali\' e tocca il menu sulla scheda del tuo animale, poi seleziona \'Segna come scomparso\'. Verrà creato un avviso di animale scomparso visibile alla community Senra nella tua zona. Le persone vicine a te vedranno l\'avviso e potranno segnalare avvistamenti con la posizione. Ti avviseremo immediatamente di ogni segnalazione.</string>
+    <string name="help_faq_q9">Come funzionano gli avvisi di animale scomparso?</string>
+    <string name="help_faq_a9">Quando contrassegni un animale come scomparso, viene creato un avviso con la foto e i dati del tuo animale. Gli altri utenti Senra ricevono una notifica e possono vedere l\'avviso sulla mappa degli animali scomparsi. Chiunque nella community può segnalare un avvistamento, che ti invierà la posizione e i recapiti di chi ha segnalato. Anche veterinari e rifugi registrati con Senra nella tua zona riceveranno l\'avviso.</string>
+    <string name="help_faq_q10">Come ordino una medaglietta di ricambio?</string>
+    <string name="help_faq_a10">Vai alla pagina Account e tocca \'Ordina ricambio\'. Seleziona l\'animale che ha bisogno di una nuova medaglietta. Gli abbonati Standard e Maximum ricevono sostituzioni gratuite illimitate, quelli Starter possono ordinare ricambi con un piccolo contributo spese di spedizione.</string>
+    <string name="help_faq_q11">Cos\'è il programma di referral?</string>
+    <string name="help_faq_a11">Condividi il codice generato sul sito con amici e familiari. Quando qualcuno usa questo codice e si abbona a un piano a pagamento (Standard o Maximum), sia tu che il tuo amico ricevete 2 mesi gratuiti. Puoi monitorare i tuoi referral e il loro stato nella pagina Referral.</string>
+    <string name="help_faq_q12">In quali paesi spedite?</string>
+    <string name="help_faq_a12">Spediamo attualmente in Ungheria e nei paesi dell\'Unione Europea, ma le medagliette funzionano in tutto il mondo. Spedizione in Ungheria: %1$s (PostaPont) o %2$s (consegna a domicilio). Spedizione internazionale: %3$s per ordine.</string>
+    <string name="help_faq_q13">Posso avere più animali registrati su un account?</string>
+    <string name="help_faq_a13">Sì. Con il piano Starter (gratuito) puoi registrare fino a 10 animali. Il piano Standard supporta 1 animale. Con il piano Maximum puoi registrare fino a 10 animali. Puoi aggiornare il tuo piano in qualsiasi momento dalla pagina Account.</string>
+    <string name="help_faq_q14">Come segnalo un animale che ho trovato?</string>
+    <string name="help_faq_a14">Se l\'animale ha una medaglietta Senra, scansiona semplicemente il QR code con la fotocamera del telefono — nessuna app necessaria. Puoi visualizzare il profilo dell\'animale e condividere la tua posizione con il proprietario. Se non c\'è medaglietta, puoi controllare la mappa degli animali scomparsi sul sito Senra per vedere se l\'animale è stato segnalato nella tua zona.</string>
+    <string name="help_faq_q15">I miei dati personali sono al sicuro?</string>
+    <string name="help_faq_a15">Sì. Decidi tu esattamente quali informazioni sono visibili quando qualcuno scansiona la medaglietta del tuo animale. In Impostazioni &gt; Privacy puoi scegliere di mostrare o nascondere numero di telefono, email e indirizzo. L\'accesso è protetto con codici di verifica monouso — nessuna password da rubare. Puoi eliminare il tuo account e tutti i dati in qualsiasi momento.</string>
+    <string name="help_faq_q16">Ho perso la medaglietta o è danneggiata — cosa devo fare?</string>
+    <string name="help_faq_a16">Non preoccuparti — il profilo digitale del tuo animale è al sicuro e non è memorizzato sulla medaglietta. Vai alla pagina Account e tocca \'Ordina ricambio\'. Una nuova medaglietta con un nuovo QR code verrà collegata al profilo esistente del tuo animale. Gli abbonati Standard e Maximum possono richiedere sostituzioni gratuite illimitate, i membri Starter pagano un piccolo contributo spese di spedizione. La vecchia medaglietta smette di funzionare una volta attivata la nuova.</string>
+    <string name="help_faq_q17">La mia medaglietta non viene scansionata — come posso rimediare?</string>
+    <string name="help_faq_a17">Prova questi passaggi: pulisci la superficie della medaglietta con un panno umido, assicurati di avere una buona illuminazione, tieni ferma la fotocamera del telefono a circa 10-15 cm dalla medaglietta e verifica che la fotocamera o il lettore QR funzionino. Se il QR code è graffiato o sbiadito, puoi usare l\'opzione di inserimento manuale del codice nell\'app sotto \'Scansiona medaglietta\'. Se la medaglietta è troppo danneggiata per essere letta, ordina un ricambio gratuito dalla pagina Account (piani Standard e Maximum).</string>
+    <string name="help_faq_q18">Ho trovato un animale senza medaglietta Senra — cosa posso fare?</string>
+    <string name="help_faq_a18">Controlla la mappa degli animali scomparsi sul sito Senra (senra.pet) — l\'animale potrebbe essere stato segnalato come scomparso nella tua zona. Puoi visualizzare gli avvisi di animali scomparsi anche senza un account. Se riconosci un animale smarrito, invia una segnalazione con la tua posizione per aiutarlo a tornare a casa! Puoi anche portare l\'animale da un veterinario locale per verificare la presenza di un microchip.</string>
+    <string name="help_faq_q19">Posso cambiare il mio indirizzo email?</string>
+    <string name="help_faq_a19">Il tuo indirizzo email principale è usato come identità del tuo account e non può essere cambiato direttamente. Se vuoi usare un\'altra email, puoi aggiungere un\'email secondaria in Impostazioni &gt; Recapiti — questa apparirà anche sul profilo del tuo animale. Se hai assolutamente bisogno di cambiare l\'email principale, contatta il nostro team di supporto e ti aiuteremo a migrare il tuo account.</string>
+    <string name="help_faq_q20">Qual è la differenza tra microchip e medaglietta QR Senra?</string>
+    <string name="help_faq_a20">Il microchip è un piccolo impianto sotto la pelle del tuo animale che memorizza un numero identificativo univoco — ma richiede un lettore speciale (solitamente disponibile solo da veterinari e rifugi) per essere letto. La medaglietta QR Senra funziona immediatamente con qualsiasi fotocamera di smartphone, mostrando il profilo completo del tuo animale, la foto e i tuoi recapiti sul posto. Chi trova il tuo animale può anche condividere la sua posizione GPS con te. Consigliamo di usare entrambi: il microchip come backup permanente e la medaglietta Senra per l\'identificazione immediata di tutti i giorni.</string>
+    <string name="help_faq_q21">Cosa succede ai miei dati se cancello l\'abbonamento?</string>
+    <string name="help_faq_a21">Se cancelli l\'abbonamento, mantieni l\'accesso alle funzioni a pagamento fino alla fine del periodo di fatturazione corrente. Dopo di che, il tuo account passa automaticamente al piano gratuito Starter. I profili degli animali, le foto e le medagliette QR rimangono attivi — perdi solo l\'accesso alle funzioni premium come notifiche SMS, avvisi a veterinari e rifugi, sostituzioni gratuite delle medagliette, ecc. I tuoi dati non vengono mai eliminati quando cancelli l\'abbonamento. Per rimuovere definitivamente tutti i dati, usa l\'opzione Elimina account nelle Impostazioni.</string>
+    <string name="help_faq_q22">Come posso registrare il mio veterinario o rifugio con Senra?</string>
+    <string name="help_faq_a22">Veterinari e rifugi possono registrarsi su senra.pet/register-vet-shelter. Compila i dati dello studio o dell\'organizzazione e ti invieremo un\'email di verifica. Una volta confermata, riceverai automaticamente avvisi email quando gli animali scompaiono nella tua zona — aiutando a riunire gli animali smarriti con le loro famiglie. Non ci sono costi e non è richiesto accesso. Anche i proprietari di animali possono registrare il proprio veterinario per conto loro.</string>
+    <string name="help_faq_q23">Come condivido una storia di successo quando il mio animale viene trovato?</string>
+    <string name="help_faq_a23">Quando contrassegni il tuo animale come ritrovato in \'I miei animali\', ti verrà chiesto se vuoi condividere la storia del vostro ritorno insieme. Puoi aggiungere un breve messaggio su come è stato trovato il tuo animale e confermare il luogo del ricongiungimento. Le storie pubbliche appaiono sulla mappa degli animali trovati, ispirando la community e dimostrando che il sistema funziona. Puoi anche pubblicare o rimuovere una storia di successo in seguito dalla pagina del profilo del tuo animale.</string>
+    <string name="help_faq_q24">Quali browser e dispositivi sono supportati?</string>
+    <string name="help_faq_a24">Senra funziona su tutti i browser moderni, inclusi Chrome, Safari, Firefox ed Edge su dispositivi mobili e desktop. La scansione della medaglietta QR funziona con qualsiasi fotocamera di smartphone — chi trova il tuo animale non ha bisogno dell\'app Senra né di un account. Per la migliore esperienza, consigliamo di usare un browser aggiornato sul telefono.</string>
+    <string name="help_faq_q25">Posso ordinare medagliette per più animali contemporaneamente?</string>
+    <string name="help_faq_a25">Ogni ordine include medagliette per i nomi degli animali specificati durante il checkout. Puoi inserire più nomi di animali in un singolo ordine. Quando le medagliette arrivano, scansiona ognuna per attivarla e collegarla al profilo dell\'animale corretto. Se hai bisogno di medagliette per altri animali in seguito, puoi effettuare ulteriori ordini dalla pagina Account in qualsiasi momento.</string>
+    <string name="help_faq_q26">Come raggiungono veterinari e rifugi gli avvisi di animale scomparso?</string>
+    <string name="help_faq_a26">Quando contrassegni il tuo animale come scomparso, Senra invia automaticamente avvisi email a tutti i veterinari e rifugi verificati registrati nella tua zona. Questo significa che i professionisti degli animali locali vengono immediatamente informati che il tuo animale è scomparso e possono tenerlo d\'occhio. Più veterinari e rifugi sono registrati nella tua zona, più forte è la rete di sicurezza. Puoi aiutare incoraggiando il tuo veterinario a registrarsi con Senra.</string>
+    <string name="help_faq_q27">Posso trasferire una medaglietta a un altro animale?</string>
+    <string name="help_faq_a27">Ogni medaglietta QR è collegata definitivamente a un profilo animale e non può essere riassegnata. Se un animale muore o non hai più bisogno di una medaglietta, la vecchia medaglietta diventa semplicemente inattiva. Per taggare un nuovo animale, ordina una nuova medaglietta dalla pagina Account.</string>
+    <!-- Guide Items -->
+    <string name="help_guide_qr_tags_title">Medagliette QR per animali</string>
+    <string name="help_guide_qr_tags_desc">Scopri le nostre medagliette per animali con QR code e come funzionano.</string>
+    <string name="help_guide_materials_title">Materiali e durata della medaglietta</string>
+    <string name="help_guide_materials_desc">Informazioni sui materiali che utilizziamo e sulla cura della medaglietta.</string>
+    <string name="help_guide_emergency_title">Contatti di emergenza e avvisi</string>
+    <string name="help_guide_emergency_desc">Come funziona il nostro sistema di contatti di emergenza per riportare rapidamente a casa il tuo animale smarrito.</string>
+    <string name="help_guide_profile_title">Gestione del profilo animale</string>
+    <string name="help_guide_profile_desc">Gestione del profilo pubblico del tuo animale e aggiornamento dei suoi dati.</string>
+    <string name="help_guide_missing_alerts_title">Avvisi di animale scomparso e avvistamenti</string>
+    <string name="help_guide_missing_alerts_desc">Se il tuo animale si smarrisce, contrassegnalo come scomparso in \'I miei animali\' per creare un avviso immediato alla community. La foto e i dati del tuo animale appariranno sulla mappa e nella lista degli animali scomparsi, visibile a tutti gli utenti Senra nella tua zona. Tutti gli utenti registrati entro 10 km ricevono una notifica email e SMS. I membri della community possono segnalare avvistamenti con dati GPS, che ricevi come notifiche. Anche i veterinari e i rifugi registrati vengono avvisati. Quando il tuo animale viene ritrovato, contrassegnalo come trovato! Se vuoi, condividi la storia del ritorno a casa per dare speranza agli altri.</string>
+    <string name="help_guide_community_title">Community e animali trovati</string>
+    <string name="help_guide_community_desc">La forza di Senra è la sua community. Sulla mappa degli animali scomparsi puoi vedere gli avvisi attivi vicino a te — controlla se sono stati segnalati animali scomparsi nella tua zona. La pagina degli animali trovati celebra i ricongiungimenti felici con le storie dei proprietari. Puoi registrare il tuo veterinario o un rifugio locale con Senra in modo che ricevano automaticamente gli avvisi degli animali scomparsi, contribuendo a creare una rete di sicurezza più forte per tutti gli animali nella tua zona.</string>
+    <!-- ============================================ -->
+    <!-- MARK: Orders -->
+    <!-- ============================================ -->
+    <string name="orders_title">Ordini</string>
+    <string name="order_number">Ordine n. %1$s</string>
+    <string name="order_total">Totale: %1$s</string>
+    <string name="order_tags">Ordina medagliette</string>
+    <string name="replace_tag">Sostituisci medaglietta</string>
+    <string name="add_pet_first_replacement">Aggiungi prima un animale per ordinare una medaglietta di ricambio.</string>
+    <string name="order_more_tags_title">Ordina altre medagliette</string>
+    <string name="add_another_pet">Aggiungi un altro animale</string>
+    <string name="full_name">Nome completo</string>
+    <string name="place_order">Effettua ordine</string>
+    <string name="order_created_payment_pending">Ordine creato. Pagamento in sospeso.</string>
+    <string name="payment_intent_failed">Intento di pagamento fallito</string>
+    <string name="order_create_failed">Impossibile creare l\'ordine</string>
+    <string name="checkout_success_message">Pagamento riuscito! Il tuo ordine è in elaborazione.</string>
+    <string name="checkout_cancelled_message">Il pagamento è stato annullato. Puoi riprovare quando sei pronto.</string>
+    <string name="proceed_to_payment">Procedi al pagamento</string>
+    <string name="redirecting_to_payment">Reindirizzamento al pagamento…</string>
+    <string name="checkout_failed">Impossibile avviare il pagamento</string>
+    <string name="sse_subscription_activated">Il tuo piano %1$s è ora attivo!</string>
+    <string name="sse_subscription_cancelled">Il tuo abbonamento %1$s è stato cancellato.</string>
+    <string name="sse_referral_used">%1$s ha usato il tuo codice referral!</string>
+    <string name="sse_connection_lost">Aggiornamenti in tempo reale non disponibili. Scorri verso il basso per aggiornare.</string>
+    <string name="order_replacement_title">Ordina medaglietta di ricambio</string>
+    <string name="order_replacement_button">Ordina ricambio</string>
+    <string name="replacement_ordered">Ricambio ordinato</string>
+    <string name="replacement_failed">Impossibile ordinare il ricambio</string>
+    <string name="replacement_order_failed">Impossibile creare l\'ordine di ricambio</string>
+    <string name="create_payment_intent_failed">Impossibile creare l\'intento di pagamento</string>
+    <string name="failed_load_orders">Impossibile caricare gli ordini</string>
+    <string name="no_orders">Nessun ordine</string>
+    <string name="no_orders_message">Non hai ancora effettuato nessun ordine</string>
+    <string name="order_id_short">Ordine n. %1$s</string>
+    <string name="order_information">Informazioni ordine</string>
+    <string name="order_id_label">ID ordine</string>
+    <string name="status">Stato</string>
+    <string name="total_amount">Importo totale</string>
+    <string name="order_date">Data ordine</string>
+    <string name="items">Articoli</string>
+    <string name="quantity_label">Quantità: %1$d</string>
+    <string name="qr_tag_pending">Medaglietta QR in sospeso</string>
+    <string name="qr_tag_assigned">Medaglietta QR assegnata</string>
+    <plurals name="item_count">
+        <item quantity="one">%d articolo</item>
+        <item quantity="other">%d articoli</item>
+    </plurals>
+
+    <!-- Order More Tags -->
+    <string name="get_qr_tags_subtitle">Ottieni medagliette QR per i tuoi animali</string>
+    <string name="pet_names">Nomi degli animali</string>
+    <string name="shipping_address">Indirizzo di spedizione</string>
+    <string name="shipping">Spedizione</string>
+    <string name="shipping_price">Calcolato al checkout</string>
+
+    <!-- Order Replacement Tag -->
+    <string name="replacement_subtitle">Persa o danneggiata? Te ne mandiamo una nuova</string>
+    <string name="free_replacement">Sostituzione gratuita</string>
+    <string name="replacement_shipping_info">La tua medaglietta di ricambio verrà spedita entro 2\u20133 giorni lavorativi\u2026</string>
+    <string name="replacement_shipping_required">Contributo spese di spedizione richiesto</string>
+    <string name="replacement_shipping_cost">Per la tua medaglietta di ricambio si applica un contributo spese di spedizione di %1$s.</string>
+
+    <!-- MARK: Delivery Method (PostaPont) -->
+    <string name="delivery_method_title">Metodo di consegna</string>
+    <string name="home_delivery_option">Consegna a domicilio</string>
+    <string name="postapoint_delivery_option">Ritiro PostaPont</string>
+    <string name="postapoint_zip_placeholder">Codice postale</string>
+    <string name="postapoint_search">Cerca</string>
+    <string name="postapoint_no_results">Nessun punto PostaPont trovato per questo codice postale</string>
+    <string name="postapoint_search_failed">Impossibile cercare i punti di consegna</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Subscription / Pricing -->
+    <!-- ============================================ -->
+    <string name="subscription_title">Abbonamento</string>
+    <string name="subscription_choose_plan">Scegli piano</string>
+    <string name="subscription_monthly">Mensile</string>
+    <string name="subscription_yearly">Annuale</string>
+    <string name="subscription_popular">Popolare</string>
+    <string name="subscription_current_plan">Piano attuale</string>
+    <string name="subscription_select">Seleziona piano</string>
+    <string name="subscription_max_pets">Max animali: %1$s</string>
+    <string name="subscription_vet_alerts">Avvisi veterinari e rifugi</string>
+    <string name="subscription_sms">Notifiche SMS</string>
+    <string name="subscription_community_alerts">Avvisi community</string>
+    <string name="subscription_free_replacement">Sostituzione gratuita medaglietta</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Billing -->
+    <!-- ============================================ -->
+    <string name="billing_title">Fatturazione e fatture</string>
+    <string name="billing_manage_subscription">Gestisci abbonamento</string>
+    <string name="billing_manage_description">Cambia piano, aggiorna metodo di pagamento o cancella</string>
+    <string name="billing_current_plan">Piano attuale</string>
+    <string name="billing_plan_label">Piano</string>
+    <string name="billing_status_label">Stato</string>
+    <string name="billing_invoices">Fatture</string>
+    <string name="billing_no_invoices">Nessuna fattura ancora</string>
+    <string name="billing_subscription">Abbonamento</string>
+    <string name="billing_portal_footer">Gestisci il tuo abbonamento, metodo di pagamento e dati di fatturazione tramite Stripe.</string>
+    <string name="billing_loading_invoices">Caricamento fatture\u2026</string>
+    <string name="billing_invoice">Fattura</string>
+    <string name="billing_unknown">Sconosciuto</string>
+    <string name="billing_past_due_title">Pagamento scaduto</string>
+    <string name="billing_past_due_message">Il tuo abbonamento è scaduto. Aggiorna il metodo di pagamento per evitare interruzioni del servizio.</string>
+    <string name="billing_update_payment">Aggiorna metodo di pagamento</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Referral -->
+    <!-- ============================================ -->
+    <string name="referral_title">Invita un amico</string>
+    <string name="referral_loading">Caricamento\u2026</string>
+    <string name="referral_your_code">Il tuo codice referral</string>
+    <string name="referral_share_footer">Condividi il tuo codice con gli amici. Quando si abbonano, ricevete entrambi un premio!</string>
+    <string name="referral_how_it_works">Come funziona</string>
+    <string name="referral_step_1">Condividi il tuo codice univoco con gli amici</string>
+    <string name="referral_step_2">Lo usano quando si abbonano a un piano a pagamento</string>
+    <string name="referral_step_3">Ricevete entrambi 2 mesi gratuiti</string>
+    <string name="referral_history">Storico referral</string>
+    <string name="referral_no_referrals">Nessun referral ancora. Condividi il tuo codice per iniziare!</string>
+    <string name="referral_generate">Genera codice referral</string>
+    <string name="referral_copied">Copiato!</string>
+    <string name="referral_copy">Copia</string>
+    <string name="referral_share">Condividi</string>
+    <string name="referral_pending">In sospeso</string>
+    <string name="referral_share_text">Usa il mio codice referral %1$s per ottenere 2 mesi gratis su Pet Safety! https://senra.pet/choose-plan?referral=%2$s</string>
+    <string name="referral_clipboard_label">Codice referral</string>
+    <string name="referral_use_friend_code">Usa il codice di un amico</string>
+    <string name="enter_friend_code">Inserisci codice referral</string>
+    <string name="apply_code">Applica</string>
+    <string name="referral_code_applied">Codice referral applicato! Riceverai 2 mesi gratuiti.</string>
+    <string name="referral_code_invalid">Codice referral non valido o scaduto</string>
+    <string name="referral_use_friend_footer">Inserisci il codice referral di un amico per ottenere 2 mesi gratuiti quando ti abboni.</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Push Notification Prompt -->
+    <!-- ============================================ -->
+    <string name="push_prompt_title">Resta connesso</string>
+    <string name="push_prompt_subtitle">Attiva le notifiche per non perdere aggiornamenti importanti sul tuo animale:</string>
+    <string name="push_prompt_benefit_scan">Avvisi immediati quando viene scansionata la medaglietta del tuo animale</string>
+    <string name="push_prompt_benefit_sighting">Segnalazioni di avvistamento dalla community</string>
+    <string name="push_prompt_benefit_found">Sappi subito quando il tuo animale viene ritrovato</string>
+    <string name="push_prompt_benefit_missing">Avvisi di animali scomparsi nella tua zona</string>
+    <string name="push_prompt_enable">Attiva notifiche</string>
+    <string name="push_prompt_later">Forse dopo</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Quick Mark Lost/Found -->
+    <!-- ============================================ -->
+
+    <!-- ============================================ -->
+    <!-- MARK: Breed Picker -->
+    <!-- ============================================ -->
+
+    <!-- ============================================ -->
+    <!-- MARK: Public Pet Profile -->
+    <!-- ============================================ -->
+    <string name="public_profile_preview">Anteprima profilo pubblico</string>
+    <string name="failed_load_profile">Impossibile caricare il profilo</string>
+    <string name="public_profile_subtitle">Ecco come gli altri vedono il profilo di %1$s</string>
+    <string name="owner_notified_sms_email">Il proprietario di %1$s riceverà un SMS e una email con la tua posizione</string>
+    <string name="contact_owner_plea">Per favore, avvisa il mio padrone che mi hai trovato\u2026</string>
+    <string name="contact_owner_plea_full">Per favore, avvisa il mio padrone che mi hai trovato. Tocca il pulsante di condivisione posizione o chiamalo al numero qui sotto.</string>
+    <string name="contact_info_not_set">Recapiti non ancora configurati</string>
+    <string name="contact_info_hidden">Recapiti nascosti</string>
+    <string name="contact_info_hidden_hint">I tuoi recapiti sono impostati ma nascosti dalle impostazioni privacy. Aggiorna in Account \u2192 Modalità privacy.</string>
+    <string name="allergies">Allergie</string>
+    <string name="medications">Farmaci</string>
+    <string name="unique_features">Caratteristiche uniche</string>
+    <string name="behavior_notes">Note sul comportamento</string>
+    <string name="how_it_works">Come funziona</string>
+    <string name="help_reunite_pet">Aiuta %1$s a tornare dal suo padrone in sicurezza</string>
+    <string name="step_share_location">Condividi la tua posizione</string>
+    <string name="step_share_location_desc">Tocca il pulsante qui sopra per condividere la tua posizione con il proprietario</string>
+    <string name="step_owner_notified">Il proprietario viene avvisato</string>
+    <string name="step_owner_notified_desc">Il proprietario riceve un SMS e una email con la tua posizione</string>
+    <string name="step_quick_reunion">Ricongiungimento rapido</string>
+    <string name="step_quick_reunion_desc">Il proprietario può navigare verso la tua posizione per recuperare il suo animale</string>
+    <string name="step_share_location_desc_public">Clicca il pulsante qui sopra per condividere dove hai trovato %1$s</string>
+    <string name="step_owner_notified_desc_public">Il proprietario riceve un SMS con la tua posizione su Google Maps</string>
+    <string name="step_quick_reunion_desc_public">Rimani vicino alla posizione in modo che il proprietario possa trovare te e %1$s</string>
+    <string name="owner_phone_label">Telefono del proprietario: %1$s</string>
+    <string name="owner_email_label">Email del proprietario: %1$s</string>
+    <string name="your_privacy_notice">La tua privacy è importante. Condivideremo la tua posizione solo con il proprietario di %1$s con il tuo esplicito consenso.</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Offline Mode -->
+    <!-- ============================================ -->
+    <string name="offline_mode">Modalità offline</string>
+    <string name="syncing">Sincronizzazione\u2026</string>
+    <string name="sync_completed">Sincronizzazione completata</string>
+    <string name="sync_failed">Sincronizzazione fallita: %1$s</string>
+    <string name="sync_no_connection">Impossibile sincronizzare: nessuna connessione internet</string>
+    <string name="pending_changes">Modifiche in sospeso</string>
+    <string name="online">Online</string>
+    <string name="offline_changes_sync">Le modifiche si sincronizzeranno quando sei online</string>
+    <string name="tap_view_queued_actions">Tocca per vedere le azioni in coda</string>
+    <string name="connected">Connesso</string>
+    <string name="sync_now">Sincronizza ora</string>
+    <string name="changes_sync_restored">Le modifiche verranno sincronizzate automaticamente quando la connessione viene ripristinata.</string>
+    <plurals name="queued_actions">
+        <item quantity="one">%d azione in coda</item>
+        <item quantity="other">%d azioni in coda</item>
+    </plurals>
+
+    <!-- Sync Error Banner -->
+    <string name="sync_actions_failed">%1$d azione/i non sincronizzata/e</string>
+    <string name="sync_tried_count">Tentato %1$d volta/e</string>
+    <string name="sync_retry_all">Riprova tutte</string>
+    <string name="sync_dismiss_all">Ignora tutte</string>
+    <string name="sync_syncing">Sincronizzazione\u2026</string>
+    <string name="sync_count_failed">%1$d fallita/e</string>
+    <string name="sync_count_pending">%1$d in sospeso</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Error / Retry -->
+    <!-- ============================================ -->
+    <string name="error_something_wrong">Qualcosa è andato storto</string>
+    <string name="something_went_wrong">Qualcosa è andato storto</string>
+    <string name="try_again">Riprova</string>
+    <string name="error_session_expired_message">La tua sessione è scaduta. Accedi di nuovo.</string>
+    <string name="error_login_failed">Accesso fallito</string>
+    <string name="error_verification_failed">Verifica fallita</string>
+    <string name="error_submit_support">Impossibile inviare la richiesta di supporto</string>
+    <string name="error_load_pets">Impossibile caricare gli animali</string>
+    <string name="error_refresh_pets">Impossibile aggiornare gli animali</string>
+    <string name="error_load_alerts">Impossibile caricare gli avvisi</string>
+    <string name="error_load_pet_profile">Impossibile caricare il profilo dell\'animale</string>
+    <string name="error_load_stories">Impossibile caricare le storie</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Map App Picker -->
+    <!-- ============================================ -->
+    <string name="location_title">Posizione di %1$s</string>
+    <string name="approximate_location_note">Questa è una posizione approssimativa. Cerca nell\'area circostante.</string>
+    <string name="coordinates_label">Coordinate: %1$s</string>
+    <string name="open_in">Apri in:</string>
+    <string name="google_maps">Google Maps</string>
+    <string name="waze">Waze</string>
+    <string name="other_maps_app">Altra app mappe</string>
+    <string name="open_with">Apri con\u2026</string>
+    <string name="map_label_pet_location">Posizione animale</string>
+    <string name="map_label_tag_scanned">Medaglietta animale scansionata</string>
+    <string name="map_label_sighting">Avvistamento animale</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: App Info -->
+    <!-- ============================================ -->
+    <string name="app_name_label">Senra Pet</string>
+    <string name="app_version">Versione 1.0.0</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Relative Time -->
+    <!-- ============================================ -->
+    <string name="time_ago_just_now">proprio ora</string>
+    <plurals name="time_ago_days">
+        <item quantity="one">%d giorno fa</item>
+        <item quantity="other">%d giorni fa</item>
+    </plurals>
+    <plurals name="time_ago_hours">
+        <item quantity="one">%d ora fa</item>
+        <item quantity="other">%d ore fa</item>
+    </plurals>
+    <plurals name="time_ago_minutes">
+        <item quantity="one">%d minuto fa</item>
+        <item quantity="other">%d minuti fa</item>
+    </plurals>
+
+    <!-- ============================================ -->
+    <!-- MARK: Success Stories Reunion -->
+    <!-- ============================================ -->
+    <string name="reunion_template">%1$s è tornato a casa. Dopo %2$s di smarrimento, %3$s è stato riunito con la sua famiglia. Grazie alla nostra straordinaria community per aver riportato a casa %4$s!</string>
+    <string name="reunion_template_no_time">%1$s è stato riunito con la sua famiglia! Grazie alla nostra straordinaria community per aver riportato a casa %2$s!</string>
+    <string name="owners_story">La storia del proprietario:</string>
+    <string name="post_to_success_stories">Pubblica nelle storie di successo</string>
+    <string name="remove_from_success_stories">Rimuovi dalle storie di successo</string>
+    <string name="removed_from_success_stories">Rimosso dalle storie di successo</string>
+    <string name="remove_story_confirm_title">Rimuovere la storia di successo?</string>
+    <string name="remove_story_confirm_message">Questo rimuoverà la storia del tuo animale dal feed pubblico delle storie di successo.</string>
+    <string name="remove_story_failed">Impossibile rimuovere la storia</string>
+    <plurals name="time_hours_duration">
+        <item quantity="one">%d ora</item>
+        <item quantity="other">%d ore</item>
+    </plurals>
+    <plurals name="time_days_duration">
+        <item quantity="one">%d giorno</item>
+        <item quantity="other">%d giorni</item>
+    </plurals>
+    <plurals name="time_weeks_duration">
+        <item quantity="one">%d settimana</item>
+        <item quantity="other">%d settimane</item>
+    </plurals>
+
+    <!-- ============================================ -->
+    <!-- MARK: Reward & Sighting Details -->
+    <!-- ============================================ -->
+    <string name="reward_optional">Ricompensa (opzionale)</string>
+    <string name="reward_placeholder">es. €50, $100 o un regalo speciale</string>
+    <string name="reward_badge_text">Ricompensa: %1$s</string>
+    <string name="sighting_details_title">Avvistamenti</string>
+    <string name="sighting_at">Visto a %1$s</string>
+    <string name="sighting_reported_at">Segnalato %1$s</string>
+    <string name="sighting_no_details">Nessun avvistamento segnalato ancora</string>
+    <string name="sighting_anonymous">Segnalante anonimo</string>
+    <string name="reporter_name">Il tuo nome</string>
+    <string name="reporter_phone">Numero di telefono</string>
+    <string name="reporter_email">Email</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Hardcoded String Fixes -->
+    <!-- ============================================ -->
+    <string name="someone_fallback">Qualcuno</string>
+    <string name="no_plan">Nessuno</string>
+    <string name="current_location_fallback">Posizione attuale</string>
+    <string name="share_card_reunited">Ritrovato!</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: FAQ Screen -->
+    <!-- ============================================ -->
+    <string name="faq_title">Domande frequenti</string>
+    <string name="guides_title">Guide per l\'utente</string>
+    <string name="help_faq_group_getting_started">Per iniziare</string>
+    <string name="help_faq_group_tags_scanning">Medagliette e scansione</string>
+    <string name="help_faq_group_missing_pets">Animali scomparsi e avvisi</string>
+    <string name="help_faq_group_billing_plans">Fatturazione e piani</string>
+    <string name="help_faq_group_privacy_account">Privacy e account</string>
+    <string name="help_faq_group_troubleshooting">Risoluzione problemi</string>
+
+    <!-- Checkout & Order Status -->
+    <string name="checkout_subscription_success">Il tuo abbonamento è ora attivo!</string>
+    <string name="checkout_tag_order_success">Pagamento riuscito! Il tuo ordine di medagliette è in elaborazione.</string>
+    <string name="checkout_replacement_success">Pagamento riuscito! La tua medaglietta di ricambio è in arrivo.</string>
+    <string name="order_status_completed">Completato</string>
+    <string name="order_status_pending">In sospeso</string>
+    <string name="order_status_failed">Fallito</string>
+    <string name="order_status_processing">In elaborazione</string>
+    <string name="order_status_shipped">Spedito</string>
+    <string name="order_status_delivered">Consegnato</string>
+    <string name="order_status_cancelled">Annullato</string>
+
+    <!-- Missing translations added -->
+
+</resources>
