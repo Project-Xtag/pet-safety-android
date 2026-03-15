@@ -453,8 +453,10 @@ fun PetDetailScreen(
     }
 
     if (showSuccessStoryDialog) {
+        val resolvedAlertId by viewModel.lastResolvedAlertId.collectAsState()
         SuccessStoryDialog(
             pet = pet,
+            alertId = resolvedAlertId,
             onDismiss = {
                 showSuccessStoryDialog = false
                 onBack()

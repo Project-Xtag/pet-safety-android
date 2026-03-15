@@ -197,3 +197,12 @@ object AppModule {
         apiService: ApiService
     ): FCMRepository = FCMRepository(context, apiService)
 }
+
+/**
+ * Hilt entry point for accessing ApiService from non-Hilt contexts (e.g. Composables).
+ */
+@dagger.hilt.EntryPoint
+@dagger.hilt.InstallIn(dagger.hilt.components.SingletonComponent::class)
+interface ApiServiceEntryPoint {
+    fun apiService(): ApiService
+}

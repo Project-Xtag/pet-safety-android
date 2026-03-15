@@ -34,6 +34,10 @@ class PetsViewModel @Inject constructor(
     private val _isLoading = MutableStateFlow(false)
     val isLoading: StateFlow<Boolean> = _isLoading.asStateFlow()
 
+    /** The alertId from the most recent markPetFound call, used to fetch the server share card */
+    private val _lastResolvedAlertId = MutableStateFlow<String?>(null)
+    val lastResolvedAlertId: StateFlow<String?> = _lastResolvedAlertId.asStateFlow()
+
     private val _isRefreshing = MutableStateFlow(false)
     val isRefreshing: StateFlow<Boolean> = _isRefreshing.asStateFlow()
 
@@ -189,9 +193,11 @@ class PetsViewModel @Inject constructor(
     fun markPetFound(petId: String, onResult: (Boolean, String?) -> Unit) {
         viewModelScope.launch {
             _isLoading.value = true
+            _lastResolvedAlertId.value = null
             try {
                 val result = repository.markPetFound(petId)
                 val updatedPet = result.getOrThrow()
+                _lastResolvedAlertId.value = repository.lastResolvedAlertId
                 _pets.value = _pets.value.map { if (it.id == petId) updatedPet else it }
                 onResult(true, null)
             } catch (ex: OfflineQueuedException) {

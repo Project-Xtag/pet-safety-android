@@ -3,6 +3,7 @@ package com.petsafety.app.ui.components
 import android.Manifest
 import android.annotation.SuppressLint
 import android.content.pm.PackageManager
+import androidx.core.graphics.drawable.toBitmap
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.background
@@ -67,6 +68,7 @@ import kotlinx.coroutines.launch
 @Composable
 fun SuccessStoryDialog(
     pet: Pet,
+    alertId: String? = null,
     onDismiss: () -> Unit,
     onSubmit: (storyText: String, location: LocationCoordinate?) -> Unit,
     onSkip: () -> Unit
@@ -80,6 +82,7 @@ fun SuccessStoryDialog(
     var capturedLocation by remember { mutableStateOf<LocationCoordinate?>(null) }
     var isCapturingLocation by remember { mutableStateOf(false) }
     var isGeneratingCard by remember { mutableStateOf(false) }
+    var serverCardUrl by remember { mutableStateOf<String?>(null) }
     var hasLocationPermission by remember {
         mutableStateOf(
             ContextCompat.checkSelfPermission(
@@ -102,6 +105,26 @@ fun SuccessStoryDialog(
                 isCapturingLocation = false
             }.addOnFailureListener {
                 isCapturingLocation = false
+            }
+        }
+    }
+
+    // Pre-fetch server-generated share card URL (same image posted to official social accounts)
+    LaunchedEffect(alertId) {
+        if (alertId != null) {
+            try {
+                val locale = java.util.Locale.getDefault().language
+                val apiService = (context.applicationContext as com.petsafety.app.PetSafetyApplication)
+                    .let { app ->
+                        // Access Hilt's entry point for the ApiService
+                        dagger.hilt.android.EntryPointAccessors.fromApplication(
+                            app, com.petsafety.app.di.ApiServiceEntryPoint::class.java
+                        ).apiService()
+                    }
+                val response = apiService.getShareCard(alertId, locale)
+                response.data?.imageUrl?.let { serverCardUrl = it }
+            } catch (_: Exception) {
+                // Server card unavailable — local generator will be used as fallback
             }
         }
     }
@@ -139,13 +162,37 @@ fun SuccessStoryDialog(
                         isGeneratingCard = true
                         scope.launch {
                             try {
-                                val bitmap = ShareCardGenerator.generate(
-                                    context = context,
-                                    petName = pet.name,
-                                    petImageUrl = pet.profileImage,
-                                    petSpecies = pet.species,
-                                    city = pet.ownerCity
-                                )
+                                var bitmap: android.graphics.Bitmap? = null
+
+                                // Prefer server-generated card (matches what's posted to FB/IG/X)
+                                val cardUrl = serverCardUrl
+                                if (cardUrl != null) {
+                                    try {
+                                        val loader = coil.ImageLoader(context)
+                                        val request = coil.request.ImageRequest.Builder(context)
+                                            .data(cardUrl)
+                                            .allowHardware(false)
+                                            .build()
+                                        val result = loader.execute(request)
+                                        if (result is coil.request.SuccessResult) {
+                                            bitmap = result.drawable.toBitmap()
+                                        }
+                                    } catch (_: Exception) {
+                                        // Server card fetch failed — fall back to local generation
+                                    }
+                                }
+
+                                // Fallback: generate locally
+                                if (bitmap == null) {
+                                    bitmap = ShareCardGenerator.generate(
+                                        context = context,
+                                        petName = pet.name,
+                                        petImageUrl = pet.profileImage,
+                                        petSpecies = pet.species,
+                                        city = pet.ownerCity
+                                    )
+                                }
+
                                 val caption = context.getString(R.string.story_social_caption, pet.name)
                                 SocialShareHelper.shareImage(context, bitmap, caption)
                             } catch (_: Exception) { }

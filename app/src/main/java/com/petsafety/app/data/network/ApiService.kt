@@ -129,6 +129,12 @@ interface ApiService {
     @POST("alerts/{id}/found")
     suspend fun updateAlertStatus(@Path("id") id: String): ApiEnvelope<AlertResponse>
 
+    @GET("alerts/{id}/share-card")
+    suspend fun getShareCard(
+        @Path("id") id: String,
+        @Query("locale") locale: String? = null
+    ): ApiEnvelope<ShareCardResponse>
+
     @POST("alerts/{id}/sightings")
     suspend fun reportSighting(
         @Path("id") id: String,

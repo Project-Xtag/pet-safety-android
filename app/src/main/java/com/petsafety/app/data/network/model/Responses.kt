@@ -374,3 +374,10 @@ data class ShippingPricesResponse(
     val HU: ShippingPricesCountry? = null,
     @SerialName("default") val defaultPrice: ShippingPriceInfo? = null
 )
+
+@Serializable
+data class ShareCardResponse(
+    @SerialName("imageUrl") val imageUrl: String,
+    val type: String,
+    val locale: String
+)

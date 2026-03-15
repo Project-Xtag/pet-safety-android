@@ -123,7 +123,17 @@ class PetsRepository(
         return Result.success(response.data?.pet ?: error("Missing pet"))
     }
 
+    /** The alertId from the most recent markPetFound call, used to fetch the server share card */
+    var lastResolvedAlertId: String? = null
+        private set
+
+    /**
+     * Mark pet as found.
+     * Resolves the active alert first (triggering GDPR cleanup, notifications, social posting),
+     * then updates the pet status. Queues action if offline.
+     */
     suspend fun markPetFound(petId: String): Result<Pet> {
+        lastResolvedAlertId = null
         networkMonitor.refreshStatus()
         if (!networkMonitor.isConnected.first()) {
             val actionData = mapOf("petId" to petId)
@@ -131,6 +141,21 @@ class PetsRepository(
             return Result.failure(OfflineQueuedException())
         }
 
+        // First, resolve the active alert (triggers GDPR cleanup, notifications, social posting)
+        try {
+            val alertsResponse = apiService.getAlerts()
+            val activeAlert = alertsResponse.data?.alerts?.firstOrNull {
+                it.petId == petId && it.status == "active"
+            }
+            if (activeAlert != null) {
+                apiService.updateAlertStatus(activeAlert.id)
+                lastResolvedAlertId = activeAlert.id
+            }
+        } catch (_: Exception) {
+            // Alert resolution failed — continue with pet update so the user isn't blocked
+        }
+
+        // Then update the pet status
         val response = apiService.updatePet(petId, UpdatePetRequest(isMissing = false))
         response.data?.pet?.let { offlineManager.savePet(it) }
         return Result.success(response.data?.pet ?: error("Missing pet"))

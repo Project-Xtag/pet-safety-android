@@ -59,7 +59,7 @@ object ShareCardGenerator {
                 textAlign = Paint.Align.CENTER
                 isAntiAlias = true
             }
-            canvas.drawText("TagMe Now", CARD_SIZE / 2f, 65f, textPaint)
+            canvas.drawText("Senra", CARD_SIZE / 2f, 65f, textPaint)
         }
 
         // "Reunited!" text
