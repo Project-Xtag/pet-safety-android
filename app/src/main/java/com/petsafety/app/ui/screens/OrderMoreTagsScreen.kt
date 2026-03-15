@@ -143,7 +143,7 @@ fun OrderMoreTagsScreen(
     LaunchedEffect(currentUser) {
         currentUser?.let { user ->
             if (ownerName.value.isBlank()) {
-                ownerName.value = listOfNotNull(user.firstName, user.lastName).joinToString(" ")
+                ownerName.value = com.petsafety.app.util.InputValidators.formatDisplayName(user.firstName, user.lastName)
             }
             if (email.value.isBlank()) email.value = user.email
             if (phone.value.isBlank()) user.phone?.let { phone.value = it }

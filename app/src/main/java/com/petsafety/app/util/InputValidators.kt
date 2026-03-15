@@ -98,4 +98,24 @@ object InputValidators {
     const val MAX_PHONE = 20
 
     fun isWithinLimit(text: String, maxLength: Int): Boolean = text.length <= maxLength
+
+    // MARK: - Locale-aware name ordering
+
+    /**
+     * Format display name in culturally appropriate order.
+     * Hungarian, Japanese, Chinese, Korean use family-name-first order.
+     */
+    fun formatDisplayName(firstName: String?, lastName: String?, locale: String? = null): String {
+        val first = firstName?.trim().orEmpty()
+        val last = lastName?.trim().orEmpty()
+
+        if (first.isEmpty() && last.isEmpty()) return ""
+        if (first.isEmpty()) return last
+        if (last.isEmpty()) return first
+
+        val lang = (locale ?: java.util.Locale.getDefault().language).lowercase().take(2)
+        val familyFirst = setOf("hu", "ja", "zh", "ko")
+
+        return if (lang in familyFirst) "$last $first" else "$first $last"
+    }
 }

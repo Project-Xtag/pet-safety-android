@@ -33,5 +33,5 @@ data class User(
     @SerialName("show_secondary_email_publicly") val showSecondaryEmailPublicly: Boolean? = null
 ) {
     val fullName: String
-        get() = listOfNotNull(firstName, lastName).joinToString(" ")
+        get() = com.petsafety.app.util.InputValidators.formatDisplayName(firstName, lastName)
 }
