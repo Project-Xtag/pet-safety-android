@@ -679,7 +679,7 @@
     <string name="help_faq_q10">Jak zamówić zamienną zawieszką?</string>
     <string name="help_faq_a10">Przejdź do strony Konto i kliknij „Zamów zamienną". Wybierz pupila, który potrzebuje nowej zawieszki. Abonenci planu Standard i Maximum mogą zamawiać darmowe zamienne zawieszki bez limitu, a abonenci Starter płacą jedynie niewielką opłatę za wysyłkę.</string>
     <string name="help_faq_q11">Czym jest program poleceń?</string>
-    <string name="help_faq_a11">Udostępnij wygenerowany na stronie kod znajomym i rodzinie. Gdy ktoś użyje kodu i wykupi płatny plan (Standard lub Maximum), wy oboje otrzymacie 2 miesiące gratis. Swoje polecenia i ich status możesz śledzić na stronie Polecenia.</string>
+    <string name="help_faq_a11">Przejdź na stronę Polecenia, aby wygenerować swój osobisty kod polecenia. Udostępnij go znajomym i rodzinie. Gdy ktoś użyje Twojego kodu i subskrybuje plan płatny (Standard lub Maximum), oboje otrzymacie 2 miesiące za darmo. Możesz śledzić swoje polecenia na stronie Polecenia.</string>
     <string name="help_faq_q12">Do jakich krajów wysyłacie?</string>
     <string name="help_faq_a12">Wysyłamy do Węgier oraz wszystkich krajów Unii Europejskiej, ale zawieszki działają w każdym miejscu na świecie. Wysyłka na Węgry: %1$s (PostaPont) lub %2$s (dostawa do domu). Wysyłka międzynarodowa: %3$s za zamówienie.</string>
     <string name="help_faq_q13">Czy mogę mieć kilka pupili na jednym koncie?</string>

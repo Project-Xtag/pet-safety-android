@@ -670,7 +670,7 @@
     <string name="help_faq_q10">Comment commander une médaille de remplacement ?</string>
     <string name="help_faq_a10">Va sur la page Compte et appuie sur \'Commander un remplacement\'. Sélectionne l\'animal qui a besoin d\'une nouvelle médaille. Les membres Maximum bénéficient de remplacements gratuits illimités, les membres Standard ont droit à un remplacement gratuit par an, et les membres Starter peuvent commander des remplacements moyennant de petits frais de port.</string>
     <string name="help_faq_q11">Qu\'est-ce que le programme de parrainage ?</string>
-    <string name="help_faq_a11">Partage le code SENRAFRIEND avec tes amis et ta famille. Lorsque quelqu\'un utilise ce code et souscrit à un abonnement payant (Standard ou Maximum), vous recevez tous les deux 2 mois gratuits. Tu peux suivre tes parrainages et leur statut sur la page Parrainage.</string>
+    <string name="help_faq_a11">Rendez-vous sur la page Parrainage pour générer votre code de parrainage personnel. Partagez-le avec vos amis et votre famille. Lorsque quelqu\'un utilise votre code et souscrit à un abonnement payant (Standard ou Maximum), vous recevez tous les deux 2 mois gratuits. Vous pouvez suivre vos parrainages sur la page Parrainage.</string>
     <string name="help_faq_q12">Dans quels pays livrez-vous ?</string>
     <string name="help_faq_a12">Nous livrons actuellement en Hongrie, Slovaquie, Tchéquie, Autriche, Roumanie, Croatie, Espagne et Portugal. La livraison en Hongrie coûte %1$s (PostaPont) ou %2$s (livraison à domicile). La livraison internationale est de %3$s par commande.</string>
     <string name="help_faq_q13">Puis-je avoir plusieurs animaux sur un seul compte ?</string>

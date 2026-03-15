@@ -971,7 +971,7 @@
     <string name="help_faq_q10">Jak objednám náhradní štítek?</string>
     <string name="help_faq_a10">Přejděte na stránku Účet a klepněte na \'Objednat náhradu\'. Vyberte mazlíčka, který potřebuje nový štítek. Členové plánu Maximum mají neomezené bezplatné náhrady, členové plánu Standard mají jednu bezplatnou náhradu ročně a členové plánu Starter si mohou objednat náhrady za malý poplatek za dopravu.</string>
     <string name="help_faq_q11">Co je to program doporučení?</string>
-    <string name="help_faq_a11">Sdílejte kód SENRAFRIEND s přáteli a rodinou. Když někdo použije tento kód a přihlásí se k placenému plánu (Standard nebo Maximum), oba — vy i váš přítel — získáte 2 měsíce zdarma. Svá doporučení a jejich stav můžete sledovat na stránce Doporučení.</string>
+    <string name="help_faq_a11">Přejděte na stránku Doporučení a vygenerujte si svůj osobní doporučující kód. Sdílejte ho s přáteli a rodinou. Když někdo váš kód použije a přihlásí se k placenému plánu (Standard nebo Maximum), oba získáte 2 měsíce zdarma. Svá doporučení můžete sledovat na stránce Doporučení.</string>
     <string name="help_faq_q12">Do jakých zemí zasíláte?</string>
     <string name="help_faq_a12">V současné době zasíláme do Maďarska, Slovenska, Česka, Rakouska, Rumunska, Chorvatska, Španělska a Portugalska. Doprava v Maďarsku stojí %1$s (PostaPont) nebo %2$s (doručení domů). Mezinárodní doprava stojí %3$s za objednávku.</string>
     <string name="help_faq_q13">Mohu mít více mazlíčků na jednom účtu?</string>

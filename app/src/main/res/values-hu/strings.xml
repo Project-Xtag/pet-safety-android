@@ -962,7 +962,7 @@
     <string name="help_faq_q10">Hogyan rendelhetek cserebilétát?</string>
     <string name="help_faq_a10">Menj a Fiókom oldalra és kattints a \'Csere rendelése\' gombra. Válaszd ki, melyik kedvencnek kell új biléta. A Standard és Maximum csomag előfizetői korlátlan ingyenes cserét kapnak, a Starter csomag tagjai pedig kis szállítási díjért rendelhetnek cserét.</string>
     <string name="help_faq_q11">Mi az ajánlói program?</string>
-    <string name="help_faq_a11">Oszd meg a honlapon generált kódodat a barátaiddal és családtagjaiddal. Amikor valaki felhasználja ezt a kódot és előfizet egy fizetős csomagra (Standard vagy Maximum), te és a barátod is 2 hónap ingyenességet kaptok. Az ajánlásaidat és azok állapotát az Ajánló oldalon követheted nyomon.</string>
+    <string name="help_faq_a11">Az Ajánló oldalon generálhatsz személyes ajánlói kódot. Oszd meg barátaiddal és családtagjaiddal. Amikor valaki felhasználja a kódodat és előfizet egy fizetős csomagra (Standard vagy Maximum), te és a barátod is 2 hónap ingyenességet kaptok. Az ajánlásaidat és azok állapotát az Ajánló oldalon követheted nyomon.</string>
     <string name="help_faq_q12">Mely országokba szállítotok?</string>
     <string name="help_faq_a12">Jelenleg Magyarországra és az Európai Unió országaiba szállítunk, de a biléták a világ összes országában müködnek. Magyarországi szállítás: %1$s (PostaPont) vagy %2$s (házhozszállítás). Nemzetközi szállítás: %3$s rendelésenként.</string>
     <string name="help_faq_q13">Lehet több kedvencem is regisztrálva egy fiókon?</string>

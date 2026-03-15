@@ -670,7 +670,7 @@
     <string name="help_faq_q10">Come ordino una medaglietta di ricambio?</string>
     <string name="help_faq_a10">Vai alla pagina Account e tocca \'Ordina ricambio\'. Seleziona l\'animale che ha bisogno di una nuova medaglietta. Gli abbonati Standard e Maximum ricevono sostituzioni gratuite illimitate, quelli Starter possono ordinare ricambi con un piccolo contributo spese di spedizione.</string>
     <string name="help_faq_q11">Cos\'è il programma di referral?</string>
-    <string name="help_faq_a11">Condividi il codice generato sul sito con amici e familiari. Quando qualcuno usa questo codice e si abbona a un piano a pagamento (Standard o Maximum), sia tu che il tuo amico ricevete 2 mesi gratuiti. Puoi monitorare i tuoi referral e il loro stato nella pagina Referral.</string>
+    <string name="help_faq_a11">Vai alla pagina Referral per generare il tuo codice referral personale. Condividilo con amici e familiari. Quando qualcuno usa il tuo codice e sottoscrive un piano a pagamento (Standard o Maximum), entrambi ricevete 2 mesi gratis. Puoi monitorare i tuoi referral nella pagina Referral.</string>
     <string name="help_faq_q12">In quali paesi spedite?</string>
     <string name="help_faq_a12">Spediamo attualmente in Ungheria e nei paesi dell\'Unione Europea, ma le medagliette funzionano in tutto il mondo. Spedizione in Ungheria: %1$s (PostaPont) o %2$s (consegna a domicilio). Spedizione internazionale: %3$s per ordine.</string>
     <string name="help_faq_q13">Posso avere più animali registrati su un account?</string>
