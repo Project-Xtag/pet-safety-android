@@ -19,7 +19,8 @@ data class Order(
     val currency: String = "eur",
     @SerialName("created_at") val createdAt: String,
     @SerialName("updated_at") val updatedAt: String,
-    val items: List<OrderItem>? = null
+    val items: List<OrderItem>? = null,
+    @SerialName("is_gift") val isGift: Boolean = false
 )
 
 @Serializable

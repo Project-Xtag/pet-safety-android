@@ -153,13 +153,17 @@ data class CreateOrderRequest(
 
 @Serializable
 data class CreateTagOrderRequest(
-    val petNames: List<String>,
+    val petNames: List<String>? = null,
     val ownerName: String,
     val email: String,
     val shippingAddress: AddressDetails,
     val billingAddress: AddressDetails? = null,
     val paymentMethod: String? = null,
-    val shippingCost: Double? = null
+    val shippingCost: Double? = null,
+    val isGift: Boolean? = null,
+    val giftRecipientName: String? = null,
+    val giftMessage: String? = null,
+    val quantity: Int? = null
 )
 
 @Serializable

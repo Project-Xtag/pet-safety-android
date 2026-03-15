@@ -507,7 +507,7 @@
     <string name="reunited_in">Wieder vereint in %1$s</string>
     <string name="shared_via_pet_safety">Geteilt über die Pet Safety App</string>
     <string name="story_share_good_news">Teile die gute Nachricht</string>
-    <string name="story_social_caption">%1$s ist wieder mit seiner Familie vereint! Danke an die TagMe Now Community, die geholfen hat, %1$s nach Hause zu bringen. senra.pet</string>
+    <string name="story_social_caption">%1$s ist wieder mit seiner Familie vereint! Danke an die Senra Community, die geholfen hat, %1$s nach Hause zu bringen. senra.pet</string>
     <string name="story_generating_card">Teilen-Karte wird erstellt\u2026</string>
     <string name="story_pet_is_home_title">%1$s ist zu Hause!</string>
     <string name="story_inspire_others_message">Inspiriere andere Tierbesitzer, indem du teilst, wie %1$s wiedervereint wurde.</string>
@@ -640,11 +640,6 @@
     <string name="help_faq_q5">Wie bestelle ich einen Ersatz-Tag?</string>
     <string name="help_faq_a5">Gehe zum Profil deines Tieres und klicke auf \'Ersatz-Tag bestellen\'.</string>
     <!-- Guide Items -->
-    <string name="help_guide_getting_started">Erste Schritte</string>
-    <string name="help_guide_managing_pets">Haustiere verwalten</string>
-    <string name="help_guide_qr_tags">QR-Tags verstehen</string>
-    <string name="help_guide_missing_pet">Was tun, wenn Ihr Haustier vermisst wird</string>
-    <string name="help_guide_privacy">Datenschutz- &amp; Sicherheitseinstellungen</string>
 
     <!-- ============================================ -->
     <!-- MARK: Orders -->
@@ -1053,4 +1048,19 @@
     <string name="sex_optional">Optional</string>
     <string name="street2">Whg. / Etage / Stiege (Optional)</string>
 
+    <string name="pet_limit_reached">Haustierlimit erreicht</string>
+    <string name="pet_limit_reached_message">Dein %1$s-Abo erlaubt %2$d Haustier. Wechsle zu %3$s für %4$s, um unbegrenzt Haustiere hinzuzufügen.</string>
+    <string name="share_owner_notified">Der Besitzer wurde benachrichtigt</string>
+    <string name="sse_connection_lost">Echtzeit-Updates nicht verfügbar. Zum Aktualisieren nach unten ziehen.</string>
+    <string name="story_placeholder">Erzähle deine Wiedervereinigungsgeschichte...</string>
+    <string name="upgrade_to_plan">Auf %1$s upgraden</string>
+
+    <!-- Gift order -->
+    <string name="order_gift_toggle">Als Geschenk bestellen</string>
+    <string name="order_gift_description">Bei Geschenkbestellungen sind Tiernamen optional. Der Empfänger kann sie beim Aktivieren der Tags hinzufügen.</string>
+    <string name="order_gift_quantity">Anzahl der Tags</string>
+    <string name="order_gift_recipient_name">Name des Empfängers (optional)</string>
+    <string name="order_gift_message">Geschenknachricht (optional)</string>
+    <string name="order_gift_message_placeholder">Persönliche Nachricht hinzufügen…</string>
+    <string name="order_gift_badge">Geschenkbestellung</string>
 </resources>

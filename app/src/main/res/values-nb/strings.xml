@@ -528,8 +528,6 @@
     <string name="missing_for">Savnet i %1$s</string>
     <string name="pet_found_share">%1$s funnet!</string>
     <string name="reunited_in">Gjenforent på %1$s</string>
-
-</resources>
     <string name="shared_via_pet_safety">Delt via Pet Safety-appen</string>
     <string name="story_share_good_news">Del de gode nyhetene</string>
     <string name="story_social_caption">%1$s er gjenforent med familien sin! Takk til Senra-fellesskapet for å ha hjulpet %1$s hjem. senra.pet</string>
@@ -1057,6 +1055,15 @@
     <string name="order_status_shipped">Sendt</string>
     <string name="order_status_delivered">Levert</string>
     <string name="order_status_cancelled">Kansellert</string>
+
+    <!-- Gift order -->
+    <string name="order_gift_toggle">Bestill som gave</string>
+    <string name="order_gift_description">Dyrenavn er valgfrie for gavebestillinger. Mottakeren kan legge dem til når de aktiverer merkene.</string>
+    <string name="order_gift_quantity">Antall merker</string>
+    <string name="order_gift_recipient_name">Mottakerens navn (valgfritt)</string>
+    <string name="order_gift_message">Gavemelding (valgfritt)</string>
+    <string name="order_gift_message_placeholder">Legg til en personlig melding…</string>
+    <string name="order_gift_badge">Gavebestilling</string>
 
     <!-- Missing translations added -->
 

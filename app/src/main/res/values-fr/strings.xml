@@ -531,7 +531,7 @@
     <string name="reunited_in">Réuni en %1$s</string>
     <string name="shared_via_pet_safety">Partagé via l\'application Pet Safety</string>
     <string name="story_share_good_news">Partage la bonne nouvelle</string>
-    <string name="story_social_caption">%1$s a retrouvé sa famille ! Merci à la communauté TagMe Now d\'avoir aidé à ramener %1$s à la maison. senra.pet</string>
+    <string name="story_social_caption">%1$s a retrouvé sa famille ! Merci à la communauté Senra d\'avoir aidé à ramener %1$s à la maison. senra.pet</string>
     <string name="story_generating_card">Création de la carte de partage\u2026</string>
     <string name="story_pet_is_home_title">%1$s est rentré !</string>
     <string name="story_inspire_others_message">Aide d\'autres propriétaires en partageant comment %1$s t\'a été retrouvé.</string>
@@ -1056,4 +1056,13 @@
     <string name="order_status_shipped">Expédiée</string>
     <string name="order_status_delivered">Livrée</string>
     <string name="order_status_cancelled">Annulée</string>
+
+    <!-- Gift order -->
+    <string name="order_gift_toggle">Commander comme cadeau</string>
+    <string name="order_gift_description">Les noms des animaux sont facultatifs pour les commandes cadeaux. Le destinataire peut les ajouter lors de l\'activation des étiquettes.</string>
+    <string name="order_gift_quantity">Nombre d\'étiquettes</string>
+    <string name="order_gift_recipient_name">Nom du destinataire (facultatif)</string>
+    <string name="order_gift_message">Message cadeau (facultatif)</string>
+    <string name="order_gift_message_placeholder">Ajoutez un message personnel…</string>
+    <string name="order_gift_badge">Commande cadeau</string>
 </resources>

@@ -507,7 +507,7 @@
     <string name="reunited_in">%1$s alatt újraegyesült</string>
     <string name="shared_via_pet_safety">Megosztva a Pet Safety alkalmazásból</string>
     <string name="story_share_good_news">Oszd meg a jó hírt</string>
-    <string name="story_social_caption">%1$s újra a családjával van! Köszönjük a TagMe Now közösségnek, hogy segített %1$s hazajutni. senra.pet</string>
+    <string name="story_social_caption">%1$s újra a családjával van! Köszönjük a Senra közösségnek, hogy segített %1$s hazajutni. senra.pet</string>
     <string name="story_generating_card">Megosztási kártya készítése...</string>
     <string name="story_pet_is_home_title">%1$s itthon van!</string>
     <string name="story_inspire_others_message">Segíts inspirálni más gazdákat azzal, hogy megosztod, hogyan egyesültél újra %1$s-szal.</string>
@@ -640,11 +640,6 @@
     <string name="help_faq_q5">Hogyan rendelhetek cserebilétát?</string>
     <string name="help_faq_a5">Ha a biléta elveszett vagy megrongálódottt és cserebilétára van szükséged, menj a kedvenced profiljába és kattints a \'Cserebiléta rendelése\' gombra. Kövesd a lépéseket a rendelés befejezéséhez. A cserebiléta a Standard és Maximum csomag előfizetőinek ingyenes.</string>
     <!-- Guide Items -->
-    <string name="help_guide_getting_started">Első lépések</string>
-    <string name="help_guide_managing_pets">Kedvenceid kezelése</string>
-    <string name="help_guide_qr_tags">QR biléták megértése</string>
-    <string name="help_guide_missing_pet">Mit tegyél, ha eltűnik a kedvenced</string>
-    <string name="help_guide_privacy">Adatvédelmi és biztonsági beállítások</string>
 
     <!-- ============================================ -->
     <!-- MARK: Orders -->
@@ -941,7 +936,7 @@
     <string name="someone_fallback">Valaki</string>
     <string name="no_plan">Nincs</string>
     <string name="current_location_fallback">Jelenlegi hely</string>
-    <string name="share_card_reunited">Újraegyesült!</string>
+    <string name="share_card_reunited">Hazakerült!</string>
 
     <!-- FAQ Screen -->
     <string name="faq_title">Gyakran ismételt kérdések</string>
@@ -1053,4 +1048,19 @@
     <string name="sex_optional">Opcionális</string>
     <string name="street2">Lh. / Emelet / Ajtó (Opcionális)</string>
 
+    <string name="pet_limit_reached">Elérted a kedvencek korlátját</string>
+    <string name="pet_limit_reached_message">A %1$s előfizetésed %2$d kedvencet engedélyez. Váltás %3$s csomagra (%4$s) a korlátlan kedvencekhez.</string>
+    <string name="share_owner_notified">A gazdi értesítve lett</string>
+    <string name="sse_connection_lost">A valós idejű frissítések nem elérhetők. Húzd le a frissítéshez.</string>
+    <string name="story_placeholder">Meséld el az újraegyesülés történetét...</string>
+    <string name="upgrade_to_plan">Váltás erre: %1$s</string>
+
+    <!-- Gift order -->
+    <string name="order_gift_toggle">Rendelés ajándékként</string>
+    <string name="order_gift_description">Az ajándék rendeléseknél a kisállat neve nem kötelező. A címzett a címkék aktiválásakor adhatja meg.</string>
+    <string name="order_gift_quantity">Címkék száma</string>
+    <string name="order_gift_recipient_name">Címzett neve (nem kötelező)</string>
+    <string name="order_gift_message">Ajándék üzenet (nem kötelező)</string>
+    <string name="order_gift_message_placeholder">Adj hozzá személyes üzenetet…</string>
+    <string name="order_gift_badge">Ajándék rendelés</string>
 </resources>

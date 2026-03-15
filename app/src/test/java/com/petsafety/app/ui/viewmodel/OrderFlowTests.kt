@@ -141,9 +141,9 @@ class OrderFlowTests {
             shippingAddress = huAddress
         )
 
-        assertEquals(2, request.petNames.size)
-        assertEquals("Rex", request.petNames[0])
-        assertEquals("Luna", request.petNames[1])
+        assertEquals(2, request.petNames!!.size)
+        assertEquals("Rex", request.petNames!![0])
+        assertEquals("Luna", request.petNames!![1])
     }
 
     // ==================== Scenario 3: DE, 3 pets, home_delivery ====================
@@ -173,7 +173,7 @@ class OrderFlowTests {
             shippingAddress = deAddress
         )
 
-        assertEquals(3, request.petNames.size)
+        assertEquals(3, request.petNames!!.size)
         assertEquals("DE", request.shippingAddress.country)
         assertEquals("Berlin", request.shippingAddress.city)
     }

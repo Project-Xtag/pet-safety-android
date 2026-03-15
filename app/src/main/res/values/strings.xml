@@ -530,7 +530,7 @@
     <string name="reunited_in">Reunited in %1$s</string>
     <string name="shared_via_pet_safety">Shared via Pet Safety App</string>
     <string name="story_share_good_news">Share the Good News</string>
-    <string name="story_social_caption">%1$s has been reunited with their family! Thank you to the TagMe Now community for helping bring %1$s home. senra.pet</string>
+    <string name="story_social_caption">%1$s has been reunited with their family! Thank you to the Senra community for helping bring %1$s home. senra.pet</string>
     <string name="story_generating_card">Creating share card\u2026</string>
     <string name="story_pet_is_home_title">%1$s is home!</string>
     <string name="story_inspire_others_message">Help inspire other pet owners by sharing how %1$s was reunited with you.</string>
@@ -1061,4 +1061,13 @@
     <string name="order_status_shipped">Shipped</string>
     <string name="order_status_delivered">Delivered</string>
     <string name="order_status_cancelled">Cancelled</string>
+
+    <!-- Gift order -->
+    <string name="order_gift_toggle">Order as a gift</string>
+    <string name="order_gift_description">Pet names are optional for gift orders. The recipient can add them when activating the tags.</string>
+    <string name="order_gift_quantity">Number of tags</string>
+    <string name="order_gift_recipient_name">Recipient Name (optional)</string>
+    <string name="order_gift_message">Gift Message (optional)</string>
+    <string name="order_gift_message_placeholder">Add a personal message…</string>
+    <string name="order_gift_badge">Gift Order</string>
 </resources>

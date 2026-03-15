@@ -507,7 +507,7 @@
     <string name="reunited_in">Znovuzjednotené za %1$s</string>
     <string name="shared_via_pet_safety">Zdieľané cez aplikáciu Pet Safety</string>
     <string name="story_share_good_news">Zdieľaj dobrú správu</string>
-    <string name="story_social_caption">%1$s sa opäť stretol so svojou rodinou! Ďakujeme komunite TagMe Now za pomoc pri návrate %1$s domov. senra.pet</string>
+    <string name="story_social_caption">%1$s sa opäť stretol so svojou rodinou! Ďakujeme komunite Senra za pomoc pri návrate %1$s domov. senra.pet</string>
     <string name="story_generating_card">Vytváranie zdieľacej karty\u2026</string>
     <string name="story_pet_is_home_title">%1$s je doma!</string>
     <string name="story_inspire_others_message">Pomôžte inšpirovať ostatných majiteľov zdieľaním príbehu o stretnutí s %1$s.</string>
@@ -640,11 +640,6 @@
     <string name="help_faq_q5">Ako objednám náhradný štítok?</string>
     <string name="help_faq_a5">Ak potrebujete náhradný štítok, prejdite do profilu zvieraťa a kliknite na \'Objednať náhradný štítok\'. Postupujte podľa pokynov.</string>
     <!-- Guide Items -->
-    <string name="help_guide_getting_started">Začíname</string>
-    <string name="help_guide_managing_pets">Správa zvierat</string>
-    <string name="help_guide_qr_tags">Pochopenie QR štítkov</string>
-    <string name="help_guide_missing_pet">Čo robiť, keď sa zviera stratí</string>
-    <string name="help_guide_privacy">Nastavenia súkromia a zabezpečenia</string>
 
     <!-- ============================================ -->
     <!-- MARK: Orders -->
@@ -1061,4 +1056,19 @@
     <string name="sex_optional">Voliteľné</string>
     <string name="street2">Byt / Poschodie (Voliteľné)</string>
 
+    <string name="pet_limit_reached">Limit domácich zvierat dosiahnutý</string>
+    <string name="pet_limit_reached_message">Tvoj %1$s plán povoľuje %2$d domáce zviera. Prejdi na %3$s za %4$s pre neobmedzený počet zvierat.</string>
+    <string name="share_owner_notified">Majiteľ bol upozornený</string>
+    <string name="sse_connection_lost">Aktualizácie v reálnom čase nie sú dostupné. Potiahni nadol pre obnovenie.</string>
+    <string name="story_placeholder">Povedz svoj príbeh o opätovnom stretnutí...</string>
+    <string name="upgrade_to_plan">Prejsť na %1$s</string>
+
+    <!-- Gift order -->
+    <string name="order_gift_toggle">Objednať ako darček</string>
+    <string name="order_gift_description">Pri darčekových objednávkach nie sú mená zvierat povinné. Príjemca ich môže pridať pri aktivácii štítkov.</string>
+    <string name="order_gift_quantity">Počet štítkov</string>
+    <string name="order_gift_recipient_name">Meno príjemcu (voliteľné)</string>
+    <string name="order_gift_message">Darčeková správa (voliteľné)</string>
+    <string name="order_gift_message_placeholder">Pridajte osobnú správu…</string>
+    <string name="order_gift_badge">Darčeková objednávka</string>
 </resources>

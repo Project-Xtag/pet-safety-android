@@ -1082,6 +1082,15 @@
     <string name="order_status_delivered">Dostarczone</string>
     <string name="order_status_cancelled">Anulowane</string>
 
+    <!-- Gift order -->
+    <string name="order_gift_toggle">Zamów jako prezent</string>
+    <string name="order_gift_description">Imiona zwierząt są opcjonalne w zamówieniach prezentowych. Odbiorca może je dodać podczas aktywacji znaczników.</string>
+    <string name="order_gift_quantity">Liczba znaczników</string>
+    <string name="order_gift_recipient_name">Imię odbiorcy (opcjonalnie)</string>
+    <string name="order_gift_message">Wiadomość prezentowa (opcjonalnie)</string>
+    <string name="order_gift_message_placeholder">Dodaj osobistą wiadomość…</string>
+    <string name="order_gift_badge">Zamówienie prezentowe</string>
+
     <!-- Missing translations -->
 
 </resources>

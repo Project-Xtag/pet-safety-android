@@ -508,7 +508,7 @@
     <string name="reunited_in">Shledáno za %1$s</string>
     <string name="shared_via_pet_safety">Sdíleno přes Pet Safety aplikaci</string>
     <string name="story_share_good_news">Sdílej dobrou zprávu</string>
-    <string name="story_social_caption">%1$s se opět shledal se svou rodinou! Děkujeme komunitě TagMe Now za pomoc s návratem %1$s domů. senra.pet</string>
+    <string name="story_social_caption">%1$s se opět shledal se svou rodinou! Děkujeme komunitě Senra za pomoc s návratem %1$s domů. senra.pet</string>
     <string name="story_generating_card">Vytváření sdílecí karty\u2026</string>
     <string name="story_pet_is_home_title">%1$s je doma!</string>
     <string name="story_inspire_others_message">Pomozte inspirovat ostatní majitele sdílením příběhu o shledání s %1$s.</string>
@@ -641,11 +641,6 @@
     <string name="help_faq_q5">Jak objednám náhradní štítek?</string>
     <string name="help_faq_a5">V profilu mazlíčka klikněte na \'Objednat náhradní štítek\' a postupujte dle pokynů.</string>
     <!-- Guide Items -->
-    <string name="help_guide_getting_started">Začínáme</string>
-    <string name="help_guide_managing_pets">Správa mazlíčků</string>
-    <string name="help_guide_qr_tags">Porozumění QR známkám</string>
-    <string name="help_guide_missing_pet">Co dělat, když se mazlíček ztratí</string>
-    <string name="help_guide_privacy">Nastavení soukromí a zabezpečení</string>
 
     <!-- ============================================ -->
     <!-- MARK: Orders -->
@@ -1062,4 +1057,19 @@
     <string name="sex_optional">Volitelné</string>
     <string name="street2">Byt / Patro (Volitelné)</string>
 
+    <string name="pet_limit_reached">Limit domácích zvířat dosažen</string>
+    <string name="pet_limit_reached_message">Tvůj %1$s plán povoluje %2$d domácí zvíře. Přejdi na %3$s za %4$s pro neomezený počet zvířat.</string>
+    <string name="share_owner_notified">Majitel byl upozorněn</string>
+    <string name="sse_connection_lost">Aktualizace v reálném čase nejsou dostupné. Potáhni dolů pro obnovení.</string>
+    <string name="story_placeholder">Pověz svůj příběh o opětovném shledání...</string>
+    <string name="upgrade_to_plan">Přejít na %1$s</string>
+
+    <!-- Gift order -->
+    <string name="order_gift_toggle">Objednat jako dárek</string>
+    <string name="order_gift_description">U dárkových objednávek nejsou jména mazlíčků povinná. Příjemce je může přidat při aktivaci štítků.</string>
+    <string name="order_gift_quantity">Počet štítků</string>
+    <string name="order_gift_recipient_name">Jméno příjemce (volitelné)</string>
+    <string name="order_gift_message">Dárková zpráva (volitelné)</string>
+    <string name="order_gift_message_placeholder">Přidejte osobní zprávu…</string>
+    <string name="order_gift_badge">Dárková objednávka</string>
 </resources>

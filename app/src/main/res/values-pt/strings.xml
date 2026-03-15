@@ -507,7 +507,7 @@
     <string name="reunited_in">Reunido em %1$s</string>
     <string name="shared_via_pet_safety">Partilhado via Pet Safety App</string>
     <string name="story_share_good_news">Partilha a boa notícia</string>
-    <string name="story_social_caption">%1$s reencontrou a sua família! Obrigado à comunidade TagMe Now por ajudar a trazer %1$s para casa. senra.pet</string>
+    <string name="story_social_caption">%1$s reencontrou a sua família! Obrigado à comunidade Senra por ajudar a trazer %1$s para casa. senra.pet</string>
     <string name="story_generating_card">A criar cartão de partilha\u2026</string>
     <string name="story_pet_is_home_title">%1$s está em casa!</string>
     <string name="story_inspire_others_message">Inspire outros donos partilhando como %1$s foi reunido consigo.</string>
@@ -640,11 +640,6 @@
     <string name="help_faq_q5">Como pedir uma etiqueta de substituição?</string>
     <string name="help_faq_a5">No perfil do animal, escolha \'Pedir substituição\' e siga os passos.</string>
     <!-- Guide Items -->
-    <string name="help_guide_getting_started">Primeiros passos</string>
-    <string name="help_guide_managing_pets">Gerir os seus animais</string>
-    <string name="help_guide_qr_tags">Compreender etiquetas QR</string>
-    <string name="help_guide_missing_pet">O que fazer se o seu animal desaparecer</string>
-    <string name="help_guide_privacy">Definições de privacidade e segurança</string>
 
     <!-- ============================================ -->
     <!-- MARK: Orders -->
@@ -1053,4 +1048,19 @@
     <string name="sex_optional">Opcional</string>
     <string name="street2">Apt. / Andar / Bloco (Opcional)</string>
 
+    <string name="pet_limit_reached">Limite de animais atingido</string>
+    <string name="pet_limit_reached_message">O teu plano %1$s permite %2$d animal. Muda para %3$s por %4$s para adicionar animais ilimitados.</string>
+    <string name="share_owner_notified">O dono foi notificado</string>
+    <string name="sse_connection_lost">Atualizações em tempo real indisponíveis. Puxa para baixo para atualizar.</string>
+    <string name="story_placeholder">Conta a tua história de reencontro...</string>
+    <string name="upgrade_to_plan">Mudar para %1$s</string>
+
+    <!-- Gift order -->
+    <string name="order_gift_toggle">Encomendar como presente</string>
+    <string name="order_gift_description">Os nomes dos animais são opcionais em encomendas de presente. O destinatário pode adicioná-los ao ativar as etiquetas.</string>
+    <string name="order_gift_quantity">Número de etiquetas</string>
+    <string name="order_gift_recipient_name">Nome do destinatário (opcional)</string>
+    <string name="order_gift_message">Mensagem de presente (opcional)</string>
+    <string name="order_gift_message_placeholder">Adiciona uma mensagem pessoal…</string>
+    <string name="order_gift_badge">Encomenda de presente</string>
 </resources>

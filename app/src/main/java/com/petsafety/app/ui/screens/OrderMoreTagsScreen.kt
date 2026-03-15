@@ -29,9 +29,11 @@ import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.LocalShipping
+import androidx.compose.material.icons.filled.CardGiftcard
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Pets
 import androidx.compose.material.icons.filled.Phone
+import androidx.compose.material.icons.filled.Remove
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
@@ -46,6 +48,8 @@ import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.MenuAnchorType
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
+import androidx.compose.material3.Switch
+import androidx.compose.material3.SwitchDefaults
 import androidx.compose.material3.Text
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.TextButton
@@ -54,6 +58,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -125,6 +130,10 @@ fun OrderMoreTagsScreen(
     val deliveryMethod = remember { mutableStateOf("home_delivery") }
     val selectedPostaPoint = remember { mutableStateOf<PostaPointDetails?>(null) }
     val hasSearchedPoints = remember { mutableStateOf(false) }
+    val isGift = remember { mutableStateOf(false) }
+    val giftQuantity = remember { mutableIntStateOf(1) }
+    val giftRecipientName = remember { mutableStateOf("") }
+    val giftMessage = remember { mutableStateOf("") }
 
     // Pre-fill from user profile + device locale country detection
     val currentUser = authViewModel?.let {
@@ -232,57 +241,190 @@ fun OrderMoreTagsScreen(
                     .padding(horizontal = 20.dp)
                     .padding(top = 20.dp, bottom = 100.dp)
             ) {
-                // Pet Names Section
-                SectionCard(
-                    title = stringResource(R.string.pet_names),
-                    icon = Icons.Default.Pets
+                // Gift Toggle Card
+                Card(
+                    modifier = Modifier.fillMaxWidth(),
+                    shape = RoundedCornerShape(16.dp),
+                    colors = CardDefaults.cardColors(
+                        containerColor = if (isGift.value) BrandOrange.copy(alpha = 0.08f) else MaterialTheme.colorScheme.surface
+                    ),
+                    elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
                 ) {
-                    petNames.forEachIndexed { index, value ->
+                    Column(modifier = Modifier.padding(16.dp)) {
                         Row(
                             modifier = Modifier.fillMaxWidth(),
-                            verticalAlignment = Alignment.CenterVertically
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.SpaceBetween
                         ) {
-                            StyledTextField(
-                                value = value,
-                                onValueChange = { petNames[index] = it },
-                                label = stringResource(R.string.pet_name),
-                                modifier = Modifier.weight(1f)
+                            Row(
+                                verticalAlignment = Alignment.CenterVertically,
+                                horizontalArrangement = Arrangement.spacedBy(10.dp)
+                            ) {
+                                Icon(
+                                    imageVector = Icons.Default.CardGiftcard,
+                                    contentDescription = null,
+                                    modifier = Modifier.size(20.dp),
+                                    tint = if (isGift.value) BrandOrange else TealAccent
+                                )
+                                Text(
+                                    text = stringResource(R.string.order_gift_toggle),
+                                    style = MaterialTheme.typography.titleMedium.copy(
+                                        fontSize = 17.sp,
+                                        fontWeight = FontWeight.SemiBold
+                                    ),
+                                    color = MaterialTheme.colorScheme.onSurface
+                                )
+                            }
+                            Switch(
+                                checked = isGift.value,
+                                onCheckedChange = { isGift.value = it },
+                                colors = SwitchDefaults.colors(
+                                    checkedTrackColor = BrandOrange,
+                                    checkedThumbColor = Color.White
+                                )
                             )
-                            if (petNames.size > 1) {
+                        }
+
+                        if (isGift.value) {
+                            Spacer(modifier = Modifier.height(12.dp))
+
+                            Text(
+                                text = stringResource(R.string.order_gift_description),
+                                style = MaterialTheme.typography.bodySmall,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
+                            )
+
+                            Spacer(modifier = Modifier.height(16.dp))
+
+                            // Quantity picker
+                            Text(
+                                text = stringResource(R.string.order_gift_quantity),
+                                style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.Medium),
+                                color = MaterialTheme.colorScheme.onSurface
+                            )
+                            Spacer(modifier = Modifier.height(8.dp))
+                            Row(
+                                verticalAlignment = Alignment.CenterVertically,
+                                horizontalArrangement = Arrangement.spacedBy(12.dp)
+                            ) {
                                 IconButton(
-                                    onClick = { petNames.removeAt(index) }
+                                    onClick = { if (giftQuantity.intValue > 1) giftQuantity.intValue-- },
+                                    enabled = giftQuantity.intValue > 1
                                 ) {
                                     Icon(
-                                        imageVector = Icons.Default.Close,
-                                        contentDescription = stringResource(R.string.remove),
-                                        tint = MaterialTheme.colorScheme.error.copy(alpha = 0.7f)
+                                        imageVector = Icons.Default.Remove,
+                                        contentDescription = null,
+                                        tint = if (giftQuantity.intValue > 1) TealAccent else MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.3f)
+                                    )
+                                }
+                                Text(
+                                    text = "${giftQuantity.intValue}",
+                                    style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.Bold),
+                                    color = MaterialTheme.colorScheme.onSurface
+                                )
+                                IconButton(
+                                    onClick = { if (giftQuantity.intValue < 20) giftQuantity.intValue++ },
+                                    enabled = giftQuantity.intValue < 20
+                                ) {
+                                    Icon(
+                                        imageVector = Icons.Default.Add,
+                                        contentDescription = null,
+                                        tint = if (giftQuantity.intValue < 20) TealAccent else MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.3f)
                                     )
                                 }
                             }
-                        }
-                        if (index < petNames.lastIndex) {
+
                             Spacer(modifier = Modifier.height(12.dp))
+
+                            StyledTextField(
+                                value = giftRecipientName.value,
+                                onValueChange = { giftRecipientName.value = it },
+                                label = stringResource(R.string.order_gift_recipient_name),
+                                leadingIcon = Icons.Default.Person
+                            )
+
+                            Spacer(modifier = Modifier.height(12.dp))
+
+                            OutlinedTextField(
+                                value = giftMessage.value,
+                                onValueChange = { if (it.length <= 500) giftMessage.value = it },
+                                label = { Text(stringResource(R.string.order_gift_message)) },
+                                placeholder = { Text(stringResource(R.string.order_gift_message_placeholder)) },
+                                modifier = Modifier.fillMaxWidth(),
+                                minLines = 3,
+                                maxLines = 5,
+                                shape = RoundedCornerShape(14.dp),
+                                colors = OutlinedTextFieldDefaults.colors(
+                                    unfocusedBorderColor = MaterialTheme.colorScheme.outline,
+                                    focusedBorderColor = TealAccent
+                                ),
+                                supportingText = {
+                                    Text(
+                                        text = "${giftMessage.value.length}/500",
+                                        style = MaterialTheme.typography.bodySmall,
+                                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                                    )
+                                }
+                            )
                         }
                     }
+                }
 
-                    Spacer(modifier = Modifier.height(12.dp))
+                Spacer(modifier = Modifier.height(16.dp))
 
-                    TextButton(
-                        onClick = { petNames.add("") },
-                        modifier = Modifier.fillMaxWidth()
+                // Pet Names Section (hidden when gift order)
+                if (!isGift.value) {
+                    SectionCard(
+                        title = stringResource(R.string.pet_names),
+                        icon = Icons.Default.Pets
                     ) {
-                        Icon(
-                            imageVector = Icons.Default.Add,
-                            contentDescription = null,
-                            modifier = Modifier.size(18.dp),
-                            tint = TealAccent
-                        )
-                        Spacer(modifier = Modifier.width(8.dp))
-                        Text(
-                            text = stringResource(R.string.add_another_pet),
-                            color = TealAccent,
-                            fontWeight = FontWeight.Medium
-                        )
+                        petNames.forEachIndexed { index, value ->
+                            Row(
+                                modifier = Modifier.fillMaxWidth(),
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                StyledTextField(
+                                    value = value,
+                                    onValueChange = { petNames[index] = it },
+                                    label = stringResource(R.string.pet_name),
+                                    modifier = Modifier.weight(1f)
+                                )
+                                if (petNames.size > 1) {
+                                    IconButton(
+                                        onClick = { petNames.removeAt(index) }
+                                    ) {
+                                        Icon(
+                                            imageVector = Icons.Default.Close,
+                                            contentDescription = stringResource(R.string.remove),
+                                            tint = MaterialTheme.colorScheme.error.copy(alpha = 0.7f)
+                                        )
+                                    }
+                                }
+                            }
+                            if (index < petNames.lastIndex) {
+                                Spacer(modifier = Modifier.height(12.dp))
+                            }
+                        }
+
+                        Spacer(modifier = Modifier.height(12.dp))
+
+                        TextButton(
+                            onClick = { petNames.add("") },
+                            modifier = Modifier.fillMaxWidth()
+                        ) {
+                            Icon(
+                                imageVector = Icons.Default.Add,
+                                contentDescription = null,
+                                modifier = Modifier.size(18.dp),
+                                tint = TealAccent
+                            )
+                            Spacer(modifier = Modifier.width(8.dp))
+                            Text(
+                                text = stringResource(R.string.add_another_pet),
+                                color = TealAccent,
+                                fontWeight = FontWeight.Medium
+                            )
+                        }
                     }
                 }
 
@@ -495,38 +637,73 @@ fun OrderMoreTagsScreen(
             ) {
                 Button(
                     onClick = {
-                        val validPetNames = petNames.filter { it.isNotBlank() }
-                        if (validPetNames.isEmpty()) return@Button
-
-                        val request = CreateTagOrderRequest(
-                            petNames = validPetNames,
-                            ownerName = ownerName.value,
-                            email = email.value,
-                            shippingAddress = AddressDetails(
-                                street1 = street1.value,
-                                street2 = street2.value.ifBlank { null },
-                                city = city.value,
-                                province = null,
-                                postCode = postCode.value,
-                                country = selectedCountryCode.value,
-                                phone = phone.value
-                            ),
-                            paymentMethod = "stripe",
-                            shippingCost = 0.0
-                        )
-                        // Create order first, then redirect to Stripe Checkout
-                        viewModel.createOrder(request) { response, message ->
-                            if (response != null) {
-                                viewModel.createTagCheckout(
-                                    quantity = validPetNames.size,
-                                    countryCode = selectedCountryCode.value.takeIf { it.isNotBlank() },
-                                    deliveryMethod = if (isHungary) deliveryMethod.value else null,
-                                    postapointDetails = if (isHungary && deliveryMethod.value == "postapoint") selectedPostaPoint.value else null
-                                ) { errorMsg ->
-                                    appStateViewModel.showError(errorMsg ?: checkoutFailedMessage)
+                        if (isGift.value) {
+                            val request = CreateTagOrderRequest(
+                                petNames = null,
+                                ownerName = ownerName.value,
+                                email = email.value,
+                                shippingAddress = AddressDetails(
+                                    street1 = street1.value,
+                                    street2 = street2.value.ifBlank { null },
+                                    city = city.value,
+                                    province = null,
+                                    postCode = postCode.value,
+                                    country = selectedCountryCode.value,
+                                    phone = phone.value
+                                ),
+                                paymentMethod = "stripe",
+                                isGift = true,
+                                giftRecipientName = giftRecipientName.value.ifBlank { null },
+                                giftMessage = giftMessage.value.ifBlank { null },
+                                quantity = giftQuantity.intValue
+                            )
+                            viewModel.createOrder(request) { response, message ->
+                                if (response != null) {
+                                    viewModel.createTagCheckout(
+                                        quantity = giftQuantity.intValue,
+                                        countryCode = selectedCountryCode.value.takeIf { it.isNotBlank() },
+                                        deliveryMethod = if (isHungary) deliveryMethod.value else null,
+                                        postapointDetails = if (isHungary && deliveryMethod.value == "postapoint") selectedPostaPoint.value else null
+                                    ) { errorMsg ->
+                                        appStateViewModel.showError(errorMsg ?: checkoutFailedMessage)
+                                    }
+                                } else {
+                                    appStateViewModel.showError(message ?: orderCreateFailedMessage)
                                 }
-                            } else {
-                                appStateViewModel.showError(message ?: orderCreateFailedMessage)
+                            }
+                        } else {
+                            val validPetNames = petNames.filter { it.isNotBlank() }
+                            if (validPetNames.isEmpty()) return@Button
+
+                            val request = CreateTagOrderRequest(
+                                petNames = validPetNames,
+                                ownerName = ownerName.value,
+                                email = email.value,
+                                shippingAddress = AddressDetails(
+                                    street1 = street1.value,
+                                    street2 = street2.value.ifBlank { null },
+                                    city = city.value,
+                                    province = null,
+                                    postCode = postCode.value,
+                                    country = selectedCountryCode.value,
+                                    phone = phone.value
+                                ),
+                                paymentMethod = "stripe",
+                                shippingCost = 0.0
+                            )
+                            viewModel.createOrder(request) { response, message ->
+                                if (response != null) {
+                                    viewModel.createTagCheckout(
+                                        quantity = validPetNames.size,
+                                        countryCode = selectedCountryCode.value.takeIf { it.isNotBlank() },
+                                        deliveryMethod = if (isHungary) deliveryMethod.value else null,
+                                        postapointDetails = if (isHungary && deliveryMethod.value == "postapoint") selectedPostaPoint.value else null
+                                    ) { errorMsg ->
+                                        appStateViewModel.showError(errorMsg ?: checkoutFailedMessage)
+                                    }
+                                } else {
+                                    appStateViewModel.showError(message ?: orderCreateFailedMessage)
+                                }
                             }
                         }
                     },
@@ -542,7 +719,7 @@ fun OrderMoreTagsScreen(
                     shape = RoundedCornerShape(16.dp),
                     colors = ButtonDefaults.buttonColors(containerColor = BrandOrange),
                     enabled = !isLoading &&
-                        petNames.any { it.isNotBlank() } &&
+                        (if (isGift.value) giftQuantity.intValue >= 1 else petNames.any { it.isNotBlank() }) &&
                         ownerName.value.isNotBlank() &&
                         InputValidators.isValidEmail(email.value) &&
                         street1.value.isNotBlank() &&

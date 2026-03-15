@@ -507,7 +507,7 @@
     <string name="reunited_in">Reunidos en %1$s</string>
     <string name="shared_via_pet_safety">Compartido a través de Pet Safety</string>
     <string name="story_share_good_news">Comparte la buena noticia</string>
-    <string name="story_social_caption">¡%1$s se ha reunido con su familia! Gracias a la comunidad TagMe Now por ayudar a traer a %1$s a casa. senra.pet</string>
+    <string name="story_social_caption">¡%1$s se ha reunido con su familia! Gracias a la comunidad Senra por ayudar a traer a %1$s a casa. senra.pet</string>
     <string name="story_generating_card">Creando tarjeta para compartir\u2026</string>
     <string name="story_pet_is_home_title">¡%1$s está en casa!</string>
     <string name="story_inspire_others_message">Inspira a otros dueños compartiendo cómo %1$s se reunió contigo.</string>
@@ -640,11 +640,6 @@
     <string name="help_faq_q5">¿Cómo pido una etiqueta de reemplazo?</string>
     <string name="help_faq_a5">En el perfil de tu mascota, pulsa \'Pedir reemplazo\' y sigue los pasos.</string>
     <!-- Guide Items -->
-    <string name="help_guide_getting_started">Primeros pasos</string>
-    <string name="help_guide_managing_pets">Gestionar tus mascotas</string>
-    <string name="help_guide_qr_tags">Entender las etiquetas QR</string>
-    <string name="help_guide_missing_pet">Qué hacer si tu mascota se pierde</string>
-    <string name="help_guide_privacy">Ajustes de privacidad y seguridad</string>
 
     <!-- ============================================ -->
     <!-- MARK: Orders -->
@@ -1053,4 +1048,19 @@
     <string name="sex_optional">Opcional</string>
     <string name="street2">Apto. / Piso / Planta (Opcional)</string>
 
+    <string name="pet_limit_reached">Límite de mascotas alcanzado</string>
+    <string name="pet_limit_reached_message">Tu plan %1$s permite %2$d mascota. Cambia a %3$s por %4$s para añadir mascotas ilimitadas.</string>
+    <string name="share_owner_notified">El dueño ha sido notificado</string>
+    <string name="sse_connection_lost">Actualizaciones en tiempo real no disponibles. Desliza hacia abajo para actualizar.</string>
+    <string name="story_placeholder">Cuenta tu historia de reunión...</string>
+    <string name="upgrade_to_plan">Cambiar a %1$s</string>
+
+    <!-- Gift order -->
+    <string name="order_gift_toggle">Pedir como regalo</string>
+    <string name="order_gift_description">Los nombres de mascotas son opcionales en pedidos de regalo. El destinatario puede añadirlos al activar las etiquetas.</string>
+    <string name="order_gift_quantity">Número de etiquetas</string>
+    <string name="order_gift_recipient_name">Nombre del destinatario (opcional)</string>
+    <string name="order_gift_message">Mensaje de regalo (opcional)</string>
+    <string name="order_gift_message_placeholder">Añade un mensaje personal…</string>
+    <string name="order_gift_badge">Pedido de regalo</string>
 </resources>
