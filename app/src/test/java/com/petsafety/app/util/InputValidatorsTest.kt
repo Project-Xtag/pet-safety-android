@@ -1,5 +1,6 @@
 package com.petsafety.app.util
 
+import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
 import org.junit.Test
@@ -142,5 +143,75 @@ class InputValidatorsTest {
         assertTrue(InputValidators.MAX_MEDICAL_NOTES == 2000)
         assertTrue(InputValidators.MAX_EMAIL == 254)
         assertTrue(InputValidators.MAX_PHONE == 20)
+    }
+
+    // MARK: - Display Name Formatting
+
+    @Test
+    fun `formatDisplayName - western order for English`() {
+        assertEquals("John Doe", InputValidators.formatDisplayName("John", "Doe", "en"))
+    }
+
+    @Test
+    fun `formatDisplayName - family first for Hungarian`() {
+        assertEquals("Szász Viktor", InputValidators.formatDisplayName("Viktor", "Szász", "hu"))
+    }
+
+    @Test
+    fun `formatDisplayName - family first for Japanese`() {
+        assertEquals("Tanaka Taro", InputValidators.formatDisplayName("Taro", "Tanaka", "ja"))
+    }
+
+    @Test
+    fun `formatDisplayName - family first for Chinese`() {
+        assertEquals("Wang Wei", InputValidators.formatDisplayName("Wei", "Wang", "zh"))
+    }
+
+    @Test
+    fun `formatDisplayName - family first for Korean`() {
+        assertEquals("Kim Minjun", InputValidators.formatDisplayName("Minjun", "Kim", "ko"))
+    }
+
+    @Test
+    fun `formatDisplayName - western order for German`() {
+        assertEquals("Max Mustermann", InputValidators.formatDisplayName("Max", "Mustermann", "de"))
+    }
+
+    @Test
+    fun `formatDisplayName - western order for Spanish`() {
+        assertEquals("Carlos García", InputValidators.formatDisplayName("Carlos", "García", "es"))
+    }
+
+    @Test
+    fun `formatDisplayName - first name only`() {
+        assertEquals("John", InputValidators.formatDisplayName("John", null, "en"))
+        assertEquals("John", InputValidators.formatDisplayName("John", "", "en"))
+        assertEquals("John", InputValidators.formatDisplayName("John", "  ", "hu"))
+    }
+
+    @Test
+    fun `formatDisplayName - last name only`() {
+        assertEquals("Doe", InputValidators.formatDisplayName(null, "Doe", "en"))
+        assertEquals("Szász", InputValidators.formatDisplayName("", "Szász", "hu"))
+    }
+
+    @Test
+    fun `formatDisplayName - both empty returns empty`() {
+        assertEquals("", InputValidators.formatDisplayName(null, null, "en"))
+        assertEquals("", InputValidators.formatDisplayName("", "", "hu"))
+        assertEquals("", InputValidators.formatDisplayName("  ", "  ", "de"))
+    }
+
+    @Test
+    fun `formatDisplayName - trims whitespace`() {
+        assertEquals("John Doe", InputValidators.formatDisplayName("  John  ", "  Doe  ", "en"))
+        assertEquals("Szász Viktor", InputValidators.formatDisplayName("  Viktor  ", "  Szász  ", "hu"))
+    }
+
+    @Test
+    fun `formatDisplayName - null locale defaults to system`() {
+        // Should not crash with null locale
+        val result = InputValidators.formatDisplayName("John", "Doe", null)
+        assertTrue(result == "John Doe" || result == "Doe John") // depends on system locale
     }
 }
