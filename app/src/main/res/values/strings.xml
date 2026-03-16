@@ -1110,4 +1110,9 @@
     <string name="no_notifications_desc">You\'re all caught up! Notifications will appear here when your pet\'s tag is scanned.</string>
     <string name="mark_all_read">Mark All Read</string>
     <string name="create_profile_hint">Create a pet profile first, then scan the tag again to activate.</string>
+    <string name="activation_error_qr_not_found">QR code not recognized. Please ensure you are scanning an official Senra tag.</string>
+    <string name="activation_error_already_activated">This tag is already linked to another pet. Contact support if you believe this is your tag.</string>
+    <string name="activation_error_not_linked">This tag hasn\'t been assigned to your order yet. Please wait for shipping confirmation.</string>
+    <string name="activation_error_not_shipped">Your order hasn\'t shipped yet. Please wait until you receive your tag.</string>
+    <string name="activation_error_not_owner">You don\'t own this pet. Please select one of your own pets.</string>
 </resources>

@@ -1121,4 +1121,9 @@
     <string name="no_notifications_desc">Všetko je aktuálne! Oznámenia sa tu zobrazia, keď niekto naskenuje známku vášho zvieraťa.</string>
     <string name="mark_all_read">Označiť všetko ako prečítané</string>
     <string name="create_profile_hint">Najprv vytvorte profil zvieraťa, potom znova naskenujte známku na aktiváciu.</string>
+    <string name="activation_error_qr_not_found">QR kód nebol rozpoznaný. Uistite sa, že skenujete oficiálnu Senra známku.</string>
+    <string name="activation_error_already_activated">Táto známka je už priradená inému zvieraťu. Kontaktujte podporu.</string>
+    <string name="activation_error_not_linked">Táto známka ešte nebola priradená k vašej objednávke. Počkajte na potvrdenie odoslania.</string>
+    <string name="activation_error_not_shipped">Vaša objednávka ešte nebola odoslaná. Počkajte na doručenie.</string>
+    <string name="activation_error_not_owner">Toto nie je vaše zviera. Vyberte jedno zo svojich zvierat.</string>
 </resources>

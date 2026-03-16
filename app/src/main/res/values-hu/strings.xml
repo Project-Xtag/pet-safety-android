@@ -1113,4 +1113,9 @@
     <string name="no_notifications_desc">Minden naprakész! Az értesítések itt jelennek meg, ha beolvassák a kedvenced címkéjét.</string>
     <string name="mark_all_read">Összes olvasottnak jelölése</string>
     <string name="create_profile_hint">Először hozz létre egy kedvenc profilt, majd olvasd be újra a címkét az aktiváláshoz.</string>
+    <string name="activation_error_qr_not_found">A QR kód nem felismerhető. Kérjük, győződj meg róla, hogy hivatalos Senra címkét olvasol be.</string>
+    <string name="activation_error_already_activated">Ez a címke már egy másik kedvenchez van rendelve. Kérjük, lépj kapcsolatba az ügyfélszolgálattal.</string>
+    <string name="activation_error_not_linked">Ez a címke még nincs hozzárendelve a rendelésedhez. Kérjük, várd meg a szállítási visszaigazolást.</string>
+    <string name="activation_error_not_shipped">A rendelésed még nem lett feladva. Kérjük, várd meg a címke megérkezését.</string>
+    <string name="activation_error_not_owner">Ez nem a te kedvenced. Kérjük, válassz egyet a saját kedvenceid közül.</string>
 </resources>

@@ -1108,4 +1108,9 @@
     <string name="no_notifications_desc">Tutto aggiornato! Le notifiche appariranno qui quando la targhetta del tuo animale sarà scansionata.</string>
     <string name="mark_all_read">Segna tutto come letto</string>
     <string name="create_profile_hint">Crea prima un profilo animale, poi scansiona di nuovo la targhetta per attivarla.</string>
+    <string name="activation_error_qr_not_found">Codice QR non riconosciuto. Assicurati di scansionare una targhetta Senra ufficiale.</string>
+    <string name="activation_error_already_activated">Questa targhetta è già associata a un altro animale. Contatta il supporto.</string>
+    <string name="activation_error_not_linked">Questa targhetta non è ancora stata assegnata al tuo ordine. Attendi la conferma di spedizione.</string>
+    <string name="activation_error_not_shipped">Il tuo ordine non è ancora stato spedito. Attendi la consegna.</string>
+    <string name="activation_error_not_owner">Questo non è il tuo animale. Seleziona uno dei tuoi animali.</string>
 </resources>

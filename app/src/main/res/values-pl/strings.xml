@@ -1133,4 +1133,9 @@
     <string name="no_notifications_desc">Wszystko aktualne! Powiadomienia pojawią się tutaj, gdy ktoś zeskanuje zawieszkę Twojego zwierzęcia.</string>
     <string name="mark_all_read">Oznacz wszystkie jako przeczytane</string>
     <string name="create_profile_hint">Najpierw utwórz profil zwierzęcia, następnie ponownie zeskanuj zawieszkę, aby ją aktywować.</string>
+    <string name="activation_error_qr_not_found">Kod QR nie został rozpoznany. Upewnij się, że skanujesz oficjalną zawieszkę Senra.</string>
+    <string name="activation_error_already_activated">Ta zawieszka jest już przypisana do innego zwierzęcia. Skontaktuj się ze wsparciem.</string>
+    <string name="activation_error_not_linked">Ta zawieszka nie została jeszcze przypisana do Twojego zamówienia. Poczekaj na potwierdzenie wysyłki.</string>
+    <string name="activation_error_not_shipped">Twoje zamówienie nie zostało jeszcze wysłane. Poczekaj na dostawę.</string>
+    <string name="activation_error_not_owner">To nie jest Twoje zwierzę. Wybierz jedno ze swoich zwierząt.</string>
 </resources>

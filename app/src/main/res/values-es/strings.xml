@@ -1113,4 +1113,9 @@
     <string name="no_notifications_desc">¡Todo al día! Las notificaciones aparecerán aquí cuando escaneen la placa de tu mascota.</string>
     <string name="mark_all_read">Marcar todo como leído</string>
     <string name="create_profile_hint">Crea primero un perfil de mascota, luego escanea la placa de nuevo para activarla.</string>
+    <string name="activation_error_qr_not_found">Código QR no reconocido. Asegúrate de escanear una placa oficial de Senra.</string>
+    <string name="activation_error_already_activated">Esta placa ya está vinculada a otra mascota. Contacta con soporte.</string>
+    <string name="activation_error_not_linked">Esta placa aún no ha sido asignada a tu pedido. Espera la confirmación de envío.</string>
+    <string name="activation_error_not_shipped">Tu pedido aún no ha sido enviado. Espera a recibir tu placa.</string>
+    <string name="activation_error_not_owner">Esta no es tu mascota. Selecciona una de tus propias mascotas.</string>
 </resources>

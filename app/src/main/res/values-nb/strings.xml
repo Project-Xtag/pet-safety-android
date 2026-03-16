@@ -1107,4 +1107,9 @@
     <string name="no_notifications_desc">Alt oppdatert! Varsler vil vises her når noen skanner merket til kjæledyret ditt.</string>
     <string name="mark_all_read">Merk alle som lest</string>
     <string name="create_profile_hint">Opprett først en kjæledyrprofil, og skann deretter merket på nytt for å aktivere.</string>
+    <string name="activation_error_qr_not_found">QR-koden ble ikke gjenkjent. Sørg for at du skanner et offisielt Senra-merke.</string>
+    <string name="activation_error_already_activated">Dette merket er allerede knyttet til et annet kjæledyr. Kontakt support.</string>
+    <string name="activation_error_not_linked">Dette merket er ennå ikke tilordnet bestillingen din. Vent på forsendelsesbekreftelse.</string>
+    <string name="activation_error_not_shipped">Bestillingen din er ikke sendt ennå. Vent til du mottar merket.</string>
+    <string name="activation_error_not_owner">Dette er ikke ditt kjæledyr. Velg et av dine egne kjæledyr.</string>
 </resources>

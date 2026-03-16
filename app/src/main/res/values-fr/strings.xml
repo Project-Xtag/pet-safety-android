@@ -1105,4 +1105,9 @@
     <string name="no_notifications_desc">Tout est à jour ! Les notifications apparaîtront ici quand la médaille de votre animal sera scannée.</string>
     <string name="mark_all_read">Tout marquer comme lu</string>
     <string name="create_profile_hint">Créez d\'abord un profil d\'animal, puis scannez à nouveau la médaille pour l\'activer.</string>
+    <string name="activation_error_qr_not_found">Code QR non reconnu. Assurez-vous de scanner une médaille Senra officielle.</string>
+    <string name="activation_error_already_activated">Cette médaille est déjà associée à un autre animal. Contactez le support.</string>
+    <string name="activation_error_not_linked">Cette médaille n\'a pas encore été attribuée à votre commande. Attendez la confirmation d\'expédition.</string>
+    <string name="activation_error_not_shipped">Votre commande n\'a pas encore été expédiée. Attendez la livraison.</string>
+    <string name="activation_error_not_owner">Cet animal ne vous appartient pas. Sélectionnez un de vos propres animaux.</string>
 </resources>

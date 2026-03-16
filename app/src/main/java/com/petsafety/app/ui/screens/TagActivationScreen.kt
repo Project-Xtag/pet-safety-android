@@ -75,10 +75,26 @@ fun TagActivationScreen(
         viewModel.loadActivationData(qrCode)
     }
 
+    // Pre-resolve localized error messages for use in LaunchedEffect
+    val errorQrNotFound = stringResource(R.string.activation_error_qr_not_found)
+    val errorAlreadyActivated = stringResource(R.string.activation_error_already_activated)
+    val errorNotLinked = stringResource(R.string.activation_error_not_linked)
+    val errorNotShipped = stringResource(R.string.activation_error_not_shipped)
+    val errorNotOwner = stringResource(R.string.activation_error_not_owner)
+
     LaunchedEffect(activationState) {
         when (val state = activationState) {
             is ActivationState.Error -> {
-                appStateViewModel.showError(state.message)
+                val msg = state.message
+                val classified = when {
+                    msg.contains("not found", ignoreCase = true) && msg.contains("QR", ignoreCase = true) -> errorQrNotFound
+                    msg.contains("already activated", ignoreCase = true) -> errorAlreadyActivated
+                    msg.contains("not been linked", ignoreCase = true) -> errorNotLinked
+                    msg.contains("not been shipped", ignoreCase = true) -> errorNotShipped
+                    msg.contains("do not own", ignoreCase = true) -> errorNotOwner
+                    else -> msg
+                }
+                appStateViewModel.showError(classified)
                 viewModel.resetActivation()
             }
             else -> {}

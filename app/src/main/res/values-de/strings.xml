@@ -1113,4 +1113,9 @@
     <string name="no_notifications_desc">Alles aktuell! Benachrichtigungen erscheinen hier, wenn die Marke Ihres Haustieres gescannt wird.</string>
     <string name="mark_all_read">Alle als gelesen markieren</string>
     <string name="create_profile_hint">Erstellen Sie zuerst ein Haustierprofil und scannen Sie dann die Marke erneut zur Aktivierung.</string>
+    <string name="activation_error_qr_not_found">QR-Code nicht erkannt. Stellen Sie sicher, dass Sie eine offizielle Senra-Marke scannen.</string>
+    <string name="activation_error_already_activated">Diese Marke ist bereits einem anderen Haustier zugeordnet. Kontaktieren Sie den Support.</string>
+    <string name="activation_error_not_linked">Diese Marke wurde noch nicht Ihrer Bestellung zugeordnet. Warten Sie auf die Versandbestätigung.</string>
+    <string name="activation_error_not_shipped">Ihre Bestellung wurde noch nicht versendet. Warten Sie auf die Lieferung.</string>
+    <string name="activation_error_not_owner">Dies ist nicht Ihr Haustier. Bitte wählen Sie eines Ihrer eigenen Haustiere.</string>
 </resources>
