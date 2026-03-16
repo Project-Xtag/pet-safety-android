@@ -185,6 +185,9 @@
     <string name="delete_pet_button">Kedvenc törlése</string>
     <string name="delete_pet_dialog_title">Törlöd %1$s-t?</string>
     <string name="delete_pet_dialog_message">Biztosan törlöd ezt a kedvencet? Ez a művelet nem vonható vissza.</string>
+    <string name="delete_pet_warning_title">%1$s törlése?</string>
+    <string name="delete_pet_warning_message">%1$s véglegesen eltávolításra kerül a fiókodból. A QR biléta azonnal inaktiválódik és a beolvasás nem fog működni. Ha ez az utolsó kedvenced, az előfizetésed is törlődik.</string>
+    <string name="delete_pet_warning_confirm">Kedvenc törlése</string>
     <string name="male">Hím</string>
     <string name="female">Nőstény</string>
     <string name="default_species_dog">Kutya</string>

@@ -192,6 +192,9 @@
     <string name="delete_pet_button">Slett dyr</string>
     <string name="delete_pet_dialog_title">Slette %1$s?</string>
     <string name="delete_pet_dialog_message">Er du sikker på at du vil slette dette dyret? Denne handlingen kan ikke angres.</string>
+    <string name="delete_pet_warning_title">Slette %1$s?</string>
+    <string name="delete_pet_warning_message">%1$s vil bli permanent fjernet fra kontoen din. QR-merket vil bli deaktivert umiddelbart og vil ikke lenger fungere ved skanning. Hvis dette er ditt siste kjæledyr, vil abonnementet ditt også bli kansellert.</string>
+    <string name="delete_pet_warning_confirm">Slett kjæledyr</string>
     <string name="male">Hann</string>
     <string name="female">Hunn</string>
     <string name="breed_other">Annen</string>

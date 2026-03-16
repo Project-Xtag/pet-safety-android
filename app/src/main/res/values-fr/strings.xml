@@ -193,6 +193,9 @@
     <string name="delete_pet_button">Supprimer l\'animal</string>
     <string name="delete_pet_dialog_title">Supprimer %1$s\u00a0?</string>
     <string name="delete_pet_dialog_message">Tu veux vraiment supprimer cet animal\u00a0? Cette action est irréversible.</string>
+    <string name="delete_pet_warning_title">Supprimer %1$s\u00a0?</string>
+    <string name="delete_pet_warning_message">%1$s sera définitivement supprimé de votre compte. Le tag QR sera immédiatement désactivé et ne fonctionnera plus lors du scan. Si c\'est votre dernier animal, votre abonnement sera également annulé.</string>
+    <string name="delete_pet_warning_confirm">Supprimer l\'animal</string>
     <string name="male">Mâle</string>
     <string name="female">Femelle</string>
     <string name="breed_other">Autre</string>

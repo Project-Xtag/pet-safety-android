@@ -497,9 +497,9 @@ fun PetFormScreen(
     if (showDeleteDialog && existing != null) {
         AlertDialog(
             onDismissRequest = { showDeleteDialog = false },
-            title = { Text(stringResource(R.string.delete_pet_dialog_title, existing.name)) },
+            title = { Text(stringResource(R.string.delete_pet_warning_title, existing.name)) },
             text = {
-                Text(stringResource(R.string.delete_pet_dialog_message))
+                Text(stringResource(R.string.delete_pet_warning_message, existing.name))
             },
             confirmButton = {
                 TextButton(
@@ -516,7 +516,7 @@ fun PetFormScreen(
                     },
                     colors = ButtonDefaults.textButtonColors(contentColor = MaterialTheme.colorScheme.error)
                 ) {
-                    Text(stringResource(R.string.delete))
+                    Text(stringResource(R.string.delete_pet_warning_confirm))
                 }
             },
             dismissButton = {

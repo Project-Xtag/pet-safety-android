@@ -192,6 +192,9 @@
     <string name="delete_pet_button">Elimina animale</string>
     <string name="delete_pet_dialog_title">Eliminare %1$s?</string>
     <string name="delete_pet_dialog_message">Sei sicuro di voler eliminare questo animale? Questa azione non può essere annullata.</string>
+    <string name="delete_pet_warning_title">Eliminare %1$s?</string>
+    <string name="delete_pet_warning_message">%1$s verrà rimosso permanentemente dal tuo account. Il tag QR verrà disattivato immediatamente e non funzionerà più alla scansione. Se questo è il tuo ultimo animale, anche il tuo abbonamento verrà annullato.</string>
+    <string name="delete_pet_warning_confirm">Elimina l\'animale</string>
     <string name="male">Maschio</string>
     <string name="female">Femmina</string>
     <string name="breed_other">Altro</string>

@@ -184,6 +184,9 @@
     <string name="delete_pet_button">Odstrániť zviera</string>
     <string name="delete_pet_dialog_title">Odstrániť %1$s?</string>
     <string name="delete_pet_dialog_message">Naozaj chcete odstrániť toto zviera? Túto akciu nie je možné vrátiť späť.</string>
+    <string name="delete_pet_warning_title">Odstrániť %1$s?</string>
+    <string name="delete_pet_warning_message">%1$s bude natrvalo odstránený z vášho účtu. QR štítok bude okamžite deaktivovaný a po naskenovaní prestane fungovať. Ak je toto vaše posledné zviera, vaše predplatné bude tiež zrušené.</string>
+    <string name="delete_pet_warning_confirm">Odstrániť zviera</string>
     <string name="male">Samec</string>
     <string name="female">Samica</string>
     <string name="default_species_dog">Pes</string>

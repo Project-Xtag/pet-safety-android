@@ -185,6 +185,9 @@
     <string name="delete_pet_button">Eliminar mascota</string>
     <string name="delete_pet_dialog_title">¿Eliminar %1$s?</string>
     <string name="delete_pet_dialog_message">¿Seguro que quieres eliminar esta mascota? Esta acción no se puede deshacer.</string>
+    <string name="delete_pet_warning_title">%1$s eliminar?</string>
+    <string name="delete_pet_warning_message">%1$s será eliminado permanentemente de tu cuenta. La etiqueta QR se desactivará inmediatamente y dejará de funcionar al escanearla. Si esta es tu última mascota, tu suscripción también será cancelada.</string>
+    <string name="delete_pet_warning_confirm">Eliminar mascota</string>
     <string name="male">Macho</string>
     <string name="female">Hembra</string>
     <string name="default_species_dog">Perro</string>

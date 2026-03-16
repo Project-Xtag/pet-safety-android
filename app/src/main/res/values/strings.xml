@@ -192,6 +192,9 @@
     <string name="delete_pet_button">Delete Pet</string>
     <string name="delete_pet_dialog_title">Delete %1$s?</string>
     <string name="delete_pet_dialog_message">Are you sure you want to delete this pet? This action cannot be undone.</string>
+    <string name="delete_pet_warning_title">Delete %1$s?</string>
+    <string name="delete_pet_warning_message">This will permanently remove %1$s from your account. The QR tag will be deactivated immediately and will no longer work when scanned. If this is your last pet, your subscription will also be cancelled.</string>
+    <string name="delete_pet_warning_confirm">Delete Pet</string>
     <string name="male">Male</string>
     <string name="female">Female</string>
     <string name="breed_other">Other</string>

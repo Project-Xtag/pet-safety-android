@@ -185,6 +185,9 @@
     <string name="delete_pet_button">Haustier löschen</string>
     <string name="delete_pet_dialog_title">%1$s löschen?</string>
     <string name="delete_pet_dialog_message">Möchten Sie dieses Haustier wirklich löschen? Diese Aktion kann nicht rückgängig gemacht werden.</string>
+    <string name="delete_pet_warning_title">%1$s löschen?</string>
+    <string name="delete_pet_warning_message">%1$s wird dauerhaft aus deinem Konto entfernt. Der QR-Tag wird sofort deaktiviert und funktioniert beim Scannen nicht mehr. Wenn dies dein letztes Haustier ist, wird auch dein Abonnement gekündigt.</string>
+    <string name="delete_pet_warning_confirm">Haustier löschen</string>
     <string name="male">Männlich</string>
     <string name="female">Weiblich</string>
     <string name="default_species_dog">Hund</string>

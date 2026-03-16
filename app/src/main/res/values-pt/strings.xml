@@ -185,6 +185,9 @@
     <string name="delete_pet_button">Eliminar animal</string>
     <string name="delete_pet_dialog_title">Eliminar %1$s?</string>
     <string name="delete_pet_dialog_message">Tem a certeza que pretende eliminar este animal? Esta ação não pode ser desfeita.</string>
+    <string name="delete_pet_warning_title">Eliminar %1$s?</string>
+    <string name="delete_pet_warning_message">%1$s será removido permanentemente da sua conta. A etiqueta QR será desativada imediatamente e deixará de funcionar ao ser digitalizada. Se este é o seu último animal, a sua subscrição também será cancelada.</string>
+    <string name="delete_pet_warning_confirm">Eliminar animal</string>
     <string name="male">Macho</string>
     <string name="female">Fêmea</string>
     <string name="default_species_dog">Cão</string>

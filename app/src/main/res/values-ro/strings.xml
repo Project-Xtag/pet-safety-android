@@ -177,6 +177,9 @@
     <string name="delete_pet_button">Șterge animalul</string>
     <string name="delete_pet_dialog_title">Ștergi %1$s?</string>
     <string name="delete_pet_dialog_message">Sigur dorești să ștergi acest animal? Această acțiune nu poate fi anulată.</string>
+    <string name="delete_pet_warning_title">Ștergi pe %1$s?</string>
+    <string name="delete_pet_warning_message">%1$s va fi eliminat permanent din contul tău. Eticheta QR va fi dezactivată imediat și nu va mai funcționa la scanare. Dacă acesta este ultimul tău animal, abonamentul va fi și el anulat.</string>
+    <string name="delete_pet_warning_confirm">Șterge animalul</string>
     <string name="male">Mascul</string>
     <string name="female">Femelă</string>
     <string name="default_species_dog">Câine</string>
