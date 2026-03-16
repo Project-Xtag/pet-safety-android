@@ -1128,4 +1128,8 @@
     <string name="no_pets_yet">Jeszcze brak zwierząt</string>
     <string name="create_first_pet">Utwórz profil zwierzęcia, aby aktywować zawieszkę.</string>
     <string name="create_new_pet">Utwórz nowe zwierzę</string>
+    <string name="notifications_title">Powiadomienia</string>
+    <string name="no_notifications">Brak powiadomień</string>
+    <string name="no_notifications_desc">Wszystko aktualne! Powiadomienia pojawią się tutaj, gdy ktoś zeskanuje zawieszkę Twojego zwierzęcia.</string>
+    <string name="mark_all_read">Oznacz wszystkie jako przeczytane</string>
 </resources>

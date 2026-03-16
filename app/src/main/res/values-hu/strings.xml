@@ -1108,4 +1108,8 @@
     <string name="no_pets_yet">Még nincsenek kedvencek</string>
     <string name="create_first_pet">Hozd létre első kedvenced profilját a címke aktiválásához.</string>
     <string name="create_new_pet">Új kedvenc létrehozása</string>
+    <string name="notifications_title">Értesítések</string>
+    <string name="no_notifications">Nincsenek értesítések</string>
+    <string name="no_notifications_desc">Minden naprakész! Az értesítések itt jelennek meg, ha beolvassák a kedvenced címkéjét.</string>
+    <string name="mark_all_read">Összes olvasottnak jelölése</string>
 </resources>

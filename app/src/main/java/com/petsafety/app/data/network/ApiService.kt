@@ -286,4 +286,20 @@ interface ApiService {
 
     @GET("referrals/status")
     suspend fun getReferralStatus(): ApiEnvelope<ReferralStatusResponse>
+
+    // Notifications Inbox
+    @GET("notifications")
+    suspend fun getNotifications(
+        @Query("page") page: Int = 1,
+        @Query("limit") limit: Int = 20
+    ): ApiEnvelope<NotificationsResponse>
+
+    @GET("notifications/unread-count")
+    suspend fun getUnreadNotificationCount(): ApiEnvelope<UnreadCountResponse>
+
+    @PATCH("notifications/{id}/read")
+    suspend fun markNotificationAsRead(@Path("id") id: String): ApiEnvelope<Unit>
+
+    @PATCH("notifications/read-all")
+    suspend fun markAllNotificationsAsRead(): ApiEnvelope<Unit>
 }

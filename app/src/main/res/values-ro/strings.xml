@@ -1109,4 +1109,8 @@
     <string name="no_pets_yet">Niciun animal încă</string>
     <string name="create_first_pet">Creează profilul animalului tău pentru a activa eticheta.</string>
     <string name="create_new_pet">Creează animal nou</string>
+    <string name="notifications_title">Notificări</string>
+    <string name="no_notifications">Nicio notificare</string>
+    <string name="no_notifications_desc">Totul e la zi! Notificările vor apărea aici când cineva scanează eticheta animalului tău.</string>
+    <string name="mark_all_read">Marchează toate ca citite</string>
 </resources>

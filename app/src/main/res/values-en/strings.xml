@@ -1095,4 +1095,8 @@
     <string name="no_pets_yet">No Pets Yet</string>
     <string name="create_first_pet">Create your first pet profile to activate this tag.</string>
     <string name="create_new_pet">Create New Pet</string>
+    <string name="notifications_title">Notifications</string>
+    <string name="no_notifications">No Notifications</string>
+    <string name="no_notifications_desc">You\'re all caught up! Notifications will appear here when your pet\'s tag is scanned.</string>
+    <string name="mark_all_read">Mark All Read</string>
 </resources>

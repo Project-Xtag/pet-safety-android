@@ -23,6 +23,7 @@ import com.petsafety.app.data.repository.OrdersRepository
 import com.petsafety.app.data.repository.PetsRepository
 import com.petsafety.app.data.repository.PhotosRepository
 import com.petsafety.app.data.repository.QrRepository
+import com.petsafety.app.data.repository.NotificationsRepository
 import com.petsafety.app.data.repository.SubscriptionRepository
 import com.petsafety.app.data.repository.SuccessStoriesRepository
 import com.petsafety.app.data.sync.NetworkMonitor
@@ -173,6 +174,11 @@ object AppModule {
     @Singleton
     fun provideNotificationPreferencesRepository(apiService: ApiService): NotificationPreferencesRepository =
         NotificationPreferencesRepository(apiService)
+
+    @Provides
+    @Singleton
+    fun provideNotificationsRepository(apiService: ApiService): NotificationsRepository =
+        NotificationsRepository(apiService)
 
     @Provides
     @Singleton

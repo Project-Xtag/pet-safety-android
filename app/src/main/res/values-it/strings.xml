@@ -1103,4 +1103,8 @@
     <string name="no_pets_yet">Nessun animale ancora</string>
     <string name="create_first_pet">Crea il profilo del tuo animale per attivare la targhetta.</string>
     <string name="create_new_pet">Crea nuovo animale</string>
+    <string name="notifications_title">Notifiche</string>
+    <string name="no_notifications">Nessuna notifica</string>
+    <string name="no_notifications_desc">Tutto aggiornato! Le notifiche appariranno qui quando la targhetta del tuo animale sarà scansionata.</string>
+    <string name="mark_all_read">Segna tutto come letto</string>
 </resources>

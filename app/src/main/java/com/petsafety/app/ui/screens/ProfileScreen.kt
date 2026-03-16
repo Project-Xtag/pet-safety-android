@@ -95,7 +95,8 @@ private enum class ProfileSection {
     BILLING,
     REFERRAL,
     PRICING,
-    PENDING_TAGS
+    PENDING_TAGS,
+    NOTIFICATION_INBOX
 }
 
 @Composable
@@ -131,6 +132,7 @@ fun ProfileScreen(
         ProfileSection.BILLING -> BillingScreen(onBack = { section = ProfileSection.MAIN })
         ProfileSection.REFERRAL -> ReferralScreen(onBack = { section = ProfileSection.MAIN })
         ProfileSection.PRICING -> PricingScreen(onBack = { section = ProfileSection.MAIN })
+        ProfileSection.NOTIFICATION_INBOX -> NotificationsScreen(onBack = { section = ProfileSection.MAIN })
     }
 }
 
@@ -265,6 +267,12 @@ private fun ProfileMain(
                         icon = Icons.Default.HelpOutline,
                         title = stringResource(R.string.help_support),
                         onClick = { onNavigate(ProfileSection.HELP) }
+                    )
+                    HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
+                    ProfileMenuRow(
+                        icon = Icons.Default.Notifications,
+                        title = stringResource(R.string.notifications_title),
+                        onClick = { onNavigate(ProfileSection.NOTIFICATION_INBOX) }
                     )
                     HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
                     ProfileMenuRow(

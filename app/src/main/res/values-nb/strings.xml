@@ -1102,4 +1102,8 @@
     <string name="no_pets_yet">Ingen kjæledyr ennå</string>
     <string name="create_first_pet">Opprett en kjæledyrprofil for å aktivere merket.</string>
     <string name="create_new_pet">Opprett nytt kjæledyr</string>
+    <string name="notifications_title">Varsler</string>
+    <string name="no_notifications">Ingen varsler</string>
+    <string name="no_notifications_desc">Alt oppdatert! Varsler vil vises her når noen skanner merket til kjæledyret ditt.</string>
+    <string name="mark_all_read">Merk alle som lest</string>
 </resources>

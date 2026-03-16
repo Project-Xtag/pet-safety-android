@@ -1108,4 +1108,8 @@
     <string name="no_pets_yet">Aún no hay mascotas</string>
     <string name="create_first_pet">Crea el perfil de tu mascota para activar la placa.</string>
     <string name="create_new_pet">Crear nueva mascota</string>
+    <string name="notifications_title">Notificaciones</string>
+    <string name="no_notifications">Sin notificaciones</string>
+    <string name="no_notifications_desc">¡Todo al día! Las notificaciones aparecerán aquí cuando escaneen la placa de tu mascota.</string>
+    <string name="mark_all_read">Marcar todo como leído</string>
 </resources>

@@ -1108,4 +1108,8 @@
     <string name="no_pets_yet">Ainda sem animais</string>
     <string name="create_first_pet">Crie o perfil do seu animal para ativar a etiqueta.</string>
     <string name="create_new_pet">Criar novo animal</string>
+    <string name="notifications_title">Notificações</string>
+    <string name="no_notifications">Sem notificações</string>
+    <string name="no_notifications_desc">Tudo em dia! As notificações aparecerão aqui quando a etiqueta do seu animal for escaneada.</string>
+    <string name="mark_all_read">Marcar tudo como lido</string>
 </resources>

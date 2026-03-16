@@ -391,3 +391,22 @@ data class PendingRegistrationsResponse(
 data class UnactivatedTagsResponse(
     val unactivated: List<UnactivatedOrderItem>
 )
+
+@Serializable
+data class NotificationsResponse(
+    val notifications: List<NotificationItem>,
+    val pagination: PaginationInfo
+)
+
+@Serializable
+data class PaginationInfo(
+    val page: Int,
+    val limit: Int,
+    val total: Int,
+    val totalPages: Int
+)
+
+@Serializable
+data class UnreadCountResponse(
+    val count: Int
+)

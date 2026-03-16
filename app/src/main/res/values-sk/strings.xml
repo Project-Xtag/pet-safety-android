@@ -1116,4 +1116,8 @@
     <string name="no_pets_yet">Zatiaľ žiadne zvieratá</string>
     <string name="create_first_pet">Vytvorte profil svojho zvieraťa na aktiváciu známky.</string>
     <string name="create_new_pet">Vytvoriť nové zviera</string>
+    <string name="notifications_title">Oznámenia</string>
+    <string name="no_notifications">Žiadne oznámenia</string>
+    <string name="no_notifications_desc">Všetko je aktuálne! Oznámenia sa tu zobrazia, keď niekto naskenuje známku vášho zvieraťa.</string>
+    <string name="mark_all_read">Označiť všetko ako prečítané</string>
 </resources>
