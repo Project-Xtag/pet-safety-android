@@ -55,6 +55,7 @@
     <string name="use_different_email">Folosește alt e-mail</string>
     <string name="code_sent_to_email">Cod trimis la %1$s</string>
     <string name="otp_sent_to">Introdu codul de 6 cifre trimis la</string>
+    <string name="otp_placeholder">Introdu codul de 6 cifre</string>
     <string name="login_failed">Autentificare eșuată</string>
     <string name="verification_failed">Verificare eșuată</string>
     <string name="invalid_email">Introdu o adresă de e-mail validă</string>

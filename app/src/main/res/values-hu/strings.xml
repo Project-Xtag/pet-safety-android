@@ -63,6 +63,7 @@
     <string name="use_different_email">Másik email használata</string>
     <string name="code_sent_to_email">Kód elküldve: %1$s</string>
     <string name="otp_sent_to">Add meg a 6 számjegyű kódot, amelyet ide küldtünk:</string>
+    <string name="otp_placeholder">Írd be a 6 jegyű kódot</string>
     <string name="login_failed">Sikertelen bejelentkezés</string>
     <string name="verification_failed">Sikertelen ellenőrzés</string>
     <string name="invalid_email">Kérjük, adj meg egy érvényes email címet</string>

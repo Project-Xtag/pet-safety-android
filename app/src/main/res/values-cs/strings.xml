@@ -63,6 +63,7 @@
     <string name="use_different_email">Použít jiný e-mail</string>
     <string name="code_sent_to_email">Kód odeslán na %1$s</string>
     <string name="otp_sent_to">Zadejte 6místný kód odeslaný na</string>
+    <string name="otp_placeholder">Zadejte 6místný kód</string>
     <string name="login_failed">Přihlášení se nezdařilo</string>
     <string name="verification_failed">Ověření se nezdařilo</string>
     <string name="invalid_email">Zadejte platnou e-mailovou adresu</string>

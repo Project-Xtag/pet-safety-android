@@ -63,6 +63,7 @@
     <string name="use_different_email">Usar otro correo</string>
     <string name="code_sent_to_email">Código enviado a %1$s</string>
     <string name="otp_sent_to">Introduce el código de 6 dígitos enviado a</string>
+    <string name="otp_placeholder">Introduce el código de 6 dígitos</string>
     <string name="login_failed">Error al iniciar sesión</string>
     <string name="verification_failed">La verificación falló</string>
     <string name="invalid_email">Introduce un correo válido</string>
