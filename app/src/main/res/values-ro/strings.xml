@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
+    <plurals name="photos_uploaded">
+        <item quantity="one">%d fotografie încărcată</item>
+        <item quantity="other">%d fotografii încărcate</item>
+    </plurals>
+    <plurals name="photos_upload_failed">
+        <item quantity="one">%d fotografie nu a putut fi încărcată</item>
+        <item quantity="other">%d fotografii nu au putut fi încărcate</item>
+    </plurals>
     <string name="app_name">Senra Pet</string>
     <!-- Google Maps API key is injected via build.gradle.kts resValue from local.properties or env var -->
 
@@ -1068,4 +1076,5 @@
     <string name="order_gift_message">Mesaj cadou (opțional)</string>
     <string name="order_gift_message_placeholder">Adaugă un mesaj personal…</string>
     <string name="order_gift_badge">Comandă cadou</string>
+    <plurals name="photo_count">n        <item quantity="one">%d fotografie</item>n        <item quantity="other">%d fotografii</item>n    </plurals>
 </resources>

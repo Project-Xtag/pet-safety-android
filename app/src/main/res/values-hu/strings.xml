@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
+    <plurals name="photos_uploaded">
+        <item quantity="one">%d fotó feltöltve</item>
+        <item quantity="other">%d fotó feltöltve</item>
+    </plurals>
+    <plurals name="photos_upload_failed">
+        <item quantity="one">%d fotó feltöltése sikertelen</item>
+        <item quantity="other">%d fotó feltöltése sikertelen</item>
+    </plurals>
     <string name="app_name">Senra Pet</string>
     <!--
         Google Maps API key is injected via build.gradle.kts from:
@@ -1067,4 +1075,5 @@
     <string name="order_gift_message">Ajándék üzenet (nem kötelező)</string>
     <string name="order_gift_message_placeholder">Adj hozzá személyes üzenetet…</string>
     <string name="order_gift_badge">Ajándék rendelés</string>
+    <plurals name="photo_count">n        <item quantity="one">%d fotó</item>n        <item quantity="other">%d fotó</item>n    </plurals>
 </resources>

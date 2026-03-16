@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
+    <plurals name="photos_uploaded">
+        <item quantity="one">%d foto carregada</item>
+        <item quantity="other">%d fotos carregadas</item>
+    </plurals>
+    <plurals name="photos_upload_failed">
+        <item quantity="one">%d foto falhou ao carregar</item>
+        <item quantity="other">%d fotos falharam ao carregar</item>
+    </plurals>
     <string name="app_name">Senra Pet</string>
     <!--
         Google Maps API key is injected via build.gradle.kts from:
@@ -1067,4 +1075,5 @@
     <string name="order_gift_message">Mensagem de presente (opcional)</string>
     <string name="order_gift_message_placeholder">Adiciona uma mensagem pessoal…</string>
     <string name="order_gift_badge">Encomenda de presente</string>
+    <plurals name="photo_count">n        <item quantity="one">%d foto</item>n        <item quantity="other">%d fotos</item>n    </plurals>
 </resources>
