@@ -1132,4 +1132,5 @@
     <string name="no_notifications">Brak powiadomień</string>
     <string name="no_notifications_desc">Wszystko aktualne! Powiadomienia pojawią się tutaj, gdy ktoś zeskanuje zawieszkę Twojego zwierzęcia.</string>
     <string name="mark_all_read">Oznacz wszystkie jako przeczytane</string>
+    <string name="create_profile_hint">Najpierw utwórz profil zwierzęcia, następnie ponownie zeskanuj zawieszkę, aby ją aktywować.</string>
 </resources>

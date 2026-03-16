@@ -1112,4 +1112,5 @@
     <string name="no_notifications">Sem notificações</string>
     <string name="no_notifications_desc">Tudo em dia! As notificações aparecerão aqui quando a etiqueta do seu animal for escaneada.</string>
     <string name="mark_all_read">Marcar tudo como lido</string>
+    <string name="create_profile_hint">Crie primeiro um perfil de animal, depois escaneie a etiqueta novamente para ativar.</string>
 </resources>

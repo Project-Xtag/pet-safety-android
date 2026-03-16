@@ -1106,4 +1106,5 @@
     <string name="no_notifications">Ingen varsler</string>
     <string name="no_notifications_desc">Alt oppdatert! Varsler vil vises her når noen skanner merket til kjæledyret ditt.</string>
     <string name="mark_all_read">Merk alle som lest</string>
+    <string name="create_profile_hint">Opprett først en kjæledyrprofil, og skann deretter merket på nytt for å aktivere.</string>
 </resources>

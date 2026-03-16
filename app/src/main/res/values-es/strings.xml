@@ -1112,4 +1112,5 @@
     <string name="no_notifications">Sin notificaciones</string>
     <string name="no_notifications_desc">¡Todo al día! Las notificaciones aparecerán aquí cuando escaneen la placa de tu mascota.</string>
     <string name="mark_all_read">Marcar todo como leído</string>
+    <string name="create_profile_hint">Crea primero un perfil de mascota, luego escanea la placa de nuevo para activarla.</string>
 </resources>

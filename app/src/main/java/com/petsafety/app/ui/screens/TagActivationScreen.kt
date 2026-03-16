@@ -314,7 +314,14 @@ fun TagActivationScreen(
                                     )
                                 }
                                 items(unmatchedNames, key = { it }) { name ->
-                                    UnmatchedPetCard(petName = name)
+                                    val hint = stringResource(R.string.create_profile_hint)
+                                    UnmatchedPetCard(
+                                        petName = name,
+                                        onCreateProfile = {
+                                            appStateViewModel.showSuccess(hint)
+                                            onBack()
+                                        }
+                                    )
                                 }
                             }
 
@@ -478,7 +485,7 @@ private fun PetSelectionCard(
 }
 
 @Composable
-private fun UnmatchedPetCard(petName: String) {
+private fun UnmatchedPetCard(petName: String, onCreateProfile: () -> Unit = {}) {
     Card(
         modifier = Modifier.fillMaxWidth(),
         shape = RoundedCornerShape(16.dp),
@@ -527,6 +534,15 @@ private fun UnmatchedPetCard(petName: String) {
                     modifier = Modifier
                         .background(BrandOrange.copy(alpha = 0.12f), RoundedCornerShape(4.dp))
                         .padding(horizontal = 6.dp, vertical = 2.dp)
+                )
+                Spacer(modifier = Modifier.height(8.dp))
+                Text(
+                    text = stringResource(R.string.create_profile_first),
+                    style = MaterialTheme.typography.bodySmall.copy(fontWeight = FontWeight.SemiBold),
+                    color = BrandOrange,
+                    modifier = Modifier
+                        .clickable(onClick = onCreateProfile)
+                        .padding(vertical = 4.dp)
                 )
             }
         }

@@ -1107,4 +1107,5 @@
     <string name="no_notifications">Nessuna notifica</string>
     <string name="no_notifications_desc">Tutto aggiornato! Le notifiche appariranno qui quando la targhetta del tuo animale sarà scansionata.</string>
     <string name="mark_all_read">Segna tutto come letto</string>
+    <string name="create_profile_hint">Crea prima un profilo animale, poi scansiona di nuovo la targhetta per attivarla.</string>
 </resources>

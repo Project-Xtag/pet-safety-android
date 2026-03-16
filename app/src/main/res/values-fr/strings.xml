@@ -1104,4 +1104,5 @@
     <string name="no_notifications">Aucune notification</string>
     <string name="no_notifications_desc">Tout est à jour ! Les notifications apparaîtront ici quand la médaille de votre animal sera scannée.</string>
     <string name="mark_all_read">Tout marquer comme lu</string>
+    <string name="create_profile_hint">Créez d\'abord un profil d\'animal, puis scannez à nouveau la médaille pour l\'activer.</string>
 </resources>

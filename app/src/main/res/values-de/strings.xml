@@ -1112,4 +1112,5 @@
     <string name="no_notifications">Keine Benachrichtigungen</string>
     <string name="no_notifications_desc">Alles aktuell! Benachrichtigungen erscheinen hier, wenn die Marke Ihres Haustieres gescannt wird.</string>
     <string name="mark_all_read">Alle als gelesen markieren</string>
+    <string name="create_profile_hint">Erstellen Sie zuerst ein Haustierprofil und scannen Sie dann die Marke erneut zur Aktivierung.</string>
 </resources>

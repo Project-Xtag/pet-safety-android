@@ -1112,4 +1112,5 @@
     <string name="no_notifications">Nincsenek értesítések</string>
     <string name="no_notifications_desc">Minden naprakész! Az értesítések itt jelennek meg, ha beolvassák a kedvenced címkéjét.</string>
     <string name="mark_all_read">Összes olvasottnak jelölése</string>
+    <string name="create_profile_hint">Először hozz létre egy kedvenc profilt, majd olvasd be újra a címkét az aktiváláshoz.</string>
 </resources>

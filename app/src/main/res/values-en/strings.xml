@@ -1099,4 +1099,5 @@
     <string name="no_notifications">No Notifications</string>
     <string name="no_notifications_desc">You\'re all caught up! Notifications will appear here when your pet\'s tag is scanned.</string>
     <string name="mark_all_read">Mark All Read</string>
+    <string name="create_profile_hint">Create a pet profile first, then scan the tag again to activate.</string>
 </resources>
