@@ -1096,4 +1096,36 @@
 
     <!-- Missing translations -->
 
+    <string name="shipping_section_title">Wysyłka</string>
+    <string name="tracking_number_label">Numer śledzenia</string>
+    <string name="track_package">Śledź przesyłkę</string>
+    <string name="delivery_method_label">Sposób dostawy</string>
+    <string name="delivery_home">Dostawa do domu</string>
+    <string name="delivery_postapoint">Odbiór PostaPont</string>
+    <string name="pending_registrations_title">Oczekujące zawieszki</string>
+    <string name="ready_to_activate">Gotowe do aktywacji</string>
+    <string name="still_processing">W trakcie realizacji</string>
+    <string name="scan_tag_now">Skanuj zawieszkę</string>
+    <string name="create_profile_first">Utwórz profil</string>
+    <string name="create_profile_while_waiting">Utwórz profil podczas oczekiwania</string>
+    <string name="all_caught_up">Wszystko aktualne!</string>
+    <string name="all_caught_up_description">Nie masz żadnych oczekujących rejestracji zawieszek.</string>
+    <string name="status_shipped">Wysłano</string>
+    <string name="status_delivered">Dostarczono</string>
+    <string name="status_processing">W trakcie realizacji</string>
+    <string name="status_pending">Oczekujące</string>
+    <string name="activation_help_title">Jak aktywować zawieszkę</string>
+    <string name="activation_help_step1">Poczekaj na dostarczenie zawieszki</string>
+    <string name="activation_help_step2">Zeskanuj kod QR na zawieszce</string>
+    <string name="activation_help_step3">Wybierz zwierzaka do powiązania</string>
+    <string name="activation_help_step4">Wybierz plan subskrypcji</string>
+    <string name="pets_from_order">Zwierzęta z Twojego zamówienia</string>
+    <string name="from_your_order">Z Twojego zamówienia</string>
+    <string name="needs_profile">Potrzebuje profilu</string>
+    <string name="create_profile_for">Utwórz profil dla %1$s</string>
+    <string name="other_pets">Inne zwierzęta</string>
+    <string name="link_to_pet">Połącz z %1$s</string>
+    <string name="no_pets_yet">Jeszcze brak zwierząt</string>
+    <string name="create_first_pet">Utwórz profil zwierzęcia, aby aktywować zawieszkę.</string>
+    <string name="create_new_pet">Utwórz nowe zwierzę</string>
 </resources>

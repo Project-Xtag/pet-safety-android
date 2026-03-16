@@ -381,3 +381,13 @@ data class ShareCardResponse(
     val type: String,
     val locale: String
 )
+
+@Serializable
+data class PendingRegistrationsResponse(
+    val pending: List<PendingRegistration>
+)
+
+@Serializable
+data class UnactivatedTagsResponse(
+    val unactivated: List<UnactivatedOrderItem>
+)

@@ -44,12 +44,15 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.AsyncImage
 import com.petsafety.app.R
 import com.petsafety.app.data.model.Pet
+import com.petsafety.app.data.model.UnactivatedOrderItem
 import com.petsafety.app.ui.components.BrandButton
 import com.petsafety.app.ui.theme.BrandOrange
 import com.petsafety.app.ui.theme.TealAccent
 import com.petsafety.app.ui.viewmodel.ActivationState
 import com.petsafety.app.ui.viewmodel.AppStateViewModel
 import com.petsafety.app.ui.viewmodel.TagActivationViewModel
+import androidx.compose.material.icons.filled.Add
+import androidx.compose.foundation.BorderStroke
 
 @Composable
 fun TagActivationScreen(
@@ -66,8 +69,10 @@ fun TagActivationScreen(
     val activationState by viewModel.activationState.collectAsState()
     val selectedPetId by viewModel.selectedPetId.collectAsState()
 
+    val orderItems by viewModel.orderItems.collectAsState()
+
     LaunchedEffect(Unit) {
-        viewModel.fetchPets()
+        viewModel.loadActivationData(qrCode)
     }
 
     LaunchedEffect(activationState) {
@@ -286,12 +291,60 @@ fun TagActivationScreen(
                         modifier = Modifier.weight(1f),
                         verticalArrangement = Arrangement.spacedBy(12.dp)
                     ) {
-                        items(pets, key = { it.id }) { pet ->
-                            PetSelectionCard(
-                                pet = pet,
-                                isSelected = selectedPetId == pet.id,
-                                onClick = { viewModel.selectPet(pet.id) }
-                            )
+                        if (viewModel.hasOrderContext()) {
+                            val matchingPets = viewModel.getMatchingPets()
+                            val unmatchedNames = viewModel.getUnmatchedOrderNames()
+                            val otherPets = viewModel.getOtherPets()
+
+                            // Section: Pets from order
+                            if (matchingPets.isNotEmpty() || unmatchedNames.isNotEmpty()) {
+                                item {
+                                    Text(
+                                        text = stringResource(R.string.pets_from_order),
+                                        style = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.SemiBold),
+                                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                                    )
+                                }
+                                items(matchingPets, key = { it.id }) { pet ->
+                                    PetSelectionCard(
+                                        pet = pet,
+                                        isSelected = selectedPetId == pet.id,
+                                        badge = stringResource(R.string.from_your_order),
+                                        onClick = { viewModel.selectPet(pet.id) }
+                                    )
+                                }
+                                items(unmatchedNames, key = { it }) { name ->
+                                    UnmatchedPetCard(petName = name)
+                                }
+                            }
+
+                            // Section: Other pets
+                            if (otherPets.isNotEmpty()) {
+                                item {
+                                    Spacer(modifier = Modifier.height(4.dp))
+                                    Text(
+                                        text = stringResource(R.string.other_pets),
+                                        style = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.SemiBold),
+                                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                                    )
+                                }
+                                items(otherPets, key = { it.id }) { pet ->
+                                    PetSelectionCard(
+                                        pet = pet,
+                                        isSelected = selectedPetId == pet.id,
+                                        onClick = { viewModel.selectPet(pet.id) }
+                                    )
+                                }
+                            }
+                        } else {
+                            // No order context - flat list
+                            items(pets, key = { it.id }) { pet ->
+                                PetSelectionCard(
+                                    pet = pet,
+                                    isSelected = selectedPetId == pet.id,
+                                    onClick = { viewModel.selectPet(pet.id) }
+                                )
+                            }
                         }
                     }
                 }
@@ -329,6 +382,7 @@ fun TagActivationScreen(
 private fun PetSelectionCard(
     pet: Pet,
     isSelected: Boolean,
+    badge: String? = null,
     onClick: () -> Unit
 ) {
     Card(
@@ -398,6 +452,17 @@ private fun PetSelectionCard(
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
                 }
+                badge?.let {
+                    Spacer(modifier = Modifier.height(2.dp))
+                    Text(
+                        text = it,
+                        style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.Medium),
+                        color = BrandOrange,
+                        modifier = Modifier
+                            .background(BrandOrange.copy(alpha = 0.12f), RoundedCornerShape(4.dp))
+                            .padding(horizontal = 6.dp, vertical = 2.dp)
+                    )
+                }
             }
 
             if (isSelected) {
@@ -406,6 +471,62 @@ private fun PetSelectionCard(
                     contentDescription = null,
                     modifier = Modifier.size(24.dp),
                     tint = BrandOrange
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun UnmatchedPetCard(petName: String) {
+    Card(
+        modifier = Modifier.fillMaxWidth(),
+        shape = RoundedCornerShape(16.dp),
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.surface
+        ),
+        border = BorderStroke(1.dp, BrandOrange.copy(alpha = 0.3f))
+    ) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Box(
+                modifier = Modifier
+                    .size(56.dp)
+                    .clip(CircleShape)
+                    .background(BrandOrange.copy(alpha = 0.1f)),
+                contentAlignment = Alignment.Center
+            ) {
+                Icon(
+                    imageVector = Icons.Default.Pets,
+                    contentDescription = petName,
+                    modifier = Modifier.size(28.dp),
+                    tint = BrandOrange
+                )
+            }
+
+            Spacer(modifier = Modifier.width(16.dp))
+
+            Column(modifier = Modifier.weight(1f)) {
+                Text(
+                    text = petName,
+                    style = MaterialTheme.typography.titleMedium.copy(
+                        fontWeight = FontWeight.SemiBold,
+                        fontSize = 16.sp
+                    ),
+                    color = MaterialTheme.colorScheme.onSurface
+                )
+                Spacer(modifier = Modifier.height(2.dp))
+                Text(
+                    text = stringResource(R.string.needs_profile),
+                    style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.Medium),
+                    color = BrandOrange,
+                    modifier = Modifier
+                        .background(BrandOrange.copy(alpha = 0.12f), RoundedCornerShape(4.dp))
+                        .padding(horizontal = 6.dp, vertical = 2.dp)
                 )
             }
         }

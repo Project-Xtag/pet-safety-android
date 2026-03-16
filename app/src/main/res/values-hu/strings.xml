@@ -1076,4 +1076,36 @@
     <string name="order_gift_message_placeholder">Adj hozzá személyes üzenetet…</string>
     <string name="order_gift_badge">Ajándék rendelés</string>
     <plurals name="photo_count">n        <item quantity="one">%d fotó</item>n        <item quantity="other">%d fotó</item>n    </plurals>
+    <string name="shipping_section_title">Szállítás</string>
+    <string name="tracking_number_label">Nyomkövetési szám</string>
+    <string name="track_package">Csomag követése</string>
+    <string name="delivery_method_label">Szállítási mód</string>
+    <string name="delivery_home">Házhozszállítás</string>
+    <string name="delivery_postapoint">PostaPont átvétel</string>
+    <string name="pending_registrations_title">Függőben lévő címkék</string>
+    <string name="ready_to_activate">Aktiválásra kész</string>
+    <string name="still_processing">Feldolgozás alatt</string>
+    <string name="scan_tag_now">Címke beolvasása</string>
+    <string name="create_profile_first">Profil létrehozása</string>
+    <string name="create_profile_while_waiting">Profil létrehozása várakozás közben</string>
+    <string name="all_caught_up">Minden naprakész!</string>
+    <string name="all_caught_up_description">Nincsenek függőben lévő címke regisztrációk.</string>
+    <string name="status_shipped">Feladva</string>
+    <string name="status_delivered">Kézbesítve</string>
+    <string name="status_processing">Feldolgozás alatt</string>
+    <string name="status_pending">Függőben</string>
+    <string name="activation_help_title">Hogyan aktiváld a címkéd</string>
+    <string name="activation_help_step1">Várd meg, amíg megérkezik a címkéd</string>
+    <string name="activation_help_step2">Olvasd be a QR kódot a címkén</string>
+    <string name="activation_help_step3">Válaszd ki a kedvencedet</string>
+    <string name="activation_help_step4">Válassz előfizetési csomagot</string>
+    <string name="pets_from_order">Rendelésedben szereplő kedvencek</string>
+    <string name="from_your_order">A rendelésedből</string>
+    <string name="needs_profile">Profil szükséges</string>
+    <string name="create_profile_for">Profil létrehozása: %1$s</string>
+    <string name="other_pets">Egyéb kedvencek</string>
+    <string name="link_to_pet">Kapcsolás: %1$s</string>
+    <string name="no_pets_yet">Még nincsenek kedvencek</string>
+    <string name="create_first_pet">Hozd létre első kedvenced profilját a címke aktiválásához.</string>
+    <string name="create_new_pet">Új kedvenc létrehozása</string>
 </resources>

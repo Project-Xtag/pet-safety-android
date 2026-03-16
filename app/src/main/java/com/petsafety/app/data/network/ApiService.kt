@@ -164,6 +164,12 @@ interface ApiService {
     @GET("orders")
     suspend fun getOrders(): ApiEnvelope<OrdersResponse>
 
+    @GET("orders/pending-registrations")
+    suspend fun getPendingRegistrations(): ApiEnvelope<PendingRegistrationsResponse>
+
+    @GET("orders/unactivated-for-qr/{qrCode}")
+    suspend fun getUnactivatedTagsForQRCode(@Path("qrCode") qrCode: String): ApiEnvelope<UnactivatedTagsResponse>
+
     @GET("orders/replacement/check-eligibility")
     suspend fun checkReplacementEligibility(): ApiEnvelope<ReplacementEligibilityResponse>
 

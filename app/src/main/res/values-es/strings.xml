@@ -1076,4 +1076,36 @@
     <string name="order_gift_message_placeholder">Añade un mensaje personal…</string>
     <string name="order_gift_badge">Pedido de regalo</string>
     <plurals name="photo_count">n        <item quantity="one">%d foto</item>n        <item quantity="other">%d fotos</item>n    </plurals>
+    <string name="shipping_section_title">Envío</string>
+    <string name="tracking_number_label">Número de seguimiento</string>
+    <string name="track_package">Seguir envío</string>
+    <string name="delivery_method_label">Método de envío</string>
+    <string name="delivery_home">Envío a domicilio</string>
+    <string name="delivery_postapoint">Recogida en PostaPont</string>
+    <string name="pending_registrations_title">Placas pendientes</string>
+    <string name="ready_to_activate">Listas para activar</string>
+    <string name="still_processing">En proceso</string>
+    <string name="scan_tag_now">Escanear placa</string>
+    <string name="create_profile_first">Crear perfil</string>
+    <string name="create_profile_while_waiting">Crear perfil mientras esperas</string>
+    <string name="all_caught_up">¡Todo al día!</string>
+    <string name="all_caught_up_description">No tienes registros de placas pendientes.</string>
+    <string name="status_shipped">Enviado</string>
+    <string name="status_delivered">Entregado</string>
+    <string name="status_processing">En proceso</string>
+    <string name="status_pending">Pendiente</string>
+    <string name="activation_help_title">Cómo activar tu placa</string>
+    <string name="activation_help_step1">Espera a que llegue tu placa</string>
+    <string name="activation_help_step2">Escanea el código QR de la placa</string>
+    <string name="activation_help_step3">Selecciona la mascota a vincular</string>
+    <string name="activation_help_step4">Elige tu plan de suscripción</string>
+    <string name="pets_from_order">Mascotas de tu pedido</string>
+    <string name="from_your_order">De tu pedido</string>
+    <string name="needs_profile">Necesita perfil</string>
+    <string name="create_profile_for">Crear perfil para %1$s</string>
+    <string name="other_pets">Otras mascotas</string>
+    <string name="link_to_pet">Vincular a %1$s</string>
+    <string name="no_pets_yet">Aún no hay mascotas</string>
+    <string name="create_first_pet">Crea el perfil de tu mascota para activar la placa.</string>
+    <string name="create_new_pet">Crear nueva mascota</string>
 </resources>

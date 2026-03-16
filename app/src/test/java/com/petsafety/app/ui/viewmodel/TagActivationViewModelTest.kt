@@ -2,6 +2,8 @@ package com.petsafety.app.ui.viewmodel
 
 import com.petsafety.app.data.model.Pet
 import com.petsafety.app.data.model.QrTag
+import com.petsafety.app.data.model.UnactivatedOrderItem
+import com.petsafety.app.data.repository.OrdersRepository
 import com.petsafety.app.data.repository.PetsRepository
 import com.petsafety.app.data.repository.QrRepository
 import io.mockk.coEvery
@@ -15,6 +17,7 @@ import kotlinx.coroutines.test.runTest
 import kotlinx.coroutines.test.setMain
 import org.junit.After
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertFalse
 import org.junit.Assert.assertNull
 import org.junit.Assert.assertTrue
 import org.junit.Before
@@ -26,6 +29,7 @@ class TagActivationViewModelTest {
     private val testDispatcher = StandardTestDispatcher()
     private lateinit var petsRepository: PetsRepository
     private lateinit var qrRepository: QrRepository
+    private lateinit var ordersRepository: OrdersRepository
     private lateinit var viewModel: TagActivationViewModel
 
     private val testPet1 = Pet(
@@ -63,7 +67,8 @@ class TagActivationViewModelTest {
         Dispatchers.setMain(testDispatcher)
         petsRepository = mockk(relaxed = true)
         qrRepository = mockk(relaxed = true)
-        viewModel = TagActivationViewModel(petsRepository, qrRepository)
+        ordersRepository = mockk(relaxed = true)
+        viewModel = TagActivationViewModel(petsRepository, qrRepository, ordersRepository)
     }
 
     @After
@@ -332,5 +337,155 @@ class TagActivationViewModelTest {
         // 4. Reset
         viewModel.resetActivation()
         assertTrue(viewModel.activationState.value is ActivationState.Idle)
+    }
+
+    // MARK: - loadActivationData
+
+    @Test
+    fun `loadActivationData - fetches both pets and order items in parallel`() = runTest {
+        val pets = listOf(testPet1, testPet2)
+        val orderItems = listOf(
+            UnactivatedOrderItem(orderItemId = "oi-1", petName = "Buddy"),
+            UnactivatedOrderItem(orderItemId = "oi-2", petName = "Max")
+        )
+        coEvery { petsRepository.fetchPets() } returns (pets to null)
+        coEvery { ordersRepository.getUnactivatedTagsForQRCode("QR-TEST-001") } returns orderItems
+
+        viewModel.loadActivationData("QR-TEST-001")
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        assertEquals(pets, viewModel.pets.value)
+        assertEquals(orderItems, viewModel.orderItems.value)
+        assertEquals(false, viewModel.isLoadingPets.value)
+    }
+
+    @Test
+    fun `loadActivationData - order items error - still loads pets`() = runTest {
+        val pets = listOf(testPet1)
+        coEvery { petsRepository.fetchPets() } returns (pets to null)
+        coEvery { ordersRepository.getUnactivatedTagsForQRCode(any()) } throws RuntimeException("Not found")
+
+        viewModel.loadActivationData("QR-TEST-001")
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        assertEquals(pets, viewModel.pets.value)
+        assertTrue(viewModel.orderItems.value.isEmpty())
+    }
+
+    @Test
+    fun `loadActivationData - sets loading state`() = runTest {
+        coEvery { petsRepository.fetchPets() } coAnswers {
+            assertTrue(viewModel.isLoadingPets.value)
+            listOf(testPet1) to null
+        }
+        coEvery { ordersRepository.getUnactivatedTagsForQRCode(any()) } returns emptyList()
+
+        viewModel.loadActivationData("QR-TEST-001")
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        assertEquals(false, viewModel.isLoadingPets.value)
+    }
+
+    // MARK: - Order matching helpers
+
+    @Test
+    fun `getMatchingPets - returns pets whose names match order items`() = runTest {
+        coEvery { petsRepository.fetchPets() } returns (listOf(testPet1, testPet2) to null)
+        coEvery { ordersRepository.getUnactivatedTagsForQRCode(any()) } returns listOf(
+            UnactivatedOrderItem(orderItemId = "oi-1", petName = "Buddy")
+        )
+
+        viewModel.loadActivationData("QR-TEST-001")
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        val matching = viewModel.getMatchingPets()
+        assertEquals(1, matching.size)
+        assertEquals("Buddy", matching[0].name)
+    }
+
+    @Test
+    fun `getMatchingPets - case insensitive matching`() = runTest {
+        coEvery { petsRepository.fetchPets() } returns (listOf(testPet1) to null)
+        coEvery { ordersRepository.getUnactivatedTagsForQRCode(any()) } returns listOf(
+            UnactivatedOrderItem(orderItemId = "oi-1", petName = "buddy")
+        )
+
+        viewModel.loadActivationData("QR-TEST-001")
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        val matching = viewModel.getMatchingPets()
+        assertEquals(1, matching.size)
+        assertEquals("Buddy", matching[0].name)
+    }
+
+    @Test
+    fun `getUnmatchedOrderNames - returns order names without pet profiles`() = runTest {
+        coEvery { petsRepository.fetchPets() } returns (listOf(testPet1) to null)
+        coEvery { ordersRepository.getUnactivatedTagsForQRCode(any()) } returns listOf(
+            UnactivatedOrderItem(orderItemId = "oi-1", petName = "Buddy"),
+            UnactivatedOrderItem(orderItemId = "oi-2", petName = "Max")
+        )
+
+        viewModel.loadActivationData("QR-TEST-001")
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        val unmatched = viewModel.getUnmatchedOrderNames()
+        assertEquals(1, unmatched.size)
+        assertEquals("Max", unmatched[0])
+    }
+
+    @Test
+    fun `getOtherPets - returns pets not in order`() = runTest {
+        coEvery { petsRepository.fetchPets() } returns (listOf(testPet1, testPet2) to null)
+        coEvery { ordersRepository.getUnactivatedTagsForQRCode(any()) } returns listOf(
+            UnactivatedOrderItem(orderItemId = "oi-1", petName = "Buddy")
+        )
+
+        viewModel.loadActivationData("QR-TEST-001")
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        val others = viewModel.getOtherPets()
+        assertEquals(1, others.size)
+        assertEquals("Luna", others[0].name)
+    }
+
+    @Test
+    fun `hasOrderContext - true when order items present`() = runTest {
+        coEvery { petsRepository.fetchPets() } returns (listOf(testPet1) to null)
+        coEvery { ordersRepository.getUnactivatedTagsForQRCode(any()) } returns listOf(
+            UnactivatedOrderItem(orderItemId = "oi-1", petName = "Buddy")
+        )
+
+        viewModel.loadActivationData("QR-TEST-001")
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        assertTrue(viewModel.hasOrderContext())
+    }
+
+    @Test
+    fun `hasOrderContext - false when no order items`() = runTest {
+        coEvery { petsRepository.fetchPets() } returns (listOf(testPet1) to null)
+        coEvery { ordersRepository.getUnactivatedTagsForQRCode(any()) } returns emptyList()
+
+        viewModel.loadActivationData("QR-TEST-001")
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        assertFalse(viewModel.hasOrderContext())
+    }
+
+    @Test
+    fun `getUnmatchedOrderNames - ignores null pet names`() = runTest {
+        coEvery { petsRepository.fetchPets() } returns (emptyList<Pet>() to null)
+        coEvery { ordersRepository.getUnactivatedTagsForQRCode(any()) } returns listOf(
+            UnactivatedOrderItem(orderItemId = "oi-1", petName = null),
+            UnactivatedOrderItem(orderItemId = "oi-2", petName = "Max")
+        )
+
+        viewModel.loadActivationData("QR-TEST-001")
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        val unmatched = viewModel.getUnmatchedOrderNames()
+        assertEquals(1, unmatched.size)
+        assertEquals("Max", unmatched[0])
     }
 }

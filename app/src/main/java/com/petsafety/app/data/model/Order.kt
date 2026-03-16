@@ -20,7 +20,10 @@ data class Order(
     @SerialName("created_at") val createdAt: String,
     @SerialName("updated_at") val updatedAt: String,
     val items: List<OrderItem>? = null,
-    @SerialName("is_gift") val isGift: Boolean = false
+    @SerialName("is_gift") val isGift: Boolean = false,
+    @SerialName("mpl_tracking_number") val mplTrackingNumber: String? = null,
+    @SerialName("mpl_shipment_status") val mplShipmentStatus: String? = null,
+    @SerialName("delivery_method") val deliveryMethod: String? = null
 )
 
 @Serializable

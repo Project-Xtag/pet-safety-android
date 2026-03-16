@@ -37,6 +37,7 @@ import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.CardGiftcard
 import androidx.compose.material.icons.filled.CreditCard
 import androidx.compose.material.icons.filled.Star
+import androidx.compose.material.icons.filled.Inventory2
 import androidx.compose.material.icons.filled.ShoppingBag
 import androidx.compose.material.icons.filled.WorkspacePremium
 import androidx.compose.material3.AlertDialog
@@ -93,7 +94,8 @@ private enum class ProfileSection {
     ORDERS,
     BILLING,
     REFERRAL,
-    PRICING
+    PRICING,
+    PENDING_TAGS
 }
 
 @Composable
@@ -120,6 +122,12 @@ fun ProfileScreen(
         ProfileSection.NOTIFICATIONS -> NotificationPreferencesScreen(prefsViewModel, appStateViewModel) { section = ProfileSection.MAIN }
         ProfileSection.HELP -> HelpSupportScreen(authViewModel, appStateViewModel) { section = ProfileSection.MAIN }
         ProfileSection.ORDERS -> OrdersScreen { section = ProfileSection.MAIN }
+        ProfileSection.PENDING_TAGS -> PendingRegistrationsScreen(
+            onBack = { section = ProfileSection.MAIN },
+            onNavigateToScanner = { /* TODO: navigate to scanner tab */ },
+            onNavigateToCreatePet = { petName -> /* TODO: navigate to pet creation */ },
+            onNavigateToOrderTags = { /* TODO: navigate to order tags */ }
+        )
         ProfileSection.BILLING -> BillingScreen(onBack = { section = ProfileSection.MAIN })
         ProfileSection.REFERRAL -> ReferralScreen(onBack = { section = ProfileSection.MAIN })
         ProfileSection.PRICING -> PricingScreen(onBack = { section = ProfileSection.MAIN })
@@ -257,6 +265,12 @@ private fun ProfileMain(
                         icon = Icons.Default.HelpOutline,
                         title = stringResource(R.string.help_support),
                         onClick = { onNavigate(ProfileSection.HELP) }
+                    )
+                    HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
+                    ProfileMenuRow(
+                        icon = Icons.Default.Inventory2,
+                        title = stringResource(R.string.pending_registrations_title),
+                        onClick = { onNavigate(ProfileSection.PENDING_TAGS) }
                     )
                     HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
                     ProfileMenuRow(

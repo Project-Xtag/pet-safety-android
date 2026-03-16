@@ -1076,4 +1076,36 @@
     <string name="order_gift_message_placeholder">Adiciona uma mensagem pessoal…</string>
     <string name="order_gift_badge">Encomenda de presente</string>
     <plurals name="photo_count">n        <item quantity="one">%d foto</item>n        <item quantity="other">%d fotos</item>n    </plurals>
+    <string name="shipping_section_title">Envio</string>
+    <string name="tracking_number_label">Número de rastreio</string>
+    <string name="track_package">Rastrear encomenda</string>
+    <string name="delivery_method_label">Método de envio</string>
+    <string name="delivery_home">Entrega ao domicílio</string>
+    <string name="delivery_postapoint">Levantamento PostaPont</string>
+    <string name="pending_registrations_title">Etiquetas pendentes</string>
+    <string name="ready_to_activate">Prontas para ativar</string>
+    <string name="still_processing">Em processamento</string>
+    <string name="scan_tag_now">Escanear etiqueta</string>
+    <string name="create_profile_first">Criar perfil</string>
+    <string name="create_profile_while_waiting">Criar perfil enquanto espera</string>
+    <string name="all_caught_up">Tudo em dia!</string>
+    <string name="all_caught_up_description">Não tem registos de etiquetas pendentes.</string>
+    <string name="status_shipped">Enviado</string>
+    <string name="status_delivered">Entregue</string>
+    <string name="status_processing">Em processamento</string>
+    <string name="status_pending">Pendente</string>
+    <string name="activation_help_title">Como ativar a sua etiqueta</string>
+    <string name="activation_help_step1">Aguarde a chegada da sua etiqueta</string>
+    <string name="activation_help_step2">Digitalize o código QR na etiqueta</string>
+    <string name="activation_help_step3">Selecione o animal a associar</string>
+    <string name="activation_help_step4">Escolha o seu plano de subscrição</string>
+    <string name="pets_from_order">Animais da sua encomenda</string>
+    <string name="from_your_order">Da sua encomenda</string>
+    <string name="needs_profile">Precisa de perfil</string>
+    <string name="create_profile_for">Criar perfil para %1$s</string>
+    <string name="other_pets">Outros animais</string>
+    <string name="link_to_pet">Associar a %1$s</string>
+    <string name="no_pets_yet">Ainda sem animais</string>
+    <string name="create_first_pet">Crie o perfil do seu animal para ativar a etiqueta.</string>
+    <string name="create_new_pet">Criar novo animal</string>
 </resources>

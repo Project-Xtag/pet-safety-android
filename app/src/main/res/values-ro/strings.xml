@@ -1077,4 +1077,36 @@
     <string name="order_gift_message_placeholder">Adaugă un mesaj personal…</string>
     <string name="order_gift_badge">Comandă cadou</string>
     <plurals name="photo_count">n        <item quantity="one">%d fotografie</item>n        <item quantity="other">%d fotografii</item>n    </plurals>
+    <string name="shipping_section_title">Livrare</string>
+    <string name="tracking_number_label">Număr de urmărire</string>
+    <string name="track_package">Urmărește coletul</string>
+    <string name="delivery_method_label">Metodă de livrare</string>
+    <string name="delivery_home">Livrare la domiciliu</string>
+    <string name="delivery_postapoint">Ridicare PostaPont</string>
+    <string name="pending_registrations_title">Etichete în așteptare</string>
+    <string name="ready_to_activate">Gata de activare</string>
+    <string name="still_processing">În procesare</string>
+    <string name="scan_tag_now">Scanează eticheta</string>
+    <string name="create_profile_first">Creează profil</string>
+    <string name="create_profile_while_waiting">Creează profil în timp ce aștepți</string>
+    <string name="all_caught_up">Totul e la zi!</string>
+    <string name="all_caught_up_description">Nu aveți înregistrări de etichete în așteptare.</string>
+    <string name="status_shipped">Expediat</string>
+    <string name="status_delivered">Livrat</string>
+    <string name="status_processing">În procesare</string>
+    <string name="status_pending">În așteptare</string>
+    <string name="activation_help_title">Cum să activezi eticheta</string>
+    <string name="activation_help_step1">Așteaptă să ajungă eticheta</string>
+    <string name="activation_help_step2">Scanează codul QR de pe etichetă</string>
+    <string name="activation_help_step3">Selectează animalul de companie</string>
+    <string name="activation_help_step4">Alege planul de abonament</string>
+    <string name="pets_from_order">Animale din comanda ta</string>
+    <string name="from_your_order">Din comanda ta</string>
+    <string name="needs_profile">Necesită profil</string>
+    <string name="create_profile_for">Creează profil pentru %1$s</string>
+    <string name="other_pets">Alte animale</string>
+    <string name="link_to_pet">Asociază cu %1$s</string>
+    <string name="no_pets_yet">Niciun animal încă</string>
+    <string name="create_first_pet">Creează profilul animalului tău pentru a activa eticheta.</string>
+    <string name="create_new_pet">Creează animal nou</string>
 </resources>

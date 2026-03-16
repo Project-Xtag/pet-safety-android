@@ -1071,4 +1071,36 @@
 
     <!-- Missing translations added -->
 
+    <string name="shipping_section_title">Spedizione</string>
+    <string name="tracking_number_label">Numero di tracciamento</string>
+    <string name="track_package">Traccia il pacco</string>
+    <string name="delivery_method_label">Metodo di spedizione</string>
+    <string name="delivery_home">Consegna a domicilio</string>
+    <string name="delivery_postapoint">Ritiro PostaPont</string>
+    <string name="pending_registrations_title">Targhette in attesa</string>
+    <string name="ready_to_activate">Pronte per l\'attivazione</string>
+    <string name="still_processing">In elaborazione</string>
+    <string name="scan_tag_now">Scansiona targhetta</string>
+    <string name="create_profile_first">Crea profilo</string>
+    <string name="create_profile_while_waiting">Crea profilo mentre aspetti</string>
+    <string name="all_caught_up">Tutto aggiornato!</string>
+    <string name="all_caught_up_description">Non hai registrazioni di targhette in attesa.</string>
+    <string name="status_shipped">Spedito</string>
+    <string name="status_delivered">Consegnato</string>
+    <string name="status_processing">In elaborazione</string>
+    <string name="status_pending">In attesa</string>
+    <string name="activation_help_title">Come attivare la tua targhetta</string>
+    <string name="activation_help_step1">Attendi l\'arrivo della targhetta</string>
+    <string name="activation_help_step2">Scansiona il codice QR sulla targhetta</string>
+    <string name="activation_help_step3">Seleziona l\'animale da associare</string>
+    <string name="activation_help_step4">Scegli il tuo piano di abbonamento</string>
+    <string name="pets_from_order">Animali dal tuo ordine</string>
+    <string name="from_your_order">Dal tuo ordine</string>
+    <string name="needs_profile">Profilo necessario</string>
+    <string name="create_profile_for">Crea profilo per %1$s</string>
+    <string name="other_pets">Altri animali</string>
+    <string name="link_to_pet">Collega a %1$s</string>
+    <string name="no_pets_yet">Nessun animale ancora</string>
+    <string name="create_first_pet">Crea il profilo del tuo animale per attivare la targhetta.</string>
+    <string name="create_new_pet">Crea nuovo animale</string>
 </resources>

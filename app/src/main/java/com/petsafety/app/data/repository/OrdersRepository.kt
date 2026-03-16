@@ -2,6 +2,8 @@ package com.petsafety.app.data.repository
 
 import com.petsafety.app.data.model.Order
 import com.petsafety.app.data.model.PaymentIntent
+import com.petsafety.app.data.model.PendingRegistration
+import com.petsafety.app.data.model.UnactivatedOrderItem
 import com.petsafety.app.data.network.ApiService
 import com.petsafety.app.data.network.model.CreatePaymentIntentRequest
 import com.petsafety.app.data.network.model.CreateTagCheckoutRequest
@@ -15,6 +17,12 @@ import com.petsafety.app.data.network.model.ShippingPricesResponse
 class OrdersRepository(private val apiService: ApiService) {
     suspend fun getOrders(): List<Order> =
         apiService.getOrders().data?.orders ?: emptyList()
+
+    suspend fun getPendingRegistrations(): List<PendingRegistration> =
+        apiService.getPendingRegistrations().data?.pending ?: emptyList()
+
+    suspend fun getUnactivatedTagsForQRCode(qrCode: String): List<UnactivatedOrderItem> =
+        apiService.getUnactivatedTagsForQRCode(qrCode).data?.unactivated ?: emptyList()
 
     suspend fun createTagOrder(request: CreateTagOrderRequest) =
         apiService.createTagOrder(request).data ?: error("Missing order response")

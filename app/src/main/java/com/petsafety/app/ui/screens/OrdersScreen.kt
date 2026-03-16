@@ -20,6 +20,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.OpenInNew
 import androidx.compose.material.icons.filled.ChevronRight
 import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.material3.Card
@@ -45,6 +46,7 @@ import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -293,6 +295,25 @@ private fun OrderCard(
                     )
                 }
             }
+
+            // Tracking indicator for shipped orders
+            if (order.orderStatus.lowercase() == "shipped" && order.mplTrackingNumber != null) {
+                Spacer(modifier = Modifier.height(4.dp))
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Icon(
+                        imageVector = Icons.AutoMirrored.Filled.OpenInNew,
+                        contentDescription = null,
+                        modifier = Modifier.size(14.dp),
+                        tint = BrandOrange
+                    )
+                    Spacer(modifier = Modifier.width(4.dp))
+                    Text(
+                        text = stringResource(R.string.track_package),
+                        style = MaterialTheme.typography.bodySmall,
+                        color = BrandOrange
+                    )
+                }
+            }
         }
     }
 }
@@ -355,6 +376,69 @@ private fun OrderDetailScreen(
                 DetailRow(label = stringResource(R.string.total_amount), value = formatCurrency(order.totalAmount, order.currency), isBold = true)
                 HorizontalDivider(color = MaterialTheme.colorScheme.outlineVariant, modifier = Modifier.padding(vertical = 12.dp))
                 DetailRow(label = stringResource(R.string.order_date), value = formatDateLong(order.createdAt))
+            }
+        }
+
+        // Shipping & Tracking Section
+        if (order.mplTrackingNumber != null) {
+            Spacer(modifier = Modifier.height(24.dp))
+            SectionHeader(title = stringResource(R.string.shipping_section_title))
+            Card(
+                modifier = Modifier.fillMaxWidth(),
+                shape = RoundedCornerShape(12.dp),
+                colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface)
+            ) {
+                Column(modifier = Modifier.padding(16.dp)) {
+                    DetailRow(
+                        label = stringResource(R.string.tracking_number_label),
+                        value = order.mplTrackingNumber
+                    )
+
+                    HorizontalDivider(
+                        color = MaterialTheme.colorScheme.outlineVariant,
+                        modifier = Modifier.padding(vertical = 12.dp)
+                    )
+
+                    val uriHandler = LocalUriHandler.current
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .clickable {
+                                uriHandler.openUri(
+                                    "https://nyomkovetes.posta.hu/international?itemNumber=${order.mplTrackingNumber}"
+                                )
+                            }
+                            .padding(vertical = 4.dp),
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Text(
+                            text = stringResource(R.string.track_package),
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = BrandOrange
+                        )
+                        Icon(
+                            imageVector = Icons.AutoMirrored.Filled.OpenInNew,
+                            contentDescription = null,
+                            modifier = Modifier.size(18.dp),
+                            tint = BrandOrange
+                        )
+                    }
+
+                    if (order.deliveryMethod != null) {
+                        HorizontalDivider(
+                            color = MaterialTheme.colorScheme.outlineVariant,
+                            modifier = Modifier.padding(vertical = 12.dp)
+                        )
+                        DetailRow(
+                            label = stringResource(R.string.delivery_method_label),
+                            value = if (order.deliveryMethod == "postapoint")
+                                stringResource(R.string.delivery_postapoint)
+                            else
+                                stringResource(R.string.delivery_home)
+                        )
+                    }
+                }
             }
         }
 

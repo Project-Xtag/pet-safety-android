@@ -1084,4 +1084,36 @@
     <string name="order_gift_message_placeholder">Pridajte osobnú správu…</string>
     <string name="order_gift_badge">Darčeková objednávka</string>
     <plurals name="photo_count">n        <item quantity="one">%d fotka</item>n        <item quantity="other">%d fotiek</item>n    </plurals>
+    <string name="shipping_section_title">Doručenie</string>
+    <string name="tracking_number_label">Číslo sledovania</string>
+    <string name="track_package">Sledovať zásielku</string>
+    <string name="delivery_method_label">Spôsob doručenia</string>
+    <string name="delivery_home">Doručenie domov</string>
+    <string name="delivery_postapoint">PostaPont vyzdvihnutie</string>
+    <string name="pending_registrations_title">Čakajúce známky</string>
+    <string name="ready_to_activate">Pripravené na aktiváciu</string>
+    <string name="still_processing">Spracováva sa</string>
+    <string name="scan_tag_now">Skenovať známku</string>
+    <string name="create_profile_first">Vytvoriť profil</string>
+    <string name="create_profile_while_waiting">Vytvoriť profil počas čakania</string>
+    <string name="all_caught_up">Všetko hotové!</string>
+    <string name="all_caught_up_description">Nemáte žiadne čakajúce registrácie známok.</string>
+    <string name="status_shipped">Odoslané</string>
+    <string name="status_delivered">Doručené</string>
+    <string name="status_processing">Spracováva sa</string>
+    <string name="status_pending">Čakajúce</string>
+    <string name="activation_help_title">Ako aktivovať známku</string>
+    <string name="activation_help_step1">Počkajte na doručenie známky</string>
+    <string name="activation_help_step2">Naskenujte QR kód na známke</string>
+    <string name="activation_help_step3">Vyberte domáce zviera</string>
+    <string name="activation_help_step4">Vyberte predplatné</string>
+    <string name="pets_from_order">Zvieratá z vašej objednávky</string>
+    <string name="from_your_order">Z vašej objednávky</string>
+    <string name="needs_profile">Potrebuje profil</string>
+    <string name="create_profile_for">Vytvoriť profil pre %1$s</string>
+    <string name="other_pets">Ostatné zvieratá</string>
+    <string name="link_to_pet">Prepojiť s %1$s</string>
+    <string name="no_pets_yet">Zatiaľ žiadne zvieratá</string>
+    <string name="create_first_pet">Vytvorte profil svojho zvieraťa na aktiváciu známky.</string>
+    <string name="create_new_pet">Vytvoriť nové zviera</string>
 </resources>

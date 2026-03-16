@@ -1076,4 +1076,36 @@
     <string name="order_gift_message_placeholder">Persönliche Nachricht hinzufügen…</string>
     <string name="order_gift_badge">Geschenkbestellung</string>
     <plurals name="photo_count">n        <item quantity="one">%d Foto</item>n        <item quantity="other">%d Fotos</item>n    </plurals>
+    <string name="shipping_section_title">Versand</string>
+    <string name="tracking_number_label">Sendungsnummer</string>
+    <string name="track_package">Paket verfolgen</string>
+    <string name="delivery_method_label">Versandart</string>
+    <string name="delivery_home">Hauslieferung</string>
+    <string name="delivery_postapoint">PostaPont Abholung</string>
+    <string name="pending_registrations_title">Ausstehende Marken</string>
+    <string name="ready_to_activate">Bereit zur Aktivierung</string>
+    <string name="still_processing">In Bearbeitung</string>
+    <string name="scan_tag_now">Marke scannen</string>
+    <string name="create_profile_first">Profil erstellen</string>
+    <string name="create_profile_while_waiting">Profil beim Warten erstellen</string>
+    <string name="all_caught_up">Alles erledigt!</string>
+    <string name="all_caught_up_description">Sie haben keine ausstehenden Markenregistrierungen.</string>
+    <string name="status_shipped">Versendet</string>
+    <string name="status_delivered">Zugestellt</string>
+    <string name="status_processing">In Bearbeitung</string>
+    <string name="status_pending">Ausstehend</string>
+    <string name="activation_help_title">So aktivieren Sie Ihre Marke</string>
+    <string name="activation_help_step1">Warten Sie auf die Lieferung Ihrer Marke</string>
+    <string name="activation_help_step2">Scannen Sie den QR-Code auf der Marke</string>
+    <string name="activation_help_step3">Wählen Sie Ihr Haustier aus</string>
+    <string name="activation_help_step4">Wählen Sie Ihren Abonnementplan</string>
+    <string name="pets_from_order">Haustiere aus Ihrer Bestellung</string>
+    <string name="from_your_order">Aus Ihrer Bestellung</string>
+    <string name="needs_profile">Profil benötigt</string>
+    <string name="create_profile_for">Profil erstellen für %1$s</string>
+    <string name="other_pets">Andere Haustiere</string>
+    <string name="link_to_pet">Verknüpfen mit %1$s</string>
+    <string name="no_pets_yet">Noch keine Haustiere</string>
+    <string name="create_first_pet">Erstellen Sie ein Haustierprofil, um die Marke zu aktivieren.</string>
+    <string name="create_new_pet">Neues Haustier erstellen</string>
 </resources>

@@ -1070,4 +1070,36 @@
 
     <!-- Missing translations added -->
 
+    <string name="shipping_section_title">Levering</string>
+    <string name="tracking_number_label">Sporingsnummer</string>
+    <string name="track_package">Spor pakken</string>
+    <string name="delivery_method_label">Leveringsmetode</string>
+    <string name="delivery_home">Hjemlevering</string>
+    <string name="delivery_postapoint">PostaPont henting</string>
+    <string name="pending_registrations_title">Ventende merker</string>
+    <string name="ready_to_activate">Klar til aktivering</string>
+    <string name="still_processing">Under behandling</string>
+    <string name="scan_tag_now">Skann merke</string>
+    <string name="create_profile_first">Opprett profil</string>
+    <string name="create_profile_while_waiting">Opprett profil mens du venter</string>
+    <string name="all_caught_up">Alt oppdatert!</string>
+    <string name="all_caught_up_description">Du har ingen ventende merkeregistreringer.</string>
+    <string name="status_shipped">Sendt</string>
+    <string name="status_delivered">Levert</string>
+    <string name="status_processing">Under behandling</string>
+    <string name="status_pending">Ventende</string>
+    <string name="activation_help_title">Slik aktiverer du merket ditt</string>
+    <string name="activation_help_step1">Vent på at merket ditt ankommer</string>
+    <string name="activation_help_step2">Skann QR-koden på merket</string>
+    <string name="activation_help_step3">Velg kjæledyret å knytte til</string>
+    <string name="activation_help_step4">Velg abonnementsplan</string>
+    <string name="pets_from_order">Kjæledyr fra bestillingen din</string>
+    <string name="from_your_order">Fra bestillingen din</string>
+    <string name="needs_profile">Trenger profil</string>
+    <string name="create_profile_for">Opprett profil for %1$s</string>
+    <string name="other_pets">Andre kjæledyr</string>
+    <string name="link_to_pet">Koble til %1$s</string>
+    <string name="no_pets_yet">Ingen kjæledyr ennå</string>
+    <string name="create_first_pet">Opprett en kjæledyrprofil for å aktivere merket.</string>
+    <string name="create_new_pet">Opprett nytt kjæledyr</string>
 </resources>
