@@ -1256,4 +1256,10 @@
     <string name="breed_cat_chausie">Chausie</string>
     <string name="reunion_city_label">Miasto (opcjonalnie)</string>
     <string name="reunion_city_placeholder">Gdzie znaleziono Twoje zwierzę?</string>
+
+    <!-- Pet form warnings -->
+    <string name="profile_incomplete_warning">Uzupełnij profil zwierzęcia</string>
+    <string name="profile_incomplete_desc">Brakujące dane utrudniają odnalezienie zwierzęcia. Uzupełnij wagę, kolor i informacje medyczne.</string>
+    <string name="identity_locked_title">Imię, gatunek i rasa są zablokowane</string>
+    <string name="identity_locked_desc">Tych pól nie można zmienić po aktywacji zawieszki.</string>
 </resources>

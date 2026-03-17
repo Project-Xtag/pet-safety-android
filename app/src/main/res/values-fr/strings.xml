@@ -1228,4 +1228,10 @@
     <string name="breed_cat_chausie">Chausie</string>
     <string name="reunion_city_label">Ville (facultatif)</string>
     <string name="reunion_city_placeholder">Où votre animal a-t-il été retrouvé ?</string>
+
+    <!-- Pet form warnings -->
+    <string name="profile_incomplete_warning">Complétez le profil de votre animal</string>
+    <string name="profile_incomplete_desc">Les informations manquantes rendent plus difficile la recherche de votre animal. Renseignez le poids, la couleur et les informations médicales.</string>
+    <string name="identity_locked_title">Nom, espèce et race sont verrouillés</string>
+    <string name="identity_locked_desc">Ces champs ne peuvent pas être modifiés après l\'activation de la médaille.</string>
 </resources>

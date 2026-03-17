@@ -1239,4 +1239,10 @@
     <string name="breed_cat_chausie">Chausie</string>
     <string name="reunion_city_label">City (optional)</string>
     <string name="reunion_city_placeholder">Where was your pet found?</string>
+
+    <!-- Pet form warnings -->
+    <string name="profile_incomplete_warning">Complete your pet\'s profile</string>
+    <string name="profile_incomplete_desc">Missing details make it harder to reunite your pet if they go missing. Please fill in weight, color, and medical information.</string>
+    <string name="identity_locked_title">Name, species, and breed are locked</string>
+    <string name="identity_locked_desc">These fields cannot be changed after tag activation to prevent misuse. Contact support if you need to make changes.</string>
 </resources>

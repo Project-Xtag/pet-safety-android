@@ -1236,4 +1236,10 @@
     <string name="breed_cat_chausie">Chausie</string>
     <string name="reunion_city_label">Stadt (optional)</string>
     <string name="reunion_city_placeholder">Wo wurde Ihr Haustier gefunden?</string>
+
+    <!-- Pet form warnings -->
+    <string name="profile_incomplete_warning">Profil vervollständigen</string>
+    <string name="profile_incomplete_desc">Fehlende Angaben erschweren das Wiederfinden Ihres Haustieres. Bitte geben Sie Gewicht, Farbe und Gesundheitsinformationen an.</string>
+    <string name="identity_locked_title">Name, Art und Rasse sind gesperrt</string>
+    <string name="identity_locked_desc">Diese Felder können nach der Markenaktivierung nicht geändert werden.</string>
 </resources>

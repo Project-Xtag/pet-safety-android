@@ -1230,4 +1230,10 @@
     <string name="breed_cat_chausie">Chausie</string>
     <string name="reunion_city_label">By (valgfritt)</string>
     <string name="reunion_city_placeholder">Hvor ble kjæledyret ditt funnet?</string>
+
+    <!-- Pet form warnings -->
+    <string name="profile_incomplete_warning">Fullfør kjæledyrprofilen</string>
+    <string name="profile_incomplete_desc">Manglende detaljer gjør det vanskeligere å gjenforene kjæledyret. Fyll inn vekt, farge og medisinsk informasjon.</string>
+    <string name="identity_locked_title">Navn, art og rase er låst</string>
+    <string name="identity_locked_desc">Disse feltene kan ikke endres etter merkeaktivering.</string>
 </resources>

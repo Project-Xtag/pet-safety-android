@@ -1244,4 +1244,10 @@
     <string name="breed_cat_chausie">Chausie</string>
     <string name="reunion_city_label">Mesto (nepovinné)</string>
     <string name="reunion_city_placeholder">Kde ste našli svoje zviera?</string>
+
+    <!-- Pet form warnings -->
+    <string name="profile_incomplete_warning">Dokončite profil zvieraťa</string>
+    <string name="profile_incomplete_desc">Chýbajúce údaje sťažujú nájdenie zvieraťa. Vyplňte hmotnosť, farbu a zdravotné informácie.</string>
+    <string name="identity_locked_title">Meno, druh a plemeno sú uzamknuté</string>
+    <string name="identity_locked_desc">Tieto polia nie je možné zmeniť po aktivácii známky.</string>
 </resources>

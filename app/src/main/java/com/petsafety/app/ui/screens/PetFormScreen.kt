@@ -68,6 +68,8 @@ import com.petsafety.app.ui.components.SimpleDropdown
 import com.petsafety.app.ui.theme.BrandOrange
 import com.petsafety.app.ui.theme.TealAccent
 import com.petsafety.app.ui.util.AdaptiveLayout
+import androidx.compose.material.icons.filled.Lock
+import androidx.compose.material.icons.filled.Warning
 import com.petsafety.app.ui.viewmodel.AppStateViewModel
 import com.petsafety.app.ui.viewmodel.PetsViewModel
 
@@ -173,6 +175,83 @@ fun PetFormScreen(
             }
 
             Spacer(modifier = Modifier.height(24.dp))
+
+            // Profile completion warning
+            if (isEditMode && existing != null && existing.qrCode != null &&
+                existing.color.isNullOrBlank() && existing.weight == null) {
+                Card(
+                    modifier = Modifier.fillMaxWidth(),
+                    shape = RoundedCornerShape(12.dp),
+                    colors = CardDefaults.cardColors(
+                        containerColor = Color(0xFFFFFBEB)
+                    )
+                ) {
+                    Row(
+                        modifier = Modifier.padding(16.dp),
+                        verticalAlignment = Alignment.Top
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.Warning,
+                            contentDescription = null,
+                            modifier = Modifier.size(20.dp),
+                            tint = Color(0xFFD97706)
+                        )
+                        Spacer(modifier = Modifier.width(12.dp))
+                        Column {
+                            Text(
+                                text = stringResource(R.string.profile_incomplete_warning),
+                                style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.SemiBold),
+                                color = Color(0xFF92400E)
+                            )
+                            Spacer(modifier = Modifier.height(4.dp))
+                            Text(
+                                text = stringResource(R.string.profile_incomplete_desc),
+                                style = MaterialTheme.typography.bodySmall,
+                                color = Color(0xFFB45309)
+                            )
+                        }
+                    }
+                }
+                Spacer(modifier = Modifier.height(16.dp))
+            }
+
+            // Locked fields info banner
+            if (isEditMode && existing != null && existing.qrCode != null) {
+                Card(
+                    modifier = Modifier.fillMaxWidth(),
+                    shape = RoundedCornerShape(12.dp),
+                    colors = CardDefaults.cardColors(
+                        containerColor = Color(0xFFEFF6FF)
+                    )
+                ) {
+                    Row(
+                        modifier = Modifier.padding(16.dp),
+                        verticalAlignment = Alignment.Top
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.Lock,
+                            contentDescription = null,
+                            modifier = Modifier.size(20.dp),
+                            tint = Color(0xFF2563EB)
+                        )
+                        Spacer(modifier = Modifier.width(12.dp))
+                        Column {
+                            Text(
+                                text = stringResource(R.string.identity_locked_title),
+                                style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.SemiBold),
+                                color = Color(0xFF1E40AF)
+                            )
+                            Spacer(modifier = Modifier.height(4.dp))
+                            Text(
+                                text = stringResource(R.string.identity_locked_desc),
+                                style = MaterialTheme.typography.bodySmall,
+                                color = Color(0xFF1D4ED8)
+                            )
+                        }
+                    }
+                }
+                Spacer(modifier = Modifier.height(16.dp))
+            }
 
             // Photo Section
             FormSection(title = stringResource(R.string.photo)) {

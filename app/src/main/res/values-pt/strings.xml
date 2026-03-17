@@ -1236,4 +1236,10 @@
     <string name="breed_cat_chausie">Chausie</string>
     <string name="reunion_city_label">Cidade (opcional)</string>
     <string name="reunion_city_placeholder">Onde foi encontrado o seu animal?</string>
+
+    <!-- Pet form warnings -->
+    <string name="profile_incomplete_warning">Complete o perfil do seu animal</string>
+    <string name="profile_incomplete_desc">Dados em falta dificultam encontrar o seu animal. Preencha peso, cor e informações médicas.</string>
+    <string name="identity_locked_title">Nome, espécie e raça estão bloqueados</string>
+    <string name="identity_locked_desc">Estes campos não podem ser alterados após ativação da etiqueta.</string>
 </resources>

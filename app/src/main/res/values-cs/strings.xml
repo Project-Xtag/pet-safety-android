@@ -1245,4 +1245,10 @@
     <string name="breed_cat_chausie">Chausie</string>
     <string name="reunion_city_label">Město (volitelné)</string>
     <string name="reunion_city_placeholder">Kde jste našli své zvíře?</string>
+
+    <!-- Pet form warnings -->
+    <string name="profile_incomplete_warning">Dokončete profil zvířete</string>
+    <string name="profile_incomplete_desc">Chybějící údaje ztěžují nalezení zvířete. Vyplňte hmotnost, barvu a zdravotní informace.</string>
+    <string name="identity_locked_title">Jméno, druh a plemeno jsou uzamčeny</string>
+    <string name="identity_locked_desc">Tato pole nelze změnit po aktivaci známky.</string>
 </resources>

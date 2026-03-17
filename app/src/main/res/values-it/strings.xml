@@ -1231,4 +1231,10 @@
     <string name="breed_cat_chausie">Chausie</string>
     <string name="reunion_city_label">Città (facoltativo)</string>
     <string name="reunion_city_placeholder">Dove è stato ritrovato il tuo animale?</string>
+
+    <!-- Pet form warnings -->
+    <string name="profile_incomplete_warning">Completa il profilo del tuo animale</string>
+    <string name="profile_incomplete_desc">I dati mancanti rendono più difficile ritrovare il tuo animale. Compila peso, colore e informazioni mediche.</string>
+    <string name="identity_locked_title">Nome, specie e razza sono bloccati</string>
+    <string name="identity_locked_desc">Questi campi non possono essere modificati dopo l\'attivazione della targhetta.</string>
 </resources>

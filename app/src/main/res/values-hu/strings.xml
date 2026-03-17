@@ -1236,4 +1236,10 @@
     <string name="breed_cat_chausie">Chausie</string>
     <string name="reunion_city_label">Város (nem kötelező)</string>
     <string name="reunion_city_placeholder">Hol találtad meg a kedvencedet?</string>
+
+    <!-- Pet form warnings -->
+    <string name="profile_incomplete_warning">Töltsd ki a kedvenced profilját</string>
+    <string name="profile_incomplete_desc">A hiányzó adatok megnehezítik a kedvenced megtalálását, ha elveszne. Kérjük, add meg a súlyt, színt és egészségügyi információkat.</string>
+    <string name="identity_locked_title">A név, faj és fajta zárolva van</string>
+    <string name="identity_locked_desc">Ezek a mezők a címke aktiválása után nem módosíthatók. Kérjük, lépj kapcsolatba az ügyfélszolgálattal.</string>
 </resources>
