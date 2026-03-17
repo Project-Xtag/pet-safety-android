@@ -60,6 +60,7 @@
     <!-- MARK: Auth -->
     <!-- ============================================ -->
     <string name="welcome_back">Velkommen tilbake!</string>
+    <string name="welcome_new_user">Velkommen til Senra Pet!</string>
     <string name="enter_email_subtitle">Oppgi e-postadressen din for å motta en innloggingskode.</string>
     <string name="email_address">E-postadresse</string>
     <string name="send_login_code">Send innloggingskode</string>

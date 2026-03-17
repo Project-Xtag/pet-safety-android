@@ -99,6 +99,7 @@ fun RegisterScreen(
     val codeSentMessage = stringResource(R.string.code_sent_to_email, email)
     val loginFailedMessage = stringResource(R.string.login_failed)
     val verificationFailedMessage = stringResource(R.string.verification_failed)
+    val welcomeNewUserMessage = stringResource(R.string.welcome_new_user)
 
     Box(
         modifier = Modifier
@@ -435,6 +436,7 @@ fun RegisterScreen(
                                         updates["last_name"] = lastName.trim()
                                     }
                                     authViewModel.updateProfile(updates) { _, _ -> }
+                                    appStateViewModel.showSuccess(welcomeNewUserMessage)
                                 },
                                 onFailure = { message ->
                                     appStateViewModel.showError(message ?: verificationFailedMessage)

@@ -61,6 +61,7 @@
     <!-- MARK: Auth -->
     <!-- ============================================ -->
     <string name="welcome_back">Content de te revoir\u00a0!</string>
+    <string name="welcome_new_user">Bienvenue sur Senra Pet !</string>
     <string name="enter_email_subtitle">Saisis ton adresse e-mail pour recevoir un code de connexion.</string>
     <string name="email_address">Adresse e-mail</string>
     <string name="send_login_code">Envoyer le code de connexion</string>

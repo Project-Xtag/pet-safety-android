@@ -64,6 +64,7 @@
     <!-- MARK: Auth -->
     <!-- ============================================ -->
     <string name="welcome_back">Üdv újra!</string>
+    <string name="welcome_new_user">Üdvözlünk a Senra Petnél!</string>
     <string name="enter_email_subtitle">Add meg az email címed, hogy bejelentkezési kódot kapj.</string>
     <string name="email_address">Email cím</string>
     <string name="send_login_code">Bejelentkezési kód küldése</string>

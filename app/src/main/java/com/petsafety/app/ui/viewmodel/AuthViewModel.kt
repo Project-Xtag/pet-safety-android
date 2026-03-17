@@ -46,6 +46,9 @@ class AuthViewModel @Inject constructor(
     private val _biometricEnabled = MutableStateFlow(authRepository.isBiometricEnabled())
     val biometricEnabled: StateFlow<Boolean> = _biometricEnabled.asStateFlow()
 
+    private val _isNewUser = MutableStateFlow(false)
+    val isNewUser: StateFlow<Boolean> = _isNewUser.asStateFlow()
+
     // Event emitted when session expires and user needs to re-authenticate
     private val _sessionExpiredEvent = MutableSharedFlow<String>()
     val sessionExpiredEvent: SharedFlow<String> = _sessionExpiredEvent.asSharedFlow()
@@ -103,12 +106,13 @@ class AuthViewModel @Inject constructor(
             _isLoading.value = true
             _errorMessage.value = null
             try {
-                val user = authRepository.verifyOtp(email, code)
-                _currentUser.value = user
+                val result = authRepository.verifyOtp(email, code)
+                _currentUser.value = result.user
                 _isAuthenticated.value = true
+                _isNewUser.value = result.isNewUser
                 // Set Sentry user context
                 if (Sentry.isEnabled()) {
-                    Sentry.setUser(SentryUser().apply { id = user.id })
+                    Sentry.setUser(SentryUser().apply { id = result.user.id })
                 }
                 registerFCMToken()
                 onSuccess()

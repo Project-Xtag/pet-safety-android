@@ -15,6 +15,8 @@ import kotlinx.serialization.json.JsonPrimitive
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
+data class VerifyResult(val user: User, val isNewUser: Boolean)
+
 class AuthRepository(
     private val apiService: ApiService,
     private val tokenStore: AuthTokenStore,
@@ -30,7 +32,7 @@ class AuthRepository(
         }
     }
 
-    suspend fun verifyOtp(email: String, code: String): User {
+    suspend fun verifyOtp(email: String, code: String): VerifyResult {
         val response = apiService.verifyOtp(VerifyOtpRequest(email, code))
         if (!response.success) {
             throw Exception(response.error ?: "OTP verification failed")
@@ -45,7 +47,7 @@ class AuthRepository(
         // Register FCM token after successful login
         registerFCMToken()
 
-        return user
+        return VerifyResult(user, data.isNewUser)
     }
 
     suspend fun logout() {

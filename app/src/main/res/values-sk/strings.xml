@@ -63,6 +63,7 @@
     <!-- MARK: Auth -->
     <!-- ============================================ -->
     <string name="welcome_back">Vitajte späť!</string>
+    <string name="welcome_new_user">Vitaj v Senra Pet!</string>
     <string name="enter_email_subtitle">Zadajte e-mail, aby ste dostali prihlasovací kód.</string>
     <string name="email_address">E-mailová adresa</string>
     <string name="send_login_code">Odoslať prihlasovací kód</string>

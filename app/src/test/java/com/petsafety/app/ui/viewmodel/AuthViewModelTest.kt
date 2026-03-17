@@ -8,6 +8,7 @@ import com.petsafety.app.data.network.model.CanDeleteAccountResponse
 import com.petsafety.app.data.network.model.MissingPetInfo
 import com.petsafety.app.data.fcm.FCMRepository
 import com.petsafety.app.data.repository.AuthRepository
+import com.petsafety.app.data.repository.VerifyResult
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.every
@@ -162,7 +163,7 @@ class AuthViewModelTest {
 
     @Test
     fun `verifyOtp - success - sets authenticated and user`() = runTest {
-        coEvery { authRepository.verifyOtp("test@example.com", "123456") } returns testUser
+        coEvery { authRepository.verifyOtp("test@example.com", "123456") } returns VerifyResult(testUser, false)
 
         var successCalled = false
 
@@ -203,7 +204,7 @@ class AuthViewModelTest {
     @Test
     fun `logout - clears user and auth state`() = runTest {
         // First, simulate logged in state
-        coEvery { authRepository.verifyOtp(any(), any()) } returns testUser
+        coEvery { authRepository.verifyOtp(any(), any()) } returns VerifyResult(testUser, false)
         viewModel.verifyOtp("test@example.com", "123456", {}, {})
         testDispatcher.scheduler.advanceUntilIdle()
         assertTrue(viewModel.isAuthenticated.value)

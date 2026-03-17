@@ -64,6 +64,7 @@
     <!-- MARK: Auth -->
     <!-- ============================================ -->
     <string name="welcome_back">Bem-vindo de volta!</string>
+    <string name="welcome_new_user">Bem-vindo ao Senra Pet!</string>
     <string name="enter_email_subtitle">Introduza o seu e-mail para receber um código de acesso.</string>
     <string name="email_address">Endereço de e-mail</string>
     <string name="send_login_code">Enviar código de acesso</string>

@@ -56,6 +56,7 @@
     <!-- MARK: Auth -->
     <!-- ============================================ -->
     <string name="welcome_back">Bine ai revenit!</string>
+    <string name="welcome_new_user">Bun venit la Senra Pet!</string>
     <string name="enter_email_subtitle">Introdu e-mailul pentru a primi un cod de autentificare.</string>
     <string name="email_address">Adresă de e-mail</string>
     <string name="send_login_code">Trimite codul de autentificare</string>

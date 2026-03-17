@@ -109,6 +109,9 @@ fun AuthScreen(
     val codeSentMessage = stringResource(R.string.code_sent_to_email, email)
     val loginFailedMessage = stringResource(R.string.login_failed)
     val verificationFailedMessage = stringResource(R.string.verification_failed)
+    val welcomeBackMessage = stringResource(R.string.welcome_back)
+    val welcomeNewUserMessage = stringResource(R.string.welcome_new_user)
+    val isNewUser by authViewModel.isNewUser.collectAsState()
     val biometricEnabledMessage = stringResource(R.string.biometric_enabled)
     val biometricLoginTitle = stringResource(R.string.biometric_login_title)
     val biometricLoginSubtitle = stringResource(R.string.biometric_login_subtitle)
@@ -380,6 +383,10 @@ fun AuthScreen(
                                 email = trimmedEmail,
                                 code = otpCode,
                                 onSuccess = {
+                                    // Show differentiated welcome message
+                                    appStateViewModel.showSuccess(
+                                        if (isNewUser) welcomeNewUserMessage else welcomeBackMessage
+                                    )
                                     // Offer biometric enrollment if available and not already enabled
                                     if (biometricHelper.canUseBiometric() && !biometricEnabled) {
                                         showBiometricEnableDialog = true
