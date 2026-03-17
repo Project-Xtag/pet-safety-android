@@ -143,12 +143,14 @@ class SubscriptionViewModel @Inject constructor(
         }
     }
 
-    fun cancelSubscription() {
+    fun cancelSubscription(onSuccess: ((UserSubscription) -> Unit)? = null) {
         viewModelScope.launch {
             _isProcessing.value = true
             _error.value = null
             try {
-                _subscription.value = repository.cancelSubscription()
+                val updatedSub = repository.cancelSubscription()
+                _subscription.value = updatedSub
+                onSuccess?.invoke(updatedSub)
             } catch (e: Exception) {
                 _error.value = e.message
             }

@@ -563,6 +563,17 @@
     <string name="delete_account_permanent">Dette vil permanent slette kontoen din og alle data</string>
     <string name="logout_confirm">Er du sikker på at du vil logge ut?</string>
     <string name="delete_account_full_warning">Denne handlingen kan ikke angres. Kontoen din slettes permanent, alle personlige data fjernes, og aktive abonnementer avsluttes.</string>
+    <string name="delete_premium_warning">Du har et aktivt %1$s-abonnement til %2$s. Sletting av kontoen din vil permanent slette profilen din, og du mister umiddelbart tilgangen til gjenværende betalt tid. Hvis du bare vil stoppe fremtidige betalinger, vennligst bruk Avslutt abonnement i stedet.</string>
+    <string name="cancel_instead">Avslutt abonnement i stedet</string>
+    <string name="cancel_subscription_title">Avslutte abonnement?</string>
+    <string name="cancel_warning_a">Du mister umiddelbare e-post-, SMS-varsler og fellesskapsvarsler</string>
+    <string name="cancel_warning_b">Gratis erstatningsmerker vil ikke lenger være tilgjengelig</string>
+    <string name="cancel_warning_c">Du mister tilgang til veterinær- og dyrehjem-varsler</string>
+    <string name="cancel_warning_d">Kontoen din og kjæledyrregistreringene forblir aktive</string>
+    <string name="cancel_access_until">Du beholder tilgangen til %1$s</string>
+    <string name="cancel_confirm">Avslutt abonnement</string>
+    <string name="keep_subscription">Behold abonnement</string>
+    <string name="cancel_success">Abonnement avsluttet. Du beholder tilgangen til %1$s.</string>
 
     <!-- ============================================ -->
     <!-- MARK: Personal Information -->

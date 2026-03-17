@@ -555,6 +555,17 @@
     <string name="delete_account_permanent">Esto eliminará permanentemente tu cuenta y todos los datos</string>
     <string name="logout_confirm">¿Seguro que quieres cerrar sesión?</string>
     <string name="delete_account_full_warning">Esta acción no se puede deshacer. Tu cuenta se eliminará permanentemente, todos los datos personales se eliminarán y cualquier suscripción activa se cancelará.</string>
+    <string name="delete_premium_warning">Tienes una suscripción %1$s activa hasta %2$s. Eliminar tu cuenta borrará permanentemente tu perfil y perderás inmediatamente el acceso a tu tiempo de pago restante. Si solo quieres detener los pagos futuros, utiliza la opción Cancelar suscripción.</string>
+    <string name="cancel_instead">Cancelar suscripción en su lugar</string>
+    <string name="cancel_subscription_title">¿Cancelar suscripción?</string>
+    <string name="cancel_warning_a">Perderás las notificaciones instantáneas por email, SMS y las alertas comunitarias</string>
+    <string name="cancel_warning_b">Los reemplazos gratuitos de etiquetas ya no estarán disponibles</string>
+    <string name="cancel_warning_c">Perderás el acceso a las alertas de veterinarios y refugios</string>
+    <string name="cancel_warning_d">Tu cuenta y los registros de mascotas permanecerán activos</string>
+    <string name="cancel_access_until">Mantendrás el acceso hasta %1$s</string>
+    <string name="cancel_confirm">Cancelar suscripción</string>
+    <string name="keep_subscription">Mantener suscripción</string>
+    <string name="cancel_success">Suscripción cancelada. Mantendrás el acceso hasta %1$s.</string>
 
     <!-- ============================================ -->
     <!-- MARK: Personal Information -->

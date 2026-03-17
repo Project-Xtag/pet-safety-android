@@ -82,6 +82,7 @@ import com.petsafety.app.ui.util.AdaptiveLayout
 import com.petsafety.app.ui.viewmodel.AppStateViewModel
 import com.petsafety.app.ui.viewmodel.AuthViewModel
 import com.petsafety.app.ui.viewmodel.NotificationPreferencesViewModel
+import com.petsafety.app.ui.viewmodel.SubscriptionViewModel
 
 private enum class ProfileSection {
     MAIN,
@@ -107,6 +108,7 @@ fun ProfileScreen(
 ) {
     var section by remember { mutableStateOf(ProfileSection.MAIN) }
     val prefsViewModel: NotificationPreferencesViewModel = hiltViewModel()
+    val subscriptionViewModel: SubscriptionViewModel = hiltViewModel()
 
     when (section) {
         ProfileSection.MAIN -> ProfileMain(
@@ -121,7 +123,7 @@ fun ProfileScreen(
         ProfileSection.CONTACTS -> ContactsScreen(authViewModel, appStateViewModel) { section = ProfileSection.MAIN }
         ProfileSection.PRIVACY -> PrivacyModeScreen(authViewModel, appStateViewModel) { section = ProfileSection.MAIN }
         ProfileSection.NOTIFICATIONS -> NotificationPreferencesScreen(prefsViewModel, appStateViewModel) { section = ProfileSection.MAIN }
-        ProfileSection.HELP -> HelpSupportScreen(authViewModel, appStateViewModel) { section = ProfileSection.MAIN }
+        ProfileSection.HELP -> HelpSupportScreen(authViewModel, appStateViewModel, subscriptionViewModel) { section = ProfileSection.MAIN }
         ProfileSection.ORDERS -> OrdersScreen { section = ProfileSection.MAIN }
         ProfileSection.PENDING_TAGS -> PendingRegistrationsScreen(
             onBack = { section = ProfileSection.MAIN },
@@ -1417,6 +1419,7 @@ private fun NotificationPreferencesScreen(
 private fun HelpSupportScreen(
     authViewModel: AuthViewModel,
     appStateViewModel: AppStateViewModel,
+    subscriptionViewModel: SubscriptionViewModel,
     onBack: () -> Unit
 ) {
     val context = LocalContext.current
@@ -1429,6 +1432,11 @@ private fun HelpSupportScreen(
     var missingPetNames by remember { mutableStateOf<List<String>>(emptyList()) }
     var showFaqScreen by remember { mutableStateOf(false) }
     var showGuidesScreen by remember { mutableStateOf(false) }
+    val subscription by subscriptionViewModel.subscription.collectAsState()
+
+    LaunchedEffect(Unit) {
+        subscriptionViewModel.loadSubscription()
+    }
 
     // Extract string resources outside lambdas
     val accountDeletedMessage = stringResource(R.string.account_deleted)
@@ -1671,11 +1679,31 @@ private fun HelpSupportScreen(
 
     // Delete Account Dialog
     if (showDeleteDialog) {
+        val hasActivePaidSub = subscription?.isActive == true && subscription?.isPaid == true
+        val subPlanName = subscription?.resolvedPlanName?.replaceFirstChar { it.uppercase() } ?: ""
+        val subEndDate = subscription?.currentPeriodEnd?.let { iso ->
+            try {
+                val parser = java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", java.util.Locale.US)
+                val date = parser.parse(iso.substringBefore('.').substringBefore('Z'))
+                val formatter = java.text.SimpleDateFormat("dd MMM yyyy", java.util.Locale.getDefault())
+                if (date != null) formatter.format(date) else iso.substringBefore('T')
+            } catch (_: Exception) { iso.substringBefore('T') }
+        } ?: ""
+
         AlertDialog(
             onDismissRequest = { showDeleteDialog = false },
             title = { Text(stringResource(R.string.delete_account)) },
             text = {
-                Text(stringResource(R.string.delete_account_full_warning))
+                Column {
+                    if (hasActivePaidSub) {
+                        Text(
+                            text = stringResource(R.string.delete_premium_warning, subPlanName, subEndDate),
+                            style = MaterialTheme.typography.bodyMedium
+                        )
+                    } else {
+                        Text(stringResource(R.string.delete_account_full_warning))
+                    }
+                }
             },
             confirmButton = {
                 TextButton(
@@ -1697,8 +1725,22 @@ private fun HelpSupportScreen(
                 }
             },
             dismissButton = {
-                TextButton(onClick = { showDeleteDialog = false }) {
-                    Text(stringResource(R.string.cancel))
+                if (hasActivePaidSub) {
+                    Column {
+                        TextButton(onClick = {
+                            showDeleteDialog = false
+                            onBack()
+                        }) {
+                            Text(stringResource(R.string.cancel_instead))
+                        }
+                        TextButton(onClick = { showDeleteDialog = false }) {
+                            Text(stringResource(R.string.cancel))
+                        }
+                    }
+                } else {
+                    TextButton(onClick = { showDeleteDialog = false }) {
+                        Text(stringResource(R.string.cancel))
+                    }
                 }
             }
         )

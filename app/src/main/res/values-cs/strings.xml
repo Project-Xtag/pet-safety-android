@@ -556,6 +556,17 @@
     <string name="delete_account_permanent">Tímto dojde k trvalému smazání vašeho účtu a všech dat</string>
     <string name="logout_confirm">Opravdu se chcete odhlásit?</string>
     <string name="delete_account_full_warning">Tuto akci nelze vrátit. Váš účet bude trvale smazán, všechna osobní data budou odstraněna a případná aktivní předplatná budou zrušena.</string>
+    <string name="delete_premium_warning">Máte aktivní předplatné %1$s do %2$s. Smazáním účtu trvale smažete svůj profil a okamžitě ztratíte přístup ke zbývajícímu placenému období. Pokud chcete jen zastavit budoucí platby, použijte možnost Zrušit předplatné.</string>
+    <string name="cancel_instead">Místo toho zrušit předplatné</string>
+    <string name="cancel_subscription_title">Zrušit předplatné?</string>
+    <string name="cancel_warning_a">Přijdete o okamžitá e-mailová, SMS upozornění a komunitní výstrahy</string>
+    <string name="cancel_warning_b">Bezplatné výměny štítků již nebudou dostupné</string>
+    <string name="cancel_warning_c">Přijdete o přístup k upozorněním od veterinářů a útulků</string>
+    <string name="cancel_warning_d">Váš účet a registrace zvířat zůstanou aktivní</string>
+    <string name="cancel_access_until">Přístup si zachováte do %1$s</string>
+    <string name="cancel_confirm">Zrušit předplatné</string>
+    <string name="keep_subscription">Ponechat předplatné</string>
+    <string name="cancel_success">Předplatné zrušeno. Přístup si zachováte do %1$s.</string>
 
     <!-- ============================================ -->
     <!-- MARK: Personal Information -->

@@ -564,6 +564,17 @@
     <string name="delete_account_permanent">Questo eliminerà definitivamente il tuo account e tutti i dati</string>
     <string name="logout_confirm">Sei sicuro di voler uscire?</string>
     <string name="delete_account_full_warning">Questa azione non può essere annullata. Il tuo account verrà eliminato definitivamente, tutti i dati personali verranno rimossi e gli abbonamenti attivi verranno cancellati.</string>
+    <string name="delete_premium_warning">Hai un abbonamento %1$s attivo fino al %2$s. L\'eliminazione del tuo account cancellerà permanentemente il tuo profilo e perderai immediatamente l\'accesso al tempo pagato rimanente. Se vuoi solo interrompere i pagamenti futuri, utilizza l\'opzione Annulla abbonamento.</string>
+    <string name="cancel_instead">Annulla abbonamento invece</string>
+    <string name="cancel_subscription_title">Annullare l\'abbonamento?</string>
+    <string name="cancel_warning_a">Perderai le notifiche istantanee via email, SMS e gli avvisi della comunità</string>
+    <string name="cancel_warning_b">Le sostituzioni gratuite delle targhette non saranno più disponibili</string>
+    <string name="cancel_warning_c">Perderai l\'accesso agli avvisi di veterinari e rifugi</string>
+    <string name="cancel_warning_d">Il tuo account e le registrazioni degli animali rimarranno attivi</string>
+    <string name="cancel_access_until">Manterrai l\'accesso fino al %1$s</string>
+    <string name="cancel_confirm">Annulla abbonamento</string>
+    <string name="keep_subscription">Mantieni abbonamento</string>
+    <string name="cancel_success">Abbonamento annullato. Manterrai l\'accesso fino al %1$s.</string>
 
     <!-- ============================================ -->
     <!-- MARK: Personal Information -->

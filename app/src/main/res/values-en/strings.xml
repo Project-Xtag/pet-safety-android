@@ -539,6 +539,17 @@
     <string name="delete_account_permanent">This will permanently delete your account and all data</string>
     <string name="logout_confirm">Are you sure you want to log out?</string>
     <string name="delete_account_full_warning">This action cannot be undone. Your account will be permanently deleted, all personal data will be removed, and any active subscriptions will be cancelled.</string>
+    <string name="delete_premium_warning">You have an active %1$s subscription until %2$s. Deleting your account will permanently erase your profile and you will immediately lose access to your remaining paid time. If you just want to stop future payments, please Cancel Subscription instead.</string>
+    <string name="cancel_instead">Cancel Subscription Instead</string>
+    <string name="cancel_subscription_title">Cancel Subscription?</string>
+    <string name="cancel_warning_a">You\'ll lose instant email, SMS notifications and community alerts</string>
+    <string name="cancel_warning_b">Free tag replacements will no longer be available</string>
+    <string name="cancel_warning_c">You\'ll lose access to vet and shelter alerts</string>
+    <string name="cancel_warning_d">Your account and pet registrations remain active</string>
+    <string name="cancel_access_until">You will retain access until %1$s</string>
+    <string name="cancel_confirm">Cancel Subscription</string>
+    <string name="keep_subscription">Keep Subscription</string>
+    <string name="cancel_success">Subscription cancelled. You\'ll retain access until %1$s.</string>
 
     <!-- ============================================ -->
     <!-- MARK: Personal Information -->

@@ -18,6 +18,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
+import android.widget.Toast
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.CreditCard
@@ -26,6 +27,7 @@ import androidx.compose.material.icons.filled.OpenInNew
 import androidx.compose.material.icons.filled.Warning
 import com.petsafety.app.data.model.SubscriptionStatus
 import com.petsafety.app.ui.components.BrandButton
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
@@ -34,10 +36,14 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -69,6 +75,7 @@ fun BillingScreen(
     val isProcessing by viewModel.isProcessing.collectAsState()
     val error by viewModel.error.collectAsState()
     val context = LocalContext.current
+    var showCancelDialog by remember { mutableStateOf(false) }
 
     LaunchedEffect(Unit) {
         viewModel.loadSubscription()
@@ -227,6 +234,22 @@ fun BillingScreen(
                     }
                     Spacer(modifier = Modifier.height(24.dp))
                 }
+
+                // Cancel Subscription button — only for active paid plans
+                if (sub.isActive && sub.isPaid) {
+                    TextButton(
+                        onClick = { showCancelDialog = true },
+                        modifier = Modifier.fillMaxWidth(),
+                        enabled = !isProcessing
+                    ) {
+                        Text(
+                            text = stringResource(R.string.cancel_confirm),
+                            color = MaterialTheme.colorScheme.error,
+                            style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.Medium)
+                        )
+                    }
+                    Spacer(modifier = Modifier.height(16.dp))
+                }
             }
 
             // Invoices
@@ -286,6 +309,68 @@ fun BillingScreen(
             Spacer(modifier = Modifier.height(100.dp))
         }
     }
+
+    // Cancel Subscription Dialog
+    if (showCancelDialog) {
+        val accessUntil = subscription?.currentPeriodEnd?.let { formatIsoDate(it) } ?: ""
+        AlertDialog(
+            onDismissRequest = { showCancelDialog = false },
+            title = { Text(stringResource(R.string.cancel_subscription_title)) },
+            text = {
+                Column {
+                    Text(
+                        text = "\u2022 ${stringResource(R.string.cancel_warning_a)}",
+                        style = MaterialTheme.typography.bodyMedium,
+                        modifier = Modifier.padding(bottom = 4.dp)
+                    )
+                    Text(
+                        text = "\u2022 ${stringResource(R.string.cancel_warning_b)}",
+                        style = MaterialTheme.typography.bodyMedium,
+                        modifier = Modifier.padding(bottom = 4.dp)
+                    )
+                    Text(
+                        text = "\u2022 ${stringResource(R.string.cancel_warning_c)}",
+                        style = MaterialTheme.typography.bodyMedium,
+                        modifier = Modifier.padding(bottom = 4.dp)
+                    )
+                    Text(
+                        text = "\u2022 ${stringResource(R.string.cancel_warning_d)}",
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = Color(0xFF4CAF50),
+                        modifier = Modifier.padding(bottom = 8.dp)
+                    )
+                    if (accessUntil.isNotEmpty()) {
+                        Text(
+                            text = stringResource(R.string.cancel_access_until, accessUntil),
+                            style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.SemiBold),
+                            modifier = Modifier.padding(top = 4.dp)
+                        )
+                    }
+                }
+            },
+            confirmButton = {
+                TextButton(
+                    onClick = {
+                        val cancelSuccessMsg = context.getString(R.string.cancel_success, accessUntil)
+                        viewModel.cancelSubscription { _ ->
+                            Toast.makeText(context, cancelSuccessMsg, Toast.LENGTH_LONG).show()
+                        }
+                        showCancelDialog = false
+                    },
+                    colors = androidx.compose.material3.ButtonDefaults.textButtonColors(
+                        contentColor = MaterialTheme.colorScheme.error
+                    )
+                ) {
+                    Text(stringResource(R.string.cancel_confirm))
+                }
+            },
+            dismissButton = {
+                TextButton(onClick = { showCancelDialog = false }) {
+                    Text(stringResource(R.string.keep_subscription))
+                }
+            }
+        )
+    }
 }
 
 @Composable
@@ -340,5 +425,16 @@ private fun formatAmount(amount: Int, currency: String): String {
         formatter.format(value)
     } catch (_: Exception) {
         "$currency ${String.format("%.2f", value)}"
+    }
+}
+
+private fun formatIsoDate(isoDate: String): String {
+    return try {
+        val parser = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.US)
+        val date = parser.parse(isoDate.substringBefore('.').substringBefore('Z'))
+        val formatter = SimpleDateFormat("dd MMM yyyy", Locale.getDefault())
+        if (date != null) formatter.format(date) else isoDate.substringBefore('T')
+    } catch (_: Exception) {
+        isoDate.substringBefore('T')
     }
 }

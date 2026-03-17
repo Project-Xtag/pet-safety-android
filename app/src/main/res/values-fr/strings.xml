@@ -564,6 +564,17 @@
     <string name="delete_account_permanent">Ceci supprimera définitivement ton compte et toutes les données</string>
     <string name="logout_confirm">Es-tu sûr(e) de vouloir te déconnecter ?</string>
     <string name="delete_account_full_warning">Cette action est irréversible. Ton compte sera définitivement supprimé, toutes les données personnelles seront effacées et les abonnements actifs seront résiliés.</string>
+    <string name="delete_premium_warning">Tu as un abonnement %1$s actif jusqu\'au %2$s. La suppression de ton compte effacera définitivement ton profil et tu perdras immédiatement l\'accès à ton temps payé restant. Si tu veux juste arrêter les paiements futurs, utilise l\'option Annuler l\'abonnement.</string>
+    <string name="cancel_instead">Annuler l\'abonnement à la place</string>
+    <string name="cancel_subscription_title">Annuler l\'abonnement ?</string>
+    <string name="cancel_warning_a">Tu perdras les notifications instantanées par e-mail, SMS et les alertes communautaires</string>
+    <string name="cancel_warning_b">Les remplacements gratuits d\'étiquettes ne seront plus disponibles</string>
+    <string name="cancel_warning_c">Tu perdras l\'accès aux alertes vétérinaires et des refuges</string>
+    <string name="cancel_warning_d">Ton compte et les enregistrements de tes animaux resteront actifs</string>
+    <string name="cancel_access_until">Tu conserveras l\'accès jusqu\'au %1$s</string>
+    <string name="cancel_confirm">Annuler l\'abonnement</string>
+    <string name="keep_subscription">Garder l\'abonnement</string>
+    <string name="cancel_success">Abonnement annulé. Tu conserveras l\'accès jusqu\'au %1$s.</string>
 
     <!-- ============================================ -->
     <!-- MARK: Personal Information -->

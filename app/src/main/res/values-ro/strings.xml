@@ -548,6 +548,17 @@
     <string name="delete_account_permanent">Aceasta va șterge permanent contul și toate datele</string>
     <string name="logout_confirm">Sigur dorești să te deconectezi?</string>
     <string name="delete_account_full_warning">Această acțiune nu poate fi anulată. Contul tău va fi șters permanent, toate datele personale vor fi eliminate și orice abonamente active vor fi anulate.</string>
+    <string name="delete_premium_warning">Ai un abonament %1$s activ până la %2$s. Ștergerea contului va șterge permanent profilul tău și vei pierde imediat accesul la timpul plătit rămas. Dacă vrei doar să oprești plățile viitoare, te rugăm să folosești opțiunea Anulare abonament.</string>
+    <string name="cancel_instead">Anulare abonament în schimb</string>
+    <string name="cancel_subscription_title">Anulare abonament?</string>
+    <string name="cancel_warning_a">Vei pierde notificările instantanee prin email, SMS și alertele comunitare</string>
+    <string name="cancel_warning_b">Înlocuirile gratuite de etichete nu vor mai fi disponibile</string>
+    <string name="cancel_warning_c">Vei pierde accesul la alertele de la veterinari și adăposturi</string>
+    <string name="cancel_warning_d">Contul tău și înregistrările animalelor rămân active</string>
+    <string name="cancel_access_until">Vei păstra accesul până la %1$s</string>
+    <string name="cancel_confirm">Anulare abonament</string>
+    <string name="keep_subscription">Păstrare abonament</string>
+    <string name="cancel_success">Abonament anulat. Vei păstra accesul până la %1$s.</string>
 
     <!-- ============================================ -->
     <!-- MARK: Personal Information -->
