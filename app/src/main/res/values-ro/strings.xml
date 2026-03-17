@@ -1235,4 +1235,6 @@
     <string name="breed_cat_savannah">Savannah</string>
     <string name="breed_cat_toyger">Toyger</string>
     <string name="breed_cat_chausie">Chausie</string>
+    <string name="reunion_city_label">Oraș (opțional)</string>
+    <string name="reunion_city_placeholder">Unde a fost găsit animalul tău?</string>
 </resources>

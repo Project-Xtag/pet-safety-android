@@ -1254,4 +1254,6 @@
     <string name="breed_cat_savannah">Savannah</string>
     <string name="breed_cat_toyger">Toyger</string>
     <string name="breed_cat_chausie">Chausie</string>
+    <string name="reunion_city_label">Miasto (opcjonalnie)</string>
+    <string name="reunion_city_placeholder">Gdzie znaleziono Twoje zwierzę?</string>
 </resources>

@@ -1243,4 +1243,6 @@
     <string name="breed_cat_savannah">Savannah</string>
     <string name="breed_cat_toyger">Toyger</string>
     <string name="breed_cat_chausie">Chausie</string>
+    <string name="reunion_city_label">Město (volitelné)</string>
+    <string name="reunion_city_placeholder">Kde jste našli své zvíře?</string>
 </resources>

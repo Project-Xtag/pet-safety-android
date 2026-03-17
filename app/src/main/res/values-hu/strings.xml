@@ -1234,4 +1234,6 @@
     <string name="breed_cat_savannah">Savannah</string>
     <string name="breed_cat_toyger">Toyger</string>
     <string name="breed_cat_chausie">Chausie</string>
+    <string name="reunion_city_label">Város (nem kötelező)</string>
+    <string name="reunion_city_placeholder">Hol találtad meg a kedvencedet?</string>
 </resources>

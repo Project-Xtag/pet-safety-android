@@ -70,7 +70,7 @@ fun SuccessStoryDialog(
     pet: Pet,
     alertId: String? = null,
     onDismiss: () -> Unit,
-    onSubmit: (storyText: String, location: LocationCoordinate?) -> Unit,
+    onSubmit: (storyText: String, reunionCity: String?, location: LocationCoordinate?) -> Unit,
     onSkip: () -> Unit
 ) {
     val context = LocalContext.current
@@ -79,6 +79,7 @@ fun SuccessStoryDialog(
 
     var showForm by remember { mutableStateOf(false) }
     var storyText by remember { mutableStateOf("") }
+    var reunionCity by remember { mutableStateOf("") }
     var capturedLocation by remember { mutableStateOf<LocationCoordinate?>(null) }
     var isCapturingLocation by remember { mutableStateOf(false) }
     var isGeneratingCard by remember { mutableStateOf(false) }
@@ -207,9 +208,11 @@ fun SuccessStoryDialog(
                     pet = pet,
                     storyText = storyText,
                     onStoryTextChange = { storyText = it },
+                    reunionCity = reunionCity,
+                    onReunionCityChange = { reunionCity = it },
                     isCapturingLocation = isCapturingLocation,
                     capturedLocation = capturedLocation,
-                    onSubmit = { onSubmit(storyText, capturedLocation) },
+                    onSubmit = { onSubmit(storyText, reunionCity.ifBlank { null }, capturedLocation) },
                     onBack = { showForm = false }
                 )
             }
@@ -371,6 +374,8 @@ private fun FormStage(
     pet: Pet,
     storyText: String,
     onStoryTextChange: (String) -> Unit,
+    reunionCity: String,
+    onReunionCityChange: (String) -> Unit,
     isCapturingLocation: Boolean,
     capturedLocation: LocationCoordinate?,
     onSubmit: () -> Unit,
@@ -405,6 +410,17 @@ private fun FormStage(
             minLines = 3,
             maxLines = 6,
             placeholder = { Text(stringResource(R.string.story_placeholder)) }
+        )
+
+        Spacer(modifier = Modifier.height(8.dp))
+
+        OutlinedTextField(
+            value = reunionCity,
+            onValueChange = onReunionCityChange,
+            label = { Text(stringResource(R.string.reunion_city_label)) },
+            modifier = Modifier.fillMaxWidth(),
+            singleLine = true,
+            placeholder = { Text(stringResource(R.string.reunion_city_placeholder)) }
         )
 
         Spacer(modifier = Modifier.height(8.dp))
