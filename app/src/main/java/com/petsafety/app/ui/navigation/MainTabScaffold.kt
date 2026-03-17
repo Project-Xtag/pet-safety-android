@@ -28,7 +28,6 @@ import com.petsafety.app.ui.screens.AlertsTabScreen
 import com.petsafety.app.ui.screens.PetsScreen
 import com.petsafety.app.ui.screens.ProfileScreen
 import com.petsafety.app.ui.screens.QrScannerScreen
-import com.petsafety.app.ui.screens.PricingScreen
 import com.petsafety.app.ui.screens.TagActivationScreen
 import com.petsafety.app.ui.viewmodel.AppStateViewModel
 import com.petsafety.app.ui.viewmodel.AuthViewModel
@@ -61,7 +60,6 @@ fun MainTabScaffold(
     var selectedTab by remember { mutableStateOf<TabItem>(TabItem.Pets) }
     var alertsInitialTab by remember { mutableStateOf(0) }
     var activationQrCode by remember { mutableStateOf<String?>(null) }
-    var showPricingAfterActivation by remember { mutableStateOf(false) }
 
     // Custom pre-permission dialog state
     var showPushPrompt by rememberSaveable { mutableStateOf(false) }
@@ -120,25 +118,13 @@ fun MainTabScaffold(
         }
     }
 
-    // Show pricing screen after successful tag activation
-    if (showPricingAfterActivation) {
-        PricingScreen(
-            onBack = {
-                showPricingAfterActivation = false
-                activationQrCode = null
-            }
-        )
-        return
-    }
-
     // Show activation screen if QR code needs activation
     if (activationQrCode != null) {
         TagActivationScreen(
             qrCode = activationQrCode!!,
             appStateViewModel = appStateViewModel,
             onActivationComplete = { activationQrCode = null },
-            onBack = { activationQrCode = null },
-            onNavigateToPricing = { showPricingAfterActivation = true }
+            onBack = { activationQrCode = null }
         )
         return
     }

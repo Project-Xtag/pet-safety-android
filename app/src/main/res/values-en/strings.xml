@@ -289,9 +289,9 @@
     <string name="tag_loading_pets">Loading your pets\u2026</string>
     <string name="tag_activated">Tag Activated!</string>
     <string name="tag_activated_message">This tag is now linked to %1$s</string>
-    <string name="tag_choose_plan">Choose a subscription plan to unlock all features for your pet.</string>
-    <string name="tag_choose_plan_button">Choose Plan</string>
-    <string name="tag_skip_for_now">Skip for now</string>
+    <string name="tag_choose_plan">Complete your pet\'s profile to help find them if they go missing</string>
+    <string name="tag_choose_plan_button">Complete Pet Profile</string>
+    <string name="tag_skip_for_now">I\'ll do this later</string>
     <string name="tag_no_pets">No Pets Yet</string>
     <string name="tag_no_pets_message">Add a pet first before activating a tag</string>
     <string name="tag_code_label">Tag Code</string>

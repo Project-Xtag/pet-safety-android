@@ -316,9 +316,9 @@
     <string name="tag_loading_pets">Chargement de tes animaux\u2026</string>
     <string name="tag_activated">Médaille activée\u00a0!</string>
     <string name="tag_activated_message">Cette médaille est maintenant liée à %1$s</string>
-    <string name="tag_choose_plan">Choisis un abonnement pour débloquer toutes les fonctionnalités pour ton animal.</string>
-    <string name="tag_choose_plan_button">Choisir un plan</string>
-    <string name="tag_skip_for_now">Peut-être plus tard</string>
+    <string name="tag_choose_plan">Complétez le profil de votre animal pour faciliter sa recherche s\'il se perd</string>
+    <string name="tag_choose_plan_button">Compléter le profil de l\'animal</string>
+    <string name="tag_skip_for_now">Je ferai ça plus tard</string>
     <string name="tag_no_pets">Pas encore d\'animal enregistré</string>
     <string name="tag_no_pets_message">Ajoute d\'abord un animal avant d\'activer une médaille</string>
     <string name="tag_code_label">Code de la médaille</string>

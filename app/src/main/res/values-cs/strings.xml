@@ -305,9 +305,9 @@
     <string name="tag_loading_pets">Načítání vašich mazlíčků\u2026</string>
     <string name="tag_activated">Známka aktivována!</string>
     <string name="tag_activated_message">Tato známka je nyní propojena s %1$s</string>
-    <string name="tag_choose_plan">Vyberte předplatné pro odemčení všech funkcí pro svého mazlíčka.</string>
-    <string name="tag_choose_plan_button">Vybrat plán</string>
-    <string name="tag_skip_for_now">Přeskočit</string>
+    <string name="tag_choose_plan">Vyplňte profil zvířete, aby bylo snazší ho najít</string>
+    <string name="tag_choose_plan_button">Dokončit profil zvířete</string>
+    <string name="tag_skip_for_now">Udělám to později</string>
     <string name="tag_no_pets">Zatím žádní mazlíčci</string>
     <string name="tag_no_pets_message">Před aktivací známky nejprve přidejte mazlíčka</string>
     <string name="tag_code_label">Kód známky</string>

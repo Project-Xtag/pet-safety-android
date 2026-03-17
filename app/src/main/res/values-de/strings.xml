@@ -305,9 +305,9 @@
     <string name="tag_loading_pets">Haustiere werden geladen\u2026</string>
     <string name="tag_activated">Tag aktiviert!</string>
     <string name="tag_activated_message">Dieses Tag ist jetzt mit %1$s verknüpft</string>
-    <string name="tag_choose_plan">Wählen Sie ein Abonnement, um alle Funktionen für Ihr Haustier freizuschalten.</string>
-    <string name="tag_choose_plan_button">Plan wählen</string>
-    <string name="tag_skip_for_now">Jetzt überspringen</string>
+    <string name="tag_choose_plan">Vervollständigen Sie das Profil, damit Ihr Haustier leichter gefunden werden kann</string>
+    <string name="tag_choose_plan_button">Haustierprofil vervollständigen</string>
+    <string name="tag_skip_for_now">Ich mache das später</string>
     <string name="tag_no_pets">Noch keine Haustiere</string>
     <string name="tag_no_pets_message">Fügen Sie zuerst ein Haustier hinzu, bevor Sie einen Tag aktivieren</string>
     <string name="tag_code_label">Tag-Code</string>

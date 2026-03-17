@@ -297,9 +297,9 @@
     <string name="tag_loading_pets">Se încarcă animalele tale\u2026</string>
     <string name="tag_activated">Etichetă activată!</string>
     <string name="tag_activated_message">Această etichetă este acum asociată cu %1$s</string>
-    <string name="tag_choose_plan">Alege un plan de abonament pentru a debloca toate funcțiile pentru animalul tău.</string>
-    <string name="tag_choose_plan_button">Alege plan</string>
-    <string name="tag_skip_for_now">Sari peste</string>
+    <string name="tag_choose_plan">Completează profilul animalului pentru a facilita găsirea acestuia</string>
+    <string name="tag_choose_plan_button">Completează profilul animalului</string>
+    <string name="tag_skip_for_now">O fac mai târziu</string>
     <string name="tag_no_pets">Încă nu ai animale</string>
     <string name="tag_no_pets_message">Adaugă un animal înainte de a activa o etichetă</string>
     <string name="tag_code_label">Cod etichetă</string>

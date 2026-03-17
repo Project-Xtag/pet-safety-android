@@ -305,9 +305,9 @@
     <string name="tag_loading_pets">Kedvencek betöltése...</string>
     <string name="tag_activated">Biléta aktiválva!</string>
     <string name="tag_activated_message">Ez a biléta %1$s-hoz van csatolva</string>
-    <string name="tag_choose_plan">Válassz előfizetési csomagot, hogy minden funkcióhoz hozzaférj a kedvenced számára.</string>
-    <string name="tag_choose_plan_button">Csomag kiválasztása</string>
-    <string name="tag_skip_for_now">Talán később</string>
+    <string name="tag_choose_plan">Töltsd ki a kedvenced profilját, hogy könnyebben megtalálják, ha elveszne</string>
+    <string name="tag_choose_plan_button">Kedvenc profil kitöltése</string>
+    <string name="tag_skip_for_now">Majd később</string>
     <string name="tag_no_pets">Még nincs kedvenc regisztrálva</string>
     <string name="tag_no_pets_message">Előbb adj hozzá egy kedvencet, majd aktiváld a bilétát</string>
     <string name="tag_code_label">Biléta kód</string>

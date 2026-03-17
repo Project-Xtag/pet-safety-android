@@ -131,7 +131,10 @@ fun ProfileScreen(
         )
         ProfileSection.BILLING -> BillingScreen(onBack = { section = ProfileSection.MAIN })
         ProfileSection.REFERRAL -> ReferralScreen(onBack = { section = ProfileSection.MAIN })
-        ProfileSection.PRICING -> PricingScreen(onBack = { section = ProfileSection.MAIN })
+        ProfileSection.PRICING -> {
+            // Subscription management handled on web — redirect back to main
+            section = ProfileSection.MAIN
+        }
         ProfileSection.NOTIFICATION_INBOX -> NotificationsScreen(onBack = { section = ProfileSection.MAIN })
     }
 }
@@ -145,6 +148,7 @@ private fun ProfileMain(
     modifier: Modifier = Modifier
 ) {
     val user by authViewModel.currentUser.collectAsState()
+    val context = LocalContext.current
     var showLogoutDialog by remember { mutableStateOf(false) }
 
     Box(
@@ -290,7 +294,13 @@ private fun ProfileMain(
                     ProfileMenuRow(
                         icon = Icons.Default.WorkspacePremium,
                         title = stringResource(R.string.subscription_title),
-                        onClick = { onNavigate(ProfileSection.PRICING) }
+                        onClick = {
+                            val intent = Intent(
+                                Intent.ACTION_VIEW,
+                                Uri.parse("https://senra.pet/manage-subscription")
+                            )
+                            context.startActivity(intent)
+                        }
                     )
                     HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
                     ProfileMenuRow(

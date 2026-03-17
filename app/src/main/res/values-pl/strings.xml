@@ -319,9 +319,9 @@
     <string name="tag_loading_pets">Wczytywanie zwierząt\u2026</string>
     <string name="tag_activated">Zawieszką aktywowana!</string>
     <string name="tag_activated_message">Ta zawieszką jest teraz powiązana z %1$s</string>
-    <string name="tag_choose_plan">Wybierz plan subskrypcji, aby odblokować wszystkie funkcje dla swojego zwierzęcia.</string>
-    <string name="tag_choose_plan_button">Wybierz plan</string>
-    <string name="tag_skip_for_now">Może później</string>
+    <string name="tag_choose_plan">Uzupełnij profil zwierzęcia, aby ułatwić jego znalezienie w razie zaginięcia</string>
+    <string name="tag_choose_plan_button">Uzupełnij profil zwierzęcia</string>
+    <string name="tag_skip_for_now">Zrobię to później</string>
     <string name="tag_no_pets">Nie masz jeszcze żadnych zwierząt</string>
     <string name="tag_no_pets_message">Najpierw dodaj zwierzę, a potem aktywuj zawieszką</string>
     <string name="tag_code_label">Kod zawieszki</string>

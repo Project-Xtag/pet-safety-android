@@ -305,9 +305,9 @@
     <string name="tag_loading_pets">A carregar os seus animais\u2026</string>
     <string name="tag_activated">Etiqueta ativada!</string>
     <string name="tag_activated_message">Esta etiqueta está agora associada a %1$s</string>
-    <string name="tag_choose_plan">Escolha um plano de subscrição para desbloquear todas as funcionalidades do seu animal.</string>
-    <string name="tag_choose_plan_button">Escolher plano</string>
-    <string name="tag_skip_for_now">Ignorar por agora</string>
+    <string name="tag_choose_plan">Complete o perfil do seu animal para facilitar a sua busca se se perder</string>
+    <string name="tag_choose_plan_button">Completar perfil do animal</string>
+    <string name="tag_skip_for_now">Farei isso depois</string>
     <string name="tag_no_pets">Ainda sem animais</string>
     <string name="tag_no_pets_message">Adicione um animal antes de ativar uma etiqueta</string>
     <string name="tag_code_label">Código da etiqueta</string>

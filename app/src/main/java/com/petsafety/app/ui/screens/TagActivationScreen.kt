@@ -60,7 +60,6 @@ fun TagActivationScreen(
     appStateViewModel: AppStateViewModel,
     onActivationComplete: () -> Unit,
     onBack: () -> Unit,
-    onNavigateToPricing: () -> Unit = {},
     modifier: Modifier = Modifier
 ) {
     val viewModel: TagActivationViewModel = hiltViewModel()
@@ -180,7 +179,10 @@ fun TagActivationScreen(
 
             BrandButton(
                 text = stringResource(R.string.tag_choose_plan_button),
-                onClick = { onNavigateToPricing() },
+                onClick = {
+                    viewModel.resetActivation()
+                    onActivationComplete()
+                },
                 modifier = Modifier.fillMaxWidth()
             )
 

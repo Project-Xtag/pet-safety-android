@@ -315,9 +315,9 @@
     <string name="tag_loading_pets">Laster inn dyrene dine\u2026</string>
     <string name="tag_activated">Merke aktivert!</string>
     <string name="tag_activated_message">Dette merket er nå knyttet til %1$s</string>
-    <string name="tag_choose_plan">Velg et abonnement for å låse opp alle funksjoner for dyret ditt.</string>
-    <string name="tag_choose_plan_button">Velg abonnement</string>
-    <string name="tag_skip_for_now">Hopp over for nå</string>
+    <string name="tag_choose_plan">Fullfør profilen til kjæledyret ditt for å gjøre det lettere å finne det</string>
+    <string name="tag_choose_plan_button">Fullfør kjæledyrprofil</string>
+    <string name="tag_skip_for_now">Jeg gjør det senere</string>
     <string name="tag_no_pets">Ingen dyr ennå</string>
     <string name="tag_no_pets_message">Legg til et dyr først før du aktiverer et merke</string>
     <string name="tag_code_label">Merkekode</string>

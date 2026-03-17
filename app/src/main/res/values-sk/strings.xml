@@ -304,9 +304,9 @@
     <string name="tag_loading_pets">Načítavajú sa vaše zvieratá\u2026</string>
     <string name="tag_activated">Štítok aktivovaný!</string>
     <string name="tag_activated_message">Tento štítok je teraz priradený k %1$s</string>
-    <string name="tag_choose_plan">Vyberte si predplatný plán a odomknite všetky funkcie pre svoje zviera.</string>
-    <string name="tag_choose_plan_button">Vybrať plán</string>
-    <string name="tag_skip_for_now">Preskočiť zatiaľ</string>
+    <string name="tag_choose_plan">Vyplňte profil zvieraťa, aby bolo jednoduchšie ho nájsť</string>
+    <string name="tag_choose_plan_button">Dokončiť profil zvieraťa</string>
+    <string name="tag_skip_for_now">Urobím to neskôr</string>
     <string name="tag_no_pets">Zatiaľ žiadne zvieratá</string>
     <string name="tag_no_pets_message">Najprv pridajte zviera a potom aktivujte štítok</string>
     <string name="tag_code_label">Kód štítka</string>
