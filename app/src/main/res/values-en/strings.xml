@@ -189,6 +189,8 @@
     <string name="select_photo">Select Photo</string>
     <string name="weight">Weight</string>
     <string name="weight_optional">Weight in kg (optional)</string>
+    <string name="pet_form_age_label">Age</string>
+    <string name="pet_form_age_placeholder">e.g. 3 years</string>
     <string name="unique_features_hint">Unique features (markings, scars, distinctive traits\u2026)</string>
     <string name="pet_created">Pet created</string>
     <string name="pet_create_failed">Failed to create pet</string>
@@ -219,6 +221,10 @@
     <string name="primary_failed">Failed to set primary</string>
     <string name="photo_deleted">Photo deleted</string>
     <string name="delete_photo_failed">Failed to delete photo</string>
+    <string name="move_up">Move Up</string>
+    <string name="move_down">Move Down</string>
+    <string name="photos_reordered">Photos reordered</string>
+    <string name="photos_reorder_failed">Failed to reorder photos</string>
     <string name="upload_photo_failed">Failed to upload photo</string>
     <string name="add_photo">Add Photo</string>
     <string name="use_camera">Open device camera</string>
@@ -1105,4 +1111,118 @@
     <string name="activation_error_not_linked">This tag hasn\'t been assigned to your order yet. Please wait for shipping confirmation.</string>
     <string name="activation_error_not_shipped">Your order hasn\'t shipped yet. Please wait until you receive your tag.</string>
     <string name="activation_error_not_owner">You don\'t own this pet. Please select one of your own pets.</string>
+
+    <!-- Allergies & Medications -->
+    <string name="allergies_label">Allergies</string>
+    <string name="allergies_hint">e.g. Chicken, grain-free diet required</string>
+    <string name="medications_label">Medications</string>
+    <string name="medications_hint">e.g. Insulin twice daily, heart medication</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Dog Breeds -->
+    <!-- ============================================ -->
+    <string name="breed_dog_labrador_retriever">Labrador Retriever</string>
+    <string name="breed_dog_german_shepherd">German Shepherd</string>
+    <string name="breed_dog_golden_retriever">Golden Retriever</string>
+    <string name="breed_dog_french_bulldog">French Bulldog</string>
+    <string name="breed_dog_bulldog">Bulldog</string>
+    <string name="breed_dog_poodle">Poodle</string>
+    <string name="breed_dog_beagle">Beagle</string>
+    <string name="breed_dog_rottweiler">Rottweiler</string>
+    <string name="breed_dog_german_shorthaired_pointer">German Shorthaired Pointer</string>
+    <string name="breed_dog_yorkshire_terrier">Yorkshire Terrier</string>
+    <string name="breed_dog_boxer">Boxer</string>
+    <string name="breed_dog_dachshund">Dachshund</string>
+    <string name="breed_dog_siberian_husky">Siberian Husky</string>
+    <string name="breed_dog_great_dane">Great Dane</string>
+    <string name="breed_dog_doberman_pinscher">Doberman Pinscher</string>
+    <string name="breed_dog_australian_shepherd">Australian Shepherd</string>
+    <string name="breed_dog_miniature_schnauzer">Miniature Schnauzer</string>
+    <string name="breed_dog_cavalier_king_charles_spaniel">Cavalier King Charles Spaniel</string>
+    <string name="breed_dog_shih_tzu">Shih Tzu</string>
+    <string name="breed_dog_boston_terrier">Boston Terrier</string>
+    <string name="breed_dog_pomeranian">Pomeranian</string>
+    <string name="breed_dog_havanese">Havanese</string>
+    <string name="breed_dog_shetland_sheepdog">Shetland Sheepdog</string>
+    <string name="breed_dog_brittany">Brittany</string>
+    <string name="breed_dog_english_springer_spaniel">English Springer Spaniel</string>
+    <string name="breed_dog_bernese_mountain_dog">Bernese Mountain Dog</string>
+    <string name="breed_dog_cocker_spaniel">Cocker Spaniel</string>
+    <string name="breed_dog_border_collie">Border Collie</string>
+    <string name="breed_dog_vizsla">Vizsla</string>
+    <string name="breed_dog_weimaraner">Weimaraner</string>
+    <string name="breed_dog_pembroke_welsh_corgi">Pembroke Welsh Corgi</string>
+    <string name="breed_dog_maltese">Maltese</string>
+    <string name="breed_dog_chihuahua">Chihuahua</string>
+    <string name="breed_dog_west_highland_white_terrier">West Highland White Terrier</string>
+    <string name="breed_dog_collie">Collie</string>
+    <string name="breed_dog_basset_hound">Basset Hound</string>
+    <string name="breed_dog_rhodesian_ridgeback">Rhodesian Ridgeback</string>
+    <string name="breed_dog_newfoundland">Newfoundland</string>
+    <string name="breed_dog_belgian_malinois">Belgian Malinois</string>
+    <string name="breed_dog_bichon_frise">Bichon Frise</string>
+    <string name="breed_dog_akita">Akita</string>
+    <string name="breed_dog_st_bernard">St. Bernard</string>
+    <string name="breed_dog_bloodhound">Bloodhound</string>
+    <string name="breed_dog_papillon">Papillon</string>
+    <string name="breed_dog_bullmastiff">Bullmastiff</string>
+    <string name="breed_dog_samoyed">Samoyed</string>
+    <string name="breed_dog_scottish_terrier">Scottish Terrier</string>
+    <string name="breed_dog_soft_coated_wheaten_terrier">Soft Coated Wheaten Terrier</string>
+    <string name="breed_dog_airedale_terrier">Airedale Terrier</string>
+    <string name="breed_dog_jack_russell_terrier">Jack Russell Terrier</string>
+
+    <!-- ============================================ -->
+    <!-- MARK: Cat Breeds -->
+    <!-- ============================================ -->
+    <string name="breed_cat_domestic_shorthair">Domestic Shorthair</string>
+    <string name="breed_cat_domestic_longhair">Domestic Longhair</string>
+    <string name="breed_cat_persian">Persian</string>
+    <string name="breed_cat_maine_coon">Maine Coon</string>
+    <string name="breed_cat_ragdoll">Ragdoll</string>
+    <string name="breed_cat_british_shorthair">British Shorthair</string>
+    <string name="breed_cat_exotic_shorthair">Exotic Shorthair</string>
+    <string name="breed_cat_abyssinian">Abyssinian</string>
+    <string name="breed_cat_scottish_fold">Scottish Fold</string>
+    <string name="breed_cat_sphynx">Sphynx</string>
+    <string name="breed_cat_siamese">Siamese</string>
+    <string name="breed_cat_devon_rex">Devon Rex</string>
+    <string name="breed_cat_oriental_shorthair">Oriental Shorthair</string>
+    <string name="breed_cat_burmese">Burmese</string>
+    <string name="breed_cat_american_shorthair">American Shorthair</string>
+    <string name="breed_cat_bengal">Bengal</string>
+    <string name="breed_cat_russian_blue">Russian Blue</string>
+    <string name="breed_cat_norwegian_forest_cat">Norwegian Forest Cat</string>
+    <string name="breed_cat_birman">Birman</string>
+    <string name="breed_cat_tonkinese">Tonkinese</string>
+    <string name="breed_cat_cornish_rex">Cornish Rex</string>
+    <string name="breed_cat_siberian">Siberian</string>
+    <string name="breed_cat_balinese">Balinese</string>
+    <string name="breed_cat_somali">Somali</string>
+    <string name="breed_cat_turkish_angora">Turkish Angora</string>
+    <string name="breed_cat_himalayan">Himalayan</string>
+    <string name="breed_cat_manx">Manx</string>
+    <string name="breed_cat_selkirk_rex">Selkirk Rex</string>
+    <string name="breed_cat_ragamuffin">RagaMuffin</string>
+    <string name="breed_cat_american_curl">American Curl</string>
+    <string name="breed_cat_chartreux">Chartreux</string>
+    <string name="breed_cat_bombay">Bombay</string>
+    <string name="breed_cat_egyptian_mau">Egyptian Mau</string>
+    <string name="breed_cat_ocicat">Ocicat</string>
+    <string name="breed_cat_korat">Korat</string>
+    <string name="breed_cat_singapura">Singapura</string>
+    <string name="breed_cat_turkish_van">Turkish Van</string>
+    <string name="breed_cat_havana_brown">Havana Brown</string>
+    <string name="breed_cat_japanese_bobtail">Japanese Bobtail</string>
+    <string name="breed_cat_laperm">LaPerm</string>
+    <string name="breed_cat_american_wirehair">American Wirehair</string>
+    <string name="breed_cat_european_burmese">European Burmese</string>
+    <string name="breed_cat_burmilla">Burmilla</string>
+    <string name="breed_cat_colorpoint_shorthair">Colorpoint Shorthair</string>
+    <string name="breed_cat_javanese">Javanese</string>
+    <string name="breed_cat_nebelung">Nebelung</string>
+    <string name="breed_cat_pixie_bob">Pixie-Bob</string>
+    <string name="breed_cat_savannah">Savannah</string>
+    <string name="breed_cat_toyger">Toyger</string>
+    <string name="breed_cat_chausie">Chausie</string>
 </resources>

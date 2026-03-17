@@ -56,8 +56,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
+import androidx.compose.ui.platform.LocalContext
 import com.petsafety.app.R
-import com.petsafety.app.data.model.Breed
+import com.petsafety.app.data.model.BreedData
+import com.petsafety.app.data.model.LocalBreed
 import com.petsafety.app.data.network.model.CreatePetRequest
 import com.petsafety.app.data.network.model.UpdatePetRequest
 import com.petsafety.app.ui.components.PhotoCaptureSheet
@@ -78,9 +80,9 @@ fun PetFormScreen(
     onDone: () -> Unit
 ) {
     val pets by viewModel.pets.collectAsState()
-    val breeds by viewModel.breeds.collectAsState()
     val upgradePromptInfo by viewModel.showUpgradePrompt.collectAsState()
     val existing = pets.firstOrNull { it.id == petId }
+    val context = LocalContext.current
     val isEditMode = petId != null
     val defaultSpecies = stringResource(R.string.default_species_dog)
     val speciesOptions = listOf(
@@ -92,11 +94,14 @@ fun PetFormScreen(
     var species by remember(existing?.species, defaultSpecies) {
         mutableStateOf(existing?.species ?: defaultSpecies)
     }
-    var selectedBreed by remember { mutableStateOf<Breed?>(null) }
+    var selectedBreed by remember { mutableStateOf<LocalBreed?>(null) }
     var breedText by remember { mutableStateOf(existing?.breed ?: "") }
+    var age by remember { mutableStateOf(existing?.ageText ?: "") }
     var color by remember { mutableStateOf(existing?.color ?: "") }
     var microchipNumber by remember { mutableStateOf(existing?.microchipNumber ?: "") }
     var medicalNotes by remember { mutableStateOf(existing?.medicalNotes ?: "") }
+    var allergies by remember { mutableStateOf(existing?.allergies ?: "") }
+    var medications by remember { mutableStateOf(existing?.medications ?: "") }
     var notes by remember { mutableStateOf(existing?.notes ?: "") }
     var capturedPhotoBytes by remember { mutableStateOf<ByteArray?>(null) }
     var showPhotoSheet by remember { mutableStateOf(false) }
@@ -123,8 +128,11 @@ fun PetFormScreen(
     var isOtherBreed by remember { mutableStateOf(false) }
     val otherBreedLabel = stringResource(R.string.breed_other)
 
+    val localBreeds = remember(species) {
+        BreedData.breedsFor(species, context)
+    }
+
     LaunchedEffect(species) {
-        viewModel.fetchBreeds(species)
         if (existing == null || existing.species != species) {
             selectedBreed = null
             breedText = ""
@@ -260,7 +268,7 @@ fun PetFormScreen(
                 }
 
                 FormBreedField(
-                    breeds = breeds,
+                    breeds = localBreeds,
                     selectedBreed = selectedBreed,
                     breedText = breedText,
                     onBreedSelected = { breed ->
@@ -271,7 +279,7 @@ fun PetFormScreen(
                         } else {
                             isOtherBreed = false
                             selectedBreed = breed
-                            breedText = breed.name
+                            breedText = breed.localizedName
                         }
                     },
                     otherBreedLabel = otherBreedLabel
@@ -285,6 +293,13 @@ fun PetFormScreen(
                         placeholder = stringResource(R.string.breed_custom_hint)
                     )
                 }
+
+                FormTextField(
+                    label = stringResource(R.string.pet_form_age_label),
+                    value = age,
+                    onValueChange = { age = it },
+                    placeholder = stringResource(R.string.pet_form_age_placeholder)
+                )
 
                 FormTextField(
                     label = stringResource(R.string.colour),
@@ -331,6 +346,22 @@ fun PetFormScreen(
                     onValueChange = { medicalNotes = it.take(InputValidators.MAX_MEDICAL_NOTES) },
                     placeholder = stringResource(R.string.medical_notes_hint)
                 )
+
+                Spacer(modifier = Modifier.height(16.dp))
+
+                FormTextArea(
+                    value = allergies,
+                    onValueChange = { allergies = it.take(InputValidators.MAX_ALLERGIES) },
+                    placeholder = stringResource(R.string.allergies_hint)
+                )
+
+                Spacer(modifier = Modifier.height(16.dp))
+
+                FormTextArea(
+                    value = medications,
+                    onValueChange = { medications = it.take(InputValidators.MAX_MEDICATIONS) },
+                    placeholder = stringResource(R.string.medications_hint)
+                )
             }
 
             Spacer(modifier = Modifier.height(16.dp))
@@ -357,7 +388,7 @@ fun PetFormScreen(
             // Save Button
             Button(
                 onClick = {
-                    val breedValue = if (isOtherBreed) customBreedText.ifBlank { null } else selectedBreed?.name ?: breedText.ifBlank { null }
+                    val breedValue = if (isOtherBreed) customBreedText.ifBlank { null } else selectedBreed?.englishName ?: breedText.ifBlank { null }
                     if (petId == null) {
                         viewModel.createPet(
                             CreatePetRequest(
@@ -365,9 +396,12 @@ fun PetFormScreen(
                                 species = species,
                                 breed = breedValue,
                                 color = color.ifBlank { null },
+                                age = age.ifBlank { null },
                                 weight = weight.toDoubleOrNull(),
                                 microchipNumber = microchipNumber.ifBlank { null },
                                 medicalNotes = medicalNotes.ifBlank { null },
+                                allergies = allergies.ifBlank { null },
+                                medications = medications.ifBlank { null },
                                 notes = notes.ifBlank { null },
                                 uniqueFeatures = uniqueFeatures.ifBlank { null },
                                 sex = sex.ifBlank { null },
@@ -390,9 +424,12 @@ fun PetFormScreen(
                                 name = name,
                                 breed = breedValue,
                                 color = color.ifBlank { null },
+                                age = age.ifBlank { null },
                                 weight = weight.toDoubleOrNull(),
                                 microchipNumber = microchipNumber.ifBlank { null },
                                 medicalNotes = medicalNotes.ifBlank { null },
+                                allergies = allergies.ifBlank { null },
+                                medications = medications.ifBlank { null },
                                 notes = notes.ifBlank { null },
                                 uniqueFeatures = uniqueFeatures.ifBlank { null },
                                 sex = sex.ifBlank { null },
@@ -543,7 +580,6 @@ fun PetFormScreen(
 
     // Pet Limit Upgrade Dialog
     upgradePromptInfo?.let { info ->
-        val context = androidx.compose.ui.platform.LocalContext.current
         AlertDialog(
             onDismissRequest = { viewModel.dismissUpgradePrompt() },
             title = { Text(stringResource(R.string.pet_limit_reached)) },
@@ -698,14 +734,14 @@ private fun FormDropdown(
 
 @Composable
 private fun FormBreedField(
-    breeds: List<Breed>,
-    selectedBreed: Breed?,
+    breeds: List<LocalBreed>,
+    selectedBreed: LocalBreed?,
     breedText: String,
-    onBreedSelected: (Breed) -> Unit,
+    onBreedSelected: (LocalBreed) -> Unit,
     otherBreedLabel: String = "Other"
 ) {
     val breedsWithOther = remember(breeds) {
-        breeds + Breed(id = "other", name = otherBreedLabel, species = "")
+        breeds + LocalBreed(id = "other", localizedName = otherBreedLabel, englishName = "Other", species = "")
     }
 
     Row(
@@ -724,7 +760,7 @@ private fun FormBreedField(
             items = breedsWithOther,
             selectedItem = selectedBreed,
             onItemSelected = onBreedSelected,
-            itemToString = { it.name },
+            itemToString = { it.localizedName },
             label = "",
             modifier = Modifier.weight(1f),
             placeholder = stringResource(R.string.search_breed)

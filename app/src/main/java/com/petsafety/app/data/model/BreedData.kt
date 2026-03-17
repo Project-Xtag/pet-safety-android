@@ -1,0 +1,127 @@
+package com.petsafety.app.data.model
+
+import android.content.Context
+import com.petsafety.app.R
+
+data class LocalBreed(
+    val id: String,
+    val localizedName: String,
+    val englishName: String,
+    val species: String
+)
+
+object BreedData {
+    fun breedsFor(species: String, context: Context): List<LocalBreed> {
+        return when (species.lowercase()) {
+            "dog" -> dogBreeds(context)
+            "cat" -> catBreeds(context)
+            else -> emptyList()
+        }
+    }
+
+    private fun dogBreeds(ctx: Context): List<LocalBreed> = listOf(
+        LocalBreed("dog-labrador-retriever", ctx.getString(R.string.breed_dog_labrador_retriever), "Labrador Retriever", "dog"),
+        LocalBreed("dog-german-shepherd", ctx.getString(R.string.breed_dog_german_shepherd), "German Shepherd", "dog"),
+        LocalBreed("dog-golden-retriever", ctx.getString(R.string.breed_dog_golden_retriever), "Golden Retriever", "dog"),
+        LocalBreed("dog-french-bulldog", ctx.getString(R.string.breed_dog_french_bulldog), "French Bulldog", "dog"),
+        LocalBreed("dog-bulldog", ctx.getString(R.string.breed_dog_bulldog), "Bulldog", "dog"),
+        LocalBreed("dog-poodle", ctx.getString(R.string.breed_dog_poodle), "Poodle", "dog"),
+        LocalBreed("dog-beagle", ctx.getString(R.string.breed_dog_beagle), "Beagle", "dog"),
+        LocalBreed("dog-rottweiler", ctx.getString(R.string.breed_dog_rottweiler), "Rottweiler", "dog"),
+        LocalBreed("dog-german-shorthaired-pointer", ctx.getString(R.string.breed_dog_german_shorthaired_pointer), "German Shorthaired Pointer", "dog"),
+        LocalBreed("dog-yorkshire-terrier", ctx.getString(R.string.breed_dog_yorkshire_terrier), "Yorkshire Terrier", "dog"),
+        LocalBreed("dog-boxer", ctx.getString(R.string.breed_dog_boxer), "Boxer", "dog"),
+        LocalBreed("dog-dachshund", ctx.getString(R.string.breed_dog_dachshund), "Dachshund", "dog"),
+        LocalBreed("dog-siberian-husky", ctx.getString(R.string.breed_dog_siberian_husky), "Siberian Husky", "dog"),
+        LocalBreed("dog-great-dane", ctx.getString(R.string.breed_dog_great_dane), "Great Dane", "dog"),
+        LocalBreed("dog-doberman-pinscher", ctx.getString(R.string.breed_dog_doberman_pinscher), "Doberman Pinscher", "dog"),
+        LocalBreed("dog-australian-shepherd", ctx.getString(R.string.breed_dog_australian_shepherd), "Australian Shepherd", "dog"),
+        LocalBreed("dog-miniature-schnauzer", ctx.getString(R.string.breed_dog_miniature_schnauzer), "Miniature Schnauzer", "dog"),
+        LocalBreed("dog-cavalier-king-charles-spaniel", ctx.getString(R.string.breed_dog_cavalier_king_charles_spaniel), "Cavalier King Charles Spaniel", "dog"),
+        LocalBreed("dog-shih-tzu", ctx.getString(R.string.breed_dog_shih_tzu), "Shih Tzu", "dog"),
+        LocalBreed("dog-boston-terrier", ctx.getString(R.string.breed_dog_boston_terrier), "Boston Terrier", "dog"),
+        LocalBreed("dog-pomeranian", ctx.getString(R.string.breed_dog_pomeranian), "Pomeranian", "dog"),
+        LocalBreed("dog-havanese", ctx.getString(R.string.breed_dog_havanese), "Havanese", "dog"),
+        LocalBreed("dog-shetland-sheepdog", ctx.getString(R.string.breed_dog_shetland_sheepdog), "Shetland Sheepdog", "dog"),
+        LocalBreed("dog-brittany", ctx.getString(R.string.breed_dog_brittany), "Brittany", "dog"),
+        LocalBreed("dog-english-springer-spaniel", ctx.getString(R.string.breed_dog_english_springer_spaniel), "English Springer Spaniel", "dog"),
+        LocalBreed("dog-bernese-mountain-dog", ctx.getString(R.string.breed_dog_bernese_mountain_dog), "Bernese Mountain Dog", "dog"),
+        LocalBreed("dog-cocker-spaniel", ctx.getString(R.string.breed_dog_cocker_spaniel), "Cocker Spaniel", "dog"),
+        LocalBreed("dog-border-collie", ctx.getString(R.string.breed_dog_border_collie), "Border Collie", "dog"),
+        LocalBreed("dog-vizsla", ctx.getString(R.string.breed_dog_vizsla), "Vizsla", "dog"),
+        LocalBreed("dog-weimaraner", ctx.getString(R.string.breed_dog_weimaraner), "Weimaraner", "dog"),
+        LocalBreed("dog-pembroke-welsh-corgi", ctx.getString(R.string.breed_dog_pembroke_welsh_corgi), "Pembroke Welsh Corgi", "dog"),
+        LocalBreed("dog-maltese", ctx.getString(R.string.breed_dog_maltese), "Maltese", "dog"),
+        LocalBreed("dog-chihuahua", ctx.getString(R.string.breed_dog_chihuahua), "Chihuahua", "dog"),
+        LocalBreed("dog-west-highland-white-terrier", ctx.getString(R.string.breed_dog_west_highland_white_terrier), "West Highland White Terrier", "dog"),
+        LocalBreed("dog-collie", ctx.getString(R.string.breed_dog_collie), "Collie", "dog"),
+        LocalBreed("dog-basset-hound", ctx.getString(R.string.breed_dog_basset_hound), "Basset Hound", "dog"),
+        LocalBreed("dog-rhodesian-ridgeback", ctx.getString(R.string.breed_dog_rhodesian_ridgeback), "Rhodesian Ridgeback", "dog"),
+        LocalBreed("dog-newfoundland", ctx.getString(R.string.breed_dog_newfoundland), "Newfoundland", "dog"),
+        LocalBreed("dog-belgian-malinois", ctx.getString(R.string.breed_dog_belgian_malinois), "Belgian Malinois", "dog"),
+        LocalBreed("dog-bichon-frise", ctx.getString(R.string.breed_dog_bichon_frise), "Bichon Frise", "dog"),
+        LocalBreed("dog-akita", ctx.getString(R.string.breed_dog_akita), "Akita", "dog"),
+        LocalBreed("dog-st-bernard", ctx.getString(R.string.breed_dog_st_bernard), "St. Bernard", "dog"),
+        LocalBreed("dog-bloodhound", ctx.getString(R.string.breed_dog_bloodhound), "Bloodhound", "dog"),
+        LocalBreed("dog-papillon", ctx.getString(R.string.breed_dog_papillon), "Papillon", "dog"),
+        LocalBreed("dog-bullmastiff", ctx.getString(R.string.breed_dog_bullmastiff), "Bullmastiff", "dog"),
+        LocalBreed("dog-samoyed", ctx.getString(R.string.breed_dog_samoyed), "Samoyed", "dog"),
+        LocalBreed("dog-scottish-terrier", ctx.getString(R.string.breed_dog_scottish_terrier), "Scottish Terrier", "dog"),
+        LocalBreed("dog-soft-coated-wheaten-terrier", ctx.getString(R.string.breed_dog_soft_coated_wheaten_terrier), "Soft Coated Wheaten Terrier", "dog"),
+        LocalBreed("dog-airedale-terrier", ctx.getString(R.string.breed_dog_airedale_terrier), "Airedale Terrier", "dog"),
+        LocalBreed("dog-jack-russell-terrier", ctx.getString(R.string.breed_dog_jack_russell_terrier), "Jack Russell Terrier", "dog"),
+    )
+
+    private fun catBreeds(ctx: Context): List<LocalBreed> = listOf(
+        LocalBreed("cat-domestic-shorthair", ctx.getString(R.string.breed_cat_domestic_shorthair), "Domestic Shorthair", "cat"),
+        LocalBreed("cat-domestic-longhair", ctx.getString(R.string.breed_cat_domestic_longhair), "Domestic Longhair", "cat"),
+        LocalBreed("cat-persian", ctx.getString(R.string.breed_cat_persian), "Persian", "cat"),
+        LocalBreed("cat-maine-coon", ctx.getString(R.string.breed_cat_maine_coon), "Maine Coon", "cat"),
+        LocalBreed("cat-ragdoll", ctx.getString(R.string.breed_cat_ragdoll), "Ragdoll", "cat"),
+        LocalBreed("cat-british-shorthair", ctx.getString(R.string.breed_cat_british_shorthair), "British Shorthair", "cat"),
+        LocalBreed("cat-exotic-shorthair", ctx.getString(R.string.breed_cat_exotic_shorthair), "Exotic Shorthair", "cat"),
+        LocalBreed("cat-abyssinian", ctx.getString(R.string.breed_cat_abyssinian), "Abyssinian", "cat"),
+        LocalBreed("cat-scottish-fold", ctx.getString(R.string.breed_cat_scottish_fold), "Scottish Fold", "cat"),
+        LocalBreed("cat-sphynx", ctx.getString(R.string.breed_cat_sphynx), "Sphynx", "cat"),
+        LocalBreed("cat-siamese", ctx.getString(R.string.breed_cat_siamese), "Siamese", "cat"),
+        LocalBreed("cat-devon-rex", ctx.getString(R.string.breed_cat_devon_rex), "Devon Rex", "cat"),
+        LocalBreed("cat-oriental-shorthair", ctx.getString(R.string.breed_cat_oriental_shorthair), "Oriental Shorthair", "cat"),
+        LocalBreed("cat-burmese", ctx.getString(R.string.breed_cat_burmese), "Burmese", "cat"),
+        LocalBreed("cat-american-shorthair", ctx.getString(R.string.breed_cat_american_shorthair), "American Shorthair", "cat"),
+        LocalBreed("cat-bengal", ctx.getString(R.string.breed_cat_bengal), "Bengal", "cat"),
+        LocalBreed("cat-russian-blue", ctx.getString(R.string.breed_cat_russian_blue), "Russian Blue", "cat"),
+        LocalBreed("cat-norwegian-forest-cat", ctx.getString(R.string.breed_cat_norwegian_forest_cat), "Norwegian Forest Cat", "cat"),
+        LocalBreed("cat-birman", ctx.getString(R.string.breed_cat_birman), "Birman", "cat"),
+        LocalBreed("cat-tonkinese", ctx.getString(R.string.breed_cat_tonkinese), "Tonkinese", "cat"),
+        LocalBreed("cat-cornish-rex", ctx.getString(R.string.breed_cat_cornish_rex), "Cornish Rex", "cat"),
+        LocalBreed("cat-siberian", ctx.getString(R.string.breed_cat_siberian), "Siberian", "cat"),
+        LocalBreed("cat-balinese", ctx.getString(R.string.breed_cat_balinese), "Balinese", "cat"),
+        LocalBreed("cat-somali", ctx.getString(R.string.breed_cat_somali), "Somali", "cat"),
+        LocalBreed("cat-turkish-angora", ctx.getString(R.string.breed_cat_turkish_angora), "Turkish Angora", "cat"),
+        LocalBreed("cat-himalayan", ctx.getString(R.string.breed_cat_himalayan), "Himalayan", "cat"),
+        LocalBreed("cat-manx", ctx.getString(R.string.breed_cat_manx), "Manx", "cat"),
+        LocalBreed("cat-selkirk-rex", ctx.getString(R.string.breed_cat_selkirk_rex), "Selkirk Rex", "cat"),
+        LocalBreed("cat-ragamuffin", ctx.getString(R.string.breed_cat_ragamuffin), "RagaMuffin", "cat"),
+        LocalBreed("cat-american-curl", ctx.getString(R.string.breed_cat_american_curl), "American Curl", "cat"),
+        LocalBreed("cat-chartreux", ctx.getString(R.string.breed_cat_chartreux), "Chartreux", "cat"),
+        LocalBreed("cat-bombay", ctx.getString(R.string.breed_cat_bombay), "Bombay", "cat"),
+        LocalBreed("cat-egyptian-mau", ctx.getString(R.string.breed_cat_egyptian_mau), "Egyptian Mau", "cat"),
+        LocalBreed("cat-ocicat", ctx.getString(R.string.breed_cat_ocicat), "Ocicat", "cat"),
+        LocalBreed("cat-korat", ctx.getString(R.string.breed_cat_korat), "Korat", "cat"),
+        LocalBreed("cat-singapura", ctx.getString(R.string.breed_cat_singapura), "Singapura", "cat"),
+        LocalBreed("cat-turkish-van", ctx.getString(R.string.breed_cat_turkish_van), "Turkish Van", "cat"),
+        LocalBreed("cat-havana-brown", ctx.getString(R.string.breed_cat_havana_brown), "Havana Brown", "cat"),
+        LocalBreed("cat-japanese-bobtail", ctx.getString(R.string.breed_cat_japanese_bobtail), "Japanese Bobtail", "cat"),
+        LocalBreed("cat-laperm", ctx.getString(R.string.breed_cat_laperm), "LaPerm", "cat"),
+        LocalBreed("cat-american-wirehair", ctx.getString(R.string.breed_cat_american_wirehair), "American Wirehair", "cat"),
+        LocalBreed("cat-european-burmese", ctx.getString(R.string.breed_cat_european_burmese), "European Burmese", "cat"),
+        LocalBreed("cat-burmilla", ctx.getString(R.string.breed_cat_burmilla), "Burmilla", "cat"),
+        LocalBreed("cat-colorpoint-shorthair", ctx.getString(R.string.breed_cat_colorpoint_shorthair), "Colorpoint Shorthair", "cat"),
+        LocalBreed("cat-javanese", ctx.getString(R.string.breed_cat_javanese), "Javanese", "cat"),
+        LocalBreed("cat-nebelung", ctx.getString(R.string.breed_cat_nebelung), "Nebelung", "cat"),
+        LocalBreed("cat-pixie-bob", ctx.getString(R.string.breed_cat_pixie_bob), "Pixie-Bob", "cat"),
+        LocalBreed("cat-savannah", ctx.getString(R.string.breed_cat_savannah), "Savannah", "cat"),
+        LocalBreed("cat-toyger", ctx.getString(R.string.breed_cat_toyger), "Toyger", "cat"),
+        LocalBreed("cat-chausie", ctx.getString(R.string.breed_cat_chausie), "Chausie", "cat"),
+    )
+}

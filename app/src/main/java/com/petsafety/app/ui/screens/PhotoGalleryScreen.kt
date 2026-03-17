@@ -28,6 +28,8 @@ import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.CameraAlt
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Delete
+import androidx.compose.material.icons.filled.KeyboardArrowDown
+import androidx.compose.material.icons.filled.KeyboardArrowUp
 import androidx.compose.material.icons.filled.Photo
 import androidx.compose.material.icons.filled.PhotoLibrary
 import androidx.compose.material.icons.filled.Star
@@ -100,6 +102,9 @@ fun PhotoGalleryScreen(
     var photoToDelete by remember { mutableStateOf<PetPhoto?>(null) }
     var selectedPhotoForMenu by remember { mutableStateOf<PetPhoto?>(null) }
     var fullScreenPhoto by remember { mutableStateOf<PetPhoto?>(null) }
+
+    val reorderSuccessMessage = stringResource(R.string.photos_reordered)
+    val reorderFailedMessage = stringResource(R.string.photos_reorder_failed)
 
     val photoUploadedMessage = stringResource(R.string.photo_uploaded)
     val uploadFailedMessage = stringResource(R.string.upload_failed)
@@ -275,6 +280,7 @@ fun PhotoGalleryScreen(
                         verticalArrangement = Arrangement.spacedBy(12.dp)
                     ) {
                         items(photos) { photo ->
+                            val index = photos.indexOf(photo)
                             PhotoGridItem(
                                 photo = photo,
                                 onClick = { fullScreenPhoto = photo },
@@ -292,7 +298,27 @@ fun PhotoGalleryScreen(
                                 onDelete = {
                                     photoToDelete = photo
                                     showDeleteDialog = true
-                                }
+                                },
+                                onMoveUp = if (index > 0) {
+                                    {
+                                        val reordered = photos.toMutableList()
+                                        val item = reordered.removeAt(index)
+                                        reordered.add(index - 1, item)
+                                        viewModel.reorderPhotos(petId, reordered.map { it.id }) { success, message ->
+                                            if (!success) appStateViewModel.showError(message ?: reorderFailedMessage)
+                                        }
+                                    }
+                                } else null,
+                                onMoveDown = if (index < photos.size - 1) {
+                                    {
+                                        val reordered = photos.toMutableList()
+                                        val item = reordered.removeAt(index)
+                                        reordered.add(index + 1, item)
+                                        viewModel.reorderPhotos(petId, reordered.map { it.id }) { success, message ->
+                                            if (!success) appStateViewModel.showError(message ?: reorderFailedMessage)
+                                        }
+                                    }
+                                } else null
                             )
                         }
                         item {
@@ -489,7 +515,9 @@ private fun PhotoGridItem(
     onClick: () -> Unit,
     onLongClick: () -> Unit,
     onSetPrimary: () -> Unit,
-    onDelete: () -> Unit
+    onDelete: () -> Unit,
+    onMoveUp: (() -> Unit)? = null,
+    onMoveDown: (() -> Unit)? = null
 ) {
     var showMenu by remember { mutableStateOf(false) }
 
@@ -558,7 +586,46 @@ private fun PhotoGridItem(
             }
         }
 
-        // Action buttons
+        // Action buttons - bottom left (move)
+        Row(
+            modifier = Modifier
+                .align(Alignment.BottomStart)
+                .padding(8.dp),
+            horizontalArrangement = Arrangement.spacedBy(4.dp)
+        ) {
+            if (onMoveUp != null) {
+                IconButton(
+                    onClick = onMoveUp,
+                    modifier = Modifier
+                        .size(32.dp)
+                        .background(Color.White.copy(alpha = 0.9f), CircleShape)
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.KeyboardArrowUp,
+                        contentDescription = stringResource(R.string.move_up),
+                        modifier = Modifier.size(16.dp),
+                        tint = TealAccent
+                    )
+                }
+            }
+            if (onMoveDown != null) {
+                IconButton(
+                    onClick = onMoveDown,
+                    modifier = Modifier
+                        .size(32.dp)
+                        .background(Color.White.copy(alpha = 0.9f), CircleShape)
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.KeyboardArrowDown,
+                        contentDescription = stringResource(R.string.move_down),
+                        modifier = Modifier.size(16.dp),
+                        tint = TealAccent
+                    )
+                }
+            }
+        }
+
+        // Action buttons - bottom right (primary, delete)
         Row(
             modifier = Modifier
                 .align(Alignment.BottomEnd)
