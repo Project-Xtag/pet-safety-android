@@ -399,6 +399,8 @@
     <string name="enter_address_or_location">Saisis l\'adresse ou la description du lieu</string>
     <string name="additional_details">Détails supplémentaires</string>
     <string name="describe_circumstances">Décris les circonstances, les signes distinctifs, etc.</string>
+    <string name="reward_amount_label">Récompense (facultatif)</string>
+    <string name="reward_amount_placeholder">ex. 50 €</string>
     <string name="report_missing">Signaler la disparition</string>
     <string name="no_pets_to_report_message">Ajoute d\'abord un animal pour pouvoir le signaler disparu</string>
     <string name="mark_pet_found">Marquer l\'animal comme retrouvé</string>

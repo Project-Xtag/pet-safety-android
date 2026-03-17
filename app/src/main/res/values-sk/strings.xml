@@ -384,6 +384,8 @@
     <string name="enter_address_or_location">Zadajte adresu alebo popis miesta</string>
     <string name="additional_details">Ďalšie detaily</string>
     <string name="describe_circumstances">Popíšte okolnosti, rozlišovacie znaky, atď.</string>
+    <string name="reward_amount_label">Odmena (nepovinné)</string>
+    <string name="reward_amount_placeholder">napr. 50 €</string>
     <string name="report_missing">Nahlásiť stratené</string>
     <string name="no_pets_to_report_message">Najprv pridajte zviera, aby ste ho mohli nahlásiť ako stratené</string>
     <string name="mark_pet_found">Označiť zviera ako nájdené</string>

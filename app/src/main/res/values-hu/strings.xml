@@ -384,6 +384,8 @@
     <string name="enter_address_or_location">Add meg a címet vagy a hely leírását</string>
     <string name="additional_details">További részletek</string>
     <string name="describe_circumstances">Írd le a körülményeket, megkülönböztető jegyeket, stb.</string>
+    <string name="reward_amount_label">Jutalom (nem kötelező)</string>
+    <string name="reward_amount_placeholder">pl. 10 000 Ft</string>
     <string name="report_missing">Eltűnt jelentése</string>
     <string name="no_pets_to_report_message">Adj hozzá egy kedvencet, hogy eltűntként jelenthessük</string>
     <string name="mark_pet_found">Kedvenc megtaláltnak jelölése</string>

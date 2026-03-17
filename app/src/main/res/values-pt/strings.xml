@@ -384,6 +384,8 @@
     <string name="enter_address_or_location">Introduza a morada ou descrição do local</string>
     <string name="additional_details">Detalhes adicionais</string>
     <string name="describe_circumstances">Descreva as circunstâncias, traços distintivos, etc.</string>
+    <string name="reward_amount_label">Recompensa (opcional)</string>
+    <string name="reward_amount_placeholder">ex. 50 €</string>
     <string name="report_missing">Reportar desaparecido</string>
     <string name="no_pets_to_report_message">Adicione um animal antes de o reportar como desaparecido</string>
     <string name="mark_pet_found">Marcar animal como encontrado</string>

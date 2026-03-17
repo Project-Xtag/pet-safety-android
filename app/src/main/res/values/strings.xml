@@ -398,6 +398,8 @@
     <string name="enter_address_or_location">Enter address or location description</string>
     <string name="additional_details">Additional Details</string>
     <string name="describe_circumstances">Describe circumstances, distinguishing features, etc.</string>
+    <string name="reward_amount_label">Reward (optional)</string>
+    <string name="reward_amount_placeholder">e.g. €50</string>
     <string name="report_missing">Report Missing</string>
     <string name="no_pets_to_report_message">Add a pet first to report them missing</string>
     <string name="mark_pet_found">Mark Pet Found</string>

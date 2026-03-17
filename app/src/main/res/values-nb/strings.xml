@@ -398,6 +398,8 @@
     <string name="enter_address_or_location">Oppgi adresse eller stedsbeskrivelse</string>
     <string name="additional_details">Ytterligere detaljer</string>
     <string name="describe_circumstances">Beskriv omstendighetene, særtrekk, osv.</string>
+    <string name="reward_amount_label">Belønning (valgfritt)</string>
+    <string name="reward_amount_placeholder">f.eks. 500 kr</string>
     <string name="report_missing">Meld savnet</string>
     <string name="no_pets_to_report_message">Legg til et dyr først for å melde det savnet</string>
     <string name="mark_pet_found">Merk dyret som funnet</string>

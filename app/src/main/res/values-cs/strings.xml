@@ -385,6 +385,8 @@
     <string name="enter_address_or_location">Zadejte adresu nebo popis místa</string>
     <string name="additional_details">Další detaily</string>
     <string name="describe_circumstances">Popište okolnosti, rozlišovací znaky apod.</string>
+    <string name="reward_amount_label">Odměna (volitelné)</string>
+    <string name="reward_amount_placeholder">např. 50 €</string>
     <string name="report_missing">Nahlásit ztrátu</string>
     <string name="no_pets_to_report_message">Nejdříve přidejte mazlíčka, abyste jej mohli nahlásit jako ztraceného</string>
     <string name="mark_pet_found">Označit mazlíčka jako nalezeného</string>

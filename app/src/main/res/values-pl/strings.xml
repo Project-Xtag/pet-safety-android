@@ -406,6 +406,8 @@
     <string name="enter_address_or_location">Podaj adres lub opis miejsca</string>
     <string name="additional_details">Dodatkowe szczegóły</string>
     <string name="describe_circumstances">Opisz okoliczności, charakterystyczne cechy itp.</string>
+    <string name="reward_amount_label">Nagroda (opcjonalnie)</string>
+    <string name="reward_amount_placeholder">np. 200 zł</string>
     <string name="report_missing">Zgłoś zaginięcie</string>
     <string name="no_pets_to_report_message">Dodaj zwierzę, aby móc zgłosić jego zaginięcie</string>
     <string name="mark_pet_found">Oznacz zwierzę jako znalezione</string>

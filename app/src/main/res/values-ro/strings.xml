@@ -377,6 +377,8 @@
     <string name="enter_address_or_location">Introdu adresa sau descrierea locației</string>
     <string name="additional_details">Detalii suplimentare</string>
     <string name="describe_circumstances">Descrie circumstanțele, trăsăturile distinctive, etc.</string>
+    <string name="reward_amount_label">Recompensă (opțional)</string>
+    <string name="reward_amount_placeholder">ex. 50 €</string>
     <string name="report_missing">Raportează dispariția</string>
     <string name="no_pets_to_report_message">Adaugă un animal înainte de a-l raporta ca dispărut</string>
     <string name="mark_pet_found">Marchează animal ca găsit</string>

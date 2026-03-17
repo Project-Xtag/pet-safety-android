@@ -384,6 +384,8 @@
     <string name="enter_address_or_location">Adresse oder Ortsbeschreibung eingeben</string>
     <string name="additional_details">Weitere Details</string>
     <string name="describe_circumstances">Umstände, besondere Merkmale usw. beschreiben</string>
+    <string name="reward_amount_label">Belohnung (optional)</string>
+    <string name="reward_amount_placeholder">z.B. 50 €</string>
     <string name="report_missing">Vermisst melden</string>
     <string name="no_pets_to_report_message">Fügen Sie zuerst ein Haustier hinzu, um es als vermisst zu melden</string>
     <string name="mark_pet_found">Haustier als gefunden markieren</string>

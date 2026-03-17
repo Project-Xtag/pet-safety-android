@@ -17,6 +17,8 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
+import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.Home
@@ -188,6 +190,7 @@ fun ReportMissingSheet(
         lastSeenLocation: LocationCoordinate?,
         lastSeenAddress: String?,
         description: String?,
+        rewardAmount: String?,
         notificationCenterSource: String,
         notificationCenterLocation: LocationCoordinate?,
         notificationCenterAddress: String?
@@ -200,6 +203,7 @@ fun ReportMissingSheet(
     var selectedPet by remember { mutableStateOf<Pet?>(null) }
     var lastSeenAddress by remember { mutableStateOf("") }
     var description by remember { mutableStateOf("") }
+    var rewardAmount by remember { mutableStateOf("") }
     var currentLocation by remember { mutableStateOf<LocationCoordinate?>(null) }
 
     // Notification center state
@@ -395,6 +399,48 @@ fun ReportMissingSheet(
 
                 Spacer(modifier = Modifier.height(16.dp))
 
+                // Reward Amount
+                Text(
+                    text = stringResource(R.string.reward_amount_label),
+                    style = MaterialTheme.typography.bodyMedium.copy(
+                        fontSize = 14.sp,
+                        fontWeight = FontWeight.SemiBold
+                    ),
+                    color = MaterialTheme.colorScheme.onSurface
+                )
+                Spacer(modifier = Modifier.height(8.dp))
+
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .clip(RoundedCornerShape(12.dp))
+                        .background(MaterialTheme.colorScheme.surfaceContainerHigh)
+                        .padding(horizontal = 16.dp, vertical = 14.dp)
+                ) {
+                    BasicTextField(
+                        value = rewardAmount,
+                        onValueChange = { rewardAmount = it },
+                        modifier = Modifier.fillMaxWidth(),
+                        textStyle = MaterialTheme.typography.bodyMedium.copy(
+                            color = MaterialTheme.colorScheme.onSurface
+                        ),
+                        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+                        cursorBrush = SolidColor(BrandOrange),
+                        decorationBox = { innerTextField ->
+                            if (rewardAmount.isEmpty()) {
+                                Text(
+                                    text = stringResource(R.string.reward_amount_placeholder),
+                                    style = MaterialTheme.typography.bodyMedium,
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                                )
+                            }
+                            innerTextField()
+                        }
+                    )
+                }
+
+                Spacer(modifier = Modifier.height(16.dp))
+
                 // Notification Center Selection
                 Text(
                     text = stringResource(R.string.notification_center),
@@ -546,6 +592,7 @@ fun ReportMissingSheet(
                             currentLocation,
                             lastSeenAddress.takeIf { it.isNotBlank() && it != currentLocationLabel },
                             description.takeIf { it.isNotBlank() },
+                            rewardAmount.ifBlank { null },
                             notificationCenterSource.value,
                             notifLocation,
                             notifAddress
