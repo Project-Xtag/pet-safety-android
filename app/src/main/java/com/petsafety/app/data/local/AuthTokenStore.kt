@@ -91,8 +91,9 @@ class AuthTokenStore(context: Context) {
 
     /**
      * Synchronous token save for use from OkHttp's Authenticator thread.
-     * Uses commit() (blocking write) instead of apply() to guarantee persistence
-     * before returning. Avoids runBlocking which can deadlock on OkHttp threads.
+     * commit() is intentional — OkHttp authenticator runs on IO dispatcher, not main thread.
+     * apply() would risk the token not being persisted before the retry request uses it.
+     * Avoids runBlocking which can deadlock on OkHttp threads.
      */
     fun saveTokensSync(authToken: String, refreshToken: String) {
         prefs.edit()
@@ -105,6 +106,7 @@ class AuthTokenStore(context: Context) {
 
     /**
      * Synchronous clear for use from OkHttp's Authenticator thread.
+     * commit() is intentional — see saveTokensSync() for rationale.
      */
     fun clearAllSync() {
         prefs.edit()
