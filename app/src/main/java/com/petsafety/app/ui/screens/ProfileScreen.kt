@@ -5,6 +5,7 @@ import android.net.Uri
 import androidx.compose.foundation.background
 import com.petsafety.app.util.WebUrlHelper
 import androidx.compose.foundation.clickable
+import androidx.compose.material3.Checkbox
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -1434,6 +1435,7 @@ private fun HelpSupportScreen(
     val context = LocalContext.current
     var showContactForm by remember { mutableStateOf(false) }
     var showDeleteDialog by remember { mutableStateOf(false) }
+    var confirmDeleteChecked by remember { mutableStateOf(false) }
     var showDeleteErrorDialog by remember { mutableStateOf(false) }
     var isDeleting by remember { mutableStateOf(false) }
     var isCheckingDelete by remember { mutableStateOf(false) }
@@ -1700,17 +1702,41 @@ private fun HelpSupportScreen(
         } ?: ""
 
         AlertDialog(
-            onDismissRequest = { showDeleteDialog = false },
+            onDismissRequest = {
+                showDeleteDialog = false
+                confirmDeleteChecked = false
+            },
             title = { Text(stringResource(R.string.delete_account)) },
             text = {
                 Column {
                     if (hasActivePaidSub) {
                         Text(
                             text = stringResource(R.string.delete_premium_warning, subPlanName, subEndDate),
-                            style = MaterialTheme.typography.bodyMedium
+                            style = MaterialTheme.typography.bodyMedium,
+                            modifier = Modifier.padding(bottom = 12.dp)
                         )
                     } else {
-                        Text(stringResource(R.string.delete_account_full_warning))
+                        Text(
+                            text = stringResource(R.string.delete_account_full_warning),
+                            modifier = Modifier.padding(bottom = 12.dp)
+                        )
+                    }
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .clickable { confirmDeleteChecked = !confirmDeleteChecked }
+                            .padding(vertical = 8.dp)
+                    ) {
+                        Checkbox(
+                            checked = confirmDeleteChecked,
+                            onCheckedChange = { confirmDeleteChecked = it }
+                        )
+                        Spacer(modifier = Modifier.width(8.dp))
+                        Text(
+                            text = stringResource(R.string.delete_confirm_checkbox),
+                            style = MaterialTheme.typography.bodySmall
+                        )
                     }
                 }
             },
@@ -1718,6 +1744,7 @@ private fun HelpSupportScreen(
                 TextButton(
                     onClick = {
                         isDeleting = true
+                        confirmDeleteChecked = false
                         authViewModel.deleteAccount { success, message ->
                             isDeleting = false
                             if (success) {
@@ -1728,6 +1755,7 @@ private fun HelpSupportScreen(
                         }
                         showDeleteDialog = false
                     },
+                    enabled = confirmDeleteChecked && !isDeleting,
                     colors = ButtonDefaults.textButtonColors(contentColor = MaterialTheme.colorScheme.error)
                 ) {
                     Text(stringResource(R.string.delete_account))
@@ -1738,16 +1766,23 @@ private fun HelpSupportScreen(
                     Column {
                         TextButton(onClick = {
                             showDeleteDialog = false
+                            confirmDeleteChecked = false
                             onBack()
                         }) {
                             Text(stringResource(R.string.cancel_instead))
                         }
-                        TextButton(onClick = { showDeleteDialog = false }) {
+                        TextButton(onClick = {
+                            showDeleteDialog = false
+                            confirmDeleteChecked = false
+                        }) {
                             Text(stringResource(R.string.cancel))
                         }
                     }
                 } else {
-                    TextButton(onClick = { showDeleteDialog = false }) {
+                    TextButton(onClick = {
+                        showDeleteDialog = false
+                        confirmDeleteChecked = false
+                    }) {
                         Text(stringResource(R.string.cancel))
                     }
                 }

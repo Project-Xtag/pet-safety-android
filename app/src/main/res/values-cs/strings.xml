@@ -558,6 +558,7 @@
     <string name="delete_account_full_warning">Tuto akci nelze vrátit. Váš účet bude trvale smazán, všechna osobní data budou odstraněna a případná aktivní předplatná budou zrušena.</string>
     <string name="delete_premium_warning">Máte aktivní předplatné %1$s do %2$s. Smazáním účtu trvale smažete svůj profil a okamžitě ztratíte přístup ke zbývajícímu placenému období. Pokud chcete jen zastavit budoucí platby, použijte možnost Zrušit předplatné.</string>
     <string name="cancel_instead">Místo toho zrušit předplatné</string>
+    <string name="delete_confirm_checkbox">Rozumím, že tato akce je nevratná a všechna má data budou trvale smazána</string>
     <string name="cancel_subscription_title">Zrušit předplatné?</string>
     <string name="cancel_warning_a">Přijdete o okamžitá e-mailová, SMS upozornění a komunitní výstrahy</string>
     <string name="cancel_warning_b">Bezplatné výměny štítků již nebudou dostupné</string>

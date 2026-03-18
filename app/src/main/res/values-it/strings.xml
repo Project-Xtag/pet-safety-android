@@ -566,6 +566,7 @@
     <string name="delete_account_full_warning">Questa azione non può essere annullata. Il tuo account verrà eliminato definitivamente, tutti i dati personali verranno rimossi e gli abbonamenti attivi verranno cancellati.</string>
     <string name="delete_premium_warning">Hai un abbonamento %1$s attivo fino al %2$s. L\'eliminazione del tuo account cancellerà permanentemente il tuo profilo e perderai immediatamente l\'accesso al tempo pagato rimanente. Se vuoi solo interrompere i pagamenti futuri, utilizza l\'opzione Annulla abbonamento.</string>
     <string name="cancel_instead">Annulla abbonamento invece</string>
+    <string name="delete_confirm_checkbox">Capisco che questa azione non può essere annullata e tutti i miei dati verranno eliminati permanentemente</string>
     <string name="cancel_subscription_title">Annullare l\'abbonamento?</string>
     <string name="cancel_warning_a">Perderai le notifiche istantanee via email, SMS e gli avvisi della comunità</string>
     <string name="cancel_warning_b">Le sostituzioni gratuite delle targhette non saranno più disponibili</string>

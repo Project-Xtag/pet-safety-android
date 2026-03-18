@@ -550,6 +550,7 @@
     <string name="delete_account_full_warning">Această acțiune nu poate fi anulată. Contul tău va fi șters permanent, toate datele personale vor fi eliminate și orice abonamente active vor fi anulate.</string>
     <string name="delete_premium_warning">Ai un abonament %1$s activ până la %2$s. Ștergerea contului va șterge permanent profilul tău și vei pierde imediat accesul la timpul plătit rămas. Dacă vrei doar să oprești plățile viitoare, te rugăm să folosești opțiunea Anulare abonament.</string>
     <string name="cancel_instead">Anulare abonament în schimb</string>
+    <string name="delete_confirm_checkbox">Înțeleg că această acțiune nu poate fi anulată și toate datele mele vor fi șterse permanent</string>
     <string name="cancel_subscription_title">Anulare abonament?</string>
     <string name="cancel_warning_a">Vei pierde notificările instantanee prin email, SMS și alertele comunitare</string>
     <string name="cancel_warning_b">Înlocuirile gratuite de etichete nu vor mai fi disponibile</string>

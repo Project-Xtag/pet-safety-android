@@ -575,6 +575,7 @@
     <string name="delete_account_full_warning">Ta operacja jest nieodwracalna. Twoje konto zostanie trwale usunięte, wszystkie dane osobowe zostaną skasowane, a aktywne subskrypcje anulowane.</string>
     <string name="delete_premium_warning">Masz aktywną subskrypcję %1$s do %2$s. Usunięcie konta trwale skasuje Twój profil i natychmiast utracisz dostęp do pozostałego opłaconego czasu. Jeśli chcesz tylko zatrzymać przyszłe płatności, skorzystaj z opcji Anuluj subskrypcję.</string>
     <string name="cancel_instead">Zamiast tego anuluj subskrypcję</string>
+    <string name="delete_confirm_checkbox">Rozumiem, że ta akcja jest nieodwracalna i wszystkie moje dane zostaną trwale usunięte</string>
     <string name="cancel_subscription_title">Anulować subskrypcję?</string>
     <string name="cancel_warning_a">Stracisz natychmiastowe powiadomienia e-mail, SMS i alerty społecznościowe</string>
     <string name="cancel_warning_b">Bezpłatne wymiany znaczników nie będą już dostępne</string>

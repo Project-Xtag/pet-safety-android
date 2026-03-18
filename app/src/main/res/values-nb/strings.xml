@@ -565,6 +565,7 @@
     <string name="delete_account_full_warning">Denne handlingen kan ikke angres. Kontoen din slettes permanent, alle personlige data fjernes, og aktive abonnementer avsluttes.</string>
     <string name="delete_premium_warning">Du har et aktivt %1$s-abonnement til %2$s. Sletting av kontoen din vil permanent slette profilen din, og du mister umiddelbart tilgangen til gjenværende betalt tid. Hvis du bare vil stoppe fremtidige betalinger, vennligst bruk Avslutt abonnement i stedet.</string>
     <string name="cancel_instead">Avslutt abonnement i stedet</string>
+    <string name="delete_confirm_checkbox">Jeg forstår at denne handlingen ikke kan angres og at all min data vil bli permanent slettet</string>
     <string name="cancel_subscription_title">Avslutte abonnement?</string>
     <string name="cancel_warning_a">Du mister umiddelbare e-post-, SMS-varsler og fellesskapsvarsler</string>
     <string name="cancel_warning_b">Gratis erstatningsmerker vil ikke lenger være tilgjengelig</string>

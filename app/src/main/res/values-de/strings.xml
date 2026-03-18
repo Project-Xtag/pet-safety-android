@@ -557,6 +557,7 @@
     <string name="delete_account_full_warning">Diese Aktion kann nicht rückgängig gemacht werden. Ihr Konto wird dauerhaft gelöscht, alle persönlichen Daten werden entfernt und alle aktiven Abonnements werden gekündigt.</string>
     <string name="delete_premium_warning">Sie haben ein aktives %1$s-Abonnement bis %2$s. Das Löschen Ihres Kontos löscht Ihr Profil dauerhaft und Sie verlieren sofort den Zugang zu Ihrer verbleibenden bezahlten Zeit. Wenn Sie nur zukünftige Zahlungen stoppen möchten, nutzen Sie bitte die Option Abonnement kündigen.</string>
     <string name="cancel_instead">Stattdessen Abonnement kündigen</string>
+    <string name="delete_confirm_checkbox">Ich verstehe, dass diese Aktion nicht rückgängig gemacht werden kann und alle meine Daten dauerhaft gelöscht werden</string>
     <string name="cancel_subscription_title">Abonnement kündigen?</string>
     <string name="cancel_warning_a">Sie verlieren sofortige E-Mail-, SMS-Benachrichtigungen und Community-Warnungen</string>
     <string name="cancel_warning_b">Kostenlose Markenersatzteile sind nicht mehr verfügbar</string>
