@@ -1259,4 +1259,19 @@
     <string name="profile_incomplete_desc">Missing details make it harder to reunite your pet if they go missing. Please fill in weight, color, and medical information.</string>
     <string name="identity_locked_title">Name, species, and breed are locked</string>
     <string name="identity_locked_desc">These fields cannot be changed after tag activation to prevent misuse. Contact support if you need to make changes.</string>
+
+    <!-- Shelter Adoption -->
+    <string name="profile_shelter_code">Shelter Adoption Code</string>
+    <string name="shelter_code_title">Shelter Code</string>
+    <string name="shelter_code_enter">Enter ADOPT-XXXX code</string>
+    <string name="shelter_code_enter_footer">Enter the code you received from the shelter.</string>
+    <string name="shelter_code_redeem">Redeem</string>
+    <string name="shelter_code_success">Code redeemed successfully!</string>
+    <string name="shelter_code_invalid">Invalid or already redeemed code.</string>
+    <string name="shelter_how_it_works">How It Works</string>
+    <string name="shelter_step_1">Adopt a pet from a partner shelter</string>
+    <string name="shelter_step_2">Enter the code you received at adoption</string>
+    <string name="shelter_step_3">Get 3 months free Standard plan + a free QR tag</string>
+    <string name="trial_ends_on">Trial ends on</string>
+    <string name="trial_upgrade_now">Upgrade now to keep your features!</string>
 </resources>

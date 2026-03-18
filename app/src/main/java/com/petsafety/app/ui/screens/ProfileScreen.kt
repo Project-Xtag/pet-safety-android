@@ -32,6 +32,7 @@ import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material.icons.filled.People
+import androidx.compose.material.icons.filled.Pets
 import androidx.compose.material.icons.filled.Sms
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.CardGiftcard
@@ -95,6 +96,7 @@ private enum class ProfileSection {
     ORDERS,
     BILLING,
     REFERRAL,
+    SHELTER_CODE,
     PRICING,
     PENDING_TAGS,
     NOTIFICATION_INBOX
@@ -133,6 +135,7 @@ fun ProfileScreen(
         )
         ProfileSection.BILLING -> BillingScreen(onBack = { section = ProfileSection.MAIN })
         ProfileSection.REFERRAL -> ReferralScreen(onBack = { section = ProfileSection.MAIN })
+        ProfileSection.SHELTER_CODE -> ShelterCodeScreen(onBack = { section = ProfileSection.MAIN })
         ProfileSection.PRICING -> {
             // Subscription management handled on web — redirect back to main
             section = ProfileSection.MAIN
@@ -315,6 +318,12 @@ private fun ProfileMain(
                         icon = Icons.Default.CardGiftcard,
                         title = stringResource(R.string.referral_title),
                         onClick = { onNavigate(ProfileSection.REFERRAL) }
+                    )
+                    HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
+                    ProfileMenuRow(
+                        icon = Icons.Default.Pets,
+                        title = stringResource(R.string.profile_shelter_code),
+                        onClick = { onNavigate(ProfileSection.SHELTER_CODE) }
                     )
                 }
             }

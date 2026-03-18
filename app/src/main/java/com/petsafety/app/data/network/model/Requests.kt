@@ -255,3 +255,8 @@ data class PostaPointDetails(
 data class ApplyReferralRequest(
     val code: String
 )
+
+@Serializable
+data class RedeemShelterCodeRequest(
+    val code: String
+)

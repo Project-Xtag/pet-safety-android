@@ -9,6 +9,8 @@ import com.petsafety.app.data.network.ApiService
 import com.petsafety.app.data.network.model.ApplyReferralRequest
 import com.petsafety.app.data.network.model.CreateCheckoutRequest
 import com.petsafety.app.data.network.model.ReferralApplyResponse
+import com.petsafety.app.data.network.model.RedeemShelterCodeRequest
+import com.petsafety.app.data.network.model.ShelterCodeRedeemResponse
 import com.petsafety.app.data.network.model.SubscriptionFeaturesResponse
 
 class SubscriptionRepository(private val apiService: ApiService) {
@@ -67,6 +69,11 @@ class SubscriptionRepository(private val apiService: ApiService) {
     suspend fun applyReferralCode(code: String): ReferralApplyResponse {
         val response = apiService.applyReferralCode(ApplyReferralRequest(code))
         return response.data ?: ReferralApplyResponse()
+    }
+
+    suspend fun redeemShelterCode(code: String): ShelterCodeRedeemResponse {
+        val response = apiService.redeemShelterCode(RedeemShelterCodeRequest(code))
+        return response.data ?: ShelterCodeRedeemResponse()
     }
 
     suspend fun getReferralStatus(): Pair<ReferralCode?, List<Referral>> {

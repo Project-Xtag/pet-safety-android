@@ -192,6 +192,17 @@ fun BillingScreen(
                                 color = if (sub.isActive) Color(0xFF4CAF50) else BrandOrange
                             )
                         }
+                        // Trial end date
+                        if (sub.isTrialing && sub.trialEndsAt != null) {
+                            Spacer(modifier = Modifier.height(8.dp))
+                            Row(
+                                modifier = Modifier.fillMaxWidth(),
+                                horizontalArrangement = Arrangement.SpaceBetween
+                            ) {
+                                Text(text = stringResource(R.string.trial_ends_on), style = MaterialTheme.typography.bodySmall, color = BrandOrange)
+                                Text(text = formatIsoDate(sub.trialEndsAt), style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.SemiBold), color = BrandOrange)
+                            }
+                        }
                     }
                 }
                 Spacer(modifier = Modifier.height(24.dp))

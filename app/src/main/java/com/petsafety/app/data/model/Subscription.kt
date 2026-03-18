@@ -74,7 +74,8 @@ data class UserSubscription(
     @SerialName("stripe_subscription_id") val stripeSubscriptionId: String? = null,
     @SerialName("created_at") val createdAt: String? = null,
     @SerialName("updated_at") val updatedAt: String? = null,
-    val plan: SubscriptionPlanRef? = null
+    val plan: SubscriptionPlanRef? = null,
+    @SerialName("trial_ends_at") val trialEndsAt: String? = null
 ) {
     val resolvedPlanName: String
         get() = planName ?: plan?.name ?: "starter"
@@ -90,6 +91,7 @@ data class UserSubscription(
             SubscriptionStatus.EXPIRED -> "Expired"
             SubscriptionStatus.SUSPENDED -> "Suspended"
         }
+    val isTrialing: Boolean get() = status == SubscriptionStatus.TRIALING
 }
 
 @Serializable
