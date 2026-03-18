@@ -1308,4 +1308,15 @@
     <string name="notif_multiple_sightings_title">Wielokrotne obserwacje!</string>
     <string name="notif_multiple_sightings_body">Kilka obserwacji zgłoszonych</string>
     <string name="notif_channel_lifecycle">Subskrypcja i przypomnienia</string>
+
+    <!-- Location Sharing Consent -->
+    <string name="share_location_title">Udostępnij lokalizację</string>
+    <string name="share_location_exact">Udostępnij dokładną lokalizację</string>
+    <string name="share_location_approximate">Udostępnij przybliżoną lokalizację (~100m)</string>
+    <string name="share_location_exact_note">Właściciel zobaczy dokładne współrzędne GPS</string>
+    <string name="share_location_approximate_note">Właściciel zobaczy przybliżony obszar</string>
+    <string name="share_location_confirm">Udostępnij</string>
+    <string name="share_location_success">Lokalizacja udostępniona! Właściciel został powiadomiony.</string>
+    <string name="share_location_denied">Wymagane uprawnienie do lokalizacji, aby udostępnić swoją lokalizację</string>
+    <string name="share_location_error">Nie udało się udostępnić lokalizacji. Spróbuj ponownie.</string>
 </resources>

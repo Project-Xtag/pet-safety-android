@@ -1281,4 +1281,15 @@
     <string name="notif_multiple_sightings_title">Multiple Sightings!</string>
     <string name="notif_multiple_sightings_body">Several sightings reported in a nearby area.</string>
     <string name="notif_channel_lifecycle">Subscription &amp; Reminders</string>
+
+    <!-- Location Sharing Consent -->
+    <string name="share_location_title">Share Your Location</string>
+    <string name="share_location_exact">Share exact location</string>
+    <string name="share_location_approximate">Share approximate location (~100m)</string>
+    <string name="share_location_exact_note">The owner will see your precise GPS coordinates</string>
+    <string name="share_location_approximate_note">The owner will see an approximate area</string>
+    <string name="share_location_confirm">Share</string>
+    <string name="share_location_success">Location shared! The owner has been notified.</string>
+    <string name="share_location_denied">Location permission is needed to share your location</string>
+    <string name="share_location_error">Failed to share location. Please try again.</string>
 </resources>

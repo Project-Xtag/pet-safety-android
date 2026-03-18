@@ -1288,4 +1288,15 @@
     <string name="notif_multiple_sightings_title">Mehrere Sichtungen!</string>
     <string name="notif_multiple_sightings_body">Mehrere Sichtungen gemeldet</string>
     <string name="notif_channel_lifecycle">Abonnement &amp; Erinnerungen</string>
+
+    <!-- Location Sharing Consent -->
+    <string name="share_location_title">Standort teilen</string>
+    <string name="share_location_exact">Genauen Standort teilen</string>
+    <string name="share_location_approximate">Ungefähren Standort teilen (~100m)</string>
+    <string name="share_location_exact_note">Der Besitzer sieht Ihre genauen GPS-Koordinaten</string>
+    <string name="share_location_approximate_note">Der Besitzer sieht einen ungefähren Bereich</string>
+    <string name="share_location_confirm">Teilen</string>
+    <string name="share_location_success">Standort geteilt! Der Besitzer wurde benachrichtigt.</string>
+    <string name="share_location_denied">Standortberechtigung ist erforderlich, um Ihren Standort zu teilen</string>
+    <string name="share_location_error">Standort konnte nicht geteilt werden. Bitte versuchen Sie es erneut.</string>
 </resources>

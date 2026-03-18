@@ -1288,4 +1288,15 @@
     <string name="notif_multiple_sightings_title">Többszörös észlelés!</string>
     <string name="notif_multiple_sightings_body">Több észlelés érkezett egy közeli területről.</string>
     <string name="notif_channel_lifecycle">Előfizetés és emlékeztetők</string>
+
+    <!-- Location Sharing Consent -->
+    <string name="share_location_title">Helyzeted megosztása</string>
+    <string name="share_location_exact">Pontos helyzet megosztása</string>
+    <string name="share_location_approximate">Hozzávetőleges helyzet megosztása (~100m)</string>
+    <string name="share_location_exact_note">A tulajdonos látni fogja a pontos GPS koordinátáidat</string>
+    <string name="share_location_approximate_note">A tulajdonos egy hozzávetőleges területet fog látni</string>
+    <string name="share_location_confirm">Megosztás</string>
+    <string name="share_location_success">Helyzet megosztva! A tulajdonos értesítve lett.</string>
+    <string name="share_location_denied">A helyzet megosztásához helymeghatározási engedély szükséges</string>
+    <string name="share_location_error">Nem sikerült a helyzet megosztása. Próbáld újra.</string>
 </resources>

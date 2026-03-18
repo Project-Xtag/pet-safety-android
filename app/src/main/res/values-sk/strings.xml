@@ -1296,4 +1296,15 @@
     <string name="notif_multiple_sightings_title">Viaceré pozorovania!</string>
     <string name="notif_multiple_sightings_body">Viacero pozorovaní</string>
     <string name="notif_channel_lifecycle">Predplatné a pripomienky</string>
+
+    <!-- Location Sharing Consent -->
+    <string name="share_location_title">Zdieľať polohu</string>
+    <string name="share_location_exact">Zdieľať presnú polohu</string>
+    <string name="share_location_approximate">Zdieľať približnú polohu (~100m)</string>
+    <string name="share_location_exact_note">Majiteľ uvidí vaše presné GPS súradnice</string>
+    <string name="share_location_approximate_note">Majiteľ uvidí približnú oblasť</string>
+    <string name="share_location_confirm">Zdieľať</string>
+    <string name="share_location_success">Poloha zdieľaná! Majiteľ bol upozornený.</string>
+    <string name="share_location_denied">Povolenie polohy je potrebné na zdieľanie vašej polohy</string>
+    <string name="share_location_error">Nepodarilo sa zdieľať polohu. Skúste to znova.</string>
 </resources>

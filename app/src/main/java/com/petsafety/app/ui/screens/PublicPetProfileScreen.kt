@@ -1,7 +1,14 @@
 package com.petsafety.app.ui.screens
 
+import android.Manifest
+import android.annotation.SuppressLint
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.net.Uri
+import android.os.Looper
+import android.widget.Toast
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -33,17 +40,24 @@ import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material.icons.filled.Warning
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.core.content.ContextCompat
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -58,9 +72,15 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.AsyncImage
+import com.google.android.gms.location.LocationCallback
+import com.google.android.gms.location.LocationRequest
+import com.google.android.gms.location.LocationResult
+import com.google.android.gms.location.LocationServices
+import com.google.android.gms.location.Priority
 import com.petsafety.app.R
 import com.petsafety.app.data.model.Pet
 import com.petsafety.app.data.model.User
+import com.petsafety.app.data.repository.LocationConsent
 import com.petsafety.app.ui.theme.BrandOrange
 import com.petsafety.app.ui.theme.TealAccent
 import com.petsafety.app.ui.viewmodel.AppStateViewModel
@@ -147,7 +167,12 @@ fun PublicPetProfileScreen(
                     }
                 }
                 pet != null -> {
-                    PublicPetContent(pet = pet!!, currentUser = currentUser)
+                    PublicPetContent(
+                        pet = pet!!,
+                        currentUser = currentUser,
+                        qrCode = qrCode,
+                        viewModel = viewModel
+                    )
                 }
             }
         }
@@ -155,8 +180,57 @@ fun PublicPetProfileScreen(
 }
 
 @Composable
-private fun PublicPetContent(pet: Pet, currentUser: User?) {
+private fun PublicPetContent(
+    pet: Pet,
+    currentUser: User?,
+    qrCode: String,
+    viewModel: PublicPetProfileViewModel
+) {
     val context = LocalContext.current
+
+    val isSharing by viewModel.isSharing.collectAsState()
+    val shareSuccess by viewModel.shareSuccess.collectAsState()
+    val shareError by viewModel.shareError.collectAsState()
+
+    var showConsentDialog by remember { mutableStateOf(false) }
+    var shareExactLocation by remember { mutableStateOf(true) }
+    var currentLatitude by remember { mutableStateOf<Double?>(null) }
+    var currentLongitude by remember { mutableStateOf<Double?>(null) }
+    var currentAccuracy by remember { mutableStateOf<Double?>(null) }
+    var isGettingLocation by remember { mutableStateOf(false) }
+
+    val locationProvider = remember { LocationServices.getFusedLocationProviderClient(context) }
+
+    val permissionLauncher = rememberLauncherForActivityResult(
+        ActivityResultContracts.RequestPermission()
+    ) { granted ->
+        if (granted) {
+            isGettingLocation = true
+            fetchCurrentLocation(locationProvider, context) { lat, lng, acc ->
+                currentLatitude = lat
+                currentLongitude = lng
+                currentAccuracy = acc
+                isGettingLocation = false
+                showConsentDialog = true
+            }
+        } else {
+            Toast.makeText(context, context.getString(R.string.share_location_denied), Toast.LENGTH_LONG).show()
+        }
+    }
+
+    LaunchedEffect(shareSuccess) {
+        if (shareSuccess) {
+            Toast.makeText(context, context.getString(R.string.share_location_success), Toast.LENGTH_LONG).show()
+            viewModel.clearShareState()
+        }
+    }
+
+    LaunchedEffect(shareError) {
+        shareError?.let {
+            Toast.makeText(context, it, Toast.LENGTH_LONG).show()
+            viewModel.clearShareState()
+        }
+    }
 
     // Check if this is the owner viewing their own pet's profile
     val isOwnPet = currentUser != null && pet.ownerId == currentUser.id
@@ -303,21 +377,46 @@ private fun PublicPetContent(pet: Pet, currentUser: User?) {
 
         Spacer(modifier = Modifier.height(24.dp))
 
-        // Share Location Button (placeholder)
+        // Share Location Button
         Button(
-            onClick = { /* Placeholder - this is just a preview */ },
+            onClick = {
+                val permissionStatus = ContextCompat.checkSelfPermission(
+                    context, Manifest.permission.ACCESS_FINE_LOCATION
+                )
+                if (permissionStatus == PackageManager.PERMISSION_GRANTED) {
+                    isGettingLocation = true
+                    fetchCurrentLocation(locationProvider, context) { lat, lng, acc ->
+                        currentLatitude = lat
+                        currentLongitude = lng
+                        currentAccuracy = acc
+                        isGettingLocation = false
+                        showConsentDialog = true
+                    }
+                } else {
+                    permissionLauncher.launch(Manifest.permission.ACCESS_FINE_LOCATION)
+                }
+            },
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 24.dp)
                 .height(52.dp),
             shape = RoundedCornerShape(14.dp),
-            colors = ButtonDefaults.buttonColors(containerColor = TealAccent)
+            colors = ButtonDefaults.buttonColors(containerColor = TealAccent),
+            enabled = !isGettingLocation && !isSharing
         ) {
-            Icon(
-                imageVector = Icons.Default.LocationOn,
-                contentDescription = null,
-                modifier = Modifier.size(20.dp)
-            )
+            if (isGettingLocation || isSharing) {
+                CircularProgressIndicator(
+                    modifier = Modifier.size(20.dp),
+                    color = Color.White,
+                    strokeWidth = 2.dp
+                )
+            } else {
+                Icon(
+                    imageVector = Icons.Default.LocationOn,
+                    contentDescription = null,
+                    modifier = Modifier.size(20.dp)
+                )
+            }
             Spacer(modifier = Modifier.width(8.dp))
             Text(
                 text = stringResource(R.string.share_location_with_owner),
@@ -325,6 +424,62 @@ private fun PublicPetContent(pet: Pet, currentUser: User?) {
                     fontSize = 16.sp,
                     fontWeight = FontWeight.SemiBold
                 )
+            )
+        }
+
+        // Location Sharing Consent Dialog
+        if (showConsentDialog) {
+            AlertDialog(
+                onDismissRequest = { showConsentDialog = false },
+                title = { Text(stringResource(R.string.share_location_title)) },
+                text = {
+                    Column {
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.SpaceBetween,
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Text(
+                                text = if (shareExactLocation) stringResource(R.string.share_location_exact)
+                                       else stringResource(R.string.share_location_approximate),
+                                style = MaterialTheme.typography.bodyMedium
+                            )
+                            Switch(
+                                checked = shareExactLocation,
+                                onCheckedChange = { shareExactLocation = it }
+                            )
+                        }
+                        Spacer(modifier = Modifier.height(8.dp))
+                        Text(
+                            text = if (shareExactLocation) stringResource(R.string.share_location_exact_note)
+                                   else stringResource(R.string.share_location_approximate_note),
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                        )
+                    }
+                },
+                confirmButton = {
+                    Button(
+                        onClick = {
+                            showConsentDialog = false
+                            viewModel.shareLocation(
+                                qrCode = qrCode,
+                                consent = if (shareExactLocation) LocationConsent.PRECISE else LocationConsent.APPROXIMATE,
+                                latitude = currentLatitude,
+                                longitude = currentLongitude,
+                                accuracyMeters = currentAccuracy
+                            )
+                        },
+                        colors = ButtonDefaults.buttonColors(containerColor = BrandOrange)
+                    ) {
+                        Text(stringResource(R.string.share_location_confirm))
+                    }
+                },
+                dismissButton = {
+                    TextButton(onClick = { showConsentDialog = false }) {
+                        Text(stringResource(R.string.cancel))
+                    }
+                }
             )
         }
 
@@ -717,5 +872,36 @@ private fun HowItWorksStep(
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )
         }
+    }
+}
+
+@SuppressLint("MissingPermission")
+private fun fetchCurrentLocation(
+    locationProvider: com.google.android.gms.location.FusedLocationProviderClient,
+    context: android.content.Context,
+    onResult: (Double?, Double?, Double?) -> Unit
+) {
+    locationProvider.lastLocation.addOnSuccessListener { location ->
+        if (location != null) {
+            onResult(location.latitude, location.longitude, location.accuracy.toDouble())
+        } else {
+            val locationRequest = LocationRequest.Builder(Priority.PRIORITY_HIGH_ACCURACY, 5000L)
+                .setMinUpdateIntervalMillis(2000L)
+                .setMaxUpdates(1)
+                .build()
+
+            val callback = object : LocationCallback() {
+                override fun onLocationResult(result: LocationResult) {
+                    result.lastLocation?.let {
+                        onResult(it.latitude, it.longitude, it.accuracy.toDouble())
+                    } ?: onResult(null, null, null)
+                    locationProvider.removeLocationUpdates(this)
+                }
+            }
+
+            locationProvider.requestLocationUpdates(locationRequest, callback, Looper.getMainLooper())
+        }
+    }.addOnFailureListener {
+        onResult(null, null, null)
     }
 }

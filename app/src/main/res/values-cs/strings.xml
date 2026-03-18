@@ -1297,4 +1297,15 @@
     <string name="notif_multiple_sightings_title">Vícenásobná pozorování!</string>
     <string name="notif_multiple_sightings_body">Několik pozorování</string>
     <string name="notif_channel_lifecycle">Předplatné a připomínky</string>
+
+    <!-- Location Sharing Consent -->
+    <string name="share_location_title">Sdílet polohu</string>
+    <string name="share_location_exact">Sdílet přesnou polohu</string>
+    <string name="share_location_approximate">Sdílet přibližnou polohu (~100m)</string>
+    <string name="share_location_exact_note">Majitel uvidí vaše přesné GPS souřadnice</string>
+    <string name="share_location_approximate_note">Majitel uvidí přibližnou oblast</string>
+    <string name="share_location_confirm">Sdílet</string>
+    <string name="share_location_success">Poloha sdílena! Majitel byl upozorněn.</string>
+    <string name="share_location_denied">Povolení polohy je potřebné ke sdílení vaší polohy</string>
+    <string name="share_location_error">Nepodařilo se sdílet polohu. Zkuste to znovu.</string>
 </resources>

@@ -1280,4 +1280,15 @@
     <string name="notif_multiple_sightings_title">Observations multiples !</string>
     <string name="notif_multiple_sightings_body">Plusieurs observations signalées</string>
     <string name="notif_channel_lifecycle">Abonnement et rappels</string>
+
+    <!-- Location Sharing Consent -->
+    <string name="share_location_title">Partager la position</string>
+    <string name="share_location_exact">Partager la position exacte</string>
+    <string name="share_location_approximate">Partager la position approximative (~100m)</string>
+    <string name="share_location_exact_note">Le propriétaire verra vos coordonnées GPS exactes</string>
+    <string name="share_location_approximate_note">Le propriétaire verra une zone approximative</string>
+    <string name="share_location_confirm">Partager</string>
+    <string name="share_location_success">Position partagée ! Le propriétaire a été notifié.</string>
+    <string name="share_location_denied">L\'autorisation de localisation est nécessaire pour partager votre position</string>
+    <string name="share_location_error">Impossible de partager la position. Veuillez réessayer.</string>
 </resources>

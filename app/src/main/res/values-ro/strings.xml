@@ -1289,4 +1289,15 @@
     <string name="notif_multiple_sightings_title">Observări multiple!</string>
     <string name="notif_multiple_sightings_body">Mai multe observări raportate</string>
     <string name="notif_channel_lifecycle">Abonament și mementouri</string>
+
+    <!-- Location Sharing Consent -->
+    <string name="share_location_title">Partajare locație</string>
+    <string name="share_location_exact">Partajare locație exactă</string>
+    <string name="share_location_approximate">Partajare locație aproximativă (~100m)</string>
+    <string name="share_location_exact_note">Proprietarul va vedea coordonatele GPS exacte</string>
+    <string name="share_location_approximate_note">Proprietarul va vedea o zonă aproximativă</string>
+    <string name="share_location_confirm">Partajare</string>
+    <string name="share_location_success">Locație partajată! Proprietarul a fost notificat.</string>
+    <string name="share_location_denied">Este necesară permisiunea de localizare pentru a partaja locația</string>
+    <string name="share_location_error">Nu s-a putut partaja locația. Încercați din nou.</string>
 </resources>

@@ -1288,4 +1288,15 @@
     <string name="notif_multiple_sightings_title">¡Múltiples avistamientos!</string>
     <string name="notif_multiple_sightings_body">Varios avistamientos reportados</string>
     <string name="notif_channel_lifecycle">Suscripción y recordatorios</string>
+
+    <!-- Location Sharing Consent -->
+    <string name="share_location_title">Compartir ubicación</string>
+    <string name="share_location_exact">Compartir ubicación exacta</string>
+    <string name="share_location_approximate">Compartir ubicación aproximada (~100m)</string>
+    <string name="share_location_exact_note">El dueño verá tus coordenadas GPS exactas</string>
+    <string name="share_location_approximate_note">El dueño verá un área aproximada</string>
+    <string name="share_location_confirm">Compartir</string>
+    <string name="share_location_success">¡Ubicación compartida! El dueño ha sido notificado.</string>
+    <string name="share_location_denied">Se necesita permiso de ubicación para compartir tu ubicación</string>
+    <string name="share_location_error">No se pudo compartir la ubicación. Inténtalo de nuevo.</string>
 </resources>

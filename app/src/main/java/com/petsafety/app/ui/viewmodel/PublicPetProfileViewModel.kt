@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.petsafety.app.R
 import com.petsafety.app.data.model.Pet
+import com.petsafety.app.data.repository.LocationConsent
 import com.petsafety.app.data.repository.QrRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -27,6 +28,15 @@ class PublicPetProfileViewModel @Inject constructor(
     private val _errorMessage = MutableStateFlow<String?>(null)
     val errorMessage: StateFlow<String?> = _errorMessage.asStateFlow()
 
+    private val _isSharing = MutableStateFlow(false)
+    val isSharing: StateFlow<Boolean> = _isSharing.asStateFlow()
+
+    private val _shareSuccess = MutableStateFlow(false)
+    val shareSuccess: StateFlow<Boolean> = _shareSuccess.asStateFlow()
+
+    private val _shareError = MutableStateFlow<String?>(null)
+    val shareError: StateFlow<String?> = _shareError.asStateFlow()
+
     fun loadPublicProfile(qrCode: String) {
         viewModelScope.launch {
             _isLoading.value = true
@@ -40,5 +50,31 @@ class PublicPetProfileViewModel @Inject constructor(
                 _isLoading.value = false
             }
         }
+    }
+
+    fun shareLocation(
+        qrCode: String,
+        consent: LocationConsent,
+        latitude: Double?,
+        longitude: Double?,
+        accuracyMeters: Double? = null
+    ) {
+        viewModelScope.launch {
+            _isSharing.value = true
+            _shareError.value = null
+            try {
+                val response = qrRepository.shareLocation(qrCode, consent, latitude, longitude, accuracyMeters)
+                _shareSuccess.value = true
+            } catch (e: Exception) {
+                _shareError.value = e.localizedMessage ?: application.getString(R.string.share_location_error)
+            } finally {
+                _isSharing.value = false
+            }
+        }
+    }
+
+    fun clearShareState() {
+        _shareSuccess.value = false
+        _shareError.value = null
     }
 }

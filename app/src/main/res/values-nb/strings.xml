@@ -1282,4 +1282,15 @@
     <string name="notif_multiple_sightings_title">Flere observasjoner!</string>
     <string name="notif_multiple_sightings_body">Flere observasjoner rapportert</string>
     <string name="notif_channel_lifecycle">Abonnement og påminnelser</string>
+
+    <!-- Location Sharing Consent -->
+    <string name="share_location_title">Del posisjon</string>
+    <string name="share_location_exact">Del nøyaktig posisjon</string>
+    <string name="share_location_approximate">Del omtrentlig posisjon (~100m)</string>
+    <string name="share_location_exact_note">Eieren vil se dine nøyaktige GPS-koordinater</string>
+    <string name="share_location_approximate_note">Eieren vil se et omtrentlig område</string>
+    <string name="share_location_confirm">Del</string>
+    <string name="share_location_success">Posisjon delt! Eieren har blitt varslet.</string>
+    <string name="share_location_denied">Posisjonstillatelse er nødvendig for å dele posisjonen din</string>
+    <string name="share_location_error">Kunne ikke dele posisjon. Prøv igjen.</string>
 </resources>
