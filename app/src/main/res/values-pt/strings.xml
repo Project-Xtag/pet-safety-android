@@ -760,6 +760,8 @@
     <string name="billing_current_plan">Plano atual</string>
     <string name="billing_plan_label">Plano</string>
     <string name="billing_status_label">Estado</string>
+    <string name="plan_renews">Renova em</string>
+    <string name="plan_cancels_on">Cancela em</string>
     <string name="billing_invoices">Faturas</string>
     <string name="billing_no_invoices">Ainda sem faturas</string>
     <string name="billing_subscription">Subscrição</string>

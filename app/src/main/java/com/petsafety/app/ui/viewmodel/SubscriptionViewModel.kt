@@ -101,9 +101,24 @@ class SubscriptionViewModel @Inject constructor(
         viewModelScope.launch {
             try {
                 _subscription.value = repository.getMySubscription()
+                lastRefreshTime = System.currentTimeMillis()
             } catch (e: Exception) {
                 _error.value = e.message
             }
+        }
+    }
+
+    private var lastRefreshTime: Long = 0L
+
+    /**
+     * Refresh subscription if stale (>60s since last load).
+     * Called on app foreground resume for cross-platform sync.
+     */
+    fun refreshIfStale() {
+        val now = System.currentTimeMillis()
+        if (now - lastRefreshTime > 60_000) {
+            loadSubscription()
+            loadFeatures()
         }
     }
 
@@ -139,8 +154,9 @@ class SubscriptionViewModel @Inject constructor(
                 if (plan.isFree) {
                     _subscription.value = repository.upgradeToStarter()
                 } else {
-                    val url = repository.createCheckoutSession(plan.name, billingPeriod, promoCode = _appliedPromoCodeId.value, countryCode = countryCode)
-                    _checkoutUrl.value = url
+                    // Paid plans — redirect to web app for subscription checkout
+                    // Subscriptions are web-only (no in-app purchasing / no store entitlement needed)
+                    _checkoutUrl.value = "https://senra.pet/choose-plan"
                 }
             } catch (e: Exception) {
                 _error.value = e.message

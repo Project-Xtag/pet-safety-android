@@ -760,6 +760,8 @@
     <string name="billing_current_plan">Aktueller Plan</string>
     <string name="billing_plan_label">Plan</string>
     <string name="billing_status_label">Status</string>
+    <string name="plan_renews">Verlängert am</string>
+    <string name="plan_cancels_on">Kündigung am</string>
     <string name="billing_invoices">Rechnungen</string>
     <string name="billing_no_invoices">Noch keine Rechnungen</string>
     <string name="billing_subscription">Abonnement</string>

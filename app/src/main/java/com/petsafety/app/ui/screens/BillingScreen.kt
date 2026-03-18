@@ -24,6 +24,7 @@ import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.CreditCard
 import androidx.compose.material.icons.filled.Description
 import androidx.compose.material.icons.filled.OpenInNew
+import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material.icons.filled.Warning
 import com.petsafety.app.data.model.SubscriptionStatus
 import com.petsafety.app.ui.components.BrandButton
@@ -38,12 +39,16 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleEventObserver
+import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -82,6 +87,20 @@ fun BillingScreen(
         viewModel.loadInvoices()
     }
 
+    // Refresh subscription on app foreground resume (cross-platform sync)
+    val lifecycleOwner = LocalLifecycleOwner.current
+    DisposableEffect(lifecycleOwner) {
+        val observer = LifecycleEventObserver { _, event ->
+            if (event == Lifecycle.Event.ON_RESUME) {
+                viewModel.refreshIfStale()
+            }
+        }
+        lifecycleOwner.lifecycle.addObserver(observer)
+        onDispose {
+            lifecycleOwner.lifecycle.removeObserver(observer)
+        }
+    }
+
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -110,6 +129,17 @@ fun BillingScreen(
                 ),
                 modifier = Modifier.align(Alignment.Center)
             )
+            IconButton(
+                onClick = {
+                    viewModel.loadSubscription()
+                    viewModel.loadInvoices()
+                },
+                modifier = Modifier
+                    .align(Alignment.CenterEnd)
+                    .padding(end = 8.dp)
+            ) {
+                Icon(Icons.Default.Refresh, contentDescription = "Refresh")
+            }
         }
 
         Column(
@@ -201,6 +231,28 @@ fun BillingScreen(
                             ) {
                                 Text(text = stringResource(R.string.trial_ends_on), style = MaterialTheme.typography.bodySmall, color = BrandOrange)
                                 Text(text = formatIsoDate(sub.trialEndsAt), style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.SemiBold), color = BrandOrange)
+                            }
+                        }
+                        // Renewal date (for active paid plans)
+                        if (sub.isActive && !sub.isTrialing && sub.currentPeriodEnd != null && sub.cancelAtPeriodEnd != true) {
+                            Spacer(modifier = Modifier.height(8.dp))
+                            Row(
+                                modifier = Modifier.fillMaxWidth(),
+                                horizontalArrangement = Arrangement.SpaceBetween
+                            ) {
+                                Text(text = stringResource(R.string.plan_renews), style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                                Text(text = formatIsoDate(sub.currentPeriodEnd), style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.SemiBold))
+                            }
+                        }
+                        // Cancels on date (when user has cancelled but period hasn't ended)
+                        if (sub.cancelAtPeriodEnd == true && sub.currentPeriodEnd != null) {
+                            Spacer(modifier = Modifier.height(8.dp))
+                            Row(
+                                modifier = Modifier.fillMaxWidth(),
+                                horizontalArrangement = Arrangement.SpaceBetween
+                            ) {
+                                Text(text = stringResource(R.string.plan_cancels_on), style = MaterialTheme.typography.bodySmall, color = BrandOrange)
+                                Text(text = formatIsoDate(sub.currentPeriodEnd), style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.SemiBold), color = BrandOrange)
                             }
                         }
                     }

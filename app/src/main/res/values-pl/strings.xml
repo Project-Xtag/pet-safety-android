@@ -848,6 +848,8 @@
     <string name="billing_current_plan">Aktualny plan</string>
     <string name="billing_plan_label">Plan</string>
     <string name="billing_status_label">Status</string>
+    <string name="plan_renews">Odnawianie dnia</string>
+    <string name="plan_cancels_on">Anulowanie dnia</string>
     <string name="billing_invoices">Faktury</string>
     <string name="billing_no_invoices">Brak faktur</string>
     <string name="billing_subscription">Subskrypcja</string>

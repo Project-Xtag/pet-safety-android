@@ -836,6 +836,8 @@
     <string name="billing_current_plan">Gjeldende plan</string>
     <string name="billing_plan_label">Plan</string>
     <string name="billing_status_label">Status</string>
+    <string name="plan_renews">Fornyes den</string>
+    <string name="plan_cancels_on">Avbestilles den</string>
     <string name="billing_invoices">Fakturaer</string>
     <string name="billing_no_invoices">Ingen fakturaer ennå</string>
     <string name="billing_subscription">Abonnement</string>

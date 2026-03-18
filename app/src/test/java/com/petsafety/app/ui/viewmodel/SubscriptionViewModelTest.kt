@@ -145,14 +145,13 @@ class SubscriptionViewModelTest {
     }
 
     @Test
-    fun `selectPlan - paid plan - creates checkout URL`() = runTest {
-        coEvery { repository.createCheckoutSession("standard", "monthly", null) } returns "https://checkout.stripe.com/abc"
-
+    fun `selectPlan - paid plan - redirects to web checkout`() = runTest {
         viewModel.selectPlan(standardPlan, "monthly")
         testDispatcher.scheduler.advanceUntilIdle()
 
-        assertEquals("https://checkout.stripe.com/abc", viewModel.checkoutUrl.value)
-        coVerify { repository.createCheckoutSession("standard", "monthly", null) }
+        // Paid plans redirect to web app instead of calling createCheckoutSession
+        assertEquals("https://senra.pet/choose-plan", viewModel.checkoutUrl.value)
+        coVerify(exactly = 0) { repository.createCheckoutSession(any(), any(), any()) }
     }
 
     @Test
@@ -168,13 +167,13 @@ class SubscriptionViewModelTest {
 
     @Test
     fun `handleCheckoutComplete - clears URL and reloads`() = runTest {
-        coEvery { repository.createCheckoutSession(any(), any(), any()) } returns "https://checkout.stripe.com/abc"
         coEvery { repository.getMySubscription() } returns testSubscription
         coEvery { repository.getFeatures() } returns null
 
+        // Paid plan sets web redirect URL
         viewModel.selectPlan(standardPlan)
         testDispatcher.scheduler.advanceUntilIdle()
-        assertEquals("https://checkout.stripe.com/abc", viewModel.checkoutUrl.value)
+        assertEquals("https://senra.pet/choose-plan", viewModel.checkoutUrl.value)
 
         viewModel.handleCheckoutComplete()
         testDispatcher.scheduler.advanceUntilIdle()
@@ -268,36 +267,33 @@ class SubscriptionViewModelTest {
     }
 
     @Test
-    fun `selectPlan - ultimate plan - creates checkout URL with correct plan name`() = runTest {
-        coEvery { repository.createCheckoutSession("ultimate", "monthly", null) } returns "https://checkout.stripe.com/ultimate"
-
+    fun `selectPlan - ultimate plan - redirects to web checkout`() = runTest {
         viewModel.selectPlan(ultimatePlan, "monthly")
         testDispatcher.scheduler.advanceUntilIdle()
 
-        assertEquals("https://checkout.stripe.com/ultimate", viewModel.checkoutUrl.value)
-        coVerify { repository.createCheckoutSession("ultimate", "monthly", null) }
+        // All paid plans redirect to web app
+        assertEquals("https://senra.pet/choose-plan", viewModel.checkoutUrl.value)
+        coVerify(exactly = 0) { repository.createCheckoutSession(any(), any(), any()) }
     }
 
     @Test
-    fun `selectPlan - paid plan with yearly billing - passes correct period`() = runTest {
-        coEvery { repository.createCheckoutSession("standard", "yearly", null) } returns "https://checkout.stripe.com/yearly"
-
+    fun `selectPlan - paid plan with yearly billing - still redirects to web`() = runTest {
         viewModel.selectPlan(standardPlan, "yearly")
         testDispatcher.scheduler.advanceUntilIdle()
 
-        assertEquals("https://checkout.stripe.com/yearly", viewModel.checkoutUrl.value)
-        coVerify { repository.createCheckoutSession("standard", "yearly", null) }
+        // Billing period doesn't matter — all paid plans go to web
+        assertEquals("https://senra.pet/choose-plan", viewModel.checkoutUrl.value)
+        coVerify(exactly = 0) { repository.createCheckoutSession(any(), any(), any()) }
     }
 
     @Test
-    fun `selectPlan - paid plan with country code HU - passes country code`() = runTest {
-        coEvery { repository.createCheckoutSession("standard", "monthly", null, "HU") } returns "https://checkout.stripe.com/hu"
-
+    fun `selectPlan - paid plan with country code - still redirects to web`() = runTest {
         viewModel.selectPlan(standardPlan, "monthly", "HU")
         testDispatcher.scheduler.advanceUntilIdle()
 
-        assertEquals("https://checkout.stripe.com/hu", viewModel.checkoutUrl.value)
-        coVerify { repository.createCheckoutSession("standard", "monthly", null, "HU") }
+        // Country code doesn't matter — all paid plans go to web
+        assertEquals("https://senra.pet/choose-plan", viewModel.checkoutUrl.value)
+        coVerify(exactly = 0) { repository.createCheckoutSession(any(), any(), any()) }
     }
 
     @Test
@@ -347,11 +343,9 @@ class SubscriptionViewModelTest {
 
     @Test
     fun `handleCheckoutCancelled - clears checkout URL`() = runTest {
-        coEvery { repository.createCheckoutSession(any(), any(), any()) } returns "https://checkout.stripe.com/abc"
-
         viewModel.selectPlan(standardPlan)
         testDispatcher.scheduler.advanceUntilIdle()
-        assertEquals("https://checkout.stripe.com/abc", viewModel.checkoutUrl.value)
+        assertEquals("https://senra.pet/choose-plan", viewModel.checkoutUrl.value)
 
         viewModel.handleCheckoutCancelled()
 
@@ -407,5 +401,35 @@ class SubscriptionViewModelTest {
         testDispatcher.scheduler.advanceUntilIdle()
 
         assertEquals("Features error", viewModel.error.value)
+    }
+
+    @Test
+    fun `refreshIfStale - refreshes when stale`() = runTest {
+        coEvery { repository.getMySubscription() } returns testSubscription
+        coEvery { repository.getFeatures() } returns null
+
+        // First call should refresh
+        viewModel.refreshIfStale()
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        coVerify(atLeast = 1) { repository.getMySubscription() }
+    }
+
+    @Test
+    fun `refreshIfStale - skips when fresh`() = runTest {
+        coEvery { repository.getMySubscription() } returns testSubscription
+        coEvery { repository.getFeatures() } returns null
+
+        // First loadSubscription to set lastRefreshTime
+        viewModel.loadSubscription()
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        // Immediate refreshIfStale should NOT call repo again (within 60s)
+        // loadSubscription was called once above — verify it's not called again
+        viewModel.refreshIfStale()
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        // Should have been called exactly once (from loadSubscription, not from refreshIfStale)
+        coVerify(exactly = 1) { repository.getMySubscription() }
     }
 }

@@ -760,6 +760,8 @@
     <string name="billing_current_plan">Jelenlegi csomag</string>
     <string name="billing_plan_label">Csomag</string>
     <string name="billing_status_label">Állapot</string>
+    <string name="plan_renews">Megújulás dátuma</string>
+    <string name="plan_cancels_on">Lemondás dátuma</string>
     <string name="billing_invoices">Számlák</string>
     <string name="billing_no_invoices">Még nincsenek számlák</string>
     <string name="billing_subscription">Előfizetés</string>

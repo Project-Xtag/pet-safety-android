@@ -761,6 +761,8 @@
     <string name="billing_current_plan">Aktuálny plán</string>
     <string name="billing_plan_label">Plán</string>
     <string name="billing_status_label">Stav</string>
+    <string name="plan_renews">Obnovenie dňa</string>
+    <string name="plan_cancels_on">Zrušenie dňa</string>
     <string name="billing_invoices">Faktúry</string>
     <string name="billing_no_invoices">Zatiaľ žiadne faktúry</string>
     <string name="billing_subscription">Predplatné</string>

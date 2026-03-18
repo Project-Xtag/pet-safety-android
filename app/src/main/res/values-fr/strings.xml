@@ -837,6 +837,8 @@
     <string name="billing_current_plan">Abonnement actuel</string>
     <string name="billing_plan_label">Abonnement</string>
     <string name="billing_status_label">Statut</string>
+    <string name="plan_renews">Renouvellement le</string>
+    <string name="plan_cancels_on">Annulation le</string>
     <string name="billing_invoices">Factures</string>
     <string name="billing_no_invoices">Aucune facture pour l\'instant</string>
     <string name="billing_subscription">Abonnement</string>

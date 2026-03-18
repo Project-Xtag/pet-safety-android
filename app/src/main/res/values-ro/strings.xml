@@ -754,6 +754,8 @@
     <string name="billing_current_plan">Planul curent</string>
     <string name="billing_plan_label">Plan</string>
     <string name="billing_status_label">Stare</string>
+    <string name="plan_renews">Se reînnoiește pe</string>
+    <string name="plan_cancels_on">Se anulează pe</string>
     <string name="billing_invoices">Facturi</string>
     <string name="billing_no_invoices">Încă nu există facturi</string>
     <string name="billing_subscription">Abonament</string>

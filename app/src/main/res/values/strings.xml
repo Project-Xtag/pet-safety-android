@@ -844,6 +844,8 @@
     <string name="billing_current_plan">Current Plan</string>
     <string name="billing_plan_label">Plan</string>
     <string name="billing_status_label">Status</string>
+    <string name="plan_renews">Renews on</string>
+    <string name="plan_cancels_on">Cancels on</string>
     <string name="billing_invoices">Invoices</string>
     <string name="billing_no_invoices">No invoices yet</string>
     <string name="billing_subscription">Subscription</string>
