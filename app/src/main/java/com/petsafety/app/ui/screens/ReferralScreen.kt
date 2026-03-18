@@ -60,6 +60,8 @@ import com.petsafety.app.ui.theme.BrandOrange
 import com.petsafety.app.ui.theme.PeachBackground
 import com.petsafety.app.ui.viewmodel.SubscriptionViewModel
 import kotlinx.coroutines.delay
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 @Composable
 fun ReferralScreen(
@@ -193,6 +195,17 @@ fun ReferralScreen(
                                 Spacer(modifier = Modifier.width(4.dp))
                                 Text(stringResource(R.string.referral_share))
                             }
+                        }
+
+                        referralCode?.expiresAt?.let { expiresAt ->
+                            Spacer(modifier = Modifier.height(8.dp))
+                            Text(
+                                text = "${stringResource(R.string.referral_expires)} ${formatIsoDate(expiresAt)}",
+                                style = MaterialTheme.typography.labelSmall,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                modifier = Modifier.fillMaxWidth(),
+                                textAlign = TextAlign.Center
+                            )
                         }
                     } else {
                         Button(
@@ -377,7 +390,7 @@ private fun ReferralRow(referral: Referral) {
                 style = MaterialTheme.typography.bodyMedium
             )
             Text(
-                text = referral.status.replaceFirstChar { it.uppercase() },
+                text = statusText(referral.status),
                 style = MaterialTheme.typography.bodySmall,
                 color = when (referral.status) {
                     "rewarded" -> Color(0xFF4CAF50)
@@ -386,9 +399,45 @@ private fun ReferralRow(referral: Referral) {
                     else -> MaterialTheme.colorScheme.onSurfaceVariant
                 }
             )
+            referral.redeemedAt?.let { date ->
+                Text(
+                    text = "${stringResource(R.string.referral_redeemed_on)} ${formatIsoDate(date)}",
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+            }
+            referral.rewardedAt?.let { date ->
+                Text(
+                    text = "${stringResource(R.string.referral_rewarded_on)} ${formatIsoDate(date)}",
+                    style = MaterialTheme.typography.labelSmall,
+                    color = Color(0xFF4CAF50)
+                )
+            }
         }
         if (referral.rewardedAt != null) {
             Icon(Icons.Default.CardGiftcard, contentDescription = null, tint = Color(0xFF4CAF50), modifier = Modifier.size(20.dp))
         }
+    }
+}
+
+@Composable
+private fun statusText(status: String): String {
+    return when (status) {
+        "pending" -> stringResource(R.string.referral_status_pending)
+        "signed_up" -> stringResource(R.string.referral_status_signed_up)
+        "subscribed" -> stringResource(R.string.referral_status_subscribed)
+        "rewarded" -> stringResource(R.string.referral_status_rewarded)
+        else -> status.replaceFirstChar { it.uppercase() }
+    }
+}
+
+private fun formatIsoDate(isoDate: String): String {
+    return try {
+        val parser = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.US)
+        val date = parser.parse(isoDate.substringBefore('.').substringBefore('Z'))
+        val formatter = SimpleDateFormat("dd MMM yyyy", Locale.getDefault())
+        if (date != null) formatter.format(date) else isoDate.substringBefore('T')
+    } catch (_: Exception) {
+        isoDate.substringBefore('T')
     }
 }

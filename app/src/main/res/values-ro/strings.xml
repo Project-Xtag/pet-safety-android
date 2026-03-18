@@ -1270,4 +1270,12 @@
     <string name="shelter_step_3">Get 3 months free Standard plan + a free QR tag</string>
     <string name="trial_ends_on">Trial ends on</string>
     <string name="trial_upgrade_now">Upgrade now to keep your features!</string>
+    <!-- Referral Status -->
+    <string name="referral_status_pending">În așteptare</string>
+    <string name="referral_status_signed_up">Înregistrat</string>
+    <string name="referral_status_subscribed">Abonat</string>
+    <string name="referral_status_rewarded">Recompensat</string>
+    <string name="referral_redeemed_on">Revendicat:</string>
+    <string name="referral_rewarded_on">Recompensat:</string>
+    <string name="referral_expires">Expiră:</string>
 </resources>

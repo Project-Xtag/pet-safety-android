@@ -1277,4 +1277,12 @@
     <string name="shelter_step_3">Get 3 months free Standard plan + a free QR tag</string>
     <string name="trial_ends_on">Trial ends on</string>
     <string name="trial_upgrade_now">Upgrade now to keep your features!</string>
+    <!-- Referral Status -->
+    <string name="referral_status_pending">Čakajúce</string>
+    <string name="referral_status_signed_up">Zaregistrovaný</string>
+    <string name="referral_status_subscribed">Predplatený</string>
+    <string name="referral_status_rewarded">Odmenený</string>
+    <string name="referral_redeemed_on">Uplatnené:</string>
+    <string name="referral_rewarded_on">Odmenené:</string>
+    <string name="referral_expires">Platnosť:</string>
 </resources>

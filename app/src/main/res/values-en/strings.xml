@@ -1262,4 +1262,12 @@
     <string name="shelter_step_3">Get 3 months free Standard plan + a free QR tag</string>
     <string name="trial_ends_on">Trial ends on</string>
     <string name="trial_upgrade_now">Upgrade now to keep your features!</string>
+    <!-- Referral Status -->
+    <string name="referral_status_pending">Pending</string>
+    <string name="referral_status_signed_up">Signed Up</string>
+    <string name="referral_status_subscribed">Subscribed</string>
+    <string name="referral_status_rewarded">Rewarded</string>
+    <string name="referral_redeemed_on">Redeemed:</string>
+    <string name="referral_rewarded_on">Rewarded:</string>
+    <string name="referral_expires">Expires:</string>
 </resources>

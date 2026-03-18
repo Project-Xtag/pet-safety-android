@@ -1269,4 +1269,12 @@
     <string name="shelter_step_3">Kapj 3 hónap ingyenes Standard csomagot + ingyenes QR biléta</string>
     <string name="trial_ends_on">A próbaidőszak vége</string>
     <string name="trial_upgrade_now">Frissíts most, hogy megtartsd a funkcióidat!</string>
+    <!-- Referral Status -->
+    <string name="referral_status_pending">Függőben</string>
+    <string name="referral_status_signed_up">Regisztrált</string>
+    <string name="referral_status_subscribed">Előfizetett</string>
+    <string name="referral_status_rewarded">Jutalmazva</string>
+    <string name="referral_redeemed_on">Beváltva:</string>
+    <string name="referral_rewarded_on">Jutalmazva:</string>
+    <string name="referral_expires">Lejárat:</string>
 </resources>
