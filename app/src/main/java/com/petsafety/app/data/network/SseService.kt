@@ -1,5 +1,7 @@
 package com.petsafety.app.data.network
 
+import android.os.Handler
+import android.os.Looper
 import com.petsafety.app.BuildConfig
 import com.petsafety.app.data.local.AuthTokenStore
 import com.petsafety.app.data.model.AlertCreatedEvent
@@ -12,12 +14,15 @@ import com.petsafety.app.data.model.SubscriptionChangedEvent
 import com.petsafety.app.data.model.TagScannedEvent
 import kotlinx.serialization.json.Json
 import okhttp3.CertificatePinner
+import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.Request
+import okhttp3.RequestBody.Companion.toRequestBody
 import okhttp3.Response
 import okhttp3.sse.EventSource
 import okhttp3.sse.EventSourceListener
 import okhttp3.sse.EventSources
+import org.json.JSONObject
 import timber.log.Timber
 import java.util.concurrent.TimeUnit
 
@@ -64,7 +69,13 @@ class SseService(private val tokenStore: AuthTokenStore) {
     private var eventSource: EventSource? = null
     private var shouldReconnect = false
     private var reconnectAttempts = 0
-    private var reconnectHandler: android.os.Handler? = null
+    private var reconnectHandler: Handler? = null
+    private var isRefreshingToken = false
+
+    // Watchdog: if no data arrives within 3× server keep-alive (30s), force reconnect
+    private val watchdogHandler = Handler(Looper.getMainLooper())
+    private var watchdogRunnable: Runnable? = null
+    private val WATCHDOG_INTERVAL_MS = 90_000L
 
     fun connect() {
         val token = tokenStore.authToken.value
@@ -94,6 +105,7 @@ class SseService(private val tokenStore: AuthTokenStore) {
                 override fun onOpen(eventSource: EventSource, response: Response) {
                     Timber.d("SSE: Connection opened")
                     reconnectAttempts = 0 // Reset on successful connection
+                    resetWatchdog()
                 }
 
                 override fun onEvent(
@@ -102,6 +114,7 @@ class SseService(private val tokenStore: AuthTokenStore) {
                     type: String?,
                     data: String
                 ) {
+                    resetWatchdog()
                     try {
                         when (type) {
                             "connected" -> onConnected?.invoke(json.decodeFromString(data))
@@ -131,9 +144,11 @@ class SseService(private val tokenStore: AuthTokenStore) {
                     Timber.w("SSE: Connection failed (code=${response?.code}): ${t?.message}")
 
                     if (response?.code == 401) {
-                        Timber.w("SSE: Unauthorized — stopping reconnection (token may be expired)")
-                        shouldReconnect = false
-                        onConnectionLost?.invoke()
+                        Timber.w("SSE: Unauthorized — attempting token refresh")
+                        if (!isRefreshingToken) {
+                            isRefreshingToken = true
+                            attemptTokenRefreshAndReconnect()
+                        }
                         return
                     }
 
@@ -157,7 +172,7 @@ class SseService(private val tokenStore: AuthTokenStore) {
         Timber.d("SSE: Scheduling reconnect attempt $reconnectAttempts in ${delayMs}ms")
 
         if (reconnectHandler == null) {
-            reconnectHandler = android.os.Handler(android.os.Looper.getMainLooper())
+            reconnectHandler = Handler(Looper.getMainLooper())
         }
         reconnectHandler?.postDelayed({ connect() }, delayMs)
     }
@@ -165,8 +180,85 @@ class SseService(private val tokenStore: AuthTokenStore) {
     fun disconnect() {
         shouldReconnect = false
         reconnectHandler?.removeCallbacksAndMessages(null)
+        cancelWatchdog()
         eventSource?.cancel()
         eventSource = null
         reconnectAttempts = 0
+    }
+
+    private fun resetWatchdog() {
+        watchdogRunnable?.let { watchdogHandler.removeCallbacks(it) }
+        watchdogRunnable = Runnable {
+            Timber.w("SSE: Watchdog timeout — no data in ${WATCHDOG_INTERVAL_MS}ms, reconnecting")
+            eventSource?.cancel()
+            eventSource = null
+            scheduleReconnect()
+        }
+        watchdogHandler.postDelayed(watchdogRunnable!!, WATCHDOG_INTERVAL_MS)
+    }
+
+    private fun cancelWatchdog() {
+        watchdogRunnable?.let { watchdogHandler.removeCallbacks(it) }
+        watchdogRunnable = null
+    }
+
+    private fun attemptTokenRefreshAndReconnect() {
+        val refreshToken = tokenStore.refreshToken.value
+        if (refreshToken.isNullOrEmpty()) {
+            Timber.w("SSE: No refresh token available, giving up")
+            isRefreshingToken = false
+            shouldReconnect = false
+            onConnectionLost?.invoke()
+            return
+        }
+
+        Thread {
+            try {
+                val refreshClient = OkHttpClient.Builder()
+                    .connectTimeout(10, TimeUnit.SECONDS)
+                    .readTimeout(10, TimeUnit.SECONDS)
+                    .build()
+
+                val body = """{"refreshToken":"$refreshToken"}"""
+                    .toRequestBody("application/json".toMediaType())
+
+                val request = Request.Builder()
+                    .url("${BuildConfig.API_BASE_URL}auth/refresh")
+                    .post(body)
+                    .build()
+
+                val response = refreshClient.newCall(request).execute()
+
+                if (response.isSuccessful) {
+                    val responseBody = response.body?.string()
+                    response.close()
+                    val json = JSONObject(responseBody ?: "")
+                    val data = json.optJSONObject("data")
+                    val newToken = data?.optString("token")
+                    val newRefreshToken = data?.optString("refreshToken")
+
+                    if (!newToken.isNullOrEmpty() && !newRefreshToken.isNullOrEmpty()) {
+                        tokenStore.saveTokensSync(newToken, newRefreshToken)
+                        Timber.i("SSE: Token refresh successful, reconnecting")
+                        reconnectAttempts = 0
+                        isRefreshingToken = false
+                        watchdogHandler.post { connect() }
+                        return@Thread
+                    }
+                } else {
+                    response.close()
+                }
+
+                Timber.w("SSE: Token refresh failed")
+                isRefreshingToken = false
+                shouldReconnect = false
+                onConnectionLost?.invoke()
+            } catch (e: Exception) {
+                Timber.e(e, "SSE: Token refresh error")
+                isRefreshingToken = false
+                shouldReconnect = false
+                onConnectionLost?.invoke()
+            }
+        }.start()
     }
 }
