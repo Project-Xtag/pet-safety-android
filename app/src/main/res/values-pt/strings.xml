@@ -1277,4 +1277,15 @@
     <string name="referral_redeemed_on">Resgatado:</string>
     <string name="referral_rewarded_on">Recompensado:</string>
     <string name="referral_expires">Expira:</string>
+
+    <!-- Notification: new types -->
+    <string name="notif_alert_confirmation_title">Alerta criado</string>
+    <string name="notif_alert_confirmation_body">Seu alerta está ativo</string>
+    <string name="notif_promo_expiring_title">Teste termina em breve</string>
+    <string name="notif_promo_expiring_body">Assine agora</string>
+    <string name="notif_alert_reminder_title">Lembrete</string>
+    <string name="notif_alert_reminder_body">Ainda perdido</string>
+    <string name="notif_multiple_sightings_title">Múltiplos avistamentos!</string>
+    <string name="notif_multiple_sightings_body">Vários avistamentos reportados</string>
+    <string name="notif_channel_lifecycle">Assinatura e lembretes</string>
 </resources>

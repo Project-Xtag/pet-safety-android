@@ -1297,4 +1297,15 @@
     <string name="referral_redeemed_on">Wykorzystano:</string>
     <string name="referral_rewarded_on">Nagrodzono:</string>
     <string name="referral_expires">Wygasa:</string>
+
+    <!-- Notification: new types -->
+    <string name="notif_alert_confirmation_title">Alert utworzony</string>
+    <string name="notif_alert_confirmation_body">Twój alert jest aktywny</string>
+    <string name="notif_promo_expiring_title">Okres próbny kończy się</string>
+    <string name="notif_promo_expiring_body">Subskrybuj teraz</string>
+    <string name="notif_alert_reminder_title">Przypomnienie</string>
+    <string name="notif_alert_reminder_body">Nadal zaginiony</string>
+    <string name="notif_multiple_sightings_title">Wielokrotne obserwacje!</string>
+    <string name="notif_multiple_sightings_body">Kilka obserwacji zgłoszonych</string>
+    <string name="notif_channel_lifecycle">Subskrypcja i przypomnienia</string>
 </resources>

@@ -1277,4 +1277,15 @@
     <string name="referral_redeemed_on">Beváltva:</string>
     <string name="referral_rewarded_on">Jutalmazva:</string>
     <string name="referral_expires">Lejárat:</string>
+
+    <!-- Notification: new types -->
+    <string name="notif_alert_confirmation_title">Riasztás létrehozva</string>
+    <string name="notif_alert_confirmation_body">Az eltűnt kisállat riasztás aktív.</string>
+    <string name="notif_promo_expiring_title">A próbaidőszak hamarosan lejár</string>
+    <string name="notif_promo_expiring_body">Fizess elő, hogy megtartsd a prémium funkciókat.</string>
+    <string name="notif_alert_reminder_title">Eltűnt kisállat emlékeztető</string>
+    <string name="notif_alert_reminder_body">A kisállatod még mindig hiányzik.</string>
+    <string name="notif_multiple_sightings_title">Többszörös észlelés!</string>
+    <string name="notif_multiple_sightings_body">Több észlelés érkezett egy közeli területről.</string>
+    <string name="notif_channel_lifecycle">Előfizetés és emlékeztetők</string>
 </resources>

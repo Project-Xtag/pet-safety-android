@@ -13,8 +13,11 @@ import com.petsafety.app.data.sync.NetworkMonitor
 import com.petsafety.app.data.sync.SyncService
 import com.petsafety.app.util.StringProvider
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
 import javax.inject.Inject
 import com.petsafety.app.R
@@ -36,6 +39,12 @@ class AppStateViewModel @Inject constructor(
 
     val isConnected: StateFlow<Boolean> = networkMonitor.isConnected
 
+    private val _navigateToAlertId = MutableSharedFlow<String>(extraBufferCapacity = 1)
+    val navigateToAlertId: SharedFlow<String> = _navigateToAlertId.asSharedFlow()
+
+    private val _navigateToSubscription = MutableSharedFlow<Unit>(extraBufferCapacity = 1)
+    val navigateToSubscriptionEvent: SharedFlow<Unit> = _navigateToSubscription.asSharedFlow()
+
     init {
         setupSseHandlers()
     }
@@ -54,6 +63,14 @@ class AppStateViewModel @Inject constructor(
 
     fun setLoading(isLoading: Boolean) {
         _isLoading.value = isLoading
+    }
+
+    fun navigateToAlert(alertId: String) {
+        _navigateToAlertId.tryEmit(alertId)
+    }
+
+    fun navigateToSubscription() {
+        _navigateToSubscription.tryEmit(Unit)
     }
 
     fun refreshSubscription() {

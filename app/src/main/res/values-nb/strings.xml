@@ -1271,4 +1271,15 @@
     <string name="referral_redeemed_on">Innløst:</string>
     <string name="referral_rewarded_on">Belønnet:</string>
     <string name="referral_expires">Utløper:</string>
+
+    <!-- Notification: new types -->
+    <string name="notif_alert_confirmation_title">Varsel opprettet</string>
+    <string name="notif_alert_confirmation_body">Varselet ditt er aktivt</string>
+    <string name="notif_promo_expiring_title">Prøveperioden utløper</string>
+    <string name="notif_promo_expiring_body">Abonner nå</string>
+    <string name="notif_alert_reminder_title">Påminnelse</string>
+    <string name="notif_alert_reminder_body">Fortsatt savnet</string>
+    <string name="notif_multiple_sightings_title">Flere observasjoner!</string>
+    <string name="notif_multiple_sightings_body">Flere observasjoner rapportert</string>
+    <string name="notif_channel_lifecycle">Abonnement og påminnelser</string>
 </resources>

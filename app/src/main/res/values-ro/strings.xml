@@ -1278,4 +1278,15 @@
     <string name="referral_redeemed_on">Revendicat:</string>
     <string name="referral_rewarded_on">Recompensat:</string>
     <string name="referral_expires">Expiră:</string>
+
+    <!-- Notification: new types -->
+    <string name="notif_alert_confirmation_title">Alertă creată</string>
+    <string name="notif_alert_confirmation_body">Alerta este activă</string>
+    <string name="notif_promo_expiring_title">Perioada de probă se termină</string>
+    <string name="notif_promo_expiring_body">Abonează-te acum</string>
+    <string name="notif_alert_reminder_title">Memento</string>
+    <string name="notif_alert_reminder_body">Încă dispărut</string>
+    <string name="notif_multiple_sightings_title">Observări multiple!</string>
+    <string name="notif_multiple_sightings_body">Mai multe observări raportate</string>
+    <string name="notif_channel_lifecycle">Abonament și mementouri</string>
 </resources>

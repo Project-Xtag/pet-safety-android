@@ -62,6 +62,10 @@ class PetSafetyFirebaseMessagingService : FirebaseMessagingService() {
             "MISSING_PET_ALERT" -> handleMissingPetAlert(data)
             "PET_FOUND" -> handlePetFoundNotification(data)
             "SIGHTING_REPORTED" -> handleSightingNotification(data)
+            NotificationHelper.TYPE_ALERT_CONFIRMATION -> handleAlertConfirmation(data)
+            NotificationHelper.TYPE_PROMO_EXPIRING -> handlePromoExpiring(data)
+            NotificationHelper.TYPE_ALERT_REMINDER -> handleAlertReminder(data)
+            NotificationHelper.TYPE_MULTIPLE_SIGHTINGS -> handleMultipleSightings(data)
             else -> {
                 // Handle generic notification (fallback to title/body)
                 remoteMessage.notification?.let { notification ->
@@ -171,6 +175,52 @@ class PetSafetyFirebaseMessagingService : FirebaseMessagingService() {
             sightingId = sightingId,
             petName = petName,
             location = location
+        )
+    }
+
+    private fun handleAlertConfirmation(data: Map<String, String>) {
+        val alertId = data["alert_id"]
+        val petId = data["pet_id"]
+
+        notificationHelper.showAlertConfirmationNotification(
+            title = data["title"] ?: getString(R.string.notif_alert_confirmation_title),
+            body = data["body"] ?: getString(R.string.notif_alert_confirmation_body),
+            alertId = alertId,
+            petId = petId
+        )
+    }
+
+    private fun handlePromoExpiring(data: Map<String, String>) {
+        val planName = data["plan_name"]
+        val daysLeft = data["days_left"]
+
+        notificationHelper.showPromoExpiringNotification(
+            title = data["title"] ?: getString(R.string.notif_promo_expiring_title),
+            body = data["body"] ?: getString(R.string.notif_promo_expiring_body),
+            planName = planName,
+            daysLeft = daysLeft
+        )
+    }
+
+    private fun handleAlertReminder(data: Map<String, String>) {
+        val alertId = data["alert_id"]
+        val petName = data["pet_name"] ?: getString(R.string.notif_fallback_pet_name)
+
+        notificationHelper.showAlertReminderNotification(
+            title = data["title"] ?: getString(R.string.notif_alert_reminder_title),
+            body = data["body"] ?: getString(R.string.notif_alert_reminder_body),
+            alertId = alertId,
+            petName = petName
+        )
+    }
+
+    private fun handleMultipleSightings(data: Map<String, String>) {
+        val alertId = data["alert_id"]
+
+        notificationHelper.showMultipleSightingsNotification(
+            title = data["title"] ?: getString(R.string.notif_multiple_sightings_title),
+            body = data["body"] ?: getString(R.string.notif_multiple_sightings_body),
+            alertId = alertId
         )
     }
 

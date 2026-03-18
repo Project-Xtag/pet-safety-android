@@ -1285,4 +1285,15 @@
     <string name="referral_redeemed_on">Uplatnené:</string>
     <string name="referral_rewarded_on">Odmenené:</string>
     <string name="referral_expires">Platnosť:</string>
+
+    <!-- Notification: new types -->
+    <string name="notif_alert_confirmation_title">Upozornenie vytvorené</string>
+    <string name="notif_alert_confirmation_body">Upozornenie je aktívne</string>
+    <string name="notif_promo_expiring_title">Skúšobné obdobie končí</string>
+    <string name="notif_promo_expiring_body">Predplaťte si</string>
+    <string name="notif_alert_reminder_title">Pripomienka</string>
+    <string name="notif_alert_reminder_body">Stále nezvestný</string>
+    <string name="notif_multiple_sightings_title">Viaceré pozorovania!</string>
+    <string name="notif_multiple_sightings_body">Viacero pozorovaní</string>
+    <string name="notif_channel_lifecycle">Predplatné a pripomienky</string>
 </resources>

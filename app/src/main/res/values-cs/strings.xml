@@ -1286,4 +1286,15 @@
     <string name="referral_redeemed_on">Uplatněno:</string>
     <string name="referral_rewarded_on">Odměněno:</string>
     <string name="referral_expires">Platnost:</string>
+
+    <!-- Notification: new types -->
+    <string name="notif_alert_confirmation_title">Upozornění vytvořeno</string>
+    <string name="notif_alert_confirmation_body">Upozornění je aktivní</string>
+    <string name="notif_promo_expiring_title">Zkušební období končí</string>
+    <string name="notif_promo_expiring_body">Předplaťte si</string>
+    <string name="notif_alert_reminder_title">Připomínka</string>
+    <string name="notif_alert_reminder_body">Stále ztracený</string>
+    <string name="notif_multiple_sightings_title">Vícenásobná pozorování!</string>
+    <string name="notif_multiple_sightings_body">Několik pozorování</string>
+    <string name="notif_channel_lifecycle">Předplatné a připomínky</string>
 </resources>

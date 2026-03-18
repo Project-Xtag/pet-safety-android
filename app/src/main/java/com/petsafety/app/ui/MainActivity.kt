@@ -24,7 +24,9 @@ data class NotificationData(
     val sightingId: String?,
     val latitude: Double?,
     val longitude: Double?,
-    val isApproximate: Boolean
+    val isApproximate: Boolean,
+    val planName: String? = null,
+    val daysLeft: String? = null
 )
 
 @AndroidEntryPoint
@@ -83,7 +85,9 @@ class MainActivity : FragmentActivity() {
                 longitude = if (intent.hasExtra(NotificationHelper.EXTRA_LONGITUDE)) {
                     intent.getDoubleExtra(NotificationHelper.EXTRA_LONGITUDE, 0.0)
                 } else null,
-                isApproximate = intent.getBooleanExtra(NotificationHelper.EXTRA_IS_APPROXIMATE, false)
+                isApproximate = intent.getBooleanExtra(NotificationHelper.EXTRA_IS_APPROXIMATE, false),
+                planName = intent.getStringExtra(NotificationHelper.EXTRA_PLAN_NAME),
+                daysLeft = intent.getStringExtra(NotificationHelper.EXTRA_DAYS_LEFT)
             )
             return
         }

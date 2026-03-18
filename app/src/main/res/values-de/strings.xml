@@ -1277,4 +1277,15 @@
     <string name="referral_redeemed_on">Eingelöst:</string>
     <string name="referral_rewarded_on">Belohnt:</string>
     <string name="referral_expires">Gültig bis:</string>
+
+    <!-- Notification: new types -->
+    <string name="notif_alert_confirmation_title">Warnung erstellt</string>
+    <string name="notif_alert_confirmation_body">Ihre Vermisstenanzeige ist aktiv</string>
+    <string name="notif_promo_expiring_title">Testphase endet bald</string>
+    <string name="notif_promo_expiring_body">Jetzt abonnieren</string>
+    <string name="notif_alert_reminder_title">Erinnerung</string>
+    <string name="notif_alert_reminder_body">Noch vermisst</string>
+    <string name="notif_multiple_sightings_title">Mehrere Sichtungen!</string>
+    <string name="notif_multiple_sightings_body">Mehrere Sichtungen gemeldet</string>
+    <string name="notif_channel_lifecycle">Abonnement &amp; Erinnerungen</string>
 </resources>

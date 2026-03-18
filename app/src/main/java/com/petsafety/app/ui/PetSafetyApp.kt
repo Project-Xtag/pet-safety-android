@@ -117,8 +117,36 @@ fun PetSafetyApp(
                 }
                 NotificationHelper.TYPE_MISSING_ALERT,
                 NotificationHelper.TYPE_PET_FOUND -> {
-                    // Navigate to alerts tab (handled by MainTabScaffold)
-                    // For now, just clear the notification
+                    // Navigate to alerts tab with specific alert
+                    notification.alertId?.let { alertId ->
+                        appStateViewModel.navigateToAlert(alertId)
+                    }
+                    onNotificationHandled()
+                }
+                NotificationHelper.TYPE_ALERT_CONFIRMATION -> {
+                    // Navigate to the specific alert that was just created
+                    notification.alertId?.let { alertId ->
+                        appStateViewModel.navigateToAlert(alertId)
+                    }
+                    onNotificationHandled()
+                }
+                NotificationHelper.TYPE_PROMO_EXPIRING -> {
+                    // Navigate to subscription screen
+                    appStateViewModel.navigateToSubscription()
+                    onNotificationHandled()
+                }
+                NotificationHelper.TYPE_ALERT_REMINDER -> {
+                    // Navigate to the specific alert
+                    notification.alertId?.let { alertId ->
+                        appStateViewModel.navigateToAlert(alertId)
+                    }
+                    onNotificationHandled()
+                }
+                NotificationHelper.TYPE_MULTIPLE_SIGHTINGS -> {
+                    // Navigate to the alert with sightings
+                    notification.alertId?.let { alertId ->
+                        appStateViewModel.navigateToAlert(alertId)
+                    }
                     onNotificationHandled()
                 }
             }

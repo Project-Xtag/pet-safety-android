@@ -1272,4 +1272,15 @@
     <string name="referral_redeemed_on">Riscattato:</string>
     <string name="referral_rewarded_on">Premiato:</string>
     <string name="referral_expires">Scade:</string>
+
+    <!-- Notification: new types -->
+    <string name="notif_alert_confirmation_title">Avviso creato</string>
+    <string name="notif_alert_confirmation_body">Il tuo avviso è attivo</string>
+    <string name="notif_promo_expiring_title">Prova in scadenza</string>
+    <string name="notif_promo_expiring_body">Abbonati ora</string>
+    <string name="notif_alert_reminder_title">Promemoria</string>
+    <string name="notif_alert_reminder_body">Ancora smarrito</string>
+    <string name="notif_multiple_sightings_title">Avvistamenti multipli!</string>
+    <string name="notif_multiple_sightings_body">Diversi avvistamenti segnalati</string>
+    <string name="notif_channel_lifecycle">Abbonamento e promemoria</string>
 </resources>

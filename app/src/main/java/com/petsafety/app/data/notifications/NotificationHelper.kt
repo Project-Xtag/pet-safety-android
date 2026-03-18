@@ -35,6 +35,7 @@ class NotificationHelper @Inject constructor(private val context: Context) {
         const val CHANNEL_ALERTS = "missing_alerts"
         const val CHANNEL_SIGHTINGS = "sightings"
         const val CHANNEL_GENERAL = "pet_safety_general"
+        const val CHANNEL_LIFECYCLE = "lifecycle"
 
         const val EXTRA_NOTIFICATION_TYPE = "notification_type"
         const val EXTRA_PET_ID = "pet_id"
@@ -49,6 +50,13 @@ class NotificationHelper @Inject constructor(private val context: Context) {
         const val TYPE_MISSING_ALERT = "missing_alert"
         const val TYPE_PET_FOUND = "pet_found"
         const val TYPE_SIGHTING = "sighting"
+        const val TYPE_ALERT_CONFIRMATION = "ALERT_CREATED"
+        const val TYPE_PROMO_EXPIRING = "PROMO_EXPIRING"
+        const val TYPE_ALERT_REMINDER = "ALERT_REMINDER"
+        const val TYPE_MULTIPLE_SIGHTINGS = "MULTIPLE_SIGHTINGS"
+
+        const val EXTRA_PLAN_NAME = "extra_plan_name"
+        const val EXTRA_DAYS_LEFT = "extra_days_left"
     }
 
     init {
@@ -95,8 +103,17 @@ class NotificationHelper @Inject constructor(private val context: Context) {
             NotificationManager.IMPORTANCE_DEFAULT
         )
 
+        // Lifecycle channel (subscriptions & reminders)
+        val lifecycleChannel = NotificationChannel(
+            CHANNEL_LIFECYCLE,
+            context.getString(R.string.notif_channel_lifecycle),
+            NotificationManager.IMPORTANCE_DEFAULT
+        ).apply {
+            description = context.getString(R.string.notif_channel_lifecycle)
+        }
+
         manager.createNotificationChannels(
-            listOf(tagScansChannel, alertsChannel, sightingsChannel, generalChannel)
+            listOf(tagScansChannel, alertsChannel, sightingsChannel, generalChannel, lifecycleChannel)
         )
     }
 
@@ -300,6 +317,143 @@ class NotificationHelper @Inject constructor(private val context: Context) {
         }
 
         NotificationManagerCompat.from(context).notify(generateNotificationId(), builder.build())
+    }
+
+    /**
+     * Show alert confirmation notification (alert successfully created)
+     */
+    fun showAlertConfirmationNotification(
+        title: String,
+        body: String,
+        alertId: String?,
+        petId: String?
+    ) {
+        if (!hasNotificationPermission()) return
+
+        val intent = createMainActivityIntent().apply {
+            putExtra(EXTRA_NOTIFICATION_TYPE, TYPE_ALERT_CONFIRMATION)
+            putExtra(EXTRA_ALERT_ID, alertId)
+            putExtra(EXTRA_PET_ID, petId)
+        }
+
+        val pendingIntent = PendingIntent.getActivity(
+            context, generateNotificationId(), intent,
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+        )
+
+        val notification = NotificationCompat.Builder(context, CHANNEL_ALERTS)
+            .setSmallIcon(R.drawable.ic_notification)
+            .setContentTitle(title)
+            .setContentText(body)
+            .setStyle(NotificationCompat.BigTextStyle().bigText(body))
+            .setPriority(NotificationCompat.PRIORITY_HIGH)
+            .setAutoCancel(true)
+            .setContentIntent(pendingIntent)
+            .build()
+
+        NotificationManagerCompat.from(context).notify(generateNotificationId(), notification)
+    }
+
+    /**
+     * Show promo/trial expiring notification
+     */
+    fun showPromoExpiringNotification(
+        title: String,
+        body: String,
+        planName: String?,
+        daysLeft: String?
+    ) {
+        if (!hasNotificationPermission()) return
+
+        val intent = createMainActivityIntent().apply {
+            putExtra(EXTRA_NOTIFICATION_TYPE, TYPE_PROMO_EXPIRING)
+            putExtra(EXTRA_PLAN_NAME, planName)
+            putExtra(EXTRA_DAYS_LEFT, daysLeft)
+        }
+
+        val pendingIntent = PendingIntent.getActivity(
+            context, generateNotificationId(), intent,
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+        )
+
+        val notification = NotificationCompat.Builder(context, CHANNEL_LIFECYCLE)
+            .setSmallIcon(R.drawable.ic_notification)
+            .setContentTitle(title)
+            .setContentText(body)
+            .setStyle(NotificationCompat.BigTextStyle().bigText(body))
+            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+            .setAutoCancel(true)
+            .setContentIntent(pendingIntent)
+            .build()
+
+        NotificationManagerCompat.from(context).notify(generateNotificationId(), notification)
+    }
+
+    /**
+     * Show alert reminder notification (pet still missing)
+     */
+    fun showAlertReminderNotification(
+        title: String,
+        body: String,
+        alertId: String?,
+        petName: String?
+    ) {
+        if (!hasNotificationPermission()) return
+
+        val intent = createMainActivityIntent().apply {
+            putExtra(EXTRA_NOTIFICATION_TYPE, TYPE_ALERT_REMINDER)
+            putExtra(EXTRA_ALERT_ID, alertId)
+        }
+
+        val pendingIntent = PendingIntent.getActivity(
+            context, generateNotificationId(), intent,
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+        )
+
+        val notification = NotificationCompat.Builder(context, CHANNEL_LIFECYCLE)
+            .setSmallIcon(R.drawable.ic_notification)
+            .setContentTitle(title)
+            .setContentText(body)
+            .setStyle(NotificationCompat.BigTextStyle().bigText(body))
+            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+            .setAutoCancel(true)
+            .setContentIntent(pendingIntent)
+            .build()
+
+        NotificationManagerCompat.from(context).notify(generateNotificationId(), notification)
+    }
+
+    /**
+     * Show multiple sightings notification
+     */
+    fun showMultipleSightingsNotification(
+        title: String,
+        body: String,
+        alertId: String?
+    ) {
+        if (!hasNotificationPermission()) return
+
+        val intent = createMainActivityIntent().apply {
+            putExtra(EXTRA_NOTIFICATION_TYPE, TYPE_MULTIPLE_SIGHTINGS)
+            putExtra(EXTRA_ALERT_ID, alertId)
+        }
+
+        val pendingIntent = PendingIntent.getActivity(
+            context, generateNotificationId(), intent,
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+        )
+
+        val notification = NotificationCompat.Builder(context, CHANNEL_ALERTS)
+            .setSmallIcon(R.drawable.ic_notification)
+            .setContentTitle(title)
+            .setContentText(body)
+            .setStyle(NotificationCompat.BigTextStyle().bigText(body))
+            .setPriority(NotificationCompat.PRIORITY_HIGH)
+            .setAutoCancel(true)
+            .setContentIntent(pendingIntent)
+            .build()
+
+        NotificationManagerCompat.from(context).notify(generateNotificationId(), notification)
     }
 
     private fun createMainActivityIntent(): Intent {

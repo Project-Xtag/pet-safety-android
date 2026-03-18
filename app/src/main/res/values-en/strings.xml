@@ -1270,4 +1270,15 @@
     <string name="referral_redeemed_on">Redeemed:</string>
     <string name="referral_rewarded_on">Rewarded:</string>
     <string name="referral_expires">Expires:</string>
+
+    <!-- Notification: new types -->
+    <string name="notif_alert_confirmation_title">Alert Created</string>
+    <string name="notif_alert_confirmation_body">Your missing pet alert is now active.</string>
+    <string name="notif_promo_expiring_title">Trial Ending Soon</string>
+    <string name="notif_promo_expiring_body">Subscribe now to keep your premium features.</string>
+    <string name="notif_alert_reminder_title">Missing Pet Reminder</string>
+    <string name="notif_alert_reminder_body">Your pet is still missing. Keep the alert active.</string>
+    <string name="notif_multiple_sightings_title">Multiple Sightings!</string>
+    <string name="notif_multiple_sightings_body">Several sightings reported in a nearby area.</string>
+    <string name="notif_channel_lifecycle">Subscription &amp; Reminders</string>
 </resources>

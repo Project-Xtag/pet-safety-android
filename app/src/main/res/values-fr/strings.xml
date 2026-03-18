@@ -1269,4 +1269,15 @@
     <string name="referral_redeemed_on">Utilisé :</string>
     <string name="referral_rewarded_on">Récompensé :</string>
     <string name="referral_expires">Expire :</string>
+
+    <!-- Notification: new types -->
+    <string name="notif_alert_confirmation_title">Alerte créée</string>
+    <string name="notif_alert_confirmation_body">Votre alerte est active</string>
+    <string name="notif_promo_expiring_title">Essai se termine bientôt</string>
+    <string name="notif_promo_expiring_body">Abonnez-vous</string>
+    <string name="notif_alert_reminder_title">Rappel</string>
+    <string name="notif_alert_reminder_body">Toujours disparu</string>
+    <string name="notif_multiple_sightings_title">Observations multiples !</string>
+    <string name="notif_multiple_sightings_body">Plusieurs observations signalées</string>
+    <string name="notif_channel_lifecycle">Abonnement et rappels</string>
 </resources>
