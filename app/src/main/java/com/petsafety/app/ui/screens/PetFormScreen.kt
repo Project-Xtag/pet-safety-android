@@ -216,7 +216,7 @@ fun PetFormScreen(
             }
 
             // Locked fields info banner
-            if (isEditMode && existing != null && existing.qrCode != null) {
+            if (isEditMode && existing != null) {
                 Card(
                     modifier = Modifier.fillMaxWidth(),
                     shape = RoundedCornerShape(12.dp),
@@ -325,14 +325,23 @@ fun PetFormScreen(
 
             // Basic Information Section
             FormSection(title = stringResource(R.string.basic_information)) {
-                FormTextField(
-                    label = stringResource(R.string.name),
-                    value = name,
-                    onValueChange = { name = it.take(InputValidators.MAX_PET_NAME) },
-                    placeholder = stringResource(R.string.pet_name)
-                )
+                if (isEditMode) {
+                    // Name locked after registration
+                    FormReadOnlyField(
+                        label = stringResource(R.string.name),
+                        value = name
+                    )
+                } else {
+                    FormTextField(
+                        label = stringResource(R.string.name),
+                        value = name,
+                        onValueChange = { name = it.take(InputValidators.MAX_PET_NAME) },
+                        placeholder = stringResource(R.string.pet_name)
+                    )
+                }
 
                 if (isEditMode) {
+                    // Species locked after registration
                     FormReadOnlyField(
                         label = stringResource(R.string.species),
                         value = species.replaceFirstChar { it.uppercase() }
@@ -346,31 +355,39 @@ fun PetFormScreen(
                     )
                 }
 
-                FormBreedField(
-                    breeds = localBreeds,
-                    selectedBreed = selectedBreed,
-                    breedText = breedText,
-                    onBreedSelected = { breed ->
-                        if (breed.id == "other") {
-                            isOtherBreed = true
-                            selectedBreed = breed
-                            breedText = ""
-                        } else {
-                            isOtherBreed = false
-                            selectedBreed = breed
-                            breedText = breed.localizedName
-                        }
-                    },
-                    otherBreedLabel = otherBreedLabel
-                )
-
-                if (isOtherBreed) {
-                    FormTextField(
-                        label = stringResource(R.string.breed_custom_label),
-                        value = customBreedText,
-                        onValueChange = { customBreedText = it.take(InputValidators.MAX_BREED) },
-                        placeholder = stringResource(R.string.breed_custom_hint)
+                if (isEditMode) {
+                    // Breed locked after registration
+                    FormReadOnlyField(
+                        label = stringResource(R.string.breed),
+                        value = breedText.ifBlank { "-" }
                     )
+                } else {
+                    FormBreedField(
+                        breeds = localBreeds,
+                        selectedBreed = selectedBreed,
+                        breedText = breedText,
+                        onBreedSelected = { breed ->
+                            if (breed.id == "other") {
+                                isOtherBreed = true
+                                selectedBreed = breed
+                                breedText = ""
+                            } else {
+                                isOtherBreed = false
+                                selectedBreed = breed
+                                breedText = breed.localizedName
+                            }
+                        },
+                        otherBreedLabel = otherBreedLabel
+                    )
+
+                    if (isOtherBreed) {
+                        FormTextField(
+                            label = stringResource(R.string.breed_custom_label),
+                            value = customBreedText,
+                            onValueChange = { customBreedText = it.take(InputValidators.MAX_BREED) },
+                            placeholder = stringResource(R.string.breed_custom_hint)
+                        )
+                    }
                 }
 
                 FormTextField(
