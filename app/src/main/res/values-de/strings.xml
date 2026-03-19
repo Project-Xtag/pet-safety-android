@@ -79,7 +79,7 @@
     <string name="resend_code_cooldown">Code erneut senden in %1$ds</string>
     <string name="resend_code_prompt">Keinen Code erhalten? Erneut senden</string>
     <string name="dont_have_account">Noch kein Konto?</string>
-    <string name="start_here_order_free_tag">Hier starten &amp; kostenlosen Tag bestellen</string>
+    <string name="start_here_order_free_tag">Hier starten &amp; kostenlosen Namensschild bestellen</string>
     <string name="create_account">Konto erstellen</string>
     <string name="enter_details_subtitle">Geben Sie Ihre Daten ein, um zu starten.</string>
     <string name="register">Registrieren</string>
@@ -196,7 +196,7 @@
     <string name="delete_pet_dialog_title">%1$s löschen?</string>
     <string name="delete_pet_dialog_message">Möchten Sie dieses Haustier wirklich löschen? Diese Aktion kann nicht rückgängig gemacht werden.</string>
     <string name="delete_pet_warning_title">%1$s löschen?</string>
-    <string name="delete_pet_warning_message">%1$s wird dauerhaft aus deinem Konto entfernt. Der QR-Tag wird sofort deaktiviert und funktioniert beim Scannen nicht mehr. Wenn dies dein letztes Haustier ist, wird auch dein Abonnement gekündigt.</string>
+    <string name="delete_pet_warning_message">%1$s wird dauerhaft aus deinem Konto entfernt. Der QR-Namensschild wird sofort deaktiviert und funktioniert beim Scannen nicht mehr. Wenn dies dein letztes Haustier ist, wird auch dein Abonnement gekündigt.</string>
     <string name="delete_pet_warning_confirm">Haustier löschen</string>
     <string name="male">Männlich</string>
     <string name="female">Weiblich</string>
@@ -257,7 +257,7 @@
     <!-- MARK: QR Scanner -->
     <!-- ============================================ -->
     <string name="scan_qr_code">QR-Code scannen</string>
-    <string name="scan_qr_subtitle">Richten Sie Ihre Kamera auf den QR-Tag des Haustiers</string>
+    <string name="scan_qr_subtitle">Richten Sie Ihre Kamera auf den QR-Namensschild des Haustiers</string>
     <string name="camera_access_required">Kamerazugriff erforderlich</string>
     <string name="camera_access_message">Bitte Kamerazugriff aktivieren, um QR-Codes zu scannen</string>
     <string name="enable_camera">Kamera aktivieren</string>
@@ -302,19 +302,19 @@
     <!-- ============================================ -->
     <!-- MARK: Tag Activation -->
     <!-- ============================================ -->
-    <string name="tag_activate_title">Tag aktivieren</string>
+    <string name="tag_activate_title">Namensschild aktivieren</string>
     <string name="tag_loading_pets">Haustiere werden geladen\u2026</string>
-    <string name="tag_activated">Tag aktiviert!</string>
+    <string name="tag_activated">Namensschild aktiviert!</string>
     <string name="tag_activated_message">Dieses Tag ist jetzt mit %1$s verknüpft</string>
     <string name="tag_choose_plan">Vervollständigen Sie das Profil, damit Ihr Haustier leichter gefunden werden kann</string>
     <string name="tag_choose_plan_button">Haustierprofil vervollständigen</string>
     <string name="tag_skip_for_now">Ich mache das später</string>
     <string name="tag_no_pets">Noch keine Haustiere</string>
-    <string name="tag_no_pets_message">Fügen Sie zuerst ein Haustier hinzu, bevor Sie einen Tag aktivieren</string>
+    <string name="tag_no_pets_message">Fügen Sie zuerst ein Haustier hinzu, bevor Sie einen Namensschild aktivieren</string>
     <string name="tag_code_label">Tag-Code</string>
     <string name="tag_select_pet">Haustier auswählen, um diesen Tag zu verknüpfen</string>
     <string name="tag_activating">Aktivierung\u2026</string>
-    <string name="tag_activate_button">Tag aktivieren</string>
+    <string name="tag_activate_button">Namensschild aktivieren</string>
     <string name="tag_link_message">Dieser Tag wird mit dem ausgewählten Haustier verknüpft</string>
 
     <!-- ============================================ -->
@@ -449,7 +449,7 @@
     <string name="notification_pet_found_title">Gute Nachrichten!</string>
     <string name="notification_channel_name">Pet Safety Warnungen</string>
     <string name="notification_channel_tag_scans">Tag-Scans</string>
-    <string name="notification_channel_tag_scans_desc">Benachrichtigungen, wenn der Tag Ihres Haustiers gescannt wird</string>
+    <string name="notification_channel_tag_scans_desc">Benachrichtigungen, wenn der Namensschild Ihres Haustiers gescannt wird</string>
     <string name="notification_channel_alerts">Vermisstenwarnungen</string>
     <string name="notification_channel_alerts_desc">Warnungen für vermisste Haustiere in Ihrer Nähe</string>
     <string name="notification_channel_sightings">Sichtungsmeldungen</string>
@@ -591,16 +591,16 @@
     <string name="secondary_email_optional">Sekundäre E-Mail (optional)</string>
     <string name="phone_numbers">Telefonnummern</string>
     <string name="primary_phone">Primäre Telefonnummer</string>
-    <string name="show_on_qr_tag">Auf dem QR-Tag anzeigen</string>
+    <string name="show_on_qr_tag">Auf dem QR-Namensschild anzeigen</string>
     <string name="secondary_phone_optional">Sekundäre Telefonnummer (optional)</string>
-    <string name="contacts_qr_tag_info">Als sichtbar markierte Kontakte werden auf dem QR-Tag Ihres Haustiers angezeigt, wenn dieser gescannt wird.</string>
+    <string name="contacts_qr_tag_info">Als sichtbar markierte Kontakte werden auf dem QR-Namensschild Ihres Haustiers angezeigt, wenn dieser gescannt wird.</string>
     <string name="contact_details">Kontaktdaten</string>
 
     <!-- ============================================ -->
     <!-- MARK: Contact Visibility -->
     <!-- ============================================ -->
     <string name="contact_visibility">Sichtbarkeit der Kontakte</string>
-    <string name="contact_visibility_desc">Steuern Sie, welche Kontaktdaten sichtbar sind, wenn jemand den QR-Tag Ihres Haustiers scannt</string>
+    <string name="contact_visibility_desc">Steuern Sie, welche Kontaktdaten sichtbar sind, wenn jemand den QR-Namensschild Ihres Haustiers scannt</string>
     <string name="show_phone_number">Telefonnummer anzeigen</string>
     <string name="show_phone_subtitle">Ihre Telefonnummer ist für Finder sichtbar</string>
     <string name="show_email_address">E-Mail-Adresse anzeigen</string>
@@ -667,11 +667,11 @@
     <string name="help_faq_q2">Welche Informationen sollte ich im Profil angeben?</string>
     <string name="help_faq_a2">Name, Art, Rasse, Alter, medizinische Angaben, Notfallkontakte und ein aktuelles Foto.</string>
     <string name="help_faq_q3">Wie funktioniert der QR-Code-Tag?</string>
-    <string name="help_faq_a3">Jedes Tier erhält einen einzigartigen QR-Tag. Nach dem Scan können Finder das Profil sehen und dich kontaktieren.</string>
+    <string name="help_faq_a3">Jedes Tier erhält einen einzigartigen QR-Namensschild. Nach dem Scan können Finder das Profil sehen und dich kontaktieren.</string>
     <string name="help_faq_q4">Kann ich die Informationen später aktualisieren?</string>
     <string name="help_faq_a4">Ja! Gehe zu \'Meine Tiere\', wähle dein Tier aus und klicke auf \'Profil bearbeiten\'.</string>
-    <string name="help_faq_q5">Wie bestelle ich einen Ersatz-Tag?</string>
-    <string name="help_faq_a5">Gehe zum Profil deines Tieres und klicke auf \'Ersatz-Tag bestellen\'.</string>
+    <string name="help_faq_q5">Wie bestelle ich einen Ersatz-Namensschild?</string>
+    <string name="help_faq_a5">Gehe zum Profil deines Tieres und klicke auf \'Ersatz-Namensschild bestellen\'.</string>
     <!-- Guide Items -->
 
     <!-- ============================================ -->
@@ -680,17 +680,17 @@
     <string name="orders_title">Bestellungen</string>
     <string name="order_number">Bestellung #%1$s</string>
     <string name="order_total">Gesamt: %1$s</string>
-    <string name="order_tags">Tags bestellen</string>
+    <string name="order_tags">Namensschilder bestellen</string>
     <string name="replace_tag">Tag ersetzen</string>
-    <string name="add_pet_first_replacement">Fügen Sie zuerst ein Haustier hinzu, um einen Ersatz-Tag zu bestellen.</string>
-    <string name="order_more_tags_title">Weitere Tags bestellen</string>
+    <string name="add_pet_first_replacement">Fügen Sie zuerst ein Haustier hinzu, um einen Ersatz-Namensschild zu bestellen.</string>
+    <string name="order_more_tags_title">Weitere Namensschilder bestellen</string>
     <string name="add_another_pet">Weiteres Haustier hinzufügen</string>
     <string name="full_name">Vollständiger Name</string>
     <string name="place_order">Bestellung aufgeben</string>
     <string name="order_created_payment_pending">Bestellung erstellt. Zahlung ausstehend.</string>
     <string name="payment_intent_failed">Zahlungsabsicht fehlgeschlagen</string>
     <string name="order_create_failed">Bestellung konnte nicht erstellt werden</string>
-    <string name="order_replacement_title">Ersatz-Tag bestellen</string>
+    <string name="order_replacement_title">Ersatz-Namensschild bestellen</string>
     <string name="order_replacement_button">Ersatz bestellen</string>
     <string name="replacement_ordered">Ersatz bestellt</string>
     <string name="replacement_failed">Ersatz konnte nicht bestellt werden</string>
@@ -707,15 +707,15 @@
     <string name="order_date">Bestelldatum</string>
     <string name="items">Artikel</string>
     <string name="quantity_label">Menge: %1$d</string>
-    <string name="qr_tag_pending">QR-Tag ausstehend</string>
-    <string name="qr_tag_assigned">QR-Tag zugewiesen</string>
+    <string name="qr_tag_pending">QR-Namensschild ausstehend</string>
+    <string name="qr_tag_assigned">QR-Namensschild zugewiesen</string>
     <plurals name="item_count">
         <item quantity="one">%d Artikel</item>
         <item quantity="other">%d Artikel</item>
     </plurals>
 
-    <!-- Order More Tags -->
-    <string name="get_qr_tags_subtitle">QR-Tags für Ihre Haustiere erhalten</string>
+    <!-- Order More Namensschilder -->
+    <string name="get_qr_tags_subtitle">QR-Namensschilder für Ihre Haustiere erhalten</string>
     <string name="pet_names">Namen der Haustiere</string>
     <string name="shipping_address">Lieferadresse</string>
     <string name="shipping">Versand</string>
@@ -724,7 +724,7 @@
     <!-- Order Replacement Tag -->
     <string name="replacement_subtitle">Verloren oder beschädigt? Wir senden einen neuen</string>
     <string name="free_replacement">Kostenloser Ersatz</string>
-    <string name="replacement_shipping_info">Ihr Ersatz-Tag wird innerhalb von 2\u20133 Werktagen versendet\u2026</string>
+    <string name="replacement_shipping_info">Ihr Ersatz-Namensschild wird innerhalb von 2\u20133 Werktagen versendet\u2026</string>
     <string name="replacement_shipping_required">Versandkosten erforderlich</string>
     <string name="replacement_shipping_cost">Für Ihre Ersatzmarke fallen Versandkosten von %1$s an.</string>
     <string name="delivery_method_title">Liefermethode</string>
@@ -749,7 +749,7 @@
     <string name="subscription_vet_alerts">Warnungen an Tierärzte &amp; Rettung</string>
     <string name="subscription_sms">SMS-Benachrichtigungen</string>
     <string name="subscription_community_alerts">Community-Warnungen</string>
-    <string name="subscription_free_replacement">Kostenloser Tag-Ersatz</string>
+    <string name="subscription_free_replacement">Kostenloser Namensschild-Ersatz</string>
 
     <!-- ============================================ -->
     <!-- MARK: Billing -->
@@ -802,7 +802,7 @@
     <!-- ============================================ -->
     <string name="push_prompt_title">Bleiben Sie verbunden</string>
     <string name="push_prompt_subtitle">Aktivieren Sie Benachrichtigungen, um keine wichtigen Updates zu verpassen:</string>
-    <string name="push_prompt_benefit_scan">Sofortige Warnungen, wenn der Tag Ihres Haustiers gescannt wird</string>
+    <string name="push_prompt_benefit_scan">Sofortige Warnungen, wenn der Namensschild Ihres Haustiers gescannt wird</string>
     <string name="push_prompt_benefit_sighting">Sichtungsmeldungen aus der Community</string>
     <string name="push_prompt_benefit_found">Sofort wissen, wenn Ihr Haustier gefunden wird</string>
     <string name="push_prompt_benefit_missing">Vermisstenwarnungen in Ihrer Nähe</string>
@@ -987,14 +987,14 @@
     <string name="sse_subscription_cancelled">Ihr %1$s-Abonnement wurde gekündigt.</string>
     <string name="sse_referral_used">%1$s hat Ihren Empfehlungscode verwendet!</string>
     <string name="help_faq_q6">Wie aktiviere ich meinen Tag nach der Lieferung?</string>
-    <string name="help_faq_a6">Gehe in der App zu &quot;Tag scannen&quot; und richte die Kamera deines Handys auf den QR-Code auf deinem Tag. Dadurch wird der Tag mit deinem Konto verknüpft. Dann wirst du aufgefordert, ein bestehendes Tier auszuwählen oder ein neues Tierprofil zu erstellen. Nach der Aktivierung wähle deinen Aboplan.</string>
+    <string name="help_faq_a6">Gehe in der App zu &quot;Namensschild scannen&quot; und richte die Kamera deines Handys auf den QR-Code auf deinem Tag. Dadurch wird der Namensschild mit deinem Konto verknüpft. Dann wirst du aufgefordert, ein bestehendes Tier auszuwählen oder ein neues Tierprofil zu erstellen. Nach der Aktivierung wähle deinen Aboplan.</string>
     <string name="help_faq_q7">Kann ich die Informationen meines Tieres nach der Registrierung aktualisieren?</string>
     <string name="help_faq_a7">Ja — du kannst das Profil deines Tieres jederzeit bearbeiten. Gehe zu &quot;Meine Tiere&quot;, wähle dein Tier und tippe auf &quot;Bearbeiten&quot;. Du kannst jedes Feld einschließlich Fotos aktualisieren. Änderungen werden sofort gespeichert.</string>
     <string name="help_faq_q8">Was soll ich tun, wenn mein Tier vermisst wird?</string>
     <string name="help_faq_a8">Gehe zu &quot;Meine Tiere&quot; und tippe auf das Menü auf der Karte deines Tieres, dann wähle &quot;Als vermisst markieren&quot;. Dies erstellt eine Vermisstmeldung, die für die Senra-Community in deiner Gegend sichtbar ist. Nutzer in deiner Nähe sehen die Meldung und können Sichtungen mit Standortinformationen melden. Du wirst sofort über Sichtungen benachrichtigt.</string>
     <string name="help_faq_q9">Wie funktionieren Vermisstmeldungen?</string>
     <string name="help_faq_a9">Wenn du ein Tier als vermisst markierst, wird eine Meldung mit Foto und Details erstellt. Andere Senra-Nutzer im Umkreis von 10 km können die Meldung auf der Vermisste-Tiere-Karte sehen. Jeder in der Community kann eine Sichtung melden, wobei dir Standort und Kontaktdaten zugesendet werden. Tierärzte und Tierheime, die bei Senra registriert sind, erhalten die Meldung ebenfalls.</string>
-    <string name="help_faq_q10">Wie bestelle ich einen Ersatz-Tag?</string>
+    <string name="help_faq_q10">Wie bestelle ich einen Ersatz-Namensschild?</string>
     <string name="help_faq_a10">Gehe zu deiner Kontoseite und tippe auf &quot;Ersatz bestellen&quot;. Wähle das Tier aus, das einen neuen Tag braucht. Maximum-Mitglieder erhalten unbegrenzt kostenlose Ersatzlieferungen, Standard-Mitglieder eine kostenlose pro Jahr, und Starter-Mitglieder können Ersatz für eine geringe Versandgebühr bestellen.</string>
     <string name="help_faq_q11">Was ist das Empfehlungsprogramm?</string>
     <string name="help_faq_a11">Geh auf die Empfehlungsseite, um deinen persönlichen Empfehlungscode zu generieren. Teile ihn mit Freunden und Familie. Wenn jemand deinen Code verwendet und einen bezahlten Plan (Standard oder Maximum) abschließt, erhaltet ihr beide 2 Monate gratis. Du kannst deine Empfehlungen auf der Empfehlungsseite verfolgen.</string>
@@ -1005,33 +1005,33 @@
     <string name="help_faq_q14">Wie melde ich ein gefundenes Tier?</string>
     <string name="help_faq_a14">Wenn das Tier einen Senra-Tag hat, scanne einfach den QR-Code mit deiner Handykamera — keine App nötig. Du siehst das Profil des Tieres und kannst deinen Standort mit dem Besitzer teilen. Ohne Tag kannst du die Vermisste-Tiere-Karte auf der Senra-Website prüfen, ob das Tier als vermisst gemeldet wurde.</string>
     <string name="help_faq_q15">Sind meine persönlichen Daten sicher?</string>
-    <string name="help_faq_a15">Ja. Du kontrollierst genau, welche Informationen sichtbar sind, wenn jemand den Tag deines Tieres scannt. Unter Einstellungen &gt; Datenschutz kannst du Telefonnummer, E-Mail und Adresse ein- oder ausblenden. Dein Login ist durch Einmal-Codes gesichert — es gibt keine Passwörter. Du kannst dein Konto jederzeit löschen.</string>
-    <string name="help_faq_q16">Ich habe meinen Tag verloren oder er ist beschädigt — was soll ich tun?</string>
+    <string name="help_faq_a15">Ja. Du kontrollierst genau, welche Informationen sichtbar sind, wenn jemand den Namensschild deines Tieres scannt. Unter Einstellungen &gt; Datenschutz kannst du Telefonnummer, E-Mail und Adresse ein- oder ausblenden. Dein Login ist durch Einmal-Codes gesichert — es gibt keine Passwörter. Du kannst dein Konto jederzeit löschen.</string>
+    <string name="help_faq_q16">Ich habe meinen Namensschild verloren oder er ist beschädigt — was soll ich tun?</string>
     <string name="help_faq_a16">Keine Sorge — das digitale Profil deines Tieres ist sicher und nicht auf dem Tag gespeichert. Gehe zu deiner Kontoseite und tippe auf &quot;Ersatz bestellen&quot;. Ein neuer Tag mit frischem QR-Code wird mit deinem bestehenden Tierprofil verknüpft. Standard-Mitglieder erhalten eine kostenlose Ersatzlieferung pro Jahr, Maximum-Mitglieder unbegrenzt, und Starter-Mitglieder zahlen eine geringe Versandgebühr. Dein alter Tag wird deaktiviert, sobald der neue aktiviert ist.</string>
-    <string name="help_faq_q17">Mein Tag lässt sich nicht scannen — wie behebe ich das?</string>
-    <string name="help_faq_a17">Versuche diese Schritte: Reinige die Tag-Oberfläche mit einem feuchten Tuch, sorge für gute Beleuchtung, halte die Kamera ruhig etwa 10-15 cm vom Tag entfernt und stelle sicher, dass deine Kamera-App funktioniert. Wenn der QR-Code zerkratzt oder verblasst ist, kannst du die manuelle Eingabe unter &quot;Tag scannen&quot; nutzen. Wenn der Tag zu beschädigt ist, bestelle einen kostenlosen Ersatz über deine Kontoseite (Standard und Maximum).</string>
+    <string name="help_faq_q17">Mein Namensschild lässt sich nicht scannen — wie behebe ich das?</string>
+    <string name="help_faq_a17">Versuche diese Schritte: Reinige die Tag-Oberfläche mit einem feuchten Tuch, sorge für gute Beleuchtung, halte die Kamera ruhig etwa 10-15 cm vom Tag entfernt und stelle sicher, dass deine Kamera-App funktioniert. Wenn der QR-Code zerkratzt oder verblasst ist, kannst du die manuelle Eingabe unter &quot;Namensschild scannen&quot; nutzen. Wenn der Namensschild zu beschädigt ist, bestelle einen kostenlosen Ersatz über deine Kontoseite (Standard und Maximum).</string>
     <string name="help_faq_q18">Ich habe ein Tier ohne Senra-Tag gefunden — was kann ich tun?</string>
     <string name="help_faq_a18">Prüfe die Vermisste-Tiere-Karte auf der Senra-Website (senra.pet) — das Tier könnte in deiner Gegend als vermisst gemeldet sein. Du kannst Vermisstmeldungen ohne Konto ansehen. Bei einer Übereinstimmung kannst du eine Sichtung mit deinem Standort melden. Du kannst das Tier auch zum Tierarzt bringen, um nach einem Mikrochip zu suchen.</string>
     <string name="help_faq_q19">Kann ich meine E-Mail-Adresse ändern?</string>
     <string name="help_faq_a19">Deine primäre E-Mail wird als Kontoidentität verwendet und kann nicht direkt geändert werden. Wenn du eine andere E-Mail nutzen möchtest, kannst du eine sekundäre E-Mail unter Einstellungen &gt; Kontaktdaten hinzufügen. Wenn du deine primäre E-Mail unbedingt ändern musst, kontaktiere unser Support-Team.</string>
-    <string name="help_faq_q20">Was ist der Unterschied zwischen einem Mikrochip und einem Senra QR-Tag?</string>
-    <string name="help_faq_a20">Ein Mikrochip ist ein kleines Implantat unter der Haut deines Tieres, das eine eindeutige ID-Nummer speichert — es benötigt jedoch einen speziellen Scanner (meist nur bei Tierärzten und Tierheimen). Ein Senra QR-Tag funktioniert sofort mit jeder Smartphone-Kamera und zeigt das vollständige Profil, Foto und deine Kontaktdaten. Der Finder kann auch seinen GPS-Standort mit dir teilen. Wir empfehlen beides: den Mikrochip als dauerhafte Absicherung und den Senra-Tag für die sofortige, alltägliche Identifikation.</string>
+    <string name="help_faq_q20">Was ist der Unterschied zwischen einem Mikrochip und einem Senra QR-Namensschild?</string>
+    <string name="help_faq_a20">Ein Mikrochip ist ein kleines Implantat unter der Haut deines Tieres, das eine eindeutige ID-Nummer speichert — es benötigt jedoch einen speziellen Scanner (meist nur bei Tierärzten und Tierheimen). Ein Senra QR-Namensschild funktioniert sofort mit jeder Smartphone-Kamera und zeigt das vollständige Profil, Foto und deine Kontaktdaten. Der Finder kann auch seinen GPS-Standort mit dir teilen. Wir empfehlen beides: den Mikrochip als dauerhafte Absicherung und den Senra-Tag für die sofortige, alltägliche Identifikation.</string>
     <string name="help_faq_q21">Was passiert mit meinen Daten, wenn ich mein Abo kündige?</string>
-    <string name="help_faq_a21">Wenn du dein Abo kündigst, behältst du den Zugriff bis zum Ende des aktuellen Abrechnungszeitraums. Danach wechselt dein Konto automatisch zum kostenlosen Starter-Plan. Tierprofile, Fotos und QR-Tags bleiben aktiv — du verlierst nur Premium-Funktionen wie SMS, Tierarzt-Alerts und kostenlose Ersatz-Tags. Deine Daten werden beim Kündigen nie gelöscht. Für eine dauerhafte Löschung nutze die Kontolöschung in den Einstellungen.</string>
+    <string name="help_faq_a21">Wenn du dein Abo kündigst, behältst du den Zugriff bis zum Ende des aktuellen Abrechnungszeitraums. Danach wechselt dein Konto automatisch zum kostenlosen Starter-Plan. Tierprofile, Fotos und QR-Namensschilder bleiben aktiv — du verlierst nur Premium-Funktionen wie SMS, Tierarzt-Alerts und kostenlose Ersatz-Namensschilder. Deine Daten werden beim Kündigen nie gelöscht. Für eine dauerhafte Löschung nutze die Kontolöschung in den Einstellungen.</string>
     <string name="help_faq_q22">Wie registriere ich meinen Tierarzt oder mein Tierheim bei Senra?</string>
     <string name="help_faq_a22">Tierärzte und Tierheime können sich unter senra.pet/register-vet-shelter registrieren. Fülle die Praxis- oder Organisationsdetails aus, und wir senden eine Bestätigungs-E-Mail. Nach der Bestätigung erhältst du automatisch E-Mail-Alerts bei vermissten Tieren in deiner Nähe. Es gibt keine Kosten und kein Login ist erforderlich. Tierbesitzer können ihren Tierarzt auch in ihrem Namen registrieren.</string>
     <string name="help_faq_q23">Wie teile ich eine Erfolgsgeschichte, wenn mein Tier gefunden wird?</string>
     <string name="help_faq_a23">Wenn du dein Tier unter &quot;Meine Tiere&quot; als gefunden markierst, wirst du gefragt, ob du deine Wiedervereinigungsgeschichte teilen möchtest. Du kannst eine kurze Nachricht hinzufügen und den Wiedervereinigungsort bestätigen. Öffentliche Geschichten erscheinen auf der Gefundene-Tiere-Karte. Du kannst auch später eine Geschichte posten oder entfernen.</string>
     <string name="help_faq_q24">Welche Browser und Geräte werden unterstützt?</string>
-    <string name="help_faq_a24">Senra funktioniert auf allen modernen Browsern einschließlich Chrome, Safari, Firefox und Edge, auf Mobilgeräten und Desktop. QR-Tag-Scan funktioniert mit jeder Smartphone-Kamera — der Finder braucht keine App und kein Konto. Push-Benachrichtigungen werden in Chrome und Edge auf Desktop und Android unterstützt. Für die beste Erfahrung empfehlen wir einen aktuellen Browser auf deinem Handy.</string>
-    <string name="help_faq_q25">Kann ich Tags für mehrere Tiere gleichzeitig bestellen?</string>
-    <string name="help_faq_a25">Jede Bestellung enthält Tags für die Tiernamen, die du beim Checkout angibst. Du kannst mehrere Namen in einer Bestellung eingeben. Scanne nach der Lieferung jeden Tag, um ihn zu aktivieren und dem richtigen Tier zuzuordnen. Wenn du später mehr Tags brauchst, kannst du jederzeit weitere Bestellungen aufgeben.</string>
+    <string name="help_faq_a24">Senra funktioniert auf allen modernen Browsern einschließlich Chrome, Safari, Firefox und Edge, auf Mobilgeräten und Desktop. QR-Namensschild-Scan funktioniert mit jeder Smartphone-Kamera — der Finder braucht keine App und kein Konto. Push-Benachrichtigungen werden in Chrome und Edge auf Desktop und Android unterstützt. Für die beste Erfahrung empfehlen wir einen aktuellen Browser auf deinem Handy.</string>
+    <string name="help_faq_q25">Kann ich Namensschilder für mehrere Tiere gleichzeitig bestellen?</string>
+    <string name="help_faq_a25">Jede Bestellung enthält Namensschilder für die Tiernamen, die du beim Checkout angibst. Du kannst mehrere Namen in einer Bestellung eingeben. Scanne nach der Lieferung jeden Namensschild, um ihn zu aktivieren und dem richtigen Tier zuzuordnen. Wenn du später mehr Namensschilder brauchst, kannst du jederzeit weitere Bestellungen aufgeben.</string>
     <string name="help_faq_q26">Wie erreichen Vermisstmeldungen Tierärzte und Tierheime?</string>
     <string name="help_faq_a26">Wenn du dein Tier als vermisst markierst, sendet Senra automatisch E-Mail-Alerts an alle verifizierten Tierärzte und Tierheime in deiner Gegend. Das bedeutet, dass lokale Tierfachleute sofort wissen, dass dein Tier vermisst wird. Je mehr Tierärzte und Tierheime registriert sind, desto stärker das Sicherheitsnetzwerk. Du kannst helfen, indem du deinen eigenen Tierarzt zur Registrierung bei Senra ermutigst.</string>
     <string name="help_faq_q27">Kann ich einen Tag auf ein anderes Tier übertragen?</string>
-    <string name="help_faq_a27">Jeder QR-Tag ist dauerhaft mit einem Tierprofil verknüpft und kann nicht neu zugewiesen werden. Wenn ein Tier verstirbt oder du den Tag nicht mehr brauchst, wird der alte Tag einfach inaktiv. Um ein neues Tier zu taggen, bestelle einen neuen Tag über die Kontoseite. Wenn du einen Standard- oder Maximum-Plan hast, kannst du Anspruch auf einen kostenlosen Ersatz-Tag haben.</string>
-    <string name="help_guide_qr_tags_title">QR-Code Tier-Tags</string>
-    <string name="help_guide_qr_tags_desc">Erfahre mehr über unsere smarten QR-Tags.</string>
+    <string name="help_faq_a27">Jeder QR-Namensschild ist dauerhaft mit einem Tierprofil verknüpft und kann nicht neu zugewiesen werden. Wenn ein Tier verstirbt oder du den Namensschild nicht mehr brauchst, wird der alte Tag einfach inaktiv. Um ein neues Tier zu taggen, bestelle einen neuen Tag über die Kontoseite. Wenn du einen Standard- oder Maximum-Plan hast, kannst du Anspruch auf einen kostenlosen Ersatz-Namensschild haben.</string>
+    <string name="help_guide_qr_tags_title">QR-Code Tier-Namensschilder</string>
+    <string name="help_guide_qr_tags_desc">Erfahre mehr über unsere smarten QR-Namensschilder.</string>
     <string name="help_guide_materials_title">Materialien &amp; Haltbarkeit</string>
     <string name="help_guide_materials_desc">Informationen über Materialien und Pflege.</string>
     <string name="help_guide_emergency_title">Notfallkontakt-Funktionen</string>
@@ -1043,7 +1043,7 @@
     <string name="help_guide_community_title">Community &amp; Gefundene Tiere</string>
     <string name="help_guide_community_desc">Die Stärke von Senra ist die Community. Die Vermisste-Tiere-Karte zeigt aktive Meldungen in deiner Nähe — prüfe sie, um zu sehen, ob Tiere in deiner Gegend als vermisst gemeldet wurden. Die Gefundene-Tiere-Seite feiert erfolgreiche Wiedervereinigungen mit Geschichten von Tierbesitzern. Du kannst deinen Tierarzt oder dein Tierheim bei Senra registrieren, damit sie automatisch Vermisstmeldungen erhalten und so ein stärkeres Sicherheitsnetzwerk für alle Tiere in deiner Gegend entsteht.</string>
     <string name="help_faq_group_getting_started">Erste Schritte</string>
-    <string name="help_faq_group_tags_scanning">Tags &amp; Scannen</string>
+    <string name="help_faq_group_tags_scanning">Namensschilder &amp; Scannen</string>
     <string name="help_faq_group_missing_pets">Vermisste Tiere &amp; Alerts</string>
     <string name="help_faq_group_billing_plans">Abrechnung &amp; Pläne</string>
     <string name="help_faq_group_privacy_account">Datenschutz &amp; Konto</string>
@@ -1051,7 +1051,7 @@
     <!-- Checkout & Order Status -->
     <string name="checkout_subscription_success">Dein Abonnement ist jetzt aktiv!</string>
     <string name="checkout_tag_order_success">Zahlung erfolgreich! Deine Tag-Bestellung wird bearbeitet.</string>
-    <string name="checkout_replacement_success">Zahlung erfolgreich! Dein Ersatz-Tag ist unterwegs.</string>
+    <string name="checkout_replacement_success">Zahlung erfolgreich! Dein Ersatz-Namensschild ist unterwegs.</string>
     <string name="order_status_completed">Abgeschlossen</string>
     <string name="order_status_pending">Ausstehend</string>
     <string name="order_status_failed">Fehlgeschlagen</string>
@@ -1076,7 +1076,7 @@
     <string name="cannot_delete_missing_pet_message">Sie können ein als vermisst gemeldetes Haustier nicht löschen. Bitte markieren Sie es zuerst als gefunden.</string>
     <string name="edit_alert">Warnung bearbeiten</string>
     <string name="health_info_empty_hint">Keine Gesundheitsinformationen vorhanden</string>
-    <string name="notification_channel_info">Mindestens ein Benachrichtigungskanal muss aktiv sein, damit Sie benachrichtigt werden, wenn der QR-Tag Ihres Haustieres gescannt wird.</string>
+    <string name="notification_channel_info">Mindestens ein Benachrichtigungskanal muss aktiv sein, damit Sie benachrichtigt werden, wenn der QR-Namensschild Ihres Haustieres gescannt wird.</string>
     <string name="province">Bundesland / Region</string>
     <string name="reward_badge_text">Belohnung: %1$s</string>
     <string name="reward_placeholder">z.B. €50, $100 oder ein besonderes Geschenk</string>
@@ -1092,8 +1092,8 @@
 
     <!-- Gift order -->
     <string name="order_gift_toggle">Als Geschenk bestellen</string>
-    <string name="order_gift_description">Bei Geschenkbestellungen sind Tiernamen optional. Der Empfänger kann sie beim Aktivieren der Tags hinzufügen.</string>
-    <string name="order_gift_quantity">Anzahl der Tags</string>
+    <string name="order_gift_description">Bei Geschenkbestellungen sind Tiernamen optional. Der Empfänger kann sie beim Aktivieren der Namensschilder hinzufügen.</string>
+    <string name="order_gift_quantity">Anzahl der Namensschilder</string>
     <string name="order_gift_recipient_name">Name des Empfängers (optional)</string>
     <string name="order_gift_message">Geschenknachricht (optional)</string>
     <string name="order_gift_message_placeholder">Persönliche Nachricht hinzufügen…</string>
@@ -1105,10 +1105,10 @@
     <string name="delivery_method_label">Versandart</string>
     <string name="delivery_home">Hauslieferung</string>
     <string name="delivery_postapoint">PostaPont Abholung</string>
-    <string name="pending_registrations_title">Ausstehende Marken</string>
+    <string name="pending_registrations_title">Ausstehende Namensschilder</string>
     <string name="ready_to_activate">Bereit zur Aktivierung</string>
     <string name="still_processing">In Bearbeitung</string>
-    <string name="scan_tag_now">Marke scannen</string>
+    <string name="scan_tag_now">Namensschild scannen</string>
     <string name="create_profile_first">Profil erstellen</string>
     <string name="create_profile_while_waiting">Profil beim Warten erstellen</string>
     <string name="all_caught_up">Alles erledigt!</string>
@@ -1117,9 +1117,9 @@
     <string name="status_delivered">Zugestellt</string>
     <string name="status_processing">In Bearbeitung</string>
     <string name="status_pending">Ausstehend</string>
-    <string name="activation_help_title">So aktivieren Sie Ihre Marke</string>
-    <string name="activation_help_step1">Warten Sie auf die Lieferung Ihrer Marke</string>
-    <string name="activation_help_step2">Scannen Sie den QR-Code auf der Marke</string>
+    <string name="activation_help_title">So aktivieren Sie Ihre Namensschild</string>
+    <string name="activation_help_step1">Warten Sie auf die Lieferung Ihrer Namensschild</string>
+    <string name="activation_help_step2">Scannen Sie den QR-Code auf der Namensschild</string>
     <string name="activation_help_step3">Wählen Sie Ihr Haustier aus</string>
     <string name="activation_help_step4">Wählen Sie Ihren Abonnementplan</string>
     <string name="pets_from_order">Haustiere aus Ihrer Bestellung</string>
@@ -1129,16 +1129,16 @@
     <string name="other_pets">Andere Haustiere</string>
     <string name="link_to_pet">Verknüpfen mit %1$s</string>
     <string name="no_pets_yet">Noch keine Haustiere</string>
-    <string name="create_first_pet">Erstellen Sie ein Haustierprofil, um die Marke zu aktivieren.</string>
+    <string name="create_first_pet">Erstellen Sie ein Haustierprofil, um die Namensschild zu aktivieren.</string>
     <string name="create_new_pet">Neues Haustier erstellen</string>
     <string name="notifications_title">Benachrichtigungen</string>
     <string name="no_notifications">Keine Benachrichtigungen</string>
-    <string name="no_notifications_desc">Alles aktuell! Benachrichtigungen erscheinen hier, wenn die Marke Ihres Haustieres gescannt wird.</string>
+    <string name="no_notifications_desc">Alles aktuell! Benachrichtigungen erscheinen hier, wenn die Namensschild Ihres Haustieres gescannt wird.</string>
     <string name="mark_all_read">Alle als gelesen markieren</string>
-    <string name="create_profile_hint">Erstellen Sie zuerst ein Haustierprofil und scannen Sie dann die Marke erneut zur Aktivierung.</string>
-    <string name="activation_error_qr_not_found">QR-Code nicht erkannt. Stellen Sie sicher, dass Sie eine offizielle Senra-Marke scannen.</string>
-    <string name="activation_error_already_activated">Diese Marke ist bereits einem anderen Haustier zugeordnet. Kontaktieren Sie den Support.</string>
-    <string name="activation_error_not_linked">Diese Marke wurde noch nicht Ihrer Bestellung zugeordnet. Warten Sie auf die Versandbestätigung.</string>
+    <string name="create_profile_hint">Erstellen Sie zuerst ein Haustierprofil und scannen Sie dann die Namensschild erneut zur Aktivierung.</string>
+    <string name="activation_error_qr_not_found">QR-Code nicht erkannt. Stellen Sie sicher, dass Sie eine offizielle Senra-Namensschild scannen.</string>
+    <string name="activation_error_already_activated">Diese Namensschild ist bereits einem anderen Haustier zugeordnet. Kontaktieren Sie den Support.</string>
+    <string name="activation_error_not_linked">Diese Namensschild wurde noch nicht Ihrer Bestellung zugeordnet. Warten Sie auf die Versandbestätigung.</string>
     <string name="activation_error_not_shipped">Ihre Bestellung wurde noch nicht versendet. Warten Sie auf die Lieferung.</string>
     <string name="activation_error_not_owner">Dies ist nicht Ihr Haustier. Bitte wählen Sie eines Ihrer eigenen Haustiere.</string>
 

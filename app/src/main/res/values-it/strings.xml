@@ -1085,8 +1085,8 @@
 
     <!-- Gift order -->
     <string name="order_gift_toggle">Ordina come regalo</string>
-    <string name="order_gift_description">I nomi degli animali sono facoltativi per gli ordini regalo. Il destinatario può aggiungerli durante l\'attivazione delle etichette.</string>
-    <string name="order_gift_quantity">Numero di etichette</string>
+    <string name="order_gift_description">I nomi degli animali sono facoltativi per gli ordini regalo. Il destinatario può aggiungerli durante l\'attivazione delle medagliette.</string>
+    <string name="order_gift_quantity">Numero di medagliette</string>
     <string name="order_gift_recipient_name">Nome del destinatario (facoltativo)</string>
     <string name="order_gift_message">Messaggio regalo (facoltativo)</string>
     <string name="order_gift_message_placeholder">Aggiungi un messaggio personale…</string>

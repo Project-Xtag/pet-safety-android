@@ -79,7 +79,7 @@
     <string name="resend_code_cooldown">Wyślij ponownie kod za %1$ds</string>
     <string name="resend_code_prompt">Nie otrzymałeś(-aś) kodu? Wyślij ponownie</string>
     <string name="dont_have_account">Nie masz jeszcze konta?</string>
-    <string name="start_here_order_free_tag">Zacznij tutaj &amp; zamów darmową zawieszką</string>
+    <string name="start_here_order_free_tag">Zacznij tutaj &amp; zamów darmową nieśką</string>
     <string name="create_account">Utwórz konto</string>
     <string name="enter_details_subtitle">Podaj swoje dane, aby zacząć.</string>
     <string name="register">Zarejestruj się</string>
@@ -213,7 +213,7 @@
     <string name="alert_updated">Alarm zaktualizowany pomyślnie</string>
     <string name="alert_update_failed">Aktualizacja alarmu nie powiodła się</string>
     <string name="at_least_one_channel_required">Co najmniej jeden kanał powiadomień musi pozostać aktywny</string>
-    <string name="notification_channel_info">Co najmniej jeden kanał powiadomień musi być aktywny, abyś mógł(-a) być powiadamiany(-a) o skanowaniu zawieszki QR swojego zwierzęcia.</string>
+    <string name="notification_channel_info">Co najmniej jeden kanał powiadomień musi być aktywny, abyś mógł(-a) być powiadamiany(-a) o skanowaniu nieśki QR swojego zwierzęcia.</string>
     <string name="default_species_dog">Pies</string>
     <string name="species_cat">Kot</string>
     <string name="search_breed">Szukaj rasy\u2026</string>
@@ -271,7 +271,7 @@
     <!-- MARK: QR Scanner -->
     <!-- ============================================ -->
     <string name="scan_qr_code">Skanuj kod QR</string>
-    <string name="scan_qr_subtitle">Skieruj aparat na zawieszką QR zwierzęcia</string>
+    <string name="scan_qr_subtitle">Skieruj aparat na nieśką QR zwierzęcia</string>
     <string name="camera_access_required">Wymagany dostęp do aparatu</string>
     <string name="camera_access_message">Włącz dostęp do aparatu, aby skanować kody QR</string>
     <string name="enable_camera">Włącz aparat</string>
@@ -282,7 +282,7 @@
     <string name="turn_off_flashlight">Wyłącz latarkę</string>
     <string name="turn_on_flashlight">Włącz latarkę</string>
     <string name="hello_pet_name">Cześć! Jestem %1$s</string>
-    <string name="scanned_tag_thanks">Właśnie zeskanowałeś(-aś) moją zawieszką. Dziękuję za pomoc!</string>
+    <string name="scanned_tag_thanks">Właśnie zeskanowałeś(-aś) moją nieśką. Dziękuję za pomoc!</string>
     <string name="share_location_with_owner">Udostępnij moją lokalizację właścicielowi</string>
     <string name="owner_notified_message">Właściciel %1$s otrzyma powiadomienie z twoją lokalizacją</string>
     <string name="share_location_help">Pomóż właścicielowi %1$s go znaleźć, udostępniając swoją lokalizację</string>
@@ -316,20 +316,20 @@
     <!-- ============================================ -->
     <!-- MARK: Tag Activation -->
     <!-- ============================================ -->
-    <string name="tag_activate_title">Aktywuj zawieszką</string>
+    <string name="tag_activate_title">Aktywuj nieśką</string>
     <string name="tag_loading_pets">Wczytywanie zwierząt\u2026</string>
     <string name="tag_activated">Zawieszką aktywowana!</string>
-    <string name="tag_activated_message">Ta zawieszką jest teraz powiązana z %1$s</string>
+    <string name="tag_activated_message">Ta nieśką jest teraz powiązana z %1$s</string>
     <string name="tag_choose_plan">Uzupełnij profil zwierzęcia, aby ułatwić jego znalezienie w razie zaginięcia</string>
     <string name="tag_choose_plan_button">Uzupełnij profil zwierzęcia</string>
     <string name="tag_skip_for_now">Zrobię to później</string>
     <string name="tag_no_pets">Nie masz jeszcze żadnych zwierząt</string>
-    <string name="tag_no_pets_message">Najpierw dodaj zwierzę, a potem aktywuj zawieszką</string>
-    <string name="tag_code_label">Kod zawieszki</string>
-    <string name="tag_select_pet">Wybierz zwierzę, z którym powiązać tę zawieszką</string>
+    <string name="tag_no_pets_message">Najpierw dodaj zwierzę, a potem aktywuj nieśką</string>
+    <string name="tag_code_label">Kod nieśki</string>
+    <string name="tag_select_pet">Wybierz zwierzę, z którym powiązać tę nieśką</string>
     <string name="tag_activating">Aktywowanie\u2026</string>
-    <string name="tag_activate_button">Aktywuj zawieszką</string>
-    <string name="tag_link_message">Ta zawieszką zostanie powiązana z wybranym zwierzęciem</string>
+    <string name="tag_activate_button">Aktywuj nieśką</string>
+    <string name="tag_link_message">Ta nieśką zostanie powiązana z wybranym zwierzęciem</string>
 
     <!-- ============================================ -->
     <!-- MARK: Plan Selection -->
@@ -470,8 +470,8 @@
     <string name="notification_sighting_title">%1$s zauważone!</string>
     <string name="notification_pet_found_title">Dobra wiadomość!</string>
     <string name="notification_channel_name">Alarmy Senra Pet</string>
-    <string name="notification_channel_tag_scans">Skanowania zawieszki</string>
-    <string name="notification_channel_tag_scans_desc">Powiadomienia o skanowaniu zawieszki twojego zwierzęcia</string>
+    <string name="notification_channel_tag_scans">Skanowania nieśki</string>
+    <string name="notification_channel_tag_scans_desc">Powiadomienia o skanowaniu nieśki twojego zwierzęcia</string>
     <string name="notification_channel_alerts">Alarmy o zaginięciu</string>
     <string name="notification_channel_alerts_desc">Powiadomienia o zagubionych zwierzętach w twojej okolicy</string>
     <string name="notification_channel_sightings">Zgłoszenia obserwacji</string>
@@ -620,7 +620,7 @@
     <!-- MARK: Contact Visibility -->
     <!-- ============================================ -->
     <string name="contact_visibility">Widoczność danych kontaktowych</string>
-    <string name="contact_visibility_desc">Kontroluj, jakie dane kontaktowe są widoczne po zeskanowaniu zawieszki QR twojego zwierzęcia</string>
+    <string name="contact_visibility_desc">Kontroluj, jakie dane kontaktowe są widoczne po zeskanowaniu nieśki QR twojego zwierzęcia</string>
     <string name="show_phone_number">Pokaż numer telefonu</string>
     <string name="show_phone_subtitle">Twój numer telefonu będzie widoczny dla znalazców</string>
     <string name="show_email_address">Pokaż adres e-mail</string>
@@ -686,61 +686,61 @@
     <string name="help_faq_a1">Zarejestruj pupila w sekcji „Moje zwierzęta", klikając „Dodaj nowego pupila". Uzupełnij wymagane informacje i dodaj zdjęcie.</string>
     <string name="help_faq_q2">Jakie informacje podać w profilu pupila?</string>
     <string name="help_faq_a2">Podaj imię, gatunek, rasę, wiek, ewentualne informacje zdrowotne, dane kontaktowe na wypadek zaginięcia oraz aktualne zdjęcie. Dzięki temu możliwa jest szybka identyfikacja i powrót do domu.</string>
-    <string name="help_faq_q3">Jak działa zawieszka z kodem QR?</string>
-    <string name="help_faq_a3">Każdy pupil otrzymuje unikalną zawieszką z kodem QR. Gdy ktoś znajdzie twojego pupila i zeskanuje kod, zobaczy publiczny profil zwierzęcia oraz twoje dane kontaktowe – co umożliwia szybki powrót do domu.</string>
+    <string name="help_faq_q3">Jak działa nieśka z kodem QR?</string>
+    <string name="help_faq_a3">Każdy pupil otrzymuje unikalną nieśką z kodem QR. Gdy ktoś znajdzie twojego pupila i zeskanuje kod, zobaczy publiczny profil zwierzęcia oraz twoje dane kontaktowe – co umożliwia szybki powrót do domu.</string>
     <string name="help_faq_q4">Czy mogę później zaktualizować dane pupila?</string>
     <string name="help_faq_a4">Tak! Możesz w każdej chwili zaktualizować dane pupila w sekcji „Moje zwierzęta" – wybierz pupila i kliknij „Edytuj profil".</string>
-    <string name="help_faq_q5">Jak zamówić zamienną zawieszką?</string>
-    <string name="help_faq_a5">Jeśli zawieszką zginęła lub uległa uszkodzeniu, wejdź do profilu pupila i kliknij „Zamów zamienną zawieszką". Postępuj zgodnie z krokami, aby sfinalizować zamówienie. Zamienna zawieszką jest bezpłatna dla abonentów planów Standard i Maximum.</string>
-    <string name="help_faq_q6">Jak aktywować zawieszką po jej otrzymaniu?</string>
-    <string name="help_faq_a6">Przejdź do opcji „Skanuj zawieszką" w aplikacji i nakieruj aparat telefonu na kod QR zawieszki. To połączy zawieszką z twoim kontem. Następnie wybierz istniejącego pupila lub utwórz nowy profil. Po aktywacji możesz też wybrać plan subskrypcji.</string>
+    <string name="help_faq_q5">Jak zamówić zamienną nieśką?</string>
+    <string name="help_faq_a5">Jeśli nieśką zginęła lub uległa uszkodzeniu, wejdź do profilu pupila i kliknij „Zamów zamienną nieśką". Postępuj zgodnie z krokami, aby sfinalizować zamówienie. Zamienna nieśką jest bezpłatna dla abonentów planów Standard i Maximum.</string>
+    <string name="help_faq_q6">Jak aktywować nieśką po jej otrzymaniu?</string>
+    <string name="help_faq_a6">Przejdź do opcji „Skanuj nieśką" w aplikacji i nakieruj aparat telefonu na kod QR nieśki. To połączy nieśką z twoim kontem. Następnie wybierz istniejącego pupila lub utwórz nowy profil. Po aktywacji możesz też wybrać plan subskrypcji.</string>
     <string name="help_faq_q7">Czy mogę zaktualizować dane pupila po rejestracji?</string>
     <string name="help_faq_a7">Tak — możesz edytować profil pupila w dowolnym momencie. Przejdź do „Moje zwierzęta", wybierz pupila i kliknij „Edytuj". Możesz zaktualizować każde pole, w tym zdjęcia. Zmiany są zapisywane natychmiast.</string>
     <string name="help_faq_q8">Co zrobić, jeśli pupil zaginie?</string>
     <string name="help_faq_a8">Przejdź do „Moje zwierzęta", kliknij menu na karcie pupila i wybierz „Oznacz jako zaginionego". Spowoduje to utworzenie alertu o zaginionym zwierzęciu widocznego dla społeczności Senra w twojej okolicy. Osoby w pobliżu zobaczą alert i będą mogły zgłaszać obserwacje z lokalizacją. Otrzymasz natychmiastowe powiadomienie o każdym zgłoszeniu.</string>
     <string name="help_faq_q9">Jak działają alerty o zaginionych zwierzętach?</string>
     <string name="help_faq_a9">Gdy oznaczysz pupila jako zaginionego, tworzony jest alert ze zdjęciem i danymi zwierzęcia. Inni użytkownicy Senra są powiadamiani i widzą alert na mapie Zaginionych zwierząt. Każdy może zgłosić obserwację – otrzymasz wtedy lokalizację i dane kontaktowe zgłaszającego. Zarejestrowane kliniki weterynaryjne i schroniska w twojej okolicy również otrzymują alert.</string>
-    <string name="help_faq_q10">Jak zamówić zamienną zawieszką?</string>
-    <string name="help_faq_a10">Przejdź do strony Konto i kliknij „Zamów zamienną". Wybierz pupila, który potrzebuje nowej zawieszki. Abonenci planu Standard i Maximum mogą zamawiać darmowe zamienne zawieszki bez limitu, a abonenci Starter płacą jedynie niewielką opłatę za wysyłkę.</string>
+    <string name="help_faq_q10">Jak zamówić zamienną nieśką?</string>
+    <string name="help_faq_a10">Przejdź do strony Konto i kliknij „Zamów zamienną". Wybierz pupila, który potrzebuje nowej nieśki. Abonenci planu Standard i Maximum mogą zamawiać darmowe zamienne nieśki bez limitu, a abonenci Starter płacą jedynie niewielką opłatę za wysyłkę.</string>
     <string name="help_faq_q11">Czym jest program poleceń?</string>
     <string name="help_faq_a11">Przejdź na stronę Polecenia, aby wygenerować swój osobisty kod polecenia. Udostępnij go znajomym i rodzinie. Gdy ktoś użyje Twojego kodu i subskrybuje plan płatny (Standard lub Maximum), oboje otrzymacie 2 miesiące za darmo. Możesz śledzić swoje polecenia na stronie Polecenia.</string>
     <string name="help_faq_q12">Do jakich krajów wysyłacie?</string>
-    <string name="help_faq_a12">Wysyłamy do Węgier oraz wszystkich krajów Unii Europejskiej, ale zawieszki działają w każdym miejscu na świecie. Wysyłka na Węgry: %1$s (PostaPont) lub %2$s (dostawa do domu). Wysyłka międzynarodowa: %3$s za zamówienie.</string>
+    <string name="help_faq_a12">Wysyłamy do Węgier oraz wszystkich krajów Unii Europejskiej, ale nieśki działają w każdym miejscu na świecie. Wysyłka na Węgry: %1$s (PostaPont) lub %2$s (dostawa do domu). Wysyłka międzynarodowa: %3$s za zamówienie.</string>
     <string name="help_faq_q13">Czy mogę mieć kilka pupili na jednym koncie?</string>
     <string name="help_faq_a13">Tak. W planie Starter (bezpłatnym) możesz zarejestrować nawet 10 zwierząt. Plan Standard obsługuje 1 pupila. W planie Maximum możesz zarejestrować nawet 10 zwierząt. Plan możesz zmienić w dowolnym momencie na stronie Konto.</string>
     <string name="help_faq_q14">Jak zgłosić znalezione zwierzę?</string>
-    <string name="help_faq_a14">Jeśli zwierzę ma zawieszką Senra, wystarczy zeskanować kod QR aparatem telefonu — bez potrzeby pobierania aplikacji. Zobaczysz profil pupila i będziesz mógł udostępnić swoją lokalizację właścicielowi. Jeśli nie ma zawieszki, sprawdź mapę Zaginionych zwierząt na stronie Senra, czy zwierzę zostało zgłoszone jako zaginione w twojej okolicy.</string>
+    <string name="help_faq_a14">Jeśli zwierzę ma nieśką Senra, wystarczy zeskanować kod QR aparatem telefonu — bez potrzeby pobierania aplikacji. Zobaczysz profil pupila i będziesz mógł udostępnić swoją lokalizację właścicielowi. Jeśli nie ma nieśki, sprawdź mapę Zaginionych zwierząt na stronie Senra, czy zwierzę zostało zgłoszone jako zaginione w twojej okolicy.</string>
     <string name="help_faq_q15">Czy moje dane osobowe są bezpieczne?</string>
-    <string name="help_faq_a15">Tak. Sam decydujesz, jakie informacje są widoczne po zeskanowaniu zawieszki pupila. W Ustawieniach &gt; Prywatność możesz wybrać, czy wyświetlać numer telefonu, adres e-mail i adres zamieszkania. Logowanie jest zabezpieczone jednorazowymi kodami weryfikacyjnymi — nie ma hasła, które można ukraść. Konto i wszystkie dane możesz usunąć w dowolnej chwili.</string>
-    <string name="help_faq_q16">Zgubiłem zawieszką lub uległa uszkodzeniu — co zrobić?</string>
-    <string name="help_faq_a16">Nie martw się — cyfrowy profil pupila jest bezpieczny i nie jest przechowywany na zawieszce. Przejdź do strony Konto i kliknij „Zamów zamienną". Nowa zawieszką z nowym kodem QR zostanie powiązana z istniejącym profilem pupila. Abonenci planów Standard i Maximum mogą zamawiać nieograniczone bezpłatne zamienniki, a abonenci Starter płacą niewielką opłatę za wysyłkę. Stara zawieszką przestanie działać po aktywacji nowej.</string>
-    <string name="help_faq_q17">Moja zawieszką nie skanuje się — jak to naprawić?</string>
-    <string name="help_faq_a17">Spróbuj: wyczyść powierzchnię zawieszki wilgotną ściereczką, zapewnij dobre oświetlenie, trzymaj aparat telefonu stabilnie w odległości ok. 10–15 cm od zawieszki i upewnij się, że aplikacja aparatu lub skaner QR działa prawidłowo. Jeśli kod QR jest porysowany lub wyblakły, użyj opcji ręcznego wprowadzania kodu w aplikacji w sekcji „Skanuj zawieszką". Jeśli zawieszką jest zbyt zniszczona, zamów bezpłatną zamienną na stronie Konto (plany Standard i Maximum).</string>
-    <string name="help_faq_q18">Znalazłem zwierzę bez zawieszki Senra — co mogę zrobić?</string>
+    <string name="help_faq_a15">Tak. Sam decydujesz, jakie informacje są widoczne po zeskanowaniu nieśki pupila. W Ustawieniach &gt; Prywatność możesz wybrać, czy wyświetlać numer telefonu, adres e-mail i adres zamieszkania. Logowanie jest zabezpieczone jednorazowymi kodami weryfikacyjnymi — nie ma hasła, które można ukraść. Konto i wszystkie dane możesz usunąć w dowolnej chwili.</string>
+    <string name="help_faq_q16">Zgubiłem nieśką lub uległa uszkodzeniu — co zrobić?</string>
+    <string name="help_faq_a16">Nie martw się — cyfrowy profil pupila jest bezpieczny i nie jest przechowywany na zawieszce. Przejdź do strony Konto i kliknij „Zamów zamienną". Nowa nieśką z nowym kodem QR zostanie powiązana z istniejącym profilem pupila. Abonenci planów Standard i Maximum mogą zamawiać nieograniczone bezpłatne zamienniki, a abonenci Starter płacą niewielką opłatę za wysyłkę. Stara nieśką przestanie działać po aktywacji nowej.</string>
+    <string name="help_faq_q17">Moja nieśką nie skanuje się — jak to naprawić?</string>
+    <string name="help_faq_a17">Spróbuj: wyczyść powierzchnię nieśki wilgotną ściereczką, zapewnij dobre oświetlenie, trzymaj aparat telefonu stabilnie w odległości ok. 10–15 cm od nieśki i upewnij się, że aplikacja aparatu lub skaner QR działa prawidłowo. Jeśli kod QR jest porysowany lub wyblakły, użyj opcji ręcznego wprowadzania kodu w aplikacji w sekcji „Skanuj nieśką". Jeśli nieśką jest zbyt zniszczona, zamów bezpłatną zamienną na stronie Konto (plany Standard i Maximum).</string>
+    <string name="help_faq_q18">Znalazłem zwierzę bez nieśki Senra — co mogę zrobić?</string>
     <string name="help_faq_a18">Sprawdź mapę Zaginionych zwierząt na stronie Senra (senra.pet) — zwierzę mogło zostać zgłoszone jako zaginione w twojej okolicy. Alerty możesz przeglądać bez zakładania konta. Jeśli rozpoznasz zwierzę, zgłoś obserwację z lokalizacją, aby pomóc mu wrócić do domu! Możesz też zabrać zwierzę do najbliższej kliniki weterynaryjnej w celu sprawdzenia mikrochipa.</string>
     <string name="help_faq_q19">Czy mogę zmienić adres e-mail?</string>
     <string name="help_faq_a19">Główny adres e-mail służy jako identyfikator konta i nie można go zmienić bezpośrednio. Jeśli chcesz korzystać z innego adresu, dodaj dodatkowy e-mail w Ustawieniach &gt; Dane kontaktowe — będzie on widoczny na profilu pupila. Jeśli koniecznie musisz zmienić główny adres e-mail, skontaktuj się z naszym zespołem wsparcia, który pomoże ci przenieść konto.</string>
-    <string name="help_faq_q20">Jaka jest różnica między mikrochipem a zawieszką QR Senra?</string>
-    <string name="help_faq_a20">Mikrochip to mały implant pod skórą pupila przechowujący unikalny numer identyfikacyjny — ale do jego odczytania potrzebny jest specjalny czytnik (dostępny zazwyczaj tylko u weterynarzy i w schroniskach). Zawieszką QR Senra działa natychmiastowo z każdym aparatem smartfona, wyświetlając pełny profil pupila, zdjęcie i twoje dane kontaktowe na miejscu. Znalazca może też udostępnić ci swoją lokalizację GPS. Zalecamy korzystanie z obu: mikrochip jako trwałe zabezpieczenie, a zawieszką Senra do codziennej, natychmiastowej identyfikacji.</string>
+    <string name="help_faq_q20">Jaka jest różnica między mikrochipem a nieśką QR Senra?</string>
+    <string name="help_faq_a20">Mikrochip to mały implant pod skórą pupila przechowujący unikalny numer identyfikacyjny — ale do jego odczytania potrzebny jest specjalny czytnik (dostępny zazwyczaj tylko u weterynarzy i w schroniskach). Zawieszką QR Senra działa natychmiastowo z każdym aparatem smartfona, wyświetlając pełny profil pupila, zdjęcie i twoje dane kontaktowe na miejscu. Znalazca może też udostępnić ci swoją lokalizację GPS. Zalecamy korzystanie z obu: mikrochip jako trwałe zabezpieczenie, a nieśką Senra do codziennej, natychmiastowej identyfikacji.</string>
     <string name="help_faq_q21">Co stanie się z moimi danymi po anulowaniu subskrypcji?</string>
-    <string name="help_faq_a21">Po anulowaniu subskrypcji zachowasz dostęp do płatnych funkcji do końca bieżącego okresu rozliczeniowego. Następnie konto automatycznie przejdzie na bezpłatny plan Starter. Profile pupili, zdjęcia i zawieszki QR pozostają aktywne — tracisz jedynie dostęp do funkcji premium (powiadomień SMS, alertów dla społeczności i weterynarzy, bezpłatnych wymian zawieszek itp.). Dane nigdy nie są usuwane przy anulowaniu. Aby trwale usunąć wszystkie dane, użyj opcji Usuń konto w Ustawieniach.</string>
+    <string name="help_faq_a21">Po anulowaniu subskrypcji zachowasz dostęp do płatnych funkcji do końca bieżącego okresu rozliczeniowego. Następnie konto automatycznie przejdzie na bezpłatny plan Starter. Profile pupili, zdjęcia i nieśki QR pozostają aktywne — tracisz jedynie dostęp do funkcji premium (powiadomień SMS, alertów dla społeczności i weterynarzy, bezpłatnych wymian nieśek itp.). Dane nigdy nie są usuwane przy anulowaniu. Aby trwale usunąć wszystkie dane, użyj opcji Usuń konto w Ustawieniach.</string>
     <string name="help_faq_q22">Jak zarejestrować moją klinikę weterynaryjną lub schronisko w Senra?</string>
     <string name="help_faq_a22">Kliniki i schroniska mogą się zarejestrować na stronie senra.pet/register-vet-shelter. Wypełnij dane placówki lub organizacji, a wyślemy wiadomość weryfikacyjną. Po potwierdzeniu będziesz automatycznie otrzymywać alerty e-mail, gdy zwierzęta zagubią się w twojej okolicy — pomagając im wrócić do domu. Rejestracja jest bezpłatna i nie wymaga logowania. Właściciele zwierząt mogą również zarejestrować swojego weterynarza w ich imieniu.</string>
     <string name="help_faq_q23">Jak udostępnić historię sukcesu, gdy pupil zostanie odnaleziony?</string>
     <string name="help_faq_a23">Gdy oznaczysz pupila jako odnalezionego w sekcji „Moje zwierzęta", zostaniesz zapytany, czy chcesz podzielić się historią powrotu. Możesz dodać krótką wiadomość o tym, jak pupil został odnaleziony, i potwierdzić lokalizację spotkania. Publiczne historie pojawiają się na mapie Odnalezionych zwierząt, inspirując społeczność i pokazując, że system działa. Możesz też opublikować lub usunąć historię sukcesu później, z poziomu strony profilu pupila.</string>
     <string name="help_faq_q24">Jakie przeglądarki i urządzenia są obsługiwane?</string>
-    <string name="help_faq_a24">Senra działa na wszystkich nowoczesnych przeglądarkach, w tym Chrome, Safari, Firefox i Edge — zarówno na urządzeniach mobilnych, jak i desktopowych. Skanowanie zawieszki QR działa z każdym aparatem smartfona — znalazca nie potrzebuje aplikacji Senra ani konta. Aby uzyskać najlepsze wrażenia, zalecamy korzystanie z aktualnej przeglądarki na telefonie.</string>
-    <string name="help_faq_q25">Czy mogę zamówić zawieszki dla kilku pupili jednocześnie?</string>
-    <string name="help_faq_a25">Każde zamówienie zawiera zawieszki z imionami pupili podanymi podczas składania zamówienia. W jednym zamówieniu możesz podać kilka imion. Po otrzymaniu zawieszek zeskanuj każdą z nich, aby aktywować i powiązać z odpowiednim profilem pupila. Jeśli później potrzebujesz zawieszek dla kolejnych pupili, możesz złożyć dodatkowe zamówienia ze strony Konto w dowolnym momencie.</string>
+    <string name="help_faq_a24">Senra działa na wszystkich nowoczesnych przeglądarkach, w tym Chrome, Safari, Firefox i Edge — zarówno na urządzeniach mobilnych, jak i desktopowych. Skanowanie nieśki QR działa z każdym aparatem smartfona — znalazca nie potrzebuje aplikacji Senra ani konta. Aby uzyskać najlepsze wrażenia, zalecamy korzystanie z aktualnej przeglądarki na telefonie.</string>
+    <string name="help_faq_q25">Czy mogę zamówić nieśki dla kilku pupili jednocześnie?</string>
+    <string name="help_faq_a25">Każde zamówienie zawiera nieśki z imionami pupili podanymi podczas składania zamówienia. W jednym zamówieniu możesz podać kilka imion. Po otrzymaniu nieśek zeskanuj każdą z nich, aby aktywować i powiązać z odpowiednim profilem pupila. Jeśli później potrzebujesz nieśek dla kolejnych pupili, możesz złożyć dodatkowe zamówienia ze strony Konto w dowolnym momencie.</string>
     <string name="help_faq_q26">Jak alerty o zaginionych zwierzętach trafiają do weterynarzy i schronisk?</string>
     <string name="help_faq_a26">Gdy oznaczysz pupila jako zaginionego, Senra automatycznie wysyła alerty e-mail do wszystkich zweryfikowanych weterynarzy i schronisk zarejestrowanych w twojej okolicy. Oznacza to, że lokalni specjaliści od razu wiedzą, że twój pupil zaginął i mogą go wypatrywać. Im więcej weterynarzy i schronisk jest zarejestrowanych w okolicy, tym silniejsza sieć bezpieczeństwa. Możesz pomóc, zachęcając własną klinikę weterynaryjną do rejestracji w Senra.</string>
-    <string name="help_faq_q27">Czy mogę przenieść zawieszką na innego pupila?</string>
-    <string name="help_faq_a27">Każda zawieszką QR jest trwale powiązana z jednym profilem pupila i nie można jej przypisać innemu zwierzęciu. Jeśli pupil odejdzie lub nie potrzebujesz już zawieszki, stara zawieszką po prostu staje się nieaktywna. Aby otagować nowego pupila, zamów nową zawieszką ze strony Konto.</string>
+    <string name="help_faq_q27">Czy mogę przenieść nieśką na innego pupila?</string>
+    <string name="help_faq_a27">Każda nieśką QR jest trwale powiązana z jednym profilem pupila i nie można jej przypisać innemu zwierzęciu. Jeśli pupil odejdzie lub nie potrzebujesz już nieśki, stara nieśką po prostu staje się nieaktywna. Aby otagować nowego pupila, zamów nową nieśką ze strony Konto.</string>
     <!-- Guide Items -->
-    <string name="help_guide_qr_tags_title">Zawieszki QR dla zwierząt</string>
-    <string name="help_guide_qr_tags_desc">Poznaj nasze zawieszki QR dla społeczności zwierząt i dowiedz się, jak działają.</string>
-    <string name="help_guide_materials_title">Materiały i trwałość zawieszki</string>
-    <string name="help_guide_materials_desc">Informacje o używanych przez nas materiałach oraz o pielęgnacji zawieszki.</string>
+    <string name="help_guide_qr_tags_title">Nieśki QR dla zwierząt</string>
+    <string name="help_guide_qr_tags_desc">Poznaj nasze nieśki QR dla społeczności zwierząt i dowiedz się, jak działają.</string>
+    <string name="help_guide_materials_title">Materiały i trwałość nieśki</string>
+    <string name="help_guide_materials_desc">Informacje o używanych przez nas materiałach oraz o pielęgnacji nieśki.</string>
     <string name="help_guide_emergency_title">Kontakt i alerty awaryjne</string>
     <string name="help_guide_emergency_desc">Jak działa nasz system kontaktu awaryjnego, który pomaga szybko odzyskać zaginionego pupila.</string>
     <string name="help_guide_profile_title">Zarządzanie profilem pupila</string>
@@ -755,10 +755,10 @@
     <string name="orders_title">Zamówienia</string>
     <string name="order_number">Zamówienie #%1$s</string>
     <string name="order_total">Łącznie: %1$s</string>
-    <string name="order_tags">Zamów zawieszki</string>
-    <string name="replace_tag">Wymień zawieszką</string>
-    <string name="add_pet_first_replacement">Najpierw dodaj pupila, aby zamówić zamienną zawieszką.</string>
-    <string name="order_more_tags_title">Zamów więcej zawieszek</string>
+    <string name="order_tags">Zamów nieśki</string>
+    <string name="replace_tag">Wymień nieśką</string>
+    <string name="add_pet_first_replacement">Najpierw dodaj pupila, aby zamówić zamienną nieśką.</string>
+    <string name="order_more_tags_title">Zamów więcej nieśek</string>
     <string name="add_another_pet">Dodaj kolejnego pupila</string>
     <string name="full_name">Imię i nazwisko</string>
     <string name="place_order">Złóż zamówienie</string>
@@ -774,11 +774,11 @@
     <string name="sse_subscription_cancelled">Twoja subskrypcja %1$s została anulowana.</string>
     <string name="sse_referral_used">%1$s użył twojego kodu polecającego!</string>
     <string name="sse_connection_lost">Aktualizacje w czasie rzeczywistym niedostępne. Pociągnij, aby odświeżyć.</string>
-    <string name="order_replacement_title">Zamów zamienną zawieszką</string>
+    <string name="order_replacement_title">Zamów zamienną nieśką</string>
     <string name="order_replacement_button">Zamów zamienną</string>
-    <string name="replacement_ordered">Zamienna zawieszką zamówiona</string>
-    <string name="replacement_failed">Nie udało się zamówić zamiennej zawieszki</string>
-    <string name="replacement_order_failed">Nie udało się utworzyć zamówienia na zamienną zawieszką</string>
+    <string name="replacement_ordered">Zamienna nieśką zamówiona</string>
+    <string name="replacement_failed">Nie udało się zamówić zamiennej nieśki</string>
+    <string name="replacement_order_failed">Nie udało się utworzyć zamówienia na zamienną nieśką</string>
     <string name="create_payment_intent_failed">Nie udało się zainicjować płatności</string>
     <string name="failed_load_orders">Nie udało się załadować zamówień</string>
     <string name="no_orders">Brak zamówień</string>
@@ -801,7 +801,7 @@
     </plurals>
 
     <!-- Order More Tags -->
-    <string name="get_qr_tags_subtitle">Zdobądź zawieszki QR dla swoich pupili</string>
+    <string name="get_qr_tags_subtitle">Zdobądź nieśki QR dla swoich pupili</string>
     <string name="pet_names">Imiona pupili</string>
     <string name="shipping_address">Adres wysyłki</string>
     <string name="shipping">Wysyłka</string>
@@ -810,9 +810,9 @@
     <!-- Order Replacement Tag -->
     <string name="replacement_subtitle">Zgubiłeś lub uszkodziłeś? Wyślemy nową</string>
     <string name="free_replacement">Bezpłatna zamiana</string>
-    <string name="replacement_shipping_info">Twoja zamienna zawieszką zostanie wysłana w ciągu 2\u20133 dni roboczych\u2026</string>
+    <string name="replacement_shipping_info">Twoja zamienna nieśką zostanie wysłana w ciągu 2\u20133 dni roboczych\u2026</string>
     <string name="replacement_shipping_required">Wymagana opłata za wysyłkę</string>
-    <string name="replacement_shipping_cost">Do zamówienia zamiennej zawieszki wymagana jest opłata za wysyłkę w wysokości %1$s.</string>
+    <string name="replacement_shipping_cost">Do zamówienia zamiennej nieśki wymagana jest opłata za wysyłkę w wysokości %1$s.</string>
 
     <!-- MARK: Delivery Method (PostaPont) -->
     <string name="delivery_method_title">Metoda dostawy</string>
@@ -837,7 +837,7 @@
     <string name="subscription_vet_alerts">Alerty dla weterynarzy i schronisk</string>
     <string name="subscription_sms">Powiadomienia SMS</string>
     <string name="subscription_community_alerts">Alerty społecznościowe</string>
-    <string name="subscription_free_replacement">Bezpłatna wymiana zawieszki</string>
+    <string name="subscription_free_replacement">Bezpłatna wymiana nieśki</string>
 
     <!-- ============================================ -->
     <!-- MARK: Billing -->
@@ -893,7 +893,7 @@
     <!-- ============================================ -->
     <string name="push_prompt_title">Bądź na bieżąco</string>
     <string name="push_prompt_subtitle">Włącz powiadomienia, aby nie przegapić ważnych informacji o swoim pupilu:</string>
-    <string name="push_prompt_benefit_scan">Natychmiastowe alerty po zeskanowaniu zawieszki pupila</string>
+    <string name="push_prompt_benefit_scan">Natychmiastowe alerty po zeskanowaniu nieśki pupila</string>
     <string name="push_prompt_benefit_sighting">Zgłoszenia obserwacji od społeczności</string>
     <string name="push_prompt_benefit_found">Natychmiastowa informacja, gdy pupil zostanie odnaleziony</string>
     <string name="push_prompt_benefit_missing">Alerty o zaginionych zwierzętach w twojej okolicy</string>
@@ -998,7 +998,7 @@
     <string name="other_maps_app">Inna aplikacja z mapami</string>
     <string name="open_with">Otwórz za pomocą\u2026</string>
     <string name="map_label_pet_location">Lokalizacja pupila</string>
-    <string name="map_label_tag_scanned">Zeskanowano zawieszką pupila</string>
+    <string name="map_label_tag_scanned">Zeskanowano nieśką pupila</string>
     <string name="map_label_sighting">Obserwacja pupila</string>
 
     <!-- ============================================ -->
@@ -1090,7 +1090,7 @@
     <string name="faq_title">Często zadawane pytania</string>
     <string name="guides_title">Poradniki użytkownika</string>
     <string name="help_faq_group_getting_started">Pierwsze kroki</string>
-    <string name="help_faq_group_tags_scanning">Zawieszki i skanowanie</string>
+    <string name="help_faq_group_tags_scanning">Nieśki i skanowanie</string>
     <string name="help_faq_group_missing_pets">Zaginione zwierzęta i alerty</string>
     <string name="help_faq_group_billing_plans">Rozliczenia i plany</string>
     <string name="help_faq_group_privacy_account">Prywatność i konto</string>
@@ -1098,8 +1098,8 @@
 
     <!-- Checkout & Order Status -->
     <string name="checkout_subscription_success">Twoja subskrypcja jest teraz aktywna!</string>
-    <string name="checkout_tag_order_success">Płatność zakończona sukcesem! Twoje zamówienie zawieszek jest przetwarzane.</string>
-    <string name="checkout_replacement_success">Płatność zakończona sukcesem! Twoja zamienna zawieszką jest w drodze.</string>
+    <string name="checkout_tag_order_success">Płatność zakończona sukcesem! Twoje zamówienie nieśek jest przetwarzane.</string>
+    <string name="checkout_replacement_success">Płatność zakończona sukcesem! Twoja zamienna nieśką jest w drodze.</string>
     <string name="order_status_completed">Zrealizowane</string>
     <string name="order_status_pending">Oczekujące</string>
     <string name="order_status_failed">Nieudane</string>
@@ -1125,20 +1125,20 @@
     <string name="delivery_method_label">Sposób dostawy</string>
     <string name="delivery_home">Dostawa do domu</string>
     <string name="delivery_postapoint">Odbiór PostaPont</string>
-    <string name="pending_registrations_title">Oczekujące zawieszki</string>
+    <string name="pending_registrations_title">Oczekujące nieśki</string>
     <string name="ready_to_activate">Gotowe do aktywacji</string>
     <string name="still_processing">W trakcie realizacji</string>
-    <string name="scan_tag_now">Skanuj zawieszkę</string>
+    <string name="scan_tag_now">Skanuj nieśkę</string>
     <string name="create_profile_first">Utwórz profil</string>
     <string name="create_profile_while_waiting">Utwórz profil podczas oczekiwania</string>
     <string name="all_caught_up">Wszystko aktualne!</string>
-    <string name="all_caught_up_description">Nie masz żadnych oczekujących rejestracji zawieszek.</string>
+    <string name="all_caught_up_description">Nie masz żadnych oczekujących rejestracji nieśek.</string>
     <string name="status_shipped">Wysłano</string>
     <string name="status_delivered">Dostarczono</string>
     <string name="status_processing">W trakcie realizacji</string>
     <string name="status_pending">Oczekujące</string>
-    <string name="activation_help_title">Jak aktywować zawieszkę</string>
-    <string name="activation_help_step1">Poczekaj na dostarczenie zawieszki</string>
+    <string name="activation_help_title">Jak aktywować nieśkę</string>
+    <string name="activation_help_step1">Poczekaj na dostarczenie nieśki</string>
     <string name="activation_help_step2">Zeskanuj kod QR na zawieszce</string>
     <string name="activation_help_step3">Wybierz zwierzaka do powiązania</string>
     <string name="activation_help_step4">Wybierz plan subskrypcji</string>
@@ -1149,16 +1149,16 @@
     <string name="other_pets">Inne zwierzęta</string>
     <string name="link_to_pet">Połącz z %1$s</string>
     <string name="no_pets_yet">Jeszcze brak zwierząt</string>
-    <string name="create_first_pet">Utwórz profil zwierzęcia, aby aktywować zawieszkę.</string>
+    <string name="create_first_pet">Utwórz profil zwierzęcia, aby aktywować nieśkę.</string>
     <string name="create_new_pet">Utwórz nowe zwierzę</string>
     <string name="notifications_title">Powiadomienia</string>
     <string name="no_notifications">Brak powiadomień</string>
-    <string name="no_notifications_desc">Wszystko aktualne! Powiadomienia pojawią się tutaj, gdy ktoś zeskanuje zawieszkę Twojego zwierzęcia.</string>
+    <string name="no_notifications_desc">Wszystko aktualne! Powiadomienia pojawią się tutaj, gdy ktoś zeskanuje nieśkę Twojego zwierzęcia.</string>
     <string name="mark_all_read">Oznacz wszystkie jako przeczytane</string>
-    <string name="create_profile_hint">Najpierw utwórz profil zwierzęcia, następnie ponownie zeskanuj zawieszkę, aby ją aktywować.</string>
-    <string name="activation_error_qr_not_found">Kod QR nie został rozpoznany. Upewnij się, że skanujesz oficjalną zawieszkę Senra.</string>
-    <string name="activation_error_already_activated">Ta zawieszka jest już przypisana do innego zwierzęcia. Skontaktuj się ze wsparciem.</string>
-    <string name="activation_error_not_linked">Ta zawieszka nie została jeszcze przypisana do Twojego zamówienia. Poczekaj na potwierdzenie wysyłki.</string>
+    <string name="create_profile_hint">Najpierw utwórz profil zwierzęcia, następnie ponownie zeskanuj nieśkę, aby ją aktywować.</string>
+    <string name="activation_error_qr_not_found">Kod QR nie został rozpoznany. Upewnij się, że skanujesz oficjalną nieśkę Senra.</string>
+    <string name="activation_error_already_activated">Ta nieśka jest już przypisana do innego zwierzęcia. Skontaktuj się ze wsparciem.</string>
+    <string name="activation_error_not_linked">Ta nieśka nie została jeszcze przypisana do Twojego zamówienia. Poczekaj na potwierdzenie wysyłki.</string>
     <string name="activation_error_not_shipped">Twoje zamówienie nie zostało jeszcze wysłane. Poczekaj na dostawę.</string>
     <string name="activation_error_not_owner">To nie jest Twoje zwierzę. Wybierz jedno ze swoich zwierząt.</string>
 
@@ -1276,7 +1276,7 @@
     <string name="profile_incomplete_warning">Uzupełnij profil zwierzęcia</string>
     <string name="profile_incomplete_desc">Brakujące dane utrudniają odnalezienie zwierzęcia. Uzupełnij wagę, kolor i informacje medyczne.</string>
     <string name="identity_locked_title">Imię, gatunek i rasa są zablokowane</string>
-    <string name="identity_locked_desc">Tych pól nie można zmienić po aktywacji zawieszki.</string>
+    <string name="identity_locked_desc">Tych pól nie można zmienić po aktywacji nieśki.</string>
 
     <!-- Shelter Adoption -->
     <string name="profile_shelter_code">Shelter Adoption Code</string>

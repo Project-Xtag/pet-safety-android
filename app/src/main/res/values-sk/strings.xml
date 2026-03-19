@@ -78,7 +78,7 @@
     <string name="resend_code_cooldown">Znova odoslať kód o %1$ds</string>
     <string name="resend_code_prompt">Nedostali ste kód? Odoslať znova</string>
     <string name="dont_have_account">Nemáte účet?</string>
-    <string name="start_here_order_free_tag">Začnite tu a objednajte si bezplatný štítok</string>
+    <string name="start_here_order_free_tag">Začnite tu a objednajte si bezplatný známku</string>
     <string name="create_account">Vytvoriť účet</string>
     <string name="enter_details_subtitle">Zadajte svoje údaje a začnite.</string>
     <string name="register">Registrovať</string>
@@ -195,7 +195,7 @@
     <string name="delete_pet_dialog_title">Odstrániť %1$s?</string>
     <string name="delete_pet_dialog_message">Naozaj chcete odstrániť toto zviera? Túto akciu nie je možné vrátiť späť.</string>
     <string name="delete_pet_warning_title">Odstrániť %1$s?</string>
-    <string name="delete_pet_warning_message">%1$s bude natrvalo odstránený z vášho účtu. QR štítok bude okamžite deaktivovaný a po naskenovaní prestane fungovať. Ak je toto vaše posledné zviera, vaše predplatné bude tiež zrušené.</string>
+    <string name="delete_pet_warning_message">%1$s bude natrvalo odstránený z vášho účtu. QR známku bude okamžite deaktivovaný a po naskenovaní prestane fungovať. Ak je toto vaše posledné zviera, vaše predplatné bude tiež zrušené.</string>
     <string name="delete_pet_warning_confirm">Odstrániť zviera</string>
     <string name="male">Samec</string>
     <string name="female">Samica</string>
@@ -256,7 +256,7 @@
     <!-- MARK: QR Scanner -->
     <!-- ============================================ -->
     <string name="scan_qr_code">Skenovať QR kód</string>
-    <string name="scan_qr_subtitle">Namierte kameru na QR štítok zvieraťa</string>
+    <string name="scan_qr_subtitle">Namierte kameru na QR známku zvieraťa</string>
     <string name="camera_access_required">Vyžaduje sa prístup ku kamere</string>
     <string name="camera_access_message">Povoľte prístup ku kamere na skenovanie QR kódov</string>
     <string name="enable_camera">Povoliť kameru</string>
@@ -267,7 +267,7 @@
     <string name="turn_off_flashlight">Vypnúť baterku</string>
     <string name="turn_on_flashlight">Zapnúť baterku</string>
     <string name="hello_pet_name">Ahoj! Som %1$s</string>
-    <string name="scanned_tag_thanks">Práve ste naskenovali môj štítok. Ďakujem, že mi pomáhate!</string>
+    <string name="scanned_tag_thanks">Práve ste naskenovali môj známku. Ďakujem, že mi pomáhate!</string>
     <string name="share_location_with_owner">Zdieľať moju polohu s majiteľom</string>
     <string name="owner_notified_message">Majiteľ %1$s dostane oznámenie s vašou polohou</string>
     <string name="share_location_help">Pomôžte majiteľovi %1$s nájsť ho zdieľaním vašej polohy</string>
@@ -301,20 +301,20 @@
     <!-- ============================================ -->
     <!-- MARK: Tag Activation -->
     <!-- ============================================ -->
-    <string name="tag_activate_title">Aktivovať štítok</string>
+    <string name="tag_activate_title">Aktivovať známku</string>
     <string name="tag_loading_pets">Načítavajú sa vaše zvieratá\u2026</string>
-    <string name="tag_activated">Štítok aktivovaný!</string>
-    <string name="tag_activated_message">Tento štítok je teraz priradený k %1$s</string>
+    <string name="tag_activated">Známka aktivovaný!</string>
+    <string name="tag_activated_message">Tento známku je teraz priradený k %1$s</string>
     <string name="tag_choose_plan">Vyplňte profil zvieraťa, aby bolo jednoduchšie ho nájsť</string>
     <string name="tag_choose_plan_button">Dokončiť profil zvieraťa</string>
     <string name="tag_skip_for_now">Urobím to neskôr</string>
     <string name="tag_no_pets">Zatiaľ žiadne zvieratá</string>
-    <string name="tag_no_pets_message">Najprv pridajte zviera a potom aktivujte štítok</string>
-    <string name="tag_code_label">Kód štítka</string>
-    <string name="tag_select_pet">Vyberte zviera na prepojenie so štítkom</string>
+    <string name="tag_no_pets_message">Najprv pridajte zviera a potom aktivujte známku</string>
+    <string name="tag_code_label">Kód známky</string>
+    <string name="tag_select_pet">Vyberte zviera na prepojenie so známkou</string>
     <string name="tag_activating">Aktivácia\u2026</string>
-    <string name="tag_activate_button">Aktivovať štítok</string>
-    <string name="tag_link_message">Tento štítok bude prepojený so zvoleným zvieraťom</string>
+    <string name="tag_activate_button">Aktivovať známku</string>
+    <string name="tag_link_message">Tento známku bude prepojený so zvoleným zvieraťom</string>
 
     <!-- ============================================ -->
     <!-- MARK: Plan Selection -->
@@ -439,7 +439,7 @@
     <!-- ============================================ -->
     <!-- MARK: Notifications -->
     <!-- ============================================ -->
-    <string name="tag_scanned_message">Štítok %1$s bol naskenovaný o %2$s!</string>
+    <string name="tag_scanned_message">Známka %1$s bol naskenovaný o %2$s!</string>
     <string name="unknown_location">neznáme miesto</string>
     <string name="sighting_message_with_location">%1$s bol spozorovaný na %2$s!</string>
     <string name="sighting_message_no_location">%1$s bol spozorovaný!</string>
@@ -448,8 +448,8 @@
     <string name="notification_sighting_title">%1$s spozorovaný!</string>
     <string name="notification_pet_found_title">Skvelá správa!</string>
     <string name="notification_channel_name">Pet Safety upozornenia</string>
-    <string name="notification_channel_tag_scans">Skenovania štítkov</string>
-    <string name="notification_channel_tag_scans_desc">Upozornenia, keď je štítok vášho zvieraťa naskenovaný</string>
+    <string name="notification_channel_tag_scans">Skenovania známok</string>
+    <string name="notification_channel_tag_scans_desc">Upozornenia, keď je známku vášho zvieraťa naskenovaný</string>
     <string name="notification_channel_alerts">Upozornenia na stratené zvieratá</string>
     <string name="notification_channel_alerts_desc">Upozornenia o stratených zvieratách vo vašom okolí</string>
     <string name="notification_channel_sightings">Hlásenia pozorovaní</string>
@@ -457,9 +457,9 @@
     <string name="notification_method_required">Musí byť povolený aspoň jeden spôsob upozornení</string>
 
     <!-- FCM Notification Strings -->
-    <string name="notif_tag_scanned_title">Štítok naskenovaný</string>
-    <string name="notif_tag_scanned_body">Štítok %1$s bol naskenovaný!</string>
-    <string name="notif_tag_scanned_body_location">Štítok %1$s bol naskenovaný! %2$s</string>
+    <string name="notif_tag_scanned_title">Známka naskenovaný</string>
+    <string name="notif_tag_scanned_body">Známka %1$s bol naskenovaný!</string>
+    <string name="notif_tag_scanned_body_location">Známka %1$s bol naskenovaný! %2$s</string>
     <string name="notif_missing_pet_title">Stratené zviera nablízku</string>
     <string name="notif_missing_pet_body">%1$s je stratený v %2$s. Dávajte pozor!</string>
     <string name="notif_pet_found_title">Zviera nájdené!</string>
@@ -560,7 +560,7 @@
     <string name="delete_confirm_checkbox">Rozumiem, že táto akcia je nezvratná a všetky moje údaje budú natrvalo vymazané</string>
     <string name="cancel_subscription_title">Zrušiť predplatné?</string>
     <string name="cancel_warning_a">Stratíte okamžité e-mailové, SMS upozornenia a komunitné výstrahy</string>
-    <string name="cancel_warning_b">Bezplatné výmeny štítkov už nebudú dostupné</string>
+    <string name="cancel_warning_b">Bezplatné výmeny známok už nebudú dostupné</string>
     <string name="cancel_warning_c">Stratíte prístup k upozorneniam od veterinárov a útulkov</string>
     <string name="cancel_warning_d">Váš účet a registrácie zvierat zostanú aktívne</string>
     <string name="cancel_access_until">Prístup si zachováte do %1$s</string>
@@ -591,16 +591,16 @@
     <string name="secondary_email_optional">Sekundárny e-mail (voliteľné)</string>
     <string name="phone_numbers">Telefónne čísla</string>
     <string name="primary_phone">Primárny telefón</string>
-    <string name="show_on_qr_tag">Zobraziť na QR štítku</string>
+    <string name="show_on_qr_tag">Zobraziť na QR známke</string>
     <string name="secondary_phone_optional">Sekundárny telefón (voliteľné)</string>
-    <string name="contacts_qr_tag_info">Kontakty označené ako viditeľné sa zobrazia na QR štítku vášho zvieraťa po naskenovaní.</string>
+    <string name="contacts_qr_tag_info">Kontakty označené ako viditeľné sa zobrazia na QR známke vášho zvieraťa po naskenovaní.</string>
     <string name="contact_details">Kontaktné údaje</string>
 
     <!-- ============================================ -->
     <!-- MARK: Contact Visibility -->
     <!-- ============================================ -->
     <string name="contact_visibility">Viditeľnosť kontaktov</string>
-    <string name="contact_visibility_desc">Ovládajte, ktoré kontaktné informácie sú viditeľné po naskenovaní QR štítka</string>
+    <string name="contact_visibility_desc">Ovládajte, ktoré kontaktné informácie sú viditeľné po naskenovaní QR známky</string>
     <string name="show_phone_number">Zobraziť telefónne číslo</string>
     <string name="show_phone_subtitle">Vaše telefónne číslo bude viditeľné pre nálezcov</string>
     <string name="show_email_address">Zobraziť e-mail</string>
@@ -666,12 +666,12 @@
     <string name="help_faq_a1">Zaregistrujte svoje zviera v sekcii \'Moje zvieratá\' a kliknite na \'Pridať nové zviera\'. Vyplňte všetky povinné informácie a nahrajte fotku.</string>
     <string name="help_faq_q2">Aké informácie mám uviesť v profile zvieraťa?</string>
     <string name="help_faq_a2">Uveďte meno, druh, plemeno, vek, zdravotné informácie, núdzové kontakty a aktuálnu fotku. Pomáha to rýchlej identifikácii a návratu domov.</string>
-    <string name="help_faq_q3">Ako funguje QR štítok?</string>
-    <string name="help_faq_a3">Každé zviera dostane jedinečný QR štítok. Keď niekto nájde zviera a naskenuje kód, môže zobraziť profil a kontaktné údaje na spojenie.</string>
+    <string name="help_faq_q3">Ako funguje QR známku?</string>
+    <string name="help_faq_a3">Každé zviera dostane jedinečný QR známku. Keď niekto nájde zviera a naskenuje kód, môže zobraziť profil a kontaktné údaje na spojenie.</string>
     <string name="help_faq_q4">Môžem neskôr aktualizovať informácie o zvierati?</string>
     <string name="help_faq_a4">Áno! Kedykoľvek môžete aktualizovať údaje v \'Moje zvieratá\', vybrať zviera a kliknúť na \'Upraviť profil\'.</string>
-    <string name="help_faq_q5">Ako objednám náhradný štítok?</string>
-    <string name="help_faq_a5">Ak potrebujete náhradný štítok, prejdite do profilu zvieraťa a kliknite na \'Objednať náhradný štítok\'. Postupujte podľa pokynov.</string>
+    <string name="help_faq_q5">Ako objednám náhradný známku?</string>
+    <string name="help_faq_a5">Ak potrebujete náhradný známku, prejdite do profilu zvieraťa a kliknite na \'Objednať náhradný známku\'. Postupujte podľa pokynov.</string>
     <!-- Guide Items -->
 
     <!-- ============================================ -->
@@ -680,17 +680,17 @@
     <string name="orders_title">Objednávky</string>
     <string name="order_number">Objednávka #%1$s</string>
     <string name="order_total">Spolu: %1$s</string>
-    <string name="order_tags">Objednať štítky</string>
-    <string name="replace_tag">Vymeniť štítok</string>
-    <string name="add_pet_first_replacement">Najprv pridajte zviera, aby ste mohli objednať náhradný štítok.</string>
-    <string name="order_more_tags_title">Objednať viac štítkov</string>
+    <string name="order_tags">Objednať známky</string>
+    <string name="replace_tag">Vymeniť známku</string>
+    <string name="add_pet_first_replacement">Najprv pridajte zviera, aby ste mohli objednať náhradný známku.</string>
+    <string name="order_more_tags_title">Objednať viac známok</string>
     <string name="add_another_pet">Pridať ďalšie zviera</string>
     <string name="full_name">Celé meno</string>
     <string name="place_order">Odoslať objednávku</string>
     <string name="order_created_payment_pending">Objednávka vytvorená. Platba čaká.</string>
     <string name="payment_intent_failed">Platobný zámer zlyhal</string>
     <string name="order_create_failed">Vytvorenie objednávky zlyhalo</string>
-    <string name="order_replacement_title">Objednať náhradný štítok</string>
+    <string name="order_replacement_title">Objednať náhradný známku</string>
     <string name="order_replacement_button">Objednať náhradu</string>
     <string name="replacement_ordered">Náhrada objednaná</string>
     <string name="replacement_failed">Objednanie náhrady zlyhalo</string>
@@ -707,8 +707,8 @@
     <string name="order_date">Dátum objednávky</string>
     <string name="items">Položky</string>
     <string name="quantity_label">Množstvo: %1$d</string>
-    <string name="qr_tag_pending">QR štítok čaká</string>
-    <string name="qr_tag_assigned">QR štítok priradený</string>
+    <string name="qr_tag_pending">QR známku čaká</string>
+    <string name="qr_tag_assigned">QR známku priradený</string>
     <plurals name="item_count">
         <item quantity="one">%d položka</item>
         <item quantity="few">%d položky</item>
@@ -716,7 +716,7 @@
     </plurals>
 
     <!-- Order More Tags -->
-    <string name="get_qr_tags_subtitle">Získajte QR štítky pre svoje zvieratá</string>
+    <string name="get_qr_tags_subtitle">Získajte QR známky pre svoje zvieratá</string>
     <string name="pet_names">Mená zvierat</string>
     <string name="shipping_address">Dodacia adresa</string>
     <string name="shipping">Doprava</string>
@@ -725,7 +725,7 @@
     <!-- Order Replacement Tag -->
     <string name="replacement_subtitle">Stratený alebo poškodený? Pošleme nový</string>
     <string name="free_replacement">Bezplatná náhrada</string>
-    <string name="replacement_shipping_info">Náhradný štítok bude odoslaný do 2\u20133 pracovných dní\u2026</string>
+    <string name="replacement_shipping_info">Náhradný známku bude odoslaný do 2\u20133 pracovných dní\u2026</string>
     <string name="replacement_shipping_required">Vyžaduje sa poštovné</string>
     <string name="replacement_shipping_cost">Na objednávku náhradnej známky sa vzťahuje poštovné %1$s.</string>
     <string name="delivery_method_title">Spôsob doručenia</string>
@@ -750,7 +750,7 @@
     <string name="subscription_vet_alerts">Upozornenia pre veterinárov a záchranu</string>
     <string name="subscription_sms">SMS upozornenia</string>
     <string name="subscription_community_alerts">Komunitné upozornenia</string>
-    <string name="subscription_free_replacement">Bezplatná náhrada štítka</string>
+    <string name="subscription_free_replacement">Bezplatná náhrada známky</string>
 
     <!-- ============================================ -->
     <!-- MARK: Billing -->
@@ -803,7 +803,7 @@
     <!-- ============================================ -->
     <string name="push_prompt_title">Zostaňte v spojení</string>
     <string name="push_prompt_subtitle">Povoľte upozornenia, aby ste nezmeškali dôležité aktualizácie:</string>
-    <string name="push_prompt_benefit_scan">Okamžité upozornenia, keď je štítok vášho zvieraťa naskenovaný</string>
+    <string name="push_prompt_benefit_scan">Okamžité upozornenia, keď je známku vášho zvieraťa naskenovaný</string>
     <string name="push_prompt_benefit_sighting">Hlásenia pozorovaní od komunity</string>
     <string name="push_prompt_benefit_found">Okamžité upozornenie, keď je zviera nájdené</string>
     <string name="push_prompt_benefit_missing">Upozornenia na stratené zvieratá vo vašom okolí</string>
@@ -907,7 +907,7 @@
     <string name="other_maps_app">Iná mapová aplikácia</string>
     <string name="open_with">Otvoriť pomocou\u2026</string>
     <string name="map_label_pet_location">Poloha zvieraťa</string>
-    <string name="map_label_tag_scanned">Štítok zvieraťa naskenovaný</string>
+    <string name="map_label_tag_scanned">Známka zvieraťa naskenovaný</string>
     <string name="map_label_sighting">Pozorovanie zvieraťa</string>
 
     <!-- ============================================ -->
@@ -994,16 +994,16 @@
     <string name="sse_subscription_activated">Váš plán %1$s je teraz aktívny!</string>
     <string name="sse_subscription_cancelled">Vaše predplatné %1$s bolo zrušené.</string>
     <string name="sse_referral_used">%1$s použil váš odporúčací kód!</string>
-    <string name="help_faq_q6">Ako aktivujem štítok po jeho doručení?</string>
-    <string name="help_faq_a6">Prejdite na \'Naskenovať štítok\' v aplikácii a namierte kameru telefónu na QR kód na štítku. Tým sa štítok prepojí s vaším účtom. Následne budete vyzvaní vybrať existujúce zviera alebo vytvoriť nový profil. Po aktivácii si vyberte predplatný plán.</string>
+    <string name="help_faq_q6">Ako aktivujem známku po jeho doručení?</string>
+    <string name="help_faq_a6">Prejdite na \'Naskenovať známku\' v aplikácii a namierte kameru telefónu na QR kód na známke. Tým sa známku prepojí s vaším účtom. Následne budete vyzvaní vybrať existujúce zviera alebo vytvoriť nový profil. Po aktivácii si vyberte predplatný plán.</string>
     <string name="help_faq_q7">Môžem aktualizovať informácie o zvierati po registrácii?</string>
     <string name="help_faq_a7">Áno — profil zvieraťa môžete upraviť kedykoľvek. Prejdite na \'Moje zvieratá\', vyberte zviera a kliknite na \'Upraviť\'. Môžete aktualizovať akékoľvek pole vrátane fotiek. Zmeny sa uložia okamžite.</string>
     <string name="help_faq_q8">Čo mám robiť, ak sa moje zviera stratí?</string>
     <string name="help_faq_a8">Prejdite na \'Moje zvieratá\' a kliknite na menu na karte zvieraťa, potom vyberte \'Označiť ako stratené\'. Tým sa vytvorí upozornenie viditeľné pre komunitu Senra vo vašom okolí. Ľudia v blízkosti uvidia upozornenie a môžu nahlásiť videnie s informáciami o polohe. O každom videní budete okamžite informovaní.</string>
     <string name="help_faq_q9">Ako fungujú upozornenia na stratené zvieratá?</string>
     <string name="help_faq_a9">Keď označíte zviera ako stratené, vytvorí sa upozornenie s fotkou a podrobnosťami. Ostatní používatelia Senra do 10 km vidia upozornenie na mape Stratených zvierat. Ktokoľvek z komunity môže nahlásiť videnie, čím vám pošle svoju polohu a kontaktné údaje. Veterinári a útulky registrovaní v Senra vo vašom okolí tiež dostanú upozornenie.</string>
-    <string name="help_faq_q10">Ako objednám náhradný štítok?</string>
-    <string name="help_faq_a10">Prejdite na stránku Účtu a kliknite na \'Objednať náhradu\'. Vyberte zviera, ktoré potrebuje nový štítok. Členovia Maximum plánu dostávajú neobmedzené bezplatné náhrady, členovia Standard plánu jednu bezplatnú náhradu ročne a členovia Starter plánu si môžu objednať náhrady za malý poplatok za dopravu.</string>
+    <string name="help_faq_q10">Ako objednám náhradný známku?</string>
+    <string name="help_faq_a10">Prejdite na stránku Účtu a kliknite na \'Objednať náhradu\'. Vyberte zviera, ktoré potrebuje nový známku. Členovia Maximum plánu dostávajú neobmedzené bezplatné náhrady, členovia Standard plánu jednu bezplatnú náhradu ročne a členovia Starter plánu si môžu objednať náhrady za malý poplatok za dopravu.</string>
     <string name="help_faq_q11">Čo je odporúčací program?</string>
     <string name="help_faq_a11">Prejdite na stránku Odporúčania a vygenerujte si svoj osobný odporúčací kód. Zdieľajte ho s priateľmi a rodinou. Keď niekto váš kód použije a predplatí si platený plán (Standard alebo Maximum), obaja získate 2 mesiace zdarma. Svoje odporúčania môžete sledovať na stránke Odporúčania.</string>
     <string name="help_faq_q12">Do ktorých krajín doručujete?</string>
@@ -1011,37 +1011,37 @@
     <string name="help_faq_q13">Môžem mať viac zvierat na jednom účte?</string>
     <string name="help_faq_a13">Áno. V Starter (bezplatnom) pláne môžete zaregistrovať jedno zviera. Standard plán tiež podporuje jedno zviera. Maximum plán podporuje neobmedzený počet zvierat. Plán môžete kedykoľvek upgradovať zo stránky Účtu.</string>
     <string name="help_faq_q14">Ako nahlásim nájdené zviera?</string>
-    <string name="help_faq_a14">Ak má zviera Senra štítok, jednoducho naskenujte QR kód kamerou telefónu — nie je potrebná žiadna aplikácia. Uvidíte profil zvieraťa a môžete zdieľať svoju polohu s majiteľom. Ak štítok nemá, môžete skontrolovať mapu Stratených zvierat na webe Senra a overiť, či bolo zviera nahlásené ako stratené vo vašom okolí.</string>
+    <string name="help_faq_a14">Ak má zviera Senra známku, jednoducho naskenujte QR kód kamerou telefónu — nie je potrebná žiadna aplikácia. Uvidíte profil zvieraťa a môžete zdieľať svoju polohu s majiteľom. Ak známku nemá, môžete skontrolovať mapu Stratených zvierat na webe Senra a overiť, či bolo zviera nahlásené ako stratené vo vašom okolí.</string>
     <string name="help_faq_q15">Sú moje osobné údaje v bezpečí?</string>
-    <string name="help_faq_a15">Áno. Vy rozhodujete, ktoré informácie sú viditeľné pri naskenovaní štítka. V Nastavenia &gt; Súkromie si môžete zvoliť, či zobraziť alebo skryť telefónne číslo, e-mail a adresu. Prihlásenie je zabezpečené jednorazovými overovacími kódmi — žiadne heslá, ktoré by mohli byť ukradnuté. Účet a všetky údaje môžete kedykoľvek vymazať.</string>
-    <string name="help_faq_q16">Stratil som štítok alebo je poškodený — čo mám robiť?</string>
-    <string name="help_faq_a16">Nebojte sa — digitálny profil zvieraťa je v bezpečí a nie je uložený na samotnom štítku. Prejdite na stránku Účtu a kliknite na \'Objednať náhradu\'. Nový štítok s novým QR kódom bude prepojený s existujúcim profilom. Členovia Standard plánu dostávajú jednu bezplatnú náhradu ročne, členovia Maximum neobmedzené bezplatné náhrady a členovia Starter platia malý poplatok za dopravu. Starý štítok prestane fungovať po aktivácii nového.</string>
-    <string name="help_faq_q17">Môj štítok sa nedá naskenovať — ako to opraviť?</string>
-    <string name="help_faq_a17">Skúste tieto kroky: očistite povrch štítka vlhkou handričkou, zabezpečte dobré osvetlenie, držte kameru telefónu stabilne asi 10 – 15 cm od štítka a uistite sa, že kamera alebo QR skener funguje. Ak je QR kód poškriabaný alebo vyblednutý, môžete použiť manuálne zadanie kódu v aplikácii v časti \'Naskenovať štítok\'. Ak je štítok príliš poškodený, objednajte si bezplatnú náhradu zo stránky Účtu (plány Standard a Maximum).</string>
-    <string name="help_faq_q18">Našiel som zviera bez Senra štítka — čo môžem urobiť?</string>
+    <string name="help_faq_a15">Áno. Vy rozhodujete, ktoré informácie sú viditeľné pri naskenovaní známky. V Nastavenia &gt; Súkromie si môžete zvoliť, či zobraziť alebo skryť telefónne číslo, e-mail a adresu. Prihlásenie je zabezpečené jednorazovými overovacími kódmi — žiadne heslá, ktoré by mohli byť ukradnuté. Účet a všetky údaje môžete kedykoľvek vymazať.</string>
+    <string name="help_faq_q16">Stratil som známku alebo je poškodený — čo mám robiť?</string>
+    <string name="help_faq_a16">Nebojte sa — digitálny profil zvieraťa je v bezpečí a nie je uložený na samotnom známke. Prejdite na stránku Účtu a kliknite na \'Objednať náhradu\'. Nový známku s novým QR kódom bude prepojený s existujúcim profilom. Členovia Standard plánu dostávajú jednu bezplatnú náhradu ročne, členovia Maximum neobmedzené bezplatné náhrady a členovia Starter platia malý poplatok za dopravu. Starý známku prestane fungovať po aktivácii nového.</string>
+    <string name="help_faq_q17">Môj známku sa nedá naskenovať — ako to opraviť?</string>
+    <string name="help_faq_a17">Skúste tieto kroky: očistite povrch známky vlhkou handričkou, zabezpečte dobré osvetlenie, držte kameru telefónu stabilne asi 10 – 15 cm od známky a uistite sa, že kamera alebo QR skener funguje. Ak je QR kód poškriabaný alebo vyblednutý, môžete použiť manuálne zadanie kódu v aplikácii v časti \'Naskenovať známku\'. Ak je známku príliš poškodený, objednajte si bezplatnú náhradu zo stránky Účtu (plány Standard a Maximum).</string>
+    <string name="help_faq_q18">Našiel som zviera bez Senra známky — čo môžem urobiť?</string>
     <string name="help_faq_a18">Skontrolujte mapu Stratených zvierat na webe Senra (senra.pet) — zviera mohlo byť nahlásené ako stratené vo vašom okolí. Upozornenia na stratené zvieratá si môžete prezerať aj bez účtu. Ak nájdete zhodu, môžete nahlásiť videnie so svojou polohou a pomôcť zviera spojiť s majiteľom. Zviera môžete tiež zaniesť k miestnemu veterinárovi na kontrolu mikročipu.</string>
     <string name="help_faq_q19">Môžem zmeniť svoju e-mailovú adresu?</string>
     <string name="help_faq_a19">Váš primárny e-mail sa používa ako identita účtu a nedá sa priamo zmeniť. Ak potrebujete iný e-mail, môžete pridať sekundárny e-mail v Nastavenia &gt; Kontaktné údaje — ten sa zobrazí aj v profile zvieraťa. Ak absolútne potrebujete zmeniť primárny e-mail, kontaktujte náš tím podpory a pomôžeme vám migrovať účet.</string>
-    <string name="help_faq_q20">Aký je rozdiel medzi mikročipom a Senra QR štítkom?</string>
-    <string name="help_faq_a20">Mikročip je malý implantát pod kožou zvieraťa, ktorý uchováva jedinečné ID číslo — na jeho prečítanie je však potrebný špeciálny skener (zvyčajne dostupný len u veterinárov a v útulkoch). Senra QR štítok funguje okamžite s akoukoľvek kamerou smartfónu a zobrazí úplný profil zvieraťa, fotku a vaše kontaktné údaje. Nálezca môže tiež zdieľať svoju GPS polohu s vami. Odporúčame používať oboje: mikročip ako trvalú zálohu a Senra štítok pre okamžitú každodennú identifikáciu.</string>
+    <string name="help_faq_q20">Aký je rozdiel medzi mikročipom a Senra QR známkou?</string>
+    <string name="help_faq_a20">Mikročip je malý implantát pod kožou zvieraťa, ktorý uchováva jedinečné ID číslo — na jeho prečítanie je však potrebný špeciálny skener (zvyčajne dostupný len u veterinárov a v útulkoch). Senra QR známku funguje okamžite s akoukoľvek kamerou smartfónu a zobrazí úplný profil zvieraťa, fotku a vaše kontaktné údaje. Nálezca môže tiež zdieľať svoju GPS polohu s vami. Odporúčame používať oboje: mikročip ako trvalú zálohu a Senra známku pre okamžitú každodennú identifikáciu.</string>
     <string name="help_faq_q21">Čo sa stane s mojimi údajmi, ak zruším predplatné?</string>
-    <string name="help_faq_a21">Ak zrušíte predplatné, zachováte si prístup k plateným funkciám do konca aktuálneho fakturačného obdobia. Potom sa váš účet automaticky presunie na bezplatný Starter plán. Profily zvierat, fotky a QR štítky zostanú aktívne — len stratíte prístup k prémiovým funkciám ako SMS upozornenia, upozornenia pre veterinárov a bezplatné náhrady štítkov. Vaše údaje sa pri zrušení nikdy neodstránia. Na trvalé odstránenie všetkých údajov použite možnosť Vymazanie účtu v Nastaveniach.</string>
+    <string name="help_faq_a21">Ak zrušíte predplatné, zachováte si prístup k plateným funkciám do konca aktuálneho fakturačného obdobia. Potom sa váš účet automaticky presunie na bezplatný Starter plán. Profily zvierat, fotky a QR známky zostanú aktívne — len stratíte prístup k prémiovým funkciám ako SMS upozornenia, upozornenia pre veterinárov a bezplatné náhrady známok. Vaše údaje sa pri zrušení nikdy neodstránia. Na trvalé odstránenie všetkých údajov použite možnosť Vymazanie účtu v Nastaveniach.</string>
     <string name="help_faq_q22">Ako zaregistrujem svojho veterinára alebo útulok na Senra?</string>
     <string name="help_faq_a22">Veterinári a útulky sa môžu zaregistrovať na senra.pet/register-vet-shelter. Vyplňte údaje praxe alebo organizácie a pošleme overovací e-mail. Po potvrdení budete automaticky dostávať e-mailové upozornenia, keď sa v okolí stratia zvieratá — pomáhate tak spojiť stratené zvieratá s rodinami. Bez poplatkov a bez prihlásenia. Majitelia zvierat môžu zaregistrovať svojho veterinára aj v ich mene.</string>
     <string name="help_faq_q23">Ako zdieľam príbeh úspechu, keď sa moje zviera nájde?</string>
     <string name="help_faq_a23">Keď označíte zviera ako nájdené v \'Moje zvieratá\', budete vyzvaní zdieľať príbeh stretnutia. Môžete pridať krátku správu o tom, ako bolo zviera nájdené a potvrdiť miesto stretnutia. Verejné príbehy sa zobrazia na mape Nájdených zvierat a inšpirujú komunitu. Príbeh môžete zverejniť alebo odstrániť aj neskôr zo stránky profilu zvieraťa.</string>
     <string name="help_faq_q24">Ktoré prehliadače a zariadenia sú podporované?</string>
-    <string name="help_faq_a24">Senra funguje na všetkých moderných webových prehliadačoch vrátane Chrome, Safari, Firefox a Edge na mobilných zariadeniach aj počítačoch. Skenovanie QR štítkov funguje s akoukoľvek kamerou smartfónu — nálezca nepotrebuje aplikáciu Senra ani účet. Push upozornenia sú podporované v Chrome a Edge na počítači a Androide. Pre najlepší zážitok odporúčame používať aktuálny prehliadač na telefóne.</string>
-    <string name="help_faq_q25">Môžem objednať štítky pre viac zvierat naraz?</string>
-    <string name="help_faq_a25">Každá objednávka štítkov obsahuje štítky pre mená zvierat, ktoré zadáte pri objednávke. V jednej objednávke môžete zadať viacero mien. Po doručení štítkov naskenujte každý na aktiváciu a prepojenie so správnym profilom. Ak neskôr potrebujete štítky pre ďalšie zvieratá, kedykoľvek si môžete objednať zo stránky Účtu.</string>
+    <string name="help_faq_a24">Senra funguje na všetkých moderných webových prehliadačoch vrátane Chrome, Safari, Firefox a Edge na mobilných zariadeniach aj počítačoch. Skenovanie QR známok funguje s akoukoľvek kamerou smartfónu — nálezca nepotrebuje aplikáciu Senra ani účet. Push upozornenia sú podporované v Chrome a Edge na počítači a Androide. Pre najlepší zážitok odporúčame používať aktuálny prehliadač na telefóne.</string>
+    <string name="help_faq_q25">Môžem objednať známky pre viac zvierat naraz?</string>
+    <string name="help_faq_a25">Každá objednávka známok obsahuje známky pre mená zvierat, ktoré zadáte pri objednávke. V jednej objednávke môžete zadať viacero mien. Po doručení známok naskenujte každý na aktiváciu a prepojenie so správnym profilom. Ak neskôr potrebujete známky pre ďalšie zvieratá, kedykoľvek si môžete objednať zo stránky Účtu.</string>
     <string name="help_faq_q26">Ako sa upozornenia na stratené zvieratá dostanú k veterinárom a útulkom?</string>
     <string name="help_faq_a26">Keď označíte zviera ako stratené, Senra automaticky odošle e-mailové upozornenia všetkým overeným veterinárom a útulkom registrovaným vo vašom okolí. Miestni odborníci sú tak okamžite informovaní a môžu pomôcť s hľadaním. Čím viac veterinárov a útulkov je registrovaných, tým silnejšia je bezpečnostná sieť. Pomôcť môžete povzbudením svojho veterinára, aby sa zaregistroval na Senra.</string>
-    <string name="help_faq_q27">Môžem presunúť štítok na iné zviera?</string>
-    <string name="help_faq_a27">Každý QR štítok je natrvalo prepojený s jedným profilom zvieraťa a nedá sa priradiť znovu. Ak zviera zomrie alebo štítok už nepotrebujete, starý štítok jednoducho prestane byť aktívny. Pre označenie nového zvieraťa objednajte nový štítok zo stránky Účtu. Ak máte Standard alebo Maximum plán, môžete mať nárok na bezplatný náhradný štítok pre nové zviera.</string>
-    <string name="help_guide_qr_tags_title">QR štítky pre zvieratá</string>
+    <string name="help_faq_q27">Môžem presunúť známku na iné zviera?</string>
+    <string name="help_faq_a27">Každý QR známku je natrvalo prepojený s jedným profilom zvieraťa a nedá sa priradiť znovu. Ak zviera zomrie alebo známku už nepotrebujete, starý známku jednoducho prestane byť aktívny. Pre označenie nového zvieraťa objednajte nový známku zo stránky Účtu. Ak máte Standard alebo Maximum plán, môžete mať nárok na bezplatný náhradný známku pre nové zviera.</string>
+    <string name="help_guide_qr_tags_title">QR známky pre zvieratá</string>
     <string name="help_guide_qr_tags_desc">Zistite viac o našich smart QR štítkoch a ako pomáhajú chrániť zvieratá.</string>
-    <string name="help_guide_materials_title">Materiály štítkov a odolnosť</string>
-    <string name="help_guide_materials_desc">Informácie o materiáloch a starostlivosti o štítok.</string>
+    <string name="help_guide_materials_title">Materiály známok a odolnosť</string>
+    <string name="help_guide_materials_desc">Informácie o materiáloch a starostlivosti o známku.</string>
     <string name="help_guide_emergency_title">Funkcie núdzového kontaktu</string>
     <string name="help_guide_emergency_desc">Ako funguje náš systém núdzového kontaktu.</string>
     <string name="help_guide_profile_title">Správa profilu</string>
@@ -1051,15 +1051,15 @@
     <string name="help_guide_community_title">Komunita a nájdené zvieratá</string>
     <string name="help_guide_community_desc">Silou Senra je jej komunita. Mapa stratených zvierat zobrazuje aktívne upozornenia vo vašom okolí — skontrolujte, či neboli nahlásené stratené zvieratá. Stránka Nájdené zvieratá oslavuje úspešné stretnutia s príbehmi majiteľov. Môžete zaregistrovať vášho veterinára alebo útulok na Senra, aby automaticky dostávali upozornenia na stratené zvieratá a pomohli vytvoriť silnejšiu bezpečnostnú sieť.</string>
     <string name="help_faq_group_getting_started">Začíname</string>
-    <string name="help_faq_group_tags_scanning">Štítky a skenovanie</string>
+    <string name="help_faq_group_tags_scanning">Známky a skenovanie</string>
     <string name="help_faq_group_missing_pets">Stratené zvieratá a upozornenia</string>
     <string name="help_faq_group_billing_plans">Fakturácia a plány</string>
     <string name="help_faq_group_privacy_account">Súkromie a účet</string>
     <string name="help_faq_group_troubleshooting">Riešenie problémov</string>
     <!-- Checkout & Order Status -->
     <string name="checkout_subscription_success">Tvoje predplatné je teraz aktívne!</string>
-    <string name="checkout_tag_order_success">Platba úspešná! Tvoja objednávka štítku sa spracováva.</string>
-    <string name="checkout_replacement_success">Platba úspešná! Tvoj náhradný štítok je na ceste.</string>
+    <string name="checkout_tag_order_success">Platba úspešná! Tvoja objednávka známke sa spracováva.</string>
+    <string name="checkout_replacement_success">Platba úspešná! Tvoj náhradný známku je na ceste.</string>
     <string name="order_status_completed">Dokončené</string>
     <string name="order_status_pending">Čaká na vybavenie</string>
     <string name="order_status_failed">Neúspešné</string>
@@ -1084,7 +1084,7 @@
     <string name="cannot_delete_missing_pet_message">Nemôžete vymazať zviera, ktoré je nahlásené ako stratené. Najprv ho označte ako nájdené.</string>
     <string name="edit_alert">Upraviť upozornenie</string>
     <string name="health_info_empty_hint">Žiadne zdravotné informácie</string>
-    <string name="notification_channel_info">Aspoň jeden kanál upozornení musí byť aktívny, aby ste boli upozornení, keď je QR štítok vášho zvieraťa naskenovaný.</string>
+    <string name="notification_channel_info">Aspoň jeden kanál upozornení musí byť aktívny, aby ste boli upozornení, keď je QR známku vášho zvieraťa naskenovaný.</string>
     <string name="province">Kraj / Okres</string>
     <string name="reward_badge_text">Odmena: %1$s</string>
     <string name="reward_placeholder">napr. €50, $100 alebo špeciálny darček</string>
@@ -1100,8 +1100,8 @@
 
     <!-- Gift order -->
     <string name="order_gift_toggle">Objednať ako darček</string>
-    <string name="order_gift_description">Pri darčekových objednávkach nie sú mená zvierat povinné. Príjemca ich môže pridať pri aktivácii štítkov.</string>
-    <string name="order_gift_quantity">Počet štítkov</string>
+    <string name="order_gift_description">Pri darčekových objednávkach nie sú mená zvierat povinné. Príjemca ich môže pridať pri aktivácii známok.</string>
+    <string name="order_gift_quantity">Počet známok</string>
     <string name="order_gift_recipient_name">Meno príjemcu (voliteľné)</string>
     <string name="order_gift_message">Darčeková správa (voliteľné)</string>
     <string name="order_gift_message_placeholder">Pridajte osobnú správu…</string>

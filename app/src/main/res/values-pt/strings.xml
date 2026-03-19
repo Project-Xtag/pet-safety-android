@@ -79,7 +79,7 @@
     <string name="resend_code_cooldown">Reenviar código em %1$ds</string>
     <string name="resend_code_prompt">Não recebeu o código? Reenviar</string>
     <string name="dont_have_account">Não tem conta?</string>
-    <string name="start_here_order_free_tag">Comece aqui e peça a sua etiqueta grátis</string>
+    <string name="start_here_order_free_tag">Comece aqui e peça a sua placa grátis</string>
     <string name="create_account">Criar conta</string>
     <string name="enter_details_subtitle">Introduza os seus dados para começar.</string>
     <string name="register">Registar</string>
@@ -196,7 +196,7 @@
     <string name="delete_pet_dialog_title">Eliminar %1$s?</string>
     <string name="delete_pet_dialog_message">Tem a certeza que pretende eliminar este animal? Esta ação não pode ser desfeita.</string>
     <string name="delete_pet_warning_title">Eliminar %1$s?</string>
-    <string name="delete_pet_warning_message">%1$s será removido permanentemente da sua conta. A etiqueta QR será desativada imediatamente e deixará de funcionar ao ser digitalizada. Se este é o seu último animal, a sua subscrição também será cancelada.</string>
+    <string name="delete_pet_warning_message">%1$s será removido permanentemente da sua conta. A placa QR será desativada imediatamente e deixará de funcionar ao ser digitalizada. Se este é o seu último animal, a sua subscrição também será cancelada.</string>
     <string name="delete_pet_warning_confirm">Eliminar animal</string>
     <string name="male">Macho</string>
     <string name="female">Fêmea</string>
@@ -257,7 +257,7 @@
     <!-- MARK: QR Scanner -->
     <!-- ============================================ -->
     <string name="scan_qr_code">Ler código QR</string>
-    <string name="scan_qr_subtitle">Aponte a câmara para a etiqueta QR do animal</string>
+    <string name="scan_qr_subtitle">Aponte a câmara para a placa QR do animal</string>
     <string name="camera_access_required">Acesso à câmara necessário</string>
     <string name="camera_access_message">Ative o acesso à câmara para ler códigos QR</string>
     <string name="enable_camera">Ativar câmara</string>
@@ -268,7 +268,7 @@
     <string name="turn_off_flashlight">Desligar lanterna</string>
     <string name="turn_on_flashlight">Ligar lanterna</string>
     <string name="hello_pet_name">Olá! Eu sou %1$s</string>
-    <string name="scanned_tag_thanks">Acabou de ler a minha etiqueta. Obrigado por me ajudar!</string>
+    <string name="scanned_tag_thanks">Acabou de ler a minha placa. Obrigado por me ajudar!</string>
     <string name="share_location_with_owner">Partilhar a minha localização com o dono</string>
     <string name="owner_notified_message">O dono de %1$s receberá uma notificação com a sua localização</string>
     <string name="share_location_help">Ajude o dono de %1$s a encontrá-lo partilhando a sua localização</string>
@@ -302,20 +302,20 @@
     <!-- ============================================ -->
     <!-- MARK: Tag Activation -->
     <!-- ============================================ -->
-    <string name="tag_activate_title">Ativar etiqueta</string>
+    <string name="tag_activate_title">Ativar placa</string>
     <string name="tag_loading_pets">A carregar os seus animais\u2026</string>
-    <string name="tag_activated">Etiqueta ativada!</string>
-    <string name="tag_activated_message">Esta etiqueta está agora associada a %1$s</string>
+    <string name="tag_activated">Placa ativada!</string>
+    <string name="tag_activated_message">Esta placa está agora associada a %1$s</string>
     <string name="tag_choose_plan">Complete o perfil do seu animal para facilitar a sua busca se se perder</string>
     <string name="tag_choose_plan_button">Completar perfil do animal</string>
     <string name="tag_skip_for_now">Farei isso depois</string>
     <string name="tag_no_pets">Ainda sem animais</string>
-    <string name="tag_no_pets_message">Adicione um animal antes de ativar uma etiqueta</string>
-    <string name="tag_code_label">Código da etiqueta</string>
-    <string name="tag_select_pet">Selecione um animal para associar a esta etiqueta</string>
+    <string name="tag_no_pets_message">Adicione um animal antes de ativar uma placa</string>
+    <string name="tag_code_label">Código da placa</string>
+    <string name="tag_select_pet">Selecione um animal para associar a esta placa</string>
     <string name="tag_activating">A ativar\u2026</string>
-    <string name="tag_activate_button">Ativar etiqueta</string>
-    <string name="tag_link_message">Esta etiqueta será associada ao animal selecionado</string>
+    <string name="tag_activate_button">Ativar placa</string>
+    <string name="tag_link_message">Esta placa será associada ao animal selecionado</string>
 
     <!-- ============================================ -->
     <!-- MARK: Plan Selection -->
@@ -439,7 +439,7 @@
     <!-- ============================================ -->
     <!-- MARK: Notifications -->
     <!-- ============================================ -->
-    <string name="tag_scanned_message">A etiqueta de %1$s foi lida às %2$s!</string>
+    <string name="tag_scanned_message">A placa de %1$s foi lida às %2$s!</string>
     <string name="unknown_location">um local desconhecido</string>
     <string name="sighting_message_with_location">%1$s foi avistado em %2$s!</string>
     <string name="sighting_message_no_location">%1$s foi avistado!</string>
@@ -448,8 +448,8 @@
     <string name="notification_sighting_title">%1$s avistado!</string>
     <string name="notification_pet_found_title">Boas notícias!</string>
     <string name="notification_channel_name">Alertas Pet Safety</string>
-    <string name="notification_channel_tag_scans">Leituras de etiqueta</string>
-    <string name="notification_channel_tag_scans_desc">Notificações quando a etiqueta do seu animal é lida</string>
+    <string name="notification_channel_tag_scans">Leituras de placa</string>
+    <string name="notification_channel_tag_scans_desc">Notificações quando a placa do seu animal é lida</string>
     <string name="notification_channel_alerts">Alertas de animais desaparecidos</string>
     <string name="notification_channel_alerts_desc">Notificações de animais desaparecidos na sua área</string>
     <string name="notification_channel_sightings">Relatórios de avistamentos</string>
@@ -457,9 +457,9 @@
     <string name="notification_method_required">Pelo menos um método de notificação deve estar ativado</string>
 
     <!-- FCM Notification Strings -->
-    <string name="notif_tag_scanned_title">Etiqueta lida</string>
-    <string name="notif_tag_scanned_body">A etiqueta de %1$s foi lida!</string>
-    <string name="notif_tag_scanned_body_location">A etiqueta de %1$s foi lida! %2$s</string>
+    <string name="notif_tag_scanned_title">Placa lida</string>
+    <string name="notif_tag_scanned_body">A placa de %1$s foi lida!</string>
+    <string name="notif_tag_scanned_body_location">A placa de %1$s foi lida! %2$s</string>
     <string name="notif_missing_pet_title">Animal desaparecido nas proximidades</string>
     <string name="notif_missing_pet_body">%1$s está desaparecido em %2$s. Fique atento!</string>
     <string name="notif_pet_found_title">Animal encontrado!</string>
@@ -560,7 +560,7 @@
     <string name="delete_confirm_checkbox">Compreendo que esta ação não pode ser desfeita e todos os meus dados serão permanentemente eliminados</string>
     <string name="cancel_subscription_title">Cancelar subscrição?</string>
     <string name="cancel_warning_a">Perderá as notificações instantâneas por email, SMS e os alertas comunitários</string>
-    <string name="cancel_warning_b">As substituições gratuitas de etiquetas deixarão de estar disponíveis</string>
+    <string name="cancel_warning_b">As substituições gratuitas de placas deixarão de estar disponíveis</string>
     <string name="cancel_warning_c">Perderá o acesso aos alertas de veterinários e abrigos</string>
     <string name="cancel_warning_d">A sua conta e os registos de animais permanecerão ativos</string>
     <string name="cancel_access_until">Manterá o acesso até %1$s</string>
@@ -591,16 +591,16 @@
     <string name="secondary_email_optional">E-mail secundário (opcional)</string>
     <string name="phone_numbers">Números de telefone</string>
     <string name="primary_phone">Telefone principal</string>
-    <string name="show_on_qr_tag">Mostrar na etiqueta QR</string>
+    <string name="show_on_qr_tag">Mostrar na placa QR</string>
     <string name="secondary_phone_optional">Telefone secundário (opcional)</string>
-    <string name="contacts_qr_tag_info">Contactos marcados como visíveis serão apresentados na etiqueta QR do seu animal quando for lida.</string>
+    <string name="contacts_qr_tag_info">Contactos marcados como visíveis serão apresentados na placa QR do seu animal quando for lida.</string>
     <string name="contact_details">Contactos</string>
 
     <!-- ============================================ -->
     <!-- MARK: Contact Visibility -->
     <!-- ============================================ -->
     <string name="contact_visibility">Visibilidade de contacto</string>
-    <string name="contact_visibility_desc">Controle quais informações de contacto são visíveis quando alguém lê a etiqueta QR do seu animal</string>
+    <string name="contact_visibility_desc">Controle quais informações de contacto são visíveis quando alguém lê a placa QR do seu animal</string>
     <string name="show_phone_number">Mostrar número de telefone</string>
     <string name="show_phone_subtitle">O seu número de telefone será visível para quem encontrar o seu animal</string>
     <string name="show_email_address">Mostrar e-mail</string>
@@ -666,11 +666,11 @@
     <string name="help_faq_a1">Vá a \'Os meus animais\' e clique em \'Adicionar novo animal\'.</string>
     <string name="help_faq_q2">Que informações devo incluir?</string>
     <string name="help_faq_a2">Nome, espécie, raça, idade, condições médicas e contactos de emergência.</string>
-    <string name="help_faq_q3">Como funciona a etiqueta QR?</string>
+    <string name="help_faq_q3">Como funciona a placa QR?</string>
     <string name="help_faq_a3">Cada animal tem um QR único. Ao ler, mostram-se o perfil e contactos.</string>
     <string name="help_faq_q4">Posso atualizar mais tarde?</string>
     <string name="help_faq_a4">Sim, em \'Os meus animais\' escolha o animal e \'Editar perfil\'.</string>
-    <string name="help_faq_q5">Como pedir uma etiqueta de substituição?</string>
+    <string name="help_faq_q5">Como pedir uma placa de substituição?</string>
     <string name="help_faq_a5">No perfil do animal, escolha \'Pedir substituição\' e siga os passos.</string>
     <!-- Guide Items -->
 
@@ -680,17 +680,17 @@
     <string name="orders_title">Encomendas</string>
     <string name="order_number">Encomenda #%1$s</string>
     <string name="order_total">Total: %1$s</string>
-    <string name="order_tags">Encomendar etiquetas</string>
-    <string name="replace_tag">Substituir etiqueta</string>
-    <string name="add_pet_first_replacement">Adicione um animal antes de encomendar uma etiqueta de substituição.</string>
-    <string name="order_more_tags_title">Encomendar mais etiquetas</string>
+    <string name="order_tags">Encomendar placas</string>
+    <string name="replace_tag">Substituir placa</string>
+    <string name="add_pet_first_replacement">Adicione um animal antes de encomendar uma placa de substituição.</string>
+    <string name="order_more_tags_title">Encomendar mais placas</string>
     <string name="add_another_pet">Adicionar outro animal</string>
     <string name="full_name">Nome completo</string>
     <string name="place_order">Fazer encomenda</string>
     <string name="order_created_payment_pending">Encomenda criada. Pagamento pendente.</string>
     <string name="payment_intent_failed">Falha na intenção de pagamento</string>
     <string name="order_create_failed">Falha ao criar encomenda</string>
-    <string name="order_replacement_title">Encomendar etiqueta de substituição</string>
+    <string name="order_replacement_title">Encomendar placa de substituição</string>
     <string name="order_replacement_button">Encomendar substituição</string>
     <string name="replacement_ordered">Substituição encomendada</string>
     <string name="replacement_failed">Falha ao encomendar substituição</string>
@@ -707,15 +707,15 @@
     <string name="order_date">Data da encomenda</string>
     <string name="items">Itens</string>
     <string name="quantity_label">Quantidade: %1$d</string>
-    <string name="qr_tag_pending">Etiqueta QR pendente</string>
-    <string name="qr_tag_assigned">Etiqueta QR atribuída</string>
+    <string name="qr_tag_pending">Placa QR pendente</string>
+    <string name="qr_tag_assigned">Placa QR atribuída</string>
     <plurals name="item_count">
         <item quantity="one">%d item</item>
         <item quantity="other">%d itens</item>
     </plurals>
 
     <!-- Order More Tags -->
-    <string name="get_qr_tags_subtitle">Obtenha etiquetas QR para os seus animais</string>
+    <string name="get_qr_tags_subtitle">Obtenha placas QR para os seus animais</string>
     <string name="pet_names">Nomes dos animais</string>
     <string name="shipping_address">Morada de envio</string>
     <string name="shipping">Envio</string>
@@ -724,7 +724,7 @@
     <!-- Order Replacement Tag -->
     <string name="replacement_subtitle">Perdida ou danificada? Enviaremos uma nova</string>
     <string name="free_replacement">Substituição gratuita</string>
-    <string name="replacement_shipping_info">A sua etiqueta de substituição será enviada em 2\u20133 dias úteis\u2026</string>
+    <string name="replacement_shipping_info">A sua placa de substituição será enviada em 2\u20133 dias úteis\u2026</string>
     <string name="replacement_shipping_required">Taxa de envio necessária</string>
     <string name="replacement_shipping_cost">Aplica-se uma taxa de envio de %1$s à sua encomenda de placa de substituição.</string>
     <string name="delivery_method_title">Método de entrega</string>
@@ -749,7 +749,7 @@
     <string name="subscription_vet_alerts">Alertas a veterinários &amp; resgate</string>
     <string name="subscription_sms">Notificações SMS</string>
     <string name="subscription_community_alerts">Alertas comunitários</string>
-    <string name="subscription_free_replacement">Substituição gratuita de etiqueta</string>
+    <string name="subscription_free_replacement">Substituição gratuita de placa</string>
 
     <!-- ============================================ -->
     <!-- MARK: Billing -->
@@ -802,7 +802,7 @@
     <!-- ============================================ -->
     <string name="push_prompt_title">Mantenha-se ligado</string>
     <string name="push_prompt_subtitle">Ative as notificações para não perder atualizações importantes:</string>
-    <string name="push_prompt_benefit_scan">Alertas instantâneos quando a etiqueta do seu animal é lida</string>
+    <string name="push_prompt_benefit_scan">Alertas instantâneos quando a placa do seu animal é lida</string>
     <string name="push_prompt_benefit_sighting">Relatórios de avistamento da comunidade</string>
     <string name="push_prompt_benefit_found">Saiba de imediato quando o seu animal é encontrado</string>
     <string name="push_prompt_benefit_missing">Alertas de animais desaparecidos na sua área</string>
@@ -905,7 +905,7 @@
     <string name="other_maps_app">Outra app de mapas</string>
     <string name="open_with">Abrir com\u2026</string>
     <string name="map_label_pet_location">Localização do animal</string>
-    <string name="map_label_tag_scanned">Etiqueta do animal lida</string>
+    <string name="map_label_tag_scanned">Placa do animal lida</string>
     <string name="map_label_sighting">Avistamento do animal</string>
 
     <!-- ============================================ -->
@@ -986,16 +986,16 @@
     <string name="sse_subscription_activated">O seu plano %1$s está agora ativo!</string>
     <string name="sse_subscription_cancelled">A sua subscrição %1$s foi cancelada.</string>
     <string name="sse_referral_used">%1$s usou o seu código de referência!</string>
-    <string name="help_faq_q6">Como ativo a minha etiqueta quando chegar?</string>
-    <string name="help_faq_a6">Vá a \'Ler etiqueta\' na app e aponte a câmara do telemóvel para o código QR da sua etiqueta. Isto liga a etiqueta à sua conta. Depois será pedido que escolha um animal existente ou crie um novo perfil. Após a ativação, selecione o seu plano de subscrição.</string>
+    <string name="help_faq_q6">Como ativo a minha placa quando chegar?</string>
+    <string name="help_faq_a6">Vá a \'Ler placa\' na app e aponte a câmara do telemóvel para o código QR da sua placa. Isto liga a placa à sua conta. Depois será pedido que escolha um animal existente ou crie um novo perfil. Após a ativação, selecione o seu plano de subscrição.</string>
     <string name="help_faq_q7">Posso atualizar os dados do meu animal após o registo?</string>
     <string name="help_faq_a7">Sim — pode editar o perfil do seu animal a qualquer momento. Vá a \'Os meus animais\', selecione o animal e clique em \'Editar\'. Pode atualizar qualquer campo, incluindo fotos. As alterações são guardadas imediatamente.</string>
     <string name="help_faq_q8">O que devo fazer se o meu animal desaparecer?</string>
     <string name="help_faq_a8">Vá a \'Os meus animais\' e clique no menu do cartão do animal, depois selecione \'Marcar como desaparecido\'. Isto cria um alerta visível para a comunidade Senra na sua área. As pessoas por perto verão o alerta e podem reportar avistamentos com localização. Será notificado imediatamente de qualquer avistamento.</string>
     <string name="help_faq_q9">Como funcionam os alertas de animais desaparecidos?</string>
     <string name="help_faq_a9">Quando marca um animal como desaparecido, é criado um alerta com a foto e detalhes do animal. Outros utilizadores Senra num raio de 10 km podem ver o alerta no mapa de Animais Desaparecidos. Qualquer pessoa da comunidade pode reportar um avistamento, que lhe envia a localização e informações de contacto. Veterinários e abrigos registados na Senra na sua área também recebem o alerta.</string>
-    <string name="help_faq_q10">Como peço uma etiqueta de substituição?</string>
-    <string name="help_faq_a10">Vá à página da Conta e clique em \'Pedir substituição\'. Selecione o animal que precisa de uma nova etiqueta. Membros Maximum têm substituições gratuitas ilimitadas, membros Standard têm uma substituição grátis por ano, e membros Starter podem pedir substituições por uma pequena taxa de envio.</string>
+    <string name="help_faq_q10">Como peço uma placa de substituição?</string>
+    <string name="help_faq_a10">Vá à página da Conta e clique em \'Pedir substituição\'. Selecione o animal que precisa de uma nova placa. Membros Maximum têm substituições gratuitas ilimitadas, membros Standard têm uma substituição grátis por ano, e membros Starter podem pedir substituições por uma pequena taxa de envio.</string>
     <string name="help_faq_q11">O que é o programa de referência?</string>
     <string name="help_faq_a11">Vá à página de Referências para gerar o seu código de referência pessoal. Partilhe-o com amigos e familiares. Quando alguém usar o seu código e subscrever um plano pago (Standard ou Maximum), ambos recebem 2 meses grátis. Pode acompanhar as suas referências na página de Referências.</string>
     <string name="help_faq_q12">Para que países fazem envio?</string>
@@ -1003,35 +1003,35 @@
     <string name="help_faq_q13">Posso ter vários animais numa conta?</string>
     <string name="help_faq_a13">Sim. No plano Starter (gratuito) pode registar um animal. O plano Standard também suporta um animal. O plano Maximum suporta animais ilimitados. Pode atualizar o plano a qualquer momento na página da Conta.</string>
     <string name="help_faq_q14">Como reporto um animal que encontrei?</string>
-    <string name="help_faq_a14">Se o animal tiver uma etiqueta Senra, basta ler o código QR com a câmara do telemóvel — não precisa de app. Verá o perfil do animal e pode partilhar a sua localização com o dono. Se não houver etiqueta, pode verificar o mapa de Animais Desaparecidos no site da Senra para ver se o animal foi reportado na sua área.</string>
+    <string name="help_faq_a14">Se o animal tiver uma placa Senra, basta ler o código QR com a câmara do telemóvel — não precisa de app. Verá o perfil do animal e pode partilhar a sua localização com o dono. Se não houver placa, pode verificar o mapa de Animais Desaparecidos no site da Senra para ver se o animal foi reportado na sua área.</string>
     <string name="help_faq_q15">As minhas informações pessoais estão seguras?</string>
-    <string name="help_faq_a15">Sim. Controla exatamente que informações ficam visíveis quando alguém lê a etiqueta do seu animal. Em Definições &gt; Privacidade, pode escolher mostrar ou ocultar o telefone, e-mail e morada. O login é protegido por códigos de verificação únicos — não há palavras-passe para roubar. Pode eliminar a conta e todos os dados a qualquer momento.</string>
-    <string name="help_faq_q16">Perdi a minha etiqueta ou está danificada — o que devo fazer?</string>
-    <string name="help_faq_a16">Não se preocupe — o perfil digital do seu animal está seguro e não é guardado na etiqueta. Vá à página da Conta e clique em \'Pedir substituição\'. Uma nova etiqueta com um novo código QR será ligada ao perfil existente. Membros Standard têm uma substituição grátis por ano, membros Maximum têm substituições gratuitas ilimitadas, e membros Starter pagam uma pequena taxa de envio. A etiqueta antiga deixará de funcionar quando a nova for ativada.</string>
-    <string name="help_faq_q17">A minha etiqueta não lê — como resolvo?</string>
-    <string name="help_faq_a17">Experimente estes passos: limpe a superfície da etiqueta com um pano húmido, garanta boa iluminação, mantenha a câmara do telemóvel estável a cerca de 10-15 cm da etiqueta e verifique se a câmara ou leitor QR está a funcionar. Se o código QR estiver riscado ou desbotado, pode usar a opção de entrada manual na app em \'Ler etiqueta\'. Se a etiqueta estiver demasiado danificada para ler, peça uma substituição grátis na página da Conta (planos Standard e Maximum).</string>
-    <string name="help_faq_q18">Encontrei um animal sem etiqueta Senra — o que posso fazer?</string>
+    <string name="help_faq_a15">Sim. Controla exatamente que informações ficam visíveis quando alguém lê a placa do seu animal. Em Definições &gt; Privacidade, pode escolher mostrar ou ocultar o telefone, e-mail e morada. O login é protegido por códigos de verificação únicos — não há palavras-passe para roubar. Pode eliminar a conta e todos os dados a qualquer momento.</string>
+    <string name="help_faq_q16">Perdi a minha placa ou está danificada — o que devo fazer?</string>
+    <string name="help_faq_a16">Não se preocupe — o perfil digital do seu animal está seguro e não é guardado na placa. Vá à página da Conta e clique em \'Pedir substituição\'. Uma nova placa com um novo código QR será ligada ao perfil existente. Membros Standard têm uma substituição grátis por ano, membros Maximum têm substituições gratuitas ilimitadas, e membros Starter pagam uma pequena taxa de envio. A placa antiga deixará de funcionar quando a nova for ativada.</string>
+    <string name="help_faq_q17">A minha placa não lê — como resolvo?</string>
+    <string name="help_faq_a17">Experimente estes passos: limpe a superfície da placa com um pano húmido, garanta boa iluminação, mantenha a câmara do telemóvel estável a cerca de 10-15 cm da placa e verifique se a câmara ou leitor QR está a funcionar. Se o código QR estiver riscado ou desbotado, pode usar a opção de entrada manual na app em \'Ler placa\'. Se a placa estiver demasiado danificada para ler, peça uma substituição grátis na página da Conta (planos Standard e Maximum).</string>
+    <string name="help_faq_q18">Encontrei um animal sem placa Senra — o que posso fazer?</string>
     <string name="help_faq_a18">Verifique o mapa de Animais Desaparecidos no site da Senra (senra.pet) — o animal pode ter sido reportado como desaparecido na sua área. Pode ver os alertas sem conta. Se encontrar uma correspondência, pode reportar um avistamento com a sua localização para ajudar a reunir o animal com o dono. Também pode levar o animal a um veterinário local para verificar o microchip.</string>
     <string name="help_faq_q19">Posso alterar o meu endereço de e-mail?</string>
     <string name="help_faq_a19">O seu e-mail principal é usado como identidade da conta e não pode ser alterado diretamente. Se precisar de usar outro e-mail, pode adicionar um e-mail secundário em Definições &gt; Detalhes de contacto — este também será mostrado no perfil do animal. Se precisar absolutamente de alterar o e-mail principal, contacte a nossa equipa de suporte e ajudaremos a migrar a conta.</string>
-    <string name="help_faq_q20">Qual é a diferença entre um microchip e uma etiqueta QR Senra?</string>
-    <string name="help_faq_a20">Um microchip é um pequeno implante sob a pele do animal que armazena um número de ID único — mas requer um leitor especial (geralmente só disponível em veterinários e abrigos) para ser lido. Uma etiqueta QR Senra funciona instantaneamente com qualquer câmara de smartphone, mostrando o perfil completo do animal, foto e os seus contactos no momento. A pessoa que encontrar o animal também pode partilhar a sua localização GPS consigo. Recomendamos usar ambos: o microchip como backup permanente, e a etiqueta Senra para identificação instantânea e diária.</string>
+    <string name="help_faq_q20">Qual é a diferença entre um microchip e uma placa QR Senra?</string>
+    <string name="help_faq_a20">Um microchip é um pequeno implante sob a pele do animal que armazena um número de ID único — mas requer um leitor especial (geralmente só disponível em veterinários e abrigos) para ser lido. Uma placa QR Senra funciona instantaneamente com qualquer câmara de smartphone, mostrando o perfil completo do animal, foto e os seus contactos no momento. A pessoa que encontrar o animal também pode partilhar a sua localização GPS consigo. Recomendamos usar ambos: o microchip como backup permanente, e a placa Senra para identificação instantânea e diária.</string>
     <string name="help_faq_q21">O que acontece aos meus dados se cancelar a subscrição?</string>
-    <string name="help_faq_a21">Se cancelar a subscrição, mantém acesso às funcionalidades pagas até ao fim do período de faturação atual. Depois disso, a conta passa automaticamente para o plano Starter gratuito. Os perfis, fotos e etiquetas QR dos animais permanecem ativos — apenas perde acesso a funcionalidades premium como notificações SMS, alertas veterinários e substituições grátis. Os seus dados nunca são eliminados ao cancelar. Para remover permanentemente todos os dados, use a opção Eliminação de Conta nas Definições.</string>
+    <string name="help_faq_a21">Se cancelar a subscrição, mantém acesso às funcionalidades pagas até ao fim do período de faturação atual. Depois disso, a conta passa automaticamente para o plano Starter gratuito. Os perfis, fotos e placas QR dos animais permanecem ativos — apenas perde acesso a funcionalidades premium como notificações SMS, alertas veterinários e substituições grátis. Os seus dados nunca são eliminados ao cancelar. Para remover permanentemente todos os dados, use a opção Eliminação de Conta nas Definições.</string>
     <string name="help_faq_q22">Como registo o meu veterinário ou abrigo na Senra?</string>
     <string name="help_faq_a22">Veterinários e abrigos podem registar-se em senra.pet/register-vet-shelter. Preencha os dados da clínica ou organização e enviaremos um e-mail de verificação. Depois de confirmado, receberá automaticamente alertas por e-mail quando animais desaparecerem na sua área — ajudando a reunir animais perdidos com as suas famílias. Não tem custo e não requer login. Os donos também podem registar o seu veterinário local em seu nome.</string>
     <string name="help_faq_q23">Como partilho uma história de sucesso quando o meu animal é encontrado?</string>
     <string name="help_faq_a23">Quando marcar o animal como encontrado em \'Os meus animais\', será perguntado se quer partilhar a história do reencontro. Pode adicionar uma mensagem curta sobre como o animal foi encontrado e confirmar a localização. As histórias públicas aparecem no mapa de Animais Encontrados, inspirando a comunidade. Também pode publicar ou remover uma história mais tarde no perfil do animal.</string>
     <string name="help_faq_q24">Que navegadores e dispositivos são suportados?</string>
-    <string name="help_faq_a24">A Senra funciona em todos os navegadores modernos incluindo Chrome, Safari, Firefox e Edge em mobile e desktop. A leitura de etiquetas QR funciona com qualquer câmara de smartphone — a pessoa que encontrar o animal não precisa da app Senra nem de conta. As notificações push são suportadas no Chrome e Edge em desktop e Android. Para a melhor experiência, recomendamos usar um navegador atualizado no telemóvel.</string>
-    <string name="help_faq_q25">Posso pedir etiquetas para vários animais de uma vez?</string>
-    <string name="help_faq_a25">Cada encomenda inclui etiquetas para os nomes de animais que especificar durante o pagamento. Pode introduzir vários nomes numa única encomenda. Quando as etiquetas chegarem, leia cada uma para a ativar e ligar ao perfil correto. Se precisar de etiquetas para mais animais depois, pode fazer encomendas adicionais na página da Conta.</string>
+    <string name="help_faq_a24">A Senra funciona em todos os navegadores modernos incluindo Chrome, Safari, Firefox e Edge em mobile e desktop. A leitura de placas QR funciona com qualquer câmara de smartphone — a pessoa que encontrar o animal não precisa da app Senra nem de conta. As notificações push são suportadas no Chrome e Edge em desktop e Android. Para a melhor experiência, recomendamos usar um navegador atualizado no telemóvel.</string>
+    <string name="help_faq_q25">Posso pedir placas para vários animais de uma vez?</string>
+    <string name="help_faq_a25">Cada encomenda inclui placas para os nomes de animais que especificar durante o pagamento. Pode introduzir vários nomes numa única encomenda. Quando as placas chegarem, leia cada uma para a ativar e ligar ao perfil correto. Se precisar de placas para mais animais depois, pode fazer encomendas adicionais na página da Conta.</string>
     <string name="help_faq_q26">Como é que os alertas de animais desaparecidos chegam aos veterinários e abrigos?</string>
     <string name="help_faq_a26">Quando marca o animal como desaparecido, a Senra envia automaticamente alertas por e-mail a todos os veterinários e abrigos verificados registados na sua área. Isto significa que os profissionais de animais locais ficam imediatamente cientes de que o seu animal está desaparecido. Quanto mais veterinários e abrigos registados na sua área, mais forte é a rede de segurança. Pode ajudar incentivando o seu veterinário a registar-se na Senra.</string>
-    <string name="help_faq_q27">Posso transferir uma etiqueta para outro animal?</string>
-    <string name="help_faq_a27">Cada etiqueta QR está permanentemente ligada a um perfil de animal e não pode ser reassociada. Se um animal falecer ou já não precisar de uma etiqueta, a etiqueta antiga fica simplesmente inativa. Para etiquetar um novo animal, peça uma nova etiqueta na página da Conta. Se tiver um plano Standard ou Maximum, pode ter direito a uma etiqueta de substituição gratuita para o novo animal.</string>
-    <string name="help_guide_qr_tags_title">Etiquetas QR para animais</string>
-    <string name="help_guide_qr_tags_desc">Conheça as nossas etiquetas QR inteligentes.</string>
+    <string name="help_faq_q27">Posso transferir uma placa para outro animal?</string>
+    <string name="help_faq_a27">Cada placa QR está permanentemente ligada a um perfil de animal e não pode ser reassociada. Se um animal falecer ou já não precisar de uma placa, a placa antiga fica simplesmente inativa. Para etiquetar um novo animal, peça uma nova placa na página da Conta. Se tiver um plano Standard ou Maximum, pode ter direito a uma placa de substituição gratuita para o novo animal.</string>
+    <string name="help_guide_qr_tags_title">Placas QR para animais</string>
+    <string name="help_guide_qr_tags_desc">Conheça as nossas placas QR inteligentes.</string>
     <string name="help_guide_materials_title">Materiais e durabilidade</string>
     <string name="help_guide_materials_desc">Informação sobre materiais e cuidados.</string>
     <string name="help_guide_emergency_title">Funcionalidades de contacto de emergência</string>
@@ -1043,15 +1043,15 @@
     <string name="help_guide_community_title">Comunidade e animais encontrados</string>
     <string name="help_guide_community_desc">A força da Senra é a sua comunidade. O mapa de Animais Desaparecidos mostra alertas ativos perto de si — verifique se algum animal foi reportado como desaparecido na sua área. A página de Animais Encontrados celebra reencontros bem-sucedidos com histórias de donos. Pode registar o seu veterinário ou abrigo local na Senra para que recebam alertas de animais desaparecidos automaticamente, ajudando a criar uma rede de segurança mais forte para todos os animais na sua área.</string>
     <string name="help_faq_group_getting_started">Primeiros passos</string>
-    <string name="help_faq_group_tags_scanning">Etiquetas e leitura</string>
+    <string name="help_faq_group_tags_scanning">Placas e leitura</string>
     <string name="help_faq_group_missing_pets">Animais desaparecidos e alertas</string>
     <string name="help_faq_group_billing_plans">Faturação e planos</string>
     <string name="help_faq_group_privacy_account">Privacidade e conta</string>
     <string name="help_faq_group_troubleshooting">Resolução de problemas</string>
     <!-- Checkout & Order Status -->
     <string name="checkout_subscription_success">A tua subscrição já está ativa!</string>
-    <string name="checkout_tag_order_success">Pagamento bem-sucedido! A tua encomenda de etiqueta está a ser processada.</string>
-    <string name="checkout_replacement_success">Pagamento bem-sucedido! A tua etiqueta de substituição está a caminho.</string>
+    <string name="checkout_tag_order_success">Pagamento bem-sucedido! A tua encomenda de placa está a ser processada.</string>
+    <string name="checkout_replacement_success">Pagamento bem-sucedido! A tua placa de substituição está a caminho.</string>
     <string name="order_status_completed">Concluído</string>
     <string name="order_status_pending">Pendente</string>
     <string name="order_status_failed">Falhado</string>
@@ -1076,7 +1076,7 @@
     <string name="cannot_delete_missing_pet_message">Não pode eliminar um animal reportado como desaparecido. Marque-o como encontrado primeiro.</string>
     <string name="edit_alert">Editar alerta</string>
     <string name="health_info_empty_hint">Sem informação de saúde</string>
-    <string name="notification_channel_info">Pelo menos um canal de notificação deve estar ativo para que seja notificado quando a etiqueta QR do seu animal for lida.</string>
+    <string name="notification_channel_info">Pelo menos um canal de notificação deve estar ativo para que seja notificado quando a placa QR do seu animal for lida.</string>
     <string name="province">Distrito / Estado</string>
     <string name="reward_badge_text">Recompensa: %1$s</string>
     <string name="reward_placeholder">ex. €50, $100 ou um presente especial</string>
@@ -1092,8 +1092,8 @@
 
     <!-- Gift order -->
     <string name="order_gift_toggle">Encomendar como presente</string>
-    <string name="order_gift_description">Os nomes dos animais são opcionais em encomendas de presente. O destinatário pode adicioná-los ao ativar as etiquetas.</string>
-    <string name="order_gift_quantity">Número de etiquetas</string>
+    <string name="order_gift_description">Os nomes dos animais são opcionais em encomendas de presente. O destinatário pode adicioná-los ao ativar as placas.</string>
+    <string name="order_gift_quantity">Número de placas</string>
     <string name="order_gift_recipient_name">Nome do destinatário (opcional)</string>
     <string name="order_gift_message">Mensagem de presente (opcional)</string>
     <string name="order_gift_message_placeholder">Adiciona uma mensagem pessoal…</string>
@@ -1105,21 +1105,21 @@
     <string name="delivery_method_label">Método de envio</string>
     <string name="delivery_home">Entrega ao domicílio</string>
     <string name="delivery_postapoint">Levantamento PostaPont</string>
-    <string name="pending_registrations_title">Etiquetas pendentes</string>
+    <string name="pending_registrations_title">Placas pendentes</string>
     <string name="ready_to_activate">Prontas para ativar</string>
     <string name="still_processing">Em processamento</string>
-    <string name="scan_tag_now">Escanear etiqueta</string>
+    <string name="scan_tag_now">Escanear placa</string>
     <string name="create_profile_first">Criar perfil</string>
     <string name="create_profile_while_waiting">Criar perfil enquanto espera</string>
     <string name="all_caught_up">Tudo em dia!</string>
-    <string name="all_caught_up_description">Não tem registos de etiquetas pendentes.</string>
+    <string name="all_caught_up_description">Não tem registos de placas pendentes.</string>
     <string name="status_shipped">Enviado</string>
     <string name="status_delivered">Entregue</string>
     <string name="status_processing">Em processamento</string>
     <string name="status_pending">Pendente</string>
-    <string name="activation_help_title">Como ativar a sua etiqueta</string>
-    <string name="activation_help_step1">Aguarde a chegada da sua etiqueta</string>
-    <string name="activation_help_step2">Digitalize o código QR na etiqueta</string>
+    <string name="activation_help_title">Como ativar a sua placa</string>
+    <string name="activation_help_step1">Aguarde a chegada da sua placa</string>
+    <string name="activation_help_step2">Digitalize o código QR na placa</string>
     <string name="activation_help_step3">Selecione o animal a associar</string>
     <string name="activation_help_step4">Escolha o seu plano de subscrição</string>
     <string name="pets_from_order">Animais da sua encomenda</string>
@@ -1129,16 +1129,16 @@
     <string name="other_pets">Outros animais</string>
     <string name="link_to_pet">Associar a %1$s</string>
     <string name="no_pets_yet">Ainda sem animais</string>
-    <string name="create_first_pet">Crie o perfil do seu animal para ativar a etiqueta.</string>
+    <string name="create_first_pet">Crie o perfil do seu animal para ativar a placa.</string>
     <string name="create_new_pet">Criar novo animal</string>
     <string name="notifications_title">Notificações</string>
     <string name="no_notifications">Sem notificações</string>
-    <string name="no_notifications_desc">Tudo em dia! As notificações aparecerão aqui quando a etiqueta do seu animal for escaneada.</string>
+    <string name="no_notifications_desc">Tudo em dia! As notificações aparecerão aqui quando a placa do seu animal for escaneada.</string>
     <string name="mark_all_read">Marcar tudo como lido</string>
-    <string name="create_profile_hint">Crie primeiro um perfil de animal, depois escaneie a etiqueta novamente para ativar.</string>
-    <string name="activation_error_qr_not_found">Código QR não reconhecido. Certifique-se de que está a escanear uma etiqueta oficial Senra.</string>
-    <string name="activation_error_already_activated">Esta etiqueta já está associada a outro animal. Contacte o suporte.</string>
-    <string name="activation_error_not_linked">Esta etiqueta ainda não foi atribuída à sua encomenda. Aguarde a confirmação de envio.</string>
+    <string name="create_profile_hint">Crie primeiro um perfil de animal, depois escaneie a placa novamente para ativar.</string>
+    <string name="activation_error_qr_not_found">Código QR não reconhecido. Certifique-se de que está a escanear uma placa oficial Senra.</string>
+    <string name="activation_error_already_activated">Esta placa já está associada a outro animal. Contacte o suporte.</string>
+    <string name="activation_error_not_linked">Esta placa ainda não foi atribuída à sua encomenda. Aguarde a confirmação de envio.</string>
     <string name="activation_error_not_shipped">A sua encomenda ainda não foi enviada. Aguarde a entrega.</string>
     <string name="activation_error_not_owner">Este não é o seu animal. Selecione um dos seus próprios animais.</string>
 
@@ -1256,7 +1256,7 @@
     <string name="profile_incomplete_warning">Complete o perfil do seu animal</string>
     <string name="profile_incomplete_desc">Dados em falta dificultam encontrar o seu animal. Preencha peso, cor e informações médicas.</string>
     <string name="identity_locked_title">Nome, espécie e raça estão bloqueados</string>
-    <string name="identity_locked_desc">Estes campos não podem ser alterados após ativação da etiqueta.</string>
+    <string name="identity_locked_desc">Estes campos não podem ser alterados após ativação da placa.</string>
 
     <!-- Shelter Adoption -->
     <string name="profile_shelter_code">Shelter Adoption Code</string>
