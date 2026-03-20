@@ -534,6 +534,7 @@ fun PetFormScreen(
                         ) { success, message ->
                             if (success) {
                                 uploadPhotoIfNeeded(viewModel, capturedPhotoBytes, petId)
+                                viewModel.fetchPets() // Refresh pet list so detail view shows updated data
                                 appStateViewModel.showSuccess(petUpdatedMessage)
                                 onDone()
                             } else {
