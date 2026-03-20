@@ -1311,4 +1311,10 @@
     <string name="sex_female">femmina</string>
     <string name="sex_unknown">sconosciuto</string>
     <string name="breed_mixed">meticcio</string>
+
+    <!-- Appearance -->
+    <string name="appearance_title">Aspetto</string>
+    <string name="appearance_system">Sistema</string>
+    <string name="appearance_light">Chiaro</string>
+    <string name="appearance_dark">Scuro</string>
 </resources>

@@ -1310,4 +1310,10 @@
     <string name="sex_female">hunn</string>
     <string name="sex_unknown">ukjent</string>
     <string name="breed_mixed">blandingsrase</string>
+
+    <!-- Appearance -->
+    <string name="appearance_title">Utseende</string>
+    <string name="appearance_system">System</string>
+    <string name="appearance_light">Lys</string>
+    <string name="appearance_dark">Mørk</string>
 </resources>

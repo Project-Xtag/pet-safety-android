@@ -7,7 +7,10 @@ import timber.log.Timber
 import androidx.activity.compose.setContent
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.fragment.app.FragmentActivity
+import android.preference.PreferenceManager
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import com.petsafety.app.data.notifications.NotificationHelper
 import com.petsafety.app.ui.theme.PetSafetyTheme
 import com.petsafety.app.util.WebUrlHelper
@@ -44,7 +47,14 @@ class MainActivity : FragmentActivity() {
         handleIntent(intent)
         Timber.d("=== setContent ===")
         setContent {
-            PetSafetyTheme {
+            val prefs = remember { PreferenceManager.getDefaultSharedPreferences(this) }
+            val appearanceMode = remember { mutableStateOf(prefs.getString("appearanceMode", "system") ?: "system") }
+            val darkTheme = when (appearanceMode.value) {
+                "light" -> false
+                "dark" -> true
+                else -> isSystemInDarkTheme()
+            }
+            PetSafetyTheme(darkTheme = darkTheme) {
                 PetSafetyApp(
                     pendingQrCode = deepLinkCodeState.value,
                     onQrCodeHandled = { deepLinkCodeState.value = null },

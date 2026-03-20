@@ -66,6 +66,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
@@ -272,6 +273,11 @@ private fun ProfileMain(
                         title = stringResource(R.string.notifications),
                         onClick = { onNavigate(ProfileSection.NOTIFICATIONS) }
                     )
+                    HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
+
+                    // Appearance / Dark Mode toggle
+                    AppearanceToggleRow()
+
                     HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
                     ProfileMenuRow(
                         icon = Icons.Default.HelpOutline,
@@ -2118,5 +2124,62 @@ private fun SettingsToggleRow(
         }
         Spacer(modifier = Modifier.width(12.dp))
         Switch(checked = checked, onCheckedChange = onCheckedChange, enabled = enabled)
+    }
+}
+
+@Composable
+private fun AppearanceToggleRow() {
+    val context = LocalContext.current
+    val prefs = remember { android.preference.PreferenceManager.getDefaultSharedPreferences(context) }
+    var selected by remember { mutableStateOf(prefs.getString("appearanceMode", "system") ?: "system") }
+
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 16.dp, vertical = 12.dp),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Text(
+            text = "☀",
+            fontSize = 22.sp,
+            modifier = Modifier.size(24.dp)
+        )
+        Spacer(modifier = Modifier.width(16.dp))
+        Text(
+            text = stringResource(R.string.appearance_title),
+            style = MaterialTheme.typography.bodyLarge,
+            modifier = Modifier.weight(1f)
+        )
+        Row(
+            modifier = Modifier
+                .background(
+                    MaterialTheme.colorScheme.surfaceContainerHigh,
+                    shape = RoundedCornerShape(8.dp)
+                )
+                .padding(2.dp)
+        ) {
+            listOf(
+                "system" to R.string.appearance_system,
+                "light" to R.string.appearance_light,
+                "dark" to R.string.appearance_dark
+            ).forEach { (mode, labelRes) ->
+                val isSelected = selected == mode
+                Text(
+                    text = stringResource(labelRes),
+                    style = MaterialTheme.typography.labelSmall,
+                    color = if (isSelected) MaterialTheme.colorScheme.onPrimary else MaterialTheme.colorScheme.onSurface,
+                    modifier = Modifier
+                        .clip(RoundedCornerShape(6.dp))
+                        .background(if (isSelected) BrandOrange else Color.Transparent)
+                        .clickable {
+                            selected = mode
+                            prefs.edit().putString("appearanceMode", mode).apply()
+                            // Recreate activity to apply theme change
+                            (context as? android.app.Activity)?.recreate()
+                        }
+                        .padding(horizontal = 12.dp, vertical = 6.dp)
+                )
+            }
+        }
     }
 }

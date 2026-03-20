@@ -1321,4 +1321,10 @@
     <string name="sex_female">Female</string>
     <string name="sex_unknown">Unknown</string>
     <string name="breed_mixed">Mixed breed</string>
+
+    <!-- Appearance -->
+    <string name="appearance_title">Appearance</string>
+    <string name="appearance_system">System</string>
+    <string name="appearance_light">Light</string>
+    <string name="appearance_dark">Dark</string>
 </resources>

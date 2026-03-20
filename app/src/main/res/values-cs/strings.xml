@@ -1325,4 +1325,10 @@
     <string name="sex_female">samice</string>
     <string name="sex_unknown">neznámé</string>
     <string name="breed_mixed">kříženec</string>
+
+    <!-- Appearance -->
+    <string name="appearance_title">Vzhled</string>
+    <string name="appearance_system">Systém</string>
+    <string name="appearance_light">Světlý</string>
+    <string name="appearance_dark">Tmavý</string>
 </resources>

@@ -1316,4 +1316,10 @@
     <string name="sex_female">weiblich</string>
     <string name="sex_unknown">unbekannt</string>
     <string name="breed_mixed">Mischling</string>
+
+    <!-- Appearance -->
+    <string name="appearance_title">Erscheinungsbild</string>
+    <string name="appearance_system">System</string>
+    <string name="appearance_light">Hell</string>
+    <string name="appearance_dark">Dunkel</string>
 </resources>

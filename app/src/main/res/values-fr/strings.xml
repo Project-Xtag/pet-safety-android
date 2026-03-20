@@ -1308,4 +1308,10 @@
     <string name="sex_female">femelle</string>
     <string name="sex_unknown">inconnu</string>
     <string name="breed_mixed">croisé</string>
+
+    <!-- Appearance -->
+    <string name="appearance_title">Apparence</string>
+    <string name="appearance_system">Système</string>
+    <string name="appearance_light">Clair</string>
+    <string name="appearance_dark">Sombre</string>
 </resources>

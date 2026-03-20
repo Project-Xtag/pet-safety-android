@@ -1316,4 +1316,10 @@
     <string name="sex_female">nőstény</string>
     <string name="sex_unknown">ismeretlen</string>
     <string name="breed_mixed">keverék</string>
+
+    <!-- Appearance -->
+    <string name="appearance_title">Megjelenés</string>
+    <string name="appearance_system">Rendszer</string>
+    <string name="appearance_light">Világos</string>
+    <string name="appearance_dark">Sötét</string>
 </resources>

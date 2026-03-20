@@ -1311,4 +1311,10 @@
     <string name="sex_female">ženka</string>
     <string name="sex_unknown">nepoznato</string>
     <string name="breed_mixed">mješanac</string>
+
+    <!-- Appearance -->
+    <string name="appearance_title">Izgled</string>
+    <string name="appearance_system">Sustav</string>
+    <string name="appearance_light">Svijetlo</string>
+    <string name="appearance_dark">Tamno</string>
 </resources>

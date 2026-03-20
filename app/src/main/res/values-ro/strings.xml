@@ -1317,4 +1317,10 @@
     <string name="sex_female">femelă</string>
     <string name="sex_unknown">necunoscut</string>
     <string name="breed_mixed">metis</string>
+
+    <!-- Appearance -->
+    <string name="appearance_title">Aspect</string>
+    <string name="appearance_system">Sistem</string>
+    <string name="appearance_light">Luminos</string>
+    <string name="appearance_dark">Întunecat</string>
 </resources>

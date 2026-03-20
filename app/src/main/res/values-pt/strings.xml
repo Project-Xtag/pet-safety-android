@@ -1316,4 +1316,10 @@
     <string name="sex_female">fêmea</string>
     <string name="sex_unknown">desconhecido</string>
     <string name="breed_mixed">mestiço</string>
+
+    <!-- Appearance -->
+    <string name="appearance_title">Aparência</string>
+    <string name="appearance_system">Sistema</string>
+    <string name="appearance_light">Claro</string>
+    <string name="appearance_dark">Escuro</string>
 </resources>

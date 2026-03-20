@@ -1336,4 +1336,10 @@
     <string name="sex_female">samica</string>
     <string name="sex_unknown">nieznana</string>
     <string name="breed_mixed">mieszaniec</string>
+
+    <!-- Appearance -->
+    <string name="appearance_title">Wygląd</string>
+    <string name="appearance_system">System</string>
+    <string name="appearance_light">Jasny</string>
+    <string name="appearance_dark">Ciemny</string>
 </resources>

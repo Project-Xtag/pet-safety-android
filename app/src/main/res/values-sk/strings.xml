@@ -1324,4 +1324,10 @@
     <string name="sex_female">samica</string>
     <string name="sex_unknown">neznáme</string>
     <string name="breed_mixed">kríženie</string>
+
+    <!-- Appearance -->
+    <string name="appearance_title">Vzhľad</string>
+    <string name="appearance_system">Systém</string>
+    <string name="appearance_light">Svetlý</string>
+    <string name="appearance_dark">Tmavý</string>
 </resources>
