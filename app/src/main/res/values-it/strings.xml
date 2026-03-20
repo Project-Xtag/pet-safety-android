@@ -1297,4 +1297,18 @@
     <string name="share_location_success">Posizione condivisa! Il proprietario è stato avvisato.</string>
     <string name="share_location_denied">È necessario il permesso di localizzazione per condividere la posizione</string>
     <string name="share_location_error">Impossibile condividere la posizione. Riprova.</string>
+
+    <!-- Pet Localization (species, breed, sex) -->
+    <string name="species_dog">Cane</string>
+    <string name="species_bird">Uccello</string>
+    <string name="species_rabbit">Coniglio</string>
+    <string name="species_other">Altro</string>
+    <string name="sex_dog_male">cane</string>
+    <string name="sex_dog_female">femmina</string>
+    <string name="sex_cat_male">gatto</string>
+    <string name="sex_cat_female">gatta</string>
+    <string name="sex_male">maschio</string>
+    <string name="sex_female">femmina</string>
+    <string name="sex_unknown">sconosciuto</string>
+    <string name="breed_mixed">meticcio</string>
 </resources>

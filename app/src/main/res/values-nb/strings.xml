@@ -1296,4 +1296,18 @@
     <string name="share_location_success">Posisjon delt! Eieren har blitt varslet.</string>
     <string name="share_location_denied">Posisjonstillatelse er nødvendig for å dele posisjonen din</string>
     <string name="share_location_error">Kunne ikke dele posisjon. Prøv igjen.</string>
+
+    <!-- Pet Localization (species, breed, sex) -->
+    <string name="species_dog">Hund</string>
+    <string name="species_bird">Fugl</string>
+    <string name="species_rabbit">Kanin</string>
+    <string name="species_other">Annet</string>
+    <string name="sex_dog_male">hannhund</string>
+    <string name="sex_dog_female">tispe</string>
+    <string name="sex_cat_male">katt</string>
+    <string name="sex_cat_female">hunnkatt</string>
+    <string name="sex_male">hann</string>
+    <string name="sex_female">hunn</string>
+    <string name="sex_unknown">ukjent</string>
+    <string name="breed_mixed">blandingsrase</string>
 </resources>

@@ -1322,4 +1322,18 @@
     <string name="share_location_success">Lokalizacja udostępniona! Właściciel został powiadomiony.</string>
     <string name="share_location_denied">Wymagane uprawnienie do lokalizacji, aby udostępnić swoją lokalizację</string>
     <string name="share_location_error">Nie udało się udostępnić lokalizacji. Spróbuj ponownie.</string>
+
+    <!-- Pet Localization (species, breed, sex) -->
+    <string name="species_dog">Pies</string>
+    <string name="species_bird">Ptak</string>
+    <string name="species_rabbit">Królik</string>
+    <string name="species_other">Inne</string>
+    <string name="sex_dog_male">pies</string>
+    <string name="sex_dog_female">suka</string>
+    <string name="sex_cat_male">kocur</string>
+    <string name="sex_cat_female">kotka</string>
+    <string name="sex_male">samiec</string>
+    <string name="sex_female">samica</string>
+    <string name="sex_unknown">nieznana</string>
+    <string name="breed_mixed">mieszaniec</string>
 </resources>

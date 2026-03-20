@@ -1311,4 +1311,18 @@
     <string name="share_location_success">Poloha sdílena! Majitel byl upozorněn.</string>
     <string name="share_location_denied">Povolení polohy je potřebné ke sdílení vaší polohy</string>
     <string name="share_location_error">Nepodařilo se sdílet polohu. Zkuste to znovu.</string>
+
+    <!-- Pet Localization (species, breed, sex) -->
+    <string name="species_dog">Pes</string>
+    <string name="species_bird">Pták</string>
+    <string name="species_rabbit">Králík</string>
+    <string name="species_other">Jiné</string>
+    <string name="sex_dog_male">pes</string>
+    <string name="sex_dog_female">fena</string>
+    <string name="sex_cat_male">kocour</string>
+    <string name="sex_cat_female">kočka</string>
+    <string name="sex_male">samec</string>
+    <string name="sex_female">samice</string>
+    <string name="sex_unknown">neznámé</string>
+    <string name="breed_mixed">kříženec</string>
 </resources>

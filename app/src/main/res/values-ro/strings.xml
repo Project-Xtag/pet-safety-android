@@ -1303,4 +1303,18 @@
     <string name="share_location_success">Locație partajată! Proprietarul a fost notificat.</string>
     <string name="share_location_denied">Este necesară permisiunea de localizare pentru a partaja locația</string>
     <string name="share_location_error">Nu s-a putut partaja locația. Încercați din nou.</string>
+
+    <!-- Pet Localization (species, breed, sex) -->
+    <string name="species_dog">Câine</string>
+    <string name="species_bird">Pasăre</string>
+    <string name="species_rabbit">Iepure</string>
+    <string name="species_other">Altul</string>
+    <string name="sex_dog_male">câine</string>
+    <string name="sex_dog_female">cățea</string>
+    <string name="sex_cat_male">motan</string>
+    <string name="sex_cat_female">pisică</string>
+    <string name="sex_male">mascul</string>
+    <string name="sex_female">femelă</string>
+    <string name="sex_unknown">necunoscut</string>
+    <string name="breed_mixed">metis</string>
 </resources>

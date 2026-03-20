@@ -1297,4 +1297,18 @@
 
     <string name="plan_cancels_on">Otkazuje se</string>
     <string name="plan_renews">Obnavlja se</string>
+
+    <!-- Pet Localization (species, breed, sex) -->
+    <string name="species_dog">Pas</string>
+    <string name="species_bird">Ptica</string>
+    <string name="species_rabbit">Kunić</string>
+    <string name="species_other">Ostalo</string>
+    <string name="sex_dog_male">pas</string>
+    <string name="sex_dog_female">kuja</string>
+    <string name="sex_cat_male">mačak</string>
+    <string name="sex_cat_female">mačka</string>
+    <string name="sex_male">mužjak</string>
+    <string name="sex_female">ženka</string>
+    <string name="sex_unknown">nepoznato</string>
+    <string name="breed_mixed">mješanac</string>
 </resources>

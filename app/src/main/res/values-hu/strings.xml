@@ -1302,4 +1302,18 @@
     <string name="share_location_success">Helyzet megosztva! A tulajdonos értesítve lett.</string>
     <string name="share_location_denied">A helyzet megosztásához helymeghatározási engedély szükséges</string>
     <string name="share_location_error">Nem sikerült a helyzet megosztása. Próbáld újra.</string>
+
+    <!-- Pet Localization (species, breed, sex) -->
+    <string name="species_dog">Kutya</string>
+    <string name="species_bird">Madár</string>
+    <string name="species_rabbit">Nyúl</string>
+    <string name="species_other">Egyéb</string>
+    <string name="sex_dog_male">hím</string>
+    <string name="sex_dog_female">nőstény</string>
+    <string name="sex_cat_male">kandúr</string>
+    <string name="sex_cat_female">nőstény</string>
+    <string name="sex_male">hím</string>
+    <string name="sex_female">nőstény</string>
+    <string name="sex_unknown">ismeretlen</string>
+    <string name="breed_mixed">keverék</string>
 </resources>

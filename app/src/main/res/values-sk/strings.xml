@@ -1310,4 +1310,18 @@
     <string name="share_location_success">Poloha zdieľaná! Majiteľ bol upozornený.</string>
     <string name="share_location_denied">Povolenie polohy je potrebné na zdieľanie vašej polohy</string>
     <string name="share_location_error">Nepodarilo sa zdieľať polohu. Skúste to znova.</string>
+
+    <!-- Pet Localization (species, breed, sex) -->
+    <string name="species_dog">Pes</string>
+    <string name="species_bird">Vták</string>
+    <string name="species_rabbit">Králik</string>
+    <string name="species_other">Iné</string>
+    <string name="sex_dog_male">pes</string>
+    <string name="sex_dog_female">suka</string>
+    <string name="sex_cat_male">kocúr</string>
+    <string name="sex_cat_female">mačka</string>
+    <string name="sex_male">samec</string>
+    <string name="sex_female">samica</string>
+    <string name="sex_unknown">neznáme</string>
+    <string name="breed_mixed">kríženie</string>
 </resources>

@@ -90,6 +90,7 @@ import com.petsafety.app.ui.theme.BrandOrange
 import com.petsafety.app.ui.theme.SuccessGreen
 import com.petsafety.app.ui.theme.TealAccent
 import com.petsafety.app.ui.util.AdaptiveLayout
+import com.petsafety.app.ui.util.PetLocalizer
 import com.petsafety.app.ui.viewmodel.AppStateViewModel
 import com.petsafety.app.ui.viewmodel.AuthViewModel
 import com.petsafety.app.ui.viewmodel.PetsViewModel
@@ -107,6 +108,7 @@ fun PetDetailScreen(
     onBack: () -> Unit,
     appStateViewModel: AppStateViewModel
 ) {
+    val context = LocalContext.current
     val pets by viewModel.pets.collectAsState()
     val pet = pets.firstOrNull { it.id == petId } ?: return
     val currentUser by authViewModel.currentUser.collectAsState()
@@ -333,12 +335,12 @@ fun PetDetailScreen(
             ) {
                 InfoCard(
                     title = stringResource(R.string.species),
-                    value = pet.species.replaceFirstChar { it.uppercase() },
+                    value = PetLocalizer.localizeSpecies(context, pet.species),
                     icon = Icons.Default.Pets
                 )
 
                 pet.breed?.let {
-                    InfoCard(title = stringResource(R.string.breed), value = it, icon = Icons.Default.FormatListBulleted)
+                    InfoCard(title = stringResource(R.string.breed), value = PetLocalizer.localizeBreed(context, it, pet.species), icon = Icons.Default.FormatListBulleted)
                 }
 
                 pet.color?.let {
@@ -354,7 +356,7 @@ fun PetDetailScreen(
                 }
 
                 pet.sex?.takeIf { it.lowercase() != "unknown" }?.let { sex ->
-                    InfoCard(title = stringResource(R.string.sex), value = sex.replaceFirstChar { it.uppercase() }, icon = Icons.Default.Person)
+                    InfoCard(title = stringResource(R.string.sex), value = PetLocalizer.localizeSex(context, sex, pet.species), icon = Icons.Default.Person)
                 }
 
                 pet.isNeutered?.takeIf { it }?.let {

@@ -1302,4 +1302,18 @@
     <string name="share_location_success">Localização partilhada! O dono foi notificado.</string>
     <string name="share_location_denied">É necessária permissão de localização para partilhar a sua localização</string>
     <string name="share_location_error">Não foi possível partilhar a localização. Tente novamente.</string>
+
+    <!-- Pet Localization (species, breed, sex) -->
+    <string name="species_dog">Cão</string>
+    <string name="species_bird">Pássaro</string>
+    <string name="species_rabbit">Coelho</string>
+    <string name="species_other">Outro</string>
+    <string name="sex_dog_male">cão</string>
+    <string name="sex_dog_female">cadela</string>
+    <string name="sex_cat_male">gato</string>
+    <string name="sex_cat_female">gata</string>
+    <string name="sex_male">macho</string>
+    <string name="sex_female">fêmea</string>
+    <string name="sex_unknown">desconhecido</string>
+    <string name="breed_mixed">mestiço</string>
 </resources>

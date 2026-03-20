@@ -1302,4 +1302,18 @@
     <string name="share_location_success">Standort geteilt! Der Besitzer wurde benachrichtigt.</string>
     <string name="share_location_denied">Standortberechtigung ist erforderlich, um Ihren Standort zu teilen</string>
     <string name="share_location_error">Standort konnte nicht geteilt werden. Bitte versuchen Sie es erneut.</string>
+
+    <!-- Pet Localization (species, breed, sex) -->
+    <string name="species_dog">Hund</string>
+    <string name="species_bird">Vogel</string>
+    <string name="species_rabbit">Kaninchen</string>
+    <string name="species_other">Sonstiges</string>
+    <string name="sex_dog_male">Rüde</string>
+    <string name="sex_dog_female">Hündin</string>
+    <string name="sex_cat_male">Kater</string>
+    <string name="sex_cat_female">Kätzin</string>
+    <string name="sex_male">männlich</string>
+    <string name="sex_female">weiblich</string>
+    <string name="sex_unknown">unbekannt</string>
+    <string name="breed_mixed">Mischling</string>
 </resources>

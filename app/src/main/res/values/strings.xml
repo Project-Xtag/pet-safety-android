@@ -1307,4 +1307,18 @@
     <string name="share_location_success">Location shared! The owner has been notified.</string>
     <string name="share_location_denied">Location permission is needed to share your location</string>
     <string name="share_location_error">Failed to share location. Please try again.</string>
+
+    <!-- Pet Localization (species, breed, sex) -->
+    <string name="species_dog">Dog</string>
+    <string name="species_bird">Bird</string>
+    <string name="species_rabbit">Rabbit</string>
+    <string name="species_other">Other</string>
+    <string name="sex_dog_male">Male</string>
+    <string name="sex_dog_female">Female</string>
+    <string name="sex_cat_male">Male</string>
+    <string name="sex_cat_female">Female</string>
+    <string name="sex_male">Male</string>
+    <string name="sex_female">Female</string>
+    <string name="sex_unknown">Unknown</string>
+    <string name="breed_mixed">Mixed breed</string>
 </resources>
