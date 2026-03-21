@@ -29,6 +29,7 @@ import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.FormatListBulleted
 import androidx.compose.material.icons.filled.Info
+import androidx.compose.material.icons.filled.Label
 import androidx.compose.material.icons.filled.LocalHospital
 import androidx.compose.material.icons.filled.MonitorWeight
 import androidx.compose.material.icons.filled.MyLocation
@@ -356,7 +357,7 @@ fun PetDetailScreen(
                 }
 
                 pet.sex?.takeIf { it.lowercase() != "unknown" }?.let { sex ->
-                    InfoCard(title = stringResource(R.string.sex), value = PetLocalizer.localizeSex(context, sex, pet.species), icon = Icons.Default.Person)
+                    InfoCard(title = stringResource(R.string.sex), value = PetLocalizer.localizeSex(context, sex, pet.species), icon = Icons.Default.Label)
                 }
 
                 pet.isNeutered?.takeIf { it }?.let {
