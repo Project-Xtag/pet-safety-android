@@ -70,6 +70,8 @@ import com.petsafety.app.ui.components.PostaPointPicker
 import com.petsafety.app.util.SupportedCountries
 import com.petsafety.app.ui.theme.BrandOrange
 import com.petsafety.app.ui.theme.TealAccent
+import com.petsafety.app.ui.util.PetLocalizer
+import androidx.compose.ui.platform.LocalContext
 import com.petsafety.app.ui.util.AdaptiveLayout
 import com.petsafety.app.ui.viewmodel.AppStateViewModel
 import com.petsafety.app.ui.viewmodel.OrdersViewModel
@@ -265,7 +267,7 @@ fun OrderReplacementTagScreen(
                                 color = MaterialTheme.colorScheme.onSurface
                             )
                             Text(
-                                text = "${pet.species}${pet.breed?.let { " • $it" } ?: ""}",
+                                text = "${PetLocalizer.localizeSpecies(LocalContext.current, pet.species)}${pet.breed?.let { " • ${PetLocalizer.localizeBreed(LocalContext.current, it, pet.species)}" } ?: ""}",
                                 style = MaterialTheme.typography.bodyMedium.copy(fontSize = 14.sp),
                                 color = MaterialTheme.colorScheme.onSurfaceVariant
                             )
