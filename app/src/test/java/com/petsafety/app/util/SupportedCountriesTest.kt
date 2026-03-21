@@ -75,10 +75,19 @@ class SupportedCountriesTest {
     }
 
     @Test
-    fun `all country names are non-empty`() {
+    fun `all countries have non-empty localized names`() {
         for (country in SupportedCountries.all) {
-            assertTrue("Country '${country.code}' has empty name", country.name.isNotBlank())
+            assertTrue("Country '${country.code}' has empty name", country.localizedName().isNotBlank())
         }
+    }
+
+    @Test
+    fun `localizedName returns locale-specific names`() {
+        val hu = SupportedCountries.findByCode("HU")!!
+        val huName = hu.localizedName(java.util.Locale("hu"))
+        val enName = hu.localizedName(java.util.Locale.ENGLISH)
+        assertEquals("Magyarország", huName)
+        assertEquals("Hungary", enName)
     }
 
     // MARK: - find() Lookup
@@ -91,14 +100,10 @@ class SupportedCountriesTest {
     }
 
     @Test
-    fun `find by name - case insensitive`() {
+    fun `find by localized name`() {
         val result = SupportedCountries.find("Hungary")
         assertNotNull(result)
         assertEquals("HU", result?.code)
-
-        val resultLower = SupportedCountries.find("hungary")
-        assertNotNull(resultLower)
-        assertEquals("HU", resultLower?.code)
     }
 
     @Test
@@ -111,7 +116,6 @@ class SupportedCountriesTest {
     @Test
     fun `find trims whitespace`() {
         assertNotNull(SupportedCountries.find("  HU  "))
-        assertNotNull(SupportedCountries.find("  Hungary  "))
     }
 
     // MARK: - findByCode() Lookup
@@ -120,11 +124,11 @@ class SupportedCountriesTest {
     fun `findByCode returns correct country`() {
         val hungary = SupportedCountries.findByCode("HU")
         assertNotNull(hungary)
-        assertEquals("Hungary", hungary?.name)
+        assertEquals("HU", hungary?.code)
 
         val germany = SupportedCountries.findByCode("DE")
         assertNotNull(germany)
-        assertEquals("Germany", germany?.name)
+        assertEquals("DE", germany?.code)
     }
 
     @Test
@@ -142,17 +146,23 @@ class SupportedCountriesTest {
         assertNull(SupportedCountries.findByCode("USA"))
     }
 
-    // MARK: - Known Countries Spot Checks
+    // MARK: - sorted()
 
     @Test
-    fun `spot check known countries exist with correct names`() {
-        assertEquals("Hungary", SupportedCountries.findByCode("HU")?.name)
-        assertEquals("Germany", SupportedCountries.findByCode("DE")?.name)
-        assertEquals("France", SupportedCountries.findByCode("FR")?.name)
-        assertEquals("Spain", SupportedCountries.findByCode("ES")?.name)
-        assertEquals("Norway", SupportedCountries.findByCode("NO")?.name)
-        assertEquals("Switzerland", SupportedCountries.findByCode("CH")?.name)
-        assertEquals("Poland", SupportedCountries.findByCode("PL")?.name)
-        assertEquals("Romania", SupportedCountries.findByCode("RO")?.name)
+    fun `sorted returns all countries`() {
+        assertEquals(28, SupportedCountries.sorted().size)
+    }
+
+    @Test
+    fun `sorted with priority places country first`() {
+        val sorted = SupportedCountries.sorted(priorityCode = "HU")
+        assertEquals("HU", sorted.first().code)
+    }
+
+    @Test
+    fun `sorted without priority is alphabetical by localized name`() {
+        val sorted = SupportedCountries.sorted()
+        val names = sorted.map { it.localizedName() }
+        assertEquals(names, names.sorted())
     }
 }

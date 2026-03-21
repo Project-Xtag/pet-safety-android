@@ -628,7 +628,9 @@ private fun CountryDropdown(
     onSelect: (String) -> Unit,
     modifier: Modifier = Modifier
 ) {
-    val selectedName = SupportedCountries.findByCode(selectedCode)?.name ?: ""
+    val selectedName = SupportedCountries.findByCode(selectedCode)?.localizedName() ?: ""
+    val deviceCountry = java.util.Locale.getDefault().country
+    val sortedCountries = remember(deviceCountry) { SupportedCountries.sorted(priorityCode = deviceCountry) }
 
     ExposedDropdownMenuBox(
         expanded = expanded,
@@ -656,9 +658,9 @@ private fun CountryDropdown(
             expanded = expanded,
             onDismissRequest = { onExpandedChange(false) }
         ) {
-            SupportedCountries.all.forEach { country ->
+            sortedCountries.forEach { country ->
                 DropdownMenuItem(
-                    text = { Text(country.name) },
+                    text = { Text(country.localizedName()) },
                     onClick = { onSelect(country.code) }
                 )
             }
