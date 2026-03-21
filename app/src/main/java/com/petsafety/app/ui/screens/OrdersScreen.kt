@@ -73,6 +73,8 @@ fun OrdersScreen(onBack: () -> Unit) {
     val isLoading by viewModel.isLoading.collectAsState()
     val error by viewModel.errorMessage.collectAsState()
     var selectedOrder by remember { mutableStateOf<Order?>(null) }
+    var selectedTab by remember { mutableStateOf(0) }
+    val tabTitles = listOf(stringResource(R.string.orders_title), stringResource(R.string.pending_registrations_title))
 
     LaunchedEffect(Unit) { viewModel.fetchOrders() }
 
@@ -106,6 +108,32 @@ fun OrdersScreen(onBack: () -> Unit) {
                 ),
                 modifier = Modifier.align(Alignment.Center)
             )
+        }
+
+        // Tab selector
+        androidx.compose.material3.TabRow(
+            selectedTabIndex = selectedTab,
+            containerColor = MaterialTheme.colorScheme.background,
+            contentColor = BrandOrange
+        ) {
+            tabTitles.forEachIndexed { index, title ->
+                androidx.compose.material3.Tab(
+                    selected = selectedTab == index,
+                    onClick = { selectedTab = index },
+                    text = { Text(title, fontWeight = if (selectedTab == index) FontWeight.SemiBold else FontWeight.Normal) }
+                )
+            }
+        }
+
+        if (selectedTab == 1) {
+            PendingRegistrationsScreen(
+                onBack = { selectedTab = 0 },
+                onNavigateToScanner = {},
+                onNavigateToCreatePet = {},
+                onNavigateToOrderTags = {},
+                showHeader = false
+            )
+            return
         }
 
         Box(

@@ -292,12 +292,6 @@ private fun ProfileMain(
                     )
                     HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
                     ProfileMenuRow(
-                        icon = Icons.Default.Inventory2,
-                        title = stringResource(R.string.pending_registrations_title),
-                        onClick = { onNavigate(ProfileSection.PENDING_TAGS) }
-                    )
-                    HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
-                    ProfileMenuRow(
                         icon = Icons.Default.ShoppingBag,
                         title = stringResource(R.string.orders_title),
                         onClick = { onNavigate(ProfileSection.ORDERS) }

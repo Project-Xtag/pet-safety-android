@@ -65,7 +65,8 @@ fun PendingRegistrationsScreen(
     onBack: () -> Unit,
     onNavigateToScanner: () -> Unit,
     onNavigateToCreatePet: (String) -> Unit,
-    onNavigateToOrderTags: () -> Unit
+    onNavigateToOrderTags: () -> Unit,
+    showHeader: Boolean = true
 ) {
     val viewModel: PendingRegistrationsViewModel = hiltViewModel()
     val registrations by viewModel.registrations.collectAsState()
@@ -86,31 +87,33 @@ fun PendingRegistrationsScreen(
             .fillMaxSize()
             .background(MaterialTheme.colorScheme.background)
     ) {
-        // Header
-        Box(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(vertical = 8.dp)
-        ) {
-            IconButton(
-                onClick = onBack,
+        // Header (hidden when embedded in OrdersScreen)
+        if (showHeader) {
+            Box(
                 modifier = Modifier
-                    .align(Alignment.CenterStart)
-                    .padding(start = 8.dp)
+                    .fillMaxWidth()
+                    .padding(vertical = 8.dp)
             ) {
-                Icon(
-                    imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                    contentDescription = stringResource(R.string.back)
+                IconButton(
+                    onClick = onBack,
+                    modifier = Modifier
+                        .align(Alignment.CenterStart)
+                        .padding(start = 8.dp)
+                ) {
+                    Icon(
+                        imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                        contentDescription = stringResource(R.string.back)
+                    )
+                }
+                Text(
+                    text = stringResource(R.string.pending_registrations_title),
+                    style = MaterialTheme.typography.titleMedium.copy(
+                        fontSize = 18.sp,
+                        fontWeight = FontWeight.SemiBold
+                    ),
+                    modifier = Modifier.align(Alignment.Center)
                 )
             }
-            Text(
-                text = stringResource(R.string.pending_registrations_title),
-                style = MaterialTheme.typography.titleMedium.copy(
-                    fontSize = 18.sp,
-                    fontWeight = FontWeight.SemiBold
-                ),
-                modifier = Modifier.align(Alignment.Center)
-            )
         }
 
         Box(
