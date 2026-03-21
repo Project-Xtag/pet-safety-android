@@ -39,7 +39,7 @@ fun PetsScreen(appStateViewModel: AppStateViewModel, authViewModel: AuthViewMode
                 appStateViewModel = appStateViewModel,
                 authViewModel = authViewModel,
                 onPetSelected = { navController.navigate("pet_detail/${it.id}") },
-                onAddPet = { navController.navigate("pet_form") },
+                onAddPet = { navController.navigate("order_more_tags") },
                 onOrderTags = { navController.navigate("order_more_tags") },
                 onReplacementTag = { petId -> navController.navigate("order_replacement/$petId") },
                 onSuccessStories = onNavigateToSuccessStories

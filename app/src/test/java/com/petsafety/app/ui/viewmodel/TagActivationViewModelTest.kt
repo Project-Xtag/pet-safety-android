@@ -473,6 +473,52 @@ class TagActivationViewModelTest {
         assertFalse(viewModel.hasOrderContext())
     }
 
+    // MARK: - refreshAndAutoActivate
+
+    @Test
+    fun `refreshAndAutoActivate - creates pet and auto-activates tag`() = runTest {
+        // Before create: only testPet1 exists
+        val previousIds = setOf("pet-1")
+        // After create: testPet2 is the new pet
+        coEvery { petsRepository.fetchPets() } returns (listOf(testPet1, testPet2) to null)
+        coEvery { qrRepository.activateTag("QR-TEST-001", "pet-2") } returns testTag.copy(petId = "pet-2")
+
+        viewModel.refreshAndAutoActivate("QR-TEST-001", previousIds)
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        // Should auto-select the new pet and activate
+        assertEquals("pet-2", viewModel.selectedPetId.value)
+        val state = viewModel.activationState.value
+        assertTrue("Expected Success but got $state", state is ActivationState.Success)
+        assertEquals("Luna", (state as ActivationState.Success).petName)
+    }
+
+    @Test
+    fun `refreshAndAutoActivate - no new pet - does not activate`() = runTest {
+        val previousIds = setOf("pet-1", "pet-2")
+        coEvery { petsRepository.fetchPets() } returns (listOf(testPet1, testPet2) to null)
+
+        viewModel.refreshAndAutoActivate("QR-TEST-001", previousIds)
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        // No new pet found, activation state should remain Idle
+        assertTrue(viewModel.activationState.value is ActivationState.Idle)
+    }
+
+    @Test
+    fun `refreshAndAutoActivate - activation fails - sets Error state`() = runTest {
+        val previousIds = setOf("pet-1")
+        coEvery { petsRepository.fetchPets() } returns (listOf(testPet1, testPet2) to null)
+        coEvery { qrRepository.activateTag("QR-TEST-001", "pet-2") } throws RuntimeException("Tag already activated")
+
+        viewModel.refreshAndAutoActivate("QR-TEST-001", previousIds)
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        val state = viewModel.activationState.value
+        assertTrue(state is ActivationState.Error)
+        assertEquals("Tag already activated", (state as ActivationState.Error).message)
+    }
+
     @Test
     fun `getUnmatchedOrderNames - ignores null pet names`() = runTest {
         coEvery { petsRepository.fetchPets() } returns (emptyList<Pet>() to null)

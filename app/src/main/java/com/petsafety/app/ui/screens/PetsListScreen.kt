@@ -35,7 +35,6 @@ import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Pets
 import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material.icons.filled.Search
-import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.material.icons.filled.Warning
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
 import androidx.compose.material3.Card
@@ -600,13 +599,6 @@ private fun QuickActionsSection(
                 modifier = Modifier.weight(1f)
             )
             QuickActionButton(
-                icon = Icons.Default.ShoppingCart,
-                title = stringResource(R.string.action_order_tags),
-                color = TealAccent,
-                onClick = onOrderTags,
-                modifier = Modifier.weight(1f)
-            )
-            QuickActionButton(
                 icon = Icons.Default.Refresh,
                 title = stringResource(R.string.action_replace_tag),
                 color = BrandOrange,
@@ -800,7 +792,7 @@ private fun EmptyStateView(onAddPet: () -> Unit) {
         Spacer(modifier = Modifier.height(24.dp))
 
         BrandButton(
-            text = stringResource(R.string.add_pet),
+            text = stringResource(R.string.action_order_tags),
             onClick = onAddPet,
             modifier = Modifier.padding(horizontal = 60.dp)
         )

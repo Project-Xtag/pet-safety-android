@@ -51,8 +51,12 @@ import com.petsafety.app.ui.theme.TealAccent
 import com.petsafety.app.ui.viewmodel.ActivationState
 import com.petsafety.app.ui.viewmodel.AppStateViewModel
 import com.petsafety.app.ui.viewmodel.TagActivationViewModel
+import com.petsafety.app.ui.viewmodel.PetsViewModel
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 
 @Composable
 fun TagActivationScreen(
@@ -63,6 +67,7 @@ fun TagActivationScreen(
     modifier: Modifier = Modifier
 ) {
     val viewModel: TagActivationViewModel = hiltViewModel()
+    val petsViewModel: PetsViewModel = hiltViewModel()
     val pets by viewModel.pets.collectAsState()
     val isLoadingPets by viewModel.isLoadingPets.collectAsState()
     val activationState by viewModel.activationState.collectAsState()
@@ -70,8 +75,26 @@ fun TagActivationScreen(
 
     val orderItems by viewModel.orderItems.collectAsState()
 
+    var showCreatePetForm by remember { mutableStateOf(false) }
+    var petIdsBeforeCreate by remember { mutableStateOf(emptySet<String>()) }
+
     LaunchedEffect(Unit) {
         viewModel.loadActivationData(qrCode)
+    }
+
+    // Show inline pet creation form
+    if (showCreatePetForm) {
+        PetFormScreen(
+            viewModel = petsViewModel,
+            appStateViewModel = appStateViewModel,
+            onBack = { showCreatePetForm = false },
+            onDone = {
+                showCreatePetForm = false
+                // Refresh pets and auto-activate the newly created pet
+                viewModel.refreshAndAutoActivate(qrCode, petIdsBeforeCreate)
+            }
+        )
+        return
     }
 
     // Pre-resolve localized error messages for use in LaunchedEffect
@@ -301,6 +324,15 @@ fun TagActivationScreen(
                                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                                 textAlign = TextAlign.Center
                             )
+                            Spacer(modifier = Modifier.height(24.dp))
+                            BrandButton(
+                                text = stringResource(R.string.create_profile_first),
+                                onClick = {
+                                    petIdsBeforeCreate = pets.map { it.id }.toSet()
+                                    showCreatePetForm = true
+                                },
+                                modifier = Modifier.padding(horizontal = 40.dp)
+                            )
                         }
                     }
                 }
@@ -332,12 +364,11 @@ fun TagActivationScreen(
                                     )
                                 }
                                 items(unmatchedNames, key = { it }) { name ->
-                                    val hint = stringResource(R.string.create_profile_hint)
                                     UnmatchedPetCard(
                                         petName = name,
                                         onCreateProfile = {
-                                            appStateViewModel.showSuccess(hint)
-                                            onBack()
+                                            petIdsBeforeCreate = pets.map { it.id }.toSet()
+                                            showCreatePetForm = true
                                         }
                                     )
                                 }

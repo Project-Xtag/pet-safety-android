@@ -120,4 +120,29 @@ class TagActivationViewModel @Inject constructor(
     }
 
     fun hasOrderContext(): Boolean = _orderItems.value.isNotEmpty()
+
+    /// Refresh pets after creation and auto-activate the tag for the newly created pet.
+    fun refreshAndAutoActivate(qrCode: String, previousPetIds: Set<String>) {
+        viewModelScope.launch {
+            try {
+                val result = petsRepository.fetchPets()
+                _pets.value = result.first
+                val newPet = _pets.value.firstOrNull { it.id !in previousPetIds }
+                if (newPet != null) {
+                    _selectedPetId.value = newPet.id
+                    _activationState.value = ActivationState.Loading
+                    try {
+                        val tag = qrRepository.activateTag(qrCode, newPet.id)
+                        _activationState.value = ActivationState.Success(tag, newPet.name)
+                    } catch (ex: Exception) {
+                        _activationState.value = ActivationState.Error(
+                            ex.localizedMessage ?: "Failed to activate tag"
+                        )
+                    }
+                }
+            } catch (_: Exception) {
+                // Pet refresh failed — user can still activate manually
+            }
+        }
+    }
 }
