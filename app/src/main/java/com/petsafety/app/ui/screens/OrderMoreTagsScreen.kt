@@ -541,11 +541,17 @@ fun OrderMoreTagsScreen(
                                 selected = deliveryMethod.value == "home_delivery",
                                 onClick = { deliveryMethod.value = "home_delivery" }
                             )
-                            Text(
-                                text = "${stringResource(R.string.home_delivery_option)} ($homeDeliveryPriceText)",
-                                style = MaterialTheme.typography.bodyMedium,
-                                modifier = Modifier.weight(1f)
-                            )
+                            Column(modifier = Modifier.weight(1f)) {
+                                Text(
+                                    text = stringResource(R.string.home_delivery_option),
+                                    style = MaterialTheme.typography.bodyMedium
+                                )
+                                Text(
+                                    text = homeDeliveryPriceText,
+                                    style = MaterialTheme.typography.bodySmall,
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                                )
+                            }
                         }
 
                         Row(
@@ -558,11 +564,17 @@ fun OrderMoreTagsScreen(
                                 selected = deliveryMethod.value == "postapoint",
                                 onClick = { deliveryMethod.value = "postapoint" }
                             )
-                            Text(
-                                text = "${stringResource(R.string.postapoint_delivery_option)} ($postapointPriceText)",
-                                style = MaterialTheme.typography.bodyMedium,
-                                modifier = Modifier.weight(1f)
-                            )
+                            Column(modifier = Modifier.weight(1f)) {
+                                Text(
+                                    text = stringResource(R.string.postapoint_delivery_option),
+                                    style = MaterialTheme.typography.bodyMedium
+                                )
+                                Text(
+                                    text = postapointPriceText,
+                                    style = MaterialTheme.typography.bodySmall,
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                                )
+                            }
                         }
 
                         if (deliveryMethod.value == "postapoint") {
