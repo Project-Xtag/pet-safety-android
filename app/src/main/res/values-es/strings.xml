@@ -1322,4 +1322,6 @@
     <string name="appearance_system">Sistema</string>
     <string name="appearance_light">Claro</string>
     <string name="appearance_dark">Oscuro</string>
+    <!-- Localization audit fixes -->
+    <string name="accessibility_refresh">Actualizar</string>
 </resources>

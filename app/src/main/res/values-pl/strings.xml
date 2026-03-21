@@ -1342,4 +1342,6 @@
     <string name="appearance_system">System</string>
     <string name="appearance_light">Jasny</string>
     <string name="appearance_dark">Ciemny</string>
+    <!-- Localization audit fixes -->
+    <string name="accessibility_refresh">Odśwież</string>
 </resources>

@@ -1331,4 +1331,6 @@
     <string name="appearance_system">Systém</string>
     <string name="appearance_light">Světlý</string>
     <string name="appearance_dark">Tmavý</string>
+    <!-- Localization audit fixes -->
+    <string name="accessibility_refresh">Obnovit</string>
 </resources>

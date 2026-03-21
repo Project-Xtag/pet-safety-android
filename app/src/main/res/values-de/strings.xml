@@ -1322,4 +1322,6 @@
     <string name="appearance_system">System</string>
     <string name="appearance_light">Hell</string>
     <string name="appearance_dark">Dunkel</string>
+    <!-- Localization audit fixes -->
+    <string name="accessibility_refresh">Aktualisieren</string>
 </resources>

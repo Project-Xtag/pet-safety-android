@@ -1327,4 +1327,6 @@
     <string name="appearance_system">System</string>
     <string name="appearance_light">Light</string>
     <string name="appearance_dark">Dark</string>
+    <!-- Localization audit fixes -->
+    <string name="accessibility_refresh">Refresh</string>
 </resources>

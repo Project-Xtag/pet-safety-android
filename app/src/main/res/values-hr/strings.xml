@@ -1317,4 +1317,6 @@
     <string name="appearance_system">Sustav</string>
     <string name="appearance_light">Svijetlo</string>
     <string name="appearance_dark">Tamno</string>
+    <!-- Localization audit fixes -->
+    <string name="accessibility_refresh">Osvježi</string>
 </resources>

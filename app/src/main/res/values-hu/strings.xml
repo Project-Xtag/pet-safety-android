@@ -1322,4 +1322,6 @@
     <string name="appearance_system">Rendszer</string>
     <string name="appearance_light">Világos</string>
     <string name="appearance_dark">Sötét</string>
+    <!-- Localization audit fixes -->
+    <string name="accessibility_refresh">Frissítés</string>
 </resources>

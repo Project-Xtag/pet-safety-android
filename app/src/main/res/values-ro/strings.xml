@@ -1323,4 +1323,6 @@
     <string name="appearance_system">Sistem</string>
     <string name="appearance_light">Luminos</string>
     <string name="appearance_dark">Întunecat</string>
+    <!-- Localization audit fixes -->
+    <string name="accessibility_refresh">Reîmprospătare</string>
 </resources>

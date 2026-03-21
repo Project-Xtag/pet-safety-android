@@ -1314,4 +1314,6 @@
     <string name="appearance_system">Système</string>
     <string name="appearance_light">Clair</string>
     <string name="appearance_dark">Sombre</string>
+    <!-- Localization audit fixes -->
+    <string name="accessibility_refresh">Actualiser</string>
 </resources>

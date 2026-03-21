@@ -138,7 +138,7 @@ fun BillingScreen(
                     .align(Alignment.CenterEnd)
                     .padding(end = 8.dp)
             ) {
-                Icon(Icons.Default.Refresh, contentDescription = "Refresh")
+                Icon(Icons.Default.Refresh, contentDescription = stringResource(R.string.accessibility_refresh))
             }
         }
 
