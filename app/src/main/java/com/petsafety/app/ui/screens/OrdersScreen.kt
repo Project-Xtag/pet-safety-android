@@ -74,7 +74,7 @@ fun OrdersScreen(onBack: () -> Unit) {
     val error by viewModel.errorMessage.collectAsState()
     var selectedOrder by remember { mutableStateOf<Order?>(null) }
     var selectedTab by remember { mutableStateOf(0) }
-    val tabTitles = listOf(stringResource(R.string.orders_title), stringResource(R.string.pending_registrations_title))
+    val tabTitles = listOf(stringResource(R.string.orders_title), stringResource(R.string.pending_registrations_title), stringResource(R.string.billing_invoices))
 
     LaunchedEffect(Unit) { viewModel.fetchOrders() }
 
@@ -101,7 +101,7 @@ fun OrdersScreen(onBack: () -> Unit) {
                 )
             }
             Text(
-                text = stringResource(R.string.orders_title),
+                text = stringResource(R.string.orders_and_invoices),
                 style = MaterialTheme.typography.titleMedium.copy(
                     fontSize = 18.sp,
                     fontWeight = FontWeight.SemiBold
@@ -131,6 +131,14 @@ fun OrdersScreen(onBack: () -> Unit) {
                 onNavigateToScanner = {},
                 onNavigateToCreatePet = {},
                 onNavigateToOrderTags = {},
+                showHeader = false
+            )
+            return
+        }
+
+        if (selectedTab == 2) {
+            BillingScreen(
+                onBack = { selectedTab = 0 },
                 showHeader = false
             )
             return

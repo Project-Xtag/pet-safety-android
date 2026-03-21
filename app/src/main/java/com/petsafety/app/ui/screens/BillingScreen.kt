@@ -72,6 +72,7 @@ import java.util.Locale
 @Composable
 fun BillingScreen(
     onBack: () -> Unit,
+    showHeader: Boolean = true,
     viewModel: SubscriptionViewModel = hiltViewModel()
 ) {
     val invoices by viewModel.invoices.collectAsState()
@@ -106,39 +107,41 @@ fun BillingScreen(
             .fillMaxSize()
             .background(MaterialTheme.colorScheme.background)
     ) {
-        // Header
-        Box(
-            modifier = Modifier
-                .fillMaxWidth()
-                .background(PeachBackground)
-                .padding(vertical = 16.dp)
-        ) {
-            IconButton(
-                onClick = onBack,
+        // Header (hidden when embedded in OrdersScreen)
+        if (showHeader) {
+            Box(
                 modifier = Modifier
-                    .align(Alignment.CenterStart)
-                    .padding(start = 8.dp)
+                    .fillMaxWidth()
+                    .background(PeachBackground)
+                    .padding(vertical = 16.dp)
             ) {
-                Icon(Icons.Default.ArrowBack, contentDescription = stringResource(R.string.back))
-            }
-            Text(
-                text = stringResource(R.string.billing_title),
-                style = MaterialTheme.typography.titleMedium.copy(
-                    fontSize = 18.sp,
-                    fontWeight = FontWeight.SemiBold
-                ),
-                modifier = Modifier.align(Alignment.Center)
-            )
-            IconButton(
-                onClick = {
-                    viewModel.loadSubscription()
-                    viewModel.loadInvoices()
-                },
-                modifier = Modifier
-                    .align(Alignment.CenterEnd)
-                    .padding(end = 8.dp)
-            ) {
-                Icon(Icons.Default.Refresh, contentDescription = stringResource(R.string.accessibility_refresh))
+                IconButton(
+                    onClick = onBack,
+                    modifier = Modifier
+                        .align(Alignment.CenterStart)
+                        .padding(start = 8.dp)
+                ) {
+                    Icon(Icons.Default.ArrowBack, contentDescription = stringResource(R.string.back))
+                }
+                Text(
+                    text = stringResource(R.string.billing_title),
+                    style = MaterialTheme.typography.titleMedium.copy(
+                        fontSize = 18.sp,
+                        fontWeight = FontWeight.SemiBold
+                    ),
+                    modifier = Modifier.align(Alignment.Center)
+                )
+                IconButton(
+                    onClick = {
+                        viewModel.loadSubscription()
+                        viewModel.loadInvoices()
+                    },
+                    modifier = Modifier
+                        .align(Alignment.CenterEnd)
+                        .padding(end = 8.dp)
+                ) {
+                    Icon(Icons.Default.Refresh, contentDescription = stringResource(R.string.accessibility_refresh))
+                }
             }
         }
 

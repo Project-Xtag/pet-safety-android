@@ -1344,4 +1344,8 @@
     <string name="appearance_dark">Ciemny</string>
     <!-- Localization audit fixes -->
     <string name="accessibility_refresh">Odśwież</string>
+    <!-- Account menu restructuring -->
+    <string name="notification_settings">Ustawienia powiadomień</string>
+    <string name="orders_and_invoices">Zamówienia i faktury</string>
+    <string name="contact_us">Kontakt</string>
 </resources>

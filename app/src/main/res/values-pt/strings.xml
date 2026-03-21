@@ -1324,4 +1324,8 @@
     <string name="appearance_dark">Escuro</string>
     <!-- Localization audit fixes -->
     <string name="accessibility_refresh">Atualizar</string>
+    <!-- Account menu restructuring -->
+    <string name="notification_settings">Definições de notificações</string>
+    <string name="orders_and_invoices">Encomendas e faturas</string>
+    <string name="contact_us">Contacte-nos</string>
 </resources>

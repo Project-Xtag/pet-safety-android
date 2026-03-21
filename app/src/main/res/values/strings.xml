@@ -1329,4 +1329,8 @@
     <string name="appearance_dark">Dark</string>
     <!-- Localization audit fixes -->
     <string name="accessibility_refresh">Refresh</string>
+    <!-- Account menu restructuring -->
+    <string name="notification_settings">Notification Settings</string>
+    <string name="orders_and_invoices">Orders &amp; Invoices</string>
+    <string name="contact_us">Contact Us</string>
 </resources>

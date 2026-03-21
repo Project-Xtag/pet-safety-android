@@ -36,6 +36,7 @@ import androidx.compose.material.icons.filled.Pets
 import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.CardGiftcard
+import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material.icons.filled.Warning
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
 import androidx.compose.material3.Card
@@ -104,6 +105,7 @@ fun PetsListScreen(
     onOrderTags: () -> Unit,
     onReplacementTag: (String) -> Unit,
     onReferral: () -> Unit = {},
+    onNotifications: () -> Unit = {},
     onSuccessStories: () -> Unit = {}
 ) {
     val pets by viewModel.pets.collectAsState()
@@ -197,7 +199,7 @@ fun PetsListScreen(
                             .verticalScroll(rememberScrollState())
                     ) {
                         // Header Section
-                        HeaderSection(userName = currentUser?.firstName ?: stringResource(R.string.pet_owner_default))
+                        HeaderSection(userName = currentUser?.firstName ?: stringResource(R.string.pet_owner_default), onNotifications = onNotifications)
 
                         Spacer(modifier = Modifier.height(24.dp))
 
@@ -337,30 +339,41 @@ fun PetsListScreen(
 }
 
 @Composable
-private fun HeaderSection(userName: String) {
-    Column(
+private fun HeaderSection(userName: String, onNotifications: () -> Unit = {}) {
+    Row(
         modifier = Modifier
             .fillMaxWidth()
             .background(PeachBackground)
-            .padding(horizontal = 24.dp, vertical = 16.dp)
+            .padding(horizontal = 24.dp, vertical = 16.dp),
+        verticalAlignment = Alignment.CenterVertically
     ) {
-        Text(
-            text = stringResource(R.string.welcome_back_greeting),
-            style = MaterialTheme.typography.bodyMedium.copy(
-                fontSize = 14.sp,
-                fontWeight = FontWeight.Medium
-            ),
-            color = MaterialTheme.colorScheme.onSurfaceVariant
-        )
-        Spacer(modifier = Modifier.height(4.dp))
-        Text(
-            text = userName,
-            style = MaterialTheme.typography.headlineSmall.copy(
-                fontSize = 24.sp,
-                fontWeight = FontWeight.Bold
-            ),
-            color = MaterialTheme.colorScheme.onSurface
-        )
+        Column(modifier = Modifier.weight(1f)) {
+            Text(
+                text = stringResource(R.string.welcome_back_greeting),
+                style = MaterialTheme.typography.bodyMedium.copy(
+                    fontSize = 14.sp,
+                    fontWeight = FontWeight.Medium
+                ),
+                color = MaterialTheme.colorScheme.onSurfaceVariant
+            )
+            Spacer(modifier = Modifier.height(4.dp))
+            Text(
+                text = userName,
+                style = MaterialTheme.typography.headlineSmall.copy(
+                    fontSize = 24.sp,
+                    fontWeight = FontWeight.Bold
+                ),
+                color = MaterialTheme.colorScheme.onSurface
+            )
+        }
+        IconButton(onClick = onNotifications) {
+            Icon(
+                imageVector = Icons.Default.Notifications,
+                contentDescription = stringResource(R.string.notifications_title),
+                tint = BrandOrange,
+                modifier = Modifier.size(24.dp)
+            )
+        }
     }
 }
 

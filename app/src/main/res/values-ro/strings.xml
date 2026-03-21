@@ -1325,4 +1325,8 @@
     <string name="appearance_dark">Întunecat</string>
     <!-- Localization audit fixes -->
     <string name="accessibility_refresh">Reîmprospătare</string>
+    <!-- Account menu restructuring -->
+    <string name="notification_settings">Setări notificări</string>
+    <string name="orders_and_invoices">Comenzi și facturi</string>
+    <string name="contact_us">Contactați-ne</string>
 </resources>

@@ -1332,4 +1332,8 @@
     <string name="appearance_dark">Tmavý</string>
     <!-- Localization audit fixes -->
     <string name="accessibility_refresh">Obnoviť</string>
+    <!-- Account menu restructuring -->
+    <string name="notification_settings">Nastavenia upozornení</string>
+    <string name="orders_and_invoices">Objednávky a faktúry</string>
+    <string name="contact_us">Kontaktujte nás</string>
 </resources>

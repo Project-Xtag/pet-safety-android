@@ -27,6 +27,7 @@ import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.ChevronRight
 import androidx.compose.material.icons.filled.DarkMode
 import androidx.compose.material.icons.filled.Delete
+import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.ExitToApp
 import androidx.compose.material.icons.filled.HelpOutline
 import androidx.compose.material.icons.filled.LightMode
@@ -103,7 +104,8 @@ private enum class ProfileSection {
     SHELTER_CODE,
     PRICING,
     PENDING_TAGS,
-    NOTIFICATION_INBOX
+    NOTIFICATION_INBOX,
+    CONTACT_US
 }
 
 @Composable
@@ -124,7 +126,7 @@ fun ProfileScreen(
             onLogout = { authViewModel.logout() },
             modifier = modifier
         )
-        ProfileSection.PERSONAL -> PersonalInfoScreen(authViewModel, appStateViewModel) { section = ProfileSection.MAIN }
+        ProfileSection.PERSONAL -> PersonalInfoScreen(authViewModel, appStateViewModel, onBack = { section = ProfileSection.MAIN }, onNavigateToAddress = { section = ProfileSection.ADDRESS })
         ProfileSection.ADDRESS -> AddressScreen(authViewModel, appStateViewModel) { section = ProfileSection.MAIN }
         ProfileSection.CONTACTS -> ContactsScreen(authViewModel, appStateViewModel) { section = ProfileSection.MAIN }
         ProfileSection.PRIVACY -> PrivacyModeScreen(authViewModel, appStateViewModel) { section = ProfileSection.MAIN }
@@ -145,6 +147,14 @@ fun ProfileScreen(
             section = ProfileSection.MAIN
         }
         ProfileSection.NOTIFICATION_INBOX -> NotificationsScreen(onBack = { section = ProfileSection.MAIN })
+        ProfileSection.CONTACT_US -> {
+            // Show contact form as a full screen with back navigation
+            ContactSupportDialog(
+                authViewModel = authViewModel,
+                appStateViewModel = appStateViewModel,
+                onDismiss = { section = ProfileSection.MAIN }
+            )
+        }
     }
 }
 
@@ -279,15 +289,33 @@ private fun ProfileMain(
                     )
                     HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
                     ProfileMenuRow(
-                        icon = Icons.Default.Home,
-                        title = stringResource(R.string.address),
-                        onClick = { onNavigate(ProfileSection.ADDRESS) }
-                    )
-                    HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
-                    ProfileMenuRow(
                         icon = Icons.Default.People,
                         title = stringResource(R.string.contacts),
                         onClick = { onNavigate(ProfileSection.CONTACTS) }
+                    )
+                    HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
+                    ProfileMenuRow(
+                        icon = Icons.Default.Notifications,
+                        title = stringResource(R.string.notification_settings),
+                        onClick = { onNavigate(ProfileSection.NOTIFICATIONS) }
+                    )
+                    HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
+                    ProfileMenuRow(
+                        icon = Icons.Default.ShoppingBag,
+                        title = stringResource(R.string.orders_and_invoices),
+                        onClick = { onNavigate(ProfileSection.ORDERS) }
+                    )
+                    HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
+                    ProfileMenuRow(
+                        icon = Icons.Default.Pets,
+                        title = stringResource(R.string.profile_shelter_code),
+                        onClick = { onNavigate(ProfileSection.SHELTER_CODE) }
+                    )
+                    HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
+                    ProfileMenuRow(
+                        icon = Icons.Default.Email,
+                        title = stringResource(R.string.contact_us),
+                        onClick = { onNavigate(ProfileSection.CONTACT_US) }
                     )
                     HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
                     ProfileMenuRow(
@@ -297,51 +325,9 @@ private fun ProfileMain(
                     )
                     HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
                     ProfileMenuRow(
-                        icon = Icons.Default.Notifications,
-                        title = stringResource(R.string.notifications),
-                        onClick = { onNavigate(ProfileSection.NOTIFICATIONS) }
-                    )
-                    HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
-                    ProfileMenuRow(
                         icon = Icons.Default.HelpOutline,
                         title = stringResource(R.string.help_support),
                         onClick = { onNavigate(ProfileSection.HELP) }
-                    )
-                    HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
-                    ProfileMenuRow(
-                        icon = Icons.Default.Notifications,
-                        title = stringResource(R.string.notifications_title),
-                        onClick = { onNavigate(ProfileSection.NOTIFICATION_INBOX) }
-                    )
-                    HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
-                    ProfileMenuRow(
-                        icon = Icons.Default.ShoppingBag,
-                        title = stringResource(R.string.orders_title),
-                        onClick = { onNavigate(ProfileSection.ORDERS) }
-                    )
-                    HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
-                    ProfileMenuRow(
-                        icon = Icons.Default.WorkspacePremium,
-                        title = stringResource(R.string.subscription_title),
-                        onClick = {
-                            val intent = Intent(
-                                Intent.ACTION_VIEW,
-                                Uri.parse("https://senra.pet/manage-subscription")
-                            )
-                            context.startActivity(intent)
-                        }
-                    )
-                    HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
-                    ProfileMenuRow(
-                        icon = Icons.Default.CreditCard,
-                        title = stringResource(R.string.billing_title),
-                        onClick = { onNavigate(ProfileSection.BILLING) }
-                    )
-                    HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
-                    ProfileMenuRow(
-                        icon = Icons.Default.Pets,
-                        title = stringResource(R.string.profile_shelter_code),
-                        onClick = { onNavigate(ProfileSection.SHELTER_CODE) }
                     )
                 }
             }
@@ -451,7 +437,8 @@ private fun ProfileMenuRow(
 private fun PersonalInfoScreen(
     authViewModel: AuthViewModel,
     appStateViewModel: AppStateViewModel,
-    onBack: () -> Unit
+    onBack: () -> Unit,
+    onNavigateToAddress: () -> Unit = {}
 ) {
     val user by authViewModel.currentUser.collectAsState()
     var isEditing by remember { mutableStateOf(false) }
@@ -615,6 +602,42 @@ private fun PersonalInfoScreen(
                     Text(
                         text = stringResource(R.string.cancel),
                         color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                }
+            }
+
+            // Address section link
+            Spacer(modifier = Modifier.height(16.dp))
+            Card(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 16.dp)
+                    .clickable { onNavigateToAddress() },
+                shape = RoundedCornerShape(12.dp),
+                colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface)
+            ) {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(16.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.Home,
+                        contentDescription = null,
+                        tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                        modifier = Modifier.size(24.dp)
+                    )
+                    Spacer(modifier = Modifier.width(16.dp))
+                    Text(
+                        text = stringResource(R.string.address),
+                        style = MaterialTheme.typography.bodyLarge.copy(fontWeight = FontWeight.Medium),
+                        modifier = Modifier.weight(1f)
+                    )
+                    Icon(
+                        imageVector = Icons.Default.ChevronRight,
+                        contentDescription = null,
+                        tint = MaterialTheme.colorScheme.onSurfaceVariant
                     )
                 }
             }

@@ -1319,4 +1319,8 @@
     <string name="appearance_dark">Scuro</string>
     <!-- Localization audit fixes -->
     <string name="accessibility_refresh">Aggiorna</string>
+    <!-- Account menu restructuring -->
+    <string name="notification_settings">Impostazioni notifiche</string>
+    <string name="orders_and_invoices">Ordini e fatture</string>
+    <string name="contact_us">Contattaci</string>
 </resources>
