@@ -153,7 +153,7 @@ data class GetTagResponse(
 data class ReplacementEligibilityResponse(
     val isFreeReplacement: Boolean = false,
     val planName: String = "starter",
-    val shippingCost: Double = 0.0,
+    @Serializable(with = com.petsafety.app.data.model.FlexibleDoubleSerializer::class) val shippingCost: Double = 0.0,
     val currency: String = "EUR",
     val message: String? = null
 )
@@ -162,7 +162,7 @@ data class ReplacementEligibilityResponse(
 data class ReplacementOrderResponse(
     val order: Order,
     val requiresPayment: Boolean = false,
-    val shippingCost: Double = 0.0,
+    @Serializable(with = com.petsafety.app.data.model.FlexibleDoubleSerializer::class) val shippingCost: Double = 0.0,
     val checkoutUrl: String? = null,
     val message: String? = null
 )
@@ -365,7 +365,7 @@ data class ApiErrorResponse(
 // Shipping prices (dynamic from API)
 @Serializable
 data class ShippingPriceInfo(
-    val amount: Double,
+    @Serializable(with = com.petsafety.app.data.model.FlexibleDoubleSerializer::class) val amount: Double,
     val currency: String,
     val label: String
 )

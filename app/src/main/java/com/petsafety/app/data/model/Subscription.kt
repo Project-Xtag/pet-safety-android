@@ -9,8 +9,8 @@ data class SubscriptionPlan(
     val name: String,
     @SerialName("display_name") val displayName: String,
     val description: String? = null,
-    @SerialName("price_monthly") val priceMonthly: Double,
-    @SerialName("price_yearly") val priceYearly: Double,
+    @Serializable(with = FlexibleDoubleSerializer::class) @SerialName("price_monthly") val priceMonthly: Double,
+    @Serializable(with = FlexibleDoubleSerializer::class) @SerialName("price_yearly") val priceYearly: Double,
     val currency: String,
     val features: PlanFeatures,
     @SerialName("is_popular") val isPopular: Boolean? = null
