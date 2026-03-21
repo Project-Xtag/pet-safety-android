@@ -31,6 +31,7 @@ data class Pet(
     @SerialName("is_neutered") val isNeutered: Boolean? = null,
     @SerialName("qr_code") val qrCode: String? = null,
     @SerialName("date_of_birth") val dateOfBirth: String? = null,
+    @SerialName("dob_is_approximate") val dobIsApproximate: Boolean? = null,
     @SerialName("owner_name") val ownerName: String? = null,
     @SerialName("owner_phone") val ownerPhone: String? = null,
     @SerialName("owner_secondary_phone") val ownerSecondaryPhone: String? = null,

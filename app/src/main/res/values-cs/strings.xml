@@ -1339,4 +1339,9 @@
     <string name="contact_us">Kontaktujte nás</string>
     <string name="identity_will_lock_title">Jméno, druh a plemeno budou uzamčeny</string>
     <string name="identity_will_lock_desc">Tato pole nelze po registraci změnit. Před uložením se ujistěte, že jsou správná.</string>
+    <string name="date_of_birth">Datum narození</string>
+    <string name="dob_set_date">Nastavit datum narození</string>
+    <string name="dob_approximate">Přibližné datum</string>
+    <string name="dob_select_date">Vybrat datum</string>
+    <string name="weight_helper">Hmotnost v kg (např. 4,5)</string>
 </resources>

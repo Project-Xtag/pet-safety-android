@@ -1325,4 +1325,9 @@
     <string name="contact_us">Contattaci</string>
     <string name="identity_will_lock_title">Nome, specie e razza saranno bloccati</string>
     <string name="identity_will_lock_desc">Questi campi non potranno essere modificati dopo la registrazione. Assicurati che siano corretti prima di salvare.</string>
+    <string name="date_of_birth">Data di nascita</string>
+    <string name="dob_set_date">Imposta data di nascita</string>
+    <string name="dob_approximate">Data approssimativa</string>
+    <string name="dob_select_date">Seleziona data</string>
+    <string name="weight_helper">Peso in kg (es. 4,5)</string>
 </resources>

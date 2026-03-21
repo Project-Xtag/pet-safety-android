@@ -1350,4 +1350,9 @@
     <string name="contact_us">Kontakt</string>
     <string name="identity_will_lock_title">Imię, gatunek i rasa zostaną zablokowane</string>
     <string name="identity_will_lock_desc">Tych pól nie można zmienić po rejestracji. Upewnij się, że są prawidłowe przed zapisaniem.</string>
+    <string name="date_of_birth">Data urodzenia</string>
+    <string name="dob_set_date">Ustaw datę urodzenia</string>
+    <string name="dob_approximate">Przybliżona data</string>
+    <string name="dob_select_date">Wybierz datę</string>
+    <string name="weight_helper">Waga w kg (np. 4,5)</string>
 </resources>

@@ -1322,4 +1322,9 @@
     <string name="contact_us">Contactez-nous</string>
     <string name="identity_will_lock_title">Le nom, l\'espèce et la race seront verrouillés</string>
     <string name="identity_will_lock_desc">Ces champs ne pourront plus être modifiés après l\'enregistrement. Vérifiez qu\'ils sont corrects avant d\'enregistrer.</string>
+    <string name="date_of_birth">Date de naissance</string>
+    <string name="dob_set_date">Définir la date de naissance</string>
+    <string name="dob_approximate">Date approximative</string>
+    <string name="dob_select_date">Sélectionner la date</string>
+    <string name="weight_helper">Poids en kg (ex. 4,5)</string>
 </resources>

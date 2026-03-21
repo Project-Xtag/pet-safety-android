@@ -22,25 +22,6 @@ data class CreatePetRequest(
     val species: String,
     val breed: String? = null,
     val color: String? = null,
-    val age: String? = null,
-    val weight: Double? = null,
-    @SerialName("microchip_number") val microchipNumber: String? = null,
-    @SerialName("medical_notes") val medicalNotes: String? = null,
-    val allergies: String? = null,
-    val medications: String? = null,
-    val notes: String? = null,
-    @SerialName("unique_features") val uniqueFeatures: String? = null,
-    val sex: String? = null,
-    @SerialName("is_neutered") val isNeutered: Boolean? = null
-)
-
-@Serializable
-data class UpdatePetRequest(
-    val name: String? = null,
-    val species: String? = null,
-    val breed: String? = null,
-    val color: String? = null,
-    val age: String? = null,
     val weight: Double? = null,
     @SerialName("microchip_number") val microchipNumber: String? = null,
     @SerialName("medical_notes") val medicalNotes: String? = null,
@@ -50,7 +31,28 @@ data class UpdatePetRequest(
     @SerialName("unique_features") val uniqueFeatures: String? = null,
     val sex: String? = null,
     @SerialName("is_neutered") val isNeutered: Boolean? = null,
-    @SerialName("is_missing") val isMissing: Boolean? = null
+    @SerialName("date_of_birth") val dateOfBirth: String? = null,
+    @SerialName("dob_is_approximate") val dobIsApproximate: Boolean? = null
+)
+
+@Serializable
+data class UpdatePetRequest(
+    val name: String? = null,
+    val species: String? = null,
+    val breed: String? = null,
+    val color: String? = null,
+    val weight: Double? = null,
+    @SerialName("microchip_number") val microchipNumber: String? = null,
+    @SerialName("medical_notes") val medicalNotes: String? = null,
+    val allergies: String? = null,
+    val medications: String? = null,
+    val notes: String? = null,
+    @SerialName("unique_features") val uniqueFeatures: String? = null,
+    val sex: String? = null,
+    @SerialName("is_neutered") val isNeutered: Boolean? = null,
+    @SerialName("is_missing") val isMissing: Boolean? = null,
+    @SerialName("date_of_birth") val dateOfBirth: String? = null,
+    @SerialName("dob_is_approximate") val dobIsApproximate: Boolean? = null
 )
 
 @Serializable

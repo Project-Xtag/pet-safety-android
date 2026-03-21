@@ -172,7 +172,7 @@ class SyncService(
             species = data.string("species"),
             breed = data.string("breed"),
             color = data.string("color"),
-            age = data.string("age"),
+            dateOfBirth = data.string("dateOfBirth"),
             weight = data.double("weight"),
             microchipNumber = data.string("microchipNumber"),
             medicalNotes = data.string("medicalNotes"),

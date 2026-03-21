@@ -1331,4 +1331,9 @@
     <string name="contact_us">Contactați-ne</string>
     <string name="identity_will_lock_title">Numele, specia și rasa vor fi blocate</string>
     <string name="identity_will_lock_desc">Aceste câmpuri nu pot fi modificate după înregistrare. Asigurați-vă că sunt corecte înainte de salvare.</string>
+    <string name="date_of_birth">Data nașterii</string>
+    <string name="dob_set_date">Setați data nașterii</string>
+    <string name="dob_approximate">Dată aproximativă</string>
+    <string name="dob_select_date">Selectați data</string>
+    <string name="weight_helper">Greutate în kg (ex. 4,5)</string>
 </resources>

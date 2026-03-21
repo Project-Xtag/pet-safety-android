@@ -1330,4 +1330,9 @@
     <string name="contact_us">Kapcsolat</string>
     <string name="identity_will_lock_title">A név, faj és fajta zárolásra kerül</string>
     <string name="identity_will_lock_desc">Ezek a mezők a regisztráció után nem módosíthatók. Kérjük, mentés előtt ellenőrizd, hogy helyesek.</string>
+    <string name="date_of_birth">Születési dátum</string>
+    <string name="dob_set_date">Születési dátum megadása</string>
+    <string name="dob_approximate">Hozzávetőleges dátum</string>
+    <string name="dob_select_date">Dátum kiválasztása</string>
+    <string name="weight_helper">Súly kg-ban (pl. 4,5)</string>
 </resources>

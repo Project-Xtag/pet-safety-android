@@ -1330,4 +1330,9 @@
     <string name="contact_us">Contacte-nos</string>
     <string name="identity_will_lock_title">Nome, espécie e raça serão bloqueados</string>
     <string name="identity_will_lock_desc">Estes campos não podem ser alterados após o registo. Verifique se estão corretos antes de guardar.</string>
+    <string name="date_of_birth">Data de nascimento</string>
+    <string name="dob_set_date">Definir data de nascimento</string>
+    <string name="dob_approximate">Data aproximada</string>
+    <string name="dob_select_date">Selecionar data</string>
+    <string name="weight_helper">Peso em kg (ex. 4,5)</string>
 </resources>

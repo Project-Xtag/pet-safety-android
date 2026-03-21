@@ -1324,4 +1324,9 @@
     <string name="contact_us">Kontakt oss</string>
     <string name="identity_will_lock_title">Navn, art og rase blir låst</string>
     <string name="identity_will_lock_desc">Disse feltene kan ikke endres etter registrering. Sørg for at de er riktige før du lagrer.</string>
+    <string name="date_of_birth">Fødselsdato</string>
+    <string name="dob_set_date">Angi fødselsdato</string>
+    <string name="dob_approximate">Omtrentlig dato</string>
+    <string name="dob_select_date">Velg dato</string>
+    <string name="weight_helper">Vekt i kg (f.eks. 4,5)</string>
 </resources>

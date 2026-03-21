@@ -1325,4 +1325,9 @@
     <string name="contact_us">Kontaktirajte nas</string>
     <string name="identity_will_lock_title">Ime, vrsta i pasmina bit će zaključani</string>
     <string name="identity_will_lock_desc">Ova polja se ne mogu mijenjati nakon registracije. Provjerite jesu li točna prije spremanja.</string>
+    <string name="date_of_birth">Datum rođenja</string>
+    <string name="dob_set_date">Postavi datum rođenja</string>
+    <string name="dob_approximate">Približan datum</string>
+    <string name="dob_select_date">Odaberi datum</string>
+    <string name="weight_helper">Težina u kg (npr. 4,5)</string>
 </resources>

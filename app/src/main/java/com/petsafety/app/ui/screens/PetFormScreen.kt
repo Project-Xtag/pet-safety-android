@@ -20,6 +20,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.CalendarMonth
 import androidx.compose.material.icons.filled.CameraAlt
 import androidx.compose.material.icons.filled.ChevronRight
 import androidx.compose.material.icons.filled.Delete
@@ -30,9 +31,16 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.Checkbox
+import androidx.compose.material3.DatePicker
+import androidx.compose.material3.DatePickerDialog
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.SelectableDates
+import androidx.compose.material3.rememberDatePickerState
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Switch
@@ -74,6 +82,7 @@ import androidx.compose.material.icons.filled.Warning
 import com.petsafety.app.ui.viewmodel.AppStateViewModel
 import com.petsafety.app.ui.viewmodel.PetsViewModel
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PetFormScreen(
     viewModel: PetsViewModel,
@@ -99,7 +108,16 @@ fun PetFormScreen(
     }
     var selectedBreed by remember { mutableStateOf<LocalBreed?>(null) }
     var breedText by remember { mutableStateOf(existing?.breed ?: "") }
-    var age by remember { mutableStateOf(existing?.ageText ?: "") }
+    var hasDob by remember { mutableStateOf(existing?.dateOfBirth != null) }
+    var dobMillis by remember {
+        mutableStateOf(
+            existing?.dateOfBirth?.let {
+                try { java.text.SimpleDateFormat("yyyy-MM-dd", java.util.Locale.US).parse(it)?.time } catch (_: Exception) { null }
+            }
+        )
+    }
+    var dobIsApproximate by remember { mutableStateOf(existing?.dobIsApproximate ?: false) }
+    var showDatePicker by remember { mutableStateOf(false) }
     var color by remember { mutableStateOf(existing?.color ?: "") }
     var microchipNumber by remember { mutableStateOf(existing?.microchipNumber ?: "") }
     var medicalNotes by remember { mutableStateOf(existing?.medicalNotes ?: "") }
@@ -389,12 +407,63 @@ fun PetFormScreen(
                     }
                 }
 
-                FormTextField(
-                    label = stringResource(R.string.pet_form_age_label),
-                    value = age,
-                    onValueChange = { age = it },
-                    placeholder = stringResource(R.string.pet_form_age_placeholder)
-                )
+                // Date of Birth toggle + picker
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.SpaceBetween
+                ) {
+                    Text(stringResource(R.string.dob_set_date), style = MaterialTheme.typography.bodyMedium)
+                    Switch(checked = hasDob, onCheckedChange = { hasDob = it })
+                }
+
+                if (hasDob) {
+                    val dobDisplay = dobMillis?.let {
+                        java.text.SimpleDateFormat("dd MMM yyyy", java.util.Locale.getDefault()).format(java.util.Date(it))
+                    } ?: stringResource(R.string.dob_select_date)
+
+                    OutlinedButton(
+                        onClick = { showDatePicker = true },
+                        modifier = Modifier.fillMaxWidth(),
+                        shape = RoundedCornerShape(12.dp)
+                    ) {
+                        Icon(Icons.Default.CalendarMonth, contentDescription = null, modifier = Modifier.size(18.dp))
+                        Spacer(modifier = Modifier.width(8.dp))
+                        Text(dobDisplay)
+                    }
+
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Checkbox(checked = dobIsApproximate, onCheckedChange = { dobIsApproximate = it })
+                        Spacer(modifier = Modifier.width(4.dp))
+                        Text(stringResource(R.string.dob_approximate), style = MaterialTheme.typography.bodySmall)
+                    }
+                }
+
+                if (showDatePicker) {
+                    val datePickerState = rememberDatePickerState(
+                        initialSelectedDateMillis = dobMillis ?: System.currentTimeMillis(),
+                        selectableDates = object : SelectableDates {
+                            override fun isSelectableDate(utcTimeMillis: Long): Boolean = utcTimeMillis <= System.currentTimeMillis()
+                        }
+                    )
+                    DatePickerDialog(
+                        onDismissRequest = { showDatePicker = false },
+                        confirmButton = {
+                            TextButton(onClick = {
+                                dobMillis = datePickerState.selectedDateMillis
+                                showDatePicker = false
+                            }) { Text(stringResource(R.string.ok)) }
+                        },
+                        dismissButton = {
+                            TextButton(onClick = { showDatePicker = false }) { Text(stringResource(R.string.cancel)) }
+                        }
+                    ) {
+                        DatePicker(state = datePickerState)
+                    }
+                }
 
                 FormTextField(
                     label = stringResource(R.string.colour),
@@ -485,13 +554,13 @@ fun PetFormScreen(
                 onClick = {
                     val breedValue = if (isOtherBreed) customBreedText.ifBlank { null } else selectedBreed?.englishName ?: breedText.ifBlank { null }
                     if (petId == null) {
+                        val dobStr = if (hasDob && dobMillis != null) java.text.SimpleDateFormat("yyyy-MM-dd", java.util.Locale.US).format(java.util.Date(dobMillis!!)) else null
                         viewModel.createPet(
                             CreatePetRequest(
                                 name = name,
                                 species = species,
                                 breed = breedValue,
                                 color = color.ifBlank { null },
-                                age = age.ifBlank { null },
                                 weight = weight.toDoubleOrNull(),
                                 microchipNumber = microchipNumber.ifBlank { null },
                                 medicalNotes = medicalNotes.ifBlank { null },
@@ -500,7 +569,9 @@ fun PetFormScreen(
                                 notes = notes.ifBlank { null },
                                 uniqueFeatures = uniqueFeatures.ifBlank { null },
                                 sex = sex.ifBlank { null },
-                                isNeutered = isNeutered
+                                isNeutered = isNeutered,
+                                dateOfBirth = dobStr,
+                                dobIsApproximate = if (hasDob) dobIsApproximate else null
                             )
                         ) { pet, message ->
                             if (pet != null) {
@@ -513,13 +584,13 @@ fun PetFormScreen(
                             // If both null, pet limit dialog handles it
                         }
                     } else {
+                        val editDobStr = if (hasDob && dobMillis != null) java.text.SimpleDateFormat("yyyy-MM-dd", java.util.Locale.US).format(java.util.Date(dobMillis!!)) else null
                         viewModel.updatePet(
                             petId,
                             UpdatePetRequest(
                                 name = name,
                                 breed = breedValue,
                                 color = color.ifBlank { null },
-                                age = age.ifBlank { null },
                                 weight = weight.toDoubleOrNull(),
                                 microchipNumber = microchipNumber.ifBlank { null },
                                 medicalNotes = medicalNotes.ifBlank { null },
@@ -528,7 +599,9 @@ fun PetFormScreen(
                                 notes = notes.ifBlank { null },
                                 uniqueFeatures = uniqueFeatures.ifBlank { null },
                                 sex = sex.ifBlank { null },
-                                isNeutered = isNeutered
+                                isNeutered = isNeutered,
+                                dateOfBirth = editDobStr,
+                                dobIsApproximate = if (hasDob) dobIsApproximate else null
                             )
                         ) { success, message ->
                             if (success) {

@@ -1338,4 +1338,9 @@
     <string name="contact_us">Kontaktujte nás</string>
     <string name="identity_will_lock_title">Meno, druh a plemeno budú uzamknuté</string>
     <string name="identity_will_lock_desc">Tieto polia nie je možné po registrácii zmeniť. Uistite sa, že sú správne pred uložením.</string>
+    <string name="date_of_birth">Dátum narodenia</string>
+    <string name="dob_set_date">Nastaviť dátum narodenia</string>
+    <string name="dob_approximate">Približný dátum</string>
+    <string name="dob_select_date">Vybrať dátum</string>
+    <string name="weight_helper">Hmotnosť v kg (napr. 4,5)</string>
 </resources>
