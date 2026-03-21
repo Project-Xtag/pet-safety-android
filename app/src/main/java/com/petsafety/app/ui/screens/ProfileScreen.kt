@@ -126,7 +126,7 @@ fun ProfileScreen(
             onLogout = { authViewModel.logout() },
             modifier = modifier
         )
-        ProfileSection.PERSONAL -> PersonalInfoScreen(authViewModel, appStateViewModel, onBack = { section = ProfileSection.MAIN }, onNavigateToAddress = { section = ProfileSection.ADDRESS })
+        ProfileSection.PERSONAL -> PersonalInfoScreen(authViewModel, appStateViewModel, onBack = { section = ProfileSection.MAIN })
         ProfileSection.ADDRESS -> AddressScreen(authViewModel, appStateViewModel) { section = ProfileSection.MAIN }
         ProfileSection.CONTACTS -> ContactsScreen(authViewModel, appStateViewModel) { section = ProfileSection.MAIN }
         ProfileSection.PRIVACY -> PrivacyModeScreen(authViewModel, appStateViewModel) { section = ProfileSection.MAIN }
@@ -437,14 +437,18 @@ private fun ProfileMenuRow(
 private fun PersonalInfoScreen(
     authViewModel: AuthViewModel,
     appStateViewModel: AppStateViewModel,
-    onBack: () -> Unit,
-    onNavigateToAddress: () -> Unit = {}
+    onBack: () -> Unit
 ) {
     val user by authViewModel.currentUser.collectAsState()
     var isEditing by remember { mutableStateOf(false) }
     var firstName by remember { mutableStateOf(user?.firstName ?: "") }
     var lastName by remember { mutableStateOf(user?.lastName ?: "") }
     var phone by remember { mutableStateOf(user?.phone ?: "") }
+    var streetAddress by remember { mutableStateOf(user?.address ?: "") }
+    var addressLine2 by remember { mutableStateOf(user?.addressLine2 ?: "") }
+    var city by remember { mutableStateOf(user?.city ?: "") }
+    var postalCode by remember { mutableStateOf(user?.postalCode ?: "") }
+    var country by remember { mutableStateOf(user?.country ?: "") }
     var isSaving by remember { mutableStateOf(false) }
 
     val updatedMessage = stringResource(R.string.updated)
@@ -454,6 +458,22 @@ private fun PersonalInfoScreen(
     val lastNameLabel = stringResource(R.string.last_name)
     val emailLabel = stringResource(R.string.email)
     val phoneLabel = stringResource(R.string.phone)
+    val streetLabel = stringResource(R.string.street_address)
+    val line2Label = stringResource(R.string.address_line_2_optional)
+    val cityLabel = stringResource(R.string.city)
+    val postCodeLabel = stringResource(R.string.post_code)
+    val countryLabel = stringResource(R.string.country)
+
+    fun resetFields() {
+        firstName = user?.firstName ?: ""
+        lastName = user?.lastName ?: ""
+        phone = user?.phone ?: ""
+        streetAddress = user?.address ?: ""
+        addressLine2 = user?.addressLine2 ?: ""
+        city = user?.city ?: ""
+        postalCode = user?.postalCode ?: ""
+        country = user?.country ?: ""
+    }
 
     Column(
         modifier = Modifier
@@ -464,10 +484,7 @@ private fun PersonalInfoScreen(
             title = stringResource(R.string.personal_information),
             onBack = {
                 if (isEditing) {
-                    // Cancel edit: reset fields and exit edit mode
-                    firstName = user?.firstName ?: ""
-                    lastName = user?.lastName ?: ""
-                    phone = user?.phone ?: ""
+                    resetFields()
                     isEditing = false
                 } else {
                     onBack()
@@ -476,10 +493,7 @@ private fun PersonalInfoScreen(
             trailingContent = if (!isEditing) {
                 {
                     TextButton(onClick = {
-                        // Reset fields to current values when entering edit mode
-                        firstName = user?.firstName ?: ""
-                        lastName = user?.lastName ?: ""
-                        phone = user?.phone ?: ""
+                        resetFields()
                         isEditing = true
                     }) {
                         Text(
@@ -499,6 +513,13 @@ private fun PersonalInfoScreen(
                 .padding(horizontal = 20.dp)
                 .padding(top = 20.dp, bottom = 100.dp)
         ) {
+            // Personal Details Card
+            Text(
+                text = stringResource(R.string.personal_information),
+                style = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.SemiBold),
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.padding(bottom = 8.dp)
+            )
             Card(
                 modifier = Modifier.fillMaxWidth(),
                 shape = RoundedCornerShape(16.dp),
@@ -507,30 +528,13 @@ private fun PersonalInfoScreen(
             ) {
                 Column(modifier = Modifier.padding(16.dp)) {
                     if (isEditing) {
-                        StyledOutlinedTextField(
-                            value = firstName,
-                            onValueChange = { firstName = it },
-                            label = firstNameLabel
-                        )
+                        StyledOutlinedTextField(value = firstName, onValueChange = { firstName = it }, label = firstNameLabel)
                         Spacer(modifier = Modifier.height(12.dp))
-                        StyledOutlinedTextField(
-                            value = lastName,
-                            onValueChange = { lastName = it },
-                            label = lastNameLabel
-                        )
+                        StyledOutlinedTextField(value = lastName, onValueChange = { lastName = it }, label = lastNameLabel)
                         Spacer(modifier = Modifier.height(12.dp))
-                        StyledOutlinedTextField(
-                            value = user?.email ?: "",
-                            onValueChange = {},
-                            label = emailLabel,
-                            enabled = false
-                        )
+                        StyledOutlinedTextField(value = user?.email ?: "", onValueChange = {}, label = emailLabel, enabled = false)
                         Spacer(modifier = Modifier.height(12.dp))
-                        StyledOutlinedTextField(
-                            value = phone,
-                            onValueChange = { phone = it },
-                            label = phoneLabel
-                        )
+                        StyledOutlinedTextField(value = phone, onValueChange = { phone = it }, label = phoneLabel)
                     } else {
                         ReadOnlyField(label = firstNameLabel, value = user?.firstName ?: "")
                         HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
@@ -543,6 +547,45 @@ private fun PersonalInfoScreen(
                 }
             }
 
+            // Address Card
+            Spacer(modifier = Modifier.height(24.dp))
+            Text(
+                text = stringResource(R.string.address),
+                style = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.SemiBold),
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.padding(bottom = 8.dp)
+            )
+            Card(
+                modifier = Modifier.fillMaxWidth(),
+                shape = RoundedCornerShape(16.dp),
+                colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
+                elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
+            ) {
+                Column(modifier = Modifier.padding(16.dp)) {
+                    if (isEditing) {
+                        StyledOutlinedTextField(value = streetAddress, onValueChange = { streetAddress = it }, label = streetLabel)
+                        Spacer(modifier = Modifier.height(12.dp))
+                        StyledOutlinedTextField(value = addressLine2, onValueChange = { addressLine2 = it }, label = line2Label)
+                        Spacer(modifier = Modifier.height(12.dp))
+                        StyledOutlinedTextField(value = city, onValueChange = { city = it }, label = cityLabel)
+                        Spacer(modifier = Modifier.height(12.dp))
+                        StyledOutlinedTextField(value = postalCode, onValueChange = { postalCode = it }, label = postCodeLabel)
+                        Spacer(modifier = Modifier.height(12.dp))
+                        StyledOutlinedTextField(value = country, onValueChange = { country = it }, label = countryLabel)
+                    } else {
+                        ReadOnlyField(label = streetLabel, value = user?.address ?: "")
+                        HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
+                        ReadOnlyField(label = line2Label, value = user?.addressLine2 ?: "")
+                        HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
+                        ReadOnlyField(label = cityLabel, value = user?.city ?: "")
+                        HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
+                        ReadOnlyField(label = postCodeLabel, value = user?.postalCode ?: "")
+                        HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
+                        ReadOnlyField(label = countryLabel, value = user?.country ?: "")
+                    }
+                }
+            }
+
             if (isEditing) {
                 Spacer(modifier = Modifier.height(24.dp))
 
@@ -550,7 +593,16 @@ private fun PersonalInfoScreen(
                     onClick = {
                         isSaving = true
                         authViewModel.updateProfile(
-                            updates = mapOf("first_name" to firstName, "last_name" to lastName, "phone" to phone)
+                            updates = mapOf(
+                                "first_name" to firstName,
+                                "last_name" to lastName,
+                                "phone" to phone,
+                                "address" to streetAddress.trim(),
+                                "address_line_2" to addressLine2.trim(),
+                                "city" to city.trim(),
+                                "postal_code" to postalCode.trim(),
+                                "country" to country.trim()
+                            )
                         ) { success, message ->
                             isSaving = false
                             if (success) {
@@ -592,9 +644,7 @@ private fun PersonalInfoScreen(
 
                 TextButton(
                     onClick = {
-                        firstName = user?.firstName ?: ""
-                        lastName = user?.lastName ?: ""
-                        phone = user?.phone ?: ""
+                        resetFields()
                         isEditing = false
                     },
                     modifier = Modifier.fillMaxWidth()
@@ -602,42 +652,6 @@ private fun PersonalInfoScreen(
                     Text(
                         text = stringResource(R.string.cancel),
                         color = MaterialTheme.colorScheme.onSurfaceVariant
-                    )
-                }
-            }
-
-            // Address section link
-            Spacer(modifier = Modifier.height(16.dp))
-            Card(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 16.dp)
-                    .clickable { onNavigateToAddress() },
-                shape = RoundedCornerShape(12.dp),
-                colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface)
-            ) {
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(16.dp),
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Icon(
-                        imageVector = Icons.Default.Home,
-                        contentDescription = null,
-                        tint = MaterialTheme.colorScheme.onSurfaceVariant,
-                        modifier = Modifier.size(24.dp)
-                    )
-                    Spacer(modifier = Modifier.width(16.dp))
-                    Text(
-                        text = stringResource(R.string.address),
-                        style = MaterialTheme.typography.bodyLarge.copy(fontWeight = FontWeight.Medium),
-                        modifier = Modifier.weight(1f)
-                    )
-                    Icon(
-                        imageVector = Icons.Default.ChevronRight,
-                        contentDescription = null,
-                        tint = MaterialTheme.colorScheme.onSurfaceVariant
                     )
                 }
             }
