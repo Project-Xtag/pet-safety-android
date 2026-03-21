@@ -25,9 +25,11 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.ChevronRight
+import androidx.compose.material.icons.filled.DarkMode
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.ExitToApp
 import androidx.compose.material.icons.filled.HelpOutline
+import androidx.compose.material.icons.filled.LightMode
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.Email
@@ -180,15 +182,41 @@ private fun ProfileMain(
             ) {
                 Spacer(modifier = Modifier.height(60.dp))
 
-                // Title
-                Text(
-                    text = stringResource(R.string.account_title),
-                    style = MaterialTheme.typography.titleMedium.copy(
-                        fontSize = 20.sp,
-                        fontWeight = FontWeight.SemiBold
-                    ),
-                    color = MaterialTheme.colorScheme.onSurface
-                )
+                // Title + dark mode toggle
+                Box(modifier = Modifier.fillMaxWidth()) {
+                    Text(
+                        text = stringResource(R.string.account_title),
+                        style = MaterialTheme.typography.titleMedium.copy(
+                            fontSize = 20.sp,
+                            fontWeight = FontWeight.SemiBold
+                        ),
+                        color = MaterialTheme.colorScheme.onSurface,
+                        modifier = Modifier.align(Alignment.Center)
+                    )
+
+                    val prefs = remember { android.preference.PreferenceManager.getDefaultSharedPreferences(context) }
+                    val currentMode = remember { mutableStateOf(prefs.getString("appearanceMode", "system") ?: "system") }
+                    val isSystemDark = (context.resources.configuration.uiMode and android.content.res.Configuration.UI_MODE_NIGHT_MASK) == android.content.res.Configuration.UI_MODE_NIGHT_YES
+                    val isDark = currentMode.value == "dark" || (currentMode.value == "system" && isSystemDark)
+
+                    IconButton(
+                        onClick = {
+                            val newMode = if (currentMode.value == "dark") "light" else "dark"
+                            currentMode.value = newMode
+                            prefs.edit().putString("appearanceMode", newMode).apply()
+                            (context as? android.app.Activity)?.recreate()
+                        },
+                        modifier = Modifier
+                            .align(Alignment.CenterEnd)
+                            .padding(end = 16.dp)
+                    ) {
+                        Icon(
+                            imageVector = if (isDark) Icons.Default.LightMode else Icons.Default.DarkMode,
+                            contentDescription = stringResource(R.string.appearance_title),
+                            tint = BrandOrange
+                        )
+                    }
+                }
 
                 Spacer(modifier = Modifier.height(24.dp))
 
@@ -273,11 +301,6 @@ private fun ProfileMain(
                         title = stringResource(R.string.notifications),
                         onClick = { onNavigate(ProfileSection.NOTIFICATIONS) }
                     )
-                    HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
-
-                    // Appearance / Dark Mode toggle
-                    AppearanceToggleRow()
-
                     HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
                     ProfileMenuRow(
                         icon = Icons.Default.HelpOutline,
