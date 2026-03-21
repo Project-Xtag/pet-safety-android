@@ -125,7 +125,10 @@ fun OrderMoreTagsScreen(
     val street2 = remember { mutableStateOf("") }
     val city = remember { mutableStateOf("") }
     val postCode = remember { mutableStateOf("") }
-    val selectedCountryCode = remember { mutableStateOf("") }
+    val selectedCountryCode = remember {
+        val detected = java.util.Locale.getDefault().country ?: ""
+        mutableStateOf(if (SupportedCountries.findByCode(detected) != null) detected else "")
+    }
     val countryDropdownExpanded = remember { mutableStateOf(false) }
     val deliveryMethod = remember { mutableStateOf("home_delivery") }
     val selectedPostaPoint = remember { mutableStateOf<PostaPointDetails?>(null) }
