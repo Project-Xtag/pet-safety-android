@@ -1329,4 +1329,6 @@
     <string name="notification_settings">Setări notificări</string>
     <string name="orders_and_invoices">Comenzi și facturi</string>
     <string name="contact_us">Contactați-ne</string>
+    <string name="identity_will_lock_title">Numele, specia și rasa vor fi blocate</string>
+    <string name="identity_will_lock_desc">Aceste câmpuri nu pot fi modificate după înregistrare. Asigurați-vă că sunt corecte înainte de salvare.</string>
 </resources>

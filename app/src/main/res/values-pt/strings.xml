@@ -1328,4 +1328,6 @@
     <string name="notification_settings">Definições de notificações</string>
     <string name="orders_and_invoices">Encomendas e faturas</string>
     <string name="contact_us">Contacte-nos</string>
+    <string name="identity_will_lock_title">Nome, espécie e raça serão bloqueados</string>
+    <string name="identity_will_lock_desc">Estes campos não podem ser alterados após o registo. Verifique se estão corretos antes de guardar.</string>
 </resources>

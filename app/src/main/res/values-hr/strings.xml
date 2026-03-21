@@ -1323,4 +1323,6 @@
     <string name="notification_settings">Postavke obavijesti</string>
     <string name="orders_and_invoices">Narudžbe i računi</string>
     <string name="contact_us">Kontaktirajte nas</string>
+    <string name="identity_will_lock_title">Ime, vrsta i pasmina bit će zaključani</string>
+    <string name="identity_will_lock_desc">Ova polja se ne mogu mijenjati nakon registracije. Provjerite jesu li točna prije spremanja.</string>
 </resources>

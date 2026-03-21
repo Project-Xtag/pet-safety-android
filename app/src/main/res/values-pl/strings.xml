@@ -1348,4 +1348,6 @@
     <string name="notification_settings">Ustawienia powiadomień</string>
     <string name="orders_and_invoices">Zamówienia i faktury</string>
     <string name="contact_us">Kontakt</string>
+    <string name="identity_will_lock_title">Imię, gatunek i rasa zostaną zablokowane</string>
+    <string name="identity_will_lock_desc">Tych pól nie można zmienić po rejestracji. Upewnij się, że są prawidłowe przed zapisaniem.</string>
 </resources>

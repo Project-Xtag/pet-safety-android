@@ -1320,4 +1320,6 @@
     <string name="notification_settings">Paramètres de notification</string>
     <string name="orders_and_invoices">Commandes et factures</string>
     <string name="contact_us">Contactez-nous</string>
+    <string name="identity_will_lock_title">Le nom, l\'espèce et la race seront verrouillés</string>
+    <string name="identity_will_lock_desc">Ces champs ne pourront plus être modifiés après l\'enregistrement. Vérifiez qu\'ils sont corrects avant d\'enregistrer.</string>
 </resources>

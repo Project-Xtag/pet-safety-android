@@ -1328,4 +1328,6 @@
     <string name="notification_settings">Benachrichtigungseinstellungen</string>
     <string name="orders_and_invoices">Bestellungen &amp; Rechnungen</string>
     <string name="contact_us">Kontakt</string>
+    <string name="identity_will_lock_title">Name, Art und Rasse werden gesperrt</string>
+    <string name="identity_will_lock_desc">Diese Felder können nach der Registrierung nicht geändert werden. Bitte überprüfen Sie sie vor dem Speichern.</string>
 </resources>

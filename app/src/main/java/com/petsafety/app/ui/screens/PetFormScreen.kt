@@ -23,6 +23,7 @@ import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.CameraAlt
 import androidx.compose.material.icons.filled.ChevronRight
 import androidx.compose.material.icons.filled.Delete
+import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Pets
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
@@ -215,43 +216,41 @@ fun PetFormScreen(
                 Spacer(modifier = Modifier.height(16.dp))
             }
 
-            // Locked fields info banner
-            if (isEditMode && existing != null) {
-                Card(
-                    modifier = Modifier.fillMaxWidth(),
-                    shape = RoundedCornerShape(12.dp),
-                    colors = CardDefaults.cardColors(
-                        containerColor = Color(0xFFEFF6FF)
-                    )
+            // Identity fields info banner (warning on create, locked notice on edit)
+            Card(
+                modifier = Modifier.fillMaxWidth(),
+                shape = RoundedCornerShape(12.dp),
+                colors = CardDefaults.cardColors(
+                    containerColor = if (isEditMode) Color(0xFFEFF6FF) else Color(0xFFFFF7ED)
+                )
+            ) {
+                Row(
+                    modifier = Modifier.padding(16.dp),
+                    verticalAlignment = Alignment.Top
                 ) {
-                    Row(
-                        modifier = Modifier.padding(16.dp),
-                        verticalAlignment = Alignment.Top
-                    ) {
-                        Icon(
-                            imageVector = Icons.Default.Lock,
-                            contentDescription = null,
-                            modifier = Modifier.size(20.dp),
-                            tint = Color(0xFF2563EB)
+                    Icon(
+                        imageVector = if (isEditMode) Icons.Default.Lock else Icons.Default.Info,
+                        contentDescription = null,
+                        modifier = Modifier.size(20.dp),
+                        tint = if (isEditMode) Color(0xFF2563EB) else Color(0xFFD97706)
+                    )
+                    Spacer(modifier = Modifier.width(12.dp))
+                    Column {
+                        Text(
+                            text = stringResource(if (isEditMode) R.string.identity_locked_title else R.string.identity_will_lock_title),
+                            style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.SemiBold),
+                            color = if (isEditMode) Color(0xFF1E40AF) else Color(0xFF92400E)
                         )
-                        Spacer(modifier = Modifier.width(12.dp))
-                        Column {
-                            Text(
-                                text = stringResource(R.string.identity_locked_title),
-                                style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.SemiBold),
-                                color = Color(0xFF1E40AF)
-                            )
-                            Spacer(modifier = Modifier.height(4.dp))
-                            Text(
-                                text = stringResource(R.string.identity_locked_desc),
-                                style = MaterialTheme.typography.bodySmall,
-                                color = Color(0xFF1D4ED8)
-                            )
-                        }
+                        Spacer(modifier = Modifier.height(4.dp))
+                        Text(
+                            text = stringResource(if (isEditMode) R.string.identity_locked_desc else R.string.identity_will_lock_desc),
+                            style = MaterialTheme.typography.bodySmall,
+                            color = if (isEditMode) Color(0xFF1D4ED8) else Color(0xFFB45309)
+                        )
                     }
                 }
-                Spacer(modifier = Modifier.height(16.dp))
             }
+            Spacer(modifier = Modifier.height(16.dp))
 
             // Photo Section
             FormSection(title = stringResource(R.string.photo)) {

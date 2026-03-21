@@ -1333,4 +1333,6 @@
     <string name="notification_settings">Notification Settings</string>
     <string name="orders_and_invoices">Orders &amp; Invoices</string>
     <string name="contact_us">Contact Us</string>
+    <string name="identity_will_lock_title">Name, species, and breed will be locked</string>
+    <string name="identity_will_lock_desc">These fields cannot be changed after registration. Please make sure they are correct before saving.</string>
 </resources>

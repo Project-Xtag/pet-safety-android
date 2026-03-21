@@ -1328,4 +1328,6 @@
     <string name="notification_settings">Értesítési beállítások</string>
     <string name="orders_and_invoices">Rendelések és számlák</string>
     <string name="contact_us">Kapcsolat</string>
+    <string name="identity_will_lock_title">A név, faj és fajta zárolásra kerül</string>
+    <string name="identity_will_lock_desc">Ezek a mezők a regisztráció után nem módosíthatók. Kérjük, mentés előtt ellenőrizd, hogy helyesek.</string>
 </resources>

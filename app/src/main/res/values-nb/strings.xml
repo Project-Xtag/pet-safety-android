@@ -1322,4 +1322,6 @@
     <string name="notification_settings">Varslingsinnstillinger</string>
     <string name="orders_and_invoices">Bestillinger og fakturaer</string>
     <string name="contact_us">Kontakt oss</string>
+    <string name="identity_will_lock_title">Navn, art og rase blir låst</string>
+    <string name="identity_will_lock_desc">Disse feltene kan ikke endres etter registrering. Sørg for at de er riktige før du lagrer.</string>
 </resources>
