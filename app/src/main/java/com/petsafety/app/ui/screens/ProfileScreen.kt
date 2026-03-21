@@ -316,12 +316,6 @@ private fun ProfileMain(
                     )
                     HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
                     ProfileMenuRow(
-                        icon = Icons.Default.CardGiftcard,
-                        title = stringResource(R.string.referral_title),
-                        onClick = { onNavigate(ProfileSection.REFERRAL) }
-                    )
-                    HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
-                    ProfileMenuRow(
                         icon = Icons.Default.Pets,
                         title = stringResource(R.string.profile_shelter_code),
                         onClick = { onNavigate(ProfileSection.SHELTER_CODE) }
