@@ -42,6 +42,7 @@ fun PetsScreen(appStateViewModel: AppStateViewModel, authViewModel: AuthViewMode
                 onAddPet = { navController.navigate("order_more_tags") },
                 onOrderTags = { navController.navigate("order_more_tags") },
                 onReplacementTag = { petId -> navController.navigate("order_replacement/$petId") },
+                onReferral = { navController.navigate("referral") },
                 onSuccessStories = onNavigateToSuccessStories
             )
         }
@@ -139,6 +140,11 @@ fun PetsScreen(appStateViewModel: AppStateViewModel, authViewModel: AuthViewMode
                 authViewModel = authViewModel,
                 onBack = { navController.popBackStack() },
                 onDone = { navController.popBackStack() }
+            )
+        }
+        composable("referral") {
+            ReferralScreen(
+                onBack = { navController.popBackStack() }
             )
         }
     }

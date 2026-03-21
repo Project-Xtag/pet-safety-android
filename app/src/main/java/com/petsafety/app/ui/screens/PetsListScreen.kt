@@ -35,6 +35,7 @@ import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Pets
 import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material.icons.filled.Search
+import androidx.compose.material.icons.filled.CardGiftcard
 import androidx.compose.material.icons.filled.Warning
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
 import androidx.compose.material3.Card
@@ -102,6 +103,7 @@ fun PetsListScreen(
     onAddPet: () -> Unit,
     onOrderTags: () -> Unit,
     onReplacementTag: (String) -> Unit,
+    onReferral: () -> Unit = {},
     onSuccessStories: () -> Unit = {}
 ) {
     val pets by viewModel.pets.collectAsState()
@@ -238,7 +240,8 @@ fun PetsListScreen(
                                 } else {
                                     appStateViewModel.showError(addPetFirstMessage)
                                 }
-                            }
+                            },
+                            onReferral = onReferral
                         )
 
                         Spacer(modifier = Modifier.height(24.dp))
@@ -563,7 +566,8 @@ private fun QuickActionsSection(
     onAddPet: () -> Unit,
     onMarkLostOrFound: () -> Unit,
     onOrderTags: () -> Unit,
-    onReplaceTag: () -> Unit
+    onReplaceTag: () -> Unit,
+    onReferral: () -> Unit
 ) {
     Column {
         Text(
@@ -578,33 +582,44 @@ private fun QuickActionsSection(
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        Row(
+        Column(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 24.dp),
-            horizontalArrangement = Arrangement.spacedBy(12.dp)
+            verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
-            QuickActionButton(
-                icon = Icons.Default.Add,
-                title = stringResource(R.string.action_add_pet),
-                color = TealAccent,
-                onClick = onAddPet,
-                modifier = Modifier.weight(1f)
-            )
-            QuickActionButton(
-                icon = if (hasMissingPets) Icons.Default.CheckCircle else Icons.Default.Warning,
-                title = if (hasMissingPets) stringResource(R.string.action_mark_found) else stringResource(R.string.action_report_missing),
-                color = if (hasMissingPets) TealAccent else ErrorColor,
-                onClick = onMarkLostOrFound,
-                modifier = Modifier.weight(1f)
-            )
-            QuickActionButton(
-                icon = Icons.Default.Refresh,
-                title = stringResource(R.string.action_replace_tag),
-                color = BrandOrange,
-                onClick = onReplaceTag,
-                modifier = Modifier.weight(1f)
-            )
+            Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+                QuickActionButton(
+                    icon = Icons.Default.Add,
+                    title = stringResource(R.string.action_add_pet),
+                    color = TealAccent,
+                    onClick = onAddPet,
+                    modifier = Modifier.weight(1f)
+                )
+                QuickActionButton(
+                    icon = if (hasMissingPets) Icons.Default.CheckCircle else Icons.Default.Warning,
+                    title = if (hasMissingPets) stringResource(R.string.action_mark_found) else stringResource(R.string.action_report_missing),
+                    color = if (hasMissingPets) TealAccent else ErrorColor,
+                    onClick = onMarkLostOrFound,
+                    modifier = Modifier.weight(1f)
+                )
+            }
+            Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+                QuickActionButton(
+                    icon = Icons.Default.Refresh,
+                    title = stringResource(R.string.action_replace_tag),
+                    color = BrandOrange,
+                    onClick = onReplaceTag,
+                    modifier = Modifier.weight(1f)
+                )
+                QuickActionButton(
+                    icon = Icons.Default.CardGiftcard,
+                    title = stringResource(R.string.referral_title),
+                    color = TealAccent,
+                    onClick = onReferral,
+                    modifier = Modifier.weight(1f)
+                )
+            }
         }
     }
 }
