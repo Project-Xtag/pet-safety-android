@@ -135,11 +135,13 @@ class MainActivity : FragmentActivity() {
     }
 
     private fun extractQrFromHttps(uri: Uri): String? {
-        if (uri.host != "senra.pet") return null
+        val host = uri.host?.lowercase()
+        if (host != "senra.pet" && host != "www.senra.pet") return null
         val path = uri.path ?: return null
         val strippedPath = WebUrlHelper.stripCountryPrefix(path)
         val strippedSegments = strippedPath.trimStart('/').split("/")
-        if (strippedSegments.size >= 2 && strippedSegments[0] == "qr") {
+        val prefix = strippedSegments.getOrNull(0)?.lowercase()
+        if (strippedSegments.size >= 2 && (prefix == "qr" || prefix == "t")) {
             return strippedSegments[1]
         }
         return null

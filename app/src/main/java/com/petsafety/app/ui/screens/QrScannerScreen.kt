@@ -163,8 +163,9 @@ fun QrScannerScreen(
             // Camera Preview
             CameraPreview(
                 lifecycleOwner = lifecycleOwner,
-                onQrCodeScanned = { code ->
+                onQrCodeScanned = { rawCode ->
                     haptic.performHapticFeedback(HapticFeedbackType.LongPress)
+                    val code = extractTagCodeFromUrl(rawCode)
                     viewModel.lookupAndRoute(code)
                     appStateViewModel.showSuccess(qrScannedMessage)
                 },
@@ -895,6 +896,30 @@ private fun InfoCard(
                 color = MaterialTheme.colorScheme.onSurface
             )
         }
+    }
+}
+
+/**
+ * Extract the short tag code from a scanned QR value.
+ * Handles full URLs (https://senra.pet/t/CODE, /qr/CODE) and plain codes.
+ */
+private fun extractTagCodeFromUrl(rawValue: String): String {
+    val trimmed = rawValue.trim()
+    return try {
+        val uri = Uri.parse(trimmed)
+        val host = uri.host?.lowercase()
+        if (host != "senra.pet" && host != "www.senra.pet") return trimmed
+        val segments = uri.pathSegments ?: return trimmed
+        // Strip country prefix if present (e.g., /hu/t/CODE)
+        val stripped = if (segments.size >= 3 && segments[0].length == 2) segments.drop(1) else segments
+        val prefix = stripped.getOrNull(0)?.lowercase()
+        if (stripped.size >= 2 && (prefix == "t" || prefix == "qr")) {
+            stripped[1]
+        } else {
+            trimmed
+        }
+    } catch (_: Exception) {
+        trimmed
     }
 }
 
