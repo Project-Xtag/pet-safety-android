@@ -1359,4 +1359,5 @@
     <string name="update_contact_details">Frissítsd az elérhetőségeidet és adatvédelmi beállításaidat</string>
     <string name="go_to_home">Főoldal</string>
     <string name="thank_you_senra">Köszönjük, hogy a Senrát választottad!</string>
+    <string name="tap_pet_name_hint">Csak koppints kedvenced nevére a címke beállításához</string>
 </resources>

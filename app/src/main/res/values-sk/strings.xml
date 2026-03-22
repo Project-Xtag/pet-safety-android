@@ -1366,4 +1366,5 @@
     <string name="update_contact_details">Aktualizujte kontaktné údaje a súkromie</string>
     <string name="go_to_home">Na úvodnú stránku</string>
     <string name="thank_you_senra">Ďakujeme, že používate Senra!</string>
+    <string name="tap_pet_name_hint">Stačí klepnúť na meno vášho miláčika a nastaviť jeho štítok</string>
 </resources>

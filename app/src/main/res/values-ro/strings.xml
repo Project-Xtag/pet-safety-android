@@ -1359,4 +1359,5 @@
     <string name="update_contact_details">Actualizează datele de contact și confidențialitatea</string>
     <string name="go_to_home">Acasă</string>
     <string name="thank_you_senra">Mulțumim că folosești Senra!</string>
+    <string name="tap_pet_name_hint">Atinge numele animalului tău pentru a configura eticheta</string>
 </resources>

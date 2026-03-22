@@ -1352,4 +1352,5 @@
     <string name="update_contact_details">Oppdater kontaktinfo og personvern</string>
     <string name="go_to_home">Gå til hjem</string>
     <string name="thank_you_senra">Takk for at du bruker Senra!</string>
+    <string name="tap_pet_name_hint">Trykk på kjæledyrets navn for å sette opp brikken</string>
 </resources>

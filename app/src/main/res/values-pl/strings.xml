@@ -1378,4 +1378,5 @@
     <string name="update_contact_details">Zaktualizuj dane kontaktowe i prywatność</string>
     <string name="go_to_home">Przejdź na stronę główną</string>
     <string name="thank_you_senra">Dziękujemy za korzystanie z Senra!</string>
+    <string name="tap_pet_name_hint">Dotknij imienia zwierzaka, aby skonfigurować plakietkę</string>
 </resources>

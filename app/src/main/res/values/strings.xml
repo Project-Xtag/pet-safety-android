@@ -1366,4 +1366,5 @@
     <string name="update_contact_details">Update your contact details &amp; privacy</string>
     <string name="go_to_home">Go to Home</string>
     <string name="thank_you_senra">Thank you for using Senra!</string>
+    <string name="tap_pet_name_hint">Just tap on your pet\'s name to set up their tag</string>
 </resources>
