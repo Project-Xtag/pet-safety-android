@@ -169,9 +169,8 @@ fun QrScannerScreen(
             key(cameraKey) {
             CameraPreview(
                 lifecycleOwner = lifecycleOwner,
-                onQrCodeScanned = { rawCode ->
+                onQrCodeScanned = { code ->
                     haptic.performHapticFeedback(HapticFeedbackType.LongPress)
-                    val code = extractTagCodeFromUrl(rawCode)
                     viewModel.lookupAndRoute(code)
                     appStateViewModel.showSuccess(qrScannedMessage)
                 },
