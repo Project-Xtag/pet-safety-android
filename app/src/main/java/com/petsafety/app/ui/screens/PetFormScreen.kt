@@ -88,6 +88,7 @@ fun PetFormScreen(
     viewModel: PetsViewModel,
     appStateViewModel: AppStateViewModel,
     petId: String? = null,
+    initialPetName: String? = null,
     onBack: () -> Unit = {},
     onDone: () -> Unit
 ) {
@@ -102,7 +103,7 @@ fun PetFormScreen(
         stringResource(R.string.species_cat)
     )
 
-    var name by remember { mutableStateOf(existing?.name ?: "") }
+    var name by remember { mutableStateOf(existing?.name ?: initialPetName ?: "") }
     var species by remember(existing?.species, defaultSpecies) {
         mutableStateOf(existing?.species ?: defaultSpecies)
     }
@@ -268,6 +269,30 @@ fun PetFormScreen(
                     }
                 }
             }
+            // Tag activation context banner
+            if (!initialPetName.isNullOrBlank()) {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .background(BrandOrange.copy(alpha = 0.1f), RoundedCornerShape(12.dp))
+                        .padding(horizontal = 16.dp, vertical = 12.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.Info,
+                        contentDescription = null,
+                        tint = BrandOrange,
+                        modifier = Modifier.size(20.dp)
+                    )
+                    Spacer(modifier = Modifier.width(10.dp))
+                    Text(
+                        text = stringResource(R.string.setting_up_tag_for, initialPetName),
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                }
+            }
+
             Spacer(modifier = Modifier.height(16.dp))
 
             // Photo Section

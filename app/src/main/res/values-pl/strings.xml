@@ -1355,4 +1355,27 @@
     <string name="dob_approximate">Przybliżona data</string>
     <string name="dob_select_date">Wybierz datę</string>
     <string name="weight_helper">Waga w kg (np. 4,5)</string>
+
+    <string name="welcome_to_senra">Witaj w Senra!</string>
+    <string name="welcome_subtitle">Bezpieczeństwo Twojego zwierzaka zaczyna się tutaj. Skonfiguruj swoją pierwszą plakietkę.</string>
+    <string name="welcome_step_1">Zeskanuj kod QR na plakietce</string>
+    <string name="welcome_step_2">Utwórz profil swojego zwierzaka</string>
+    <string name="welcome_step_3">Twój zwierzak jest chroniony!</string>
+    <string name="welcome_scan_first_tag">Skanuj pierwszą plakietkę</string>
+    <string name="welcome_explore_account">Przeglądaj swoje konto</string>
+    <string name="setup_your_tags">Skonfiguruj plakietki</string>
+    <string name="setup_your_tags_subtitle">Zamówiłeś plakietki dla tych zwierząt:</string>
+    <string name="ready_to_setup">Gotowe do konfiguracji</string>
+    <string name="already_activated">Już aktywowana</string>
+    <string name="setting_up_tag_for">Konfiguracja plakietki dla %s</string>
+    <string name="tag_activated_for">Plakietka aktywowana dla %s!</string>
+    <string name="pet_now_protected">Twój zwierzak jest teraz chroniony przez Senra</string>
+    <string name="more_tags_to_setup">Masz jeszcze plakietki do skonfigurowania</string>
+    <string name="setup_pet_tag">Skonfiguruj plakietkę %s</string>
+    <string name="whats_next">Co dalej?</string>
+    <string name="choose_subscription_plan">Wybierz plan subskrypcji</string>
+    <string name="register_your_vet">Zarejestruj swojego weterynarza</string>
+    <string name="update_contact_details">Zaktualizuj dane kontaktowe i prywatność</string>
+    <string name="go_to_home">Przejdź na stronę główną</string>
+    <string name="thank_you_senra">Dziękujemy za korzystanie z Senra!</string>
 </resources>

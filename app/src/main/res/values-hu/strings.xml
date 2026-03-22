@@ -1335,4 +1335,28 @@
     <string name="dob_approximate">Hozzávetőleges dátum</string>
     <string name="dob_select_date">Dátum kiválasztása</string>
     <string name="weight_helper">Súly kg-ban (pl. 4,5)</string>
+
+    <!-- Welcome Screen -->
+    <string name="welcome_to_senra">Üdvözlünk a Senrában!</string>
+    <string name="welcome_subtitle">Kedvenced biztonsága itt kezdődik. Állítsd be az első címkédet.</string>
+    <string name="welcome_step_1">Olvasd be a QR-kódot a címkédről</string>
+    <string name="welcome_step_2">Hozd létre kedvenced profilját</string>
+    <string name="welcome_step_3">Kedvenced védelem alatt áll!</string>
+    <string name="welcome_scan_first_tag">Első címke beolvasása</string>
+    <string name="welcome_explore_account">Fiók felfedezése</string>
+    <string name="setup_your_tags">Címkék beállítása</string>
+    <string name="setup_your_tags_subtitle">Ezekhez az állatokhoz rendeltél címkét:</string>
+    <string name="ready_to_setup">Beállításra kész</string>
+    <string name="already_activated">Már aktiválva</string>
+    <string name="setting_up_tag_for">Címke beállítása: %s</string>
+    <string name="tag_activated_for">%s címkéje aktiválva!</string>
+    <string name="pet_now_protected">Kedvenced mostantól Senra védelme alatt áll</string>
+    <string name="more_tags_to_setup">Még vannak beállítandó címkéid</string>
+    <string name="setup_pet_tag">%s címkéjének beállítása</string>
+    <string name="whats_next">Mi a következő lépés?</string>
+    <string name="choose_subscription_plan">Válassz előfizetési csomagot</string>
+    <string name="register_your_vet">Regisztráld az állatorvosodat</string>
+    <string name="update_contact_details">Frissítsd az elérhetőségeidet és adatvédelmi beállításaidat</string>
+    <string name="go_to_home">Főoldal</string>
+    <string name="thank_you_senra">Köszönjük, hogy a Senrát választottad!</string>
 </resources>

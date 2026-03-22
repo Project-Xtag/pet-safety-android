@@ -19,7 +19,7 @@ import com.petsafety.app.ui.viewmodel.PetsViewModel
 import com.petsafety.app.ui.viewmodel.SuccessStoriesViewModel
 
 @Composable
-fun PetsScreen(appStateViewModel: AppStateViewModel, authViewModel: AuthViewModel, modifier: Modifier = Modifier, onNavigateToSuccessStories: () -> Unit = {}) {
+fun PetsScreen(appStateViewModel: AppStateViewModel, authViewModel: AuthViewModel, modifier: Modifier = Modifier, onNavigateToSuccessStories: () -> Unit = {}, onScanTag: () -> Unit = {}, onExploreAccount: () -> Unit = {}) {
     val navController = rememberNavController()
     val viewModel: PetsViewModel = hiltViewModel()
     val successStoriesViewModel: SuccessStoriesViewModel = hiltViewModel()
@@ -44,7 +44,9 @@ fun PetsScreen(appStateViewModel: AppStateViewModel, authViewModel: AuthViewMode
                 onReplacementTag = { petId -> navController.navigate("order_replacement/$petId") },
                 onReferral = { navController.navigate("referral") },
                 onNotifications = { navController.navigate("notifications") },
-                onSuccessStories = onNavigateToSuccessStories
+                onSuccessStories = onNavigateToSuccessStories,
+                onScanTag = onScanTag,
+                onExploreAccount = onExploreAccount
             )
         }
         composable(

@@ -1330,4 +1330,27 @@
     <string name="dob_approximate">Data approssimativa</string>
     <string name="dob_select_date">Seleziona data</string>
     <string name="weight_helper">Peso in kg (es. 4,5)</string>
+
+    <string name="welcome_to_senra">Benvenuto su Senra!</string>
+    <string name="welcome_subtitle">La sicurezza del tuo animale inizia qui. Configura il tuo primo tag.</string>
+    <string name="welcome_step_1">Scansiona il codice QR sul tuo tag</string>
+    <string name="welcome_step_2">Crea il profilo del tuo animale</string>
+    <string name="welcome_step_3">Il tuo animale è protetto!</string>
+    <string name="welcome_scan_first_tag">Scansiona il primo tag</string>
+    <string name="welcome_explore_account">Esplora il tuo account</string>
+    <string name="setup_your_tags">Configura i tuoi tag</string>
+    <string name="setup_your_tags_subtitle">Hai ordinato tag per questi animali:</string>
+    <string name="ready_to_setup">Pronto per la configurazione</string>
+    <string name="already_activated">Già attivato</string>
+    <string name="setting_up_tag_for">Configurazione tag per %s</string>
+    <string name="tag_activated_for">Tag attivato per %s!</string>
+    <string name="pet_now_protected">Il tuo animale è ora protetto con Senra</string>
+    <string name="more_tags_to_setup">Hai ancora tag da configurare</string>
+    <string name="setup_pet_tag">Configura il tag di %s</string>
+    <string name="whats_next">Cosa fare dopo?</string>
+    <string name="choose_subscription_plan">Scegli il tuo piano di abbonamento</string>
+    <string name="register_your_vet">Registra il tuo veterinario</string>
+    <string name="update_contact_details">Aggiorna i tuoi contatti e la privacy</string>
+    <string name="go_to_home">Vai alla home</string>
+    <string name="thank_you_senra">Grazie per aver scelto Senra!</string>
 </resources>

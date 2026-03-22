@@ -53,6 +53,10 @@ import com.petsafety.app.ui.viewmodel.AppStateViewModel
 import com.petsafety.app.ui.viewmodel.TagActivationViewModel
 import com.petsafety.app.ui.viewmodel.PetsViewModel
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.ChevronRight
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -126,15 +130,17 @@ fun TagActivationScreen(
     if (activationState is ActivationState.Success) {
         val successState = activationState as ActivationState.Success
         val selectedPet = pets.firstOrNull { it.id == selectedPetId }
+        val remaining = orderItems.filter { it.tagStatus != "active" }
+        val context = LocalContext.current
 
         Column(
             modifier = modifier
                 .fillMaxSize()
+                .verticalScroll(rememberScrollState())
                 .padding(24.dp),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Spacer(modifier = Modifier.weight(1f))
+            Spacer(modifier = Modifier.height(24.dp))
 
             Icon(
                 imageVector = Icons.Default.CheckCircle,
@@ -143,25 +149,24 @@ fun TagActivationScreen(
                 tint = TealAccent
             )
 
-            Spacer(modifier = Modifier.height(24.dp))
+            Spacer(modifier = Modifier.height(20.dp))
 
             Text(
-                text = stringResource(R.string.tag_activated),
-                style = MaterialTheme.typography.headlineMedium.copy(
-                    fontWeight = FontWeight.Bold
-                )
+                text = stringResource(R.string.tag_activated_for, successState.petName),
+                style = MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.Bold),
+                textAlign = TextAlign.Center
             )
 
-            Spacer(modifier = Modifier.height(12.dp))
+            Spacer(modifier = Modifier.height(8.dp))
 
             Text(
-                text = stringResource(R.string.tag_activated_message, successState.petName),
+                text = stringResource(R.string.pet_now_protected),
                 style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                 textAlign = TextAlign.Center
             )
 
-            Spacer(modifier = Modifier.height(24.dp))
+            Spacer(modifier = Modifier.height(20.dp))
 
             selectedPet?.let { pet ->
                 Box(
@@ -188,20 +193,105 @@ fun TagActivationScreen(
                     }
                 }
 
-                Spacer(modifier = Modifier.height(16.dp))
+                Spacer(modifier = Modifier.height(24.dp))
             }
 
-            Text(
-                text = stringResource(R.string.tag_choose_plan),
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                textAlign = TextAlign.Center
-            )
+            // Remaining tags section
+            if (remaining.isNotEmpty()) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Icon(
+                        imageVector = Icons.Default.Pets,
+                        contentDescription = null,
+                        modifier = Modifier.size(18.dp),
+                        tint = BrandOrange
+                    )
+                    Spacer(modifier = Modifier.width(8.dp))
+                    Text(
+                        text = stringResource(R.string.more_tags_to_setup),
+                        style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.SemiBold)
+                    )
+                }
 
-            Spacer(modifier = Modifier.weight(1f))
+                Spacer(modifier = Modifier.height(12.dp))
+
+                remaining.forEach { item ->
+                    Card(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .clickable {
+                                // TODO: Navigate to activate this specific tag
+                                viewModel.resetActivation()
+                                onActivationComplete()
+                            },
+                        shape = RoundedCornerShape(12.dp),
+                        colors = CardDefaults.cardColors(containerColor = BrandOrange.copy(alpha = 0.08f))
+                    ) {
+                        Row(
+                            modifier = Modifier.padding(16.dp),
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Icon(
+                                imageVector = Icons.Default.Pets,
+                                contentDescription = null,
+                                modifier = Modifier.size(20.dp),
+                                tint = BrandOrange
+                            )
+                            Spacer(modifier = Modifier.width(12.dp))
+                            Text(
+                                text = stringResource(R.string.setup_pet_tag, item.petName ?: "Pet"),
+                                style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.Medium),
+                                modifier = Modifier.weight(1f)
+                            )
+                            Icon(
+                                imageVector = Icons.Default.ChevronRight,
+                                contentDescription = null,
+                                tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                                modifier = Modifier.size(18.dp)
+                            )
+                        }
+                    }
+                    Spacer(modifier = Modifier.height(8.dp))
+                }
+            } else {
+                // All done — show next steps
+                Text(
+                    text = stringResource(R.string.thank_you_senra),
+                    style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold)
+                )
+
+                Spacer(modifier = Modifier.height(8.dp))
+
+                Text(
+                    text = stringResource(R.string.whats_next),
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+
+                Spacer(modifier = Modifier.height(16.dp))
+
+                NextStepCard(
+                    text = stringResource(R.string.choose_subscription_plan),
+                    onClick = {
+                        val intent = android.content.Intent(android.content.Intent.ACTION_VIEW, android.net.Uri.parse("https://senra.pet/choose-plan"))
+                        context.startActivity(intent)
+                    }
+                )
+                Spacer(modifier = Modifier.height(8.dp))
+                NextStepCard(
+                    text = stringResource(R.string.register_your_vet),
+                    onClick = { viewModel.resetActivation(); onActivationComplete() }
+                )
+                Spacer(modifier = Modifier.height(8.dp))
+                NextStepCard(
+                    text = stringResource(R.string.update_contact_details),
+                    onClick = { viewModel.resetActivation(); onActivationComplete() }
+                )
+            }
+
+            Spacer(modifier = Modifier.height(24.dp))
 
             BrandButton(
-                text = stringResource(R.string.tag_choose_plan_button),
+                text = stringResource(R.string.go_to_home),
                 onClick = {
                     viewModel.resetActivation()
                     onActivationComplete()
@@ -209,24 +299,7 @@ fun TagActivationScreen(
                 modifier = Modifier.fillMaxWidth()
             )
 
-            Spacer(modifier = Modifier.height(12.dp))
-
-            Text(
-                text = stringResource(R.string.tag_skip_for_now),
-                style = MaterialTheme.typography.bodyMedium.copy(
-                    fontWeight = FontWeight.Medium
-                ),
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                modifier = Modifier
-                    .clickable {
-                        viewModel.resetActivation()
-                        onActivationComplete()
-                    }
-                    .padding(12.dp),
-                textAlign = TextAlign.Center
-            )
-
-            Spacer(modifier = Modifier.height(24.dp))
+            Spacer(modifier = Modifier.height(32.dp))
         }
     } else {
         Column(
@@ -594,6 +667,37 @@ private fun UnmatchedPetCard(petName: String, onCreateProfile: () -> Unit = {}) 
                         .padding(vertical = 4.dp)
                 )
             }
+        }
+    }
+}
+
+@Composable
+private fun NextStepCard(
+    text: String,
+    onClick: () -> Unit
+) {
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable(onClick = onClick),
+        shape = RoundedCornerShape(12.dp),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainerHigh)
+    ) {
+        Row(
+            modifier = Modifier.padding(16.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Text(
+                text = text,
+                style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.Medium),
+                modifier = Modifier.weight(1f)
+            )
+            Icon(
+                imageVector = Icons.Default.ChevronRight,
+                contentDescription = null,
+                tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.size(18.dp)
+            )
         }
     }
 }

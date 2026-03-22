@@ -38,7 +38,11 @@ import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.CardGiftcard
 import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material.icons.filled.Warning
+import androidx.compose.material.icons.filled.Edit
+import androidx.compose.material.icons.filled.QrCodeScanner
+import androidx.compose.material.icons.filled.VerifiedUser
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -106,7 +110,9 @@ fun PetsListScreen(
     onReplacementTag: (String) -> Unit,
     onReferral: () -> Unit = {},
     onNotifications: () -> Unit = {},
-    onSuccessStories: () -> Unit = {}
+    onSuccessStories: () -> Unit = {},
+    onScanTag: () -> Unit = {},
+    onExploreAccount: () -> Unit = {}
 ) {
     val pets by viewModel.pets.collectAsState()
     val isLoading by viewModel.isLoading.collectAsState()
@@ -184,8 +190,9 @@ fun PetsListScreen(
                     onRetry = { viewModel.refresh() }
                 )
             } else if (pets.isEmpty() && !isLoading) {
-                EmptyStateView(
-                    onAddPet = onAddPet
+                WelcomeView(
+                    onScanTag = onScanTag,
+                    onExploreAccount = onExploreAccount
                 )
             } else {
                 PullToRefreshBox(
@@ -775,54 +782,130 @@ private fun SuccessStoriesSection(onClick: () -> Unit) {
 }
 
 @Composable
-private fun EmptyStateView(onAddPet: () -> Unit) {
+private fun WelcomeView(
+    onScanTag: () -> Unit,
+    onExploreAccount: () -> Unit
+) {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(40.dp),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
+            .verticalScroll(rememberScrollState())
+            .padding(horizontal = 24.dp, vertical = 32.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
+        Spacer(modifier = Modifier.height(20.dp))
+
+        // Hero icon
         Box(
             modifier = Modifier
-                .size(100.dp)
-                .background(MaterialTheme.colorScheme.surfaceContainerHigh, CircleShape),
+                .size(120.dp)
+                .background(BrandOrange.copy(alpha = 0.15f), CircleShape),
             contentAlignment = Alignment.Center
         ) {
             Icon(
                 imageVector = Icons.Default.Pets,
-                contentDescription = stringResource(R.string.no_pets),
-                modifier = Modifier.size(40.dp),
-                tint = TealAccent
+                contentDescription = null,
+                modifier = Modifier.size(50.dp),
+                tint = BrandOrange
             )
         }
 
-        Spacer(modifier = Modifier.height(24.dp))
+        Spacer(modifier = Modifier.height(28.dp))
 
+        // Headline
         Text(
-            text = stringResource(R.string.empty_pets_title),
-            style = MaterialTheme.typography.titleLarge.copy(
-                fontSize = 20.sp,
+            text = stringResource(R.string.welcome_to_senra),
+            style = MaterialTheme.typography.headlineSmall.copy(
+                fontSize = 28.sp,
                 fontWeight = FontWeight.Bold
             ),
             color = MaterialTheme.colorScheme.onSurface
         )
 
-        Spacer(modifier = Modifier.height(8.dp))
+        Spacer(modifier = Modifier.height(10.dp))
 
         Text(
-            text = stringResource(R.string.empty_pets_message),
-            style = MaterialTheme.typography.bodyMedium.copy(fontSize = 15.sp),
+            text = stringResource(R.string.welcome_subtitle),
+            style = MaterialTheme.typography.bodyMedium.copy(fontSize = 16.sp),
             color = MaterialTheme.colorScheme.onSurfaceVariant,
-            textAlign = TextAlign.Center
+            textAlign = TextAlign.Center,
+            modifier = Modifier.padding(horizontal = 16.dp)
         )
 
-        Spacer(modifier = Modifier.height(24.dp))
+        Spacer(modifier = Modifier.height(32.dp))
 
+        // 3-step explainer
+        WelcomeStep(number = "1", text = stringResource(R.string.welcome_step_1), icon = Icons.Default.QrCodeScanner)
+        Spacer(modifier = Modifier.height(12.dp))
+        WelcomeStep(number = "2", text = stringResource(R.string.welcome_step_2), icon = Icons.Default.Edit)
+        Spacer(modifier = Modifier.height(12.dp))
+        WelcomeStep(number = "3", text = stringResource(R.string.welcome_step_3), icon = Icons.Default.VerifiedUser)
+
+        Spacer(modifier = Modifier.height(36.dp))
+
+        // Primary CTA
         BrandButton(
-            text = stringResource(R.string.action_order_tags),
-            onClick = onAddPet,
-            modifier = Modifier.padding(horizontal = 60.dp)
+            text = stringResource(R.string.welcome_scan_first_tag),
+            onClick = onScanTag,
+            modifier = Modifier.fillMaxWidth()
+        )
+
+        Spacer(modifier = Modifier.height(14.dp))
+
+        // Secondary link
+        TextButton(onClick = onExploreAccount) {
+            Text(
+                text = stringResource(R.string.welcome_explore_account),
+                style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.Medium),
+                color = BrandOrange
+            )
+        }
+
+        Spacer(modifier = Modifier.height(20.dp))
+    }
+}
+
+@Composable
+private fun WelcomeStep(
+    number: String,
+    text: String,
+    icon: ImageVector
+) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .background(MaterialTheme.colorScheme.surfaceContainerHigh, RoundedCornerShape(12.dp))
+            .padding(horizontal = 16.dp, vertical = 12.dp),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Box(
+            modifier = Modifier
+                .size(36.dp)
+                .background(BrandOrange, CircleShape),
+            contentAlignment = Alignment.Center
+        ) {
+            Text(
+                text = number,
+                style = MaterialTheme.typography.bodyLarge.copy(fontWeight = FontWeight.Bold),
+                color = Color.White
+            )
+        }
+
+        Spacer(modifier = Modifier.width(16.dp))
+
+        Icon(
+            imageVector = icon,
+            contentDescription = null,
+            modifier = Modifier.size(22.dp),
+            tint = BrandOrange
+        )
+
+        Spacer(modifier = Modifier.width(10.dp))
+
+        Text(
+            text = text,
+            style = MaterialTheme.typography.bodyMedium.copy(fontSize = 15.sp),
+            color = MaterialTheme.colorScheme.onSurface
         )
     }
 }

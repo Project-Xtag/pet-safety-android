@@ -1336,4 +1336,27 @@
     <string name="dob_approximate">Dată aproximativă</string>
     <string name="dob_select_date">Selectați data</string>
     <string name="weight_helper">Greutate în kg (ex. 4,5)</string>
+
+    <string name="welcome_to_senra">Bine ai venit la Senra!</string>
+    <string name="welcome_subtitle">Siguranța animalului tău începe aici. Configurează prima etichetă.</string>
+    <string name="welcome_step_1">Scanează codul QR de pe etichetă</string>
+    <string name="welcome_step_2">Creează profilul animalului tău</string>
+    <string name="welcome_step_3">Animalul tău este protejat!</string>
+    <string name="welcome_scan_first_tag">Scanează prima etichetă</string>
+    <string name="welcome_explore_account">Explorează contul tău</string>
+    <string name="setup_your_tags">Configurare etichete</string>
+    <string name="setup_your_tags_subtitle">Ai comandat etichete pentru aceste animale:</string>
+    <string name="ready_to_setup">Gata de configurare</string>
+    <string name="already_activated">Deja activată</string>
+    <string name="setting_up_tag_for">Configurare etichetă pentru %s</string>
+    <string name="tag_activated_for">Etichetă activată pentru %s!</string>
+    <string name="pet_now_protected">Animalul tău este acum protejat cu Senra</string>
+    <string name="more_tags_to_setup">Mai ai etichete de configurat</string>
+    <string name="setup_pet_tag">Configurează eticheta lui %s</string>
+    <string name="whats_next">Ce urmează?</string>
+    <string name="choose_subscription_plan">Alege planul de abonament</string>
+    <string name="register_your_vet">Înregistrează-ți veterinarul</string>
+    <string name="update_contact_details">Actualizează datele de contact și confidențialitatea</string>
+    <string name="go_to_home">Acasă</string>
+    <string name="thank_you_senra">Mulțumim că folosești Senra!</string>
 </resources>

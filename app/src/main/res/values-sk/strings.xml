@@ -1343,4 +1343,27 @@
     <string name="dob_approximate">Približný dátum</string>
     <string name="dob_select_date">Vybrať dátum</string>
     <string name="weight_helper">Hmotnosť v kg (napr. 4,5)</string>
+
+    <string name="welcome_to_senra">Vitajte v Senra!</string>
+    <string name="welcome_subtitle">Bezpečnosť vášho domáceho miláčika začína tu. Nastavte si prvý štítok.</string>
+    <string name="welcome_step_1">Naskenujte QR kód na štítku</string>
+    <string name="welcome_step_2">Vytvorte profil svojho miláčika</string>
+    <string name="welcome_step_3">Váš miláčik je chránený!</string>
+    <string name="welcome_scan_first_tag">Naskenovať prvý štítok</string>
+    <string name="welcome_explore_account">Preskúmať účet</string>
+    <string name="setup_your_tags">Nastavenie štítkov</string>
+    <string name="setup_your_tags_subtitle">Objednali ste štítky pre tieto zvieratá:</string>
+    <string name="ready_to_setup">Pripravené na nastavenie</string>
+    <string name="already_activated">Už aktivované</string>
+    <string name="setting_up_tag_for">Nastavenie štítku pre %s</string>
+    <string name="tag_activated_for">Štítok pre %s aktivovaný!</string>
+    <string name="pet_now_protected">Váš miláčik je teraz chránený so Senra</string>
+    <string name="more_tags_to_setup">Ešte máte štítky na nastavenie</string>
+    <string name="setup_pet_tag">Nastaviť štítok pre %s</string>
+    <string name="whats_next">Čo ďalej?</string>
+    <string name="choose_subscription_plan">Vyberte si predplatné</string>
+    <string name="register_your_vet">Zaregistrujte svojho veterinára</string>
+    <string name="update_contact_details">Aktualizujte kontaktné údaje a súkromie</string>
+    <string name="go_to_home">Na úvodnú stránku</string>
+    <string name="thank_you_senra">Ďakujeme, že používate Senra!</string>
 </resources>

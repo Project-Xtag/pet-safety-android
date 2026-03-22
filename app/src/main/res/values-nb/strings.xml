@@ -1329,4 +1329,27 @@
     <string name="dob_approximate">Omtrentlig dato</string>
     <string name="dob_select_date">Velg dato</string>
     <string name="weight_helper">Vekt i kg (f.eks. 4,5)</string>
+
+    <string name="welcome_to_senra">Velkommen til Senra!</string>
+    <string name="welcome_subtitle">Sikkerheten til kjæledyret ditt starter her. Sett opp din første brikke.</string>
+    <string name="welcome_step_1">Skann QR-koden på brikken din</string>
+    <string name="welcome_step_2">Opprett profilen til kjæledyret ditt</string>
+    <string name="welcome_step_3">Kjæledyret ditt er beskyttet!</string>
+    <string name="welcome_scan_first_tag">Skann din første brikke</string>
+    <string name="welcome_explore_account">Utforsk kontoen din</string>
+    <string name="setup_your_tags">Sett opp brikkene dine</string>
+    <string name="setup_your_tags_subtitle">Du bestilte brikker for disse kjæledyrene:</string>
+    <string name="ready_to_setup">Klar til oppsett</string>
+    <string name="already_activated">Allerede aktivert</string>
+    <string name="setting_up_tag_for">Setter opp brikke for %s</string>
+    <string name="tag_activated_for">Brikke aktivert for %s!</string>
+    <string name="pet_now_protected">Kjæledyret ditt er nå beskyttet med Senra</string>
+    <string name="more_tags_to_setup">Du har fortsatt brikker å sette opp</string>
+    <string name="setup_pet_tag">Sett opp brikken til %s</string>
+    <string name="whats_next">Hva er neste steg?</string>
+    <string name="choose_subscription_plan">Velg abonnementsplan</string>
+    <string name="register_your_vet">Registrer veterinæren din</string>
+    <string name="update_contact_details">Oppdater kontaktinfo og personvern</string>
+    <string name="go_to_home">Gå til hjem</string>
+    <string name="thank_you_senra">Takk for at du bruker Senra!</string>
 </resources>

@@ -1335,4 +1335,28 @@
     <string name="dob_approximate">Ungefähres Datum</string>
     <string name="dob_select_date">Datum auswählen</string>
     <string name="weight_helper">Gewicht in kg (z.B. 4,5)</string>
+
+    <!-- Welcome Screen -->
+    <string name="welcome_to_senra">Willkommen bei Senra!</string>
+    <string name="welcome_subtitle">Die Sicherheit deines Haustiers beginnt hier. Richte dein erstes Tag ein.</string>
+    <string name="welcome_step_1">Scanne den QR-Code auf deinem Tag</string>
+    <string name="welcome_step_2">Erstelle das Profil deines Haustiers</string>
+    <string name="welcome_step_3">Dein Haustier ist geschützt!</string>
+    <string name="welcome_scan_first_tag">Erstes Tag scannen</string>
+    <string name="welcome_explore_account">Konto erkunden</string>
+    <string name="setup_your_tags">Tags einrichten</string>
+    <string name="setup_your_tags_subtitle">Du hast Tags für diese Haustiere bestellt:</string>
+    <string name="ready_to_setup">Bereit zur Einrichtung</string>
+    <string name="already_activated">Bereits aktiviert</string>
+    <string name="setting_up_tag_for">Tag einrichten für %s</string>
+    <string name="tag_activated_for">Tag für %s aktiviert!</string>
+    <string name="pet_now_protected">Dein Haustier ist jetzt mit Senra geschützt</string>
+    <string name="more_tags_to_setup">Du hast noch Tags einzurichten</string>
+    <string name="setup_pet_tag">Tag für %s einrichten</string>
+    <string name="whats_next">Was kommt als Nächstes?</string>
+    <string name="choose_subscription_plan">Wähle deinen Abo-Plan</string>
+    <string name="register_your_vet">Registriere deinen Tierarzt</string>
+    <string name="update_contact_details">Kontaktdaten und Datenschutz aktualisieren</string>
+    <string name="go_to_home">Zur Startseite</string>
+    <string name="thank_you_senra">Danke, dass du Senra nutzt!</string>
 </resources>
