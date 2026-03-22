@@ -1360,4 +1360,12 @@
     <string name="go_to_home">Főoldal</string>
     <string name="thank_you_senra">Köszönjük, hogy a Senrát választottad!</string>
     <string name="tap_pet_name_hint">Csak koppints kedvenced nevére a címke beállításához</string>
+    <plurals name="age_years">
+        <item quantity="one">%d év</item>
+        <item quantity="other">%d év</item>
+    </plurals>
+    <plurals name="age_months">
+        <item quantity="one">%d hónap</item>
+        <item quantity="other">%d hónap</item>
+    </plurals>
 </resources>

@@ -273,10 +273,7 @@ fun TagActivationScreen(
 
                 NextStepCard(
                     text = stringResource(R.string.choose_subscription_plan),
-                    onClick = {
-                        val intent = android.content.Intent(android.content.Intent.ACTION_VIEW, android.net.Uri.parse("https://senra.pet/choose-plan"))
-                        context.startActivity(intent)
-                    }
+                    onClick = { viewModel.resetActivation(); onActivationComplete() }
                 )
                 Spacer(modifier = Modifier.height(8.dp))
                 NextStepCard(

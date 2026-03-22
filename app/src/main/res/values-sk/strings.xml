@@ -1367,4 +1367,12 @@
     <string name="go_to_home">Na úvodnú stránku</string>
     <string name="thank_you_senra">Ďakujeme, že používate Senra!</string>
     <string name="tap_pet_name_hint">Stačí klepnúť na meno vášho miláčika a nastaviť jeho štítok</string>
+    <plurals name="age_years">
+        <item quantity="one">%d rok</item>
+        <item quantity="other">%d rokov</item>
+    </plurals>
+    <plurals name="age_months">
+        <item quantity="one">%d mesiac</item>
+        <item quantity="other">%d mesiacov</item>
+    </plurals>
 </resources>

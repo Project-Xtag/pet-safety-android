@@ -1360,4 +1360,12 @@
     <string name="go_to_home">Acasă</string>
     <string name="thank_you_senra">Mulțumim că folosești Senra!</string>
     <string name="tap_pet_name_hint">Atinge numele animalului tău pentru a configura eticheta</string>
+    <plurals name="age_years">
+        <item quantity="one">%d an</item>
+        <item quantity="other">%d ani</item>
+    </plurals>
+    <plurals name="age_months">
+        <item quantity="one">%d lună</item>
+        <item quantity="other">%d luni</item>
+    </plurals>
 </resources>

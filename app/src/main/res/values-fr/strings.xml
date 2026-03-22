@@ -1351,4 +1351,12 @@
     <string name="go_to_home">Retour à l\'accueil</string>
     <string name="thank_you_senra">Merci d\'utiliser Senra !</string>
     <string name="tap_pet_name_hint">Appuyez sur le nom de votre animal pour configurer son badge</string>
+    <plurals name="age_years">
+        <item quantity="one">%d an</item>
+        <item quantity="other">%d ans</item>
+    </plurals>
+    <plurals name="age_months">
+        <item quantity="one">%d mois</item>
+        <item quantity="other">%d mois</item>
+    </plurals>
 </resources>

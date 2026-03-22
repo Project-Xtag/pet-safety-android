@@ -1354,4 +1354,12 @@
     <string name="go_to_home">Na početnu</string>
     <string name="thank_you_senra">Hvala što koristite Senru!</string>
     <string name="tap_pet_name_hint">Dodirnite ime ljubimca za postavljanje oznake</string>
+    <plurals name="age_years">
+        <item quantity="one">%d godina</item>
+        <item quantity="other">%d godina</item>
+    </plurals>
+    <plurals name="age_months">
+        <item quantity="one">%d mjesec</item>
+        <item quantity="other">%d mjeseci</item>
+    </plurals>
 </resources>

@@ -1360,4 +1360,12 @@
     <string name="go_to_home">Zur Startseite</string>
     <string name="thank_you_senra">Danke, dass du Senra nutzt!</string>
     <string name="tap_pet_name_hint">Tippe einfach auf den Namen deines Haustiers, um das Tag einzurichten</string>
+    <plurals name="age_years">
+        <item quantity="one">%d Jahr</item>
+        <item quantity="other">%d Jahre</item>
+    </plurals>
+    <plurals name="age_months">
+        <item quantity="one">%d Monat</item>
+        <item quantity="other">%d Monate</item>
+    </plurals>
 </resources>

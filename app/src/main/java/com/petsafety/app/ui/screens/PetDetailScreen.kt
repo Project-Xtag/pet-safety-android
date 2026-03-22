@@ -348,7 +348,7 @@ fun PetDetailScreen(
                     InfoCard(title = stringResource(R.string.color), value = it, icon = Icons.Default.Palette)
                 }
 
-                pet.age?.let {
+                (pet.localizedAge(LocalContext.current.resources) ?: pet.age)?.let {
                     InfoCard(title = stringResource(R.string.age), value = it, icon = Icons.Default.CalendarMonth)
                 }
 

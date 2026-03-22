@@ -1367,4 +1367,14 @@
     <string name="go_to_home">Go to Home</string>
     <string name="thank_you_senra">Thank you for using Senra!</string>
     <string name="tap_pet_name_hint">Just tap on your pet\'s name to set up their tag</string>
+
+    <!-- Age Plurals -->
+    <plurals name="age_years">
+        <item quantity="one">%d year</item>
+        <item quantity="other">%d years</item>
+    </plurals>
+    <plurals name="age_months">
+        <item quantity="one">%d month</item>
+        <item quantity="other">%d months</item>
+    </plurals>
 </resources>

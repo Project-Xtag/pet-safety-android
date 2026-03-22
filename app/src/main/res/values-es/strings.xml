@@ -1359,4 +1359,12 @@
     <string name="go_to_home">Ir al inicio</string>
     <string name="thank_you_senra">¡Gracias por usar Senra!</string>
     <string name="tap_pet_name_hint">Solo toca el nombre de tu mascota para configurar su etiqueta</string>
+    <plurals name="age_years">
+        <item quantity="one">%d año</item>
+        <item quantity="other">%d años</item>
+    </plurals>
+    <plurals name="age_months">
+        <item quantity="one">%d mes</item>
+        <item quantity="other">%d meses</item>
+    </plurals>
 </resources>

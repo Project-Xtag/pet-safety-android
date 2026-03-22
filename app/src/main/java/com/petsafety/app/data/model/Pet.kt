@@ -1,5 +1,6 @@
 package com.petsafety.app.data.model
 
+import com.petsafety.app.R
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -46,18 +47,38 @@ data class Pet(
     // Use whichever field is set (API may return either profile_image or photo_url)
     val profileImage: String?
         get() = profileImageField ?: photoUrlField
+    // Age formatted from numeric fields using localized strings
+    fun localizedAge(resources: android.content.res.Resources): String? {
+        val prefix = if (ageIsApproximate == true) "~" else ""
+        if (ageYears != null && ageYears > 0) {
+            val yearsStr = resources.getQuantityString(R.plurals.age_years, ageYears, ageYears)
+            return if (ageMonths != null && ageMonths > 0) {
+                val monthsStr = resources.getQuantityString(R.plurals.age_months, ageMonths, ageMonths)
+                "$prefix$yearsStr $monthsStr"
+            } else {
+                "$prefix$yearsStr"
+            }
+        }
+        if (ageMonths != null && ageMonths > 0) {
+            val monthsStr = resources.getQuantityString(R.plurals.age_months, ageMonths, ageMonths)
+            return "$prefix$monthsStr"
+        }
+        return null
+    }
+
+    // Fallback age (non-localized, for non-UI contexts)
     val age: String?
         get() {
-            if (!ageText.isNullOrBlank()) return ageText
+            val prefix = if (ageIsApproximate == true) "~" else ""
             if (ageYears != null && ageYears > 0) {
                 return if (ageMonths != null && ageMonths > 0) {
-                    "${ageYears}y ${ageMonths}m"
+                    "$prefix${ageYears}y ${ageMonths}m"
                 } else {
-                    "${ageYears} year${if (ageYears == 1) "" else "s"}"
+                    "$prefix${ageYears}y"
                 }
             }
             if (ageMonths != null && ageMonths > 0) {
-                return "${ageMonths} month${if (ageMonths == 1) "" else "s"}"
+                return "$prefix${ageMonths}m"
             }
             return null
         }
