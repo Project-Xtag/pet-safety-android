@@ -87,6 +87,8 @@ import androidx.lifecycle.LifecycleOwner
 import coil.compose.AsyncImage
 import com.google.android.gms.location.LocationServices
 import com.google.mlkit.vision.barcode.BarcodeScanning
+import com.google.mlkit.vision.barcode.BarcodeScannerOptions
+import com.google.mlkit.vision.barcode.common.Barcode
 import com.google.mlkit.vision.common.InputImage
 import com.petsafety.app.R
 import com.petsafety.app.data.model.ScanResponse
@@ -352,11 +354,15 @@ private fun CameraPreview(
     onQrCodeScanned: (String) -> Unit,
     onCameraReady: (androidx.camera.core.Camera) -> Unit = {}
 ) {
-    val scanner = BarcodeScanning.getClient()
-
     AndroidView(
         modifier = Modifier.fillMaxSize(),
         factory = { ctx ->
+            // QR-only format filter — faster and more accurate than scanning all formats
+            val options = BarcodeScannerOptions.Builder()
+                .setBarcodeFormats(Barcode.FORMAT_QR_CODE)
+                .build()
+            val scanner = BarcodeScanning.getClient(options)
+
             val previewView = PreviewView(ctx)
             val cameraProviderFuture = ProcessCameraProvider.getInstance(ctx)
             cameraProviderFuture.addListener({
@@ -365,7 +371,11 @@ private fun CameraPreview(
                     it.setSurfaceProvider(previewView.surfaceProvider)
                 }
 
-                val analysis = ImageAnalysis.Builder().build().also { imageAnalysis ->
+                val analysis = ImageAnalysis.Builder()
+                    .setTargetResolution(android.util.Size(1280, 720))
+                    .setBackpressureStrategy(ImageAnalysis.STRATEGY_KEEP_ONLY_LATEST)
+                    .build()
+                    .also { imageAnalysis ->
                     imageAnalysis.setAnalyzer(
                         ContextCompat.getMainExecutor(ctx)
                     ) { imageProxy ->
@@ -398,6 +408,10 @@ private fun CameraPreview(
                     preview,
                     analysis
                 )
+
+                // Enable auto-focus continuous mode for better QR detection
+                camera.cameraControl.cancelFocusAndMetering()
+
                 onCameraReady(camera)
             }, ContextCompat.getMainExecutor(ctx))
             previewView
