@@ -60,7 +60,8 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.key
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -114,6 +115,8 @@ fun QrScannerScreen(
     val lifecycleOwner = LocalLifecycleOwner.current
     val haptic = LocalHapticFeedback.current
     var hasPermission by remember { mutableStateOf(false) }
+    // Increment to force CameraPreview recreation (e.g., after returning from activation)
+    var cameraKey by remember { mutableIntStateOf(0) }
     var isTorchOn by remember { mutableStateOf(false) }
     var cameraRef by remember { mutableStateOf<androidx.camera.core.Camera?>(null) }
 
@@ -142,6 +145,7 @@ fun QrScannerScreen(
             is TagLookupState.NeedsActivation -> {
                 onNavigateToActivation(state.qrCode)
                 viewModel.reset()
+                cameraKey++
             }
             is TagLookupState.NotActivated -> {
                 appStateViewModel.showError(state.message)
@@ -161,7 +165,8 @@ fun QrScannerScreen(
 
     Box(modifier = modifier.fillMaxSize()) {
         if (hasPermission) {
-            // Camera Preview
+            // Camera Preview — key forces recreation after returning from activation
+            key(cameraKey) {
             CameraPreview(
                 lifecycleOwner = lifecycleOwner,
                 onQrCodeScanned = { rawCode ->
@@ -172,6 +177,7 @@ fun QrScannerScreen(
                 },
                 onCameraReady = { camera -> cameraRef = camera }
             )
+            } // end key(cameraKey)
 
             // Flashlight Toggle
             if (cameraRef?.cameraInfo?.hasFlashUnit() == true) {
@@ -346,67 +352,56 @@ private fun CameraPreview(
     onQrCodeScanned: (String) -> Unit,
     onCameraReady: (androidx.camera.core.Camera) -> Unit = {}
 ) {
-    val context = LocalContext.current
-    val scanner = remember { BarcodeScanning.getClient() }
-    val previewView = remember { PreviewView(context) }
-
-    DisposableEffect(lifecycleOwner) {
-        val cameraProviderFuture = ProcessCameraProvider.getInstance(context)
-        cameraProviderFuture.addListener({
-            val cameraProvider = cameraProviderFuture.get()
-
-            val preview = Preview.Builder().build().also {
-                it.setSurfaceProvider(previewView.surfaceProvider)
-            }
-
-            val analysis = ImageAnalysis.Builder().build().also { imageAnalysis ->
-                imageAnalysis.setAnalyzer(
-                    ContextCompat.getMainExecutor(context)
-                ) { imageProxy ->
-                    val mediaImage = imageProxy.image
-                    if (mediaImage != null) {
-                        val image = InputImage.fromMediaImage(
-                            mediaImage,
-                            imageProxy.imageInfo.rotationDegrees
-                        )
-                        scanner.process(image)
-                            .addOnSuccessListener { barcodes ->
-                                val code = barcodes.firstOrNull()?.rawValue
-                                if (!code.isNullOrBlank()) {
-                                    onQrCodeScanned(code)
-                                }
-                            }
-                            .addOnCompleteListener {
-                                imageProxy.close()
-                            }
-                    } else {
-                        imageProxy.close()
-                    }
-                }
-            }
-
-            cameraProvider.unbindAll()
-            val camera = cameraProvider.bindToLifecycle(
-                lifecycleOwner,
-                CameraSelector.DEFAULT_BACK_CAMERA,
-                preview,
-                analysis
-            )
-            onCameraReady(camera)
-        }, ContextCompat.getMainExecutor(context))
-
-        onDispose {
-            // Unbind camera when composable leaves composition
-            try {
-                val cameraProvider = ProcessCameraProvider.getInstance(context).get()
-                cameraProvider.unbindAll()
-            } catch (_: Exception) {}
-        }
-    }
+    val scanner = BarcodeScanning.getClient()
 
     AndroidView(
         modifier = Modifier.fillMaxSize(),
-        factory = { previewView }
+        factory = { ctx ->
+            val previewView = PreviewView(ctx)
+            val cameraProviderFuture = ProcessCameraProvider.getInstance(ctx)
+            cameraProviderFuture.addListener({
+                val cameraProvider = cameraProviderFuture.get()
+                val preview = Preview.Builder().build().also {
+                    it.setSurfaceProvider(previewView.surfaceProvider)
+                }
+
+                val analysis = ImageAnalysis.Builder().build().also { imageAnalysis ->
+                    imageAnalysis.setAnalyzer(
+                        ContextCompat.getMainExecutor(ctx)
+                    ) { imageProxy ->
+                        val mediaImage = imageProxy.image
+                        if (mediaImage != null) {
+                            val image = InputImage.fromMediaImage(
+                                mediaImage,
+                                imageProxy.imageInfo.rotationDegrees
+                            )
+                            scanner.process(image)
+                                .addOnSuccessListener { barcodes ->
+                                    val code = barcodes.firstOrNull()?.rawValue
+                                    if (!code.isNullOrBlank()) {
+                                        onQrCodeScanned(code)
+                                    }
+                                }
+                                .addOnCompleteListener {
+                                    imageProxy.close()
+                                }
+                        } else {
+                            imageProxy.close()
+                        }
+                    }
+                }
+
+                cameraProvider.unbindAll()
+                val camera = cameraProvider.bindToLifecycle(
+                    lifecycleOwner,
+                    CameraSelector.DEFAULT_BACK_CAMERA,
+                    preview,
+                    analysis
+                )
+                onCameraReady(camera)
+            }, ContextCompat.getMainExecutor(ctx))
+            previewView
+        }
     )
 }
 
