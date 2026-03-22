@@ -1,8 +1,10 @@
 package com.petsafety.app.ui.screens
 
 import com.petsafety.app.util.InputValidators
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -313,13 +315,26 @@ fun PetFormScreen(
                     ) {
                         when {
                             capturedPhotoBytes != null -> {
-                                // Show captured photo preview would need bitmap conversion
-                                Icon(
-                                    imageVector = Icons.Default.CameraAlt,
-                                    contentDescription = null,
-                                    modifier = Modifier.size(40.dp),
-                                    tint = TealAccent
-                                )
+                                val bitmap = remember(capturedPhotoBytes) {
+                                    android.graphics.BitmapFactory.decodeByteArray(
+                                        capturedPhotoBytes, 0, capturedPhotoBytes!!.size
+                                    )
+                                }
+                                if (bitmap != null) {
+                                    Image(
+                                        bitmap = bitmap.asImageBitmap(),
+                                        contentDescription = stringResource(R.string.photo_selected_hint),
+                                        modifier = Modifier.fillMaxSize(),
+                                        contentScale = ContentScale.Crop
+                                    )
+                                } else {
+                                    Icon(
+                                        imageVector = Icons.Default.CameraAlt,
+                                        contentDescription = null,
+                                        modifier = Modifier.size(40.dp),
+                                        tint = TealAccent
+                                    )
+                                }
                             }
                             existing?.profileImage != null -> {
                                 AsyncImage(
