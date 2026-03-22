@@ -81,6 +81,7 @@ fun TagActivationScreen(
 
     var showCreatePetForm by remember { mutableStateOf(false) }
     var petIdsBeforeCreate by remember { mutableStateOf(emptySet<String>()) }
+    var selectedPetNameForCreate by remember { mutableStateOf<String?>(null) }
 
     LaunchedEffect(Unit) {
         viewModel.loadActivationData(qrCode)
@@ -91,6 +92,7 @@ fun TagActivationScreen(
         PetFormScreen(
             viewModel = petsViewModel,
             appStateViewModel = appStateViewModel,
+            initialPetName = selectedPetNameForCreate,
             onBack = { showCreatePetForm = false },
             onDone = {
                 showCreatePetForm = false
@@ -402,6 +404,7 @@ fun TagActivationScreen(
                                 text = stringResource(R.string.create_profile_first),
                                 onClick = {
                                     petIdsBeforeCreate = pets.map { it.id }.toSet()
+                                    selectedPetNameForCreate = null
                                     showCreatePetForm = true
                                 },
                                 modifier = Modifier.padding(horizontal = 40.dp)
@@ -441,6 +444,7 @@ fun TagActivationScreen(
                                         petName = name,
                                         onCreateProfile = {
                                             petIdsBeforeCreate = pets.map { it.id }.toSet()
+                                            selectedPetNameForCreate = name
                                             showCreatePetForm = true
                                         }
                                     )
