@@ -106,7 +106,8 @@ fun QrScannerScreen(
     onNavigateToActivation: (String) -> Unit = {},
     modifier: Modifier = Modifier
 ) {
-    SecureScreen()
+    // Note: SecureScreen (FLAG_SECURE) intentionally NOT used here —
+    // it interferes with CameraX ImageAnalysis on some devices (e.g. MediaTek)
 
     val viewModel: QrScannerViewModel = hiltViewModel()
     val scanResult by viewModel.scanResult.collectAsState()
