@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -24,6 +25,8 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.CalendarMonth
 import androidx.compose.material.icons.filled.CameraAlt
+import androidx.compose.material.icons.filled.CheckCircle
+import androidx.compose.material.icons.filled.ChevronRight
 import androidx.compose.material.icons.filled.ChevronRight
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Info
@@ -76,6 +79,8 @@ import com.petsafety.app.data.network.model.UpdatePetRequest
 import com.petsafety.app.ui.components.PhotoCaptureSheet
 import com.petsafety.app.ui.components.SearchableDropdown
 import com.petsafety.app.ui.components.SimpleDropdown
+import androidx.compose.ui.text.style.TextAlign
+import com.petsafety.app.ui.components.BrandButton
 import com.petsafety.app.ui.theme.BrandOrange
 import com.petsafety.app.ui.theme.TealAccent
 import com.petsafety.app.ui.util.AdaptiveLayout
@@ -91,6 +96,9 @@ fun PetFormScreen(
     appStateViewModel: AppStateViewModel,
     petId: String? = null,
     initialPetName: String? = null,
+    remainingPetNames: List<String> = emptyList(),
+    onRegisterNextPet: ((String) -> Unit)? = null,
+    onAllDone: (() -> Unit)? = null,
     onBack: () -> Unit = {},
     onDone: () -> Unit
 ) {
@@ -163,9 +171,23 @@ fun PetFormScreen(
         }
     }
 
+    var showPostSaveScreen by remember { mutableStateOf(false) }
+    var savedPetName by remember { mutableStateOf("") }
+
+    if (showPostSaveScreen) {
+        PostSaveScreen(
+            petName = savedPetName,
+            remainingPetNames = remainingPetNames,
+            onRegisterNextPet = onRegisterNextPet,
+            onAllDone = onAllDone ?: onDone
+        )
+        return
+    }
+
     Box(
         modifier = Modifier
             .fillMaxSize()
+            .imePadding()
             .background(MaterialTheme.colorScheme.background),
         contentAlignment = Alignment.TopCenter
     ) {
@@ -617,7 +639,13 @@ fun PetFormScreen(
                             if (pet != null) {
                                 uploadPhotoIfNeeded(viewModel, capturedPhotoBytes, pet.id)
                                 appStateViewModel.showSuccess(petCreatedMessage)
-                                onDone()
+                                // Show post-save screen in tag activation context, otherwise just dismiss
+                                if (onRegisterNextPet != null || onAllDone != null) {
+                                    savedPetName = name
+                                    showPostSaveScreen = true
+                                } else {
+                                    onDone()
+                                }
                             } else if (message != null) {
                                 appStateViewModel.showError(message)
                             }
@@ -1034,4 +1062,160 @@ private fun uploadPhotoIfNeeded(
 ) {
     if (photoBytes == null || petId == null) return
     viewModel.uploadPhoto(petId, photoBytes) { _, _ -> }
+}
+
+// MARK: - Post-Save Screen (tag activation flow)
+@Composable
+private fun PostSaveScreen(
+    petName: String,
+    remainingPetNames: List<String>,
+    onRegisterNextPet: ((String) -> Unit)?,
+    onAllDone: () -> Unit
+) {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .verticalScroll(rememberScrollState())
+            .padding(24.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Spacer(modifier = Modifier.height(40.dp))
+
+        Icon(
+            imageVector = Icons.Default.CheckCircle,
+            contentDescription = null,
+            modifier = Modifier.size(70.dp),
+            tint = TealAccent
+        )
+
+        Spacer(modifier = Modifier.height(20.dp))
+
+        Text(
+            text = stringResource(R.string.tag_activated_for, petName),
+            style = MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.Bold),
+            textAlign = TextAlign.Center
+        )
+
+        Spacer(modifier = Modifier.height(8.dp))
+
+        Text(
+            text = stringResource(R.string.pet_now_protected),
+            style = MaterialTheme.typography.bodyMedium,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            textAlign = TextAlign.Center,
+            modifier = Modifier.padding(horizontal = 24.dp)
+        )
+
+        Spacer(modifier = Modifier.height(24.dp))
+
+        if (remainingPetNames.isNotEmpty()) {
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Icon(
+                    imageVector = Icons.Default.Pets,
+                    contentDescription = null,
+                    modifier = Modifier.size(18.dp),
+                    tint = BrandOrange
+                )
+                Spacer(modifier = Modifier.width(8.dp))
+                Text(
+                    text = stringResource(R.string.more_tags_to_setup),
+                    style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.SemiBold)
+                )
+            }
+
+            Spacer(modifier = Modifier.height(12.dp))
+
+            remainingPetNames.forEach { nextName ->
+                Card(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .clickable { onRegisterNextPet?.invoke(nextName) },
+                    shape = RoundedCornerShape(12.dp),
+                    colors = CardDefaults.cardColors(containerColor = BrandOrange.copy(alpha = 0.08f))
+                ) {
+                    Row(
+                        modifier = Modifier.padding(16.dp),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.Pets,
+                            contentDescription = null,
+                            modifier = Modifier.size(20.dp),
+                            tint = BrandOrange
+                        )
+                        Spacer(modifier = Modifier.width(12.dp))
+                        Text(
+                            text = stringResource(R.string.setup_pet_tag, nextName),
+                            style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.Medium),
+                            modifier = Modifier.weight(1f)
+                        )
+                        Icon(
+                            imageVector = Icons.Default.ChevronRight,
+                            contentDescription = null,
+                            tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                            modifier = Modifier.size(18.dp)
+                        )
+                    }
+                }
+                Spacer(modifier = Modifier.height(8.dp))
+            }
+        } else {
+            Text(
+                text = stringResource(R.string.thank_you_senra),
+                style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold)
+            )
+
+            Spacer(modifier = Modifier.height(8.dp))
+
+            Text(
+                text = stringResource(R.string.whats_next),
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant
+            )
+
+            Spacer(modifier = Modifier.height(16.dp))
+
+            NextStepActionCard(text = stringResource(R.string.choose_subscription_plan), onClick = onAllDone)
+            Spacer(modifier = Modifier.height(8.dp))
+            NextStepActionCard(text = stringResource(R.string.update_contact_details), onClick = onAllDone)
+        }
+
+        Spacer(modifier = Modifier.height(24.dp))
+
+        BrandButton(
+            text = stringResource(R.string.go_to_home),
+            onClick = onAllDone,
+            modifier = Modifier.fillMaxWidth()
+        )
+
+        Spacer(modifier = Modifier.height(32.dp))
+    }
+}
+
+@Composable
+private fun NextStepActionCard(text: String, onClick: () -> Unit) {
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable(onClick = onClick),
+        shape = RoundedCornerShape(12.dp),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainerHigh)
+    ) {
+        Row(
+            modifier = Modifier.padding(16.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Text(
+                text = text,
+                style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.Medium),
+                modifier = Modifier.weight(1f)
+            )
+            Icon(
+                imageVector = Icons.Default.ChevronRight,
+                contentDescription = null,
+                tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.size(18.dp)
+            )
+        }
+    }
 }

@@ -89,14 +89,34 @@ fun TagActivationScreen(
 
     // Show inline pet creation form
     if (showCreatePetForm) {
+        val otherNames = orderItems
+            .mapNotNull { it.petName }
+            .filter { it.lowercase() != (selectedPetNameForCreate ?: "").lowercase() }
+            .distinct()
+            .sorted()
+
         PetFormScreen(
             viewModel = petsViewModel,
             appStateViewModel = appStateViewModel,
             initialPetName = selectedPetNameForCreate,
+            remainingPetNames = otherNames,
+            onRegisterNextPet = { nextName ->
+                showCreatePetForm = false
+                // Auto-activate the just-created pet's tag
+                viewModel.refreshAndAutoActivate(qrCode, petIdsBeforeCreate)
+                // Set up for next pet after a short delay
+                selectedPetNameForCreate = nextName
+                petIdsBeforeCreate = pets.map { it.id }.toSet()
+                showCreatePetForm = true
+            },
+            onAllDone = {
+                showCreatePetForm = false
+                viewModel.resetActivation()
+                onActivationComplete()
+            },
             onBack = { showCreatePetForm = false },
             onDone = {
                 showCreatePetForm = false
-                // Refresh pets and auto-activate the newly created pet
                 viewModel.refreshAndAutoActivate(qrCode, petIdsBeforeCreate)
             }
         )

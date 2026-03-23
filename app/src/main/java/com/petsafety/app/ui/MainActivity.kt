@@ -43,6 +43,8 @@ class MainActivity : FragmentActivity() {
         val splashScreen = installSplashScreen()
         Timber.d("=== MainActivity.onCreate START ===")
         super.onCreate(savedInstanceState)
+        // Allow Compose to handle window insets (needed for imePadding to work)
+        androidx.core.view.WindowCompat.setDecorFitsSystemWindows(window, false)
         Timber.d("=== handleIntent ===")
         handleIntent(intent)
         Timber.d("=== setContent ===")
