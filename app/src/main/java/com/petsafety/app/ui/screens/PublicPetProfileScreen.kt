@@ -85,6 +85,7 @@ import com.petsafety.app.ui.theme.BrandOrange
 import com.petsafety.app.ui.theme.TealAccent
 import com.petsafety.app.ui.viewmodel.AppStateViewModel
 import com.petsafety.app.ui.viewmodel.AuthViewModel
+import com.petsafety.app.ui.util.PetLocalizer
 import com.petsafety.app.ui.viewmodel.PublicPetProfileViewModel
 
 @Composable
@@ -235,14 +236,20 @@ private fun PublicPetContent(
     // Check if this is the owner viewing their own pet's profile
     val isOwnPet = currentUser != null && pet.ownerId == currentUser.id
 
-    // Compute effective contact info (fallback to current user for own pet)
-    val ownerPhone = pet.ownerPhone ?: if (isOwnPet && currentUser?.showPhonePublicly == true) {
-        currentUser.phone
-    } else null
-
-    val ownerEmail = pet.ownerEmail ?: if (isOwnPet && currentUser?.showEmailPublicly == true) {
-        currentUser.email
-    } else null
+    // Compute all public contact info (primary + secondary, filtered by backend privacy)
+    val ownerPhones = buildList {
+        pet.ownerPhone?.let { add(it) }
+            ?: if (isOwnPet && currentUser?.showPhonePublicly == true) currentUser.phone?.let { add(it) } else Unit
+        pet.ownerSecondaryPhone?.let { add(it) }
+    }
+    val ownerEmails = buildList {
+        pet.ownerEmail?.let { add(it) }
+            ?: if (isOwnPet && currentUser?.showEmailPublicly == true) currentUser.email?.let { add(it) } else Unit
+        pet.ownerSecondaryEmail?.let { add(it) }
+    }
+    // Backward-compatible single values for existing checks
+    val ownerPhone = ownerPhones.firstOrNull()
+    val ownerEmail = ownerEmails.firstOrNull()
 
     // Check if owner has contact info but it's hidden due to privacy settings
     val hasHiddenContactInfo = isOwnPet && currentUser != null && run {
@@ -250,7 +257,7 @@ private fun PublicPetContent(
         val hasEmail = !currentUser.email.isNullOrBlank()
         val phoneHidden = hasPhone && currentUser.showPhonePublicly != true
         val emailHidden = hasEmail && currentUser.showEmailPublicly != true
-        (phoneHidden || emailHidden) && ownerPhone == null && ownerEmail == null
+        (phoneHidden || emailHidden) && ownerPhones.isEmpty() && ownerEmails.isEmpty()
     }
 
     Column(
@@ -343,15 +350,16 @@ private fun PublicPetContent(
         ) {
             val neuteredLabel = stringResource(R.string.neutered)
             val details = buildList {
-                pet.breed?.takeIf { it.isNotBlank() }?.let { add(it) }
-                pet.age?.takeIf { it.isNotBlank() }?.let { add(it) }
+                pet.breed?.takeIf { it.isNotBlank() }?.let { add(PetLocalizer.localizeBreed(context, it, pet.species)) }
+                (pet.localizedAge(context.resources) ?: pet.age)?.takeIf { it.isNotBlank() }?.let { add(it) }
                 // Sex + neutered
                 val sexValue = pet.sex?.takeIf { it.isNotBlank() && it.lowercase() != "unknown" }
                 if (sexValue != null) {
+                    val localizedSex = PetLocalizer.localizeSex(context, sexValue, pet.species)
                     val sexText = if (pet.isNeutered == true) {
-                        "${sexValue.replaceFirstChar { it.uppercase() }}, $neuteredLabel"
+                        "$localizedSex, $neuteredLabel"
                     } else {
-                        sexValue.replaceFirstChar { it.uppercase() }
+                        localizedSex
                     }
                     add(sexText)
                 } else if (pet.isNeutered == true) {
@@ -522,8 +530,8 @@ private fun PublicPetContent(
 
                 Spacer(modifier = Modifier.height(16.dp))
 
-                // Phone (tappable to call)
-                ownerPhone?.let { phone ->
+                // All public phone numbers
+                ownerPhones.forEach { phone ->
                     Card(
                         modifier = Modifier
                             .fillMaxWidth()
@@ -568,8 +576,8 @@ private fun PublicPetContent(
                     Spacer(modifier = Modifier.height(12.dp))
                 }
 
-                // Email (tappable to send email)
-                ownerEmail?.let { email ->
+                // All public email addresses
+                ownerEmails.forEach { email ->
                     Card(
                         modifier = Modifier
                             .fillMaxWidth()
