@@ -5,6 +5,8 @@ import android.net.Uri
 import androidx.compose.foundation.background
 import com.petsafety.app.util.WebUrlHelper
 import androidx.compose.foundation.clickable
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.material3.Checkbox
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -27,6 +29,7 @@ import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.ChevronRight
 import androidx.compose.material.icons.filled.DarkMode
 import androidx.compose.material.icons.filled.Delete
+import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.ExitToApp
 import androidx.compose.material.icons.filled.HelpOutline
@@ -51,6 +54,11 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.DropdownMenuItem
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.ExposedDropdownMenuBox
+import androidx.compose.material3.ExposedDropdownMenuDefaults
+import androidx.compose.material3.MenuAnchorType
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -230,21 +238,62 @@ private fun ProfileMain(
 
                 Spacer(modifier = Modifier.height(24.dp))
 
-                // Avatar
-                Box(
-                    modifier = Modifier
-                        .size(96.dp)
-                        .shadow(10.dp, CircleShape)
-                        .clip(CircleShape)
-                        .background(TealAccent),
-                    contentAlignment = Alignment.Center
-                ) {
-                    Icon(
-                        imageVector = Icons.Default.Person,
-                        contentDescription = null,
-                        modifier = Modifier.size(40.dp),
-                        tint = Color.White
-                    )
+                // Avatar with edit button
+                var profileImageUri by remember { mutableStateOf<android.net.Uri?>(null) }
+                val photoPickerLauncher = rememberLauncherForActivityResult(
+                    contract = androidx.activity.result.contract.ActivityResultContracts.GetContent()
+                ) { uri ->
+                    if (uri != null) {
+                        profileImageUri = uri
+                        // Upload profile image
+                        // TODO: Wire to API when backend deploy is confirmed
+                    }
+                }
+
+                Box(contentAlignment = Alignment.BottomEnd) {
+                    Box(
+                        modifier = Modifier
+                            .size(96.dp)
+                            .shadow(10.dp, CircleShape)
+                            .clip(CircleShape)
+                            .background(TealAccent),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        val imageToShow = profileImageUri ?: user?.let {
+                            // Show server-side profile image if available
+                            // User model would need profileImage field
+                            null
+                        }
+                        if (imageToShow != null) {
+                            coil.compose.AsyncImage(
+                                model = imageToShow,
+                                contentDescription = null,
+                                modifier = Modifier.fillMaxSize(),
+                                contentScale = ContentScale.Crop
+                            )
+                        } else {
+                            Icon(
+                                imageVector = Icons.Default.Person,
+                                contentDescription = null,
+                                modifier = Modifier.size(40.dp),
+                                tint = Color.White
+                            )
+                        }
+                    }
+                    // Edit photo button
+                    IconButton(
+                        onClick = { photoPickerLauncher.launch("image/*") },
+                        modifier = Modifier
+                            .size(28.dp)
+                            .background(BrandOrange, CircleShape)
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.Edit,
+                            contentDescription = stringResource(R.string.edit),
+                            modifier = Modifier.size(14.dp),
+                            tint = Color.White
+                        )
+                    }
                 }
 
                 Spacer(modifier = Modifier.height(16.dp))
@@ -433,6 +482,7 @@ private fun ProfileMenuRow(
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun PersonalInfoScreen(
     authViewModel: AuthViewModel,
@@ -571,7 +621,40 @@ private fun PersonalInfoScreen(
                         Spacer(modifier = Modifier.height(12.dp))
                         StyledOutlinedTextField(value = postalCode, onValueChange = { postalCode = it }, label = postCodeLabel)
                         Spacer(modifier = Modifier.height(12.dp))
-                        StyledOutlinedTextField(value = country, onValueChange = { country = it }, label = countryLabel)
+                        // Country picker using supported countries only
+                        val deviceCountry = java.util.Locale.getDefault().country
+                        val sortedCountries = remember(deviceCountry) { com.petsafety.app.util.SupportedCountries.sorted(priorityCode = deviceCountry) }
+                        var countryExpanded by remember { mutableStateOf(false) }
+                        val selectedCountryName = com.petsafety.app.util.SupportedCountries.find(country)?.localizedName() ?: country
+                        ExposedDropdownMenuBox(
+                            expanded = countryExpanded,
+                            onExpandedChange = { countryExpanded = it }
+                        ) {
+                            OutlinedTextField(
+                                value = selectedCountryName,
+                                onValueChange = {},
+                                readOnly = true,
+                                label = { Text(countryLabel) },
+                                trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = countryExpanded) },
+                                modifier = Modifier.fillMaxWidth().menuAnchor(MenuAnchorType.PrimaryNotEditable),
+                                singleLine = true,
+                                shape = RoundedCornerShape(14.dp)
+                            )
+                            ExposedDropdownMenu(
+                                expanded = countryExpanded,
+                                onDismissRequest = { countryExpanded = false }
+                            ) {
+                                sortedCountries.forEach { c ->
+                                    DropdownMenuItem(
+                                        text = { Text(c.localizedName()) },
+                                        onClick = {
+                                            country = c.code
+                                            countryExpanded = false
+                                        }
+                                    )
+                                }
+                            }
+                        }
                     } else {
                         ReadOnlyField(label = streetLabel, value = user?.address ?: "")
                         HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
