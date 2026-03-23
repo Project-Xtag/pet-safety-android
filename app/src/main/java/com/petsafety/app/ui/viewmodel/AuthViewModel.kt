@@ -246,4 +246,11 @@ class AuthViewModel @Inject constructor(
             // Token might be invalid; let logout handle in UI
         }
     }
+
+    /** Re-fetch current user from server. Call after profile edits or when app returns to foreground. */
+    fun refreshCurrentUser() {
+        viewModelScope.launch {
+            loadCurrentUser()
+        }
+    }
 }
