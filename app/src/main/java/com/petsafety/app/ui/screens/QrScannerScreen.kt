@@ -137,7 +137,7 @@ fun QrScannerScreen(
 
     LaunchedEffect(pendingQrCode) {
         if (!pendingQrCode.isNullOrBlank()) {
-            viewModel.lookupAndRoute(pendingQrCode)
+            viewModel.lookupAndRoute(extractTagCodeFromUrl(pendingQrCode))
             onQrCodeHandled()
         }
     }
@@ -172,8 +172,9 @@ fun QrScannerScreen(
             key(cameraKey) {
             CameraPreview(
                 lifecycleOwner = lifecycleOwner,
-                onQrCodeScanned = { code ->
+                onQrCodeScanned = { rawCode ->
                     haptic.performHapticFeedback(HapticFeedbackType.LongPress)
+                    val code = extractTagCodeFromUrl(rawCode)
                     viewModel.lookupAndRoute(code)
                     appStateViewModel.showSuccess(qrScannedMessage)
                 },
