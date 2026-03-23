@@ -286,19 +286,12 @@ private fun formatNotificationDate(dateString: String): String {
         val inputFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.getDefault())
         val date = inputFormat.parse(dateString.take(19))
         if (date != null) {
-            val now = System.currentTimeMillis()
-            val diff = now - date.time
-            val hours = diff / (1000 * 60 * 60)
-            val minutes = diff / (1000 * 60)
-            when {
-                minutes < 1 -> "Just now"
-                minutes < 60 -> "${minutes}m ago"
-                hours < 24 -> "${hours}h ago"
-                else -> {
-                    val outputFormat = SimpleDateFormat("MMM d, yyyy", Locale.getDefault())
-                    outputFormat.format(date)
-                }
-            }
+            android.text.format.DateUtils.getRelativeTimeSpanString(
+                date.time,
+                System.currentTimeMillis(),
+                android.text.format.DateUtils.MINUTE_IN_MILLIS,
+                android.text.format.DateUtils.FORMAT_ABBREV_RELATIVE
+            ).toString()
         } else dateString.take(10)
     } catch (_: Exception) {
         dateString.take(10)
