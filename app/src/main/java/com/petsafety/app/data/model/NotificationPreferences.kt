@@ -6,7 +6,8 @@ import kotlinx.serialization.Serializable
 data class NotificationPreferences(
     val notifyByEmail: Boolean,
     val notifyBySms: Boolean,
-    val notifyByPush: Boolean
+    val notifyByPush: Boolean,
+    val missingPetAlerts: Boolean = true
 ) {
     val isValid: Boolean
         get() = notifyByEmail || notifyBySms || notifyByPush
@@ -18,7 +19,8 @@ data class NotificationPreferences(
         val default = NotificationPreferences(
             notifyByEmail = true,
             notifyBySms = true,
-            notifyByPush = true
+            notifyByPush = true,
+            missingPetAlerts = true
         )
     }
 }

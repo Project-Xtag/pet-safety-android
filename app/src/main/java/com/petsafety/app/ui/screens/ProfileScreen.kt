@@ -1351,7 +1351,7 @@ private fun NotificationPreferencesScreen(
     var pushEnabled by remember { mutableStateOf(preferences.notifyByPush) }
     var emailEnabled by remember { mutableStateOf(preferences.notifyByEmail) }
     var smsEnabled by remember { mutableStateOf(preferences.notifyBySms) }
-    var missingPetAlerts by remember { mutableStateOf(true) }
+    var missingPetAlerts by remember { mutableStateOf(preferences.missingPetAlerts) }
     var orderUpdates by remember { mutableStateOf(true) }
     var accountActivity by remember { mutableStateOf(true) }
 
@@ -1369,15 +1369,17 @@ private fun NotificationPreferencesScreen(
         pushEnabled = preferences.notifyByPush
         emailEnabled = preferences.notifyByEmail
         smsEnabled = preferences.notifyBySms
+        missingPetAlerts = preferences.missingPetAlerts
     }
 
     // Helper to persist channel changes
-    fun saveChannels(push: Boolean, email: Boolean, sms: Boolean) {
+    fun saveChannels(push: Boolean, email: Boolean, sms: Boolean, alerts: Boolean = missingPetAlerts) {
         viewModel.updatePreferences(
             com.petsafety.app.data.model.NotificationPreferences(
                 notifyByPush = push,
                 notifyByEmail = email,
-                notifyBySms = sms
+                notifyBySms = sms,
+                missingPetAlerts = alerts
             )
         )
         viewModel.savePreferences()
@@ -1521,7 +1523,10 @@ private fun NotificationPreferencesScreen(
                         title = stringResource(R.string.missing_pet_alerts),
                         subtitle = stringResource(R.string.missing_pet_alerts_subtitle),
                         checked = missingPetAlerts,
-                        onCheckedChange = { missingPetAlerts = it }
+                        onCheckedChange = {
+                            missingPetAlerts = it
+                            saveChannels(pushEnabled, emailEnabled, smsEnabled, it)
+                        }
                     )
                 }
             }

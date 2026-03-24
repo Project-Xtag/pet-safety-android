@@ -27,4 +27,29 @@ class NotificationPreferencesTests {
         assertTrue(prefs.isValid)
         assertEquals(2, prefs.enabledCount)
     }
+
+    @Test
+    fun `missingPetAlerts defaults to true`() {
+        val prefs = NotificationPreferences.default
+        assertTrue(prefs.missingPetAlerts)
+    }
+
+    @Test
+    fun `missingPetAlerts can be set to false`() {
+        val prefs = NotificationPreferences(true, true, true, missingPetAlerts = false)
+        assertFalse(prefs.missingPetAlerts)
+    }
+
+    @Test
+    fun `missingPetAlerts does not affect isValid or enabledCount`() {
+        val prefs = NotificationPreferences(true, false, false, missingPetAlerts = false)
+        assertTrue(prefs.isValid)
+        assertEquals(1, prefs.enabledCount)
+    }
+
+    @Test
+    fun `missingPetAlerts defaults to true with positional args`() {
+        val prefs = NotificationPreferences(true, true, true)
+        assertTrue(prefs.missingPetAlerts)
+    }
 }
