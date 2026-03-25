@@ -9,10 +9,13 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.asPaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.statusBars
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -84,10 +87,11 @@ fun OrdersScreen(onBack: () -> Unit) {
             .background(MaterialTheme.colorScheme.background)
     ) {
         // Header with back button
+        val statusBarPadding = WindowInsets.statusBars.asPaddingValues().calculateTopPadding()
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(vertical = 8.dp)
+                .padding(top = statusBarPadding + 8.dp, bottom = 8.dp)
         ) {
             IconButton(
                 onClick = onBack,
@@ -251,7 +255,7 @@ private fun OrderCard(
     order: Order,
     onClick: () -> Unit
 ) {
-    val statusColor = when (order.orderStatus.lowercase()) {
+    val statusColor = when (order.orderStatus?.lowercase()) {
         "completed" -> SuccessGreen
         "pending" -> BrandOrange
         "failed" -> MaterialTheme.colorScheme.error
@@ -306,14 +310,14 @@ private fun OrderCard(
                     )
                     Spacer(modifier = Modifier.width(6.dp))
                     Text(
-                        text = localizedStatus(order.orderStatus),
+                        text = localizedStatus(order.orderStatus ?: ""),
                         style = MaterialTheme.typography.bodyMedium,
                         color = statusColor
                     )
                 }
 
                 Text(
-                    text = formatDate(order.createdAt),
+                    text = formatDate(order.createdAt ?: ""),
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
@@ -333,7 +337,7 @@ private fun OrderCard(
             }
 
             // Tracking indicator for shipped orders
-            if (order.orderStatus.lowercase() == "shipped" && order.mplTrackingNumber != null) {
+            if (order.orderStatus?.lowercase() == "shipped" && order.mplTrackingNumber != null) {
                 Spacer(modifier = Modifier.height(4.dp))
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Icon(
@@ -359,7 +363,7 @@ private fun OrderDetailScreen(
     order: Order,
     onBack: () -> Unit
 ) {
-    val statusColor = when (order.orderStatus.lowercase()) {
+    val statusColor = when (order.orderStatus?.lowercase()) {
         "completed" -> SuccessGreen
         "pending" -> BrandOrange
         "failed" -> MaterialTheme.colorScheme.error
@@ -401,7 +405,7 @@ private fun OrderDetailScreen(
                         )
                         Spacer(modifier = Modifier.width(6.dp))
                         Text(
-                            text = localizedStatus(order.orderStatus),
+                            text = localizedStatus(order.orderStatus ?: ""),
                             style = MaterialTheme.typography.bodyMedium,
                             color = statusColor
                         )
@@ -411,7 +415,7 @@ private fun OrderDetailScreen(
                 HorizontalDivider(color = MaterialTheme.colorScheme.outlineVariant, modifier = Modifier.padding(vertical = 12.dp))
                 DetailRow(label = stringResource(R.string.total_amount), value = formatCurrency(order.totalAmount, order.currency), isBold = true)
                 HorizontalDivider(color = MaterialTheme.colorScheme.outlineVariant, modifier = Modifier.padding(vertical = 12.dp))
-                DetailRow(label = stringResource(R.string.order_date), value = formatDateLong(order.createdAt))
+                DetailRow(label = stringResource(R.string.order_date), value = formatDateLong(order.createdAt ?: ""))
             }
         }
 

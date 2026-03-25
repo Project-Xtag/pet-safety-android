@@ -228,7 +228,8 @@ fun MissingAlertsScreen(
 @Composable
 fun FoundAlertsScreen(
     viewModel: AlertsViewModel,
-    appStateViewModel: AppStateViewModel
+    appStateViewModel: AppStateViewModel,
+    userLocation: LatLng? = null
 ) {
     val alerts by viewModel.foundAlerts.collectAsState()
     val isRefreshing by viewModel.isRefreshing.collectAsState()
@@ -301,7 +302,7 @@ fun FoundAlertsScreen(
                         modifier = Modifier.weight(1f)
                     ) {
                         if (showMap) {
-                            AlertsMap(alerts = alerts, onAlertSelected = { selectedAlert = it })
+                            AlertsMap(alerts = alerts, userLocation = userLocation, onAlertSelected = { selectedAlert = it })
                         } else {
                             AlertsList(alerts) { selectedAlert = it }
                         }
