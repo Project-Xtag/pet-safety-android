@@ -358,13 +358,13 @@ fun AuthScreen(
                                     if (otpCode.isEmpty()) {
                                         Text(
                                             text = stringResource(R.string.otp_placeholder),
-                                            style = MaterialTheme.typography.headlineLarge.copy(
-                                                fontSize = 28.sp,
-                                                fontWeight = FontWeight.SemiBold,
-                                                textAlign = TextAlign.Center,
-                                                letterSpacing = 4.sp
+                                            style = MaterialTheme.typography.bodyLarge.copy(
+                                                fontSize = 16.sp,
+                                                fontWeight = FontWeight.Medium,
+                                                textAlign = TextAlign.Center
                                             ),
-                                            color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.5f)
+                                            color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.5f),
+                                            maxLines = 1
                                         )
                                     }
                                     innerTextField()
