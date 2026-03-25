@@ -19,6 +19,10 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.asPaddingValues
+import androidx.compose.foundation.layout.navigationBars
+import androidx.compose.foundation.layout.statusBars
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
@@ -491,15 +495,29 @@ private fun PersonalInfoScreen(
 ) {
     val user by authViewModel.currentUser.collectAsState()
     var isEditing by remember { mutableStateOf(false) }
-    var firstName by remember { mutableStateOf(user?.firstName ?: "") }
-    var lastName by remember { mutableStateOf(user?.lastName ?: "") }
-    var phone by remember { mutableStateOf(user?.phone ?: "") }
-    var streetAddress by remember { mutableStateOf(user?.address ?: "") }
-    var addressLine2 by remember { mutableStateOf(user?.addressLine2 ?: "") }
-    var city by remember { mutableStateOf(user?.city ?: "") }
-    var postalCode by remember { mutableStateOf(user?.postalCode ?: "") }
-    var country by remember { mutableStateOf(user?.country ?: "") }
+    var firstName by remember { mutableStateOf("") }
+    var lastName by remember { mutableStateOf("") }
+    var phone by remember { mutableStateOf("") }
+    var streetAddress by remember { mutableStateOf("") }
+    var addressLine2 by remember { mutableStateOf("") }
+    var city by remember { mutableStateOf("") }
+    var postalCode by remember { mutableStateOf("") }
+    var country by remember { mutableStateOf("") }
     var isSaving by remember { mutableStateOf(false) }
+
+    // Sync fields when user data loads or changes
+    LaunchedEffect(user) {
+        if (!isEditing) {
+            firstName = user?.firstName ?: ""
+            lastName = user?.lastName ?: ""
+            phone = user?.phone ?: ""
+            streetAddress = user?.address ?: ""
+            addressLine2 = user?.addressLine2 ?: ""
+            city = user?.city ?: ""
+            postalCode = user?.postalCode ?: ""
+            country = user?.country ?: ""
+        }
+    }
 
     val updatedMessage = stringResource(R.string.updated)
     val updateFailedMessage = stringResource(R.string.update_failed)
@@ -750,12 +768,23 @@ private fun AddressScreen(
 ) {
     val user by authViewModel.currentUser.collectAsState()
     var isEditing by remember { mutableStateOf(false) }
-    var address by remember { mutableStateOf(user?.address ?: "") }
+    var address by remember { mutableStateOf("") }
     var addressLine2 by remember { mutableStateOf("") }
-    var city by remember { mutableStateOf(user?.city ?: "") }
-    var postalCode by remember { mutableStateOf(user?.postalCode ?: "") }
-    var country by remember { mutableStateOf(user?.country ?: "") }
+    var city by remember { mutableStateOf("") }
+    var postalCode by remember { mutableStateOf("") }
+    var country by remember { mutableStateOf("") }
     var isSaving by remember { mutableStateOf(false) }
+
+    // Sync fields when user data loads or changes
+    LaunchedEffect(user) {
+        if (!isEditing) {
+            address = user?.address ?: ""
+            addressLine2 = user?.addressLine2 ?: ""
+            city = user?.city ?: ""
+            postalCode = user?.postalCode ?: ""
+            country = user?.country ?: ""
+        }
+    }
 
     val addressUpdatedMessage = stringResource(R.string.address_updated)
     val addressUpdateFailedMessage = stringResource(R.string.update_failed)
@@ -938,10 +967,19 @@ private fun ContactsScreen(
 ) {
     val user by authViewModel.currentUser.collectAsState()
     var isEditing by remember { mutableStateOf(false) }
-    var secondaryEmail by remember { mutableStateOf(user?.secondaryEmail ?: "") }
-    var primaryPhone by remember { mutableStateOf(user?.phone ?: "") }
-    var secondaryPhone by remember { mutableStateOf(user?.secondaryPhone ?: "") }
+    var secondaryEmail by remember { mutableStateOf("") }
+    var primaryPhone by remember { mutableStateOf("") }
+    var secondaryPhone by remember { mutableStateOf("") }
     var isSaving by remember { mutableStateOf(false) }
+
+    // Sync fields when user data loads or changes
+    LaunchedEffect(user) {
+        if (!isEditing) {
+            secondaryEmail = user?.secondaryEmail ?: ""
+            primaryPhone = user?.phone ?: ""
+            secondaryPhone = user?.secondaryPhone ?: ""
+        }
+    }
 
     val contactsUpdatedMessage = stringResource(R.string.updated)
     val contactsUpdateFailedMessage = stringResource(R.string.update_failed)
@@ -2135,11 +2173,12 @@ private fun SubScreenHeader(
     onBack: () -> Unit,
     trailingContent: @Composable (() -> Unit)? = null
 ) {
+    val statusBarPadding = WindowInsets.statusBars.asPaddingValues().calculateTopPadding()
     Box(
         modifier = Modifier
             .fillMaxWidth()
             .background(PeachBackground)
-            .padding(vertical = 16.dp)
+            .padding(top = statusBarPadding + 8.dp, bottom = 16.dp)
     ) {
         IconButton(
             onClick = onBack,
