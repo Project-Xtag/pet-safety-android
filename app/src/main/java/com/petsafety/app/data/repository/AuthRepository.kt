@@ -15,6 +15,7 @@ import kotlinx.serialization.json.JsonPrimitive
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.map
+import okhttp3.MultipartBody
 
 data class VerifyResult(val user: User, val isNewUser: Boolean)
 
@@ -108,6 +109,11 @@ class AuthRepository(
             }
         )
         return apiService.updateUser(json).data?.user ?: error("Missing user")
+    }
+
+    suspend fun uploadProfileImage(imagePart: MultipartBody.Part): String? {
+        val response = apiService.uploadProfileImage(imagePart)
+        return response.data?.resolvedUrl
     }
 
     suspend fun canDeleteAccount(): CanDeleteAccountResponse {

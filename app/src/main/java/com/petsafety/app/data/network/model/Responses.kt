@@ -63,6 +63,14 @@ data class SightingResponse(
 )
 
 @Serializable
+data class ProfileImageResponse(
+    @SerialName("image_url") val imageUrl: String? = null,
+    val url: String? = null
+) {
+    val resolvedUrl: String? get() = imageUrl ?: url
+}
+
+@Serializable
 data class OrdersResponse(
     val orders: List<Order>
 )

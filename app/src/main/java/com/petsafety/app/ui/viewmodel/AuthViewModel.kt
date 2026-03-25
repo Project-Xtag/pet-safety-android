@@ -8,6 +8,7 @@ import com.petsafety.app.data.model.User
 import com.petsafety.app.data.network.TokenAuthenticator
 import com.petsafety.app.data.network.model.CanDeleteAccountResponse
 import com.petsafety.app.data.fcm.FCMRepository
+import okhttp3.MultipartBody
 import com.petsafety.app.data.repository.AuthRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import timber.log.Timber
@@ -169,6 +170,25 @@ class AuthViewModel @Inject constructor(
                 val user = authRepository.updateUser(updates)
                 _currentUser.value = user
                 onResult(true, null)
+            } catch (ex: Exception) {
+                onResult(false, ex.localizedMessage)
+            } finally {
+                _isLoading.value = false
+            }
+        }
+    }
+
+    fun uploadProfileImage(imagePart: MultipartBody.Part, onResult: (Boolean, String?) -> Unit) {
+        viewModelScope.launch {
+            _isLoading.value = true
+            try {
+                val imageUrl = authRepository.uploadProfileImage(imagePart)
+                // Refresh user data to get the updated profile image
+                try {
+                    val user = authRepository.getCurrentUser()
+                    _currentUser.value = user
+                } catch (_: Exception) { /* non-critical */ }
+                onResult(true, imageUrl)
             } catch (ex: Exception) {
                 onResult(false, ex.localizedMessage)
             } finally {

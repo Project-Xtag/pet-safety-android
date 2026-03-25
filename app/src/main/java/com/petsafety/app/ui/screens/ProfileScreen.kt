@@ -87,6 +87,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.RequestBody.Companion.toRequestBody
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -124,7 +126,9 @@ private enum class ProfileSection {
 fun ProfileScreen(
     appStateViewModel: AppStateViewModel,
     authViewModel: AuthViewModel,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onScanTag: () -> Unit = {},
+    onNavigateToPets: () -> Unit = {}
 ) {
     var section by remember { mutableStateOf(ProfileSection.MAIN) }
     val prefsViewModel: NotificationPreferencesViewModel = hiltViewModel()
@@ -147,9 +151,9 @@ fun ProfileScreen(
         ProfileSection.ORDERS -> OrdersScreen { section = ProfileSection.MAIN }
         ProfileSection.PENDING_TAGS -> PendingRegistrationsScreen(
             onBack = { section = ProfileSection.MAIN },
-            onNavigateToScanner = { /* TODO: navigate to scanner tab */ },
-            onNavigateToCreatePet = { petName -> /* TODO: navigate to pet creation */ },
-            onNavigateToOrderTags = { /* TODO: navigate to order tags */ }
+            onNavigateToScanner = { section = ProfileSection.MAIN; onScanTag() },
+            onNavigateToCreatePet = { _ -> section = ProfileSection.MAIN; onNavigateToPets() },
+            onNavigateToOrderTags = { section = ProfileSection.ORDERS }
         )
         ProfileSection.BILLING -> BillingScreen(onBack = { section = ProfileSection.MAIN })
         ProfileSection.REFERRAL -> ReferralScreen(onBack = { section = ProfileSection.MAIN })
@@ -244,13 +248,29 @@ private fun ProfileMain(
 
                 // Avatar with edit button
                 var profileImageUri by remember { mutableStateOf<android.net.Uri?>(null) }
+                val uploadContext = LocalContext.current
                 val photoPickerLauncher = rememberLauncherForActivityResult(
                     contract = androidx.activity.result.contract.ActivityResultContracts.GetContent()
                 ) { uri ->
                     if (uri != null) {
                         profileImageUri = uri
                         // Upload profile image
-                        // TODO: Wire to API when backend deploy is confirmed
+                        try {
+                            val inputStream = uploadContext.contentResolver.openInputStream(uri) ?: return@rememberLauncherForActivityResult
+                            val bytes = inputStream.readBytes()
+                            inputStream.close()
+                            val requestBody = bytes.toRequestBody("image/*".toMediaTypeOrNull())
+                            val part = okhttp3.MultipartBody.Part.createFormData("image", "profile.jpg", requestBody)
+                            authViewModel.uploadProfileImage(part) { success, _ ->
+                                if (success) {
+                                    appStateViewModel.showSuccess(uploadContext.getString(R.string.updated))
+                                } else {
+                                    appStateViewModel.showError(uploadContext.getString(R.string.update_failed))
+                                }
+                            }
+                        } catch (e: Exception) {
+                            appStateViewModel.showError(e.localizedMessage ?: uploadContext.getString(R.string.update_failed))
+                        }
                     }
                 }
 

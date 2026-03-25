@@ -241,9 +241,11 @@ fun TagActivationScreen(
                         modifier = Modifier
                             .fillMaxWidth()
                             .clickable {
-                                // TODO: Navigate to activate this specific tag
+                                // Reset and restart activation with this tag's QR code
                                 viewModel.resetActivation()
-                                onActivationComplete()
+                                item.qrCode?.let { nextCode ->
+                                    viewModel.loadActivationData(nextCode)
+                                } ?: onActivationComplete()
                             },
                         shape = RoundedCornerShape(12.dp),
                         colors = CardDefaults.cardColors(containerColor = BrandOrange.copy(alpha = 0.08f))

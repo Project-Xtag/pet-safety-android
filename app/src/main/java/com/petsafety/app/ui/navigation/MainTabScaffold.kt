@@ -167,6 +167,7 @@ fun MainTabScaffold(
             onNavigateToActivation = { qrCode -> activationQrCode = qrCode },
             onScanTag = { selectedTab = TabItem.Scan },
             onExploreAccount = { selectedTab = TabItem.Profile },
+            onNavigateToPets = { selectedTab = TabItem.Pets },
             modifier = Modifier.padding(innerPadding)
         )
     }
@@ -184,6 +185,7 @@ private fun TabContent(
     onNavigateToActivation: (String) -> Unit = {},
     onScanTag: () -> Unit = {},
     onExploreAccount: () -> Unit = {},
+    onNavigateToPets: () -> Unit = {},
     modifier: Modifier = Modifier
 ) {
     Crossfade(targetState = selectedTab, animationSpec = tween(200)) {
@@ -197,7 +199,11 @@ private fun TabContent(
                 modifier = modifier
             )
             TabItem.Alerts -> AlertsTabScreen(appStateViewModel, authViewModel, modifier, alertsInitialTab)
-            TabItem.Profile -> ProfileScreen(appStateViewModel, authViewModel, modifier)
+            TabItem.Profile -> ProfileScreen(
+                appStateViewModel, authViewModel, modifier,
+                onScanTag = onScanTag,
+                onNavigateToPets = onNavigateToPets
+            )
         }
     }
 }

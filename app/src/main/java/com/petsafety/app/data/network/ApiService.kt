@@ -49,6 +49,12 @@ interface ApiService {
     @DELETE("users/me")
     suspend fun deleteAccount(): ApiEnvelope<EmptyResponse>
 
+    @Multipart
+    @POST("users/me/profile-image")
+    suspend fun uploadProfileImage(
+        @retrofit2.http.Part image: MultipartBody.Part
+    ): ApiEnvelope<ProfileImageResponse>
+
     // Pets
     @GET("pets")
     suspend fun getPets(): ApiEnvelope<PetsResponse>
