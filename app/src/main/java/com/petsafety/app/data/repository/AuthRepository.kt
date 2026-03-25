@@ -13,6 +13,7 @@ import kotlinx.serialization.json.JsonNull
 import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.JsonPrimitive
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.map
 
 data class VerifyResult(val user: User, val isNewUser: Boolean)
@@ -22,6 +23,7 @@ class AuthRepository(
     private val tokenStore: AuthTokenStore,
     private val fcmRepository: FCMRepository? = null // Optional for backward compatibility
 ) {
+    val cachedFirstName: StateFlow<String?> = tokenStore.userFirstName
     val isAuthenticated: Flow<Boolean> = tokenStore.authToken.map { !it.isNullOrBlank() }
 
     suspend fun login(email: String) {
@@ -42,7 +44,7 @@ class AuthRepository(
         val user = data.user
         tokenStore.saveAuthToken(token)
         data.refreshToken?.let { tokenStore.saveRefreshToken(it) }
-        tokenStore.saveUserInfo(user.id, user.email)
+        tokenStore.saveUserInfo(user.id, user.email, user.firstName)
 
         // Register FCM token after successful login
         registerFCMToken()
@@ -87,8 +89,11 @@ class AuthRepository(
         }
     }
 
-    suspend fun getCurrentUser(): User =
-        apiService.getCurrentUser().data?.user ?: error("Missing user")
+    suspend fun getCurrentUser(): User {
+        val user = apiService.getCurrentUser().data?.user ?: error("Missing user")
+        user.firstName?.let { tokenStore.saveFirstName(it) }
+        return user
+    }
 
     suspend fun updateUser(updates: Map<String, Any>): User {
         val json = JsonObject(

@@ -59,6 +59,7 @@ class AuthViewModelTest {
         every { authRepository.isAuthenticated } returns flowOf(false)
         every { authRepository.isBiometricEnabled() } returns false
         every { authRepository.hasStoredToken() } returns false
+        every { authRepository.cachedFirstName } returns MutableStateFlow(null)
         every { application.getString(any()) } returns "Error"
         every { application.getString(R.string.error_submit_support) } returns "Failed to submit support request"
 

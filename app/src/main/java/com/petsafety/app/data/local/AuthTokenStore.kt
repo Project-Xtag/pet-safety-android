@@ -12,6 +12,7 @@ class AuthTokenStore(context: Context) {
     private val refreshTokenKey = "refresh_token"
     private val userIdKey = "user_id"
     private val userEmailKey = "user_email"
+    private val userFirstNameKey = "user_first_name"
     private val biometricEnabledKey = "biometric_enabled"
 
     private val prefs by lazy {
@@ -38,6 +39,9 @@ class AuthTokenStore(context: Context) {
 
     private val _userEmail = MutableStateFlow(prefs.getString(userEmailKey, null))
     val userEmail: StateFlow<String?> = _userEmail.asStateFlow()
+
+    private val _userFirstName = MutableStateFlow(prefs.getString(userFirstNameKey, null))
+    val userFirstName: StateFlow<String?> = _userFirstName.asStateFlow()
 
     private val _biometricEnabled = MutableStateFlow(prefs.getBoolean(biometricEnabledKey, false))
     val biometricEnabled: StateFlow<Boolean> = _biometricEnabled.asStateFlow()
@@ -71,22 +75,33 @@ class AuthTokenStore(context: Context) {
         _refreshToken.value = null
     }
 
-    suspend fun saveUserInfo(userId: String, email: String) {
+    suspend fun saveUserInfo(userId: String, email: String, firstName: String? = null) {
         prefs.edit()
             .putString(userIdKey, userId)
             .putString(userEmailKey, email)
+            .apply {
+                if (firstName != null) putString(userFirstNameKey, firstName)
+            }
             .apply()
         _userId.value = userId
         _userEmail.value = email
+        if (firstName != null) _userFirstName.value = firstName
+    }
+
+    fun saveFirstName(firstName: String) {
+        prefs.edit().putString(userFirstNameKey, firstName).apply()
+        _userFirstName.value = firstName
     }
 
     suspend fun clearUserInfo() {
         prefs.edit()
             .remove(userIdKey)
             .remove(userEmailKey)
+            .remove(userFirstNameKey)
             .apply()
         _userId.value = null
         _userEmail.value = null
+        _userFirstName.value = null
     }
 
     /**
@@ -114,10 +129,12 @@ class AuthTokenStore(context: Context) {
             .remove(refreshTokenKey)
             .remove(userIdKey)
             .remove(userEmailKey)
+            .remove(userFirstNameKey)
             .commit()
         _authToken.value = null
         _refreshToken.value = null
         _userId.value = null
         _userEmail.value = null
+        _userFirstName.value = null
     }
 }

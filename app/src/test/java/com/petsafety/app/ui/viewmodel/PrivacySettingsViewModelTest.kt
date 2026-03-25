@@ -65,6 +65,7 @@ class PrivacySettingsViewModelTest {
         every { authRepository.isBiometricEnabled() } returns false
         every { authRepository.hasStoredToken() } returns false
         every { authRepository.isAuthenticated } returns authStateFlow
+        every { authRepository.cachedFirstName } returns MutableStateFlow(null)
         coEvery { authRepository.getCurrentUser() } returns testUser
 
         viewModel = AuthViewModel(application, authRepository, fcmRepository)

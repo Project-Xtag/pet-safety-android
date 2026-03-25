@@ -206,7 +206,8 @@ fun PetsListScreen(
                             .verticalScroll(rememberScrollState())
                     ) {
                         // Header Section
-                        HeaderSection(userName = currentUser?.firstName ?: stringResource(R.string.pet_owner_default), onNotifications = onNotifications)
+                        val cachedName by authViewModel?.cachedFirstName?.collectAsState() ?: remember { mutableStateOf(null) }
+                        HeaderSection(userName = currentUser?.firstName ?: cachedName ?: stringResource(R.string.pet_owner_default), onNotifications = onNotifications)
 
                         Spacer(modifier = Modifier.height(24.dp))
 
