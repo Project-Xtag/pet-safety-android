@@ -448,7 +448,32 @@
     <string name="notification_source_custom">Egendefinert</string>
     <string name="no_registered_address">Ingen registrert adresse funnet. Oppdater profilen din.</string>
 
-    <!-- Mark Lost Flow -->
+        <!-- Mark Lost Flow (matching iOS MarkAsLostView) -->
+    <string name="mark_lost_pet_info">Kjæledyrinformasjon</string>
+    <string name="mark_lost_last_seen">Sist sett sted</string>
+    <string name="mark_lost_alerts_footer">Varsler sendes til brukere, veterinærer og dyrehjem innen 10 km.</string>
+    <string name="mark_lost_getting_location">Henter posisjonen din…</string>
+    <string name="mark_lost_no_address">Ingen registrert adresse. Gå til Profil for å legge til adressen din.</string>
+    <string name="mark_lost_address_placeholder">Skriv inn adresse eller sted</string>
+    <string name="mark_lost_additional_info">Tilleggsinformasjon</string>
+    <string name="mark_lost_additional_placeholder">Beskriv når og hvor du sist så kjæledyret ditt, hva det hadde på seg, osv.</string>
+    <string name="mark_lost_sends_to">Dette varselet sendes til:</string>
+    <string name="mark_lost_nearby_owners">Kjæledyreiere i nærheten</string>
+    <string name="mark_lost_vet_clinics">Veterinærklinikker i området</string>
+    <string name="mark_lost_shelters">Dyrehjem i nærheten</string>
+    <string name="mark_lost_report">Rapporter savnet</string>
+    <string name="mark_lost_title">Rapporter savnet</string>
+    <string name="mark_lost_starter_notice">Oppgrader for fellesskapsvarsler</string>
+    <string name="mark_lost_upgrade_prompt">Med Starter-planen merkes kjæledyret ditt som savnet, men varsler til brukere, veterinærer og dyrehjem krever Standard- eller Maximum-abonnement.</string>
+    <string name="mark_lost_success_with_alerts">%1$s er rapportert som savnet. Varsler sendes til brukere i nærheten.</string>
+    <string name="mark_lost_success_no_location">%1$s er merket som savnet. Legg til sted for å sende fellesskapsvarsler.</string>
+    <string name="mark_lost_address_required">Oppgi en adresse eller aktiver posisjonstjenester.</string>
+    <string name="quick_lost_select_pet">Velg et kjæledyr å rapportere som savnet</string>
+    <string name="quick_lost_all_missing">Alle kjæledyrene dine er allerede merket som savnet.</string>
+    <string name="quick_lost_title">Rapporter savnet</string>
+    <string name="location_current">Gjeldende posisjon</string>
+    <string name="location_my_address">Min adresse</string>
+    <string name="location_custom">Egendefinert adresse</string>
 
     <!-- ============================================ -->
     <!-- MARK: Notifications -->

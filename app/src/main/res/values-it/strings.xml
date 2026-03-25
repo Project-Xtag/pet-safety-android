@@ -448,7 +448,32 @@
     <string name="notification_source_custom">Personalizzato</string>
     <string name="no_registered_address">Nessun indirizzo registrato. Aggiorna il tuo profilo.</string>
 
-    <!-- Mark Lost Flow -->
+        <!-- Mark Lost Flow (matching iOS MarkAsLostView) -->
+    <string name="mark_lost_pet_info">Informazioni sull\'animale</string>
+    <string name="mark_lost_last_seen">Ultima posizione nota</string>
+    <string name="mark_lost_alerts_footer">Gli avvisi verranno inviati agli utenti, veterinari e rifugi nel raggio di 10 km.</string>
+    <string name="mark_lost_getting_location">Recupero della tua posizione…</string>
+    <string name="mark_lost_no_address">Nessun indirizzo registrato. Vai in Profilo per aggiungere il tuo indirizzo.</string>
+    <string name="mark_lost_address_placeholder">Inserisci un indirizzo o una posizione</string>
+    <string name="mark_lost_additional_info">Informazioni aggiuntive</string>
+    <string name="mark_lost_additional_placeholder">Descrivi quando e dove hai visto il tuo animale per l\'ultima volta, cosa indossava, ecc.</string>
+    <string name="mark_lost_sends_to">Questo avviso verrà inviato a:</string>
+    <string name="mark_lost_nearby_owners">Proprietari di animali nelle vicinanze</string>
+    <string name="mark_lost_vet_clinics">Cliniche veterinarie della zona</string>
+    <string name="mark_lost_shelters">Rifugi animali nelle vicinanze</string>
+    <string name="mark_lost_report">Segnala scomparsa</string>
+    <string name="mark_lost_title">Segnala scomparsa</string>
+    <string name="mark_lost_starter_notice">Aggiorna per inviare avvisi alla comunità</string>
+    <string name="mark_lost_upgrade_prompt">Con il piano Starter il tuo animale sarà segnalato come smarrito, ma le notifiche a utenti, veterinari e rifugi richiedono un abbonamento Standard o Maximum.</string>
+    <string name="mark_lost_success_with_alerts">%1$s è stato segnalato come smarrito. Gli avvisi vengono inviati agli utenti nelle vicinanze.</string>
+    <string name="mark_lost_success_no_location">%1$s è stato contrassegnato come smarrito. Aggiungi la posizione per inviare avvisi alla comunità.</string>
+    <string name="mark_lost_address_required">Fornisci un indirizzo o attiva i servizi di localizzazione.</string>
+    <string name="quick_lost_select_pet">Seleziona un animale da segnalare come scomparso</string>
+    <string name="quick_lost_all_missing">Tutti i tuoi animali sono già segnati come scomparsi.</string>
+    <string name="quick_lost_title">Segnala scomparsa</string>
+    <string name="location_current">Posizione attuale</string>
+    <string name="location_my_address">Il mio indirizzo</string>
+    <string name="location_custom">Indirizzo personalizzato</string>
 
     <!-- ============================================ -->
     <!-- MARK: Notifications -->

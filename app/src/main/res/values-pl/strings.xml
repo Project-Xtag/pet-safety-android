@@ -456,7 +456,32 @@
     <string name="notification_source_custom">Niestandardowy</string>
     <string name="no_registered_address">Brak zarejestrowanego adresu. Zaktualizuj swój profil.</string>
 
-    <!-- Mark Lost Flow -->
+        <!-- Mark Lost Flow (matching iOS MarkAsLostView) -->
+    <string name="mark_lost_pet_info">Informacje o zwierzęciu</string>
+    <string name="mark_lost_last_seen">Ostatnie znane miejsce</string>
+    <string name="mark_lost_alerts_footer">Alerty zostaną wysłane do użytkowników, weterynarzy i schronisk w promieniu 10km.</string>
+    <string name="mark_lost_getting_location">Pobieranie lokalizacji…</string>
+    <string name="mark_lost_no_address">Brak zarejestrowanego adresu. Przejdź do Profilu, aby dodać adres.</string>
+    <string name="mark_lost_address_placeholder">Podaj adres lub lokalizację</string>
+    <string name="mark_lost_additional_info">Dodatkowe informacje</string>
+    <string name="mark_lost_additional_placeholder">Opisz, kiedy i gdzie widziałeś/aś ostatnio swoje zwierzę, co miało na sobie itp.</string>
+    <string name="mark_lost_sends_to">Ten alert zostanie wysłany do:</string>
+    <string name="mark_lost_nearby_owners">Pobliskich właścicieli zwierząt</string>
+    <string name="mark_lost_vet_clinics">Klinik weterynaryjnych w okolicy</string>
+    <string name="mark_lost_shelters">Pobliskich schronisk dla zwierząt</string>
+    <string name="mark_lost_report">Zgłoś zaginięcie</string>
+    <string name="mark_lost_title">Zgłoś zaginięcie</string>
+    <string name="mark_lost_starter_notice">Ulepsz plan, aby wysyłać alerty</string>
+    <string name="mark_lost_upgrade_prompt">W planie Starter twoje zwierzę zostanie oznaczone jako zagubione, ale powiadomienia do użytkowników, weterynarzy i schronisk wymagają subskrypcji Standard lub Maximum.</string>
+    <string name="mark_lost_success_with_alerts">%1$s został zgłoszony jako zaginiony. Powiadomienia są wysyłane do użytkowników w pobliżu.</string>
+    <string name="mark_lost_success_no_location">%1$s został oznaczony jako zaginiony. Dodaj lokalizację, aby wysłać alerty społecznościowe.</string>
+    <string name="mark_lost_address_required">Podaj adres lub włącz usługi lokalizacji.</string>
+    <string name="quick_lost_select_pet">Wybierz zwierzę do zgłoszenia jako zaginione</string>
+    <string name="quick_lost_all_missing">Wszystkie twoje zwierzęta są już oznaczone jako zaginione.</string>
+    <string name="quick_lost_title">Zgłoś zaginięcie</string>
+    <string name="location_current">Bieżąca lokalizacja</string>
+    <string name="location_my_address">Mój adres</string>
+    <string name="location_custom">Własny adres</string>
 
     <!-- ============================================ -->
     <!-- MARK: Notifications -->

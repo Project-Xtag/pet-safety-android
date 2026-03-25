@@ -112,7 +112,8 @@ fun PetsListScreen(
     onNotifications: () -> Unit = {},
     onSuccessStories: () -> Unit = {},
     onScanTag: () -> Unit = {},
-    onExploreAccount: () -> Unit = {}
+    onExploreAccount: () -> Unit = {},
+    onQuickMarkMissing: () -> Unit = {}
 ) {
     val pets by viewModel.pets.collectAsState()
     val isLoading by viewModel.isLoading.collectAsState()
@@ -139,7 +140,6 @@ fun PetsListScreen(
 
     // Bottom sheet states
     var showMarkFoundSheet by remember { mutableStateOf(false) }
-    var showReportMissingSheet by remember { mutableStateOf(false) }
 
     // Location handling
     val context = LocalContext.current
@@ -233,9 +233,9 @@ fun PetsListScreen(
                                         appStateViewModel.showError(noMissingPetsMessage)
                                     }
                                 } else {
-                                    // Show report missing sheet
+                                    // Navigate to mark missing screen
                                     if (availablePets.isNotEmpty()) {
-                                        showReportMissingSheet = true
+                                        onQuickMarkMissing()
                                     } else {
                                         appStateViewModel.showError(noPetsToReportMessage)
                                     }
@@ -293,56 +293,6 @@ fun PetsListScreen(
         )
     }
 
-    // Report Missing Bottom Sheet
-    if (showReportMissingSheet) {
-        ReportMissingSheet(
-            availablePets = availablePets,
-            onDismiss = { showReportMissingSheet = false },
-            onReportMissing = { pet, location, address, description, rewardAmount, notifSource, notifLocation, notifAddress ->
-                viewModel.markPetMissing(
-                    petId = pet.id,
-                    location = location,
-                    address = address,
-                    description = description,
-                    rewardAmount = rewardAmount,
-                    notificationCenterSource = notifSource,
-                    notificationCenterLocation = notifLocation,
-                    notificationCenterAddress = notifAddress
-                ) { success, error ->
-                    showReportMissingSheet = false
-                    if (success) {
-                        haptic.performHapticFeedback(HapticFeedbackType.LongPress)
-                        viewModel.refresh()
-                        appStateViewModel.showSuccess(markedMissingMessage.replace("%s", pet.name))
-                    } else {
-                        appStateViewModel.showError(error ?: markMissingFailed)
-                    }
-                }
-            },
-            onRequestLocation = { callback ->
-                locationCallback = callback
-                val hasPermission = ContextCompat.checkSelfPermission(
-                    context,
-                    Manifest.permission.ACCESS_FINE_LOCATION
-                ) == PackageManager.PERMISSION_GRANTED
-
-                if (hasPermission) {
-                    try {
-                        fusedLocationClient.lastLocation.addOnSuccessListener { location ->
-                            val coordinate = location?.let { LocationCoordinate(it.latitude, it.longitude) }
-                            callback(coordinate)
-                        }.addOnFailureListener {
-                            callback(null)
-                        }
-                    } catch (e: SecurityException) {
-                        callback(null)
-                    }
-                } else {
-                    locationPermissionLauncher.launch(Manifest.permission.ACCESS_FINE_LOCATION)
-                }
-            }
-        )
-    }
 }
 
 @Composable

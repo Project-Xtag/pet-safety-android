@@ -434,7 +434,32 @@
     <string name="notification_source_custom">Personalizada</string>
     <string name="no_registered_address">No se encontró una dirección registrada. Actualiza tu perfil.</string>
 
-    <!-- Mark Lost Flow -->
+        <!-- Mark Lost Flow (matching iOS MarkAsLostView) -->
+    <string name="mark_lost_pet_info">Información de la mascota</string>
+    <string name="mark_lost_last_seen">Última ubicación vista</string>
+    <string name="mark_lost_alerts_footer">Las alertas se enviarán a usuarios cercanos, veterinarios y refugios en un radio de 10 km.</string>
+    <string name="mark_lost_getting_location">Obteniendo tu ubicación…</string>
+    <string name="mark_lost_no_address">No hay dirección registrada. Ve a Perfil para añadir tu dirección.</string>
+    <string name="mark_lost_address_placeholder">Introduce dirección o ubicación</string>
+    <string name="mark_lost_additional_info">Información adicional</string>
+    <string name="mark_lost_additional_placeholder">Describe cuándo y dónde viste a tu mascota por última vez, qué llevaba, etc.</string>
+    <string name="mark_lost_sends_to">Esta alerta se enviará a:</string>
+    <string name="mark_lost_nearby_owners">Dueños de mascotas cercanos</string>
+    <string name="mark_lost_vet_clinics">Clínicas veterinarias de la zona</string>
+    <string name="mark_lost_shelters">Refugios de animales cercanos</string>
+    <string name="mark_lost_report">Reportar pérdida</string>
+    <string name="mark_lost_title">Reportar pérdida</string>
+    <string name="mark_lost_starter_notice">Mejora para enviar alertas comunitarias</string>
+    <string name="mark_lost_upgrade_prompt">Con el plan Starter tu mascota se marcará como perdida, pero las notificaciones a usuarios, veterinarios y refugios requieren una suscripción Standard o Maximum.</string>
+    <string name="mark_lost_success_with_alerts">%1$s ha sido reportado como perdido. Se están enviando alertas a usuarios cercanos.</string>
+    <string name="mark_lost_success_no_location">%1$s ha sido marcado como perdido. Añade ubicación para enviar alertas comunitarias.</string>
+    <string name="mark_lost_address_required">Por favor, proporciona una dirección o activa los servicios de ubicación.</string>
+    <string name="quick_lost_select_pet">Selecciona una mascota para reportarla como perdida</string>
+    <string name="quick_lost_all_missing">Todas tus mascotas ya están marcadas como perdidas.</string>
+    <string name="quick_lost_title">Reportar pérdida</string>
+    <string name="location_current">Ubicación actual</string>
+    <string name="location_my_address">Mi dirección</string>
+    <string name="location_custom">Dirección personalizada</string>
 
     <!-- ============================================ -->
     <!-- MARK: Notifications -->

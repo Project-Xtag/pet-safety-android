@@ -434,7 +434,32 @@
     <string name="notification_source_custom">Benutzerdefiniert</string>
     <string name="no_registered_address">Keine registrierte Adresse gefunden. Bitte Profil aktualisieren.</string>
 
-    <!-- Mark Lost Flow -->
+        <!-- Mark Lost Flow (matching iOS MarkAsLostView) -->
+    <string name="mark_lost_pet_info">Haustierinformationen</string>
+    <string name="mark_lost_last_seen">Zuletzt gesehener Ort</string>
+    <string name="mark_lost_alerts_footer">Warnungen werden an nahe Nutzer, Tierärzte und Tierheime im Umkreis von 10 km gesendet.</string>
+    <string name="mark_lost_getting_location">Standort wird ermittelt…</string>
+    <string name="mark_lost_no_address">Keine Adresse registriert. Gehen Sie zu Profil um Ihre Adresse hinzuzufügen.</string>
+    <string name="mark_lost_address_placeholder">Adresse oder Ort eingeben</string>
+    <string name="mark_lost_additional_info">Zusätzliche Informationen</string>
+    <string name="mark_lost_additional_placeholder">Beschreiben Sie, wann und wo Sie Ihr Haustier zuletzt gesehen haben, was es trug usw.</string>
+    <string name="mark_lost_sends_to">Diese Warnung wird gesendet an:</string>
+    <string name="mark_lost_nearby_owners">Haustierbesitzer in der Nähe</string>
+    <string name="mark_lost_vet_clinics">Tierarztpraxen in der Nähe</string>
+    <string name="mark_lost_shelters">Tierheime in der Nähe</string>
+    <string name="mark_lost_report">Vermisst melden</string>
+    <string name="mark_lost_title">Vermisst melden</string>
+    <string name="mark_lost_starter_notice">Upgrade für Community-Benachrichtigungen</string>
+    <string name="mark_lost_upgrade_prompt">Mit dem Starter-Plan wird dein Haustier als vermisst markiert, aber Benachrichtigungen an Nutzer, Tierärzte und Tierheime erfordern ein Standard- oder Maximum-Abo.</string>
+    <string name="mark_lost_success_with_alerts">%1$s wurde als vermisst gemeldet. Benachrichtigungen werden an Nutzer in der Nähe gesendet.</string>
+    <string name="mark_lost_success_no_location">%1$s wurde als vermisst markiert. Fügen Sie einen Standort hinzu, um Benachrichtigungen zu senden.</string>
+    <string name="mark_lost_address_required">Bitte geben Sie eine Adresse ein oder aktivieren Sie die Ortungsdienste.</string>
+    <string name="quick_lost_select_pet">Wählen Sie ein Haustier, das als vermisst gemeldet werden soll</string>
+    <string name="quick_lost_all_missing">Alle Ihre Haustiere sind bereits als vermisst markiert.</string>
+    <string name="quick_lost_title">Vermisst melden</string>
+    <string name="location_current">Aktueller Standort</string>
+    <string name="location_my_address">Meine Adresse</string>
+    <string name="location_custom">Benutzerdefinierte Adresse</string>
 
     <!-- ============================================ -->
     <!-- MARK: Notifications -->

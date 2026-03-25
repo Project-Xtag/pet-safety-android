@@ -448,7 +448,32 @@
     <string name="notification_source_custom">Custom</string>
     <string name="no_registered_address">No registered address found. Please update your profile.</string>
 
-    <!-- Mark Lost Flow -->
+    <!-- Mark Lost Flow (matching iOS MarkAsLostView) -->
+    <string name="mark_lost_pet_info">Pet Information</string>
+    <string name="mark_lost_last_seen">Last Seen Location</string>
+    <string name="mark_lost_alerts_footer">Alerts will be sent to nearby users, vets, and shelters within 10km.</string>
+    <string name="mark_lost_getting_location">Getting your location…</string>
+    <string name="mark_lost_no_address">No address registered. Go to Profile to add your address.</string>
+    <string name="mark_lost_address_placeholder">Enter address or location</string>
+    <string name="mark_lost_additional_info">Additional Information</string>
+    <string name="mark_lost_additional_placeholder">Describe when and where you last saw your pet, what they were wearing, etc.</string>
+    <string name="mark_lost_sends_to">This alert will be sent to:</string>
+    <string name="mark_lost_nearby_owners">Nearby pet owners</string>
+    <string name="mark_lost_vet_clinics">Vet clinics in the area</string>
+    <string name="mark_lost_shelters">Animal shelters nearby</string>
+    <string name="mark_lost_report">Report Missing</string>
+    <string name="mark_lost_title">Report Missing</string>
+    <string name="mark_lost_starter_notice">Upgrade to send community alerts</string>
+    <string name="mark_lost_upgrade_prompt">On Starter plan, your pet will be marked as missing but notifications to nearby users, vets, and shelters require a Standard or Maximum subscription.</string>
+    <string name="mark_lost_success_with_alerts">%1$s has been reported as missing. Alerts are being sent to nearby users, vets, and shelters.</string>
+    <string name="mark_lost_success_no_location">%1$s has been marked as missing. Add a location to send community alerts.</string>
+    <string name="mark_lost_address_required">Please provide an address or enable location services.</string>
+    <string name="quick_lost_select_pet">Select a pet to report as missing</string>
+    <string name="quick_lost_all_missing">All your pets are already marked as missing.</string>
+    <string name="quick_lost_title">Report Missing</string>
+    <string name="location_current">Current Location</string>
+    <string name="location_my_address">My Address</string>
+    <string name="location_custom">Custom Address</string>
 
     <!-- ============================================ -->
     <!-- MARK: Notifications -->

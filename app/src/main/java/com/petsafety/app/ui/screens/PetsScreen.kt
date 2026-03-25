@@ -46,7 +46,8 @@ fun PetsScreen(appStateViewModel: AppStateViewModel, authViewModel: AuthViewMode
                 onNotifications = { navController.navigate("notifications") },
                 onSuccessStories = onNavigateToSuccessStories,
                 onScanTag = onScanTag,
-                onExploreAccount = onExploreAccount
+                onExploreAccount = onExploreAccount,
+                onQuickMarkMissing = { navController.navigate("quick_mark_missing") }
             )
         }
         composable(
@@ -67,6 +68,7 @@ fun PetsScreen(appStateViewModel: AppStateViewModel, authViewModel: AuthViewMode
                         navController.navigate("public_profile/$qrCode")
                     }
                 },
+                onMarkMissing = { navController.navigate("mark_missing/$petId") },
                 onBack = { navController.popBackStack() },
                 appStateViewModel = appStateViewModel
             )
@@ -153,6 +155,27 @@ fun PetsScreen(appStateViewModel: AppStateViewModel, authViewModel: AuthViewMode
         composable("notifications") {
             NotificationsScreen(
                 onBack = { navController.popBackStack() }
+            )
+        }
+        composable(
+            route = "mark_missing/{petId}",
+            arguments = listOf(navArgument("petId") { type = NavType.StringType })
+        ) { backStackEntry ->
+            val petId = backStackEntry.arguments?.getString("petId") ?: return@composable
+            val pet = viewModel.pets.value.firstOrNull { it.id == petId } ?: return@composable
+            MarkAsMissingScreen(
+                pet = pet,
+                viewModel = viewModel,
+                authViewModel = authViewModel,
+                appStateViewModel = appStateViewModel,
+                onDismiss = { navController.popBackStack() }
+            )
+        }
+        composable("quick_mark_missing") {
+            QuickMarkMissingScreen(
+                viewModel = viewModel,
+                onPetSelected = { pet -> navController.navigate("mark_missing/${pet.id}") },
+                onDismiss = { navController.popBackStack() }
             )
         }
     }

@@ -419,7 +419,32 @@
     <string name="notification_source_custom">Prilagođeno</string>
     <string name="no_registered_address">Nema registrirane adrese. Ažuriraj profil.</string>
 
-    <!-- Mark Lost Flow -->
+        <!-- Mark Lost Flow (matching iOS MarkAsLostView) -->
+    <string name="mark_lost_pet_info">Podaci o ljubimcu</string>
+    <string name="mark_lost_last_seen">Posljednje poznato mjesto</string>
+    <string name="mark_lost_alerts_footer">Uzbune će biti poslane korisnicima, veterinarima i skloništima unutar 10 km.</string>
+    <string name="mark_lost_getting_location">Dohvaćanje lokacije…</string>
+    <string name="mark_lost_no_address">Nema registrirane adrese. Idi na Profil za dodavanje adrese.</string>
+    <string name="mark_lost_address_placeholder">Unesi adresu ili lokaciju</string>
+    <string name="mark_lost_additional_info">Dodatne informacije</string>
+    <string name="mark_lost_additional_placeholder">Opiši kada i gdje si posljednji put vidio svog ljubimca, što je nosio itd.</string>
+    <string name="mark_lost_sends_to">Ova uzbuna bit će poslana na:</string>
+    <string name="mark_lost_nearby_owners">Vlasnici ljubimaca u blizini</string>
+    <string name="mark_lost_vet_clinics">Veterinarske klinike u području</string>
+    <string name="mark_lost_shelters">Skloništa za životinje u blizini</string>
+    <string name="mark_lost_report">Prijavi nestanak</string>
+    <string name="mark_lost_title">Prijavi nestanak</string>
+    <string name="mark_lost_starter_notice">Nadogradi za slanje obavijesti zajednici</string>
+    <string name="mark_lost_upgrade_prompt">S planom Starter tvoj ljubimac bit će označen kao nestao, ali obavijesti korisnicima, veterinarima i skloništima zahtijevaju pretplatu Standard ili Maximum.</string>
+    <string name="mark_lost_success_with_alerts">%1$s je prijavljen kao nestao. Uzbune se šalju korisnicima u blizini.</string>
+    <string name="mark_lost_success_no_location">%1$s je označen kao nestao. Dodaj lokaciju za slanje obavijesti zajednici.</string>
+    <string name="mark_lost_address_required">Navedi adresu ili omogući lokacijske usluge.</string>
+    <string name="quick_lost_select_pet">Odaberi ljubimca za prijavu nestanka</string>
+    <string name="quick_lost_all_missing">Svi tvoji ljubimci su već označeni kao nestali.</string>
+    <string name="quick_lost_title">Prijavi nestanak</string>
+    <string name="location_current">Trenutna lokacija</string>
+    <string name="location_my_address">Moja adresa</string>
+    <string name="location_custom">Prilagođena adresa</string>
 
     <!-- ============================================ -->
     <!-- MARK: Notifications -->

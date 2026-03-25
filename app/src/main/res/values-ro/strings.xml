@@ -427,7 +427,32 @@
     <string name="notification_source_custom">Personalizat</string>
     <string name="no_registered_address">Nu s-a găsit nicio adresă înregistrată. Actualizează-ți profilul.</string>
 
-    <!-- Mark Lost Flow -->
+        <!-- Mark Lost Flow (matching iOS MarkAsLostView) -->
+    <string name="mark_lost_pet_info">Informații despre animal</string>
+    <string name="mark_lost_last_seen">Locația unde a fost văzut ultima dată</string>
+    <string name="mark_lost_alerts_footer">Alertele vor fi trimise utilizatorilor din apropiere, veterinarilor și adăposturilor pe o rază de 10 km.</string>
+    <string name="mark_lost_getting_location">Se obține locația…</string>
+    <string name="mark_lost_no_address">Nu există adresă înregistrată. Mergi la Profil pentru a adăuga adresa.</string>
+    <string name="mark_lost_address_placeholder">Introdu adresa sau locația</string>
+    <string name="mark_lost_additional_info">Informații suplimentare</string>
+    <string name="mark_lost_additional_placeholder">Descrie când și unde ai văzut ultima dată animalul, ce purta, etc.</string>
+    <string name="mark_lost_sends_to">Această alertă va fi trimisă către:</string>
+    <string name="mark_lost_nearby_owners">Proprietari de animale din apropiere</string>
+    <string name="mark_lost_vet_clinics">Clinici veterinare din zonă</string>
+    <string name="mark_lost_shelters">Adăposturi de animale din apropiere</string>
+    <string name="mark_lost_report">Raportează dispariția</string>
+    <string name="mark_lost_title">Raportează dispariția</string>
+    <string name="mark_lost_starter_notice">Actualizează pentru alerte comunitare</string>
+    <string name="mark_lost_upgrade_prompt">Cu planul Starter animalul tău va fi marcat ca dispărut, dar notificările către utilizatori, veterinari și adăposturi necesită un abonament Standard sau Maximum.</string>
+    <string name="mark_lost_success_with_alerts">%1$s a fost raportat ca dispărut. Se trimit alerte utilizatorilor din apropiere.</string>
+    <string name="mark_lost_success_no_location">%1$s a fost marcat ca dispărut. Adăugați locația pentru a trimite alerte comunitare.</string>
+    <string name="mark_lost_address_required">Vă rugăm să furnizați o adresă sau activați serviciile de localizare.</string>
+    <string name="quick_lost_select_pet">Selectează un animal pentru a-l raporta ca dispărut</string>
+    <string name="quick_lost_all_missing">Toate animalele tale sunt deja marcate ca dispărute.</string>
+    <string name="quick_lost_title">Raportează dispariția</string>
+    <string name="location_current">Locația curentă</string>
+    <string name="location_my_address">Adresa mea</string>
+    <string name="location_custom">Adresă personalizată</string>
 
     <!-- ============================================ -->
     <!-- MARK: Notifications -->

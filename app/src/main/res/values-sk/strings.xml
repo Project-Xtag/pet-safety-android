@@ -434,7 +434,32 @@
     <string name="notification_source_custom">Vlastná</string>
     <string name="no_registered_address">Nenašla sa registrovaná adresa. Aktualizujte svoj profil.</string>
 
-    <!-- Mark Lost Flow -->
+        <!-- Mark Lost Flow (matching iOS MarkAsLostView) -->
+    <string name="mark_lost_pet_info">Informácie o zvierati</string>
+    <string name="mark_lost_last_seen">Naposledy videné miesto</string>
+    <string name="mark_lost_alerts_footer">Upozornenia sa odošlú blízkym používateľom, veterinárom a útulkom v okruhu 10 km.</string>
+    <string name="mark_lost_getting_location">Získavam vašu polohu…</string>
+    <string name="mark_lost_no_address">Nie je registrovaná adresa. Prejdite na Profil a pridajte adresu.</string>
+    <string name="mark_lost_address_placeholder">Zadajte adresu alebo miesto</string>
+    <string name="mark_lost_additional_info">Ďalšie informácie</string>
+    <string name="mark_lost_additional_placeholder">Popíšte, kedy a kde ste zviera naposledy videli, čo malo na sebe, atď.</string>
+    <string name="mark_lost_sends_to">Toto upozornenie bude odoslané:</string>
+    <string name="mark_lost_nearby_owners">Blízkym majiteľom zvierat</string>
+    <string name="mark_lost_vet_clinics">Veterinárnym klinikám v okolí</string>
+    <string name="mark_lost_shelters">Útulkom v okolí</string>
+    <string name="mark_lost_report">Nahlásiť stratené</string>
+    <string name="mark_lost_title">Nahlásiť stratené</string>
+    <string name="mark_lost_starter_notice">Vylepšite pre komunitné upozornenia</string>
+    <string name="mark_lost_upgrade_prompt">V pláne Starter bude vaše zviera označené ako stratené, ale upozornenia pre používateľov, veterinárov a útulky vyžadujú predplatné Standard alebo Maximum.</string>
+    <string name="mark_lost_success_with_alerts">%1$s bol nahlásený ako stratený. Upozornenia sa posielajú blízkym používateľom.</string>
+    <string name="mark_lost_success_no_location">%1$s bol označený ako stratený. Pridajte polohu na odoslanie upozornení.</string>
+    <string name="mark_lost_address_required">Zadajte adresu alebo povoľte služby určovania polohy.</string>
+    <string name="quick_lost_select_pet">Vyberte zviera, ktoré chcete nahlásiť ako stratené</string>
+    <string name="quick_lost_all_missing">Všetky vaše zvieratá sú už označené ako stratené.</string>
+    <string name="quick_lost_title">Nahlásiť stratené</string>
+    <string name="location_current">Aktuálna poloha</string>
+    <string name="location_my_address">Moja adresa</string>
+    <string name="location_custom">Vlastná adresa</string>
 
     <!-- ============================================ -->
     <!-- MARK: Notifications -->

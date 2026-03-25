@@ -434,7 +434,32 @@
     <string name="notification_source_custom">Egyéni</string>
     <string name="no_registered_address">Nincs regisztrált cím. Kérjük, frissítsd a profilod.</string>
 
-    <!-- Mark Lost Flow -->
+    <!-- Mark Lost Flow (matching iOS MarkAsLostView) -->
+    <string name="mark_lost_pet_info">Kedvenc adatai</string>
+    <string name="mark_lost_last_seen">Utolsó ismert tartózkodási hely</string>
+    <string name="mark_lost_alerts_footer">Értesítések küldése a felhasználóknak, állatorvosoknak és menhelyeknek 10 km-es körzetben.</string>
+    <string name="mark_lost_getting_location">Tartózkodási hely lekérdezése…</string>
+    <string name="mark_lost_no_address">Nincs regisztrált cím. Lépj a Profilba a cím hozzáadásához.</string>
+    <string name="mark_lost_address_placeholder">Add meg a címet vagy helyet</string>
+    <string name="mark_lost_additional_info">További információ</string>
+    <string name="mark_lost_additional_placeholder">Írd le, mikor és hol láttad utoljára a kedvencedet, mit viselt, stb.</string>
+    <string name="mark_lost_sends_to">Ez a riasztás a következőknek lesz elküldve:</string>
+    <string name="mark_lost_nearby_owners">Közeli kisállat-tulajdonosok</string>
+    <string name="mark_lost_vet_clinics">Állatorvosi rendelők a környéken</string>
+    <string name="mark_lost_shelters">Közeli állatmenhelyek</string>
+    <string name="mark_lost_report">Eltűnés jelentése</string>
+    <string name="mark_lost_title">Eltűnés jelentése</string>
+    <string name="mark_lost_starter_notice">Váltson magasabb csomagra a közösségi riasztások küldéséhez</string>
+    <string name="mark_lost_upgrade_prompt">A Starter csomaggal a kedvenced eltűntként lesz jelölve, de az értesítések küldéséhez a közeli felhasználóknak, állatorvosoknak és menhelyeknek Standard vagy Maximum előfizetés szükséges.</string>
+    <string name="mark_lost_success_with_alerts">%1$s eltűntként lett jelentve. Értesítések küldése folyamatban a közeli felhasználóknak, állatorvosoknak és menhelyeknek.</string>
+    <string name="mark_lost_success_no_location">%1$s eltűntként lett jelölve. Adj meg egy helyet a közösségi riasztások küldéséhez.</string>
+    <string name="mark_lost_address_required">Kérjük, adj meg egy címet, vagy engedélyezd a helymeghatározást.</string>
+    <string name="quick_lost_select_pet">Válaszd ki a kedvencedet az eltűnés jelentéséhez</string>
+    <string name="quick_lost_all_missing">Minden kedvenced már eltűntként van jelölve.</string>
+    <string name="quick_lost_title">Eltűnés jelentése</string>
+    <string name="location_current">Jelenlegi helyzet</string>
+    <string name="location_my_address">Saját cím</string>
+    <string name="location_custom">Egyéni cím</string>
 
     <!-- ============================================ -->
     <!-- MARK: Notifications -->
