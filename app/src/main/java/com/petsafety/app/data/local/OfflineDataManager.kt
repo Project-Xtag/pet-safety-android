@@ -109,8 +109,8 @@ class OfflineDataManager(private val database: AppDatabase) {
         database.alertDao().upsert(
             AlertEntity(
                 id = alert.id,
-                petId = alert.petId,
-                userId = alert.userId,
+                petId = alert.petId ?: "",
+                userId = alert.userId ?: "",
                 status = alert.status,
                 lastSeenLocation = alert.resolvedLastSeenLocation,
                 lastSeenLatitude = alert.resolvedLatitude,

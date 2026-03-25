@@ -41,8 +41,8 @@ object FlexibleStringSerializer : KSerializer<String?> {
 @Serializable
 data class MissingPetAlert(
     val id: String,
-    @SerialName("pet_id") val petId: String,
-    @SerialName("user_id") val userId: String,
+    @SerialName("pet_id") val petId: String? = null,
+    @SerialName("user_id") val userId: String? = null,
     val status: String,
     @SerialName("last_seen_location") val lastSeenLocation: String? = null,
     @SerialName("last_seen_latitude") val lastSeenLatitude: Double? = null,
@@ -91,7 +91,7 @@ data class MissingPetAlert(
 @Serializable
 data class Sighting(
     val id: String,
-    @SerialName("alert_id") val alertId: String,
+    @SerialName("alert_id") val alertId: String? = null,
     @SerialName("reporter_name") val reporterName: String? = null,
     @SerialName("reporter_phone") val reporterPhone: String? = null,
     @SerialName("reporter_email") val reporterEmail: String? = null,
@@ -100,7 +100,7 @@ data class Sighting(
     @SerialName("sighting_longitude") val sightingLongitude: Double? = null,
     @SerialName("sighting_notes") val sightingNotes: String? = null,
     @SerialName("photo_url") val photoUrl: String? = null,
-    @SerialName("created_at") val createdAt: String,
+    @SerialName("created_at") val createdAt: String? = null,
     @SerialName("description") val legacyDescription: String? = null,
     @SerialName("sighting_address") val legacySightingAddress: String? = null,
     @SerialName("reported_at") val legacyReportedAt: String? = null
@@ -112,7 +112,7 @@ data class Sighting(
         get() = sightingNotes ?: legacyDescription
 
     val resolvedCreatedAt: String
-        get() = createdAt.ifBlank { legacyReportedAt ?: createdAt }
+        get() = (createdAt ?: "").ifBlank { legacyReportedAt ?: "" }
 }
 
 @Serializable
