@@ -29,6 +29,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.ChevronRight
+import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.LocalHospital
@@ -247,6 +248,23 @@ private fun PublicPetContent(
             ?: if (isOwnPet && currentUser?.showEmailPublicly == true) currentUser.email?.let { add(it) } else Unit
         pet.ownerSecondaryEmail?.let { add(it) }
     }
+    // Build formatted owner address from backend fields (already privacy-filtered)
+    val ownerAddress = run {
+        val addr = pet.ownerAddress
+        if (addr.isNullOrBlank()) {
+            // Fallback for own pet when address is public
+            if (isOwnPet && currentUser?.showAddressPublicly == true) {
+                val parts = listOfNotNull(currentUser.address, currentUser.addressLine2, currentUser.city, currentUser.postalCode, currentUser.country)
+                    .filter { it.isNotBlank() }
+                if (parts.isNotEmpty()) parts.joinToString(", ") else null
+            } else null
+        } else {
+            val parts = listOfNotNull(addr, pet.ownerAddressLine2, pet.ownerCity, pet.ownerPostalCode, pet.ownerCountry)
+                .filter { it.isNotBlank() }
+            parts.joinToString(", ")
+        }
+    }
+
     // Backward-compatible single values for existing checks
     val ownerPhone = ownerPhones.firstOrNull()
     val ownerEmail = ownerEmails.firstOrNull()
@@ -504,7 +522,7 @@ private fun PublicPetContent(
         Spacer(modifier = Modifier.height(24.dp))
 
         // Contact Owner Section
-        if (ownerPhone != null || ownerEmail != null) {
+        if (ownerPhone != null || ownerEmail != null || ownerAddress != null) {
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -615,6 +633,37 @@ private fun PublicPetContent(
                                 contentDescription = null,
                                 modifier = Modifier.size(14.dp),
                                 tint = MaterialTheme.colorScheme.onSurfaceVariant
+                            )
+                        }
+                    }
+                }
+
+                // Owner Address
+                if (ownerAddress != null) {
+                    Spacer(modifier = Modifier.height(8.dp))
+                    Card(
+                        modifier = Modifier.fillMaxWidth(),
+                        shape = RoundedCornerShape(14.dp),
+                        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
+                        elevation = CardDefaults.cardElevation(defaultElevation = 1.dp)
+                    ) {
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(16.dp),
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Icon(
+                                imageVector = Icons.Default.Home,
+                                contentDescription = null,
+                                tint = BrandOrange,
+                                modifier = Modifier.size(20.dp)
+                            )
+                            Spacer(modifier = Modifier.width(12.dp))
+                            Text(
+                                text = ownerAddress,
+                                style = MaterialTheme.typography.bodyMedium.copy(fontSize = 14.sp),
+                                color = MaterialTheme.colorScheme.onSurface
                             )
                         }
                     }
