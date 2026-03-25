@@ -49,11 +49,11 @@
     <!-- MARK: Tab Bar -->
     <!-- ============================================ -->
     <string name="my_pets">Kedvenceim</string>
-    <string name="scan_qr">QR beolvasás</string>
+    <string name="scan_qr">QR-kód beolvasás</string>
     <string name="alerts">Riasztások</string>
     <string name="profile">Profil</string>
     <string name="tab_my_pets">Kedvenceim</string>
-    <string name="tab_scan_qr">QR kód beolvasás</string>
+    <string name="tab_scan_qr">QR-kód beolvasás</string>
     <string name="tab_alerts">Riasztások</string>
     <string name="tab_profile">Profil</string>
     <string name="tab_missing">Eltűnt</string>

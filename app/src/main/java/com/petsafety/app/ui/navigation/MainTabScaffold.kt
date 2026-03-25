@@ -23,6 +23,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.unit.sp
 import androidx.core.content.ContextCompat
 import com.petsafety.app.ui.screens.AlertsTabScreen
 import com.petsafety.app.ui.screens.PetsScreen
@@ -138,7 +140,14 @@ fun MainTabScaffold(
                         selected = tab == selectedTab,
                         onClick = { selectedTab = tab },
                         icon = { Icon(tab.icon, contentDescription = null) },
-                        label = { Text(stringResource(tab.labelRes)) }
+                        label = {
+                            Text(
+                                text = stringResource(tab.labelRes),
+                                fontSize = 10.sp,
+                                maxLines = 1,
+                                overflow = TextOverflow.Ellipsis
+                            )
+                        }
                     )
                 }
             }
