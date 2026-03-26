@@ -2,7 +2,10 @@ package com.petsafety.app.ui.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import android.app.Application
+import com.petsafety.app.R
 import com.petsafety.app.data.model.ScanResponse
+import com.petsafety.app.data.model.TagLookupResponse
 import com.petsafety.app.data.repository.LocationConsent
 import com.petsafety.app.data.repository.QrRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -16,7 +19,7 @@ import javax.inject.Inject
 sealed class TagLookupState {
     data object Idle : TagLookupState()
     data object Loading : TagLookupState()
-    data class ActiveWithPet(val scanResponse: ScanResponse) : TagLookupState()
+    data class ActiveWithPet(val lookup: TagLookupResponse, val qrCode: String) : TagLookupState()
     data class NeedsActivation(val qrCode: String) : TagLookupState()
     data class NotActivated(val message: String) : TagLookupState()
     data class NotFound(val message: String) : TagLookupState()
@@ -25,10 +28,11 @@ sealed class TagLookupState {
 
 @HiltViewModel
 class QrScannerViewModel @Inject constructor(
+    private val application: Application,
     private val repository: QrRepository
 ) : ViewModel() {
-    private val _scanResult = MutableStateFlow<ScanResponse?>(null)
-    val scanResult: StateFlow<ScanResponse?> = _scanResult.asStateFlow()
+    private val _scanResult = MutableStateFlow<TagLookupResponse?>(null)
+    val scanResult: StateFlow<TagLookupResponse?> = _scanResult.asStateFlow()
 
     private val _lookupState = MutableStateFlow<TagLookupState>(TagLookupState.Idle)
     val lookupState: StateFlow<TagLookupState> = _lookupState.asStateFlow()
@@ -49,44 +53,25 @@ class QrScannerViewModel @Inject constructor(
             try {
                 val lookup = repository.lookupTag(code)
                 if (!lookup.exists) {
-                    _lookupState.value = TagLookupState.NotFound("This tag was not found.")
-                } else if (lookup.status == "active" && lookup.hasPet) {
-                    try {
-                        val scanResponse = repository.scanQr(code)
-                        _scanResult.value = scanResponse
-                        _lookupState.value = TagLookupState.ActiveWithPet(scanResponse)
-                    } catch (ex: Exception) {
-                        _lookupState.value = TagLookupState.Error(
-                            ex.localizedMessage ?: "Failed to load pet profile"
-                        )
+                    _lookupState.value = TagLookupState.NotFound(application.getString(R.string.error_tag_not_found))
+                } else if (lookup.status == "active" && lookup.hasPet && lookup.pet != null) {
+                    _scanResult.value = lookup
+                    _lookupState.value = TagLookupState.ActiveWithPet(lookup, code)
+                    // Fire-and-forget scan to log + notify owner
+                    launch {
+                        try { repository.scanQr(code) } catch (_: Exception) { }
                     }
                 } else if (!lookup.hasPet && lookup.canActivate) {
                     _lookupState.value = TagLookupState.NeedsActivation(code)
                 } else {
                     _lookupState.value = TagLookupState.NotActivated(
-                        "This tag has not been activated yet."
+                        application.getString(R.string.error_tag_not_activated)
                     )
                 }
             } catch (ex: Exception) {
                 _lookupState.value = TagLookupState.Error(
-                    ex.localizedMessage ?: "Failed to look up tag"
+                    ex.localizedMessage ?: application.getString(R.string.error_tag_lookup_failed)
                 )
-            } finally {
-                _isLoading.value = false
-                _processingGuard.set(false)
-            }
-        }
-    }
-
-    fun scanQr(code: String) {
-        viewModelScope.launch {
-            if (_scanResult.value != null) return@launch
-            if (!_processingGuard.compareAndSet(false, true)) return@launch
-            _isLoading.value = true
-            try {
-                _scanResult.value = repository.scanQr(code)
-            } catch (ex: Exception) {
-                _errorMessage.value = ex.localizedMessage
             } finally {
                 _isLoading.value = false
                 _processingGuard.set(false)

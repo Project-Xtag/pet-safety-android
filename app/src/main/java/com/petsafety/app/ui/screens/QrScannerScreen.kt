@@ -91,7 +91,7 @@ import com.google.mlkit.vision.barcode.BarcodeScannerOptions
 import com.google.mlkit.vision.barcode.common.Barcode
 import com.google.mlkit.vision.common.InputImage
 import com.petsafety.app.R
-import com.petsafety.app.data.model.ScanResponse
+import com.petsafety.app.data.model.TagLookupResponse
 import com.petsafety.app.data.repository.LocationConsent
 import com.petsafety.app.ui.theme.BrandOrange
 import com.petsafety.app.ui.theme.TealAccent
@@ -424,13 +424,13 @@ private fun CameraPreview(
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun ScannedPetSheet(
-    scanResult: ScanResponse,
+    scanResult: TagLookupResponse,
     onDismiss: () -> Unit,
     onShareLocation: (String, LocationConsent, Double?, Double?, Double?) -> Unit
 ) {
     val context = LocalContext.current
     val locationProvider = LocationServices.getFusedLocationProviderClient(context)
-    val pet = scanResult.pet
+    val pet = scanResult.pet ?: return
 
     // State for 2-tier location consent toggle (ON = precise, OFF = approximate)
     var shareExactLocation by remember { mutableStateOf(true) }

@@ -59,6 +59,13 @@ class PetSafetyFirebaseMessagingService : FirebaseMessagingService() {
 
         when (notificationType) {
             "PET_SCANNED", "TAG_INITIAL_SCAN" -> handleTagScannedNotification(data)
+            "TAG_ACTIVATED" -> {
+                val petName = data["pet_name"] ?: getString(R.string.notif_fallback_pet_name)
+                notificationHelper.showNotification(
+                    title = data["title"] ?: getString(R.string.notif_tag_activated_title),
+                    body = data["body"] ?: getString(R.string.notif_tag_activated_body, petName)
+                )
+            }
             "MISSING_PET_ALERT" -> handleMissingPetAlert(data)
             "PET_FOUND" -> handlePetFoundNotification(data)
             "SIGHTING_REPORTED" -> handleSightingNotification(data)

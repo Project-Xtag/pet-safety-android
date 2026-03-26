@@ -4,7 +4,7 @@ import android.app.Application
 import app.cash.turbine.test
 import com.petsafety.app.R
 import com.petsafety.app.data.model.Pet
-import com.petsafety.app.data.model.ScanResponse
+import com.petsafety.app.data.model.TagLookupResponse
 import com.petsafety.app.data.repository.QrRepository
 import io.mockk.coEvery
 import io.mockk.coVerify
@@ -54,6 +54,15 @@ class PublicPetProfileViewModelTest {
         isMissing = true
     )
 
+    private fun lookupWithPet(pet: Pet) = TagLookupResponse(
+        exists = true,
+        status = "active",
+        hasPet = true,
+        isOwner = false,
+        canActivate = false,
+        pet = pet
+    )
+
     @Before
     fun setup() {
         Dispatchers.setMain(testDispatcher)
@@ -72,8 +81,7 @@ class PublicPetProfileViewModelTest {
 
     @Test
     fun `loadPublicProfile - success - updates pet state`() = runTest {
-        val scanResponse = ScanResponse(pet = testPet)
-        coEvery { qrRepository.scanQr("ABC123") } returns scanResponse
+        coEvery { qrRepository.lookupTag("ABC123") } returns lookupWithPet(testPet)
 
         viewModel.loadPublicProfile("ABC123")
         testDispatcher.scheduler.advanceUntilIdle()
@@ -84,8 +92,7 @@ class PublicPetProfileViewModelTest {
 
     @Test
     fun `loadPublicProfile - success with missing pet - updates pet state`() = runTest {
-        val scanResponse = ScanResponse(pet = missingPet)
-        coEvery { qrRepository.scanQr("LOST123") } returns scanResponse
+        coEvery { qrRepository.lookupTag("LOST123") } returns lookupWithPet(missingPet)
 
         viewModel.loadPublicProfile("LOST123")
         testDispatcher.scheduler.advanceUntilIdle()
@@ -97,7 +104,7 @@ class PublicPetProfileViewModelTest {
     @Test
     fun `loadPublicProfile - failure - sets error message`() = runTest {
         val errorMsg = "QR code not found"
-        coEvery { qrRepository.scanQr("INVALID") } throws RuntimeException(errorMsg)
+        coEvery { qrRepository.lookupTag("INVALID") } throws RuntimeException(errorMsg)
 
         viewModel.loadPublicProfile("INVALID")
         testDispatcher.scheduler.advanceUntilIdle()
@@ -108,7 +115,7 @@ class PublicPetProfileViewModelTest {
 
     @Test
     fun `loadPublicProfile - failure with null message - uses default error`() = runTest {
-        coEvery { qrRepository.scanQr("INVALID") } throws RuntimeException()
+        coEvery { qrRepository.lookupTag("INVALID") } throws RuntimeException()
 
         viewModel.loadPublicProfile("INVALID")
         testDispatcher.scheduler.advanceUntilIdle()
@@ -118,8 +125,7 @@ class PublicPetProfileViewModelTest {
 
     @Test
     fun `loadPublicProfile - shows loading state`() = runTest {
-        val scanResponse = ScanResponse(pet = testPet)
-        coEvery { qrRepository.scanQr(any()) } returns scanResponse
+        coEvery { qrRepository.lookupTag(any()) } returns lookupWithPet(testPet)
 
         viewModel.isLoading.test {
             assertEquals(false, awaitItem())
@@ -135,14 +141,13 @@ class PublicPetProfileViewModelTest {
     @Test
     fun `loadPublicProfile - clears previous error before loading`() = runTest {
         // First, trigger an error
-        coEvery { qrRepository.scanQr("INVALID") } throws RuntimeException("Error")
+        coEvery { qrRepository.lookupTag("INVALID") } throws RuntimeException("Error")
         viewModel.loadPublicProfile("INVALID")
         testDispatcher.scheduler.advanceUntilIdle()
         assertEquals("Error", viewModel.errorMessage.value)
 
         // Now load successfully
-        val scanResponse = ScanResponse(pet = testPet)
-        coEvery { qrRepository.scanQr("ABC123") } returns scanResponse
+        coEvery { qrRepository.lookupTag("ABC123") } returns lookupWithPet(testPet)
         viewModel.loadPublicProfile("ABC123")
         testDispatcher.scheduler.advanceUntilIdle()
 
@@ -151,14 +156,27 @@ class PublicPetProfileViewModelTest {
     }
 
     @Test
-    fun `loadPublicProfile - calls repository with correct code`() = runTest {
-        val scanResponse = ScanResponse(pet = testPet)
-        coEvery { qrRepository.scanQr("MYCODE123") } returns scanResponse
+    fun `loadPublicProfile - calls lookupTag then fire-and-forget scanQr`() = runTest {
+        coEvery { qrRepository.lookupTag("MYCODE123") } returns lookupWithPet(testPet)
 
         viewModel.loadPublicProfile("MYCODE123")
         testDispatcher.scheduler.advanceUntilIdle()
 
+        coVerify { qrRepository.lookupTag("MYCODE123") }
         coVerify { qrRepository.scanQr("MYCODE123") }
+    }
+
+    @Test
+    fun `loadPublicProfile - scanQr failure does not affect pet state`() = runTest {
+        coEvery { qrRepository.lookupTag("ABC123") } returns lookupWithPet(testPet)
+        coEvery { qrRepository.scanQr("ABC123") } throws RuntimeException("Scan failed")
+
+        viewModel.loadPublicProfile("ABC123")
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        // Pet should still be loaded from lookup
+        assertEquals(testPet, viewModel.pet.value)
+        assertNull(viewModel.errorMessage.value)
     }
 
     // ==================== Pet details tests ====================
@@ -176,8 +194,7 @@ class PublicPetProfileViewModelTest {
             ageYears = 3,
             ageMonths = 6
         )
-        val scanResponse = ScanResponse(pet = detailedPet)
-        coEvery { qrRepository.scanQr("ABC123") } returns scanResponse
+        coEvery { qrRepository.lookupTag("ABC123") } returns lookupWithPet(detailedPet)
 
         viewModel.loadPublicProfile("ABC123")
         testDispatcher.scheduler.advanceUntilIdle()
@@ -194,8 +211,7 @@ class PublicPetProfileViewModelTest {
 
     @Test
     fun `loadPublicProfile - pet with owner contact info - available in state`() = runTest {
-        val scanResponse = ScanResponse(pet = testPet)
-        coEvery { qrRepository.scanQr("ABC123") } returns scanResponse
+        coEvery { qrRepository.lookupTag("ABC123") } returns lookupWithPet(testPet)
 
         viewModel.loadPublicProfile("ABC123")
         testDispatcher.scheduler.advanceUntilIdle()
@@ -219,26 +235,21 @@ class PublicPetProfileViewModelTest {
 
     @Test
     fun `loadPublicProfile - with empty qr code - calls repository`() = runTest {
-        coEvery { qrRepository.scanQr("") } throws RuntimeException("Invalid code")
+        coEvery { qrRepository.lookupTag("") } throws RuntimeException("Invalid code")
 
         viewModel.loadPublicProfile("")
         testDispatcher.scheduler.advanceUntilIdle()
 
-        coVerify { qrRepository.scanQr("") }
+        coVerify { qrRepository.lookupTag("") }
         assertEquals("Invalid code", viewModel.errorMessage.value)
     }
 
     @Test
     fun `loadPublicProfile - concurrent calls - both complete`() = runTest {
-        val response1 = ScanResponse(pet = testPet)
-        val response2 = ScanResponse(pet = missingPet)
-        coEvery { qrRepository.scanQr("CODE1") } returns response1
-        coEvery { qrRepository.scanQr("CODE2") } returns response2
+        coEvery { qrRepository.lookupTag("CODE1") } returns lookupWithPet(testPet)
+        coEvery { qrRepository.lookupTag("CODE2") } returns lookupWithPet(missingPet)
 
-        // Start first load
         viewModel.loadPublicProfile("CODE1")
-
-        // Start second load before first completes
         viewModel.loadPublicProfile("CODE2")
 
         testDispatcher.scheduler.advanceUntilIdle()

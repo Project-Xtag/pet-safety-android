@@ -186,8 +186,8 @@ class QrRepositoryTest {
         val result = repository.scanQr("ABC123")
 
         assertEquals(testPet, result.pet)
-        assertEquals("pet-1", result.pet.id)
-        assertEquals("Buddy", result.pet.name)
+        assertEquals("pet-1", result.pet?.id)
+        assertEquals("Buddy", result.pet?.name)
     }
 
     @Test

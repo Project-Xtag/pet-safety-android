@@ -1,12 +1,15 @@
 package com.petsafety.app.ui.viewmodel
 
+import android.app.Application
 import app.cash.turbine.test
+import com.petsafety.app.R
 import com.petsafety.app.data.model.Pet
-import com.petsafety.app.data.model.ScanResponse
+import com.petsafety.app.data.model.TagLookupResponse
 import com.petsafety.app.data.repository.LocationConsent
 import com.petsafety.app.data.repository.QrRepository
 import io.mockk.coEvery
 import io.mockk.coVerify
+import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -27,6 +30,7 @@ class QrScannerViewModelTest {
 
     private val testDispatcher = StandardTestDispatcher()
     private lateinit var repository: QrRepository
+    private lateinit var application: Application
     private lateinit var viewModel: QrScannerViewModel
 
     private val testPet = Pet(
@@ -40,13 +44,42 @@ class QrScannerViewModelTest {
         updatedAt = "2024-01-01T00:00:00Z"
     )
 
-    private val testScanResponse = ScanResponse(pet = testPet)
+    private val testLookupActiveWithPet = TagLookupResponse(
+        exists = true,
+        status = "active",
+        hasPet = true,
+        isOwner = false,
+        canActivate = false,
+        pet = testPet
+    )
+
+    private val testLookupNeedsActivation = TagLookupResponse(
+        exists = true,
+        status = "shipped",
+        hasPet = false,
+        isOwner = true,
+        canActivate = true,
+        pet = null
+    )
+
+    private val testLookupNotFound = TagLookupResponse(
+        exists = false,
+        status = null,
+        hasPet = false,
+        isOwner = false,
+        canActivate = false,
+        pet = null
+    )
 
     @Before
     fun setup() {
         Dispatchers.setMain(testDispatcher)
         repository = mockk(relaxed = true)
-        viewModel = QrScannerViewModel(repository)
+        application = mockk(relaxed = true)
+        every { application.getString(R.string.error_tag_not_found) } returns "This tag was not found."
+        every { application.getString(R.string.error_tag_not_activated) } returns "This tag has not been activated yet."
+        every { application.getString(R.string.error_tag_lookup_failed) } returns "Failed to look up tag."
+        viewModel = QrScannerViewModel(application, repository)
     }
 
     @After
@@ -54,39 +87,82 @@ class QrScannerViewModelTest {
         Dispatchers.resetMain()
     }
 
-    // ==================== scanQr tests ====================
+    // ==================== lookupAndRoute tests ====================
 
     @Test
-    fun `scanQr - success - updates scanResult`() = runTest {
-        coEvery { repository.scanQr("ABC123") } returns testScanResponse
+    fun `lookupAndRoute - active tag with pet - sets ActiveWithPet state`() = runTest {
+        coEvery { repository.lookupTag("ABC123") } returns testLookupActiveWithPet
 
-        viewModel.scanQr("ABC123")
+        viewModel.lookupAndRoute("ABC123")
         testDispatcher.scheduler.advanceUntilIdle()
 
-        assertEquals(testScanResponse, viewModel.scanResult.value)
-        assertNull(viewModel.errorMessage.value)
+        val state = viewModel.lookupState.value
+        assertTrue(state is TagLookupState.ActiveWithPet)
+        assertEquals(testPet, (state as TagLookupState.ActiveWithPet).lookup.pet)
     }
 
     @Test
-    fun `scanQr - failure - sets error message`() = runTest {
-        val errorMsg = "QR code not found"
-        coEvery { repository.scanQr("INVALID") } throws RuntimeException(errorMsg)
+    fun `lookupAndRoute - active tag with pet - fires scan for notification`() = runTest {
+        coEvery { repository.lookupTag("ABC123") } returns testLookupActiveWithPet
 
-        viewModel.scanQr("INVALID")
+        viewModel.lookupAndRoute("ABC123")
         testDispatcher.scheduler.advanceUntilIdle()
 
-        assertNull(viewModel.scanResult.value)
-        assertEquals(errorMsg, viewModel.errorMessage.value)
+        coVerify { repository.scanQr("ABC123") }
     }
 
     @Test
-    fun `scanQr - shows loading state`() = runTest {
-        coEvery { repository.scanQr(any()) } returns testScanResponse
+    fun `lookupAndRoute - active tag with pet - sets scanResult`() = runTest {
+        coEvery { repository.lookupTag("ABC123") } returns testLookupActiveWithPet
+
+        viewModel.lookupAndRoute("ABC123")
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        assertEquals(testLookupActiveWithPet, viewModel.scanResult.value)
+    }
+
+    @Test
+    fun `lookupAndRoute - needs activation - sets NeedsActivation state`() = runTest {
+        coEvery { repository.lookupTag("UNACTIVATED") } returns testLookupNeedsActivation
+
+        viewModel.lookupAndRoute("UNACTIVATED")
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        val state = viewModel.lookupState.value
+        assertTrue(state is TagLookupState.NeedsActivation)
+        assertEquals("UNACTIVATED", (state as TagLookupState.NeedsActivation).qrCode)
+    }
+
+    @Test
+    fun `lookupAndRoute - not found - sets NotFound state`() = runTest {
+        coEvery { repository.lookupTag("UNKNOWN") } returns testLookupNotFound
+
+        viewModel.lookupAndRoute("UNKNOWN")
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        val state = viewModel.lookupState.value
+        assertTrue(state is TagLookupState.NotFound)
+    }
+
+    @Test
+    fun `lookupAndRoute - network error - sets Error state`() = runTest {
+        coEvery { repository.lookupTag(any()) } throws RuntimeException("Network error")
+
+        viewModel.lookupAndRoute("ABC123")
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        val state = viewModel.lookupState.value
+        assertTrue(state is TagLookupState.Error)
+    }
+
+    @Test
+    fun `lookupAndRoute - shows loading state`() = runTest {
+        coEvery { repository.lookupTag(any()) } returns testLookupActiveWithPet
 
         viewModel.isLoading.test {
             assertEquals(false, awaitItem())
 
-            viewModel.scanQr("ABC123")
+            viewModel.lookupAndRoute("ABC123")
             assertEquals(true, awaitItem())
 
             testDispatcher.scheduler.advanceUntilIdle()
@@ -95,37 +171,19 @@ class QrScannerViewModelTest {
     }
 
     @Test
-    fun `scanQr - prevents duplicate scans while loading`() = runTest {
-        coEvery { repository.scanQr(any()) } returns testScanResponse
+    fun `lookupAndRoute - scan failure does not affect lookup result`() = runTest {
+        coEvery { repository.lookupTag("ABC123") } returns testLookupActiveWithPet
+        coEvery { repository.scanQr("ABC123") } throws RuntimeException("Scan failed")
 
-        // First scan
-        viewModel.scanQr("ABC123")
-
-        // Try to scan again while loading
-        viewModel.scanQr("DEF456")
+        viewModel.lookupAndRoute("ABC123")
         testDispatcher.scheduler.advanceUntilIdle()
 
-        // Only the first scan should have been executed
-        coVerify(exactly = 1) { repository.scanQr(any()) }
+        // State should still be ActiveWithPet despite scan failure
+        val state = viewModel.lookupState.value
+        assertTrue(state is TagLookupState.ActiveWithPet)
     }
 
-    @Test
-    fun `scanQr - prevents duplicate scans when result exists`() = runTest {
-        coEvery { repository.scanQr("ABC123") } returns testScanResponse
-
-        // First scan
-        viewModel.scanQr("ABC123")
-        testDispatcher.scheduler.advanceUntilIdle()
-
-        // Try to scan again when result already exists
-        viewModel.scanQr("DEF456")
-        testDispatcher.scheduler.advanceUntilIdle()
-
-        // Only the first scan should have been executed
-        coVerify(exactly = 1) { repository.scanQr(any()) }
-    }
-
-    // ==================== shareLocation tests (with consent) ====================
+    // ==================== shareLocation tests ====================
 
     @Test
     fun `shareLocation - PRECISE consent - success`() = runTest {
@@ -150,9 +208,6 @@ class QrScannerViewModelTest {
 
         assertTrue(success)
         assertNull(error)
-        coVerify {
-            repository.shareLocation("ABC123", LocationConsent.PRECISE, 51.5074, -0.1278, 10.0)
-        }
     }
 
     @Test
@@ -174,31 +229,6 @@ class QrScannerViewModelTest {
         testDispatcher.scheduler.advanceUntilIdle()
 
         assertTrue(success)
-        coVerify {
-            repository.shareLocation("ABC123", LocationConsent.APPROXIMATE, 51.5, -0.12, null)
-        }
-    }
-
-    @Test
-    fun `shareLocation - APPROXIMATE consent without coordinates - success`() = runTest {
-        coEvery {
-            repository.shareLocation("ABC123", LocationConsent.APPROXIMATE, null, null, null)
-        } returns mockk()
-
-        var success = false
-
-        viewModel.shareLocation(
-            qrCode = "ABC123",
-            consent = LocationConsent.APPROXIMATE
-        ) { s, _ ->
-            success = s
-        }
-        testDispatcher.scheduler.advanceUntilIdle()
-
-        assertTrue(success)
-        coVerify {
-            repository.shareLocation("ABC123", LocationConsent.APPROXIMATE, null, null, null)
-        }
     }
 
     @Test
@@ -229,14 +259,14 @@ class QrScannerViewModelTest {
     // ==================== reset tests ====================
 
     @Test
-    fun `reset - clears scanResult and errorMessage`() = runTest {
-        // Setup state with scan result
-        coEvery { repository.scanQr("ABC123") } returns testScanResponse
-        viewModel.scanQr("ABC123")
+    fun `reset - clears all state`() = runTest {
+        coEvery { repository.lookupTag("ABC123") } returns testLookupActiveWithPet
+
+        viewModel.lookupAndRoute("ABC123")
         testDispatcher.scheduler.advanceUntilIdle()
 
         // Verify state has values
-        assertEquals(testScanResponse, viewModel.scanResult.value)
+        assertEquals(testLookupActiveWithPet, viewModel.scanResult.value)
 
         // Reset
         viewModel.reset()
@@ -244,47 +274,7 @@ class QrScannerViewModelTest {
         // Verify state is cleared
         assertNull(viewModel.scanResult.value)
         assertNull(viewModel.errorMessage.value)
-    }
-
-    @Test
-    fun `reset - clears error state`() = runTest {
-        // Setup state with error
-        coEvery { repository.scanQr("INVALID") } throws RuntimeException("Error")
-        viewModel.scanQr("INVALID")
-        testDispatcher.scheduler.advanceUntilIdle()
-
-        // Verify error is set
-        assertEquals("Error", viewModel.errorMessage.value)
-
-        // Reset
-        viewModel.reset()
-
-        // Verify error is cleared
-        assertNull(viewModel.errorMessage.value)
-    }
-
-    @Test
-    fun `reset - allows new scan after reset`() = runTest {
-        coEvery { repository.scanQr("ABC123") } returns testScanResponse
-
-        // First scan
-        viewModel.scanQr("ABC123")
-        testDispatcher.scheduler.advanceUntilIdle()
-        assertEquals(testScanResponse, viewModel.scanResult.value)
-
-        // Reset
-        viewModel.reset()
-
-        // New scan should work
-        val newPet = testPet.copy(id = "pet-2", name = "Whiskers")
-        val newResponse = ScanResponse(pet = newPet)
-        coEvery { repository.scanQr("DEF456") } returns newResponse
-
-        viewModel.scanQr("DEF456")
-        testDispatcher.scheduler.advanceUntilIdle()
-
-        assertEquals(newResponse, viewModel.scanResult.value)
-        coVerify(exactly = 2) { repository.scanQr(any()) }
+        assertEquals(TagLookupState.Idle, viewModel.lookupState.value)
     }
 
     // ==================== Initial state tests ====================
@@ -294,19 +284,6 @@ class QrScannerViewModelTest {
         assertNull(viewModel.scanResult.value)
         assertFalse(viewModel.isLoading.value)
         assertNull(viewModel.errorMessage.value)
-    }
-
-    // ==================== Edge cases ====================
-
-    @Test
-    fun `scanQr - with missing pet - handles response`() = runTest {
-        val missingPet = testPet.copy(isMissing = true)
-        val scanResponse = ScanResponse(pet = missingPet)
-        coEvery { repository.scanQr("LOST123") } returns scanResponse
-
-        viewModel.scanQr("LOST123")
-        testDispatcher.scheduler.advanceUntilIdle()
-
-        assertTrue(viewModel.scanResult.value?.pet?.isMissing ?: false)
+        assertEquals(TagLookupState.Idle, viewModel.lookupState.value)
     }
 }

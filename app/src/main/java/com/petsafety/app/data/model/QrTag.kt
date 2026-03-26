@@ -18,7 +18,9 @@ data class QrTag(
 
 @Serializable
 data class ScanResponse(
-    val pet: Pet
+    val pet: Pet? = null,
+    @SerialName("scan_id") val scanId: String? = null,
+    val message: String? = null
 )
 
 @Serializable

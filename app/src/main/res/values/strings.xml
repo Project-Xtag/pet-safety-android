@@ -1003,6 +1003,11 @@
     <string name="error_refresh_pets">Failed to refresh pets</string>
     <string name="error_load_alerts">Failed to load alerts</string>
     <string name="error_load_pet_profile">Failed to load pet profile</string>
+    <string name="notif_tag_activated_title">Tag activated!</string>
+    <string name="notif_tag_activated_body">%s\'s Senra tag is now active. Your pet is protected.</string>
+    <string name="error_tag_not_found">This tag was not found in the system.</string>
+    <string name="error_tag_not_activated">This tag has not been activated yet.</string>
+    <string name="error_tag_lookup_failed">Failed to look up tag. Please try again.</string>
     <string name="error_load_stories">Failed to load stories</string>
 
     <!-- ============================================ -->
