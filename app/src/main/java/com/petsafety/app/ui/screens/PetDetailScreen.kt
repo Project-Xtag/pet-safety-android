@@ -610,7 +610,7 @@ private fun InfoCard(
             verticalAlignment = Alignment.CenterVertically
         ) {
             Row(
-                modifier = Modifier.width(120.dp),
+                modifier = Modifier.widthIn(min = if (AdaptiveLayout.isTablet()) 160.dp else 120.dp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Icon(
@@ -623,7 +623,8 @@ private fun InfoCard(
                 Text(
                     text = title,
                     style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    maxLines = 1
                 )
             }
             Spacer(modifier = Modifier.weight(1f))
