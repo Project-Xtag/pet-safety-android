@@ -291,8 +291,8 @@ class SubscriptionViewModelTest {
         viewModel.selectPlan(standardPlan, "monthly", "HU")
         testDispatcher.scheduler.advanceUntilIdle()
 
-        // Country code doesn't matter — all paid plans go to web
-        assertEquals("https://senra.pet/choose-plan", viewModel.checkoutUrl.value)
+        // Country code is appended to help the web display correct currency
+        assertEquals("https://senra.pet/choose-plan?country=HU", viewModel.checkoutUrl.value)
         coVerify(exactly = 0) { repository.createCheckoutSession(any(), any(), any()) }
     }
 

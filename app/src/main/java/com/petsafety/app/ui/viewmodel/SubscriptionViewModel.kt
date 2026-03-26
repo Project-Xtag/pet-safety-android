@@ -156,7 +156,8 @@ class SubscriptionViewModel @Inject constructor(
                 } else {
                     // Paid plans — redirect to web app for subscription checkout
                     // Subscriptions are web-only (no in-app purchasing / no store entitlement needed)
-                    _checkoutUrl.value = "https://senra.pet/choose-plan"
+                    val baseUrl = "https://senra.pet/choose-plan"
+                    _checkoutUrl.value = if (countryCode != null) "$baseUrl?country=$countryCode" else baseUrl
                 }
             } catch (e: Exception) {
                 _error.value = e.message
