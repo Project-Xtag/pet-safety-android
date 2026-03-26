@@ -1,6 +1,7 @@
 package com.petsafety.app.ui.screens
 
 import android.content.Intent
+import com.petsafety.app.ui.util.AdaptiveLayout
 import android.net.Uri
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -112,7 +113,7 @@ fun BillingScreen(
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .background(PeachBackground)
+                    .background(MaterialTheme.colorScheme.primaryContainer)
                     .padding(vertical = 16.dp)
             ) {
                 IconButton(
@@ -126,7 +127,7 @@ fun BillingScreen(
                 Text(
                     text = stringResource(R.string.billing_title),
                     style = MaterialTheme.typography.titleMedium.copy(
-                        fontSize = 18.sp,
+                        fontSize = AdaptiveLayout.scaledSp(18),
                         fontWeight = FontWeight.SemiBold
                     ),
                     modifier = Modifier.align(Alignment.Center)

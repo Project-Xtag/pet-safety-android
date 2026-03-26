@@ -2,6 +2,8 @@ package com.petsafety.app.ui.screens
 
 import android.Manifest
 import android.content.pm.PackageManager
+import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.background
@@ -301,7 +303,7 @@ private fun HeaderSection(userName: String, onNotifications: () -> Unit = {}) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .background(PeachBackground)
+            .background(MaterialTheme.colorScheme.primaryContainer)
             .padding(horizontal = 24.dp, vertical = 16.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
@@ -309,7 +311,7 @@ private fun HeaderSection(userName: String, onNotifications: () -> Unit = {}) {
             Text(
                 text = stringResource(R.string.welcome_back_greeting),
                 style = MaterialTheme.typography.bodyMedium.copy(
-                    fontSize = 14.sp,
+                    fontSize = AdaptiveLayout.scaledSp(14),
                     fontWeight = FontWeight.Medium
                 ),
                 color = MaterialTheme.colorScheme.onSurfaceVariant
@@ -318,7 +320,7 @@ private fun HeaderSection(userName: String, onNotifications: () -> Unit = {}) {
             Text(
                 text = userName,
                 style = MaterialTheme.typography.headlineSmall.copy(
-                    fontSize = 24.sp,
+                    fontSize = AdaptiveLayout.scaledSp(24),
                     fontWeight = FontWeight.Bold
                 ),
                 color = MaterialTheme.colorScheme.onSurface
@@ -353,7 +355,7 @@ private fun PetsSection(
             Text(
                 text = stringResource(R.string.my_pets),
                 style = MaterialTheme.typography.titleLarge.copy(
-                    fontSize = 20.sp,
+                    fontSize = AdaptiveLayout.scaledSp(20),
                     fontWeight = FontWeight.Bold
                 ),
                 color = MaterialTheme.colorScheme.onSurface
@@ -362,7 +364,7 @@ private fun PetsSection(
                 Text(
                     text = stringResource(R.string.view_all),
                     style = MaterialTheme.typography.bodyMedium.copy(
-                        fontSize = 14.sp,
+                        fontSize = AdaptiveLayout.scaledSp(14),
                         fontWeight = FontWeight.SemiBold
                     ),
                     color = BrandOrange,
@@ -408,21 +410,41 @@ private fun PetsSection(
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        // Pet Cards Grid - adaptive columns for tablets
+        // Pet Cards Grid - 2 columns on all devices, square images
         val gridColumns = AdaptiveLayout.gridColumns()
-        val displayPets = if (searchQuery.isNotBlank()) pets else pets.take(if (gridColumns >= 3) 6 else 4)
+        val displayPets = if (searchQuery.isNotBlank()) pets else pets.take(4)
         val rowCount = (displayPets.size + gridColumns - 1) / gridColumns
-        LazyVerticalGrid(
-            columns = GridCells.Fixed(gridColumns),
+        val hPad = AdaptiveLayout.horizontalPadding()
+        val configuration = LocalConfiguration.current
+        // Card width = (screen - 2*hPad - gap) / 2, card height = cardWidth (square image) + 40dp (name)
+        val availableWidth = configuration.screenWidthDp - hPad.value.toInt() * 2 - 16
+        val cardWidthDp = availableWidth / gridColumns
+        val cardHeightDp = cardWidthDp + 40
+        val gridHeight = (cardHeightDp * rowCount + 16 * (rowCount - 1).coerceAtLeast(0)).dp
+        Box(
             modifier = Modifier
-                .padding(horizontal = AdaptiveLayout.horizontalPadding())
-                .height((rowCount * 180).dp),
-            horizontalArrangement = Arrangement.spacedBy(16.dp),
-            verticalArrangement = Arrangement.spacedBy(16.dp),
-            userScrollEnabled = false
+                .fillMaxWidth()
+                .padding(horizontal = hPad),
+            contentAlignment = Alignment.Center
         ) {
-            items(displayPets) { pet ->
-                PetCardView(pet = pet, onClick = { onPetSelected(pet) })
+            LazyVerticalGrid(
+                columns = GridCells.Fixed(gridColumns),
+                modifier = Modifier
+                    .then(
+                        if (displayPets.size < gridColumns) {
+                            Modifier.fillMaxWidth(displayPets.size.toFloat() / gridColumns)
+                        } else {
+                            Modifier.fillMaxWidth()
+                        }
+                    )
+                    .height(gridHeight),
+                horizontalArrangement = Arrangement.spacedBy(16.dp),
+                verticalArrangement = Arrangement.spacedBy(16.dp),
+                userScrollEnabled = false
+            ) {
+                items(displayPets) { pet ->
+                    PetCardView(pet = pet, onClick = { onPetSelected(pet) })
+                }
             }
         }
     }
@@ -451,11 +473,11 @@ private fun PetCardView(pet: Pet, onClick: () -> Unit) {
         onClick = onClick
     ) {
         Column {
-            // Pet Photo with Missing Badge
+            // Pet Photo with Missing Badge — square aspect ratio
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(120.dp)
+                    .aspectRatio(1f)
             ) {
                 if (!pet.profileImage.isNullOrBlank()) {
                     AsyncImage(
@@ -503,7 +525,7 @@ private fun PetCardView(pet: Pet, onClick: () -> Unit) {
                         Text(
                             text = stringResource(R.string.missing_badge),
                             style = MaterialTheme.typography.labelSmall.copy(
-                                fontSize = 10.sp,
+                                fontSize = AdaptiveLayout.scaledSp(10),
                                 fontWeight = FontWeight.Bold
                             ),
                             color = Color.White
@@ -516,7 +538,7 @@ private fun PetCardView(pet: Pet, onClick: () -> Unit) {
             Text(
                 text = pet.name,
                 style = MaterialTheme.typography.titleMedium.copy(
-                    fontSize = 15.sp,
+                    fontSize = AdaptiveLayout.scaledSp(15),
                     fontWeight = FontWeight.Bold
                 ),
                 color = if (pet.isMissing) MaterialTheme.colorScheme.error else MaterialTheme.colorScheme.onSurface,
@@ -544,7 +566,7 @@ private fun QuickActionsSection(
         Text(
             text = stringResource(R.string.quick_actions),
             style = MaterialTheme.typography.titleLarge.copy(
-                fontSize = 20.sp,
+                fontSize = AdaptiveLayout.scaledSp(20),
                 fontWeight = FontWeight.Bold
             ),
             color = MaterialTheme.colorScheme.onSurface,
@@ -638,9 +660,9 @@ private fun QuickActionButton(
             Text(
                 text = title,
                 style = MaterialTheme.typography.labelSmall.copy(
-                    fontSize = 9.sp,
+                    fontSize = AdaptiveLayout.scaledSp(12),
                     fontWeight = FontWeight.Bold,
-                    letterSpacing = 0.5.sp
+                    letterSpacing = 0.3.sp
                 ),
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                 textAlign = TextAlign.Center,
@@ -656,7 +678,7 @@ private fun SuccessStoriesSection(onClick: () -> Unit) {
         Text(
             text = stringResource(R.string.success_stories),
             style = MaterialTheme.typography.titleLarge.copy(
-                fontSize = 20.sp,
+                fontSize = AdaptiveLayout.scaledSp(20),
                 fontWeight = FontWeight.Bold
             ),
             color = MaterialTheme.colorScheme.onSurface,
@@ -707,7 +729,7 @@ private fun SuccessStoriesSection(onClick: () -> Unit) {
                     Text(
                         text = stringResource(R.string.found_pets),
                         style = MaterialTheme.typography.titleMedium.copy(
-                            fontSize = 17.sp,
+                            fontSize = AdaptiveLayout.scaledSp(17),
                             fontWeight = FontWeight.SemiBold
                         ),
                         color = MaterialTheme.colorScheme.onSurface
@@ -715,7 +737,7 @@ private fun SuccessStoriesSection(onClick: () -> Unit) {
                     Spacer(modifier = Modifier.height(4.dp))
                     Text(
                         text = stringResource(R.string.success_stories_subtitle),
-                        style = MaterialTheme.typography.bodyMedium.copy(fontSize = 14.sp),
+                        style = MaterialTheme.typography.bodyMedium.copy(fontSize = AdaptiveLayout.scaledSp(14)),
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
                 }
@@ -767,7 +789,7 @@ private fun WelcomeView(
         Text(
             text = stringResource(R.string.welcome_to_senra),
             style = MaterialTheme.typography.headlineSmall.copy(
-                fontSize = 28.sp,
+                fontSize = AdaptiveLayout.scaledSp(28),
                 fontWeight = FontWeight.Bold
             ),
             color = MaterialTheme.colorScheme.onSurface
@@ -777,7 +799,7 @@ private fun WelcomeView(
 
         Text(
             text = stringResource(R.string.welcome_subtitle),
-            style = MaterialTheme.typography.bodyMedium.copy(fontSize = 16.sp),
+            style = MaterialTheme.typography.bodyMedium.copy(fontSize = AdaptiveLayout.scaledSp(16)),
             color = MaterialTheme.colorScheme.onSurfaceVariant,
             textAlign = TextAlign.Center,
             modifier = Modifier.padding(horizontal = 16.dp)
@@ -855,7 +877,7 @@ private fun WelcomeStep(
 
         Text(
             text = text,
-            style = MaterialTheme.typography.bodyMedium.copy(fontSize = 15.sp),
+            style = MaterialTheme.typography.bodyMedium.copy(fontSize = AdaptiveLayout.scaledSp(15)),
             color = MaterialTheme.colorScheme.onSurface
         )
     }

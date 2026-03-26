@@ -202,7 +202,7 @@ private fun ProfileMain(
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .background(PeachBackground)
+                    .background(MaterialTheme.colorScheme.primaryContainer)
                     .padding(bottom = 24.dp),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
@@ -213,7 +213,7 @@ private fun ProfileMain(
                     Text(
                         text = stringResource(R.string.account_title),
                         style = MaterialTheme.typography.titleMedium.copy(
-                            fontSize = 20.sp,
+                            fontSize = AdaptiveLayout.scaledSp(20),
                             fontWeight = FontWeight.SemiBold
                         ),
                         color = MaterialTheme.colorScheme.onSurface,
@@ -328,7 +328,7 @@ private fun ProfileMain(
                         Text(
                             text = currentUser.fullName,
                             style = MaterialTheme.typography.headlineMedium.copy(
-                                fontSize = 24.sp,
+                                fontSize = AdaptiveLayout.scaledSp(24),
                                 fontWeight = FontWeight.Bold
                             ),
                             color = MaterialTheme.colorScheme.onSurface
@@ -337,7 +337,7 @@ private fun ProfileMain(
 
                     Text(
                         text = currentUser.email,
-                        style = MaterialTheme.typography.bodyMedium.copy(fontSize = 14.sp),
+                        style = MaterialTheme.typography.bodyMedium.copy(fontSize = AdaptiveLayout.scaledSp(14)),
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
 
@@ -432,7 +432,7 @@ private fun ProfileMain(
                 Text(
                     text = stringResource(R.string.log_out),
                     style = MaterialTheme.typography.labelLarge.copy(
-                        fontSize = 16.sp,
+                        fontSize = AdaptiveLayout.scaledSp(16),
                         fontWeight = FontWeight.SemiBold
                     )
                 )
@@ -491,7 +491,7 @@ private fun ProfileMenuRow(
         Text(
             text = title,
             style = MaterialTheme.typography.bodyMedium.copy(
-                fontSize = 15.sp,
+                fontSize = AdaptiveLayout.scaledSp(15),
                 fontWeight = FontWeight.Medium
             ),
             color = MaterialTheme.colorScheme.onSurface,
@@ -1061,7 +1061,7 @@ private fun ContactsScreen(
             ) {
                 Text(
                     text = stringResource(R.string.contacts_qr_tag_info),
-                    style = MaterialTheme.typography.bodySmall.copy(fontSize = 13.sp),
+                    style = MaterialTheme.typography.bodySmall.copy(fontSize = AdaptiveLayout.scaledSp(13)),
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                     modifier = Modifier.padding(16.dp)
                 )
@@ -1290,7 +1290,7 @@ private fun PrivacyModeScreen(
             Spacer(modifier = Modifier.height(8.dp))
             Text(
                 text = stringResource(R.string.contact_visibility_desc),
-                style = MaterialTheme.typography.bodySmall.copy(fontSize = 13.sp),
+                style = MaterialTheme.typography.bodySmall.copy(fontSize = AdaptiveLayout.scaledSp(13)),
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )
             Spacer(modifier = Modifier.height(12.dp))
@@ -1484,7 +1484,7 @@ private fun NotificationPreferencesScreen(
             ) {
                 Text(
                     text = stringResource(R.string.notification_channel_info),
-                    style = MaterialTheme.typography.bodySmall.copy(fontSize = 13.sp),
+                    style = MaterialTheme.typography.bodySmall.copy(fontSize = AdaptiveLayout.scaledSp(13)),
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                     modifier = Modifier.padding(16.dp)
                 )
@@ -1783,7 +1783,7 @@ private fun HelpSupportScreen(
                     Spacer(modifier = Modifier.height(8.dp))
                     Text(
                         text = stringResource(R.string.support_response_time),
-                        style = MaterialTheme.typography.bodySmall.copy(fontSize = 12.sp),
+                        style = MaterialTheme.typography.bodySmall.copy(fontSize = AdaptiveLayout.scaledSp(12)),
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                         textAlign = TextAlign.Center
                     )
@@ -1800,7 +1800,7 @@ private fun HelpSupportScreen(
                 Text(
                     text = stringResource(R.string.danger_zone),
                     style = MaterialTheme.typography.labelSmall.copy(
-                        fontSize = 12.sp,
+                        fontSize = AdaptiveLayout.scaledSp(12),
                         fontWeight = FontWeight.SemiBold,
                         letterSpacing = 1.sp
                     ),
@@ -1861,7 +1861,7 @@ private fun HelpSupportScreen(
                             else -> stringResource(R.string.delete_account)
                         },
                         style = MaterialTheme.typography.labelLarge.copy(
-                            fontSize = 16.sp,
+                            fontSize = AdaptiveLayout.scaledSp(16),
                             fontWeight = FontWeight.SemiBold
                         )
                     )
@@ -1871,7 +1871,7 @@ private fun HelpSupportScreen(
 
                 Text(
                     text = stringResource(R.string.delete_account_permanent),
-                    style = MaterialTheme.typography.bodySmall.copy(fontSize = 11.sp),
+                    style = MaterialTheme.typography.bodySmall.copy(fontSize = AdaptiveLayout.scaledSp(11)),
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                     textAlign = TextAlign.Center
                 )
@@ -2197,7 +2197,7 @@ private fun SubScreenHeader(
     Box(
         modifier = Modifier
             .fillMaxWidth()
-            .background(PeachBackground)
+            .background(MaterialTheme.colorScheme.primaryContainer)
             .padding(top = statusBarPadding + 8.dp, bottom = 16.dp)
     ) {
         IconButton(
@@ -2217,7 +2217,7 @@ private fun SubScreenHeader(
         Text(
             text = title,
             style = MaterialTheme.typography.titleMedium.copy(
-                fontSize = 18.sp,
+                fontSize = AdaptiveLayout.scaledSp(18),
                 fontWeight = FontWeight.SemiBold
             ),
             color = MaterialTheme.colorScheme.onSurface,
@@ -2248,13 +2248,13 @@ private fun ReadOnlyField(
     ) {
         Text(
             text = label,
-            style = MaterialTheme.typography.bodySmall.copy(fontSize = 12.sp),
+            style = MaterialTheme.typography.bodySmall.copy(fontSize = AdaptiveLayout.scaledSp(12)),
             color = MaterialTheme.colorScheme.onSurfaceVariant
         )
         Spacer(modifier = Modifier.height(2.dp))
         Text(
             text = value.ifBlank { "—" },
-            style = MaterialTheme.typography.bodyMedium.copy(fontSize = 15.sp),
+            style = MaterialTheme.typography.bodyMedium.copy(fontSize = AdaptiveLayout.scaledSp(15)),
             color = if (value.isBlank()) MaterialTheme.colorScheme.onSurfaceVariant
                     else MaterialTheme.colorScheme.onSurface
         )
@@ -2313,7 +2313,7 @@ private fun SettingsToggleRow(
             )
             Text(
                 text = subtitle,
-                style = MaterialTheme.typography.bodySmall.copy(fontSize = 12.sp),
+                style = MaterialTheme.typography.bodySmall.copy(fontSize = AdaptiveLayout.scaledSp(12)),
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )
         }
@@ -2336,7 +2336,7 @@ private fun AppearanceToggleRow() {
     ) {
         Text(
             text = "☀",
-            fontSize = 22.sp,
+            fontSize = AdaptiveLayout.scaledSp(22),
             modifier = Modifier.size(24.dp)
         )
         Spacer(modifier = Modifier.width(16.dp))

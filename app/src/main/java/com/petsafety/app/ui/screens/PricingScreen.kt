@@ -92,7 +92,7 @@ fun PricingScreen(
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .background(PeachBackground)
+                .background(MaterialTheme.colorScheme.primaryContainer)
                 .padding(vertical = 16.dp)
         ) {
             IconButton(

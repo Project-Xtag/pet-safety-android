@@ -1,6 +1,7 @@
 package com.petsafety.app.ui.screens
 
 import androidx.compose.animation.AnimatedVisibility
+import com.petsafety.app.ui.util.AdaptiveLayout
 import androidx.compose.animation.expandVertically
 import androidx.compose.animation.shrinkVertically
 import androidx.compose.foundation.background
@@ -132,7 +133,7 @@ fun FaqScreen(onBack: () -> Unit) {
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .background(PeachBackground)
+                .background(MaterialTheme.colorScheme.primaryContainer)
                 .padding(vertical = 16.dp)
         ) {
             IconButton(
@@ -152,7 +153,7 @@ fun FaqScreen(onBack: () -> Unit) {
             Text(
                 text = stringResource(R.string.faq_title),
                 style = MaterialTheme.typography.titleMedium.copy(
-                    fontSize = 18.sp,
+                    fontSize = AdaptiveLayout.scaledSp(18),
                     fontWeight = FontWeight.SemiBold
                 ),
                 color = MaterialTheme.colorScheme.onSurface,
@@ -257,7 +258,7 @@ fun GuidesScreen(onBack: () -> Unit) {
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .background(PeachBackground)
+                .background(MaterialTheme.colorScheme.primaryContainer)
                 .padding(vertical = 16.dp)
         ) {
             IconButton(
@@ -277,7 +278,7 @@ fun GuidesScreen(onBack: () -> Unit) {
             Text(
                 text = stringResource(R.string.guides_title),
                 style = MaterialTheme.typography.titleMedium.copy(
-                    fontSize = 18.sp,
+                    fontSize = AdaptiveLayout.scaledSp(18),
                     fontWeight = FontWeight.SemiBold
                 ),
                 color = MaterialTheme.colorScheme.onSurface,
@@ -353,7 +354,7 @@ private fun FaqAccordionItem(
             Text(
                 text = question,
                 style = MaterialTheme.typography.bodyMedium.copy(
-                    fontSize = 15.sp,
+                    fontSize = AdaptiveLayout.scaledSp(15),
                     fontWeight = FontWeight.Medium
                 ),
                 color = MaterialTheme.colorScheme.onSurface,
@@ -374,7 +375,7 @@ private fun FaqAccordionItem(
         ) {
             Text(
                 text = answer,
-                style = MaterialTheme.typography.bodyMedium.copy(fontSize = 14.sp),
+                style = MaterialTheme.typography.bodyMedium.copy(fontSize = AdaptiveLayout.scaledSp(14)),
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                 modifier = Modifier.padding(top = 12.dp)
             )
@@ -413,7 +414,7 @@ private fun GuideAccordionItem(
                     Text(
                         text = title,
                         style = MaterialTheme.typography.bodyMedium.copy(
-                            fontSize = 15.sp,
+                            fontSize = AdaptiveLayout.scaledSp(15),
                             fontWeight = FontWeight.Medium
                         ),
                         color = MaterialTheme.colorScheme.onSurface
@@ -433,7 +434,7 @@ private fun GuideAccordionItem(
             ) {
                 Text(
                     text = description,
-                    style = MaterialTheme.typography.bodySmall.copy(fontSize = 14.sp),
+                    style = MaterialTheme.typography.bodySmall.copy(fontSize = AdaptiveLayout.scaledSp(14)),
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                     modifier = Modifier.padding(top = 12.dp)
                 )

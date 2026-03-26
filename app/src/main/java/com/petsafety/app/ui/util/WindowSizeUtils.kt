@@ -6,7 +6,9 @@ import androidx.compose.material3.windowsizeclass.WindowHeightSizeClass
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 
 /**
  * Utility object for responsive layouts based on screen size.
@@ -46,17 +48,11 @@ object AdaptiveLayout {
     /**
      * Returns the number of columns for a grid based on screen width.
      * - Phones: 2 columns
-     * - Tablets portrait: 3 columns
-     * - Tablets landscape: 4 columns
+     * - Tablets: 2 columns
      */
     @Composable
     fun gridColumns(): Int {
-        val configuration = LocalConfiguration.current
-        return when {
-            configuration.screenWidthDp >= 900 -> 4
-            configuration.screenWidthDp >= 600 -> 3
-            else -> 2
-        }
+        return 2
     }
 
     /**
@@ -115,6 +111,24 @@ object AdaptiveLayout {
      * Returns the width of the NavigationRail for tablets.
      */
     val NavigationRailWidth = 80.dp
+
+    /**
+     * Font scale multiplier for tablets. Returns 1.0 on phones, 1.3 on tablets.
+     */
+    @Composable
+    fun fontScale(): Float {
+        val configuration = LocalConfiguration.current
+        return if (configuration.smallestScreenWidthDp >= 440) 1.3f else 1.0f
+    }
+
+    /**
+     * Scale a font size for the current device. Use instead of hardcoded .sp values.
+     * Example: `fontSize = AdaptiveLayout.scaledSp(14)` gives 14.sp on phone, 18.sp on tablet.
+     */
+    @Composable
+    fun scaledSp(baseSp: Int): TextUnit {
+        return (baseSp * fontScale()).sp
+    }
 
     /**
      * Returns adaptive spacing for form elements.

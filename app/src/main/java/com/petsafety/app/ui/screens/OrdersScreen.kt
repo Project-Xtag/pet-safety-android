@@ -1,6 +1,7 @@
 package com.petsafety.app.ui.screens
 
 import androidx.compose.foundation.background
+import com.petsafety.app.ui.util.AdaptiveLayout
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -107,7 +108,7 @@ fun OrdersScreen(onBack: () -> Unit) {
             Text(
                 text = stringResource(R.string.orders_and_invoices),
                 style = MaterialTheme.typography.titleMedium.copy(
-                    fontSize = 18.sp,
+                    fontSize = AdaptiveLayout.scaledSp(18),
                     fontWeight = FontWeight.SemiBold
                 ),
                 modifier = Modifier.align(Alignment.Center)
@@ -233,7 +234,7 @@ private fun EmptyOrdersState() {
             Text(
                 text = stringResource(R.string.no_orders),
                 style = MaterialTheme.typography.titleLarge.copy(
-                    fontSize = 20.sp,
+                    fontSize = AdaptiveLayout.scaledSp(20),
                     fontWeight = FontWeight.Bold
                 ),
                 color = MaterialTheme.colorScheme.onSurface
@@ -241,7 +242,7 @@ private fun EmptyOrdersState() {
 
             Text(
                 text = stringResource(R.string.no_orders_message),
-                style = MaterialTheme.typography.bodyMedium.copy(fontSize = 15.sp),
+                style = MaterialTheme.typography.bodyMedium.copy(fontSize = AdaptiveLayout.scaledSp(15)),
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                 textAlign = TextAlign.Center,
                 modifier = Modifier.padding(horizontal = 32.dp)
@@ -543,7 +544,7 @@ private fun SectionHeader(title: String) {
     Text(
         text = title.uppercase(),
         style = MaterialTheme.typography.labelMedium.copy(
-            fontSize = 13.sp,
+            fontSize = AdaptiveLayout.scaledSp(13),
             fontWeight = FontWeight.SemiBold,
             letterSpacing = 0.5.sp
         ),

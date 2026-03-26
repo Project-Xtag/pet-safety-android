@@ -6,6 +6,7 @@ import android.os.Build
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.animation.Crossfade
+import com.petsafety.app.ui.util.AdaptiveLayout
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Icon
@@ -143,7 +144,7 @@ fun MainTabScaffold(
                         label = {
                             Text(
                                 text = stringResource(tab.labelRes),
-                                fontSize = 10.sp,
+                                fontSize = AdaptiveLayout.scaledSp(10),
                                 maxLines = 1,
                                 overflow = TextOverflow.Ellipsis
                             )

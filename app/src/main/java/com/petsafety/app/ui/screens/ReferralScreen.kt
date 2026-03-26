@@ -1,6 +1,7 @@
 package com.petsafety.app.ui.screens
 
 import android.content.ClipData
+import com.petsafety.app.ui.util.AdaptiveLayout
 import android.content.ClipboardManager
 import android.content.Context
 import android.content.Intent
@@ -97,7 +98,7 @@ fun ReferralScreen(
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .background(PeachBackground)
+                .background(MaterialTheme.colorScheme.primaryContainer)
                 .padding(vertical = 16.dp)
         ) {
             IconButton(
@@ -111,7 +112,7 @@ fun ReferralScreen(
             Text(
                 text = stringResource(R.string.referral_title),
                 style = MaterialTheme.typography.titleMedium.copy(
-                    fontSize = 18.sp,
+                    fontSize = AdaptiveLayout.scaledSp(18),
                     fontWeight = FontWeight.SemiBold
                 ),
                 modifier = Modifier.align(Alignment.Center)
@@ -369,7 +370,7 @@ private fun StepRow(number: String, text: String) {
                 .background(BrandOrange, RoundedCornerShape(14.dp)),
             contentAlignment = Alignment.Center
         ) {
-            Text(text = number, color = Color.White, fontWeight = FontWeight.Bold, fontSize = 14.sp)
+            Text(text = number, color = Color.White, fontWeight = FontWeight.Bold, fontSize = AdaptiveLayout.scaledSp(14))
         }
         Spacer(modifier = Modifier.width(12.dp))
         Text(text = text, style = MaterialTheme.typography.bodyMedium)
