@@ -1224,6 +1224,9 @@ private fun PrivacyModeScreen(
     val isLoading by authViewModel.isLoading.collectAsState()
 
     // Initialize state from user's current settings
+    var showNamePublicly by remember(currentUser?.showNamePublicly) {
+        mutableStateOf(currentUser?.showNamePublicly ?: true)
+    }
     var showPhonePublicly by remember(currentUser?.showPhonePublicly) {
         mutableStateOf(currentUser?.showPhonePublicly ?: true)
     }
@@ -1254,6 +1257,7 @@ private fun PrivacyModeScreen(
                 appStateViewModel.showError(error ?: privacyFailedMessage)
                 // Revert the toggle on failure
                 when (field) {
+                    "show_name_publicly" -> showNamePublicly = !value
                     "show_phone_publicly" -> showPhonePublicly = !value
                     "show_email_publicly" -> showEmailPublicly = !value
                     "show_address_publicly" -> showAddressPublicly = !value
@@ -1302,6 +1306,17 @@ private fun PrivacyModeScreen(
                 elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
             ) {
                 Column(modifier = Modifier.padding(16.dp)) {
+                    SettingsToggleRow(
+                        title = stringResource(R.string.show_name),
+                        subtitle = stringResource(R.string.show_name_subtitle),
+                        checked = showNamePublicly,
+                        onCheckedChange = {
+                            showNamePublicly = it
+                            updatePrivacySetting("show_name_publicly", it)
+                        },
+                        enabled = !isLoading
+                    )
+                    HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
                     SettingsToggleRow(
                         title = stringResource(R.string.show_phone_number),
                         subtitle = stringResource(R.string.show_phone_subtitle),

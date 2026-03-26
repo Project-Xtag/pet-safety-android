@@ -644,6 +644,8 @@
     <!-- ============================================ -->
     <string name="contact_visibility">Contact Visibility</string>
     <string name="contact_visibility_desc">Control what contact information is visible on your pet\'s public profile</string>
+    <string name="show_name">Show Your Name</string>
+    <string name="show_name_subtitle">Your name will be visible on your pet\'s public profile when someone scans their tag</string>
     <string name="show_phone_number">Show Phone Number</string>
     <string name="show_phone_subtitle">Your primary and secondary phone numbers will be visible on your pet\'s public profile</string>
     <string name="show_email_address">Show Email Address</string>

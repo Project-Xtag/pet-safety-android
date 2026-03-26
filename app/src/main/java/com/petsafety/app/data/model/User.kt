@@ -26,6 +26,7 @@ data class User(
     @SerialName("is_verified") val isVerified: Boolean? = null,
     @SerialName("created_at") val createdAt: String? = null,
     @SerialName("updated_at") val updatedAt: String? = null,
+    @SerialName("show_name_publicly") val showNamePublicly: Boolean? = null,
     @SerialName("show_phone_publicly") val showPhonePublicly: Boolean? = null,
     @SerialName("show_email_publicly") val showEmailPublicly: Boolean? = null,
     @SerialName("show_address_publicly") val showAddressPublicly: Boolean? = null,
