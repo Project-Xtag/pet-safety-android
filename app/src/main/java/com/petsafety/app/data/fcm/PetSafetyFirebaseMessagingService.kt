@@ -58,7 +58,7 @@ class PetSafetyFirebaseMessagingService : FirebaseMessagingService() {
         Timber.d("Notification type: $notificationType, data: $data")
 
         when (notificationType) {
-            "PET_SCANNED" -> handleTagScannedNotification(data)
+            "PET_SCANNED", "TAG_INITIAL_SCAN" -> handleTagScannedNotification(data)
             "MISSING_PET_ALERT" -> handleMissingPetAlert(data)
             "PET_FOUND" -> handlePetFoundNotification(data)
             "SIGHTING_REPORTED" -> handleSightingNotification(data)
