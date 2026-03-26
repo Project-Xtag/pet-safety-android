@@ -48,6 +48,13 @@ val SuccessGreen = Color(0xFFA6C4B8) // Alias for SuccessColor
 val WarningColor = Color(0xFFFFA726)
 val InfoBlue = Color(0xFF007AFF)
 
+// Adaptive semantic colors for info cards (readable in both light and dark mode)
+// These are lighter than raw Color.Red/Color.Blue which are too dark on dark backgrounds
+val MedicalRed = Color(0xFFFF6B6B)       // Lighter red — readable on dark, visible on light
+val MedicalRedBg = Color(0x1AFF6B6B)     // 10% opacity red background
+val PreviewBlue = Color(0xFF5B9BD5)      // Lighter blue — readable on dark, visible on light
+val PreviewBlueBg = Color(0x1A5B9BD5)    // 10% opacity blue background
+
 // Border/Divider Colors
 val BorderLight = Color(0xFFE0E0E0)
 val BorderDark = Color(0xFF424242)

@@ -84,6 +84,10 @@ import com.petsafety.app.data.model.User
 import com.petsafety.app.data.repository.LocationConsent
 import com.petsafety.app.ui.theme.BrandOrange
 import com.petsafety.app.ui.theme.TealAccent
+import com.petsafety.app.ui.theme.MedicalRed
+import com.petsafety.app.ui.theme.MedicalRedBg
+import com.petsafety.app.ui.theme.PreviewBlue
+import com.petsafety.app.ui.theme.PreviewBlueBg
 import com.petsafety.app.ui.viewmodel.AppStateViewModel
 import com.petsafety.app.ui.viewmodel.AuthViewModel
 import com.petsafety.app.ui.util.PetLocalizer
@@ -163,7 +167,7 @@ fun PublicPetProfileScreen(
                     ) {
                         Text(
                             text = errorMessage ?: stringResource(R.string.failed_load_profile),
-                            color = Color.Red,
+                            color = MedicalRed,
                             textAlign = TextAlign.Center
                         )
                     }
@@ -287,7 +291,7 @@ private fun PublicPetContent(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 24.dp)
-                .background(Color.Blue.copy(alpha = 0.1f), RoundedCornerShape(14.dp))
+                .background(PreviewBlueBg, RoundedCornerShape(14.dp))
                 .padding(horizontal = 16.dp, vertical = 12.dp),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.Center
@@ -296,13 +300,13 @@ private fun PublicPetContent(
                 imageVector = Icons.Default.Visibility,
                 contentDescription = null,
                 modifier = Modifier.size(18.dp),
-                tint = Color.Blue
+                tint = PreviewBlue
             )
             Spacer(modifier = Modifier.width(8.dp))
             Text(
                 text = stringResource(R.string.public_profile_subtitle, pet.name),
                 style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.Medium),
-                color = Color.Blue
+                color = PreviewBlue
             )
         }
 
@@ -688,14 +692,14 @@ private fun PublicPetContent(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(horizontal = 24.dp)
-                    .background(Color.Blue.copy(alpha = 0.1f), RoundedCornerShape(14.dp))
+                    .background(PreviewBlueBg, RoundedCornerShape(14.dp))
                     .padding(16.dp)
             ) {
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Icon(
                         imageVector = Icons.Default.Lock,
                         contentDescription = null,
-                        tint = Color.Blue
+                        tint = PreviewBlue
                     )
                     Spacer(modifier = Modifier.width(12.dp))
                     Text(
@@ -704,14 +708,14 @@ private fun PublicPetContent(
                             fontSize = 15.sp,
                             fontWeight = FontWeight.Medium
                         ),
-                        color = Color.Blue
+                        color = PreviewBlue
                     )
                 }
                 Spacer(modifier = Modifier.height(8.dp))
                 Text(
                     text = stringResource(R.string.contact_info_hidden_hint),
                     style = MaterialTheme.typography.bodySmall.copy(fontSize = 12.sp),
-                    color = Color.Blue.copy(alpha = 0.8f)
+                    color = PreviewBlue.copy(alpha = 0.8f)
                 )
             }
         } else {
@@ -749,8 +753,8 @@ private fun PublicPetContent(
                 title = stringResource(R.string.medical_information),
                 content = medicalNotes,
                 icon = Icons.Default.LocalHospital,
-                backgroundColor = Color.Red.copy(alpha = 0.1f),
-                titleColor = Color.Red
+                backgroundColor = MedicalRedBg,
+                titleColor = MedicalRed
             )
             Spacer(modifier = Modifier.height(16.dp))
         }
@@ -773,8 +777,8 @@ private fun PublicPetContent(
                 title = stringResource(R.string.notes),
                 content = notes,
                 icon = Icons.Default.Info,
-                backgroundColor = Color.Blue.copy(alpha = 0.1f),
-                titleColor = Color.Blue
+                backgroundColor = PreviewBlueBg,
+                titleColor = PreviewBlue
             )
             Spacer(modifier = Modifier.height(16.dp))
         }
