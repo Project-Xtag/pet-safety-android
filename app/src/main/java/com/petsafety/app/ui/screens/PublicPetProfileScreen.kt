@@ -537,6 +537,19 @@ private fun PublicPetContent(
                     modifier = Modifier.align(Alignment.CenterHorizontally)
                 )
 
+                pet.ownerName?.takeIf { it.isNotBlank() }?.let { name ->
+                    Spacer(modifier = Modifier.height(4.dp))
+                    Text(
+                        text = name,
+                        style = MaterialTheme.typography.bodyMedium.copy(
+                            fontSize = 15.sp,
+                            fontWeight = FontWeight.Medium
+                        ),
+                        color = MaterialTheme.colorScheme.onSurface,
+                        modifier = Modifier.align(Alignment.CenterHorizontally)
+                    )
+                }
+
                 Spacer(modifier = Modifier.height(8.dp))
 
                 Text(

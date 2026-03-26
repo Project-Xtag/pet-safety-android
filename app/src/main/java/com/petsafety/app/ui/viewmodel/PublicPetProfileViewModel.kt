@@ -42,8 +42,15 @@ class PublicPetProfileViewModel @Inject constructor(
             _isLoading.value = true
             _errorMessage.value = null
             try {
-                val response = qrRepository.scanQr(qrCode)
-                _pet.value = response.pet
+                val lookup = qrRepository.lookupTag(qrCode)
+                _pet.value = lookup.pet
+
+                // Log scan and notify owner (fire-and-forget)
+                if (lookup.hasPet && lookup.pet != null) {
+                    launch {
+                        try { qrRepository.scanQr(qrCode) } catch (_: Exception) { }
+                    }
+                }
             } catch (ex: Exception) {
                 _errorMessage.value = ex.localizedMessage ?: application.getString(R.string.error_load_pet_profile)
             } finally {
