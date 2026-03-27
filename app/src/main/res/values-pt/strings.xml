@@ -1392,4 +1392,6 @@
         <item quantity="one">%d mês</item>
         <item quantity="other">%d meses</item>
     </plurals>
+    <string name="show_name">Mostrar o seu nome</string>
+    <string name="show_name_subtitle">O seu nome será visível no perfil público do seu animal quando alguém ler a etiqueta</string>
 </resources>

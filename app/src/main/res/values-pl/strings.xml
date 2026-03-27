@@ -1412,4 +1412,6 @@
         <item quantity="one">%d miesiąc</item>
         <item quantity="other">%d miesięcy</item>
     </plurals>
+    <string name="show_name">Wyświetlanie imienia</string>
+    <string name="show_name_subtitle">Twoje imię będzie widoczne na publicznym profilu pupila przy skanowaniu znacznika</string>
 </resources>

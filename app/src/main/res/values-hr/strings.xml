@@ -541,7 +541,7 @@
     <string name="story_social_caption">%1$s újra a családjával van! Köszönjük a Senra közösségnek, hogy segített %1$s hazajutni. senra.pet</string>
     <string name="story_generating_card">Izrada kartice za dijeljenje...</string>
     <string name="story_pet_is_home_title">%1$s itthon van!</string>
-    <string name="story_inspire_others_message">Segíts inspirálni más gazdákat azzal, hogy megosztod, hogyan egyesültél újra %1$s-szal.</string>
+    <string name="story_inspire_others_message">Segíts inspirálni más gazdikat azzal, hogy megosztod, hogyan egyesültél újra %1$s-szal.</string>
     <string name="sighting_reports_desc">Észlelési jelentések</string>
 
     <!-- Success Story Time -->
@@ -901,11 +901,11 @@
     <string name="step_quick_reunion">Brzo spajanje</string>
     <string name="step_quick_reunion_desc">Vlasnik može navigirati do tvoje lokacije da pokupi svog ljubimca</string>
     <string name="step_share_location_desc_public">Kattints a fenti gombra, hogy megoszd, hol találtad meg %1$s-t</string>
-    <string name="step_owner_notified_desc_public">A gazda SMS-t kap a helyedről a Google Maps-en</string>
-    <string name="step_quick_reunion_desc_public">Maradj a hely közelében, hogy a gazda megtalálhasson téged és %1$s-t</string>
+    <string name="step_owner_notified_desc_public">A gazdi SMS-t kap a helyedről a Google Maps-en</string>
+    <string name="step_quick_reunion_desc_public">Maradj a hely közelében, hogy a gazdi megtalálhasson téged és %1$s-t</string>
     <string name="owner_phone_label">Telefon vlasnika: %1$s</string>
     <string name="owner_email_label">E-mail vlasnika: %1$s</string>
-    <string name="your_privacy_notice">Fontos az adatvédelem. A helyedet csak %1$s gazdájával osztjuk meg a kifejezett hozzájárulásoddal.</string>
+    <string name="your_privacy_notice">Fontos az adatvédelem. A helyedet csak %1$s gazdijával osztjuk meg a kifejezett hozzájárulásoddal.</string>
 
     <!-- ============================================ -->
     <!-- MARK: Offline Mode -->
@@ -1387,4 +1387,6 @@
         <item quantity="one">%d mjesec</item>
         <item quantity="other">%d mjeseci</item>
     </plurals>
+    <string name="show_name">Prikaži svoje ime</string>
+    <string name="show_name_subtitle">Vaše ime će biti vidljivo na javnom profilu ljubimca kada netko skenira pločicu</string>
 </resources>

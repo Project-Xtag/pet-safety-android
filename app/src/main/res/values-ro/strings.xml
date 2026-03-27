@@ -1393,4 +1393,6 @@
         <item quantity="one">%d lună</item>
         <item quantity="other">%d luni</item>
     </plurals>
+    <string name="show_name">Afișează numele tău</string>
+    <string name="show_name_subtitle">Numele tău va fi vizibil pe profilul public al animalului tău când cineva scanează eticheta</string>
 </resources>

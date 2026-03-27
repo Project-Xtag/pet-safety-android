@@ -1400,4 +1400,6 @@
         <item quantity="one">%d mesiac</item>
         <item quantity="other">%d mesiacov</item>
     </plurals>
+    <string name="show_name">Zobrazenie vášho mena</string>
+    <string name="show_name_subtitle">Vaše meno bude viditeľné na verejnom profile zvieraťa pri skenovaní známky</string>
 </resources>

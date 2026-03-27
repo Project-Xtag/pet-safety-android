@@ -1387,4 +1387,6 @@
         <item quantity="one">%d mese</item>
         <item quantity="other">%d mesi</item>
     </plurals>
+    <string name="show_name">Mostra il tuo nome</string>
+    <string name="show_name_subtitle">Il tuo nome sarà visibile nel profilo pubblico del tuo animale quando qualcuno scansiona il tag</string>
 </resources>

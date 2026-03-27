@@ -1393,4 +1393,6 @@
         <item quantity="one">%d Monat</item>
         <item quantity="other">%d Monate</item>
     </plurals>
+    <string name="show_name">Ihren Namen anzeigen</string>
+    <string name="show_name_subtitle">Ihr Name wird auf dem öffentlichen Profil Ihres Haustiers sichtbar, wenn jemand den Tag scannt</string>
 </resources>

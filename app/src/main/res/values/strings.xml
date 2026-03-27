@@ -278,7 +278,7 @@
     <string name="turn_off_flashlight">Turn off flashlight</string>
     <string name="turn_on_flashlight">Turn on flashlight</string>
     <string name="hello_pet_name">Hello! I\'m %1$s</string>
-    <string name="scanned_tag_thanks">You\'ve just scanned my tag. Thank you for helping me!</string>
+    <string name="scanned_tag_thanks">"You've just scanned my tag.\nThank you for helping me!"</string>
     <string name="share_location_with_owner">Share My Location with Owner</string>
     <string name="owner_notified_message">%1$s\'s owner will receive a notification with your location</string>
     <string name="share_location_help">Help %1$s\'s owner find them by sharing your location</string>

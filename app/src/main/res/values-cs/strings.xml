@@ -1401,4 +1401,6 @@
         <item quantity="one">%d měsíc</item>
         <item quantity="other">%d měsíců</item>
     </plurals>
+    <string name="show_name">Zobrazení vašeho jména</string>
+    <string name="show_name_subtitle">Vaše jméno bude viditelné na veřejném profilu mazlíčka při skenování štítku</string>
 </resources>

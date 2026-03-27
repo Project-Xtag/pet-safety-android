@@ -1318,4 +1318,6 @@
     <string name="share_location_success">Location shared! The owner has been notified.</string>
     <string name="share_location_denied">Location permission is needed to share your location</string>
     <string name="share_location_error">Failed to share location. Please try again.</string>
+    <string name="show_name">Show Your Name</string>
+    <string name="show_name_subtitle">Your name will be visible on your pet\'s public profile when someone scans their tag</string>
 </resources>

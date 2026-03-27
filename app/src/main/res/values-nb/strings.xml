@@ -1386,4 +1386,6 @@
         <item quantity="one">%d måned</item>
         <item quantity="other">%d måneder</item>
     </plurals>
+    <string name="show_name">Vis navnet ditt</string>
+    <string name="show_name_subtitle">Navnet ditt vil være synlig på kjæledyrets offentlige profil når noen skanner merket</string>
 </resources>
