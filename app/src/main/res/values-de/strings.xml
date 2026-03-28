@@ -1230,13 +1230,13 @@
     <string name="identity_locked_desc">Diese Felder können nach der Markenaktivierung nicht geändert werden.</string>
 
     <!-- Shelter Adoption -->
-    <string name="profile_shelter_code">Shelter Adoption Code</string>
-    <string name="shelter_code_title">Shelter Code</string>
-    <string name="shelter_code_enter">Enter ADOPT-XXXX code</string>
-    <string name="shelter_code_enter_footer">Enter the code you received from the shelter.</string>
-    <string name="shelter_code_redeem">Redeem</string>
-    <string name="shelter_code_success">Code redeemed successfully!</string>
-    <string name="shelter_code_invalid">Invalid or already redeemed code.</string>
+    <string name="profile_shelter_code">Tierheim-Adoptionscode</string>
+    <string name="shelter_code_title">Tierheim-Code</string>
+    <string name="shelter_code_enter">ADOPT-XXXX Code eingeben</string>
+    <string name="shelter_code_enter_footer">Gib den ADOPT-XXXX Code ein, den du vom Tierheim erhalten hast.</string>
+    <string name="shelter_code_redeem">Einlösen</string>
+    <string name="shelter_code_success">Code erfolgreich eingelöst!</string>
+    <string name="shelter_code_invalid">Ungültiger oder bereits eingelöster Code.</string>
     <string name="shelter_how_it_works">How It Works</string>
     <string name="shelter_step_1">Adopt a pet from a partner shelter</string>
     <string name="shelter_step_2">Enter the code you received at adoption</string>

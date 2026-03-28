@@ -1250,13 +1250,13 @@
     <string name="identity_locked_desc">Tych pól nie można zmienić po aktywacji nieśki.</string>
 
     <!-- Shelter Adoption -->
-    <string name="profile_shelter_code">Shelter Adoption Code</string>
-    <string name="shelter_code_title">Shelter Code</string>
-    <string name="shelter_code_enter">Enter ADOPT-XXXX code</string>
-    <string name="shelter_code_enter_footer">Enter the code you received from the shelter.</string>
-    <string name="shelter_code_redeem">Redeem</string>
-    <string name="shelter_code_success">Code redeemed successfully!</string>
-    <string name="shelter_code_invalid">Invalid or already redeemed code.</string>
+    <string name="profile_shelter_code">Kod adopcji ze schroniska</string>
+    <string name="shelter_code_title">Kod ze schroniska</string>
+    <string name="shelter_code_enter">Wpisz kod ADOPT-XXXX</string>
+    <string name="shelter_code_enter_footer">Wpisz kod ADOPT-XXXX otrzymany ze schroniska.</string>
+    <string name="shelter_code_redeem">Zrealizuj</string>
+    <string name="shelter_code_success">Kod zrealizowany pomyślnie!</string>
+    <string name="shelter_code_invalid">Nieprawidłowy lub już zrealizowany kod.</string>
     <string name="shelter_how_it_works">How It Works</string>
     <string name="shelter_step_1">Adopt a pet from a partner shelter</string>
     <string name="shelter_step_2">Enter the code you received at adoption</string>

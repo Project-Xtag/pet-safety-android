@@ -1224,13 +1224,13 @@
     <string name="identity_locked_desc">Disse feltene kan ikke endres etter merkeaktivering.</string>
 
     <!-- Shelter Adoption -->
-    <string name="profile_shelter_code">Shelter Adoption Code</string>
-    <string name="shelter_code_title">Shelter Code</string>
-    <string name="shelter_code_enter">Enter ADOPT-XXXX code</string>
-    <string name="shelter_code_enter_footer">Enter the code you received from the shelter.</string>
-    <string name="shelter_code_redeem">Redeem</string>
-    <string name="shelter_code_success">Code redeemed successfully!</string>
-    <string name="shelter_code_invalid">Invalid or already redeemed code.</string>
+    <string name="profile_shelter_code">Adopsjonskode fra krisesenter</string>
+    <string name="shelter_code_title">Krisesenter-kode</string>
+    <string name="shelter_code_enter">Skriv inn ADOPT-XXXX-koden</string>
+    <string name="shelter_code_enter_footer">Skriv inn ADOPT-XXXX-koden du fikk fra krisesenteret.</string>
+    <string name="shelter_code_redeem">Løs inn</string>
+    <string name="shelter_code_success">Koden er innløst!</string>
+    <string name="shelter_code_invalid">Ugyldig eller allerede innløst kode.</string>
     <string name="shelter_how_it_works">How It Works</string>
     <string name="shelter_step_1">Adopt a pet from a partner shelter</string>
     <string name="shelter_step_2">Enter the code you received at adoption</string>

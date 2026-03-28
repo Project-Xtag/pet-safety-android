@@ -1230,13 +1230,13 @@
     <string name="identity_locked_desc">Estos campos no se pueden cambiar después de activar la placa.</string>
 
     <!-- Shelter Adoption -->
-    <string name="profile_shelter_code">Shelter Adoption Code</string>
-    <string name="shelter_code_title">Shelter Code</string>
-    <string name="shelter_code_enter">Enter ADOPT-XXXX code</string>
-    <string name="shelter_code_enter_footer">Enter the code you received from the shelter.</string>
-    <string name="shelter_code_redeem">Redeem</string>
-    <string name="shelter_code_success">Code redeemed successfully!</string>
-    <string name="shelter_code_invalid">Invalid or already redeemed code.</string>
+    <string name="profile_shelter_code">Código de adopción del refugio</string>
+    <string name="shelter_code_title">Código del refugio</string>
+    <string name="shelter_code_enter">Introduce el código ADOPT-XXXX</string>
+    <string name="shelter_code_enter_footer">Introduce el código ADOPT-XXXX que recibiste del refugio.</string>
+    <string name="shelter_code_redeem">Canjear</string>
+    <string name="shelter_code_success">¡Código canjeado con éxito!</string>
+    <string name="shelter_code_invalid">Código inválido o ya canjeado.</string>
     <string name="shelter_how_it_works">How It Works</string>
     <string name="shelter_step_1">Adopt a pet from a partner shelter</string>
     <string name="shelter_step_2">Enter the code you received at adoption</string>

@@ -1231,13 +1231,13 @@
     <string name="identity_locked_desc">Aceste câmpuri nu pot fi modificate după activarea medalonului.</string>
 
     <!-- Shelter Adoption -->
-    <string name="profile_shelter_code">Shelter Adoption Code</string>
-    <string name="shelter_code_title">Shelter Code</string>
-    <string name="shelter_code_enter">Enter ADOPT-XXXX code</string>
-    <string name="shelter_code_enter_footer">Enter the code you received from the shelter.</string>
-    <string name="shelter_code_redeem">Redeem</string>
-    <string name="shelter_code_success">Code redeemed successfully!</string>
-    <string name="shelter_code_invalid">Invalid or already redeemed code.</string>
+    <string name="profile_shelter_code">Cod de adopție din adăpost</string>
+    <string name="shelter_code_title">Cod adăpost</string>
+    <string name="shelter_code_enter">Introdu codul ADOPT-XXXX</string>
+    <string name="shelter_code_enter_footer">Introdu codul ADOPT-XXXX primit de la adăpost.</string>
+    <string name="shelter_code_redeem">Revendică</string>
+    <string name="shelter_code_success">Cod revendicat cu succes!</string>
+    <string name="shelter_code_invalid">Cod invalid sau deja revendicat.</string>
     <string name="shelter_how_it_works">How It Works</string>
     <string name="shelter_step_1">Adopt a pet from a partner shelter</string>
     <string name="shelter_step_2">Enter the code you received at adoption</string>
