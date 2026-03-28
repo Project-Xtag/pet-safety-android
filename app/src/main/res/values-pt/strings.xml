@@ -8,7 +8,7 @@
         <item quantity="one">%d foto falhou ao carregar</item>
         <item quantity="other">%d fotos falharam ao carregar</item>
     </plurals>
-    <string name="app_name">Senra Pet</string>
+    <string name="app_name">SENRA Pet</string>
     <!--
         Google Maps API key is injected via build.gradle.kts from:
         1. local.properties (for local development - add GOOGLE_MAPS_API_KEY=your_key)
@@ -64,7 +64,7 @@
     <!-- MARK: Auth -->
     <!-- ============================================ -->
     <string name="welcome_back">Bem-vindo de volta!</string>
-    <string name="welcome_new_user">Bem-vindo ao Senra Pet!</string>
+    <string name="welcome_new_user">Bem-vindo ao SENRA Pet!</string>
     <string name="enter_email_subtitle">Introduza o seu e-mail para receber um código de acesso.</string>
     <string name="email_address">Endereço de e-mail</string>
     <string name="send_login_code">Enviar código de acesso</string>
@@ -553,7 +553,7 @@
     <string name="reunited_in">Reunido em %1$s</string>
     <string name="shared_via_pet_safety">Partilhado via Pet Safety App</string>
     <string name="story_share_good_news">Partilha a boa notícia</string>
-    <string name="story_social_caption">%1$s reencontrou a sua família! Obrigado à comunidade Senra por ajudar a trazer %1$s para casa. senra.pet</string>
+    <string name="story_social_caption">%1$s reencontrou a sua família! Obrigado à comunidade SENRA por ajudar a trazer %1$s para casa. senra.pet</string>
     <string name="story_generating_card">A criar cartão de partilha\u2026</string>
     <string name="story_pet_is_home_title">%1$s está em casa!</string>
     <string name="story_inspire_others_message">Inspire outros donos partilhando como %1$s foi reunido consigo.</string>
@@ -936,7 +936,7 @@
     <!-- ============================================ -->
     <!-- MARK: App Info -->
     <!-- ============================================ -->
-    <string name="app_name_label">Senra Pet</string>
+    <string name="app_name_label">SENRA Pet</string>
     <string name="app_version">Versão 1.0.0</string>
 
     <!-- ============================================ -->
@@ -1016,9 +1016,9 @@
     <string name="help_faq_q7">Posso atualizar os dados do meu animal após o registo?</string>
     <string name="help_faq_a7">Sim — pode editar o perfil do seu animal a qualquer momento. Vá a \'Os meus animais\', selecione o animal e clique em \'Editar\'. Pode atualizar qualquer campo, incluindo fotos. As alterações são guardadas imediatamente.</string>
     <string name="help_faq_q8">O que devo fazer se o meu animal desaparecer?</string>
-    <string name="help_faq_a8">Vá a \'Os meus animais\' e clique no menu do cartão do animal, depois selecione \'Marcar como desaparecido\'. Isto cria um alerta visível para a comunidade Senra na sua área. As pessoas por perto verão o alerta e podem reportar avistamentos com localização. Será notificado imediatamente de qualquer avistamento.</string>
+    <string name="help_faq_a8">Vá a \'Os meus animais\' e clique no menu do cartão do animal, depois selecione \'Marcar como desaparecido\'. Isto cria um alerta visível para a comunidade SENRA na sua área. As pessoas por perto verão o alerta e podem reportar avistamentos com localização. Será notificado imediatamente de qualquer avistamento.</string>
     <string name="help_faq_q9">Como funcionam os alertas de animais desaparecidos?</string>
-    <string name="help_faq_a9">Quando marca um animal como desaparecido, é criado um alerta com a foto e detalhes do animal. Outros utilizadores Senra num raio de 10 km podem ver o alerta no mapa de Animais Desaparecidos. Qualquer pessoa da comunidade pode reportar um avistamento, que lhe envia a localização e informações de contacto. Veterinários e abrigos registados na Senra na sua área também recebem o alerta.</string>
+    <string name="help_faq_a9">Quando marca um animal como desaparecido, é criado um alerta com a foto e detalhes do animal. Outros utilizadores SENRA num raio de 10 km podem ver o alerta no mapa de Animais Desaparecidos. Qualquer pessoa da comunidade pode reportar um avistamento, que lhe envia a localização e informações de contacto. Veterinários e abrigos registados na SENRA na sua área também recebem o alerta.</string>
     <string name="help_faq_q10">Como peço uma placa de substituição?</string>
     <string name="help_faq_a10">Vá à página da Conta e clique em \'Pedir substituição\'. Selecione o animal que precisa de uma nova placa. Membros Maximum têm substituições gratuitas ilimitadas, membros Standard têm uma substituição grátis por ano, e membros Starter podem pedir substituições por uma pequena taxa de envio.</string>
     <string name="help_faq_q11">O que é o programa de referência?</string>
@@ -1028,31 +1028,31 @@
     <string name="help_faq_q13">Posso ter vários animais numa conta?</string>
     <string name="help_faq_a13">Sim. No plano Starter (gratuito) pode registar um animal. O plano Standard também suporta um animal. O plano Maximum suporta animais ilimitados. Pode atualizar o plano a qualquer momento na página da Conta.</string>
     <string name="help_faq_q14">Como reporto um animal que encontrei?</string>
-    <string name="help_faq_a14">Se o animal tiver uma placa Senra, basta ler o código QR com a câmara do telemóvel — não precisa de app. Verá o perfil do animal e pode partilhar a sua localização com o dono. Se não houver placa, pode verificar o mapa de Animais Desaparecidos no site da Senra para ver se o animal foi reportado na sua área.</string>
+    <string name="help_faq_a14">Se o animal tiver uma placa SENRA, basta ler o código QR com a câmara do telemóvel — não precisa de app. Verá o perfil do animal e pode partilhar a sua localização com o dono. Se não houver placa, pode verificar o mapa de Animais Desaparecidos no site da SENRA para ver se o animal foi reportado na sua área.</string>
     <string name="help_faq_q15">As minhas informações pessoais estão seguras?</string>
     <string name="help_faq_a15">Sim. Controla exatamente que informações ficam visíveis quando alguém lê a placa do seu animal. Em Definições &gt; Privacidade, pode escolher mostrar ou ocultar o telefone, e-mail e morada. O login é protegido por códigos de verificação únicos — não há palavras-passe para roubar. Pode eliminar a conta e todos os dados a qualquer momento.</string>
     <string name="help_faq_q16">Perdi a minha placa ou está danificada — o que devo fazer?</string>
     <string name="help_faq_a16">Não se preocupe — o perfil digital do seu animal está seguro e não é guardado na placa. Vá à página da Conta e clique em \'Pedir substituição\'. Uma nova placa com um novo código QR será ligada ao perfil existente. Membros Standard têm uma substituição grátis por ano, membros Maximum têm substituições gratuitas ilimitadas, e membros Starter pagam uma pequena taxa de envio. A placa antiga deixará de funcionar quando a nova for ativada.</string>
     <string name="help_faq_q17">A minha placa não lê — como resolvo?</string>
     <string name="help_faq_a17">Experimente estes passos: limpe a superfície da placa com um pano húmido, garanta boa iluminação, mantenha a câmara do telemóvel estável a cerca de 10-15 cm da placa e verifique se a câmara ou leitor QR está a funcionar. Se o código QR estiver riscado ou desbotado, pode usar a opção de entrada manual na app em \'Ler placa\'. Se a placa estiver demasiado danificada para ler, peça uma substituição grátis na página da Conta (planos Standard e Maximum).</string>
-    <string name="help_faq_q18">Encontrei um animal sem placa Senra — o que posso fazer?</string>
-    <string name="help_faq_a18">Verifique o mapa de Animais Desaparecidos no site da Senra (senra.pet) — o animal pode ter sido reportado como desaparecido na sua área. Pode ver os alertas sem conta. Se encontrar uma correspondência, pode reportar um avistamento com a sua localização para ajudar a reunir o animal com o dono. Também pode levar o animal a um veterinário local para verificar o microchip.</string>
+    <string name="help_faq_q18">Encontrei um animal sem placa SENRA — o que posso fazer?</string>
+    <string name="help_faq_a18">Verifique o mapa de Animais Desaparecidos no site da SENRA (senra.pet) — o animal pode ter sido reportado como desaparecido na sua área. Pode ver os alertas sem conta. Se encontrar uma correspondência, pode reportar um avistamento com a sua localização para ajudar a reunir o animal com o dono. Também pode levar o animal a um veterinário local para verificar o microchip.</string>
     <string name="help_faq_q19">Posso alterar o meu endereço de e-mail?</string>
     <string name="help_faq_a19">O seu e-mail principal é usado como identidade da conta e não pode ser alterado diretamente. Se precisar de usar outro e-mail, pode adicionar um e-mail secundário em Definições &gt; Detalhes de contacto — este também será mostrado no perfil do animal. Se precisar absolutamente de alterar o e-mail principal, contacte a nossa equipa de suporte e ajudaremos a migrar a conta.</string>
-    <string name="help_faq_q20">Qual é a diferença entre um microchip e uma placa QR Senra?</string>
-    <string name="help_faq_a20">Um microchip é um pequeno implante sob a pele do animal que armazena um número de ID único — mas requer um leitor especial (geralmente só disponível em veterinários e abrigos) para ser lido. Uma placa QR Senra funciona instantaneamente com qualquer câmara de smartphone, mostrando o perfil completo do animal, foto e os seus contactos no momento. A pessoa que encontrar o animal também pode partilhar a sua localização GPS consigo. Recomendamos usar ambos: o microchip como backup permanente, e a placa Senra para identificação instantânea e diária.</string>
+    <string name="help_faq_q20">Qual é a diferença entre um microchip e uma placa QR SENRA?</string>
+    <string name="help_faq_a20">Um microchip é um pequeno implante sob a pele do animal que armazena um número de ID único — mas requer um leitor especial (geralmente só disponível em veterinários e abrigos) para ser lido. Uma placa QR SENRA funciona instantaneamente com qualquer câmara de smartphone, mostrando o perfil completo do animal, foto e os seus contactos no momento. A pessoa que encontrar o animal também pode partilhar a sua localização GPS consigo. Recomendamos usar ambos: o microchip como backup permanente, e a placa SENRA para identificação instantânea e diária.</string>
     <string name="help_faq_q21">O que acontece aos meus dados se cancelar a subscrição?</string>
     <string name="help_faq_a21">Se cancelar a subscrição, mantém acesso às funcionalidades pagas até ao fim do período de faturação atual. Depois disso, a conta passa automaticamente para o plano Starter gratuito. Os perfis, fotos e placas QR dos animais permanecem ativos — apenas perde acesso a funcionalidades premium como notificações SMS, alertas veterinários e substituições grátis. Os seus dados nunca são eliminados ao cancelar. Para remover permanentemente todos os dados, use a opção Eliminação de Conta nas Definições.</string>
-    <string name="help_faq_q22">Como registo o meu veterinário ou abrigo na Senra?</string>
+    <string name="help_faq_q22">Como registo o meu veterinário ou abrigo na SENRA?</string>
     <string name="help_faq_a22">Veterinários e abrigos podem registar-se em senra.pet/register-vet-shelter. Preencha os dados da clínica ou organização e enviaremos um e-mail de verificação. Depois de confirmado, receberá automaticamente alertas por e-mail quando animais desaparecerem na sua área — ajudando a reunir animais perdidos com as suas famílias. Não tem custo e não requer login. Os donos também podem registar o seu veterinário local em seu nome.</string>
     <string name="help_faq_q23">Como partilho uma história de sucesso quando o meu animal é encontrado?</string>
     <string name="help_faq_a23">Quando marcar o animal como encontrado em \'Os meus animais\', será perguntado se quer partilhar a história do reencontro. Pode adicionar uma mensagem curta sobre como o animal foi encontrado e confirmar a localização. As histórias públicas aparecem no mapa de Animais Encontrados, inspirando a comunidade. Também pode publicar ou remover uma história mais tarde no perfil do animal.</string>
     <string name="help_faq_q24">Que navegadores e dispositivos são suportados?</string>
-    <string name="help_faq_a24">A Senra funciona em todos os navegadores modernos incluindo Chrome, Safari, Firefox e Edge em mobile e desktop. A leitura de placas QR funciona com qualquer câmara de smartphone — a pessoa que encontrar o animal não precisa da app Senra nem de conta. As notificações push são suportadas no Chrome e Edge em desktop e Android. Para a melhor experiência, recomendamos usar um navegador atualizado no telemóvel.</string>
+    <string name="help_faq_a24">A SENRA funciona em todos os navegadores modernos incluindo Chrome, Safari, Firefox e Edge em mobile e desktop. A leitura de placas QR funciona com qualquer câmara de smartphone — a pessoa que encontrar o animal não precisa da app SENRA nem de conta. As notificações push são suportadas no Chrome e Edge em desktop e Android. Para a melhor experiência, recomendamos usar um navegador atualizado no telemóvel.</string>
     <string name="help_faq_q25">Posso pedir placas para vários animais de uma vez?</string>
     <string name="help_faq_a25">Cada encomenda inclui placas para os nomes de animais que especificar durante o pagamento. Pode introduzir vários nomes numa única encomenda. Quando as placas chegarem, leia cada uma para a ativar e ligar ao perfil correto. Se precisar de placas para mais animais depois, pode fazer encomendas adicionais na página da Conta.</string>
     <string name="help_faq_q26">Como é que os alertas de animais desaparecidos chegam aos veterinários e abrigos?</string>
-    <string name="help_faq_a26">Quando marca o animal como desaparecido, a Senra envia automaticamente alertas por e-mail a todos os veterinários e abrigos verificados registados na sua área. Isto significa que os profissionais de animais locais ficam imediatamente cientes de que o seu animal está desaparecido. Quanto mais veterinários e abrigos registados na sua área, mais forte é a rede de segurança. Pode ajudar incentivando o seu veterinário a registar-se na Senra.</string>
+    <string name="help_faq_a26">Quando marca o animal como desaparecido, a SENRA envia automaticamente alertas por e-mail a todos os veterinários e abrigos verificados registados na sua área. Isto significa que os profissionais de animais locais ficam imediatamente cientes de que o seu animal está desaparecido. Quanto mais veterinários e abrigos registados na sua área, mais forte é a rede de segurança. Pode ajudar incentivando o seu veterinário a registar-se na SENRA.</string>
     <string name="help_faq_q27">Posso transferir uma placa para outro animal?</string>
     <string name="help_faq_a27">Cada placa QR está permanentemente ligada a um perfil de animal e não pode ser reassociada. Se um animal falecer ou já não precisar de uma placa, a placa antiga fica simplesmente inativa. Para etiquetar um novo animal, peça uma nova placa na página da Conta. Se tiver um plano Standard ou Maximum, pode ter direito a uma placa de substituição gratuita para o novo animal.</string>
     <string name="help_guide_qr_tags_title">Placas QR para animais</string>
@@ -1064,9 +1064,9 @@
     <string name="help_guide_profile_title">Gestão de perfil</string>
     <string name="help_guide_profile_desc">Gerir e atualizar o perfil do animal.</string>
     <string name="help_guide_missing_alerts_title">Alertas de animais desaparecidos e avistamentos</string>
-    <string name="help_guide_missing_alerts_desc">Se o seu animal desaparecer, marque-o como desaparecido em \'Os meus animais\' para criar um alerta comunitário instantâneo. A foto e detalhes do animal aparecem no mapa de Animais Desaparecidos visível a todos os utilizadores Senra na sua área. Membros da comunidade podem reportar avistamentos com localização GPS, que recebe como notificações. Veterinários e abrigos registados também são alertados. Quando o animal for encontrado, marque-o como encontrado e partilhe opcionalmente a história do reencontro para inspirar a comunidade.</string>
+    <string name="help_guide_missing_alerts_desc">Se o seu animal desaparecer, marque-o como desaparecido em \'Os meus animais\' para criar um alerta comunitário instantâneo. A foto e detalhes do animal aparecem no mapa de Animais Desaparecidos visível a todos os utilizadores SENRA na sua área. Membros da comunidade podem reportar avistamentos com localização GPS, que recebe como notificações. Veterinários e abrigos registados também são alertados. Quando o animal for encontrado, marque-o como encontrado e partilhe opcionalmente a história do reencontro para inspirar a comunidade.</string>
     <string name="help_guide_community_title">Comunidade e animais encontrados</string>
-    <string name="help_guide_community_desc">A força da Senra é a sua comunidade. O mapa de Animais Desaparecidos mostra alertas ativos perto de si — verifique se algum animal foi reportado como desaparecido na sua área. A página de Animais Encontrados celebra reencontros bem-sucedidos com histórias de donos. Pode registar o seu veterinário ou abrigo local na Senra para que recebam alertas de animais desaparecidos automaticamente, ajudando a criar uma rede de segurança mais forte para todos os animais na sua área.</string>
+    <string name="help_guide_community_desc">A força da SENRA é a sua comunidade. O mapa de Animais Desaparecidos mostra alertas ativos perto de si — verifique se algum animal foi reportado como desaparecido na sua área. A página de Animais Encontrados celebra reencontros bem-sucedidos com histórias de donos. Pode registar o seu veterinário ou abrigo local na SENRA para que recebam alertas de animais desaparecidos automaticamente, ajudando a criar uma rede de segurança mais forte para todos os animais na sua área.</string>
     <string name="help_faq_group_getting_started">Primeiros passos</string>
     <string name="help_faq_group_tags_scanning">Placas e leitura</string>
     <string name="help_faq_group_missing_pets">Animais desaparecidos e alertas</string>
@@ -1161,7 +1161,7 @@
     <string name="no_notifications_desc">Tudo em dia! As notificações aparecerão aqui quando a placa do seu animal for escaneada.</string>
     <string name="mark_all_read">Marcar tudo como lido</string>
     <string name="create_profile_hint">Crie primeiro um perfil de animal, depois escaneie a placa novamente para ativar.</string>
-    <string name="activation_error_qr_not_found">Código QR não reconhecido. Certifique-se de que está a escanear uma placa oficial Senra.</string>
+    <string name="activation_error_qr_not_found">Código QR não reconhecido. Certifique-se de que está a escanear uma placa oficial SENRA.</string>
     <string name="activation_error_already_activated">Esta placa já está associada a outro animal. Contacte o suporte.</string>
     <string name="activation_error_not_linked">Esta placa ainda não foi atribuída à sua encomenda. Aguarde a confirmação de envio.</string>
     <string name="activation_error_not_shipped">A sua encomenda ainda não foi enviada. Aguarde a entrega.</string>
@@ -1361,7 +1361,7 @@
     <string name="dob_select_date">Selecionar data</string>
     <string name="weight_helper">Peso em kg (ex. 4,5)</string>
 
-    <string name="welcome_to_senra">Bem-vindo à Senra!</string>
+    <string name="welcome_to_senra">Bem-vindo à SENRA!</string>
     <string name="welcome_subtitle">A segurança do seu animal começa aqui. Configure a sua primeira etiqueta.</string>
     <string name="welcome_step_1">Leia o código QR na sua etiqueta</string>
     <string name="welcome_step_2">Crie o perfil do seu animal</string>
@@ -1374,7 +1374,7 @@
     <string name="already_activated">Já ativada</string>
     <string name="setting_up_tag_for">Configurando etiqueta para %s</string>
     <string name="tag_activated_for">Etiqueta ativada para %s!</string>
-    <string name="pet_now_protected">O seu animal está agora protegido com a Senra</string>
+    <string name="pet_now_protected">O seu animal está agora protegido com a SENRA</string>
     <string name="more_tags_to_setup">Ainda tem etiquetas por configurar</string>
     <string name="setup_pet_tag">Configurar etiqueta de %s</string>
     <string name="whats_next">O que vem a seguir?</string>
@@ -1382,7 +1382,7 @@
     <string name="register_your_vet">Registe o seu veterinário</string>
     <string name="update_contact_details">Atualize os seus contactos e privacidade</string>
     <string name="go_to_home">Ir para o início</string>
-    <string name="thank_you_senra">Obrigado por usar a Senra!</string>
+    <string name="thank_you_senra">Obrigado por usar a SENRA!</string>
     <string name="tap_pet_name_hint">Basta tocar no nome do seu animal para configurar a etiqueta</string>
     <plurals name="age_years">
         <item quantity="one">%d ano</item>

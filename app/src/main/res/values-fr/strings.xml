@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <string name="app_name">Senra Pet</string>
+    <string name="app_name">SENRA Pet</string>
     <!-- Google Maps API key is injected via build.gradle.kts resValue from local.properties or env var -->
 
     <!-- ============================================ -->
@@ -61,7 +61,7 @@
     <!-- MARK: Auth -->
     <!-- ============================================ -->
     <string name="welcome_back">Content de te revoir\u00a0!</string>
-    <string name="welcome_new_user">Bienvenue sur Senra Pet !</string>
+    <string name="welcome_new_user">Bienvenue sur SENRA Pet !</string>
     <string name="enter_email_subtitle">Saisis ton adresse e-mail pour recevoir un code de connexion.</string>
     <string name="email_address">Adresse e-mail</string>
     <string name="send_login_code">Envoyer le code de connexion</string>
@@ -124,7 +124,7 @@
     <string name="action_order_tags">COMMANDER DES MÉDAILLES</string>
     <string name="action_replace_tag">REMPLACER LA MÉDAILLE</string>
     <string name="empty_pets_title">Pas encore d\'animal</string>
-    <string name="empty_pets_message">Ajoute ton premier animal pour commencer à utiliser Senra</string>
+    <string name="empty_pets_message">Ajoute ton premier animal pour commencer à utiliser SENRA</string>
     <string name="missing_badge">DISPARU</string>
     <string name="add_pet">Ajouter un animal</string>
     <string name="pet_name">Nom de l\'animal</string>
@@ -487,7 +487,7 @@
     <string name="notification_tag_scanned_title">%1$s retrouvé\u00a0!</string>
     <string name="notification_sighting_title">%1$s aperçu\u00a0!</string>
     <string name="notification_pet_found_title">Bonne nouvelle\u00a0!</string>
-    <string name="notification_channel_name">Alertes Senra Pet</string>
+    <string name="notification_channel_name">Alertes SENRA Pet</string>
     <string name="notification_channel_tag_scans">Scans de médaille</string>
     <string name="notification_channel_tag_scans_desc">Notifications lorsque la médaille de ton animal est scannée</string>
     <string name="notification_channel_alerts">Alertes animaux disparus</string>
@@ -507,7 +507,7 @@
     <string name="notif_sighting_title">Observation signalée</string>
     <string name="notif_sighting_body_location">%1$s a été aperçu à %2$s\u00a0!</string>
     <string name="notif_sighting_body_no_location">%1$s a été aperçu\u00a0! Consulte le lieu de l\'observation.</string>
-    <string name="notif_fallback_title">Senra Pet</string>
+    <string name="notif_fallback_title">SENRA Pet</string>
     <string name="notif_fallback_pet_name">Ton animal</string>
     <string name="notif_fallback_a_pet">Un animal</string>
     <string name="notif_fallback_your_area">ta zone</string>
@@ -568,7 +568,7 @@
     <string name="reunited_in">Réuni en %1$s</string>
     <string name="shared_via_pet_safety">Partagé via l\'application Pet Safety</string>
     <string name="story_share_good_news">Partage la bonne nouvelle</string>
-    <string name="story_social_caption">%1$s a retrouvé sa famille ! Merci à la communauté Senra d\'avoir aidé à ramener %1$s à la maison. senra.pet</string>
+    <string name="story_social_caption">%1$s a retrouvé sa famille ! Merci à la communauté SENRA d\'avoir aidé à ramener %1$s à la maison. senra.pet</string>
     <string name="story_generating_card">Création de la carte de partage\u2026</string>
     <string name="story_pet_is_home_title">%1$s est rentré !</string>
     <string name="story_inspire_others_message">Aide d\'autres propriétaires en partageant comment %1$s t\'a été retrouvé.</string>
@@ -699,13 +699,13 @@
 
     <!-- FAQ Items -->
     <string name="help_faq_q1">Comment créer un compte ?</string>
-    <string name="help_faq_a1">Senra utilise une connexion sans mot de passe. Saisis simplement ton adresse e-mail sur la page de connexion et nous t\'enverrons un code de vérification à 6 chiffres. Entre le code pour te connecter. Si tu es nouveau, ton compte est créé automatiquement lors de ta première connexion — aucune inscription séparée n\'est nécessaire.</string>
+    <string name="help_faq_a1">SENRA utilise une connexion sans mot de passe. Saisis simplement ton adresse e-mail sur la page de connexion et nous t\'enverrons un code de vérification à 6 chiffres. Entre le code pour te connecter. Si tu es nouveau, ton compte est créé automatiquement lors de ta première connexion — aucune inscription séparée n\'est nécessaire.</string>
     <string name="help_faq_q2">Comment enregistrer mon animal ?</string>
     <string name="help_faq_a2">Va dans \'Mes animaux\' et appuie sur \'Ajouter un animal\'. Entre le nom, l\'espèce, la race et l\'âge de ton animal, puis télécharge une photo. Si tu as déjà reçu ta médaille QR, tu peux la scanner lors de l\'enregistrement pour la lier au profil de ton animal directement.</string>
     <string name="help_faq_q3">Quelles informations inclure dans le profil de mon animal ?</string>
     <string name="help_faq_a3">Au minimum, ajoute le nom, l\'espèce et une photo nette de ton animal. Pour maximiser les chances d\'une réunion rapide en cas de disparition, ajoute aussi : la race, l\'âge, le poids, la couleur, le numéro de puce, les notes médicales, les allergies, les médicaments et tout signe distinctif (taches, cicatrices, etc.). Plus il y a de détails, plus il est facile d\'identifier ton animal.</string>
     <string name="help_faq_q4">Comment fonctionne la médaille QR ?</string>
-    <string name="help_faq_a4">Chaque médaille Senra possède un QR code unique. Lorsque quelqu\'un trouve ton animal et le scanne avec l\'appareil photo de son téléphone, il voit instantanément le profil de ton animal — photo, nom, informations médicales et tes coordonnées. Il peut aussi partager sa position avec toi pour que tu saches exactement où est ton animal. Aucune application n\'est nécessaire pour scanner.</string>
+    <string name="help_faq_a4">Chaque médaille SENRA possède un QR code unique. Lorsque quelqu\'un trouve ton animal et le scanne avec l\'appareil photo de son téléphone, il voit instantanément le profil de ton animal — photo, nom, informations médicales et tes coordonnées. Il peut aussi partager sa position avec toi pour que tu saches exactement où est ton animal. Aucune application n\'est nécessaire pour scanner.</string>
     <string name="help_faq_q5">Que se passe-t-il quand quelqu\'un scanne la médaille de mon animal ?</string>
     <string name="help_faq_a5">La personne voit le profil public de ton animal avec les informations que tu as choisi de partager (nom, photo, informations médicales, coordonnées). Elle peut appuyer sur \'J\'ai trouvé cet animal !\' pour partager sa position avec toi. Tu reçois immédiatement une notification par e-mail (et SMS si tu as un abonnement Standard ou Maximum) avec la position et les coordonnées de la personne.</string>
     <string name="help_faq_q6">Comment activer ma médaille à sa réception ?</string>
@@ -713,9 +713,9 @@
     <string name="help_faq_q7">Puis-je modifier les informations de mon animal après l\'enregistrement ?</string>
     <string name="help_faq_a7">Oui — tu peux modifier le profil de ton animal à tout moment. Va dans \'Mes animaux\', sélectionne ton animal et appuie sur \'Modifier\'. Tu peux mettre à jour n\'importe quel champ, y compris les photos. Les modifications sont enregistrées immédiatement.</string>
     <string name="help_faq_q8">Que faire si mon animal disparaît ?</string>
-    <string name="help_faq_a8">Va dans \'Mes animaux\' et appuie sur le menu de la carte de ton animal, puis sélectionne \'Marquer comme disparu\'. Cela crée une alerte d\'animal disparu visible par la communauté Senra dans ta zone. Les personnes près de toi verront l\'alerte et pourront signaler des observations avec leur position. Tu seras notifié immédiatement de toute observation.</string>
+    <string name="help_faq_a8">Va dans \'Mes animaux\' et appuie sur le menu de la carte de ton animal, puis sélectionne \'Marquer comme disparu\'. Cela crée une alerte d\'animal disparu visible par la communauté SENRA dans ta zone. Les personnes près de toi verront l\'alerte et pourront signaler des observations avec leur position. Tu seras notifié immédiatement de toute observation.</string>
     <string name="help_faq_q9">Comment fonctionnent les alertes d\'animaux disparus ?</string>
-    <string name="help_faq_a9">Lorsque tu marques un animal comme disparu, une alerte est créée avec sa photo et ses informations. Les autres utilisateurs Senra dans un rayon de 10 km peuvent voir l\'alerte sur la carte des animaux disparus. N\'importe qui peut signaler une observation avec sa position, ce qui te l\'envoie avec ses coordonnées. Les vétérinaires et refuges inscrits chez Senra dans ta zone reçoivent également l\'alerte.</string>
+    <string name="help_faq_a9">Lorsque tu marques un animal comme disparu, une alerte est créée avec sa photo et ses informations. Les autres utilisateurs SENRA dans un rayon de 10 km peuvent voir l\'alerte sur la carte des animaux disparus. N\'importe qui peut signaler une observation avec sa position, ce qui te l\'envoie avec ses coordonnées. Les vétérinaires et refuges inscrits chez SENRA dans ta zone reçoivent également l\'alerte.</string>
     <string name="help_faq_q10">Comment commander une médaille de remplacement ?</string>
     <string name="help_faq_a10">Va sur la page Compte et appuie sur \'Commander un remplacement\'. Sélectionne l\'animal qui a besoin d\'une nouvelle médaille. Les membres Maximum bénéficient de remplacements gratuits illimités, les membres Standard ont droit à un remplacement gratuit par an, et les membres Starter peuvent commander des remplacements moyennant de petits frais de port.</string>
     <string name="help_faq_q11">Qu\'est-ce que le programme de parrainage ?</string>
@@ -725,46 +725,46 @@
     <string name="help_faq_q13">Puis-je avoir plusieurs animaux sur un seul compte ?</string>
     <string name="help_faq_a13">Oui. Avec l\'abonnement Starter (gratuit), tu peux enregistrer un animal. L\'abonnement Standard prend également en charge un animal. L\'abonnement Maximum prend en charge un nombre illimité d\'animaux. Tu peux changer d\'abonnement à tout moment depuis la page Compte.</string>
     <string name="help_faq_q14">Comment signaler un animal que j\'ai trouvé ?</string>
-    <string name="help_faq_a14">Si l\'animal a une médaille Senra, scanne simplement le QR code avec l\'appareil photo de ton téléphone — aucune application requise. Tu verras le profil de l\'animal et pourras partager ta position avec le propriétaire. S\'il n\'y a pas de médaille, tu peux consulter la carte des animaux disparus sur le site Senra pour voir si l\'animal a été signalé dans ta zone.</string>
+    <string name="help_faq_a14">Si l\'animal a une médaille SENRA, scanne simplement le QR code avec l\'appareil photo de ton téléphone — aucune application requise. Tu verras le profil de l\'animal et pourras partager ta position avec le propriétaire. S\'il n\'y a pas de médaille, tu peux consulter la carte des animaux disparus sur le site SENRA pour voir si l\'animal a été signalé dans ta zone.</string>
     <string name="help_faq_q15">Mes informations personnelles sont-elles en sécurité ?</string>
     <string name="help_faq_a15">Oui. Tu contrôles exactement quelles informations sont visibles lorsque quelqu\'un scanne la médaille de ton animal. Dans Paramètres &gt; Confidentialité, tu peux choisir d\'afficher ou de masquer ton numéro de téléphone, ton e-mail et ton adresse. Ta connexion est sécurisée par des codes de vérification à usage unique — il n\'y a pas de mot de passe à voler. Tu peux supprimer ton compte et toutes tes données à tout moment.</string>
     <string name="help_faq_q16">J\'ai perdu ma médaille ou elle est abîmée — que faire ?</string>
     <string name="help_faq_a16">Ne t\'inquiète pas — le profil numérique de ton animal est sauf et n\'est pas stocké sur la médaille elle-même. Va sur la page Compte et appuie sur \'Commander un remplacement\'. Une nouvelle médaille avec un QR code sera liée à ton profil d\'animal existant. Les membres Standard ont droit à un remplacement gratuit par an, les membres Maximum bénéficient de remplacements gratuits illimités, et les membres Starter paient de petits frais de port. Ton ancienne médaille cessera de fonctionner une fois la nouvelle activée.</string>
     <string name="help_faq_q17">Ma médaille ne se scanne pas — comment remédier à ça ?</string>
     <string name="help_faq_a17">Essaie ces étapes : nettoie la surface de la médaille avec un chiffon humide, assure-toi d\'avoir un bon éclairage, tiens l\'appareil photo de ton téléphone stable à environ 10-15 cm de la médaille, et vérifie que ton application appareil photo ou ton lecteur QR fonctionne. Si le QR code est rayé ou délavé, tu peux utiliser l\'option de saisie manuelle du code dans l\'application sous \'Scanner la médaille\'. Si la médaille est trop endommagée pour être lue, commande un remplacement gratuit depuis ta page Compte (abonnements Standard et Maximum).</string>
-    <string name="help_faq_q18">J\'ai trouvé un animal sans médaille Senra — que puis-je faire ?</string>
-    <string name="help_faq_a18">Consulte la carte des animaux disparus sur le site Senra (senra.pet) — l\'animal a peut-être été signalé comme disparu dans ta zone. Tu peux voir les alertes d\'animaux disparus sans compte. Si tu trouves une correspondance, tu peux signaler une observation avec ta position pour aider à réunir l\'animal avec son propriétaire. Tu peux aussi emmener l\'animal chez un vétérinaire local pour vérifier la puce électronique.</string>
+    <string name="help_faq_q18">J\'ai trouvé un animal sans médaille SENRA — que puis-je faire ?</string>
+    <string name="help_faq_a18">Consulte la carte des animaux disparus sur le site SENRA (senra.pet) — l\'animal a peut-être été signalé comme disparu dans ta zone. Tu peux voir les alertes d\'animaux disparus sans compte. Si tu trouves une correspondance, tu peux signaler une observation avec ta position pour aider à réunir l\'animal avec son propriétaire. Tu peux aussi emmener l\'animal chez un vétérinaire local pour vérifier la puce électronique.</string>
     <string name="help_faq_q19">Puis-je changer mon adresse e-mail ?</string>
     <string name="help_faq_a19">Ton adresse e-mail principale sert d\'identifiant de compte et ne peut pas être modifiée directement. Si tu as besoin d\'utiliser un autre e-mail, tu peux ajouter un e-mail secondaire dans Paramètres &gt; Coordonnées — il sera aussi visible sur le profil de ton animal. Si tu as absolument besoin de changer ton e-mail principal, contacte notre équipe de support et nous t\'aiderons à migrer ton compte.</string>
-    <string name="help_faq_q20">Quelle est la différence entre une puce électronique et une médaille QR Senra ?</string>
-    <string name="help_faq_a20">Une puce électronique est un petit implant sous la peau de ton animal qui stocke un numéro d\'identification unique — mais elle nécessite un lecteur spécial (généralement disponible uniquement chez les vétérinaires et les refuges). Une médaille QR Senra fonctionne instantanément avec n\'importe quel appareil photo de smartphone, affichant le profil complet de ton animal, sa photo et tes coordonnées sur place. La personne qui trouve ton animal peut aussi partager sa position GPS avec toi. Nous recommandons d\'utiliser les deux : la puce comme sauvegarde permanente, et la médaille Senra pour une identification instantanée au quotidien.</string>
+    <string name="help_faq_q20">Quelle est la différence entre une puce électronique et une médaille QR SENRA ?</string>
+    <string name="help_faq_a20">Une puce électronique est un petit implant sous la peau de ton animal qui stocke un numéro d\'identification unique — mais elle nécessite un lecteur spécial (généralement disponible uniquement chez les vétérinaires et les refuges). Une médaille QR SENRA fonctionne instantanément avec n\'importe quel appareil photo de smartphone, affichant le profil complet de ton animal, sa photo et tes coordonnées sur place. La personne qui trouve ton animal peut aussi partager sa position GPS avec toi. Nous recommandons d\'utiliser les deux : la puce comme sauvegarde permanente, et la médaille SENRA pour une identification instantanée au quotidien.</string>
     <string name="help_faq_q21">Que se passe-t-il pour mes données si j\'annule mon abonnement ?</string>
     <string name="help_faq_a21">Si tu annules ton abonnement, tu gardes l\'accès aux fonctionnalités payantes jusqu\'à la fin de ta période de facturation en cours. Ensuite, ton compte passe automatiquement à l\'abonnement Starter gratuit. Les profils de tes animaux, les photos et les médailles QR restent actifs — tu perds simplement l\'accès aux fonctionnalités premium comme les notifications SMS, les alertes vétérinaires et les remplacements de médailles gratuits. Tes données ne sont jamais supprimées lors de l\'annulation. Pour supprimer définitivement toutes les données, utilise l\'option Suppression du compte dans les Paramètres.</string>
-    <string name="help_faq_q22">Comment inscrire mon vétérinaire ou mon refuge chez Senra ?</string>
+    <string name="help_faq_q22">Comment inscrire mon vétérinaire ou mon refuge chez SENRA ?</string>
     <string name="help_faq_a22">Les vétérinaires et les refuges peuvent s\'inscrire sur senra.pet/register-vet-shelter. Remplis les informations de ta pratique ou organisation, et nous enverrons un e-mail de vérification. Une fois confirmé, tu recevras automatiquement des alertes par e-mail lorsque des animaux disparaissent dans ta zone — pour aider à réunir les animaux perdus avec leurs familles. C\'est gratuit et aucune connexion n\'est requise. Les propriétaires d\'animaux peuvent aussi inscrire leur vétérinaire local en leur nom.</string>
     <string name="help_faq_q23">Comment partager une success story quand mon animal est retrouvé ?</string>
     <string name="help_faq_a23">Lorsque tu marques ton animal comme retrouvé dans \'Mes animaux\', on te demandera si tu souhaites partager l\'histoire de vos retrouvailles. Tu peux ajouter un court message sur la façon dont ton animal a été retrouvé et confirmer le lieu des retrouvailles. Les histoires publiques apparaissent sur la carte des animaux retrouvés, inspirant la communauté et montrant que le système fonctionne. Tu peux aussi publier ou supprimer une success story plus tard depuis la page de profil de ton animal.</string>
     <string name="help_faq_q24">Quels navigateurs et appareils sont pris en charge ?</string>
-    <string name="help_faq_a24">Senra fonctionne sur tous les navigateurs modernes, notamment Chrome, Safari, Firefox et Edge, sur mobile et ordinateur. Le scan de la médaille QR fonctionne avec n\'importe quel appareil photo de smartphone — la personne qui trouve ton animal n\'a pas besoin de l\'application Senra ni même d\'un compte. Pour la meilleure expérience, nous recommandons d\'utiliser un navigateur à jour sur ton téléphone.</string>
+    <string name="help_faq_a24">SENRA fonctionne sur tous les navigateurs modernes, notamment Chrome, Safari, Firefox et Edge, sur mobile et ordinateur. Le scan de la médaille QR fonctionne avec n\'importe quel appareil photo de smartphone — la personne qui trouve ton animal n\'a pas besoin de l\'application SENRA ni même d\'un compte. Pour la meilleure expérience, nous recommandons d\'utiliser un navigateur à jour sur ton téléphone.</string>
     <string name="help_faq_q25">Puis-je commander des médailles pour plusieurs animaux à la fois ?</string>
     <string name="help_faq_a25">Chaque commande de médailles comprend des médailles pour les noms d\'animaux que tu indiques lors du paiement. Tu peux saisir plusieurs noms d\'animaux dans une seule commande. À la réception des médailles, scanne chacune pour l\'activer et la lier au bon profil d\'animal. Si tu as besoin de médailles pour d\'autres animaux plus tard, tu peux passer des commandes supplémentaires depuis la page Compte à tout moment.</string>
     <string name="help_faq_q26">Comment les alertes d\'animaux disparus parviennent-elles aux vétérinaires et aux refuges ?</string>
-    <string name="help_faq_a26">Lorsque tu marques ton animal comme disparu, Senra envoie automatiquement des alertes par e-mail à tous les vétérinaires et refuges vérifiés inscrits dans ta zone. Cela signifie que les professionnels animaliers locaux sont immédiatement informés de la disparition de ton animal et peuvent le surveiller. Plus il y a de vétérinaires et de refuges inscrits dans ta zone, plus le réseau de sécurité est solide. Tu peux aider en encourageant ton propre vétérinaire à s\'inscrire chez Senra.</string>
+    <string name="help_faq_a26">Lorsque tu marques ton animal comme disparu, SENRA envoie automatiquement des alertes par e-mail à tous les vétérinaires et refuges vérifiés inscrits dans ta zone. Cela signifie que les professionnels animaliers locaux sont immédiatement informés de la disparition de ton animal et peuvent le surveiller. Plus il y a de vétérinaires et de refuges inscrits dans ta zone, plus le réseau de sécurité est solide. Tu peux aider en encourageant ton propre vétérinaire à s\'inscrire chez SENRA.</string>
     <string name="help_faq_q27">Puis-je transférer une médaille à un autre animal ?</string>
     <string name="help_faq_a27">Chaque médaille QR est définitivement liée à un profil d\'animal et ne peut pas être réassignée. Si un animal décède ou si tu n\'as plus besoin d\'une médaille, l\'ancienne médaille devient simplement inactive. Pour équiper un nouvel animal, commande une nouvelle médaille depuis la page Compte. Si tu as un abonnement Standard ou Maximum, tu as peut-être droit à une médaille de remplacement gratuite pour ton nouvel animal.</string>
     <!-- Guide Items -->
     <string name="help_guide_qr_tags_title">Médailles QR pour animaux</string>
-    <string name="help_guide_qr_tags_desc">Chaque médaille Senra est dotée d\'un QR code unique qui renvoie au profil numérique de ton animal. Toute personne qui trouve ton animal peut scanner le code avec l\'appareil photo de son téléphone — aucune application requise. Elle voit instantanément la photo de ton animal, son nom, ses informations médicales et tes coordonnées. Elle peut aussi partager sa position GPS avec toi pour que tu saches exactement où est ton animal. Les médailles fonctionnent avec tous les smartphones modernes.</string>
+    <string name="help_guide_qr_tags_desc">Chaque médaille SENRA est dotée d\'un QR code unique qui renvoie au profil numérique de ton animal. Toute personne qui trouve ton animal peut scanner le code avec l\'appareil photo de son téléphone — aucune application requise. Elle voit instantanément la photo de ton animal, son nom, ses informations médicales et tes coordonnées. Elle peut aussi partager sa position GPS avec toi pour que tu saches exactement où est ton animal. Les médailles fonctionnent avec tous les smartphones modernes.</string>
     <string name="help_guide_materials_title">Matériaux &amp; durabilité de la médaille</string>
-    <string name="help_guide_materials_desc">Les médailles Senra sont fabriquées en métal durable et léger avec un revêtement époxy pour une protection supplémentaire. Elles sont imperméables et résistantes aux UV, adaptées à toutes les conditions météorologiques. Le QR code est imprimé avec une encre résistante à la décoloration pour rester lisible dans le temps. Les médailles s\'attachent solidement au collier de ton animal. Si une médaille est endommagée ou si le QR code n\'est plus lisible, tu peux commander un remplacement depuis ta page Compte — gratuit pour les membres Standard et Maximum.</string>
+    <string name="help_guide_materials_desc">Les médailles SENRA sont fabriquées en métal durable et léger avec un revêtement époxy pour une protection supplémentaire. Elles sont imperméables et résistantes aux UV, adaptées à toutes les conditions météorologiques. Le QR code est imprimé avec une encre résistante à la décoloration pour rester lisible dans le temps. Les médailles s\'attachent solidement au collier de ton animal. Si une médaille est endommagée ou si le QR code n\'est plus lisible, tu peux commander un remplacement depuis ta page Compte — gratuit pour les membres Standard et Maximum.</string>
     <string name="help_guide_emergency_title">Contacts d\'urgence &amp; alertes</string>
-    <string name="help_guide_emergency_desc">Lorsque quelqu\'un scanne la médaille de ton animal, tu reçois immédiatement une notification par e-mail avec la position de la personne. Les membres Standard et Maximum reçoivent aussi des alertes SMS pour une réaction plus rapide. Si tu marques ton animal comme disparu, une alerte communautaire est envoyée à tous les utilisateurs Senra dans un rayon de 10 km, et les vétérinaires et refuges inscrits dans ta zone sont également notifiés. N\'importe qui peut signaler des observations avec sa position, créant une piste pour t\'aider à retrouver ton animal.</string>
+    <string name="help_guide_emergency_desc">Lorsque quelqu\'un scanne la médaille de ton animal, tu reçois immédiatement une notification par e-mail avec la position de la personne. Les membres Standard et Maximum reçoivent aussi des alertes SMS pour une réaction plus rapide. Si tu marques ton animal comme disparu, une alerte communautaire est envoyée à tous les utilisateurs SENRA dans un rayon de 10 km, et les vétérinaires et refuges inscrits dans ta zone sont également notifiés. N\'importe qui peut signaler des observations avec sa position, créant une piste pour t\'aider à retrouver ton animal.</string>
     <string name="help_guide_profile_title">Gestion du profil animal</string>
-    <string name="help_guide_profile_desc">Le profil numérique de ton animal est au cœur de Senra. Ajoute les informations essentielles comme le nom, l\'espèce, la race, l\'âge et une photo nette. Tu peux aussi inclure des informations médicales (allergies, médicaments, conditions), le numéro de puce et les caractéristiques distinctives qui aident à identifier ton animal. Ajoute plusieurs photos à une galerie. Toutes les informations peuvent être mises à jour à tout moment depuis la section \'Mes animaux\'. Tu contrôles lesquelles de tes données personnelles (téléphone, e-mail, adresse) sont visibles pour les personnes qui scannent la médaille.</string>
+    <string name="help_guide_profile_desc">Le profil numérique de ton animal est au cœur de SENRA. Ajoute les informations essentielles comme le nom, l\'espèce, la race, l\'âge et une photo nette. Tu peux aussi inclure des informations médicales (allergies, médicaments, conditions), le numéro de puce et les caractéristiques distinctives qui aident à identifier ton animal. Ajoute plusieurs photos à une galerie. Toutes les informations peuvent être mises à jour à tout moment depuis la section \'Mes animaux\'. Tu contrôles lesquelles de tes données personnelles (téléphone, e-mail, adresse) sont visibles pour les personnes qui scannent la médaille.</string>
     <string name="help_guide_missing_alerts_title">Alertes animaux disparus &amp; observations</string>
-    <string name="help_guide_missing_alerts_desc">Si ton animal disparaît, marque-le comme disparu depuis \'Mes animaux\' pour créer une alerte communautaire instantanée. La photo et les informations de ton animal apparaissent sur la carte des animaux disparus, visible par tous les utilisateurs Senra dans ta zone. Les membres de la communauté peuvent signaler des observations avec leur position GPS, que tu reçois comme notifications. Les vétérinaires et refuges inscrits sont également alertés. Une fois ton animal retrouvé, marque-le comme retrouvé et partage éventuellement l\'histoire de vos retrouvailles pour inspirer la communauté.</string>
+    <string name="help_guide_missing_alerts_desc">Si ton animal disparaît, marque-le comme disparu depuis \'Mes animaux\' pour créer une alerte communautaire instantanée. La photo et les informations de ton animal apparaissent sur la carte des animaux disparus, visible par tous les utilisateurs SENRA dans ta zone. Les membres de la communauté peuvent signaler des observations avec leur position GPS, que tu reçois comme notifications. Les vétérinaires et refuges inscrits sont également alertés. Une fois ton animal retrouvé, marque-le comme retrouvé et partage éventuellement l\'histoire de vos retrouvailles pour inspirer la communauté.</string>
     <string name="help_guide_community_title">Communauté &amp; animaux retrouvés</string>
-    <string name="help_guide_community_desc">La force de Senra réside dans sa communauté. La carte des animaux disparus montre les alertes actives près de toi — consulte-la pour voir si des animaux ont été signalés dans ta zone. La page des animaux retrouvés célèbre les réunions réussies avec les histoires des propriétaires. Tu peux inscrire ton vétérinaire local ou un refuge animalier chez Senra pour qu\'ils reçoivent automatiquement les alertes d\'animaux disparus, contribuant à créer un réseau de sécurité plus solide pour tous les animaux dans ta zone.</string>
+    <string name="help_guide_community_desc">La force de SENRA réside dans sa communauté. La carte des animaux disparus montre les alertes actives près de toi — consulte-la pour voir si des animaux ont été signalés dans ta zone. La page des animaux retrouvés célèbre les réunions réussies avec les histoires des propriétaires. Tu peux inscrire ton vétérinaire local ou un refuge animalier chez SENRA pour qu\'ils reçoivent automatiquement les alertes d\'animaux disparus, contribuant à créer un réseau de sécurité plus solide pour tous les animaux dans ta zone.</string>
     <!-- ============================================ -->
     <!-- MARK: Orders -->
     <!-- ============================================ -->
@@ -1016,7 +1016,7 @@
     <!-- ============================================ -->
     <!-- MARK: App Info -->
     <!-- ============================================ -->
-    <string name="app_name_label">Senra Pet</string>
+    <string name="app_name_label">SENRA Pet</string>
     <string name="app_version">Version 1.0.0</string>
 
     <!-- ============================================ -->
@@ -1153,7 +1153,7 @@
     <string name="no_notifications_desc">Tout est à jour ! Les notifications apparaîtront ici quand la médaille de votre animal sera scannée.</string>
     <string name="mark_all_read">Tout marquer comme lu</string>
     <string name="create_profile_hint">Créez d\'abord un profil d\'animal, puis scannez à nouveau la médaille pour l\'activer.</string>
-    <string name="activation_error_qr_not_found">Code QR non reconnu. Assurez-vous de scanner une médaille Senra officielle.</string>
+    <string name="activation_error_qr_not_found">Code QR non reconnu. Assurez-vous de scanner une médaille SENRA officielle.</string>
     <string name="activation_error_already_activated">Cette médaille est déjà associée à un autre animal. Contactez le support.</string>
     <string name="activation_error_not_linked">Cette médaille n\'a pas encore été attribuée à votre commande. Attendez la confirmation d\'expédition.</string>
     <string name="activation_error_not_shipped">Votre commande n\'a pas encore été expédiée. Attendez la livraison.</string>
@@ -1353,7 +1353,7 @@
     <string name="dob_select_date">Sélectionner la date</string>
     <string name="weight_helper">Poids en kg (ex. 4,5)</string>
 
-    <string name="welcome_to_senra">Bienvenue sur Senra !</string>
+    <string name="welcome_to_senra">Bienvenue sur SENRA !</string>
     <string name="welcome_subtitle">La sécurité de votre animal commence ici. Configurez votre premier badge.</string>
     <string name="welcome_step_1">Scannez le code QR sur votre badge</string>
     <string name="welcome_step_2">Créez le profil de votre animal</string>
@@ -1366,7 +1366,7 @@
     <string name="already_activated">Déjà activé</string>
     <string name="setting_up_tag_for">Configuration du badge pour %s</string>
     <string name="tag_activated_for">Badge activé pour %s !</string>
-    <string name="pet_now_protected">Votre animal est maintenant protégé avec Senra</string>
+    <string name="pet_now_protected">Votre animal est maintenant protégé avec SENRA</string>
     <string name="more_tags_to_setup">Vous avez encore des badges à configurer</string>
     <string name="setup_pet_tag">Configurer le badge de %s</string>
     <string name="whats_next">Et ensuite ?</string>
@@ -1374,7 +1374,7 @@
     <string name="register_your_vet">Enregistrez votre vétérinaire</string>
     <string name="update_contact_details">Mettez à jour vos coordonnées et confidentialité</string>
     <string name="go_to_home">Retour à l\'accueil</string>
-    <string name="thank_you_senra">Merci d\'utiliser Senra !</string>
+    <string name="thank_you_senra">Merci d\'utiliser SENRA !</string>
     <string name="tap_pet_name_hint">Appuyez sur le nom de votre animal pour configurer son badge</string>
     <plurals name="age_years">
         <item quantity="one">%d an</item>

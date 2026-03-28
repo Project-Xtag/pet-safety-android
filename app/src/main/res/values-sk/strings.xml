@@ -8,7 +8,7 @@
         <item quantity="one">%d fotka sa nepodarila nahrať</item>
         <item quantity="other">%d fotiek sa nepodarilo nahrať</item>
     </plurals>
-    <string name="app_name">Senra Pet</string>
+    <string name="app_name">SENRA Pet</string>
     <!--
         Google Maps API key is injected via build.gradle.kts from:
         1. local.properties (for local development - add GOOGLE_MAPS_API_KEY=your_key)
@@ -63,7 +63,7 @@
     <!-- MARK: Auth -->
     <!-- ============================================ -->
     <string name="welcome_back">Vitajte späť!</string>
-    <string name="welcome_new_user">Vitaj v Senra Pet!</string>
+    <string name="welcome_new_user">Vitaj v SENRA Pet!</string>
     <string name="enter_email_subtitle">Zadajte e-mail, aby ste dostali prihlasovací kód.</string>
     <string name="email_address">E-mailová adresa</string>
     <string name="send_login_code">Odoslať prihlasovací kód</string>
@@ -553,7 +553,7 @@
     <string name="reunited_in">Znovuzjednotené za %1$s</string>
     <string name="shared_via_pet_safety">Zdieľané cez aplikáciu Pet Safety</string>
     <string name="story_share_good_news">Zdieľaj dobrú správu</string>
-    <string name="story_social_caption">%1$s sa opäť stretol so svojou rodinou! Ďakujeme komunite Senra za pomoc pri návrate %1$s domov. senra.pet</string>
+    <string name="story_social_caption">%1$s sa opäť stretol so svojou rodinou! Ďakujeme komunite SENRA za pomoc pri návrate %1$s domov. senra.pet</string>
     <string name="story_generating_card">Vytváranie zdieľacej karty\u2026</string>
     <string name="story_pet_is_home_title">%1$s je doma!</string>
     <string name="story_inspire_others_message">Pomôžte inšpirovať ostatných majiteľov zdieľaním príbehu o stretnutí s %1$s.</string>
@@ -938,7 +938,7 @@
     <!-- ============================================ -->
     <!-- MARK: App Info -->
     <!-- ============================================ -->
-    <string name="app_name_label">Senra Pet</string>
+    <string name="app_name_label">SENRA Pet</string>
     <string name="app_version">Verzia 1.0.0</string>
 
     <!-- ============================================ -->
@@ -1024,9 +1024,9 @@
     <string name="help_faq_q7">Môžem aktualizovať informácie o zvierati po registrácii?</string>
     <string name="help_faq_a7">Áno — profil zvieraťa môžete upraviť kedykoľvek. Prejdite na \'Moje zvieratá\', vyberte zviera a kliknite na \'Upraviť\'. Môžete aktualizovať akékoľvek pole vrátane fotiek. Zmeny sa uložia okamžite.</string>
     <string name="help_faq_q8">Čo mám robiť, ak sa moje zviera stratí?</string>
-    <string name="help_faq_a8">Prejdite na \'Moje zvieratá\' a kliknite na menu na karte zvieraťa, potom vyberte \'Označiť ako stratené\'. Tým sa vytvorí upozornenie viditeľné pre komunitu Senra vo vašom okolí. Ľudia v blízkosti uvidia upozornenie a môžu nahlásiť videnie s informáciami o polohe. O každom videní budete okamžite informovaní.</string>
+    <string name="help_faq_a8">Prejdite na \'Moje zvieratá\' a kliknite na menu na karte zvieraťa, potom vyberte \'Označiť ako stratené\'. Tým sa vytvorí upozornenie viditeľné pre komunitu SENRA vo vašom okolí. Ľudia v blízkosti uvidia upozornenie a môžu nahlásiť videnie s informáciami o polohe. O každom videní budete okamžite informovaní.</string>
     <string name="help_faq_q9">Ako fungujú upozornenia na stratené zvieratá?</string>
-    <string name="help_faq_a9">Keď označíte zviera ako stratené, vytvorí sa upozornenie s fotkou a podrobnosťami. Ostatní používatelia Senra do 10 km vidia upozornenie na mape Stratených zvierat. Ktokoľvek z komunity môže nahlásiť videnie, čím vám pošle svoju polohu a kontaktné údaje. Veterinári a útulky registrovaní v Senra vo vašom okolí tiež dostanú upozornenie.</string>
+    <string name="help_faq_a9">Keď označíte zviera ako stratené, vytvorí sa upozornenie s fotkou a podrobnosťami. Ostatní používatelia SENRA do 10 km vidia upozornenie na mape Stratených zvierat. Ktokoľvek z komunity môže nahlásiť videnie, čím vám pošle svoju polohu a kontaktné údaje. Veterinári a útulky registrovaní v SENRA vo vašom okolí tiež dostanú upozornenie.</string>
     <string name="help_faq_q10">Ako objednám náhradný známku?</string>
     <string name="help_faq_a10">Prejdite na stránku Účtu a kliknite na \'Objednať náhradu\'. Vyberte zviera, ktoré potrebuje nový známku. Členovia Maximum plánu dostávajú neobmedzené bezplatné náhrady, členovia Standard plánu jednu bezplatnú náhradu ročne a členovia Starter plánu si môžu objednať náhrady za malý poplatok za dopravu.</string>
     <string name="help_faq_q11">Čo je odporúčací program?</string>
@@ -1036,31 +1036,31 @@
     <string name="help_faq_q13">Môžem mať viac zvierat na jednom účte?</string>
     <string name="help_faq_a13">Áno. V Starter (bezplatnom) pláne môžete zaregistrovať jedno zviera. Standard plán tiež podporuje jedno zviera. Maximum plán podporuje neobmedzený počet zvierat. Plán môžete kedykoľvek upgradovať zo stránky Účtu.</string>
     <string name="help_faq_q14">Ako nahlásim nájdené zviera?</string>
-    <string name="help_faq_a14">Ak má zviera Senra známku, jednoducho naskenujte QR kód kamerou telefónu — nie je potrebná žiadna aplikácia. Uvidíte profil zvieraťa a môžete zdieľať svoju polohu s majiteľom. Ak známku nemá, môžete skontrolovať mapu Stratených zvierat na webe Senra a overiť, či bolo zviera nahlásené ako stratené vo vašom okolí.</string>
+    <string name="help_faq_a14">Ak má zviera SENRA známku, jednoducho naskenujte QR kód kamerou telefónu — nie je potrebná žiadna aplikácia. Uvidíte profil zvieraťa a môžete zdieľať svoju polohu s majiteľom. Ak známku nemá, môžete skontrolovať mapu Stratených zvierat na webe SENRA a overiť, či bolo zviera nahlásené ako stratené vo vašom okolí.</string>
     <string name="help_faq_q15">Sú moje osobné údaje v bezpečí?</string>
     <string name="help_faq_a15">Áno. Vy rozhodujete, ktoré informácie sú viditeľné pri naskenovaní známky. V Nastavenia &gt; Súkromie si môžete zvoliť, či zobraziť alebo skryť telefónne číslo, e-mail a adresu. Prihlásenie je zabezpečené jednorazovými overovacími kódmi — žiadne heslá, ktoré by mohli byť ukradnuté. Účet a všetky údaje môžete kedykoľvek vymazať.</string>
     <string name="help_faq_q16">Stratil som známku alebo je poškodený — čo mám robiť?</string>
     <string name="help_faq_a16">Nebojte sa — digitálny profil zvieraťa je v bezpečí a nie je uložený na samotnom známke. Prejdite na stránku Účtu a kliknite na \'Objednať náhradu\'. Nový známku s novým QR kódom bude prepojený s existujúcim profilom. Členovia Standard plánu dostávajú jednu bezplatnú náhradu ročne, členovia Maximum neobmedzené bezplatné náhrady a členovia Starter platia malý poplatok za dopravu. Starý známku prestane fungovať po aktivácii nového.</string>
     <string name="help_faq_q17">Môj známku sa nedá naskenovať — ako to opraviť?</string>
     <string name="help_faq_a17">Skúste tieto kroky: očistite povrch známky vlhkou handričkou, zabezpečte dobré osvetlenie, držte kameru telefónu stabilne asi 10 – 15 cm od známky a uistite sa, že kamera alebo QR skener funguje. Ak je QR kód poškriabaný alebo vyblednutý, môžete použiť manuálne zadanie kódu v aplikácii v časti \'Naskenovať známku\'. Ak je známku príliš poškodený, objednajte si bezplatnú náhradu zo stránky Účtu (plány Standard a Maximum).</string>
-    <string name="help_faq_q18">Našiel som zviera bez Senra známky — čo môžem urobiť?</string>
-    <string name="help_faq_a18">Skontrolujte mapu Stratených zvierat na webe Senra (senra.pet) — zviera mohlo byť nahlásené ako stratené vo vašom okolí. Upozornenia na stratené zvieratá si môžete prezerať aj bez účtu. Ak nájdete zhodu, môžete nahlásiť videnie so svojou polohou a pomôcť zviera spojiť s majiteľom. Zviera môžete tiež zaniesť k miestnemu veterinárovi na kontrolu mikročipu.</string>
+    <string name="help_faq_q18">Našiel som zviera bez SENRA známky — čo môžem urobiť?</string>
+    <string name="help_faq_a18">Skontrolujte mapu Stratených zvierat na webe SENRA (senra.pet) — zviera mohlo byť nahlásené ako stratené vo vašom okolí. Upozornenia na stratené zvieratá si môžete prezerať aj bez účtu. Ak nájdete zhodu, môžete nahlásiť videnie so svojou polohou a pomôcť zviera spojiť s majiteľom. Zviera môžete tiež zaniesť k miestnemu veterinárovi na kontrolu mikročipu.</string>
     <string name="help_faq_q19">Môžem zmeniť svoju e-mailovú adresu?</string>
     <string name="help_faq_a19">Váš primárny e-mail sa používa ako identita účtu a nedá sa priamo zmeniť. Ak potrebujete iný e-mail, môžete pridať sekundárny e-mail v Nastavenia &gt; Kontaktné údaje — ten sa zobrazí aj v profile zvieraťa. Ak absolútne potrebujete zmeniť primárny e-mail, kontaktujte náš tím podpory a pomôžeme vám migrovať účet.</string>
-    <string name="help_faq_q20">Aký je rozdiel medzi mikročipom a Senra QR známkou?</string>
-    <string name="help_faq_a20">Mikročip je malý implantát pod kožou zvieraťa, ktorý uchováva jedinečné ID číslo — na jeho prečítanie je však potrebný špeciálny skener (zvyčajne dostupný len u veterinárov a v útulkoch). Senra QR známku funguje okamžite s akoukoľvek kamerou smartfónu a zobrazí úplný profil zvieraťa, fotku a vaše kontaktné údaje. Nálezca môže tiež zdieľať svoju GPS polohu s vami. Odporúčame používať oboje: mikročip ako trvalú zálohu a Senra známku pre okamžitú každodennú identifikáciu.</string>
+    <string name="help_faq_q20">Aký je rozdiel medzi mikročipom a SENRA QR známkou?</string>
+    <string name="help_faq_a20">Mikročip je malý implantát pod kožou zvieraťa, ktorý uchováva jedinečné ID číslo — na jeho prečítanie je však potrebný špeciálny skener (zvyčajne dostupný len u veterinárov a v útulkoch). SENRA QR známku funguje okamžite s akoukoľvek kamerou smartfónu a zobrazí úplný profil zvieraťa, fotku a vaše kontaktné údaje. Nálezca môže tiež zdieľať svoju GPS polohu s vami. Odporúčame používať oboje: mikročip ako trvalú zálohu a SENRA známku pre okamžitú každodennú identifikáciu.</string>
     <string name="help_faq_q21">Čo sa stane s mojimi údajmi, ak zruším predplatné?</string>
     <string name="help_faq_a21">Ak zrušíte predplatné, zachováte si prístup k plateným funkciám do konca aktuálneho fakturačného obdobia. Potom sa váš účet automaticky presunie na bezplatný Starter plán. Profily zvierat, fotky a QR známky zostanú aktívne — len stratíte prístup k prémiovým funkciám ako SMS upozornenia, upozornenia pre veterinárov a bezplatné náhrady známok. Vaše údaje sa pri zrušení nikdy neodstránia. Na trvalé odstránenie všetkých údajov použite možnosť Vymazanie účtu v Nastaveniach.</string>
-    <string name="help_faq_q22">Ako zaregistrujem svojho veterinára alebo útulok na Senra?</string>
+    <string name="help_faq_q22">Ako zaregistrujem svojho veterinára alebo útulok na SENRA?</string>
     <string name="help_faq_a22">Veterinári a útulky sa môžu zaregistrovať na senra.pet/register-vet-shelter. Vyplňte údaje praxe alebo organizácie a pošleme overovací e-mail. Po potvrdení budete automaticky dostávať e-mailové upozornenia, keď sa v okolí stratia zvieratá — pomáhate tak spojiť stratené zvieratá s rodinami. Bez poplatkov a bez prihlásenia. Majitelia zvierat môžu zaregistrovať svojho veterinára aj v ich mene.</string>
     <string name="help_faq_q23">Ako zdieľam príbeh úspechu, keď sa moje zviera nájde?</string>
     <string name="help_faq_a23">Keď označíte zviera ako nájdené v \'Moje zvieratá\', budete vyzvaní zdieľať príbeh stretnutia. Môžete pridať krátku správu o tom, ako bolo zviera nájdené a potvrdiť miesto stretnutia. Verejné príbehy sa zobrazia na mape Nájdených zvierat a inšpirujú komunitu. Príbeh môžete zverejniť alebo odstrániť aj neskôr zo stránky profilu zvieraťa.</string>
     <string name="help_faq_q24">Ktoré prehliadače a zariadenia sú podporované?</string>
-    <string name="help_faq_a24">Senra funguje na všetkých moderných webových prehliadačoch vrátane Chrome, Safari, Firefox a Edge na mobilných zariadeniach aj počítačoch. Skenovanie QR známok funguje s akoukoľvek kamerou smartfónu — nálezca nepotrebuje aplikáciu Senra ani účet. Push upozornenia sú podporované v Chrome a Edge na počítači a Androide. Pre najlepší zážitok odporúčame používať aktuálny prehliadač na telefóne.</string>
+    <string name="help_faq_a24">SENRA funguje na všetkých moderných webových prehliadačoch vrátane Chrome, Safari, Firefox a Edge na mobilných zariadeniach aj počítačoch. Skenovanie QR známok funguje s akoukoľvek kamerou smartfónu — nálezca nepotrebuje aplikáciu SENRA ani účet. Push upozornenia sú podporované v Chrome a Edge na počítači a Androide. Pre najlepší zážitok odporúčame používať aktuálny prehliadač na telefóne.</string>
     <string name="help_faq_q25">Môžem objednať známky pre viac zvierat naraz?</string>
     <string name="help_faq_a25">Každá objednávka známok obsahuje známky pre mená zvierat, ktoré zadáte pri objednávke. V jednej objednávke môžete zadať viacero mien. Po doručení známok naskenujte každý na aktiváciu a prepojenie so správnym profilom. Ak neskôr potrebujete známky pre ďalšie zvieratá, kedykoľvek si môžete objednať zo stránky Účtu.</string>
     <string name="help_faq_q26">Ako sa upozornenia na stratené zvieratá dostanú k veterinárom a útulkom?</string>
-    <string name="help_faq_a26">Keď označíte zviera ako stratené, Senra automaticky odošle e-mailové upozornenia všetkým overeným veterinárom a útulkom registrovaným vo vašom okolí. Miestni odborníci sú tak okamžite informovaní a môžu pomôcť s hľadaním. Čím viac veterinárov a útulkov je registrovaných, tým silnejšia je bezpečnostná sieť. Pomôcť môžete povzbudením svojho veterinára, aby sa zaregistroval na Senra.</string>
+    <string name="help_faq_a26">Keď označíte zviera ako stratené, SENRA automaticky odošle e-mailové upozornenia všetkým overeným veterinárom a útulkom registrovaným vo vašom okolí. Miestni odborníci sú tak okamžite informovaní a môžu pomôcť s hľadaním. Čím viac veterinárov a útulkov je registrovaných, tým silnejšia je bezpečnostná sieť. Pomôcť môžete povzbudením svojho veterinára, aby sa zaregistroval na SENRA.</string>
     <string name="help_faq_q27">Môžem presunúť známku na iné zviera?</string>
     <string name="help_faq_a27">Každý QR známku je natrvalo prepojený s jedným profilom zvieraťa a nedá sa priradiť znovu. Ak zviera zomrie alebo známku už nepotrebujete, starý známku jednoducho prestane byť aktívny. Pre označenie nového zvieraťa objednajte nový známku zo stránky Účtu. Ak máte Standard alebo Maximum plán, môžete mať nárok na bezplatný náhradný známku pre nové zviera.</string>
     <string name="help_guide_qr_tags_title">QR známky pre zvieratá</string>
@@ -1072,9 +1072,9 @@
     <string name="help_guide_profile_title">Správa profilu</string>
     <string name="help_guide_profile_desc">Správa digitálneho profilu zvieraťa a aktualizácia informácií.</string>
     <string name="help_guide_missing_alerts_title">Upozornenia na stratené zvieratá a videnia</string>
-    <string name="help_guide_missing_alerts_desc">Ak sa vaše zviera stratí, označte ho ako stratené v \'Moje zvieratá\' a vytvoríte okamžité komunitné upozornenie. Fotka a podrobnosti zvieraťa sa zobrazia na mape Stratených zvierat viditeľnej pre všetkých používateľov Senra vo vašom okolí. Členovia komunity môžu nahlásiť videnia s GPS polohou, ktoré dostanete ako upozornenia. Registrovaní veterinári a útulky sú tiež upozornení. Keď zviera nájdete, označte ho ako nájdené a voliteľne zdieľajte príbeh stretnutia na inšpiráciu komunity.</string>
+    <string name="help_guide_missing_alerts_desc">Ak sa vaše zviera stratí, označte ho ako stratené v \'Moje zvieratá\' a vytvoríte okamžité komunitné upozornenie. Fotka a podrobnosti zvieraťa sa zobrazia na mape Stratených zvierat viditeľnej pre všetkých používateľov SENRA vo vašom okolí. Členovia komunity môžu nahlásiť videnia s GPS polohou, ktoré dostanete ako upozornenia. Registrovaní veterinári a útulky sú tiež upozornení. Keď zviera nájdete, označte ho ako nájdené a voliteľne zdieľajte príbeh stretnutia na inšpiráciu komunity.</string>
     <string name="help_guide_community_title">Komunita a nájdené zvieratá</string>
-    <string name="help_guide_community_desc">Silou Senra je jej komunita. Mapa stratených zvierat zobrazuje aktívne upozornenia vo vašom okolí — skontrolujte, či neboli nahlásené stratené zvieratá. Stránka Nájdené zvieratá oslavuje úspešné stretnutia s príbehmi majiteľov. Môžete zaregistrovať vášho veterinára alebo útulok na Senra, aby automaticky dostávali upozornenia na stratené zvieratá a pomohli vytvoriť silnejšiu bezpečnostnú sieť.</string>
+    <string name="help_guide_community_desc">Silou SENRA je jej komunita. Mapa stratených zvierat zobrazuje aktívne upozornenia vo vašom okolí — skontrolujte, či neboli nahlásené stratené zvieratá. Stránka Nájdené zvieratá oslavuje úspešné stretnutia s príbehmi majiteľov. Môžete zaregistrovať vášho veterinára alebo útulok na SENRA, aby automaticky dostávali upozornenia na stratené zvieratá a pomohli vytvoriť silnejšiu bezpečnostnú sieť.</string>
     <string name="help_faq_group_getting_started">Začíname</string>
     <string name="help_faq_group_tags_scanning">Známky a skenovanie</string>
     <string name="help_faq_group_missing_pets">Stratené zvieratá a upozornenia</string>
@@ -1169,7 +1169,7 @@
     <string name="no_notifications_desc">Všetko je aktuálne! Oznámenia sa tu zobrazia, keď niekto naskenuje známku vášho zvieraťa.</string>
     <string name="mark_all_read">Označiť všetko ako prečítané</string>
     <string name="create_profile_hint">Najprv vytvorte profil zvieraťa, potom znova naskenujte známku na aktiváciu.</string>
-    <string name="activation_error_qr_not_found">QR kód nebol rozpoznaný. Uistite sa, že skenujete oficiálnu Senra známku.</string>
+    <string name="activation_error_qr_not_found">QR kód nebol rozpoznaný. Uistite sa, že skenujete oficiálnu SENRA známku.</string>
     <string name="activation_error_already_activated">Táto známka je už priradená inému zvieraťu. Kontaktujte podporu.</string>
     <string name="activation_error_not_linked">Táto známka ešte nebola priradená k vašej objednávke. Počkajte na potvrdenie odoslania.</string>
     <string name="activation_error_not_shipped">Vaša objednávka ešte nebola odoslaná. Počkajte na doručenie.</string>
@@ -1369,7 +1369,7 @@
     <string name="dob_select_date">Vybrať dátum</string>
     <string name="weight_helper">Hmotnosť v kg (napr. 4,5)</string>
 
-    <string name="welcome_to_senra">Vitajte v Senra!</string>
+    <string name="welcome_to_senra">Vitajte v SENRA!</string>
     <string name="welcome_subtitle">Bezpečnosť vášho domáceho miláčika začína tu. Nastavte si prvý štítok.</string>
     <string name="welcome_step_1">Naskenujte QR kód na štítku</string>
     <string name="welcome_step_2">Vytvorte profil svojho miláčika</string>
@@ -1382,7 +1382,7 @@
     <string name="already_activated">Už aktivované</string>
     <string name="setting_up_tag_for">Nastavenie štítku pre %s</string>
     <string name="tag_activated_for">Štítok pre %s aktivovaný!</string>
-    <string name="pet_now_protected">Váš miláčik je teraz chránený so Senra</string>
+    <string name="pet_now_protected">Váš miláčik je teraz chránený so SENRA</string>
     <string name="more_tags_to_setup">Ešte máte štítky na nastavenie</string>
     <string name="setup_pet_tag">Nastaviť štítok pre %s</string>
     <string name="whats_next">Čo ďalej?</string>
@@ -1390,7 +1390,7 @@
     <string name="register_your_vet">Zaregistrujte svojho veterinára</string>
     <string name="update_contact_details">Aktualizujte kontaktné údaje a súkromie</string>
     <string name="go_to_home">Na úvodnú stránku</string>
-    <string name="thank_you_senra">Ďakujeme, že používate Senra!</string>
+    <string name="thank_you_senra">Ďakujeme, že používate SENRA!</string>
     <string name="tap_pet_name_hint">Stačí klepnúť na meno vášho miláčika a nastaviť jeho štítok</string>
     <plurals name="age_years">
         <item quantity="one">%d rok</item>

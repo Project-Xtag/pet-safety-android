@@ -29,10 +29,22 @@ android {
     namespace = "com.petsafety.app"
     compileSdk = 35
 
+    signingConfigs {
+        create("release") {
+            val keystorePath = getApiKey("RELEASE_KEYSTORE_PATH", "")
+            if (keystorePath.isNotEmpty()) {
+                storeFile = file(keystorePath)
+                storePassword = getApiKey("RELEASE_KEYSTORE_PASSWORD", "")
+                keyAlias = getApiKey("RELEASE_KEY_ALIAS", "senra-pet")
+                keyPassword = getApiKey("RELEASE_KEY_PASSWORD", "")
+            }
+        }
+    }
+
     defaultConfig {
         applicationId = "com.petsafety.app"
         minSdk = 26
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0.0"
 
@@ -65,6 +77,7 @@ android {
         release {
             isMinifyEnabled = true
             isShrinkResources = true
+            signingConfig = signingConfigs.getByName("release")
             buildConfigField("String", "API_BASE_URL", "\"https://api.senra.pet/api/\"")
             buildConfigField("String", "SSE_BASE_URL", "\"https://api.senra.pet/api/sse/events\"")
             proguardFiles(

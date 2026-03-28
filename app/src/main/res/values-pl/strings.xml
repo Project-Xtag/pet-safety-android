@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <string name="app_name">Senra Pet</string>
+    <string name="app_name">SENRA Pet</string>
 
     <!-- ============================================ -->
     <!-- MARK: Common -->
@@ -64,7 +64,7 @@
     <!-- MARK: Auth -->
     <!-- ============================================ -->
     <string name="welcome_back">Witaj ponownie!</string>
-    <string name="welcome_new_user">Witaj w Senra Pet!</string>
+    <string name="welcome_new_user">Witaj w SENRA Pet!</string>
     <string name="enter_email_subtitle">Podaj swój adres e-mail, aby otrzymać kod logowania.</string>
     <string name="email_address">Adres e-mail</string>
     <string name="send_login_code">Wyślij kod logowania</string>
@@ -127,7 +127,7 @@
     <string name="action_order_tags">ZAMÓW ZAWIESZKI</string>
     <string name="action_replace_tag">WYMIEŃ ZAWIESZKĄ</string>
     <string name="empty_pets_title">Nie masz jeszcze zwierząt</string>
-    <string name="empty_pets_message">Dodaj swojego pierwszego pupila, aby zacząć korzystać z Senra</string>
+    <string name="empty_pets_message">Dodaj swojego pierwszego pupila, aby zacząć korzystać z SENRA</string>
     <string name="missing_badge">ZAGINIONE</string>
     <string name="add_pet">Dodaj zwierzę</string>
     <string name="pet_name">Imię zwierzęcia</string>
@@ -494,7 +494,7 @@
     <string name="notification_tag_scanned_title">%1$s znalezione!</string>
     <string name="notification_sighting_title">%1$s zauważone!</string>
     <string name="notification_pet_found_title">Dobra wiadomość!</string>
-    <string name="notification_channel_name">Alarmy Senra Pet</string>
+    <string name="notification_channel_name">Alarmy SENRA Pet</string>
     <string name="notification_channel_tag_scans">Skanowania nieśki</string>
     <string name="notification_channel_tag_scans_desc">Powiadomienia o skanowaniu nieśki twojego zwierzęcia</string>
     <string name="notification_channel_alerts">Alarmy o zaginięciu</string>
@@ -514,7 +514,7 @@
     <string name="notif_sighting_title">Zgłoszono obserwację</string>
     <string name="notif_sighting_body_location">%1$s zostało zauważone w %2$s!</string>
     <string name="notif_sighting_body_no_location">%1$s zostało zauważone! Sprawdź miejsce obserwacji.</string>
-    <string name="notif_fallback_title">Senra Pet</string>
+    <string name="notif_fallback_title">SENRA Pet</string>
     <string name="notif_fallback_pet_name">Twoje zwierzę</string>
     <string name="notif_fallback_a_pet">Zwierzę</string>
     <string name="notif_fallback_your_area">twoja okolica</string>
@@ -577,7 +577,7 @@
 
     <string name="shared_via_pet_safety">Udostępniono przez aplikację Pet Safety</string>
     <string name="story_share_good_news">Podziel się dobrą nowiną</string>
-    <string name="story_social_caption">%1$s wrócił do swojej rodziny! Dziękujemy społeczności Senra za pomoc w odnalezieniu %1$s. senra.pet</string>
+    <string name="story_social_caption">%1$s wrócił do swojej rodziny! Dziękujemy społeczności SENRA za pomoc w odnalezieniu %1$s. senra.pet</string>
     <string name="story_generating_card">Tworzenie karty do udostępnienia\u2026</string>
     <string name="story_pet_is_home_title">%1$s jest w domu!</string>
     <string name="story_inspire_others_message">Zainspiruj innych właścicieli, dzieląc się historią powrotu %1$s do ciebie.</string>
@@ -722,9 +722,9 @@
     <string name="help_faq_q7">Czy mogę zaktualizować dane pupila po rejestracji?</string>
     <string name="help_faq_a7">Tak — możesz edytować profil pupila w dowolnym momencie. Przejdź do „Moje zwierzęta", wybierz pupila i kliknij „Edytuj". Możesz zaktualizować każde pole, w tym zdjęcia. Zmiany są zapisywane natychmiast.</string>
     <string name="help_faq_q8">Co zrobić, jeśli pupil zaginie?</string>
-    <string name="help_faq_a8">Przejdź do „Moje zwierzęta", kliknij menu na karcie pupila i wybierz „Oznacz jako zaginionego". Spowoduje to utworzenie alertu o zaginionym zwierzęciu widocznego dla społeczności Senra w twojej okolicy. Osoby w pobliżu zobaczą alert i będą mogły zgłaszać obserwacje z lokalizacją. Otrzymasz natychmiastowe powiadomienie o każdym zgłoszeniu.</string>
+    <string name="help_faq_a8">Przejdź do „Moje zwierzęta", kliknij menu na karcie pupila i wybierz „Oznacz jako zaginionego". Spowoduje to utworzenie alertu o zaginionym zwierzęciu widocznego dla społeczności SENRA w twojej okolicy. Osoby w pobliżu zobaczą alert i będą mogły zgłaszać obserwacje z lokalizacją. Otrzymasz natychmiastowe powiadomienie o każdym zgłoszeniu.</string>
     <string name="help_faq_q9">Jak działają alerty o zaginionych zwierzętach?</string>
-    <string name="help_faq_a9">Gdy oznaczysz pupila jako zaginionego, tworzony jest alert ze zdjęciem i danymi zwierzęcia. Inni użytkownicy Senra są powiadamiani i widzą alert na mapie Zaginionych zwierząt. Każdy może zgłosić obserwację – otrzymasz wtedy lokalizację i dane kontaktowe zgłaszającego. Zarejestrowane kliniki weterynaryjne i schroniska w twojej okolicy również otrzymują alert.</string>
+    <string name="help_faq_a9">Gdy oznaczysz pupila jako zaginionego, tworzony jest alert ze zdjęciem i danymi zwierzęcia. Inni użytkownicy SENRA są powiadamiani i widzą alert na mapie Zaginionych zwierząt. Każdy może zgłosić obserwację – otrzymasz wtedy lokalizację i dane kontaktowe zgłaszającego. Zarejestrowane kliniki weterynaryjne i schroniska w twojej okolicy również otrzymują alert.</string>
     <string name="help_faq_q10">Jak zamówić zamienną nieśką?</string>
     <string name="help_faq_a10">Przejdź do strony Konto i kliknij „Zamów zamienną". Wybierz pupila, który potrzebuje nowej nieśki. Abonenci planu Standard i Maximum mogą zamawiać darmowe zamienne nieśki bez limitu, a abonenci Starter płacą jedynie niewielką opłatę za wysyłkę.</string>
     <string name="help_faq_q11">Czym jest program poleceń?</string>
@@ -734,31 +734,31 @@
     <string name="help_faq_q13">Czy mogę mieć kilka pupili na jednym koncie?</string>
     <string name="help_faq_a13">Tak. W planie Starter (bezpłatnym) możesz zarejestrować nawet 10 zwierząt. Plan Standard obsługuje 1 pupila. W planie Maximum możesz zarejestrować nawet 10 zwierząt. Plan możesz zmienić w dowolnym momencie na stronie Konto.</string>
     <string name="help_faq_q14">Jak zgłosić znalezione zwierzę?</string>
-    <string name="help_faq_a14">Jeśli zwierzę ma nieśką Senra, wystarczy zeskanować kod QR aparatem telefonu — bez potrzeby pobierania aplikacji. Zobaczysz profil pupila i będziesz mógł udostępnić swoją lokalizację właścicielowi. Jeśli nie ma nieśki, sprawdź mapę Zaginionych zwierząt na stronie Senra, czy zwierzę zostało zgłoszone jako zaginione w twojej okolicy.</string>
+    <string name="help_faq_a14">Jeśli zwierzę ma nieśką SENRA, wystarczy zeskanować kod QR aparatem telefonu — bez potrzeby pobierania aplikacji. Zobaczysz profil pupila i będziesz mógł udostępnić swoją lokalizację właścicielowi. Jeśli nie ma nieśki, sprawdź mapę Zaginionych zwierząt na stronie SENRA, czy zwierzę zostało zgłoszone jako zaginione w twojej okolicy.</string>
     <string name="help_faq_q15">Czy moje dane osobowe są bezpieczne?</string>
     <string name="help_faq_a15">Tak. Sam decydujesz, jakie informacje są widoczne po zeskanowaniu nieśki pupila. W Ustawieniach &gt; Prywatność możesz wybrać, czy wyświetlać numer telefonu, adres e-mail i adres zamieszkania. Logowanie jest zabezpieczone jednorazowymi kodami weryfikacyjnymi — nie ma hasła, które można ukraść. Konto i wszystkie dane możesz usunąć w dowolnej chwili.</string>
     <string name="help_faq_q16">Zgubiłem nieśką lub uległa uszkodzeniu — co zrobić?</string>
     <string name="help_faq_a16">Nie martw się — cyfrowy profil pupila jest bezpieczny i nie jest przechowywany na zawieszce. Przejdź do strony Konto i kliknij „Zamów zamienną". Nowa nieśką z nowym kodem QR zostanie powiązana z istniejącym profilem pupila. Abonenci planów Standard i Maximum mogą zamawiać nieograniczone bezpłatne zamienniki, a abonenci Starter płacą niewielką opłatę za wysyłkę. Stara nieśką przestanie działać po aktywacji nowej.</string>
     <string name="help_faq_q17">Moja nieśką nie skanuje się — jak to naprawić?</string>
     <string name="help_faq_a17">Spróbuj: wyczyść powierzchnię nieśki wilgotną ściereczką, zapewnij dobre oświetlenie, trzymaj aparat telefonu stabilnie w odległości ok. 10–15 cm od nieśki i upewnij się, że aplikacja aparatu lub skaner QR działa prawidłowo. Jeśli kod QR jest porysowany lub wyblakły, użyj opcji ręcznego wprowadzania kodu w aplikacji w sekcji „Skanuj nieśką". Jeśli nieśką jest zbyt zniszczona, zamów bezpłatną zamienną na stronie Konto (plany Standard i Maximum).</string>
-    <string name="help_faq_q18">Znalazłem zwierzę bez nieśki Senra — co mogę zrobić?</string>
-    <string name="help_faq_a18">Sprawdź mapę Zaginionych zwierząt na stronie Senra (senra.pet) — zwierzę mogło zostać zgłoszone jako zaginione w twojej okolicy. Alerty możesz przeglądać bez zakładania konta. Jeśli rozpoznasz zwierzę, zgłoś obserwację z lokalizacją, aby pomóc mu wrócić do domu! Możesz też zabrać zwierzę do najbliższej kliniki weterynaryjnej w celu sprawdzenia mikrochipa.</string>
+    <string name="help_faq_q18">Znalazłem zwierzę bez nieśki SENRA — co mogę zrobić?</string>
+    <string name="help_faq_a18">Sprawdź mapę Zaginionych zwierząt na stronie SENRA (senra.pet) — zwierzę mogło zostać zgłoszone jako zaginione w twojej okolicy. Alerty możesz przeglądać bez zakładania konta. Jeśli rozpoznasz zwierzę, zgłoś obserwację z lokalizacją, aby pomóc mu wrócić do domu! Możesz też zabrać zwierzę do najbliższej kliniki weterynaryjnej w celu sprawdzenia mikrochipa.</string>
     <string name="help_faq_q19">Czy mogę zmienić adres e-mail?</string>
     <string name="help_faq_a19">Główny adres e-mail służy jako identyfikator konta i nie można go zmienić bezpośrednio. Jeśli chcesz korzystać z innego adresu, dodaj dodatkowy e-mail w Ustawieniach &gt; Dane kontaktowe — będzie on widoczny na profilu pupila. Jeśli koniecznie musisz zmienić główny adres e-mail, skontaktuj się z naszym zespołem wsparcia, który pomoże ci przenieść konto.</string>
-    <string name="help_faq_q20">Jaka jest różnica między mikrochipem a nieśką QR Senra?</string>
-    <string name="help_faq_a20">Mikrochip to mały implant pod skórą pupila przechowujący unikalny numer identyfikacyjny — ale do jego odczytania potrzebny jest specjalny czytnik (dostępny zazwyczaj tylko u weterynarzy i w schroniskach). Zawieszką QR Senra działa natychmiastowo z każdym aparatem smartfona, wyświetlając pełny profil pupila, zdjęcie i twoje dane kontaktowe na miejscu. Znalazca może też udostępnić ci swoją lokalizację GPS. Zalecamy korzystanie z obu: mikrochip jako trwałe zabezpieczenie, a nieśką Senra do codziennej, natychmiastowej identyfikacji.</string>
+    <string name="help_faq_q20">Jaka jest różnica między mikrochipem a nieśką QR SENRA?</string>
+    <string name="help_faq_a20">Mikrochip to mały implant pod skórą pupila przechowujący unikalny numer identyfikacyjny — ale do jego odczytania potrzebny jest specjalny czytnik (dostępny zazwyczaj tylko u weterynarzy i w schroniskach). Zawieszką QR SENRA działa natychmiastowo z każdym aparatem smartfona, wyświetlając pełny profil pupila, zdjęcie i twoje dane kontaktowe na miejscu. Znalazca może też udostępnić ci swoją lokalizację GPS. Zalecamy korzystanie z obu: mikrochip jako trwałe zabezpieczenie, a nieśką SENRA do codziennej, natychmiastowej identyfikacji.</string>
     <string name="help_faq_q21">Co stanie się z moimi danymi po anulowaniu subskrypcji?</string>
     <string name="help_faq_a21">Po anulowaniu subskrypcji zachowasz dostęp do płatnych funkcji do końca bieżącego okresu rozliczeniowego. Następnie konto automatycznie przejdzie na bezpłatny plan Starter. Profile pupili, zdjęcia i nieśki QR pozostają aktywne — tracisz jedynie dostęp do funkcji premium (powiadomień SMS, alertów dla społeczności i weterynarzy, bezpłatnych wymian nieśek itp.). Dane nigdy nie są usuwane przy anulowaniu. Aby trwale usunąć wszystkie dane, użyj opcji Usuń konto w Ustawieniach.</string>
-    <string name="help_faq_q22">Jak zarejestrować moją klinikę weterynaryjną lub schronisko w Senra?</string>
+    <string name="help_faq_q22">Jak zarejestrować moją klinikę weterynaryjną lub schronisko w SENRA?</string>
     <string name="help_faq_a22">Kliniki i schroniska mogą się zarejestrować na stronie senra.pet/register-vet-shelter. Wypełnij dane placówki lub organizacji, a wyślemy wiadomość weryfikacyjną. Po potwierdzeniu będziesz automatycznie otrzymywać alerty e-mail, gdy zwierzęta zagubią się w twojej okolicy — pomagając im wrócić do domu. Rejestracja jest bezpłatna i nie wymaga logowania. Właściciele zwierząt mogą również zarejestrować swojego weterynarza w ich imieniu.</string>
     <string name="help_faq_q23">Jak udostępnić historię sukcesu, gdy pupil zostanie odnaleziony?</string>
     <string name="help_faq_a23">Gdy oznaczysz pupila jako odnalezionego w sekcji „Moje zwierzęta", zostaniesz zapytany, czy chcesz podzielić się historią powrotu. Możesz dodać krótką wiadomość o tym, jak pupil został odnaleziony, i potwierdzić lokalizację spotkania. Publiczne historie pojawiają się na mapie Odnalezionych zwierząt, inspirując społeczność i pokazując, że system działa. Możesz też opublikować lub usunąć historię sukcesu później, z poziomu strony profilu pupila.</string>
     <string name="help_faq_q24">Jakie przeglądarki i urządzenia są obsługiwane?</string>
-    <string name="help_faq_a24">Senra działa na wszystkich nowoczesnych przeglądarkach, w tym Chrome, Safari, Firefox i Edge — zarówno na urządzeniach mobilnych, jak i desktopowych. Skanowanie nieśki QR działa z każdym aparatem smartfona — znalazca nie potrzebuje aplikacji Senra ani konta. Aby uzyskać najlepsze wrażenia, zalecamy korzystanie z aktualnej przeglądarki na telefonie.</string>
+    <string name="help_faq_a24">SENRA działa na wszystkich nowoczesnych przeglądarkach, w tym Chrome, Safari, Firefox i Edge — zarówno na urządzeniach mobilnych, jak i desktopowych. Skanowanie nieśki QR działa z każdym aparatem smartfona — znalazca nie potrzebuje aplikacji SENRA ani konta. Aby uzyskać najlepsze wrażenia, zalecamy korzystanie z aktualnej przeglądarki na telefonie.</string>
     <string name="help_faq_q25">Czy mogę zamówić nieśki dla kilku pupili jednocześnie?</string>
     <string name="help_faq_a25">Każde zamówienie zawiera nieśki z imionami pupili podanymi podczas składania zamówienia. W jednym zamówieniu możesz podać kilka imion. Po otrzymaniu nieśek zeskanuj każdą z nich, aby aktywować i powiązać z odpowiednim profilem pupila. Jeśli później potrzebujesz nieśek dla kolejnych pupili, możesz złożyć dodatkowe zamówienia ze strony Konto w dowolnym momencie.</string>
     <string name="help_faq_q26">Jak alerty o zaginionych zwierzętach trafiają do weterynarzy i schronisk?</string>
-    <string name="help_faq_a26">Gdy oznaczysz pupila jako zaginionego, Senra automatycznie wysyła alerty e-mail do wszystkich zweryfikowanych weterynarzy i schronisk zarejestrowanych w twojej okolicy. Oznacza to, że lokalni specjaliści od razu wiedzą, że twój pupil zaginął i mogą go wypatrywać. Im więcej weterynarzy i schronisk jest zarejestrowanych w okolicy, tym silniejsza sieć bezpieczeństwa. Możesz pomóc, zachęcając własną klinikę weterynaryjną do rejestracji w Senra.</string>
+    <string name="help_faq_a26">Gdy oznaczysz pupila jako zaginionego, SENRA automatycznie wysyła alerty e-mail do wszystkich zweryfikowanych weterynarzy i schronisk zarejestrowanych w twojej okolicy. Oznacza to, że lokalni specjaliści od razu wiedzą, że twój pupil zaginął i mogą go wypatrywać. Im więcej weterynarzy i schronisk jest zarejestrowanych w okolicy, tym silniejsza sieć bezpieczeństwa. Możesz pomóc, zachęcając własną klinikę weterynaryjną do rejestracji w SENRA.</string>
     <string name="help_faq_q27">Czy mogę przenieść nieśką na innego pupila?</string>
     <string name="help_faq_a27">Każda nieśką QR jest trwale powiązana z jednym profilem pupila i nie można jej przypisać innemu zwierzęciu. Jeśli pupil odejdzie lub nie potrzebujesz już nieśki, stara nieśką po prostu staje się nieaktywna. Aby otagować nowego pupila, zamów nową nieśką ze strony Konto.</string>
     <!-- Guide Items -->
@@ -771,9 +771,9 @@
     <string name="help_guide_profile_title">Zarządzanie profilem pupila</string>
     <string name="help_guide_profile_desc">Zarządzanie publicznym profilem pupila i aktualizacja jego danych.</string>
     <string name="help_guide_missing_alerts_title">Alerty o zaginionych zwierzętach i obserwacje</string>
-    <string name="help_guide_missing_alerts_desc">Jeśli twój pupil zaginie, oznacz go jako zaginionego w sekcji „Moje zwierzęta", aby natychmiast uruchomić alert społecznościowy. Zdjęcie i dane pupila pojawią się na mapie Zaginionych zwierząt widocznej dla wszystkich użytkowników Senra w twojej okolicy. Wszyscy zarejestrowani użytkownicy w promieniu 10 km otrzymują powiadomienia e-mail i SMS, a członkowie społeczności mogą zgłaszać obserwacje z lokalizacją GPS. Zarejestrowani weterynarze i schroniska również otrzymują alert. Gdy pupil wróci do domu, oznacz go jako odnalezionego! Jeśli chcesz, podziel się historią jego powrotu, aby dodać otuchy innym.</string>
+    <string name="help_guide_missing_alerts_desc">Jeśli twój pupil zaginie, oznacz go jako zaginionego w sekcji „Moje zwierzęta", aby natychmiast uruchomić alert społecznościowy. Zdjęcie i dane pupila pojawią się na mapie Zaginionych zwierząt widocznej dla wszystkich użytkowników SENRA w twojej okolicy. Wszyscy zarejestrowani użytkownicy w promieniu 10 km otrzymują powiadomienia e-mail i SMS, a członkowie społeczności mogą zgłaszać obserwacje z lokalizacją GPS. Zarejestrowani weterynarze i schroniska również otrzymują alert. Gdy pupil wróci do domu, oznacz go jako odnalezionego! Jeśli chcesz, podziel się historią jego powrotu, aby dodać otuchy innym.</string>
     <string name="help_guide_community_title">Społeczność i odnalezione zwierzęta</string>
-    <string name="help_guide_community_desc">Siłą Senra jest jej społeczność. Na mapie Zaginionych zwierząt widzisz aktywne alerty w pobliżu — sprawdź, czy w twojej okolicy zgłoszono zaginięcie. Strona Odnalezionych zwierząt świętuje szczęśliwe powroty i historie właścicieli. W systemie Senra możesz zarejestrować własną klinikę weterynaryjną lub lokalne schronisko, dzięki czemu będą automatycznie otrzymywać powiadomienia o zaginionych zwierzętach — tworząc silniejszą sieć bezpieczeństwa dla wszystkich zwierząt w okolicy.</string>
+    <string name="help_guide_community_desc">Siłą SENRA jest jej społeczność. Na mapie Zaginionych zwierząt widzisz aktywne alerty w pobliżu — sprawdź, czy w twojej okolicy zgłoszono zaginięcie. Strona Odnalezionych zwierząt świętuje szczęśliwe powroty i historie właścicieli. W systemie SENRA możesz zarejestrować własną klinikę weterynaryjną lub lokalne schronisko, dzięki czemu będą automatycznie otrzymywać powiadomienia o zaginionych zwierzętach — tworząc silniejszą sieć bezpieczeństwa dla wszystkich zwierząt w okolicy.</string>
     <!-- ============================================ -->
     <!-- MARK: Orders -->
     <!-- ============================================ -->
@@ -1029,7 +1029,7 @@
     <!-- ============================================ -->
     <!-- MARK: App Info -->
     <!-- ============================================ -->
-    <string name="app_name_label">Senra Pet</string>
+    <string name="app_name_label">SENRA Pet</string>
     <string name="app_version">Wersja 1.0.0</string>
 
     <!-- ============================================ -->
@@ -1181,7 +1181,7 @@
     <string name="no_notifications_desc">Wszystko aktualne! Powiadomienia pojawią się tutaj, gdy ktoś zeskanuje nieśkę Twojego zwierzęcia.</string>
     <string name="mark_all_read">Oznacz wszystkie jako przeczytane</string>
     <string name="create_profile_hint">Najpierw utwórz profil zwierzęcia, następnie ponownie zeskanuj nieśkę, aby ją aktywować.</string>
-    <string name="activation_error_qr_not_found">Kod QR nie został rozpoznany. Upewnij się, że skanujesz oficjalną nieśkę Senra.</string>
+    <string name="activation_error_qr_not_found">Kod QR nie został rozpoznany. Upewnij się, że skanujesz oficjalną nieśkę SENRA.</string>
     <string name="activation_error_already_activated">Ta nieśka jest już przypisana do innego zwierzęcia. Skontaktuj się ze wsparciem.</string>
     <string name="activation_error_not_linked">Ta nieśka nie została jeszcze przypisana do Twojego zamówienia. Poczekaj na potwierdzenie wysyłki.</string>
     <string name="activation_error_not_shipped">Twoje zamówienie nie zostało jeszcze wysłane. Poczekaj na dostawę.</string>
@@ -1381,7 +1381,7 @@
     <string name="dob_select_date">Wybierz datę</string>
     <string name="weight_helper">Waga w kg (np. 4,5)</string>
 
-    <string name="welcome_to_senra">Witaj w Senra!</string>
+    <string name="welcome_to_senra">Witaj w SENRA!</string>
     <string name="welcome_subtitle">Bezpieczeństwo Twojego zwierzaka zaczyna się tutaj. Skonfiguruj swoją pierwszą plakietkę.</string>
     <string name="welcome_step_1">Zeskanuj kod QR na plakietce</string>
     <string name="welcome_step_2">Utwórz profil swojego zwierzaka</string>
@@ -1394,7 +1394,7 @@
     <string name="already_activated">Już aktywowana</string>
     <string name="setting_up_tag_for">Konfiguracja plakietki dla %s</string>
     <string name="tag_activated_for">Plakietka aktywowana dla %s!</string>
-    <string name="pet_now_protected">Twój zwierzak jest teraz chroniony przez Senra</string>
+    <string name="pet_now_protected">Twój zwierzak jest teraz chroniony przez SENRA</string>
     <string name="more_tags_to_setup">Masz jeszcze plakietki do skonfigurowania</string>
     <string name="setup_pet_tag">Skonfiguruj plakietkę %s</string>
     <string name="whats_next">Co dalej?</string>
@@ -1402,7 +1402,7 @@
     <string name="register_your_vet">Zarejestruj swojego weterynarza</string>
     <string name="update_contact_details">Zaktualizuj dane kontaktowe i prywatność</string>
     <string name="go_to_home">Przejdź na stronę główną</string>
-    <string name="thank_you_senra">Dziękujemy za korzystanie z Senra!</string>
+    <string name="thank_you_senra">Dziękujemy za korzystanie z SENRA!</string>
     <string name="tap_pet_name_hint">Dotknij imienia zwierzaka, aby skonfigurować plakietkę</string>
     <plurals name="age_years">
         <item quantity="one">%d rok</item>
