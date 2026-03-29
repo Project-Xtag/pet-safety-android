@@ -2,6 +2,7 @@ package com.petsafety.app.ui.util
 
 import android.content.Context
 import com.petsafety.app.R
+import com.petsafety.app.data.model.BreedData
 
 /**
  * Translates raw English database values (species, breed, sex) to the current device locale.
@@ -25,46 +26,48 @@ object PetLocalizer {
         return context.getString(resId)
     }
 
+    // Cached breed lookup: locale → (lowercase english → native name)
+    private var breedCacheLocale: String = ""
+    private var breedCacheMap: Map<String, String> = emptyMap()
+
+    private fun breedLookup(context: Context): Map<String, String> {
+        val lang = context.resources.configuration.locales[0].language.lowercase().take(2)
+        if (breedCacheLocale == lang) return breedCacheMap
+        val map = mutableMapOf<String, String>()
+        for (species in listOf("dog", "cat")) {
+            for (breed in BreedData.breedsFor(species, context)) {
+                map[breed.englishName.lowercase()] = breed.localizedName
+            }
+        }
+        breedCacheLocale = lang
+        breedCacheMap = map
+        return map
+    }
+
     /**
      * Maps English breed name from DB → localized display string.
-     * Tries to find a matching string resource, falls back to raw value.
+     * Looks up the breed in the per-locale breed data.
      */
     fun localizeBreed(context: Context, raw: String?, species: String? = null): String {
         if (raw.isNullOrBlank()) return ""
+        val lookup = breedLookup(context)
 
-        // Normalize to resource name format: "Domestic Shorthair" → "breed_cat_domestic_shorthair"
-        val normalized = raw.lowercase()
-            .replace(Regex("[\\s/]+"), "_")
-            .replace(Regex("[^a-z0-9_]"), "")
+        lookup[raw.lowercase()]?.let { return it }
 
-        // Try species-prefixed key first
-        val speciesLower = (species ?: "").lowercase()
-        if (speciesLower.isNotEmpty()) {
-            val prefixedName = "breed_${speciesLower}_$normalized"
-            val resId = getStringResId(context, prefixedName)
-            if (resId != 0) return context.getString(resId)
-        }
-
-        // Try without species prefix
-        val plainName = "breed_$normalized"
-        val resId = getStringResId(context, plainName)
-        if (resId != 0) return context.getString(resId)
-
-        // Special aliases
+        // Special aliases for common abbreviations
         val aliases = mapOf(
-            "dsh" to "breed_cat_domestic_shorthair",
-            "domestic shorthair" to "breed_cat_domestic_shorthair",
-            "dlh" to "breed_cat_domestic_longhair",
-            "domestic longhair" to "breed_cat_domestic_longhair",
-            "cross" to "breed_mixed",
-            "crossbreed" to "breed_mixed",
-            "mixed" to "breed_mixed",
-            "mixed breed" to "breed_mixed",
+            "dsh" to "european shorthair",
+            "domestic shorthair" to "european shorthair",
+            "dlh" to "european shorthair",
+            "domestic longhair" to "european shorthair",
+            "cross" to "mixed / crossbreed",
+            "crossbreed" to "mixed / crossbreed",
+            "mixed" to "mixed / crossbreed",
+            "mixed breed" to "mixed / crossbreed",
         )
-        val aliasKey = aliases[raw.lowercase()]
-        if (aliasKey != null) {
-            val aliasResId = getStringResId(context, aliasKey)
-            if (aliasResId != 0) return context.getString(aliasResId)
+        val alias = aliases[raw.lowercase()]
+        if (alias != null) {
+            lookup[alias]?.let { return it }
         }
 
         return raw
