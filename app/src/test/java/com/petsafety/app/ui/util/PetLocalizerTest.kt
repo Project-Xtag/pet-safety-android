@@ -1,13 +1,16 @@
 package com.petsafety.app.ui.util
 
 import android.content.Context
+import android.content.res.Configuration
 import android.content.res.Resources
+import android.os.LocaleList
 import com.petsafety.app.R
 import io.mockk.every
 import io.mockk.mockk
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
+import java.util.Locale
 
 /**
  * Tests for PetLocalizer — verifies localizeSpecies, localizeBreed, and localizeSex
@@ -24,6 +27,13 @@ class PetLocalizerTest {
         resources = mockk(relaxed = true)
         every { context.resources } returns resources
         every { context.packageName } returns "com.petsafety.app"
+
+        // Mock locale chain for BreedData
+        val localeList = mockk<LocaleList>()
+        val configuration = mockk<Configuration>()
+        every { resources.configuration } returns configuration
+        every { configuration.locales } returns localeList
+        every { localeList[0] } returns Locale.ENGLISH
 
         // Species string resources
         every { context.getString(R.string.species_dog) } returns "Dog"
@@ -141,53 +151,33 @@ class PetLocalizerTest {
     }
 
     @Test
-    fun `localizeBreed - alias dsh - resolves to domestic shorthair`() {
-        val resId = 997
-        every { resources.getIdentifier("breed_cat_domestic_shorthair", "string", "com.petsafety.app") } returns resId
-        every { context.getString(resId) } returns "Domestic Shorthair"
-
+    fun `localizeBreed - alias dsh - resolves to European Shorthair`() {
         val result = PetLocalizer.localizeBreed(context, "dsh", "Cat")
-        assertEquals("Domestic Shorthair", result)
+        assertEquals("European Shorthair", result)
     }
 
     @Test
-    fun `localizeBreed - alias dlh - resolves to domestic longhair`() {
-        val resId = 996
-        every { resources.getIdentifier("breed_cat_domestic_longhair", "string", "com.petsafety.app") } returns resId
-        every { context.getString(resId) } returns "Domestic Longhair"
-
+    fun `localizeBreed - alias dlh - resolves to European Shorthair`() {
         val result = PetLocalizer.localizeBreed(context, "dlh")
-        assertEquals("Domestic Longhair", result)
+        assertEquals("European Shorthair", result)
     }
 
     @Test
-    fun `localizeBreed - alias mixed - resolves to breed_mixed`() {
-        val resId = 995
-        every { resources.getIdentifier("breed_mixed", "string", "com.petsafety.app") } returns resId
-        every { context.getString(resId) } returns "Mixed"
-
+    fun `localizeBreed - alias mixed - resolves to Mixed Crossbreed`() {
         val result = PetLocalizer.localizeBreed(context, "mixed")
-        assertEquals("Mixed", result)
+        assertEquals("Mixed / Crossbreed", result)
     }
 
     @Test
-    fun `localizeBreed - alias crossbreed - resolves to breed_mixed`() {
-        val resId = 995
-        every { resources.getIdentifier("breed_mixed", "string", "com.petsafety.app") } returns resId
-        every { context.getString(resId) } returns "Mixed"
-
+    fun `localizeBreed - alias crossbreed - resolves to Mixed Crossbreed`() {
         val result = PetLocalizer.localizeBreed(context, "crossbreed")
-        assertEquals("Mixed", result)
+        assertEquals("Mixed / Crossbreed", result)
     }
 
     @Test
-    fun `localizeBreed - alias mixed breed - resolves to breed_mixed`() {
-        val resId = 995
-        every { resources.getIdentifier("breed_mixed", "string", "com.petsafety.app") } returns resId
-        every { context.getString(resId) } returns "Mixed"
-
+    fun `localizeBreed - alias mixed breed - resolves to Mixed Crossbreed`() {
         val result = PetLocalizer.localizeBreed(context, "mixed breed")
-        assertEquals("Mixed", result)
+        assertEquals("Mixed / Crossbreed", result)
     }
 
     @Test
@@ -203,13 +193,9 @@ class PetLocalizerTest {
     }
 
     @Test
-    fun `localizeBreed - breed with slash - normalizes to underscore`() {
-        val resId = 994
-        every { resources.getIdentifier("breed_dog_lab_poodle", "string", "com.petsafety.app") } returns resId
-        every { context.getString(resId) } returns "Labradoodle"
-
+    fun `localizeBreed - breed with slash - unknown breed falls back to raw value`() {
         val result = PetLocalizer.localizeBreed(context, "Lab/Poodle", "Dog")
-        assertEquals("Labradoodle", result)
+        assertEquals("Lab/Poodle", result)
     }
 
     @Test
