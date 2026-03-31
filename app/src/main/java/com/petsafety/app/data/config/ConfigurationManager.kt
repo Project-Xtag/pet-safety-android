@@ -4,7 +4,6 @@ import android.content.Context
 import timber.log.Timber
 import com.google.firebase.FirebaseApp
 import com.google.firebase.appcheck.FirebaseAppCheck
-import com.google.firebase.appcheck.debug.DebugAppCheckProviderFactory
 import com.google.firebase.appcheck.playintegrity.PlayIntegrityAppCheckProviderFactory
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig
 import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings
@@ -48,7 +47,9 @@ class ConfigurationManager @Inject constructor(
             val firebaseAppCheck = FirebaseAppCheck.getInstance()
             val factory = if (BuildConfig.DEBUG) {
                 Timber.d("Using App Check debug provider")
-                DebugAppCheckProviderFactory.getInstance()
+                // DebugAppCheckProviderFactory is only available via debugImplementation
+                val clazz = Class.forName("com.google.firebase.appcheck.debug.DebugAppCheckProviderFactory")
+                clazz.getMethod("getInstance").invoke(null) as com.google.firebase.appcheck.AppCheckProviderFactory
             } else {
                 Timber.d("Using App Check Play Integrity provider")
                 PlayIntegrityAppCheckProviderFactory.getInstance()
