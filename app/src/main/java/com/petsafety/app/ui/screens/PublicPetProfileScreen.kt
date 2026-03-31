@@ -775,6 +775,18 @@ private fun PublicPetContent(
             Spacer(modifier = Modifier.height(16.dp))
         }
 
+        // Unique Features
+        pet.uniqueFeatures?.takeIf { it.isNotBlank() }?.let { features ->
+            InfoCard(
+                title = stringResource(R.string.unique_features),
+                content = features,
+                icon = Icons.Default.Info,
+                backgroundColor = TealAccent.copy(alpha = 0.1f),
+                titleColor = TealAccent
+            )
+            Spacer(modifier = Modifier.height(16.dp))
+        }
+
         // Notes (in blue)
         pet.notes?.takeIf { it.isNotBlank() }?.let { notes ->
             InfoCard(

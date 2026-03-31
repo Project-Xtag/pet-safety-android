@@ -887,7 +887,7 @@
     <string name="public_profile_subtitle">Tak inni widzą profil %1$s</string>
     <string name="owner_notified_sms_email">Właściciel %1$s otrzyma SMS i e-mail z twoją lokalizacją</string>
     <string name="contact_owner_plea">Proszę, daj znać mojemu właścicielowi, że mnie znalazłeś\u2026</string>
-    <string name="contact_owner_plea_full">Proszę, daj znać mojemu właścicielowi, że mnie znalazłeś. Kliknij przycisk udostępniania lokalizacji lub zadzwoń pod numer podany poniżej.</string>
+    <string name="contact_owner_plea_full">Proszę, poinformuj mojego właściciela, że mnie znalazłeś. Możesz się z nim skontaktować korzystając z poniższych danych kontaktowych.</string>
     <string name="contact_info_not_set">Dane kontaktowe jeszcze nie zostały skonfigurowane</string>
     <string name="contact_info_hidden">Dane kontaktowe są ukryte</string>
     <string name="contact_info_hidden_hint">Twoje dane kontaktowe są ustawione, ale ukryte ze względu na ustawienia prywatności. Zaktualizuj w Konto \u2192 Tryb prywatności.</string>

@@ -876,7 +876,7 @@
     <string name="public_profile_subtitle">Ecco come gli altri vedono il profilo di %1$s</string>
     <string name="owner_notified_sms_email">Il proprietario di %1$s riceverà un SMS e una email con la tua posizione</string>
     <string name="contact_owner_plea">Per favore, avvisa il mio padrone che mi hai trovato\u2026</string>
-    <string name="contact_owner_plea_full">Per favore, avvisa il mio padrone che mi hai trovato. Tocca il pulsante di condivisione posizione o chiamalo al numero qui sotto.</string>
+    <string name="contact_owner_plea_full">Per favore, avvisa il mio proprietario che mi hai trovato. Puoi contattarlo usando i dati di contatto qui sotto.</string>
     <string name="contact_info_not_set">Recapiti non ancora configurati</string>
     <string name="contact_info_hidden">Recapiti nascosti</string>
     <string name="contact_info_hidden_hint">I tuoi recapiti sono impostati ma nascosti dalle impostazioni privacy. Aggiorna in Account \u2192 Modalità privacy.</string>

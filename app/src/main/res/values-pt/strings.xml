@@ -840,7 +840,7 @@
     <string name="public_profile_subtitle">É assim que os outros veem o perfil de %1$s</string>
     <string name="owner_notified_sms_email">O dono de %1$s receberá um SMS e um e-mail com a sua localização</string>
     <string name="contact_owner_plea">Por favor, avise o meu dono que me encontrou\u2026</string>
-    <string name="contact_owner_plea_full">Por favor, avise o meu dono que me encontrou. Toque no botão de partilha de localização ou ligue para o número abaixo.</string>
+    <string name="contact_owner_plea_full">Por favor, avise o meu dono que me encontrou. Pode contactá-lo através dos dados de contacto abaixo.</string>
     <string name="contact_info_not_set">Informação de contacto ainda não definida</string>
     <string name="contact_info_hidden">Informação de contacto está oculta</string>
     <string name="contact_info_hidden_hint">Os seus contactos estão definidos mas ocultos devido às definições de privacidade. Atualize em Conta \u2192 Modo de privacidade.</string>

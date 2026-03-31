@@ -830,7 +830,7 @@
     <string name="public_profile_subtitle">Ovako drugi vide profil ljubimca %1$s</string>
     <string name="owner_notified_sms_email">Vlasnik ljubimca %1$s primit će SMS i e-mail s tvojom lokacijom</string>
     <string name="contact_owner_plea">Molimo te javi mom vlasniku da si me pronašao…</string>
-    <string name="contact_owner_plea_full">Molimo te javi mom vlasniku da si me pronašao. Klikni gumb za dijeljenje lokacije ili nazovi broj naveden ispod.</string>
+    <string name="contact_owner_plea_full">Molim te, obavijesti mog vlasnika da si me pronašao. Možeš ga kontaktirati koristeći podatke za kontakt u nastavku.</string>
     <string name="contact_info_not_set">Kontakt podaci još nisu postavljeni</string>
     <string name="contact_info_hidden">Kontakt podaci su skriveni</string>
     <string name="contact_info_hidden_hint">Tvoji kontakt podaci su postavljeni, ali skriveni zbog postavki privatnosti. Ažuriraj u Račun > Privatnost.</string>

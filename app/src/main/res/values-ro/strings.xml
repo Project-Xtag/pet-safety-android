@@ -834,7 +834,7 @@
     <string name="public_profile_subtitle">Așa văd ceilalți profilul lui %1$s</string>
     <string name="owner_notified_sms_email">Proprietarul lui %1$s va primi un SMS și un e-mail cu locația ta</string>
     <string name="contact_owner_plea">Te rog anunță proprietarul că m-ai găsit\u2026</string>
-    <string name="contact_owner_plea_full">Te rog anunță proprietarul că m-ai găsit. Apasă pe butonul de partajare a locației sau sună la numărul de mai jos.</string>
+    <string name="contact_owner_plea_full">Te rog, anunță-l pe stăpânul meu că m-ai găsit. Îl poți contacta folosind datele de contact de mai jos.</string>
     <string name="contact_info_not_set">Datele de contact nu sunt încă setate</string>
     <string name="contact_info_hidden">Datele de contact sunt ascunse</string>
     <string name="contact_info_hidden_hint">Datele de contact sunt setate, dar ascunse din setările de confidențialitate. Actualizează în Cont \u2192 Mod confidențialitate.</string>

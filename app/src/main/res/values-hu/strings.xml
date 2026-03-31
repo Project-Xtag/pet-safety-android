@@ -840,7 +840,7 @@
     <string name="public_profile_subtitle">Így látják mások %1$s profilját</string>
     <string name="owner_notified_sms_email">%1$s gazdija SMS-t és emailt kap a tartózkodási helyedről</string>
     <string name="contact_owner_plea">Kérlek, tudasd a gazdimmal, hogy megtaláltál\u2026</string>
-    <string name="contact_owner_plea_full">Kérlek, tudasd a gazdimmal, hogy megtaláltál. Koppints a helymegosztás gombra vagy hívd a lentebb található telefonszámot.</string>
+    <string name="contact_owner_plea_full">Kérlek, tudasd a gazdimmal, hogy megtaláltál. Az alábbi elérhetőségeken tudod felvenni vele a kapcsolatot.</string>
     <string name="contact_info_not_set">Az elérhetőségek még nincsenek beállítva</string>
     <string name="contact_info_hidden">Az elérhetőségek rejtve vannak</string>
     <string name="contact_info_hidden_hint">Az elérhetőségeid be vannak állítva, de az adatvédelmi beállításaid miatt rejtve vannak. Frissítés: Fiók &gt; Adatvédelmi mód.</string>

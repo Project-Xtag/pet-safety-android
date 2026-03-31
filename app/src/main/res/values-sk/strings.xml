@@ -841,7 +841,7 @@
     <string name="public_profile_subtitle">Takto ostatní uvidia profil %1$s</string>
     <string name="owner_notified_sms_email">Majiteľ %1$s dostane SMS a e-mail s vašou polohou</string>
     <string name="contact_owner_plea">Prosím, dajte môjmu majiteľovi vedieť, že ste ma našli\u2026</string>
-    <string name="contact_owner_plea_full">Prosím, dajte môjmu majiteľovi vedieť, že ste ma našli. Ťuknite na tlačidlo zdieľania polohy alebo zavolajte na číslo nižšie.</string>
+    <string name="contact_owner_plea_full">Prosím, dajte vedieť môjmu majiteľovi, že ste ma našli. Môžete ho kontaktovať pomocou nižšie uvedených kontaktných údajov.</string>
     <string name="contact_info_not_set">Kontaktné údaje ešte nie sú nastavené</string>
     <string name="contact_info_hidden">Kontaktné údaje sú skryté</string>
     <string name="contact_info_hidden_hint">Kontaktné údaje sú nastavené, ale skryté kvôli nastaveniam súkromia. Aktualizujte v Účet \u2192 Režim súkromia.</string>

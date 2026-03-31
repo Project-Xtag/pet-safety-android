@@ -829,7 +829,7 @@
     <string name="public_profile_subtitle">This is how others see %1$s\'s profile</string>
     <string name="owner_notified_sms_email">%1$s\'s owner will receive an SMS and email with your location</string>
     <string name="contact_owner_plea">Please let my owner know that you have found me\u2026</string>
-    <string name="contact_owner_plea_full">Please let my owner know that you have found me. Tap on the share location button or call them on the phone number below.</string>
+    <string name="contact_owner_plea_full">Please let my owner know that you have found me. You can reach them using the contact details below.</string>
     <string name="contact_info_not_set">Contact info not set up yet</string>
     <string name="contact_info_hidden">Contact info is hidden</string>
     <string name="contact_info_hidden_hint">Your contact details are set but hidden due to privacy settings. Update in Account \u2192 Privacy Mode.</string>

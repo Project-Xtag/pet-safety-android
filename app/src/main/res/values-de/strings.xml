@@ -840,7 +840,7 @@
     <string name="public_profile_subtitle">So sehen andere das Profil von %1$s</string>
     <string name="owner_notified_sms_email">Der Besitzer von %1$s erhält eine SMS und eine E-Mail mit deinem Standort</string>
     <string name="contact_owner_plea">Bitte informiere meinen Besitzer, dass du mich gefunden hast\u2026</string>
-    <string name="contact_owner_plea_full">Bitte informiere meinen Besitzer, dass du mich gefunden hast. Tippe auf die Standort-Freigabe oder rufe die untenstehende Nummer an.</string>
+    <string name="contact_owner_plea_full">Bitte teilen Sie meinem Besitzer mit, dass Sie mich gefunden haben. Sie können ihn über die unten angegebenen Kontaktdaten erreichen.</string>
     <string name="contact_info_not_set">Kontaktinfos noch nicht eingerichtet</string>
     <string name="contact_info_hidden">Kontaktinfos sind verborgen</string>
     <string name="contact_info_hidden_hint">Ihre Kontaktdaten sind eingestellt, aber aufgrund der Privatsphäre-Einstellungen verborgen. Aktualisieren Sie in Konto \u2192 Privatsphäre-Modus.</string>

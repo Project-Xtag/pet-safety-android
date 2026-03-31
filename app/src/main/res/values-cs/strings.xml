@@ -842,7 +842,7 @@
     <string name="public_profile_subtitle">Takto ostatní uvidí profil %1$s</string>
     <string name="owner_notified_sms_email">Majitel %1$s obdrží SMS a e-mail s vaší polohou</string>
     <string name="contact_owner_plea">Prosím, dejte mému majiteli vědět, že jste mě našli\u2026</string>
-    <string name="contact_owner_plea_full">Prosím, dejte mému majiteli vědět, že jste mě našli. Klepněte na tlačítko sdílení polohy nebo zavolejte na níže uvedené číslo.</string>
+    <string name="contact_owner_plea_full">Prosím, dejte vědět mému majiteli, že jste mě našli. Můžete ho kontaktovat pomocí níže uvedených kontaktních údajů.</string>
     <string name="contact_info_not_set">Kontaktní údaje ještě nejsou nastaveny</string>
     <string name="contact_info_hidden">Kontaktní údaje jsou skryté</string>
     <string name="contact_info_hidden_hint">Kontaktní údaje jsou nastaveny, ale skryty kvůli nastavení soukromí. Aktualizujte v Účet \u2192 Režim soukromí.</string>

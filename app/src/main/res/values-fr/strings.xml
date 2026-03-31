@@ -876,7 +876,7 @@
     <string name="public_profile_subtitle">Voilà comment les autres voient le profil de %1$s</string>
     <string name="owner_notified_sms_email">Le propriétaire de %1$s recevra un SMS et un e-mail avec ta position</string>
     <string name="contact_owner_plea">Merci de prévenir mon propriétaire que tu m\'as trouvé\u2026</string>
-    <string name="contact_owner_plea_full">Merci de prévenir mon propriétaire que tu m\'as trouvé. Appuie sur le bouton de partage de position ou appelle-le au numéro ci-dessous.</string>
+    <string name="contact_owner_plea_full">Veuillez informer mon propriétaire que vous m\'avez trouvé. Vous pouvez le contacter via les coordonnées ci-dessous.</string>
     <string name="contact_info_not_set">Coordonnées non encore configurées</string>
     <string name="contact_info_hidden">Les coordonnées sont masquées</string>
     <string name="contact_info_hidden_hint">Tes coordonnées sont configurées mais masquées en raison des paramètres de confidentialité. Modifie dans Compte \u2192 Mode de confidentialité.</string>

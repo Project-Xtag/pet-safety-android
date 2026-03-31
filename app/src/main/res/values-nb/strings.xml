@@ -875,7 +875,7 @@
     <string name="public_profile_subtitle">Slik ser andre %1$s sin profil</string>
     <string name="owner_notified_sms_email">%1$s sin eier mottar en SMS og e-post med posisjonen din</string>
     <string name="contact_owner_plea">Vennligst gi eieren min beskjed om at du har funnet meg\u2026</string>
-    <string name="contact_owner_plea_full">Vennligst gi eieren min beskjed om at du har funnet meg. Trykk på del posisjon-knappen eller ring nummeret nedenfor.</string>
+    <string name="contact_owner_plea_full">Vennligst gi beskjed til eieren min om at du har funnet meg. Du kan nå dem via kontaktinformasjonen nedenfor.</string>
     <string name="contact_info_not_set">Kontaktinformasjon er ikke satt opp ennå</string>
     <string name="contact_info_hidden">Kontaktinformasjon er skjult</string>
     <string name="contact_info_hidden_hint">Kontaktdetaljene dine er angitt, men er skjult på grunn av personverninnstillingene. Oppdater under Konto \u2192 Personvernmodus.</string>
