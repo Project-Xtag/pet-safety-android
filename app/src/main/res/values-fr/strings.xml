@@ -1390,4 +1390,12 @@
     <string name="help_faq_q28">Comment enregistrer la clinique vétérinaire de mon animal ou le refuge où j\'ai adopté mon animal dans le réseau SENRA ?</string>
     <string name="help_faq_a28">Les cliniques vétérinaires et refuges peuvent s\'inscrire sur senra.pet/register-vet-shelter. Remplis les données et nous envoyons un email de vérification. Après confirmation, nous envoyons automatiquement des notifications — aidant les animaux perdus à rentrer chez eux plus vite. Sans frais et sans inscription.</string>
 
+
+    <!-- Tag activation strings -->
+    <string name="error_tag_lookup_failed">Impossible de rechercher le médaillon. Veuillez réessayer.</string>
+    <string name="error_tag_not_activated">Ce médaillon n\'a pas encore été activé.</string>
+    <string name="error_tag_not_found">Ce médaillon n\'a pas été trouvé dans le système.</string>
+    <string name="notif_tag_activated_body">Le médaillon SENRA de %s est maintenant actif. Votre animal est protégé.</string>
+    <string name="notif_tag_activated_title">Médaillon activé !</string>
+
 </resources>

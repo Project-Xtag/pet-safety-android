@@ -1398,4 +1398,12 @@
     <string name="help_faq_q28">¿Cómo puedo registrar la clínica veterinaria de mi mascota o el refugio donde adopté a mi mascota en la red SENRA?</string>
     <string name="help_faq_a28">Las clínicas veterinarias y refugios pueden registrarse en senra.pet/register-vet-shelter. Completa los datos de la clínica u organización y les enviaremos un correo de verificación. Tras la confirmación, les enviaremos automáticamente notificaciones cuando se pierdan mascotas en la zona — ayudando a que las mascotas perdidas vuelvan a casa más pronto. Sin coste y sin necesidad de registro.</string>
 
+
+    <!-- Tag activation strings -->
+    <string name="error_tag_lookup_failed">No se pudo buscar la chapa. Por favor, inténtelo de nuevo.</string>
+    <string name="error_tag_not_activated">Esta chapa aún no ha sido activada.</string>
+    <string name="error_tag_not_found">Esta chapa no se encontró en el sistema.</string>
+    <string name="notif_tag_activated_body">La chapa SENRA de %s ya está activa. Tu mascota está protegida.</string>
+    <string name="notif_tag_activated_title">¡Chapa activada!</string>
+
 </resources>

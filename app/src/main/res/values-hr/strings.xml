@@ -1393,4 +1393,12 @@
     <string name="help_faq_q28">Kako mogu registrirati veterinarsku kliniku svog ljubimca ili sklonište gdje sam udomio ljubimca u SENRA mrežu?</string>
     <string name="help_faq_a28">Veterinarske klinike i skloništa se mogu registrirati na senra.pet/register-vet-shelter. Ispuni podatke i šaljemo verifikacijski email. Nakon potvrde automatski šaljemo obavijesti — pomažući nestalim ljubimcima da se brže vrate kući. Bez troškova i bez prijave.</string>
 
+
+    <!-- Tag activation strings -->
+    <string name="error_tag_lookup_failed">Nije moguće pronaći privjesak. Pokušajte ponovo.</string>
+    <string name="error_tag_not_activated">Ovaj privjesak još nije aktiviran.</string>
+    <string name="error_tag_not_found">Ovaj privjesak nije pronađen u sustavu.</string>
+    <string name="notif_tag_activated_body">SENRA privjesak za %s je sada aktivan. Vaš ljubimac je zaštićen.</string>
+    <string name="notif_tag_activated_title">Privjesak aktiviran!</string>
+
 </resources>

@@ -1399,4 +1399,12 @@
     <string name="help_faq_q28">Wie kann ich die Tierarztpraxis meines Haustieres oder das Tierheim, aus dem ich mein Haustier adoptiert habe, im SENRA-Netzwerk registrieren?</string>
     <string name="help_faq_a28">Tierarztpraxen und Tierheime können sich unter senra.pet/register-vet-shelter registrieren. Fülle die Praxis- oder Organisationsdaten aus, und wir senden eine Bestätigungs-E-Mail. Nach der Bestätigung senden wir automatisch Benachrichtigungen, wenn Haustiere in der Gegend vermisst werden — um verlorene Haustiere schneller nach Hause zu bringen. Es fallen keine Kosten an und keine Anmeldung ist erforderlich.</string>
 
+
+    <!-- Tag activation strings -->
+    <string name="error_tag_lookup_failed">Marke konnte nicht abgerufen werden. Bitte versuchen Sie es erneut.</string>
+    <string name="error_tag_not_activated">Diese Marke wurde noch nicht aktiviert.</string>
+    <string name="error_tag_not_found">Diese Marke wurde im System nicht gefunden.</string>
+    <string name="notif_tag_activated_body">Die SENRA-Marke von %s ist jetzt aktiv. Ihr Haustier ist geschützt.</string>
+    <string name="notif_tag_activated_title">Marke aktiviert!</string>
+
 </resources>

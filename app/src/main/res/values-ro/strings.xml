@@ -1399,4 +1399,12 @@
     <string name="help_faq_q28">Cum pot înregistra clinica veterinară a animalului meu sau adăpostul unde am adoptat animalul în rețeaua SENRA?</string>
     <string name="help_faq_a28">Clinicile veterinare și adăposturile se pot înregistra la senra.pet/register-vet-shelter. Completează datele și trimitem un email de verificare. După confirmare, trimitem automat notificări când animalele se pierd în zonă — ajutând animalele pierdute să ajungă acasă mai repede. Fără costuri și fără login.</string>
 
+
+    <!-- Tag activation strings -->
+    <string name="error_tag_lookup_failed">Nu s-a putut căuta eticheta. Vă rugăm să încercați din nou.</string>
+    <string name="error_tag_not_activated">Această etichetă nu a fost încă activată.</string>
+    <string name="error_tag_not_found">Această etichetă nu a fost găsită în sistem.</string>
+    <string name="notif_tag_activated_body">Eticheta SENRA pentru %s este acum activă. Animalul tău este protejat.</string>
+    <string name="notif_tag_activated_title">Etichetă activată!</string>
+
 </resources>

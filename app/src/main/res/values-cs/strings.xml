@@ -1407,4 +1407,12 @@
     <string name="help_faq_q28">Jak mohu zaregistrovat veterinární praxi svého mazlíčka nebo útulek, odkud jsem mazlíčka adoptoval, v síti SENRA?</string>
     <string name="help_faq_a28">Veterinární praxe a útulky se mohou zaregistrovat na senra.pet/register-vet-shelter. Vyplň údaje praxe nebo organizace a my jim pošleme ověřovací e-mail. Po potvrzení jim automaticky posíláme upozornění, když se v okolí ztratí mazlíčci. Bez poplatků a bez nutnosti přihlášení.</string>
 
+
+    <!-- Tag activation strings -->
+    <string name="error_tag_lookup_failed">Nepodařilo se vyhledat štítek. Zkuste to znovu.</string>
+    <string name="error_tag_not_activated">Tento štítek ještě nebyl aktivován.</string>
+    <string name="error_tag_not_found">Tento štítek nebyl nalezen v systému.</string>
+    <string name="notif_tag_activated_body">SENRA štítek pro %s je nyní aktivní. Váš mazlíček je chráněn.</string>
+    <string name="notif_tag_activated_title">Štítek aktivován!</string>
+
 </resources>

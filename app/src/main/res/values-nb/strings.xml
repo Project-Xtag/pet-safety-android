@@ -1392,4 +1392,12 @@
     <string name="help_faq_q28">Hvordan kan jeg registrere veterinærklinikken til kjæledyret mitt eller krisesenteret der jeg adopterte kjæledyret mitt i SENRA-nettverket?</string>
     <string name="help_faq_a28">Veterinærklinikker og krisesentre kan registrere seg på senra.pet/register-vet-shelter. Fyll ut opplysningene, og vi sender en bekreftelses-e-post. Etter bekreftelse sender vi automatisk varsler — og hjelper savnede kjæledyr å komme hjem raskere. Uten kostnader og uten innlogging.</string>
 
+
+    <!-- Tag activation strings -->
+    <string name="error_tag_lookup_failed">Kunne ikke slå opp merket. Vennligst prøv igjen.</string>
+    <string name="error_tag_not_activated">Dette merket er ikke aktivert ennå.</string>
+    <string name="error_tag_not_found">Dette merket ble ikke funnet i systemet.</string>
+    <string name="notif_tag_activated_body">SENRA-merket til %s er nå aktivt. Kjæledyret ditt er beskyttet.</string>
+    <string name="notif_tag_activated_title">Merke aktivert!</string>
+
 </resources>

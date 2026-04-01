@@ -1418,4 +1418,12 @@
     <string name="help_faq_q28">Jak mogę zarejestrować klinikę weterynaryjną mojego zwierzaka lub schronisko, z którego adoptowałem zwierzaka, w sieci SENRA?</string>
     <string name="help_faq_a28">Kliniki weterynaryjne i schroniska mogą się zarejestrować na senra.pet/register-vet-shelter. Wypełnij dane i wyślemy email weryfikacyjny. Po potwierdzeniu automatycznie wysyłamy powiadomienia — pomagając zaginionym zwierzakom szybciej wrócić do domu. Bez opłat i bez logowania.</string>
 
+
+    <!-- Tag activation strings -->
+    <string name="error_tag_lookup_failed">Nie udało się wyszukać identyfikatora. Spróbuj ponownie.</string>
+    <string name="error_tag_not_activated">Ten identyfikator nie został jeszcze aktywowany.</string>
+    <string name="error_tag_not_found">Ten identyfikator nie został znaleziony w systemie.</string>
+    <string name="notif_tag_activated_body">Identyfikator SENRA dla %s jest teraz aktywny. Twój pupil jest chroniony.</string>
+    <string name="notif_tag_activated_title">Identyfikator aktywowany!</string>
+
 </resources>

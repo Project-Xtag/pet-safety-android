@@ -1398,4 +1398,12 @@
     <string name="help_faq_q28">Como posso registar a clínica veterinária do meu animal ou o abrigo onde adotei o meu animal na rede SENRA?</string>
     <string name="help_faq_a28">Clínicas veterinárias e abrigos podem registar-se em senra.pet/register-vet-shelter. Preenche os dados e enviamos um email de verificação. Após confirmação, enviamos notificações quando animais se perdem na zona — ajudando os animais perdidos a voltar para casa mais depressa. Sem custos e sem login.</string>
 
+
+    <!-- Tag activation strings -->
+    <string name="error_tag_lookup_failed">Não foi possível consultar a etiqueta. Por favor, tente novamente.</string>
+    <string name="error_tag_not_activated">Esta etiqueta ainda não foi ativada.</string>
+    <string name="error_tag_not_found">Esta etiqueta não foi encontrada no sistema.</string>
+    <string name="notif_tag_activated_body">A etiqueta SENRA de %s está agora ativa. O seu animal está protegido.</string>
+    <string name="notif_tag_activated_title">Etiqueta ativada!</string>
+
 </resources>

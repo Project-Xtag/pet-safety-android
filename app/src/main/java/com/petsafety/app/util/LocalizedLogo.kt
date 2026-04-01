@@ -12,6 +12,11 @@ object LocalizedLogo {
         "es" to R.drawable.logo_new_es,
         "pt" to R.drawable.logo_new_pt,
         "ro" to R.drawable.logo_new_ro,
+        "fr" to R.drawable.logo_new_fr,
+        "it" to R.drawable.logo_new_it,
+        "pl" to R.drawable.logo_new_pl,
+        "no" to R.drawable.logo_new_no,
+        "hr" to R.drawable.logo_new_hr,
     )
 
     val drawableRes: Int
