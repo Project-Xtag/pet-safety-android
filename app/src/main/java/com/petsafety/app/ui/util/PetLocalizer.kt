@@ -30,6 +30,9 @@ object PetLocalizer {
     private var breedCacheLocale: String = ""
     private var breedCacheMap: Map<String, String> = emptyMap()
 
+    // Reverse map: any localized breed name (from any locale) → English name
+    private var reverseCacheMap: Map<String, String>? = null
+
     private fun breedLookup(context: Context): Map<String, String> {
         val lang = context.resources.configuration.locales[0].language.lowercase().take(2)
         if (breedCacheLocale == lang) return breedCacheMap
@@ -41,6 +44,21 @@ object PetLocalizer {
         }
         breedCacheLocale = lang
         breedCacheMap = map
+        return map
+    }
+
+    private fun reverseBreedLookup(): Map<String, String> {
+        reverseCacheMap?.let { return it }
+        val map = mutableMapOf<String, String>()
+        val allLocales = listOf("en", "hu", "sk", "cs", "de", "es", "pt", "ro", "fr", "it", "pl", "hr", "nb")
+        for (locale in allLocales) {
+            for (species in listOf("dog", "cat")) {
+                for (breed in BreedData.breedsFor(species, locale)) {
+                    map[breed.localizedName.lowercase()] = breed.englishName.lowercase()
+                }
+            }
+        }
+        reverseCacheMap = map
         return map
     }
 
@@ -68,6 +86,14 @@ object PetLocalizer {
         val alias = aliases[raw.lowercase()]
         if (alias != null) {
             lookup[alias]?.let { return it }
+        }
+
+        // Reverse lookup: if the value is a localized breed name from another locale,
+        // map it back to English first, then translate to the current locale.
+        val reverseMap = reverseBreedLookup()
+        val englishName = reverseMap[raw.lowercase()]
+        if (englishName != null) {
+            lookup[englishName]?.let { return it }
         }
 
         return raw

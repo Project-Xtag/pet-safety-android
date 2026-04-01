@@ -17,9 +17,13 @@ data class LocalBreed(
 object BreedData {
     fun breedsFor(species: String, context: Context): List<LocalBreed> {
         val lang = context.resources.configuration.locales[0].language.lowercase().take(2)
+        return breedsFor(species, lang)
+    }
+
+    fun breedsFor(species: String, locale: String): List<LocalBreed> {
         return when (species.lowercase()) {
-            "dog" -> dogBreeds(lang)
-            "cat" -> catBreeds(lang)
+            "dog" -> dogBreeds(locale)
+            "cat" -> catBreeds(locale)
             else -> emptyList()
         }
     }
