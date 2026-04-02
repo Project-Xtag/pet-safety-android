@@ -560,7 +560,7 @@ object BreedData {
             LocalBreed("dog-other", "Inne", "Other", "dog")
         )
         "pt" -> listOf(
-            LocalBreed("dog-mixed-breed", "Cão de raça indeterminada / Rafeiro", "Mixed breed", "dog"),
+            LocalBreed("dog-mixed-crossbreed", "Cão de raça indeterminada / Rafeiro", "Mixed breed", "dog"),
             LocalBreed("dog-portuguese-warren-hound", "Podengo Português", "Portuguese Warren Hound", "dog"),
             LocalBreed("dog-labrador-retriever", "Labrador Retriever", "Labrador Retriever", "dog"),
             LocalBreed("dog-german-shepherd", "Pastor Alemão", "German Shepherd", "dog"),
@@ -613,7 +613,7 @@ object BreedData {
             LocalBreed("dog-other", "Outro", "Other", "dog")
         )
         "ro" -> listOf(
-            LocalBreed("dog-mixed-breed", "Metis / Câine de curte", "Mixed breed", "dog"),
+            LocalBreed("dog-mixed-crossbreed", "Metis / Câine de curte", "Mixed breed", "dog"),
             LocalBreed("dog-german-shepherd", "Ciobanesc German", "German Shepherd", "dog"),
             LocalBreed("dog-labrador-retriever", "Labrador Retriever", "Labrador Retriever", "dog"),
             LocalBreed("dog-golden-retriever", "Golden Retriever", "Golden Retriever", "dog"),
@@ -852,6 +852,7 @@ object BreedData {
             LocalBreed("cat-oriental-shorthair", "Orientalisch Kurzhaar", "Oriental Shorthair", "cat"),
             LocalBreed("cat-cornish-rex", "Cornish Rex", "Cornish Rex", "cat"),
             LocalBreed("cat-himalayan", "Himalaya", "Himalayan", "cat"),
+            LocalBreed("cat-japanese-bobtail", "Japanischer Stummelschwanz", "Japanese Bobtail", "cat"),
             LocalBreed("cat-balinese", "Balinesin", "Balinese", "cat"),
             LocalBreed("cat-ocicat", "Ocicat", "Ocicat", "cat"),
             LocalBreed("cat-manx", "Manx", "Manx", "cat"),
@@ -1047,6 +1048,7 @@ object BreedData {
             LocalBreed("cat-russian-blue", "Orosz kék", "Russian Blue", "cat"),
             LocalBreed("cat-abyssinian", "Abesszin", "Abyssinian", "cat"),
             LocalBreed("cat-scottish-fold", "Skót lógófülű (Scottish Fold)", "Scottish Fold", "cat"),
+            LocalBreed("cat-scottish-straight", "Skót egyenesfülű", "Scottish Straight", "cat"),
             LocalBreed("cat-sphynx", "Szfinx", "Sphynx", "cat"),
             LocalBreed("cat-birman", "Birman", "Birman", "cat"),
             LocalBreed("cat-burmese", "Burmai", "Burmese", "cat"),
@@ -1141,6 +1143,7 @@ object BreedData {
         )
         "nb" -> listOf(
             LocalBreed("cat-mixed-domestic", "Huskatt (Blandingsrase)", "Mixed / Domestic", "cat"),
+            LocalBreed("cat-european-shorthair", "Europeisk Korthår", "European Shorthair", "cat"),
             LocalBreed("cat-norwegian-forest-cat", "Norsk Skogkatt", "Norwegian Forest Cat", "cat"),
             LocalBreed("cat-maine-coon", "Maine Coon", "Maine Coon", "cat"),
             LocalBreed("cat-british-shorthair", "Britisk Korthår", "British Shorthair", "cat"),
@@ -1193,6 +1196,7 @@ object BreedData {
         )
         "no" -> listOf(
             LocalBreed("cat-mixed-domestic", "Huskatt (Blandingsrase)", "Mixed / Domestic", "cat"),
+            LocalBreed("cat-european-shorthair", "Europeisk Korthår", "European Shorthair", "cat"),
             LocalBreed("cat-norwegian-forest-cat", "Norsk Skogkatt", "Norwegian Forest Cat", "cat"),
             LocalBreed("cat-maine-coon", "Maine Coon", "Maine Coon", "cat"),
             LocalBreed("cat-british-shorthair", "Britisk Korthår", "British Shorthair", "cat"),
@@ -1490,6 +1494,7 @@ object BreedData {
             LocalBreed("cat-nebelung", "Nebelung", "Nebelung", "cat"),
             LocalBreed("cat-bombay", "Bombay", "Bombay", "cat"),
             LocalBreed("cat-japanese-bobtail", "Japanese Bobtail", "Japanese Bobtail", "cat"),
+            LocalBreed("cat-manx", "Manx", "Manx", "cat"),
             LocalBreed("cat-munchkin", "Munchkin", "Munchkin", "cat"),
             LocalBreed("cat-peterbald", "Peterbald", "Peterbald", "cat"),
             LocalBreed("cat-korat", "Korat", "Korat", "cat"),
