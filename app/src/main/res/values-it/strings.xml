@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <string name="app_name">SENRA Pet</string>
+    <string name="app_name">SENRA</string>
 
     <!-- ============================================ -->
     <!-- MARK: Common -->
@@ -962,7 +962,7 @@
     <!-- ============================================ -->
     <!-- MARK: App Info -->
     <!-- ============================================ -->
-    <string name="app_name_label">SENRA Pet</string>
+    <string name="app_name_label">SENRA</string>
     <string name="app_version">Versione 1.0.0</string>
 
     <!-- ============================================ -->

@@ -8,7 +8,7 @@
         <item quantity="one">%d foto no se pudo subir</item>
         <item quantity="other">%d fotos no se pudieron subir</item>
     </plurals>
-    <string name="app_name">SENRA Pet</string>
+    <string name="app_name">SENRA</string>
     <!--
         Google Maps API key is injected via build.gradle.kts from:
         1. local.properties (for local development - add GOOGLE_MAPS_API_KEY=your_key)
@@ -926,7 +926,7 @@
     <!-- ============================================ -->
     <!-- MARK: App Info -->
     <!-- ============================================ -->
-    <string name="app_name_label">SENRA Pet</string>
+    <string name="app_name_label">SENRA</string>
     <string name="app_version">Versión 1.0.0</string>
 
     <!-- ============================================ -->
