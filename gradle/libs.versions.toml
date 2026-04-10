@@ -36,7 +36,7 @@ hilt-navigation-compose = "1.2.0"
  turbine = "1.1.0"
  mockk = "1.13.12"
  coroutines-test = "1.9.0"
-sqlcipher = "4.6.1"
+sqlcipher = "4.14.0"
 sqlite-ktx = "2.4.0"
 timber = "5.0.1"
 

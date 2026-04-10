@@ -106,6 +106,7 @@ fun QrScannerScreen(
     pendingQrCode: String?,
     onQrCodeHandled: () -> Unit,
     onNavigateToActivation: (String) -> Unit = {},
+    onNavigateToPromoClaim: (String, String, Int) -> Unit = { _, _, _ -> },
     modifier: Modifier = Modifier
 ) {
     // Note: SecureScreen (FLAG_SECURE) intentionally NOT used here —
@@ -145,6 +146,11 @@ fun QrScannerScreen(
     // Handle lookup state transitions
     LaunchedEffect(lookupState) {
         when (val state = lookupState) {
+            is TagLookupState.PromoClaimAvailable -> {
+                onNavigateToPromoClaim(state.code, state.shelterName, state.promoDurationMonths)
+                viewModel.reset()
+                cameraKey++
+            }
             is TagLookupState.NeedsActivation -> {
                 onNavigateToActivation(state.qrCode)
                 viewModel.reset()

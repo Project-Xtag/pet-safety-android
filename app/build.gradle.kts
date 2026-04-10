@@ -45,7 +45,7 @@ android {
         applicationId = "com.petsafety.app"
         minSdk = 26
         targetSdk = 35
-        versionCode = 3
+        versionCode = 7
         versionName = "1.0.0-beta1"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
@@ -102,6 +102,9 @@ android {
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
+        }
+        jniLibs {
+            useLegacyPackaging = false
         }
     }
     testOptions {

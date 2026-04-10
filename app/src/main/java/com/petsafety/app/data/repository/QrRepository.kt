@@ -1,8 +1,11 @@
 package com.petsafety.app.data.repository
 
+import com.petsafety.app.data.model.ClaimPromoTagRequest
+import com.petsafety.app.data.model.ClaimPromoTagResponse
 import com.petsafety.app.data.model.ScanResponse
 import com.petsafety.app.data.model.QrTag
 import com.petsafety.app.data.model.TagLookupResponse
+import com.petsafety.app.data.network.model.CreatePetRequest
 import com.petsafety.app.data.network.ApiService
 import com.petsafety.app.data.network.model.ActivateTagRequest
 import com.petsafety.app.data.network.model.LocationConsentType
@@ -33,6 +36,14 @@ class QrRepository(private val apiService: ApiService) {
 
     suspend fun getActiveTag(petId: String): QrTag? =
         apiService.getActiveTag(petId).data?.tag
+
+    suspend fun claimPromoTag(
+        qrCode: String,
+        pet: CreatePetRequest? = null,
+        petId: String? = null
+    ): ClaimPromoTagResponse =
+        apiService.claimPromoTag(ClaimPromoTagRequest(qrCode, pet, petId)).data
+            ?: error("Missing claim promo response")
 
     /**
      * Share location with 2-tier consent (toggle ON = precise, toggle OFF = approximate).

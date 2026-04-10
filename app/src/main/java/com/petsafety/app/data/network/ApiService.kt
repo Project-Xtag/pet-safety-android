@@ -1,5 +1,7 @@
 package com.petsafety.app.data.network
 
+import com.petsafety.app.data.model.ClaimPromoTagRequest
+import com.petsafety.app.data.model.ClaimPromoTagResponse
 import com.petsafety.app.data.model.ScanResponse
 import com.petsafety.app.data.model.TagLookupResponse
 import com.petsafety.app.data.model.SuccessStory
@@ -156,6 +158,9 @@ interface ApiService {
 
     @POST("qr-tags/activate")
     suspend fun activateTag(@Body request: ActivateTagRequest): ApiEnvelope<ActivateTagResponse>
+
+    @POST("qr-tags/claim-promo")
+    suspend fun claimPromoTag(@Body request: ClaimPromoTagRequest): ApiEnvelope<ClaimPromoTagResponse>
 
     @GET("qr-tags/pet/{petId}")
     suspend fun getActiveTag(@Path("petId") petId: String): ApiEnvelope<GetTagResponse>

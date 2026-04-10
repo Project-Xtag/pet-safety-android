@@ -31,6 +31,7 @@ import com.petsafety.app.ui.screens.AlertsTabScreen
 import com.petsafety.app.ui.screens.PetsScreen
 import com.petsafety.app.ui.screens.ProfileScreen
 import com.petsafety.app.ui.screens.QrScannerScreen
+import com.petsafety.app.ui.screens.ShelterPromoClaimScreen
 import com.petsafety.app.ui.screens.TagActivationScreen
 import com.petsafety.app.ui.viewmodel.AppStateViewModel
 import com.petsafety.app.ui.viewmodel.AuthViewModel
@@ -63,6 +64,7 @@ fun MainTabScaffold(
     var selectedTab by remember { mutableStateOf<TabItem>(TabItem.Pets) }
     var alertsInitialTab by remember { mutableStateOf(0) }
     var activationQrCode by remember { mutableStateOf<String?>(null) }
+    var promoClaimData by remember { mutableStateOf<Triple<String, String, Int>?>(null) } // (qrCode, shelterName, months)
 
     // Custom pre-permission dialog state
     var showPushPrompt by rememberSaveable { mutableStateOf(false) }
@@ -121,6 +123,19 @@ fun MainTabScaffold(
         }
     }
 
+    // Show promo claim screen if promo tag scanned
+    if (promoClaimData != null) {
+        val (qrCode, shelterName, months) = promoClaimData!!
+        ShelterPromoClaimScreen(
+            qrCode = qrCode,
+            shelterName = shelterName,
+            promoDurationMonths = months,
+            onDone = { promoClaimData = null },
+            onBack = { promoClaimData = null }
+        )
+        return
+    }
+
     // Show activation screen if QR code needs activation
     if (activationQrCode != null) {
         TagActivationScreen(
@@ -166,6 +181,7 @@ fun MainTabScaffold(
                 selectedTab = TabItem.Alerts
             },
             onNavigateToActivation = { qrCode -> activationQrCode = qrCode },
+            onNavigateToPromoClaim = { qrCode, shelter, months -> promoClaimData = Triple(qrCode, shelter, months) },
             onScanTag = { selectedTab = TabItem.Scan },
             onExploreAccount = { selectedTab = TabItem.Profile },
             onNavigateToPets = { selectedTab = TabItem.Pets },
@@ -184,6 +200,7 @@ private fun TabContent(
     alertsInitialTab: Int = 0,
     onNavigateToSuccessStories: () -> Unit = {},
     onNavigateToActivation: (String) -> Unit = {},
+    onNavigateToPromoClaim: (String, String, Int) -> Unit = { _, _, _ -> },
     onScanTag: () -> Unit = {},
     onExploreAccount: () -> Unit = {},
     onNavigateToPets: () -> Unit = {},
@@ -197,6 +214,7 @@ private fun TabContent(
                 pendingQrCode = pendingQrCode,
                 onQrCodeHandled = onQrCodeHandled,
                 onNavigateToActivation = onNavigateToActivation,
+                onNavigateToPromoClaim = onNavigateToPromoClaim,
                 modifier = modifier
             )
             TabItem.Alerts -> AlertsTabScreen(appStateViewModel, authViewModel, modifier, alertsInitialTab)

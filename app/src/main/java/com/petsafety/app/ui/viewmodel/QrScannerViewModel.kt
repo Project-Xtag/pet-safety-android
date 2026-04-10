@@ -24,6 +24,7 @@ sealed class TagLookupState {
     data class NotActivated(val message: String) : TagLookupState()
     data class NotFound(val message: String) : TagLookupState()
     data class Error(val message: String) : TagLookupState()
+    data class PromoClaimAvailable(val code: String, val shelterName: String, val promoDurationMonths: Int) : TagLookupState()
 }
 
 @HiltViewModel
@@ -52,7 +53,13 @@ class QrScannerViewModel @Inject constructor(
             _isLoading.value = true
             try {
                 val lookup = repository.lookupTag(code)
-                if (!lookup.exists) {
+                if (lookup.canClaimPromo == true && lookup.promo?.batchExpired != true) {
+                    _lookupState.value = TagLookupState.PromoClaimAvailable(
+                        code = code,
+                        shelterName = lookup.promo?.shelterName ?: "",
+                        promoDurationMonths = lookup.promo?.promoDurationMonths ?: 3
+                    )
+                } else if (!lookup.exists) {
                     _lookupState.value = TagLookupState.NotFound(application.getString(R.string.error_tag_not_found))
                 } else if (lookup.status == "active" && lookup.hasPet && lookup.pet != null) {
                     _scanResult.value = lookup
