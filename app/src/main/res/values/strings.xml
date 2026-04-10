@@ -60,7 +60,7 @@
     <!-- MARK: Auth -->
     <!-- ============================================ -->
     <string name="welcome_back">Welcome Back!</string>
-    <string name="welcome_new_user">Welcome to SENRA Pet!</string>
+    <string name="welcome_new_user">Welcome to SENRA!</string>
     <string name="enter_email_subtitle">Enter your email to receive a login code.</string>
     <string name="email_address">Email Address</string>
     <string name="send_login_code">Send Login Code</string>
@@ -81,9 +81,9 @@
     <string name="register">Register</string>
     <string name="already_have_account">Already have an account?</string>
     <string name="log_in">Log in</string>
-    <string name="terms_login_prefix">By logging in, you agree to our </string>
-    <string name="terms_register_prefix">By registering, you agree to our </string>
-    <string name="terms_and"> and </string>
+    <string name="terms_login_prefix">By logging in, you agree to our</string>
+    <string name="terms_register_prefix">By registering, you agree to our</string>
+    <string name="terms_and">and</string>
     <string name="terms_of_service">Terms of Service</string>
     <string name="privacy_policy">Privacy Policy</string>
     <string name="first_name">First Name</string>
@@ -278,12 +278,12 @@
     <string name="turn_off_flashlight">Turn off flashlight</string>
     <string name="turn_on_flashlight">Turn on flashlight</string>
     <string name="hello_pet_name">Hello! I\'m %1$s</string>
-    <string name="scanned_tag_thanks">"You've just scanned my tag.\nThank you for helping me!"</string>
+    <string name="scanned_tag_thanks">You\'ve just scanned my tag. Thank you for helping me!</string>
     <string name="share_location_with_owner">Share My Location with Owner</string>
     <string name="owner_notified_message">%1$s\'s owner will receive a notification with your location</string>
     <string name="share_location_help">Help %1$s\'s owner find them by sharing your location</string>
     <string name="precise_location">Precise Location</string>
-    <string name="precise_location_desc">Share your exact GPS coordinates</string>
+    <string name="precise_location_desc">Share your location</string>
     <string name="approximate_location">Approximate Location</string>
     <string name="approximate_location_desc">Approximate location sharing (GDPR compliant)</string>
     <string name="dont_share_location">Don\'t Share Location</string>
@@ -320,7 +320,7 @@
     <string name="tag_choose_plan_button">Complete Pet Profile</string>
     <string name="tag_skip_for_now">I\'ll do this later</string>
     <string name="tag_no_pets">No Pets Yet</string>
-    <string name="tag_no_pets_message">Add a pet first before activating a tag</string>
+    <string name="tag_no_pets_message"></string>
     <string name="tag_code_label">Tag Code</string>
     <string name="tag_select_pet">Select a pet to link with this tag</string>
     <string name="tag_activating">Activating\u2026</string>
@@ -506,7 +506,7 @@
     <string name="notif_sighting_title">Sighting Reported</string>
     <string name="notif_sighting_body_location">%1$s was spotted at %2$s!</string>
     <string name="notif_sighting_body_no_location">%1$s was spotted! Check the sighting location.</string>
-    <string name="notif_fallback_title">Pet Safety</string>
+    <string name="notif_fallback_title">SENRA</string>
     <string name="notif_fallback_pet_name">Your pet</string>
     <string name="notif_fallback_a_pet">A pet</string>
     <string name="notif_fallback_your_area">your area</string>
@@ -565,9 +565,9 @@
     <string name="missing_for">Missing for %1$s</string>
     <string name="pet_found_share">%1$s Found!</string>
     <string name="reunited_in">Reunited in %1$s</string>
-    <string name="shared_via_pet_safety">Shared via Pet Safety App</string>
+    <string name="shared_via_pet_safety">Shared via SENRA App</string>
     <string name="story_share_good_news">Share the Good News</string>
-    <string name="story_social_caption">%1$s has been reunited with their family! Thank you to the SENRA community for helping bring %1$s home. senra.pet</string>
+    <string name="story_social_caption">%1$s has been reunited with their family! Thank you to the SENRA community for helping bring %1$s home. SENRA</string>
     <string name="story_generating_card">Creating share card\u2026</string>
     <string name="story_pet_is_home_title">%1$s is home!</string>
     <string name="story_inspire_others_message">Help inspire other pet owners by sharing how %1$s was reunited with you.</string>
@@ -636,26 +636,26 @@
     <string name="primary_phone">Primary Phone</string>
     <string name="show_on_qr_tag">Show on QR tag</string>
     <string name="secondary_phone_optional">Secondary Phone (Optional)</string>
-    <string name="contacts_qr_tag_info">These contact details will be shown when someone scans your pet\'s QR tag. You can add up to two email addresses and phone numbers.</string>
+    <string name="contacts_qr_tag_info">Contacts marked as visible will be displayed on your pet\'s QR tag when scanned by someone who finds your pet.</string>
     <string name="contact_details">Contact Details</string>
 
     <!-- ============================================ -->
     <!-- MARK: Contact Visibility -->
     <!-- ============================================ -->
     <string name="contact_visibility">Contact Visibility</string>
-    <string name="contact_visibility_desc">Control what contact information is visible on your pet\'s public profile</string>
+    <string name="contact_visibility_desc">Control what contact information is visible when someone scans your pet\'s QR tag</string>
     <string name="show_name">Show Your Name</string>
     <string name="show_name_subtitle">Your name will be visible on your pet\'s public profile when someone scans their tag</string>
     <string name="show_phone_number">Show Phone Number</string>
-    <string name="show_phone_subtitle">Your primary and secondary phone numbers will be visible on your pet\'s public profile</string>
+    <string name="show_phone_subtitle">Your phone number will be visible to finders</string>
     <string name="show_email_address">Show Email Address</string>
-    <string name="show_email_subtitle">Your primary and secondary email addresses will be visible on your pet\'s public profile</string>
+    <string name="show_email_subtitle">Your email will be visible to finders</string>
     <string name="show_address">Show Address</string>
-    <string name="show_address_subtitle">Your address will be visible on your pet\'s public profile</string>
+    <string name="show_address_subtitle">Your address will be visible to finders</string>
     <string name="show_secondary_phone">Show Secondary Phone</string>
-    <string name="show_secondary_phone_subtitle">Display your secondary phone number on your pet\'s public profile</string>
+    <string name="show_secondary_phone_subtitle">Display your secondary phone on the pet profile</string>
     <string name="show_secondary_email">Show Secondary Email</string>
-    <string name="show_secondary_email_subtitle">Display your secondary email address on your pet\'s public profile</string>
+    <string name="show_secondary_email_subtitle">Display your secondary email on the pet profile</string>
 
     <!-- ============================================ -->
     <!-- MARK: Privacy Mode -->
@@ -715,7 +715,7 @@
     <string name="help_guide_emergency_title">Emergency Contact &amp; Alerts</string>
     <string name="help_guide_emergency_desc">When someone scans your pet\'s tag, you receive an instant notification by email with the finder\'s location. Standard and Maximum plan members also receive SMS alerts for faster response. If you mark your pet as missing, a community alert is sent to all SENRA users within 10km, and registered vets and shelters in your area are also notified. Anyone in the community can report sightings with their location, building a trail to help you find your pet.</string>
     <string name="help_guide_profile_title">Pet Profile Management</string>
-    <string name="help_guide_profile_desc">Your pet\'s digital profile is the heart of SENRA. Add essential details like name, species, breed, age, and a clear photo. You can also include medical information (allergies, medications, conditions), microchip number, and unique features that help identify your pet. Upload multiple photos to a gallery. All information can be updated at any time from the \'My Pets\' section. You control which of your personal details (phone, email, address) are visible to people who scan the tag.</string>
+    <string name="help_guide_profile_desc">Your pet\'s digital profile is the heart of SENRA. Add essential details like species, breed, age, and a clear photo. You can also include medical information (allergies, medications, conditions), microchip number, and unique features that help identify your pet. Upload multiple photos to a gallery. All information can be updated at any time from the \'My Pets\' section. You control which of your personal details (phone, email, address) are visible to people who scan the tag.</string>
     <string name="help_guide_missing_alerts_title">Missing Pet Alerts &amp; Sightings</string>
     <string name="help_guide_missing_alerts_desc">If your pet goes missing, mark them as missing from \'My Pets\' to create an instant community alert. Your pet\'s photo and details appear on the Missing Pets map visible to all SENRA users in your area. Community members can report sightings with their GPS location, which you receive as notifications. Registered vets and shelters are also alerted. Once your pet is found, mark them as found and optionally share your reunion story to inspire the community.</string>
     <string name="help_guide_community_title">Community &amp; Found Pets</string>
@@ -822,7 +822,7 @@
     <string name="billing_invoices">Invoices</string>
     <string name="billing_no_invoices">No invoices yet</string>
     <string name="billing_subscription">Subscription</string>
-    <string name="billing_portal_footer">Manage your subscription, payment method, and billing details through Stripe.</string>
+    <string name="billing_portal_footer">Manage your payment and billing details through Stripe.</string>
     <string name="billing_loading_invoices">Loading invoices\u2026</string>
     <string name="billing_invoice">Invoice</string>
     <string name="billing_unknown">Unknown</string>
@@ -848,7 +848,7 @@
     <string name="referral_copy">Copy</string>
     <string name="referral_share">Share</string>
     <string name="referral_pending">Pending</string>
-    <string name="referral_share_text">Use my referral code %1$s to get 2 months free on Pet Safety! https://senra.pet/choose-plan?referral=%2$s</string>
+    <string name="referral_share_text">Use my referral code %1$s to get 2 months free on SENRA! https://senra.pet/choose-plan?referral=%2$s</string>
     <string name="referral_clipboard_label">Referral Code</string>
     <string name="referral_use_friend_code">Use a Friend\'s Code</string>
     <string name="enter_friend_code">Enter referral code</string>
@@ -885,7 +885,7 @@
     <string name="public_profile_subtitle">This is how others see %1$s\'s profile</string>
     <string name="owner_notified_sms_email">%1$s\'s owner will receive an SMS and email with your location</string>
     <string name="contact_owner_plea">Please let my owner know that you have found me\u2026</string>
-    <string name="contact_owner_plea_full">Please let my owner know that you have found me. Tap on the share location button or call them on the phone number below.</string>
+    <string name="contact_owner_plea_full">Please let my owner know that you have found me. You can reach them using the contact details below.</string>
     <string name="contact_info_not_set">Contact info not set up yet</string>
     <string name="contact_info_hidden">Contact info is hidden</string>
     <string name="contact_info_hidden_hint">Your contact details are set but hidden due to privacy settings. Update in Account \u2192 Privacy Mode.</string>
@@ -1279,7 +1279,7 @@
     <string name="share_location_title">Share Your Location</string>
     <string name="share_location_exact">Share exact location</string>
     <string name="share_location_approximate">Share approximate location (~100m)</string>
-    <string name="share_location_exact_note">The owner will see your precise GPS coordinates</string>
+    <string name="share_location_exact_note">The owner will see your location</string>
     <string name="share_location_approximate_note">The owner will see an approximate area</string>
     <string name="share_location_confirm">Share</string>
     <string name="share_location_success">Location shared! The owner has been notified.</string>
@@ -1367,7 +1367,7 @@
     <string name="help_faq_q5">How do I order a replacement tag?</string>
     <string name="help_faq_a5">Go to the \'Home/My Account\' page and tap \'Order Replacement Tag\'. Select which pet needs a new tag. Maximum and Standard plan subscribers can request free replacement tags, while Starter plan members can order replacements for the shipping cost.</string>
     <string name="help_faq_q6">How do I activate my tag after it arrives?</string>
-    <string name="help_faq_a6">Download the SENRA mobile app from the Google Play Store or App Store! Open it and go to the \'Activate\' menu, point your phone\'s camera at the QR code on the tag! Scanning the QR code links the tag to your account. Then you need to select your existing pet or create a new profile. After completing activation, you can choose your subscription plan.</string>
+    <string name="help_faq_a6">Download the SENRA mobile app from the Google Play Store or App Store! Open it and go to the \'Activate\' menu, point your phone\'s camera at the QR code on the tag! Scanning the QR code links the tag to your account. Then create a new pet profile. After completing activation, you can choose your subscription plan.</string>
     <string name="help_faq_q7">Can I give a SENRA tag as a gift?</string>
     <string name="help_faq_a7">Yes! SENRA tags make great gifts for pet owners. Simply order the tag from your own account — when the recipient receives it, they can scan the QR code, create their own account, and activate the tag for their pet. The recipient doesn\'t need to register in advance — scanning the tag guides them through account creation and linking the tag to their pet.</string>
     <string name="help_faq_q8">What should I do if my pet goes missing?</string>
@@ -1391,11 +1391,11 @@
     <string name="help_faq_q17">My tag won\'t scan — what should I do?</string>
     <string name="help_faq_a17">Try the following: clean the tag surface with a damp cloth, ensure good lighting, hold your phone camera steadily about 10-15 cm from the tag, and check that your camera app or QR reader is working. If the QR code is scratched or worn, order a free replacement from the \'Home/My Account\' page (free replacement is available for Standard and Maximum plan subscribers — Starter members need to pay the shipping cost for a replacement tag).</string>
     <string name="help_faq_q18">I found a pet without a SENRA tag — what can I do?</string>
-    <string name="help_faq_a18">Check the Missing Pets map on the SENRA website (senra.pet) — the pet may have been reported missing in your area. You can also view missing pet alerts within the app. Take the pet to the nearest vet clinic to have its microchip scanned. If the pet has a SENRA tag, scan the QR code with your phone\'s camera — the owner\'s contact details will appear. Always notify local authorities and nearby shelters as well.</string>
+    <string name="help_faq_a18">Check the Missing Pets map on the SENRA website (senra.pet) — the pet may have been reported missing in your area. You can also view missing pet alerts within the app. Take the pet to the nearest vet clinic to have its microchip scanned. If the pet has a SENRA tag, scan the QR code with your phone\'s camera — the owner\'s contact details will appear.</string>
     <string name="help_faq_q19">Can I change my email address?</string>
     <string name="help_faq_a19">Your primary email address serves as your account identifier and therefore cannot be changed directly. If you\'d like to use a different email as your public contact, you can add a secondary email address in \'Settings\' &gt; \'Contact Details\' — this can also appear on your pet\'s profile if you enable it, so the finder can see it immediately and contact you directly. If you absolutely need to change your primary email, contact us at hello@senra.pet and we\'ll help migrate your account.</string>
     <string name="help_faq_q20">What\'s the difference between a microchip and a SENRA QR tag?</string>
-    <string name="help_faq_a20">A microchip is a tiny implant under your pet\'s skin that stores a unique 15-digit identifier — but it requires a special reader (usually only available at vets and shelters). The SENRA QR tag can be easily scanned with any smartphone camera, instantly displaying your pet\'s full profile, photo, and the contact details you\'ve approved. The finder can also share the GPS coordinates of where they found your pet.</string>
+    <string name="help_faq_a20">A microchip is a tiny implant under your pet\'s skin that stores a unique 15-digit identifier — but it requires a special reader (usually only available at vets and shelters). The SENRA QR tag can be easily scanned with any smartphone camera, instantly displaying your pet\'s full profile, photo, and the contact details you\'ve approved. The finder can also share where they found your pet.</string>
     <string name="help_faq_q21">What happens to my data if I cancel my subscription?</string>
     <string name="help_faq_a21">If you cancel your subscription, you retain access to paid features until the end of the current billing period. After that, your account automatically switches to the free Starter plan. Pet profiles, photos, and QR tags remain active — you only lose access to premium features (SMS notifications, vet alerts, free tag replacement, etc.). Your data is not deleted upon cancellation. To permanently delete all data, use the Delete Account option in Settings.</string>
     <string name="help_faq_q22">How can I register my clinic or shelter with SENRA?</string>

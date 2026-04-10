@@ -64,30 +64,30 @@
     <!-- MARK: Auth -->
     <!-- ============================================ -->
     <string name="welcome_back">Üdv újra!</string>
-    <string name="welcome_new_user">Üdvözlünk a SENRA Petnél!</string>
-    <string name="enter_email_subtitle">Add meg az email címed, hogy bejelentkezési kódot kapj.</string>
+    <string name="welcome_new_user">Üdvözöl a SENRA!</string>
+    <string name="enter_email_subtitle">Add meg az email címed, hogy bejelentkezési kódot kapj!</string>
     <string name="email_address">Email cím</string>
     <string name="send_login_code">Bejelentkezési kód küldése</string>
     <string name="verify_code">Kód ellenőrzése</string>
     <string name="use_different_email">Másik email cím használata</string>
     <string name="code_sent_to_email">Kód elküldve: %1$s</string>
     <string name="otp_sent_to">Add meg a 6 számjegyű kódot, amelyet ide küldtünk:</string>
-    <string name="otp_placeholder">Írd be a 6 jegyű kódot</string>
+    <string name="otp_placeholder">Írd be a 6 jegyű kódot!</string>
     <string name="login_failed">Sikertelen bejelentkezés</string>
     <string name="verification_failed">Sikertelen ellenőrzés</string>
-    <string name="invalid_email">Kérjük, adj meg egy érvényes email címet</string>
+    <string name="invalid_email">Kérjük, adj meg egy érvényes email címet!</string>
     <string name="resend_code_cooldown">Kód újraküldése %1$d mp múlva</string>
     <string name="resend_code_prompt">Nem kaptad meg a kódot? Újraküldés</string>
     <string name="dont_have_account">Nincs még fiókod?</string>
-    <string name="start_here_order_free_tag">Kezdd itt &amp; rendeld meg az ingyenes bilétát</string>
+    <string name="start_here_order_free_tag">Kezdd itt &amp; rendeld meg az ingyenes bilétát!</string>
     <string name="create_account">Fiók létrehozása</string>
-    <string name="enter_details_subtitle">Add meg az adataidat a kezdéshez.</string>
+    <string name="enter_details_subtitle">Add meg az adataidat a kezdéshez!</string>
     <string name="register">Regisztráció</string>
     <string name="already_have_account">Már van fiókod?</string>
     <string name="log_in">Bejelentkezés</string>
     <string name="terms_login_prefix">A bejelentkezéssel elfogadod a(z)</string>
-    <string name="terms_register_prefix">Regisztrációval elfogadod a(z) </string>
-    <string name="terms_and"> és </string>
+    <string name="terms_register_prefix">Regisztrációval elfogadod a(z)</string>
+    <string name="terms_and">és</string>
     <string name="terms_of_service">Felhasználási feltételeket</string>
     <string name="privacy_policy">Adatkezelési tájékoztatót</string>
     <string name="first_name">Keresztnév</string>
@@ -103,14 +103,14 @@
     <string name="use_password">Email használata</string>
     <string name="login_with_biometric">Bejelentkezés biometrikával</string>
     <string name="enable_biometric_title">Engedélyezed a biometrikus bejelentkezést?</string>
-    <string name="enable_biometric_message">Használd az ujjlenyomatodat vagy az arcodat a gyors bejelentkezéshez legközelebb.</string>
+    <string name="enable_biometric_message">Használd az ujjlenyomatodat vagy az arcodat a gyors bejelentkezéshez legközelebb!</string>
     <string name="biometric_enabled">Biometrikus bejelentkezés engedélyezve</string>
 
     <!-- ============================================ -->
     <!-- MARK: Session -->
     <!-- ============================================ -->
     <string name="session_expired_title">A munkamenet lejárt</string>
-    <string name="session_expired_message">A munkamenet lejárt. Kérjük, jelentkezz be újra.</string>
+    <string name="session_expired_message">A munkamenet lejárt. Kérjük, jelentkezz be újra!</string>
     <string name="session_expired_log_in">Bejelentkezés</string>
 
     <!-- ============================================ -->
@@ -158,7 +158,7 @@
     <string name="delete_pet_confirm_title">Törlöd %1$s-t?</string>
     <string name="delete_pet_confirm_message">Ez a művelet nem vonható vissza. %1$s minden adata véglegesen törlődik.</string>
     <string name="cannot_delete_missing_pet">Eltűnt kedvenc nem törölhető</string>
-    <string name="cannot_delete_missing_message">%1$s jelenleg eltűntként van jelölve. Törlés előtt jelöld meg megtaláltként.</string>
+    <string name="cannot_delete_missing_message">%1$s jelenleg eltűntként van jelölve. Törlés előtt jelöld meg megtaláltként!</string>
     <string name="mark_found_confirm_title">Megtaláltként jelölöd %1$st?</string>
     <string name="mark_found_confirm_message">Ez lezárja %1$s eltűnt riasztását. Biztos vagy benne?</string>
     <string name="marked_found_message">%1$s megtaláltként jelölve.</string>
@@ -180,7 +180,7 @@
     <string name="photo">Fotó</string>
     <string name="edit_photo">Fotó szerkesztése</string>
     <string name="photo_selected_hint">Fotó kiválasztva</string>
-    <string name="choose_photo_hint">Válassz fotót a kedvencedről</string>
+    <string name="choose_photo_hint">Válassz fotót a kedvencedről!</string>
     <string name="basic_information">Alapinformációk</string>
     <string name="colour">Szín</string>
     <string name="colour_optional">Szín (opcionális)</string>
@@ -224,14 +224,14 @@
     <string name="uploading_photos">Fotók feltöltése\u2026</string>
     <string name="loading_photos">Fotók betöltése\u2026</string>
     <string name="no_photos_yet">Még nincs fotó</string>
-    <string name="add_photos_gallery_hint">Adj hozzá fotókat, hogy galéria készüljön %1$s számára</string>
-    <string name="add_photos_gallery_generic">Adj hozzá fotókat, hogy galéria készüljön</string>
+    <string name="add_photos_gallery_hint">Adj hozzá fotókat, hogy galéria készüljön %1$s számára!</string>
+    <string name="add_photos_gallery_generic">Adj hozzá fotókat, hogy galéria készüljön!</string>
     <string name="choose_photo_source">Fotóforrás kiválasztása</string>
     <string name="camera">Kamera</string>
     <string name="library">Galéria</string>
     <string name="delete_photo">Fotó törlése</string>
     <string name="delete_photo_confirm">Biztosan törlöd ezt a fotót? Ez a művelet nem vonható vissza.</string>
-    <string name="photo_tip">Tipp: Tartsd hosszan nyomva és állítsd be elsődlegesnek vagy töröld</string>
+    <string name="photo_tip">Tipp: Tartsd hosszan nyomva és állítsd be elsődlegesnek vagy töröld!</string>
     <string name="photo_uploaded">Fotó feltöltve</string>
     <string name="upload_failed">Feltöltés sikertelen</string>
     <string name="primary_updated">Elsődleges fotó frissítve</string>
@@ -257,33 +257,33 @@
     <!-- MARK: QR Scanner -->
     <!-- ============================================ -->
     <string name="scan_qr_code">QR-kód beolvasása</string>
-    <string name="scan_qr_subtitle">Irányítsd a kamerát a QR kódra a bilétán</string>
+    <string name="scan_qr_subtitle">Irányítsd a kamerát a QR kódra a bilétán!</string>
     <string name="camera_access_required">Kamera-hozzáférés szükséges</string>
-    <string name="camera_access_message">Kérjük, engedélyezd a kamera hozzáférést a QR-kódok beolvasásához</string>
+    <string name="camera_access_message">Kérjük, engedélyezd a kamera hozzáférést a QR-kódok beolvasásához!</string>
     <string name="enable_camera">Kamera engedélyezése</string>
     <string name="qr_scanned">QR beolvasva</string>
     <string name="manual_code_label">QR-kód</string>
     <string name="submit_code">Kód beküldése</string>
-    <string name="invalid_qr_code">Adj meg érvényes kódot</string>
+    <string name="invalid_qr_code">Adj meg érvényes kódot!</string>
     <string name="turn_off_flashlight">Zseblámpa kikapcsolása</string>
     <string name="turn_on_flashlight">Zseblámpa bekapcsolása</string>
     <string name="hello_pet_name">Szia! %1$s vagyok</string>
     <string name="scanned_tag_thanks">Épp most olvastad be a bilétámat. Köszönöm, hogy segítesz!</string>
-    <string name="share_location_with_owner">A hely adatainak megosztása a gazdival</string>
+    <string name="share_location_with_owner">A tartózkodási hely adatainak megosztása a gazdival</string>
     <string name="owner_notified_message">%1$s gazdija értesítést kap a tartózkodási helyedről</string>
-    <string name="share_location_help">Segíts %1$s gazdijának megtalálni őt a helyed megosztásával</string>
+    <string name="share_location_help">Segíts %1$s gazdijának megtalálni őt a tartózkodási helyed megosztásával!</string>
     <string name="precise_location">Pontos hely</string>
-    <string name="precise_location_desc">Oszd meg a pontos GPS koordinátáid</string>
-    <string name="approximate_location">Közelítő hely</string>
+    <string name="precise_location_desc">Oszd meg a tartózkodási helyedet!</string>
+    <string name="approximate_location">Viszonylagos tartózkodási hely</string>
     <string name="approximate_location_desc">Közelítő helymeghatározás (GDPR-kompatibilis)</string>
-    <string name="dont_share_location">Ne ossz meg helyet</string>
-    <string name="dont_share_location_desc">Csak értesítsd a gazdit, hogy a kedvencét megtalálták</string>
+    <string name="dont_share_location">Ne ossz meg tartózkodási helyet!</string>
+    <string name="dont_share_location_desc">Csak értesítsd a gazdit, hogy a kedvencét megtalálták!</string>
     <string name="confirm_notify_owner">Megerősítés &amp; gazdi értesítése</string>
     <string name="share_exact_location_toggle">Pontos hely megosztása</string>
     <string name="contact_owner">Gazdi elérhetősége</string>
     <string name="call_phone">Hívás: %1$s</string>
     <string name="email_contact">Email: %1$s</string>
-    <string name="privacy_notice">Fontos az adatvédelem. A hely adatait csak %1$s gazdijával osztjuk meg, hogy segítsünk újra találkozni.</string>
+    <string name="privacy_notice">Fontos az adatvédelem. A tartózkodási helyed adatait csak %1$s gazdijával osztjuk meg, hogy segítsünk újra találkozniuk.</string>
     <string name="found_pet_title">%1$s megtalálva</string>
     <string name="share_location">Hely megosztása</string>
     <string name="location_shared">Hely megosztva</string>
@@ -306,13 +306,13 @@
     <string name="tag_loading_pets">Kedvencek betöltése...</string>
     <string name="tag_activated">Biléta aktiválva!</string>
     <string name="tag_activated_message">Ez a biléta %1$s-hoz van csatolva</string>
-    <string name="tag_choose_plan">Töltsd ki a kedvenced profilját, hogy könnyebben megtalálják, ha elveszne</string>
+    <string name="tag_choose_plan">Töltsd ki a kedvenced profilját, hogy könnyebben megtalálják, ha elveszne!</string>
     <string name="tag_choose_plan_button">Kedvenc profil kitöltése</string>
     <string name="tag_skip_for_now">Majd később</string>
     <string name="tag_no_pets">Még nincs kedvenc regisztrálva</string>
-    <string name="tag_no_pets_message">Előbb adj hozzá egy kedvencet, majd aktiváld a bilétát</string>
+    <string name="tag_no_pets_message"></string>
     <string name="tag_code_label">Biléta kód</string>
-    <string name="tag_select_pet">Válassz egy kedvencet a biléta aktiválásához</string>
+    <string name="tag_select_pet">Válassz egy kedvencet a biléta aktiválásához!</string>
     <string name="tag_activating">Aktiválás...</string>
     <string name="tag_activate_button">Biléta aktiválása</string>
     <string name="tag_link_message">A biléta a kiválasztott kedvenchez lesz regisztrálva</string>
@@ -369,7 +369,7 @@
     <string name="additional_info">További információ</string>
     <string name="report">Jelentés</string>
     <string name="report_sighting">Észlelés bejelentése</string>
-    <string name="report_sighting_prompt">Oszd meg azokat a részleteket, ahol láttad %1$s-t.</string>
+    <string name="report_sighting_prompt">Oszd meg azokat a részleteket, ahol láttad %1$s-t!</string>
     <string name="notes">Megjegyzések</string>
     <string name="sighting_reported">Észlelés bejelentve</string>
     <string name="report_failed">Nem sikerült bejelenteni</string>
@@ -380,34 +380,34 @@
     <string name="update_alert_failed">Nem sikerült frissíteni a riasztást</string>
     <string name="report_sighting_failed">Nem sikerült bejelenteni az észlelést</string>
     <string name="report_missing_pet">Eltűnt kedvenc bejelentése</string>
-    <string name="select_pet_to_report">Válassz kedvencet</string>
+    <string name="select_pet_to_report">Válassz kedvencet!</string>
     <string name="add_missing_details">Adj meg részleteket az eltűnésről</string>
-    <string name="enter_address_or_location">Add meg a címet vagy a hely leírását</string>
+    <string name="enter_address_or_location">Add meg a címet vagy a hely leírását!</string>
     <string name="additional_details">További részletek</string>
     <string name="describe_circumstances">Írd le a körülményeket, megkülönböztető jegyeket, stb.</string>
     <string name="reward_amount_label">Jutalom (nem kötelező)</string>
     <string name="reward_amount_placeholder">pl. 10 000 Ft</string>
     <string name="report_missing">Eltűnt jelentése</string>
-    <string name="no_pets_to_report_message">Adj hozzá egy kedvencet, hogy eltűntként jelenthessük</string>
+    <string name="no_pets_to_report_message">Adj meg egy kedvencet, hogy eltűntként jelenthessük!</string>
     <string name="mark_pet_found">Kedvenc megtaláltnak jelölése</string>
-    <string name="select_pet_to_mark_found">Válaszd ki a megtalált kedvencet</string>
+    <string name="select_pet_to_mark_found">Válaszd ki a megtalált kedvencet!</string>
     <string name="no_missing_pets_message">Nincs eltűntként jelölt kedvenced</string>
     <string name="select_pet_header">Kedvenc kiválasztása</string>
-    <string name="no_pets_available">Nincs elérhető kedvenc. Kérjük, adj hozzá egyet.</string>
+    <string name="no_pets_available">Nincs elérhető kedvenc. Kérjük, adj meg egyet!</string>
     <string name="pet_picker_label">Kedvenc</string>
     <string name="last_seen_location_header">Utolsó ismert hely</string>
     <string name="enter_location">Hely megadása</string>
     <string name="additional_information_header">További információ</string>
-    <string name="additional_details_placeholder">Adj meg további részleteket arról, mikor és hol láttad utoljára a kedvenced...</string>
+    <string name="additional_details_placeholder">Adj meg további részleteket arról, mikor és hol láttad utoljára a kedvenced!</string>
     <string name="your_contact_information">Elérhetőségeid</string>
     <string name="name_optional">Név (opcionális)</string>
     <string name="phone_optional">Telefonszám (opcionális)</string>
     <string name="email_optional">Email (opcionális)</string>
     <string name="sighting_reported_success">Észlelés sikeresen bejelentve!</string>
     <string name="report_sighting_header">Észlelés bejelentése</string>
-    <string name="report_sighting_help">Segíts, hogy egy elveszett kisállat újra találkozhasson a gazdijával.</string>
+    <string name="report_sighting_help">Segíts, hogy egy elveszett kisállat újra találkozhasson a gazdijával!</string>
     <string name="share_contact_info">Elérhetőségeim megosztása</string>
-    <string name="share_contact_info_desc">Engedélyezd, hogy a gazdi közvetlenül felvehesse veled a kapcsolatot</string>
+    <string name="share_contact_info_desc">Engedélyezd, hogy a gazdi közvetlenül felvehesse veled a kapcsolatot!</string>
     <string name="your_name">Neved</string>
     <string name="your_phone_number">Telefonszámod</string>
     <string name="your_email">Email címed</string>
@@ -425,22 +425,22 @@
     <string name="mark_found_confirm_alert">Ez lezárja %1$s eltűnt riasztását. Biztos vagy benne?</string>
     <string name="notification_center">Értesítési központ</string>
     <string name="alerts_radius_info">A riasztások 10 km-es körzetben lesznek elküldve ezen a helyen</string>
-    <string name="current_location">Jelenlegi hely</string>
-    <string name="tap_get_location">Koppints a jelenlegi hely lekéréséhez\u2026</string>
+    <string name="current_location">Jelenlegi tartózkodási hely</string>
+    <string name="tap_get_location">Koppints a tartózkodási hely lekéréséhez\u2026!</string>
     <string name="using_registered_address">A regisztrált címed használata</string>
-    <string name="enter_address_notifications">Adj meg címet az értesítésekhez</string>
+    <string name="enter_address_notifications">Adj meg címet az értesítésekhez!</string>
     <string name="notification_source_current_location">Jelenlegi hely</string>
     <string name="notification_source_my_address">Saját cím</string>
     <string name="notification_source_custom">Egyéni</string>
-    <string name="no_registered_address">Nincs regisztrált cím. Kérjük, frissítsd a profilod.</string>
+    <string name="no_registered_address">Nincs regisztrált cím. Kérjük, frissítsd a profiled!</string>
 
     <!-- Mark Lost Flow (matching iOS MarkAsLostView) -->
     <string name="mark_lost_pet_info">Kedvenced adatai</string>
     <string name="mark_lost_last_seen">Utolsó ismert tartózkodási hely</string>
     <string name="mark_lost_alerts_footer">Értesítések küldése a felhasználóknak, állatorvosoknak és menhelyeknek 10 km-es körzetben.</string>
     <string name="mark_lost_getting_location">Tartózkodási hely lekérdezése…</string>
-    <string name="mark_lost_no_address">Nincs regisztrált cím. Lépj be a Profilodba cím hozzáadásához.</string>
-    <string name="mark_lost_address_placeholder">Add meg a címet</string>
+    <string name="mark_lost_no_address">Nincs regisztrált cím. Lépj be a Profilodba cím hozzáadásához!</string>
+    <string name="mark_lost_address_placeholder">Add meg a címet!</string>
     <string name="mark_lost_additional_info">További információk</string>
     <string name="mark_lost_additional_placeholder">Írd le, mikor és hol láttad utoljára a kedvencedet, mit viselt, stb.</string>
     <string name="mark_lost_sends_to">Ez a riasztás a következőknek lesz elküldve:</string>
@@ -449,12 +449,12 @@
     <string name="mark_lost_shelters">Közeli állatmenhelyek</string>
     <string name="mark_lost_report">Eltűnés jelentése</string>
     <string name="mark_lost_title">Eltűnés jelentése</string>
-    <string name="mark_lost_starter_notice">Válts magasabb csomagra a közösségi riasztások küldéséhez</string>
+    <string name="mark_lost_starter_notice">Válts magasabb csomagra a közösségi riasztások küldéséhez!</string>
     <string name="mark_lost_upgrade_prompt">A Starter csomaggal a kedvenced eltűntként lesz jelölve, de az értesítések küldéséhez a közeli felhasználóknak, állatorvosoknak és menhelyeknek Standard vagy Maximum előfizetés szükséges.</string>
     <string name="mark_lost_success_with_alerts">%1$s eltűntként lett jelentve. Az értesítések küldése folyamatban van a közeli felhasználóknak, állatorvosoknak és menhelyeknek.</string>
-    <string name="mark_lost_success_no_location">%1$s eltűntként lett jelölve. Adj meg egy helyet a közösségi riasztások küldéséhez.</string>
-    <string name="mark_lost_address_required">Kérjük, adj meg egy címet, vagy engedélyezd a helymeghatározást.</string>
-    <string name="quick_lost_select_pet">Válaszd ki a kedvencedet az eltűnés jelentéséhez</string>
+    <string name="mark_lost_success_no_location">%1$s eltűntként lett jelölve. Adj meg egy helyet a közösségi riasztások küldéséhez!</string>
+    <string name="mark_lost_address_required">Kérjük, adj meg egy címet, vagy engedélyezd a helymeghatározást!</string>
+    <string name="quick_lost_select_pet">Válaszd ki a kedvencedet az eltűnés jelentéséhez!</string>
     <string name="quick_lost_all_missing">Már minden kedvenced eltűntként van jelölve.</string>
     <string name="quick_lost_title">Eltűnés jelentése</string>
     <string name="location_current">Jelenlegi hely</string>
@@ -465,7 +465,7 @@
     <!-- MARK: Notifications -->
     <!-- ============================================ -->
     <string name="tag_scanned_message">%1$s bilétáját beolvasták ekkor: %2$s!</string>
-    <string name="unknown_location">ismeretlen helyen</string>
+    <string name="unknown_location">ismeretlen hely</string>
     <string name="sighting_message_with_location">%1$s-t észlelték itt: %2$s!</string>
     <string name="sighting_message_no_location">%1$s-t észlelték!</string>
     <string name="pet_found_message">Jó hír! %1$s megkerült!</string>
@@ -491,13 +491,13 @@
     <string name="notif_pet_found_body">Jó hír! %1$s megkerült!</string>
     <string name="notif_sighting_title">Észlelés bejelentve</string>
     <string name="notif_sighting_body_location">%1$s-t észlelték itt: %2$s!</string>
-    <string name="notif_sighting_body_no_location">%1$s-t észlelték! Ellenőrizd az észlelés helyét.</string>
-    <string name="notif_fallback_title">Pet Safety</string>
+    <string name="notif_sighting_body_no_location">%1$s-t észlelték! Ellenőrizd az észlelés helyét!</string>
+    <string name="notif_fallback_title">SENRA</string>
     <string name="notif_fallback_pet_name">Kedvenced</string>
     <string name="notif_fallback_a_pet">Egy kedvenc</string>
     <string name="notif_fallback_your_area">a környéked</string>
     <string name="notif_location_shared">Hely megosztva</string>
-    <string name="notif_location_approximate">Közelítő hely</string>
+    <string name="notif_location_approximate">Megközelítő tartozkodási hely</string>
 
     <!-- Notification Action Buttons -->
     <string name="notif_action_view_area">Terület megtekintése</string>
@@ -533,7 +533,7 @@
     <!-- ============================================ -->
     <!-- MARK: Success Stories -->
     <!-- ============================================ -->
-    <string name="share_your_story">Oszd meg a történeted</string>
+    <string name="share_your_story">Oszd meg a történeted!</string>
     <string name="success_story_prompt">Jó hír! %1$s megkerült! Szeretnéd megosztani az újraegyesülés történetét, hogy inspirálj másokat?</string>
     <string name="your_story">A történeted</string>
     <string name="share_story">Történet megosztása</string>
@@ -551,9 +551,9 @@
     <string name="missing_for">Eltűnt ennyi ideje: %1$s</string>
     <string name="pet_found_share">%1$s megkerült!</string>
     <string name="reunited_in">%1$s alatt újraegyesült</string>
-    <string name="shared_via_pet_safety">Megosztva a Pet Safety alkalmazásból</string>
-    <string name="story_share_good_news">Oszd meg a jó hírt</string>
-    <string name="story_social_caption">%1$s újra a családjával van! Köszönjük a SENRA közösségnek, hogy segített %1$s hazajutni. senra.pet</string>
+    <string name="shared_via_pet_safety">Megosztva a SENRA alkalmazásból</string>
+    <string name="story_share_good_news">Oszd meg a jó hírt!</string>
+    <string name="story_social_caption">%1$s újra a családjával van! Köszönjük a SENRA közösségnek, hogy segítettétek %1$s hazajutását. SENRA</string>
     <string name="story_generating_card">Megosztási kártya készítése...</string>
     <string name="story_pet_is_home_title">%1$s itthon van!</string>
     <string name="story_inspire_others_message">Segíts inspirálni más gazdikat azzal, hogy megosztod, hogyan egyesültél újra %1$s-szal.</string>
@@ -585,7 +585,7 @@
     <string name="delete_confirm_checkbox">Megértem, hogy ez a művelet nem vonható vissza és minden adatom véglegesen törlésre kerül</string>
     <string name="cancel_subscription_title">Előfizetés lemondása?</string>
     <string name="cancel_warning_a">Elveszíted az azonnali e-mail, SMS értesítéseket és közösségi riasztásokat</string>
-    <string name="cancel_warning_b">Az ingyenes címkecserék többé nem lesznek elérhetőek</string>
+    <string name="cancel_warning_b">Az ingyenes bilétacserék többé nem lesznek elérhetőek</string>
     <string name="cancel_warning_c">Elveszíted a hozzáférést az állatorvosi és menhelyi riasztásokhoz</string>
     <string name="cancel_warning_d">A fiókod és a kisállat-regisztrációid aktívak maradnak</string>
     <string name="cancel_access_until">A hozzáférésed %1$s-ig megmarad</string>
@@ -655,7 +655,7 @@
     <string name="account_deleted">Fiók törölve</string>
     <string name="delete_account_failed">Nem sikerült törölni a fiókot</string>
     <string name="cannot_delete_account">Fiók nem törölhető</string>
-    <string name="cannot_delete_missing_pets">Nem törölheted a fiókodat, amíg vannak eltűntként jelölt kedvenceid. Előbb jelöld meg őket megtaláltként.</string>
+    <string name="cannot_delete_missing_pets">Nem törölheted a fiókodat, amíg vannak eltűntként jelölt kedvenceid. Előbb jelöld meg őket megtaláltként!</string>
     <string name="missing_pets_label">Eltűnt kedvencek: %1$s</string>
     <string name="checking_delete_eligibility">Ellenőrzés\u2026</string>
 
@@ -672,10 +672,10 @@
     <string name="contact_support_subject">Tárgy</string>
     <string name="contact_support_subject_hint">Rövid leírás a problémáról</string>
     <string name="contact_support_message">Üzenet</string>
-    <string name="contact_support_message_hint">Írd le részletesen a problémát\u2026</string>
+    <string name="contact_support_message_hint">Írd le részletesen a problémát\u2026!</string>
     <string name="contact_support_submit">Beküldés</string>
     <string name="contact_support_sending">Küldés\u2026</string>
-    <string name="contact_support_success">Támogatási kérés elküldve! Jegyazonosító: %1$s</string>
+    <string name="contact_support_success">Támogatás kérése elküldve! Jegyazonosító: %1$s</string>
     <string name="contact_support_response">24 órán belül válaszolunk.</string>
     <string name="support_email">hello@senra.pet</string>
     <string name="support_category_general">Általános</string>
@@ -697,7 +697,7 @@
     <string name="order_total">Összesen: %1$s</string>
     <string name="order_tags">Biléták rendelése</string>
     <string name="replace_tag">Biléta csere</string>
-    <string name="add_pet_first_replacement">Először adj hozzá egy kedvencet, hogy bilétát cserélhess.</string>
+    <string name="add_pet_first_replacement">Először adj hozzá egy kedvencet, hogy bilétát cserélhess!</string>
     <string name="order_more_tags_title">További biléták rendelése</string>
     <string name="add_another_pet">Kedvenc hozzáadása</string>
     <string name="full_name">Teljes név</string>
@@ -780,7 +780,7 @@
     <string name="billing_invoices">Számlák</string>
     <string name="billing_no_invoices">Még nincsenek számlák</string>
     <string name="billing_subscription">Előfizetés</string>
-    <string name="billing_portal_footer">Előfizetésedet, fizetési módodat és számlázási adataidat a Stripe on kezelheted.</string>
+    <string name="billing_portal_footer">A fizetési módodat és számlázási adataidat a Stripe-on kezelheted.</string>
     <string name="billing_loading_invoices">Számlák betöltése\u2026</string>
     <string name="billing_invoice">Számla</string>
     <string name="billing_unknown">Ismeretlen</string>
@@ -788,7 +788,7 @@
     <!-- ============================================ -->
     <!-- MARK: Referral -->
     <!-- ============================================ -->
-    <string name="referral_title">Ajánlj egy barátot</string>
+    <string name="referral_title">Ajánlj egy barátot!</string>
     <string name="referral_loading">Betöltés\u2026</string>
     <string name="referral_your_code">Ajánlókódod</string>
     <string name="referral_share_footer">Oszd meg a kódodat barátaiddal. Ha előfizetnek, mindketten jutalmat kaptok!</string>
@@ -803,19 +803,19 @@
     <string name="referral_copy">Másolás</string>
     <string name="referral_share">Megosztás</string>
     <string name="referral_pending">Függőben</string>
-    <string name="referral_share_text">Használd az ajánlókódomat %1$s, és kapj 2 hónap ingyenes Pet Safety előfizetést! https://senra.pet/choose-plan?referral=%2$s</string>
+    <string name="referral_share_text">Használd az ajánlókódomat %1$s, és kapj 2 hónap ingyenes SENRA előfizetést! https://senra.pet/choose-plan?referral=%2$s</string>
     <string name="referral_clipboard_label">Ajánlókód</string>
     <string name="referral_use_friend_code">Barát kódjának használata</string>
     <string name="enter_friend_code">Ajánlókód megadása</string>
     <string name="apply_code">Alkalmazás</string>
     <string name="referral_code_applied">Ajánlókód alkalmazva! 2 hónapot kapsz ingyen.</string>
     <string name="referral_code_invalid">Érvénytelen vagy lejárt ajánlókód</string>
-    <string name="referral_use_friend_footer">Add meg egy barátod ajánlókódját, és kapj 2 hónap ingyen előfizetést.</string>
+    <string name="referral_use_friend_footer">Add meg egy barátod ajánlókódját, és kapj 2 hónap ingyen előfizetést!</string>
 
     <!-- ============================================ -->
     <!-- MARK: Push Notification Prompt -->
     <!-- ============================================ -->
-    <string name="push_prompt_title">Maradj kapcsolatban</string>
+    <string name="push_prompt_title">Maradj kapcsolatban!</string>
     <string name="push_prompt_subtitle">Engedélyezd az értesítéseket, hogy ne maradj le fontos frissítésekről:</string>
     <string name="push_prompt_benefit_scan">Azonnali értesítések, amikor beolvassák a kedvenced bilétáját</string>
     <string name="push_prompt_benefit_sighting">Észlelési jelentések a közösségtől</string>
@@ -839,8 +839,8 @@
     <string name="failed_load_profile">Nem sikerült betölteni a profilt</string>
     <string name="public_profile_subtitle">Így látják mások %1$s profilját</string>
     <string name="owner_notified_sms_email">%1$s gazdija SMS-t és emailt kap a tartózkodási helyedről</string>
-    <string name="contact_owner_plea">Kérlek, tudasd a gazdimmal, hogy megtaláltál\u2026</string>
-    <string name="contact_owner_plea_full">Kérlek, tudasd a gazdimmal, hogy megtaláltál. Az alábbi elérhetőségeken tudod felvenni vele a kapcsolatot.</string>
+    <string name="contact_owner_plea">Kérlek, tudasd a gazdimmal, hogy megtaláltál\u2026!</string>
+    <string name="contact_owner_plea_full">Kérlek, tudasd a gazdimmal, hogy megtaláltál! Az alábbi elérhetőségeken tudod felvenni vele a kapcsolatot.</string>
     <string name="contact_info_not_set">Az elérhetőségek még nincsenek beállítva</string>
     <string name="contact_info_hidden">Az elérhetőségek rejtve vannak</string>
     <string name="contact_info_hidden_hint">Az elérhetőségeid be vannak állítva, de az adatvédelmi beállításaid miatt rejtve vannak. Frissítés: Fiók &gt; Adatvédelmi mód.</string>
@@ -849,16 +849,16 @@
     <string name="unique_features">Egyedi jegyek</string>
     <string name="behavior_notes">Viselkedési megjegyzések</string>
     <string name="how_it_works">Hogyan működik</string>
-    <string name="help_reunite_pet">Segíts %1$st biztonságban visszatalálni a gazdijához</string>
+    <string name="help_reunite_pet">Segíts, hogy %1$s biztonságban visszajusson a gazdijához!</string>
     <string name="step_share_location">Helyed megosztása</string>
-    <string name="step_share_location_desc">Koppints a fenti gombra, hogy megoszd a helyed a gazdival</string>
+    <string name="step_share_location_desc">Koppints a fenti gombra, hogy megoszd a helyed a gazdival!</string>
     <string name="step_owner_notified">A gazdi megkapta az értesítést</string>
     <string name="step_owner_notified_desc">A gazdi SMS-t és emailt is kap a helyedről</string>
     <string name="step_quick_reunion">Gyors hazajutás</string>
     <string name="step_quick_reunion_desc">A gazdi a megadott helyszínre mehet, hogy hazavigye a kedvencét</string>
-    <string name="step_share_location_desc_public">Kattints a fenti gombra, hogy megoszd, hol találtad meg %1$s-t</string>
+    <string name="step_share_location_desc_public">Kattints a fenti gombra, hogy megoszd, hol találtad meg %1$s-t!</string>
     <string name="step_owner_notified_desc_public">A gazdi SMS-t kap a helyedről a Google Maps-en</string>
-    <string name="step_quick_reunion_desc_public">Maradj a hely közelében, hogy a gazdi megtalálhasson téged és %1$s-t</string>
+    <string name="step_quick_reunion_desc_public">Maradj a hely közelében, hogy a gazdi megtalálhasson téged és %1$s-t!</string>
     <string name="owner_phone_label">Gazdi telefonszáma: %1$s</string>
     <string name="owner_email_label">Gazdi email címe: %1$s</string>
     <string name="your_privacy_notice">Fontos az adatvédelem. A helyedet csak %1$s gazdijával osztjuk meg a kifejezett hozzájárulásoddal.</string>
@@ -874,7 +874,7 @@
     <string name="pending_changes">Függőben lévő változások</string>
     <string name="online">Online</string>
     <string name="offline_changes_sync">A változások online állapotban szinkronizálódnak</string>
-    <string name="tap_view_queued_actions">Koppints a sorba állított műveletek megtekintéséhez</string>
+    <string name="tap_view_queued_actions">Koppints a sorba állított műveletek megtekintéséhez!</string>
     <string name="connected">Kapcsolódva</string>
     <string name="sync_now">Szinkronizálás most</string>
     <string name="changes_sync_restored">A változások automatikusan szinkronizálódnak, ha a kapcsolat helyreáll.</string>
@@ -898,7 +898,7 @@
     <string name="error_something_wrong">Valami hiba történt</string>
     <string name="something_went_wrong">Valami hiba történt</string>
     <string name="try_again">Próbáld újra</string>
-    <string name="error_session_expired_message">A munkamenet lejárt. Kérjük, jelentkezz be újra.</string>
+    <string name="error_session_expired_message">A munkamenet lejárt. Kérjük, jelentkezz be újra!</string>
     <string name="error_login_failed">Sikertelen bejelentkezés</string>
     <string name="error_verification_failed">Sikertelen ellenőrzés</string>
     <string name="error_submit_support">Nem sikerült elküldeni a támogatási kérést</string>
@@ -912,7 +912,7 @@
     <!-- MARK: Map App Picker -->
     <!-- ============================================ -->
     <string name="location_title">%1$s helye</string>
-    <string name="approximate_location_note">Ez egy közelítő helymeghatározás. Nézz körül a közelben.</string>
+    <string name="approximate_location_note">Ez egy viszonylagos tartózkodási hely. Nézz körül a közelben!</string>
     <string name="coordinates_label">Koordináták: %1$s</string>
     <string name="open_in">Megnyitás itt:</string>
     <string name="google_maps">Google Térkép</string>
@@ -948,7 +948,7 @@
 
     <!-- Sikertörténetek újraegyesülés -->
     <string name="reunion_template">%1$s hazatalált. %2$s eltűnés után %3$s sikeresen újra a családjával van. Köszönet a csodálatos közösségünknek, amiért hazahozták %4$s-t!</string>
-    <string name="reunion_template_no_time">%1$s újra a családjával van! Köszönjük a fantasztikus közösségünknek, hogy segítettek hazajuttatni %2$s-t!</string>
+    <string name="reunion_template_no_time">%1$s újra a családjával van! Köszönjük a fantasztikus közösségünknek, hogy segítettetek hazajuttatni %2$s-t!</string>
     <string name="owners_story">A gazdi története:</string>
     <string name="post_to_success_stories">Közzététel a sikertörténeteknél</string>
     <string name="remove_from_success_stories">Eltávolítás a sikertörténetek közzül</string>
@@ -985,7 +985,7 @@
     <!-- Hardcoded String Fixes -->
     <string name="someone_fallback">Valaki</string>
     <string name="no_plan">Nincs</string>
-    <string name="current_location_fallback">Jelenlegi hely</string>
+    <string name="current_location_fallback">Jelenlegi tartózkodási hely</string>
     <string name="share_card_reunited">Hazakerült!</string>
 
     <!-- FAQ Screen -->
@@ -1004,11 +1004,11 @@
     <string name="help_guide_qr_tags_title">QR-kódos kedvenc biléták</string>
     <string name="help_guide_qr_tags_desc">Minden SENRA biléta egyedi QR kódot tartalmaz, amely a kedvenced digitális profiljához kapcsolódik. Bárki, aki megtalálja a kedvencedet, beolvashatja a kódot a telefonja kamerájával — nem szükséges alkalmazás. A biléta beolvasása értesítést küld neked a megtaláló helyzetével (ha megosztja). A bilétákat az alkalmazáson keresztül aktiválhatod, és bármikor kérhetsz csere bilétát, ha a régit elveszíted vagy megsérül.</string>
     <string name="help_guide_materials_title">A biléta anyaga és tartóssága</string>
-    <string name="help_guide_materials_desc">A SENRA bilétákat tartós, könnyű fémből készítjük, epoxi bevonattal a fokozott védelemért. Vízállóak és UV-ellenállóak, minden időjárási körülmények között használhatók. A QR kód lézerrel van gravírozva a tartósság érdekében, így nem kopik el a mindennapos használat során. A bilétákat úgy terveztük, hogy kényelmesen illeszkedjenek a legtöbb nyakörvhöz és hámhoz.</string>
+    <string name="help_guide_materials_desc">A SENRA bilétákat tartós, könnyű fémből készítjük, epoxi bevonattal a fokozott védelemért. Vízállóak és UV-ellenállóak, minden időjárási körülmények között használhatók, nem kopik el a mindennapos használat során. A bilétákat úgy terveztük, hogy kényelmesen illeszkedjenek a legtöbb nyakörvhöz és hámhoz.</string>
     <string name="help_guide_emergency_title">Vészhelyzeti kontakt funkciók</string>
     <string name="help_guide_emergency_desc">Amikor valaki leolvassa a kedvenced bilétáját, azonnal push értesítést és e-mailt kapsz a megtaláló helyzetével. A Standard és Maximum csomag tagjai SMS értesítést is kapnak a gyorsabb reakció érdekében. Ha eltűntként jelölöd a kedvencedet, közösségi riasztás megy a 10 km-en belüli SENRA felhasználóknak, és a területen regisztrált állatorvosok és menhelyek is értesítést kapnak. Bárki a közösségből jelentheti az észleléseket a helyszínnel és fotókkal, segítve a kedvenced megtalálását.</string>
     <string name="help_guide_profile_title">Profilkezelés</string>
-    <string name="help_guide_profile_desc">A kedvenced digitális profilja a SENRA szíve. Add meg az alapvető adatokat: név, faj, fajta, kor és egy jó minőségű fotó. Egészségügyi információkat, allergiákat, gyógyszereket és különleges ismertető jegyeket is megadhatsz. Amikor valaki leolvassa a kedvenced bilétáját, ezt a profilt fogja látni, így fontos, hogy naprakész legyen. A profilod segíti a keresőket abban, hogy felismerjék a kedvencedet és tudják, mit tegyenek, ha megtalálják.</string>
+    <string name="help_guide_profile_desc">A kedvenced digitális profilja a SENRA szíve. Add meg az alapvető adatokat: faj, fajta, kor és egy jó minőségű fotó. Egészségügyi információkat, allergiákat, gyógyszereket és különleges ismertető jegyeket is megadhatsz. Amikor valaki leolvassa a kedvenced bilétáját, ezt a profilt fogja látni, így fontos, hogy naprakész legyen. A profilod segíti a keresőket abban, hogy felismerjék a kedvencedet és tudják, mit tegyenek, ha megtalálják.</string>
     <string name="help_guide_missing_alerts_title">Eltűnt kedvenc riasztások és észlelések</string>
     <string name="help_guide_missing_alerts_desc">Ha a kedvenced elveszik, jelöld meg eltűntként a \'Saját kisállataim\' menüben, hogy azonnali közösségi riasztást hozz létre. Kedvenced fotója és adatai megjelennek az Eltűnt kedvencek térképén és listán, amely minden SENRA felhasználó számára látható a környékeden. Valamint minden regisztrált felhasználó 10km belül email és sms értesítést kap, és A közösség tagjai észleléseket jelenthetnek GPS helyadatokkal, amelyeket értesítésként kapsz meg. A regisztrált állatorvosok és menhelyek is riasztást kapnak. Ha megkerült a kedvenced, jelöld megtaláltként! Ha gondolod, oszd meg a hazatérése történetét, hogy reményt adj a többieknek is.</string>
     <string name="help_guide_community_title">Közösség és megtalált kedvencek</string>
@@ -1038,17 +1038,17 @@
     <string name="alert_update_failed">Nem sikerült frissíteni a riasztást</string>
     <string name="alert_updated">A riasztás sikeresen frissítve</string>
     <string name="at_least_one_channel_required">Legalább egy értesítési csatornának aktívnak kell maradnia</string>
-    <string name="billing_past_due_message">Az előfizetésed fizetése lejárt. Kérjük, frissítsd a fizetési módod.</string>
+    <string name="billing_past_due_message">Az utolsó fizetésed sikertelen volt. Kérjük, frissítsd a fizetési módodat, hogy elkerüld a szolgáltatás megszakadását.</string>
     <string name="billing_past_due_title">Lejárt fizetés</string>
     <string name="billing_update_payment">Fizetés frissítése</string>
     <string name="breed_custom_hint">Add meg a fajta nevét…</string>
     <string name="breed_custom_label">Fajta neve</string>
     <string name="breed_other">Egyéb</string>
-    <string name="cannot_delete_missing_pet_message">Nem törölheted az eltűntként bejelentett kedvencet. Kérjük, előbb jelöld megtaláltként.</string>
+    <string name="cannot_delete_missing_pet_message">Nem törölheted az eltűntként bejelentett kedvencet. Kérjük, előbb jelöld megtaláltként!</string>
     <string name="edit_alert">Riasztás szerkesztése</string>
     <string name="health_info_empty_hint">Nincs egészségügyi információ megadva</string>
     <string name="notification_channel_info">Legalább egy értesítési csatornának aktívnak kell lennie, hogy értesülhess, amikor a kedvenced QR bilétáját beolvassák.</string>
-    <string name="province">Megye / Tartomány</string>
+    <string name="province">Vármegye / Tartomány</string>
     <string name="reward_badge_text">Jutalom: %1$s</string>
     <string name="reward_placeholder">pl. €50, $100 vagy különleges ajándék</string>
     <string name="sex_optional">Opcionális</string>
@@ -1079,20 +1079,20 @@
     <string name="pending_registrations_title">Függőben lévő címkék</string>
     <string name="ready_to_activate">Aktiválásra kész</string>
     <string name="still_processing">Feldolgozás alatt</string>
-    <string name="scan_tag_now">Címke beolvasása</string>
+    <string name="scan_tag_now">Biléta beolvasása</string>
     <string name="create_profile_first">Profil létrehozása</string>
     <string name="create_profile_while_waiting">Profil létrehozása várakozás közben</string>
     <string name="all_caught_up">Minden naprakész!</string>
-    <string name="all_caught_up_description">Nincsenek függőben lévő címke regisztrációk.</string>
+    <string name="all_caught_up_description">Nincsenek függőben lévő biléta regisztrációk.</string>
     <string name="status_shipped">Feladva</string>
     <string name="status_delivered">Kézbesítve</string>
     <string name="status_processing">Feldolgozás alatt</string>
     <string name="status_pending">Függőben</string>
-    <string name="activation_help_title">Hogyan aktiváld a címkéd</string>
-    <string name="activation_help_step1">Várd meg, amíg megérkezik a címkéd</string>
-    <string name="activation_help_step2">Olvasd be a QR kódot a címkén</string>
-    <string name="activation_help_step3">Válaszd ki a kedvencedet</string>
-    <string name="activation_help_step4">Válassz előfizetési csomagot</string>
+    <string name="activation_help_title">Hogyan aktiváld a bilétád?</string>
+    <string name="activation_help_step1">Várj, amíg megérkezik a bilétád!</string>
+    <string name="activation_help_step2">Olvasd be a QR kódot a bilétán!</string>
+    <string name="activation_help_step3">Válaszd ki a kedvencedet!</string>
+    <string name="activation_help_step4">Válassz előfizetési csomagot!</string>
     <string name="pets_from_order">Rendelésedben szereplő kedvencek</string>
     <string name="from_your_order">A rendelésedből</string>
     <string name="needs_profile">Profil szükséges</string>
@@ -1100,22 +1100,22 @@
     <string name="other_pets">Egyéb kedvencek</string>
     <string name="link_to_pet">Kapcsolás: %1$s</string>
     <string name="no_pets_yet">Még nincsenek kedvencek</string>
-    <string name="create_first_pet">Hozd létre első kedvenced profilját a címke aktiválásához.</string>
+    <string name="create_first_pet">Hozd létre első kedvenced profilját a biléta aktiválásához!</string>
     <string name="create_new_pet">Új kedvenc létrehozása</string>
     <string name="notifications_title">Értesítések</string>
     <string name="no_notifications">Nincsenek értesítések</string>
-    <string name="no_notifications_desc">Minden naprakész! Az értesítések itt jelennek meg, ha beolvassák a kedvenced címkéjét.</string>
+    <string name="no_notifications_desc">Minden naprakész! Az értesítések itt jelennek meg, ha beolvassák a kedvenced bilétáját.</string>
     <string name="mark_all_read">Összes olvasottnak jelölése</string>
-    <string name="create_profile_hint">Először hozz létre egy kedvenc profilt, majd olvasd be újra a címkét az aktiváláshoz.</string>
-    <string name="activation_error_qr_not_found">A QR kód nem felismerhető. Kérjük, győződj meg róla, hogy hivatalos SENRA címkét olvasol be.</string>
-    <string name="activation_error_already_activated">Ez a címke már egy másik kedvenchez van rendelve. Kérjük, lépj kapcsolatba az ügyfélszolgálattal.</string>
-    <string name="activation_error_not_linked">Ez a címke még nincs hozzárendelve a rendelésedhez. Kérjük, várd meg a szállítási visszaigazolást.</string>
-    <string name="activation_error_not_shipped">A rendelésed még nem lett feladva. Kérjük, várd meg a címke megérkezését.</string>
+    <string name="create_profile_hint">Először hozz létre egy kedvenc profilt, majd olvasd be újra a címkét az aktiváláshoz!</string>
+    <string name="activation_error_qr_not_found">A QR kód nem felismerhető. Kérjük, győződj meg róla, hogy hivatalos SENRA bilétát olvasol be.</string>
+    <string name="activation_error_already_activated">Ez a biléta már egy másik kedvenchez van rendelve. Kérjük, lépj kapcsolatba az ügyfélszolgálattal.</string>
+    <string name="activation_error_not_linked">Ez a biléta még nincs hozzárendelve a rendelésedhez. Kérjük, várd meg a szállítási visszaigazolást!</string>
+    <string name="activation_error_not_shipped">A rendelésed még nem lett feladva. Kérjük, várd meg a biléta megérkezését.</string>
     <string name="activation_error_not_owner">Ez nem a te kedvenced. Kérjük, válassz egyet a saját kedvenceid közül.</string>
 
     <!-- Allergies & Medications -->
     <string name="allergies_label">Allergiák</string>
-    <string name="allergies_hint">pl. Csirke, gabonmentes étrend szükséges</string>
+    <string name="allergies_hint">pl. Csirke, gabonamentes étrend szükséges</string>
     <string name="medications_label">Gyógyszerek</string>
     <string name="medications_hint">pl. Inzulin naponta kétszer, szívgyógyszer</string>
 
@@ -1132,7 +1132,7 @@
     <string name="breed_dog_yorkshire_terrier">Yorkshire terrier</string>
     <string name="breed_dog_boxer">Boxer</string>
     <string name="breed_dog_dachshund">Tacskó</string>
-    <string name="breed_dog_siberian_husky">Szibériai husky</string>
+    <string name="breed_dog_siberian_husky">Szibériai Husky</string>
     <string name="breed_dog_great_dane">Dán dog</string>
     <string name="breed_dog_doberman_pinscher">Dobermann</string>
     <string name="breed_dog_australian_shepherd">Ausztrál juhászkutya</string>
@@ -1199,7 +1199,7 @@
     <string name="breed_cat_manx">Manx</string>
     <string name="breed_cat_selkirk_rex">Selkirk rex</string>
     <string name="breed_cat_ragamuffin">RagaMuffin</string>
-    <string name="breed_cat_american_curl">Amerikai curl</string>
+    <string name="breed_cat_american_curl">Amerikai göndörfülű</string>
     <string name="breed_cat_chartreux">Chartreux</string>
     <string name="breed_cat_bombay">Bombay</string>
     <string name="breed_cat_egyptian_mau">Egyiptomi mau</string>
@@ -1224,21 +1224,21 @@
     <string name="reunion_city_placeholder">Hol találtad meg a kedvencedet?</string>
 
     <!-- Pet form warnings -->
-    <string name="profile_incomplete_warning">Töltsd ki a kedvenced profilját</string>
-    <string name="profile_incomplete_desc">A hiányzó adatok megnehezítik a kedvenced megtalálását, ha elveszne. Kérjük, add meg a súlyt, színt és egészségügyi információkat.</string>
+    <string name="profile_incomplete_warning">Töltsd ki a kedvenced profilját!</string>
+    <string name="profile_incomplete_desc">A hiányzó adatok megnehezítik a kedvenced megtalálását, ha elveszne. Kérjük, add meg a súlyt, színt és egészségügyi információkat!</string>
     <string name="identity_locked_title">A név, faj és fajta zárolva van</string>
-    <string name="identity_locked_desc">Ezek a mezők a címke aktiválása után nem módosíthatók. Kérjük, lépj kapcsolatba az ügyfélszolgálattal.</string>
+    <string name="identity_locked_desc">Ezek a mezők a biléta aktiválása után nem módosíthatók. Kérjük, lépj kapcsolatba az ügyfélszolgálattal!</string>
 
     <!-- Menhelyi örökbefogadás -->
     <string name="profile_shelter_code">Menhelyi kód beváltása</string>
     <string name="shelter_code_title">Menhelyi kód</string>
     <string name="shelter_code_enter">ADOPT-XXXX kód megadása</string>
-    <string name="shelter_code_enter_footer">Írd be a menhelytől kapott kódot.</string>
+    <string name="shelter_code_enter_footer">Írd be a menhelytől kapott kódot!</string>
     <string name="shelter_code_redeem">Beváltás</string>
     <string name="shelter_code_success">Kód sikeresen beváltva!</string>
     <string name="shelter_code_invalid">Érvénytelen vagy már beváltott kód.</string>
     <string name="shelter_how_it_works">Hogyan működik?</string>
-    <string name="shelter_step_1">Fogadj örökbe egy kisállatot egy partner menhelyről</string>
+    <string name="shelter_step_1">Fogadj örökbe egy kisállatot egy partner menhelyről!</string>
     <string name="shelter_step_2">Írd be az örökbefogadáskor kapott kódot</string>
     <string name="shelter_step_3">Kapj 3 hónap ingyenes Standard csomagot + ingyenes QR biléta</string>
     <string name="trial_ends_on">A próbaidőszak vége</string>
@@ -1267,12 +1267,12 @@
     <string name="share_location_title">Helyzeted megosztása</string>
     <string name="share_location_exact">Pontos helyzet megosztása</string>
     <string name="share_location_approximate">Hozzávetőleges helyzet megosztása (~100m)</string>
-    <string name="share_location_exact_note">A tulajdonos látni fogja a pontos GPS koordinátáidat</string>
+    <string name="share_location_exact_note">A tulajdonos látni fogja a tartózkodási helyedet</string>
     <string name="share_location_approximate_note">A tulajdonos egy hozzávetőleges területet fog látni</string>
     <string name="share_location_confirm">Megosztás</string>
     <string name="share_location_success">Helyzet megosztva! A tulajdonos értesítve lett.</string>
     <string name="share_location_denied">A helyzet megosztásához helymeghatározási engedély szükséges</string>
-    <string name="share_location_error">Nem sikerült a helyzet megosztása. Próbáld újra.</string>
+    <string name="share_location_error">Nem sikerült a helyzet megosztása. Próbáld újra!</string>
 
     <!-- Pet Localization (species, breed, sex) -->
     <string name="species_dog">Kutya</string>
@@ -1300,7 +1300,7 @@
     <string name="orders_and_invoices">Rendelések és számlák</string>
     <string name="contact_us">Kapcsolat</string>
     <string name="identity_will_lock_title">A név, faj és fajta zárolásra kerül</string>
-    <string name="identity_will_lock_desc">Ezek a mezők a regisztráció után nem módosíthatók. Kérjük, mentés előtt ellenőrizd, hogy helyesek.</string>
+    <string name="identity_will_lock_desc">Ezek a mezők a regisztráció után nem módosíthatóak. Kérjük, mentés előtt ellenőrizd, hogy helyesek-e.</string>
     <string name="date_of_birth">Születési dátum</string>
     <string name="dob_set_date">Születési dátum megadása</string>
     <string name="dob_approximate">Hozzávetőleges dátum</string>
@@ -1313,24 +1313,24 @@
     <string name="welcome_step_1">Olvasd be a QR-kódot a címkédről</string>
     <string name="welcome_step_2">Hozd létre kedvenced profilját</string>
     <string name="welcome_step_3">Kedvenced védelem alatt áll!</string>
-    <string name="welcome_scan_first_tag">Első címke beolvasása</string>
+    <string name="welcome_scan_first_tag">Első biléta beolvasása</string>
     <string name="welcome_explore_account">Fiók felfedezése</string>
     <string name="setup_your_tags">Címkék beállítása</string>
     <string name="setup_your_tags_subtitle">Ezekhez az kisállatokhoz rendeltél címkét:</string>
     <string name="ready_to_setup">Beállításra kész</string>
     <string name="already_activated">Már aktiválva</string>
-    <string name="setting_up_tag_for">Címke beállítása: %s</string>
+    <string name="setting_up_tag_for">A biléta beállítása: %s</string>
     <string name="tag_activated_for">%s címkéje aktiválva!</string>
     <string name="pet_now_protected">Kedvenced mostantól SENRA védelme alatt áll</string>
     <string name="more_tags_to_setup">Még vannak beállítandó címkéid</string>
     <string name="setup_pet_tag">%s címkéjének beállítása</string>
     <string name="whats_next">Mi a következő lépés?</string>
     <string name="choose_subscription_plan">Válassz előfizetési csomagot</string>
-    <string name="register_your_vet">Regisztráld az állatorvosodat</string>
-    <string name="update_contact_details">Frissítsd az elérhetőségeidet és adatvédelmi beállításaidat</string>
+    <string name="register_your_vet">Regisztráld az állatorvosodat!</string>
+    <string name="update_contact_details">Frissítsd az elérhetőségeidet és adatvédelmi beállításaidat!</string>
     <string name="go_to_home">Főoldal</string>
-    <string name="thank_you_senra">Köszönjük, hogy a Senrát választottad!</string>
-    <string name="tap_pet_name_hint">Csak koppints kedvenced nevére a címke beállításához</string>
+    <string name="thank_you_senra">Köszönjük, hogy a SENRÁ-t választottad!</string>
+    <string name="tap_pet_name_hint">Csak koppints kedvenced nevére a biléta beállításához!</string>
     <plurals name="age_years">
         <item quantity="one">%d év</item>
         <item quantity="other">%d év</item>
@@ -1352,29 +1352,29 @@
     <string name="help_faq_q2">Milyen információkat kell megadnom a kedvencem profiljában?</string>
     <string name="help_faq_a2">Kedvenced nevét a biléta rendelésével egy időben megadtad és a biléta aktiválásával meg is jelenik a kedvenced profiljában. Add meg a kedvenced faját, fajtáját! Ezeket az adatokat a visszaélések elkerülésére – csak egyszer adhatod meg. Ha hibáznál, elütsz egy betűt, vedd fel a kapcsolatot velünk és segítünk. Itt adhatod meg cicád/kutyád súlyát, korát, színét és bármilyen sajátos jellemzőt vagy tipikus viselkedést. Fényképeket is tölthetsz fel róla. Ezek segíthetnek kedvenced gyors azonosításában és hazajuttatásában. Te döntöd el, milyen információk legyenek elérhetőek kedvencedről, ha elkóborolna.</string>
     <string name="help_faq_q3">Hogyan működik a QR-kódos biléta?</string>
-    <string name="help_faq_a3">Minden kisállat egyedi QR-kódos bilétát kap. Ez a kód kedvenced profiljával van összekapcsolva. Amikor valaki beolvassa a QR-kódot a telefonjával, azonnal megtekintheti a kedvenced profilját és az általad nyilvánosként megjelölt kapcsolatfelvételi adatokat.</string>
+    <string name="help_faq_a3">Minden kisállat egyedi QR-kódos bilétát kap. Ez a kód kedvenced profiljával van összekapcsolva. Amikor valaki beolvassa a QR-kódot a okostelefonjával, azonnal megtekintheti a kedvenced profilját és az általad nyilvánosként megjelölt kapcsolatfelvételi adatokat.</string>
     <string name="help_faq_q4">Később frissíthetem a kedvencem adatait?</string>
-    <string name="help_faq_a4">Igen! Bármikor frissítheted a kedvenced adatait a \'Saját kisállataim\' menüpontban,kedvenced kiválasztása után a \'Profil szerkesztése\' gombra kattintva. A név, faj, fajta mezők kivételével bármelyiket frissítheted, ideértve a fotókat is. A változtatások azonnal mentésre kerülnek.</string>
+    <string name="help_faq_a4">Igen! Bármikor frissítheted a kedvenced adatait a \'Saját kisállataim\' menüpontban, kedvenced kiválasztása után a \'Profil szerkesztése\' gombra kattintva. A név, faj, fajta mezők kivételével bármelyiket frissítheted, ideértve a fotókat is. A változtatások azonnal mentésre kerülnek.</string>
     <string name="help_faq_q5">Hogyan rendelhetek cserebilétát?</string>
     <string name="help_faq_a5">Menj a \'Kezdőlap/Fiókom\' oldalra és kattints a \'Cserebiléta rendelése\' gombra. Válaszd ki, melyik kedvencnek van új bilétára szüksége. A Maximum és a Standard csomag előfizetői ingyenes pótbilétát igényelhetnek, a Starter csomag tagok pedig a szállítási díj ellenében rendelhetnek cserét.</string>
     <string name="help_faq_q6">Hogyan aktiválom a bilétát, miután megérkezett?</string>
-    <string name="help_faq_a6">Töltsd le a SENRA mobil applikációt a Google Play Áruházból vagy az App Store-ból! Nyisd meg és menj az \'Aktiválás\' menüpontra, irányítsd a telefonod kameráját a bilétán lévő QR-kódra! A QR-kód beolvasása összekapcsolja a bilétát a fiókoddal. Ezután ki kell választanod a meglévő kedvencedet, vagy létre kell hoznod egy új profilt. Az aktiválás befejezése után választhatod ki az előfizetési csomagodat.</string>
+    <string name="help_faq_a6">Töltsd le a SENRA mobil applikációt a Google Play Áruházból vagy az App Store-ból! Nyisd meg és menj az \'Aktiválás\' menüpontra, irányítsd a telefonod kameráját a bilétán lévő QR-kódra! A QR-kód beolvasása összekapcsolja a bilétát a fiókoddal. Ezután létre kell hoznod egy kisállat profilt. Az aktiválás befejezése után választhatod ki az előfizetési csomagodat.</string>
     <string name="help_faq_q7">Ajándékozhatok SENRA bilétát?</string>
     <string name="help_faq_a7">Igen! A SENRA biléták kiváló ajándékok kisállattartóknak. Egyszerűen rendeld meg a bilétát a saját fiókodból, amikor a megajándékozott megkapja, beolvashatja a QR-kódot, létrehozhatja saját fiókját és aktiválhatja a bilétát a kedvence számára. A megajándékozottnak nem kell előzetesen regisztrálnia — a biléta beolvasása végigvezeti a fiók létrehozásán és a biléta kedvencéhez való hozzárendelésén.</string>
     <string name="help_faq_q8">Mi a teendő, ha eltűnik a kedvencem?</string>
-    <string name="help_faq_a8">Válaszd ki a \'Saját kisállataim\' menüpontot, kattints a kedvenced kártyáján lévő menüre, majd válaszd az \'Eltűntként jelölés\' opciót. Ez a lépés létrehoz egy \'eltűnt kisállat-riasztást\', amelyet a címedtől számított 10km-es körzeten belül regisztrált minden SENRA közösségi tag megkap.. Az állatorvosokat és a menhelyeket is értesítjük. A közeledben lévők látják a riasztást, és értesíthetnek, ha látták vagy megtalálták a kedvencedet (közvetlenül vagy online rendszerünkön keresztül). Minden észlelésről azonnal értesítést kapsz.</string>
+    <string name="help_faq_a8">Válaszd ki a \'Saját kisállataim\' menüpontot, kattints a kedvenced kártyáján lévő menüre, majd válaszd az \'Eltűntként jelölés\' opciót. Ez a lépés létrehoz egy \'eltűnt kisállat-riasztást\', amelyet a címedtől számított 10km-es körzeten belül regisztrált minden SENRA közösségi tag megkap. Az állatorvosokat és a menhelyeket is értesítjük. A közeledben lévők látják a riasztást, és értesíthetnek, ha látták vagy megtalálták a kedvencedet (közvetlenül vagy online rendszerünkön keresztül). Minden észlelésről azonnal értesítést kapsz.</string>
     <string name="help_faq_q9">Hogyan működnek az elveszett kisállat riasztások?</string>
     <string name="help_faq_a9">Amikor a cicádat vagy kutyádat eltűntként jelölöd, egy riasztás jön létre a kedvenced fotójával és adataival. A SENRA felhasználók azonnal értesítést kapnak 10 km-en belül az elveszett kisállatodról, illetve az kedvenced felkerül az \'Eltűnt kedvencek\' térképre is. A SENRA rendszerében regisztrált állatorvosok és menhelyek szintén megkapják a riasztást a környékeden. Bárki, aki leolvassa kedvencet bilétáját elküldheti neked a megtalálás helyét és saját elérhetőségét. Téged is értesíthet, ha elérhetőségedet nyilvánossá tetted a profilodban a megtaláló számára.</string>
     <string name="help_faq_q10">Hogyan rendelhetek cserebilétát?</string>
-    <string name="help_faq_a10">Menj a \'Kezdőlap/Fiókom\' oldalra és kattints a \'Cserebiléta rendelése\' gombra. Válaszd ki, melyik kedvencnek van új bilétára szüksége. A Maximum és a Standard csomag előfizetői ingyenes pótbilétát igényelhetnek, a Starter csomag tagok pedig a szállítási díj ellenében rendelhetnek cserét.</string>
+    <string name="help_faq_a10">Menj a \'Kezdőlap/Fiókom\' oldalra és kattints a \'Cserebiléta rendelése\' gombra! Válaszd ki, melyik kedvencnek van új bilétára szüksége! A Maximum és a Standard csomag előfizetői ingyenes pótbilétát igényelhetnek, a Starter csomag tagok pedig a szállítási díj ellenében rendelhetnek cserét.</string>
     <string name="help_faq_q11">Mi az ajánlói program?</string>
-    <string name="help_faq_a11">A Profilod oldalon lévö Ajánlói menüben generálhatsz egy személyes ajánlói kódot. Oszd meg barátaiddal és családtagjaiddal. Amikor valaki felhasználja a kódodat és előfizet egy fizetős csomagra (Standard vagy Maximum), neked és a barátodnak is 2 hónapra díjmentessé válik az előfizetése. Az ajánlásaidat és azok állapotát az Ajánló oldalon követheted nyomon.</string>
+    <string name="help_faq_a11">A Profilod oldalon lévö Ajánlói menüben generálhatsz egy személyes ajánlói kódot. Oszd meg barátaiddal és családtagjaiddal! Amikor valaki felhasználja a kódodat és előfizet egy fizetős csomagra (Standard vagy Maximum), neked és a barátodnak is 2 hónapra díjmentessé válik az előfizetése. Az ajánlásaidat és azok állapotát az Ajánló oldalon követheted nyomon.</string>
     <string name="help_faq_q12">Mely országokba szállítotok?</string>
     <string name="help_faq_a12">Jelenleg Magyarországra, Szlovákiába, Csehországba, Ausztriába, Romániába, Horvátországba, Spanyolországba, Olaszországba, Franciaországba, Németországba, Norvégiába és Portugáliába szállítunk. Magyarországon belüli szállítás díja: {{huPostapoint}} (PostaPont) vagy {{huHome}} (házhozszállítás). A nemzetközi szállítás díja: {{intlPrice}} rendelésenként.</string>
     <string name="help_faq_q13">Lehet több kedvencem egy fiókon?</string>
     <string name="help_faq_a13">Igen. A Starter (ingyenes) csomagnál maximum 10 állatot regisztrálhatsz, de az elérhető szolgáltatások korlátozottak. A Standard csomag egy cicára vagy kutyára lett kitalálva, de az összes szolgáltatás elérhető a csomagban. A Maximum csomagban az összes szolgáltatás elérhető és legfeljebb 10 kisállatot tudsz regisztrálni. Előfizetési csomagot bármikor tudsz váltani a \'Kezdőlap/Fiókom\' menüpont alatt.</string>
     <string name="help_faq_q14">Hogyan jelenthetek egy megtalált kedvencet?</string>
-    <string name="help_faq_a14">Ha a kedvencnek van SENRA bilétája, egyszerűen olvasd be a QR-kódot a telefonod kamerájával — nincs szükség alkalmazásra. Megtekintheted a kedvenc profilját, és megoszthatod a helyed a gazdával.</string>
+    <string name="help_faq_a14">Ha a kedvencnek van SENRA bilétája, egyszerűen olvasd be a QR-kódot a okostelefonod kamerájával — nincs szükség alkalmazásra. Megtekintheted a kedvenc profilját, és megoszthatod a helyed a gazdával.</string>
     <string name="help_faq_q15">Biztonságban vannak a személyes adataim?</string>
     <string name="help_faq_a15">Igen. Te határozod meg, pontosan mely adatok láthatóak, amikor valaki beolvassa a kedvenced bilétáját. A \'Beállítások\' &gt; \'Adatvédelmi beállítások\' menüpontban kiválaszthatod, hogy megjelenjen-e a telefonszámod, e-mail címed vagy lakcímed. A bejelentkezésed minden alkalommal egyszeri ellenőrző kóddal védett — nincs jelszó, amit el lehetne lopni. A fiókodat és minden adatodat bármikor törölheted.</string>
     <string name="help_faq_q16">Elvesztettük a bilétát vagy megsérült — mit tegyek?</string>
@@ -1382,11 +1382,11 @@
     <string name="help_faq_q17">A bilétám nem olvasható be — mit csináljak?</string>
     <string name="help_faq_a17">Próbáld a következőket: nedves ruhával tisztítsd meg a biléta felületét, biztosíts jó megvilágítást, tartsd stabilan a telefonod kameráját kb. 10-15 cm-re a bilétától, és ellenőrizd, hogy a kamera alkalmazásod vagy QR-olvasód működik-e. Ha a QR-kód megkarcolódott vagy megkopott, rendelj ingyenes cserét a \'Kezdőlap/Fiókom\' oldalon (az ingyenes csere a Standard és a Maximum csomagok előfizetői számára érhető el a Starter tagoknak szállítási díjat kell fizetniük a cserebilétáért).</string>
     <string name="help_faq_q18">Találtam egy kedvencet SENRA biléta nélkül — mit tehetek?</string>
-    <string name="help_faq_a18">Ellenőrizd az Eltűnt Kedvencek térképet a SENRA weboldalán (senra.pet) — lehet, hogy a kedvencet eltűntként jelentették a környékeden. Az eltűnt kedvenc riasztásokat az alkalmazáson belül is megtekintheted. Vidd be az kisállatot a legközelebbi állatorvosi rendelőbe, hogy leolvassak a mikrochipjét. Ha a kedvencnek van SENRA bilétája, olvasd le a QR kódot a telefonod kamerájával — megjelenik a gazdi elérhetősége. Mindig értesítsd a helyi hatóságokat és a közeli menhelyeket is.</string>
+    <string name="help_faq_a18">Ellenőrizd az Eltűnt Kedvencek térképet a SENRA weboldalán (senra.pet) — lehet, hogy a kedvencet eltűntként jelentették a környékeden. Az eltűnt kedvenc riasztásokat az alkalmazáson belül is megtekintheted. Vidd be az kisállatot a legközelebbi állatorvosi rendelőbe, hogy leolvassak a mikrochipjét! Ha a kedvencnek van SENRA bilétája, olvasd le a QR kódot a telefonod kamerájával — megjelenik a gazdi elérhetősége.</string>
     <string name="help_faq_q19">Megváltoztathatom az e-mail címemet?</string>
     <string name="help_faq_a19">Az elsődleges e-mail címed a fiókod azonosítójaként szolgál, és ezért nem változtatható meg közvetlenül. Ha másik e-mailt címet szeretnél használni nyilvános elérhetőségként, megadhatsz egy másodlagos e-mailt címet is a \'Beállítások\', \'Elérhetőségek\' menüpontban — ez meg is jelenhet a kedvenced profilján, ha engedélyezed, hogy a megtaláló azonnal lássa és közvetlenül felvehesse veled a kapcsolatot. Ha feltétlenül szükséged van az elsődleges e-mail címed megváltoztatására, vedd fel a kapcsolatot a hello@senra.pet email címen, és segítünk átköltöztetni a fiókodat.</string>
     <string name="help_faq_q20">Mi a különbség a mikrochip és a SENRA QR biléta között?</string>
-    <string name="help_faq_a20">A mikrochip egy apró implantátum a kedvenced bőre alatt, amely egyedi 15 számjegyből álló azonosítót tárol — de speciális leolvasó kell hozzá (általában csak állatorvosoknál és menhelyeken elérhető). A SENRA QR biléta bármely okostelefon kamerájával egyszerűen leolvasható, azonnal megjeleníti a kedvenced teljes profilját, fotóját és az általad jóváhagyott kapcsolattartási adataidat. A megtaláló a megtalálás GPS koordinátáit is megoszthatja veled.</string>
+    <string name="help_faq_a20">A mikrochip egy apró implantátum a kedvenced bőre alatt, amely egyedi 15 számjegyből álló azonosítót tárol — de speciális leolvasó kell hozzá (általában csak állatorvosoknál és menhelyeken elérhető). A SENRA QR biléta bármely okostelefon kamerájával egyszerűen leolvasható, azonnal megjeleníti a kedvenced teljes profilját, fotóját és az általad jóváhagyott kapcsolattartási adataidat. A megtaláló a megtalálás helyét is megoszthatja veled.</string>
     <string name="help_faq_q21">Mi történik az adataimmal, ha lemondom az előfizetést?</string>
     <string name="help_faq_a21">Ha lemondod az előfizetést, a jelenlegi számlázási időszak végéig megtartod a fizetős funkciókhoz való hozzáférést. Ezután a fiókod automatikusan az ingyenes Starter csomagra vált. A kedvenc profilok, fotók és QR biléták aktívak maradnak — csak a prémium funkciókhoz (SMS értesítések, állatorvosi riasztások, ingyenes bilétacsere stb) való hozzáférést veszíted el. Az adataid nem törlődnek lemondáskor. Az összes adat végleges törléséhez használd a Fiók törlése opciót a Beállításokban.</string>
     <string name="help_faq_q22">Hogyan regisztrálhatom a rendelőmet vagy menhelyemet a SENRA-nál?</string>
@@ -1400,7 +1400,7 @@
     <string name="help_faq_q26">Hogyan jutnak el az eltűnt kedvenc riasztások az állatorvosokhoz és menhelyekhez?</string>
     <string name="help_faq_a26">Amikor \'Eltűnt\'-ként jelölöd a kedvencedet, a SENRA automatikusan e-mail riasztásokat küld az összes regisztrált állatorvosnak és menhelynek a környékeden. Ez azt jelenti, hogy a helyi szakemberek azonnal értesülnek, hogy a kedvenced eltűnt, és figyelemmel kísérhetik a keresését. Minél több állatorvos és menhely regisztrál a környékeden, annál jobban működik ez a hálózat. Te is segíthetsz azzal, hogy bátorítod az kedvenced állatorvosát a SENRA oldalán való regisztrációra.</string>
     <string name="help_faq_q27">Átregisztrálhatok egy bilétát egy másik kisállatra?</string>
-    <string name="help_faq_a27">Nem. Minden QR biléta véglegesen egy állt profiljához van kapcsolva. Ha egy kisállat elpusztul, vagy már nincs szükséged a bilétára, a régi biléta egyszerűen inaktívvá válik. Új kedvencednek rendelj új bilétát a SENRA oldalán.</string>
+    <string name="help_faq_a27">Nem. Minden QR biléta véglegesen egy állat profiljához van kapcsolva. Ha egy kisállat elpusztul, vagy már nincs szükséged a bilétára, a régi biléta egyszerűen inaktívvá válik. Új kedvencednek rendelj új bilétát a SENRA oldalán.</string>
     <string name="help_faq_q28">Hogyan regisztrálhatom a SENRA hálózatában a kedvencem állatorvosi rendelőjét vagy a menhelyet, ahonnan a kisállatomat örökbe fogadtam?</string>
     <string name="help_faq_a28">Állatklinikák és menhelyek a senra.pet/register-vet-shelter oldalon regisztrálhatnak. Töltsd ki a rendelő vagy szervezet adatait, és mi küldünk nekik egy ellenőrző e-mailt. A megerősítés után automatikusan értesítéseket küldünk nekik is, amikor kedvencek tűnnek el a környékeden — ezzel is segítve az elveszett kedvencek mielőbbi hazajuttatását. A regisztrációnak nincs költsége és nem szükséges hozzá bejelentkezés.</string>
 
