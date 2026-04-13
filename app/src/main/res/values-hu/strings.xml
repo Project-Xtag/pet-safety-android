@@ -997,6 +997,10 @@
     <string name="checkout_cancelled_message">A fizetés megszakítva. Próbáld újra, amikor készen állsz.</string>
     <string name="proceed_to_payment">Tovább a fizetéshez</string>
     <string name="redirecting_to_payment">Átirányítás a fizetéshez…</string>
+
+    <!-- Tags coming soon -->
+    <string name="tags_coming_soon_title">Hamarosan elérhető a biléta</string>
+    <string name="tags_coming_soon_body">Hamarosan kiszállítjuk az első tételt. Pár nap múlva nézz vissza.</string>
     <string name="checkout_failed">Nem sikerült elindítani a fizetést</string>
     <string name="sse_subscription_activated">A(z) %1$s csomagod most aktív!</string>
     <string name="sse_subscription_cancelled">A(z) %1$s előfizetésed lemondva.</string>

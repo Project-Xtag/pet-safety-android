@@ -1399,5 +1399,9 @@
     <string name="error_tag_not_found">Dette merket ble ikke funnet i systemet.</string>
     <string name="notif_tag_activated_body">SENRA-merket til %s er nå aktivt. Kjæledyret ditt er beskyttet.</string>
     <string name="notif_tag_activated_title">Merke aktivert!</string>
+    <!-- Tags coming soon -->
+    <string name="tags_coming_soon_title">De fysiske kjæledyrmerkene kommer snart</string>
+    <string name="tags_coming_soon_body">Vi sender den første batchen veldig snart. Sjekk tilbake om noen dager.</string>
+
 
 </resources>

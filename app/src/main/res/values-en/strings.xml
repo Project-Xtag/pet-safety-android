@@ -1382,5 +1382,9 @@
     <string name="welcome_subtitle">Your pet\'s safety starts here. Let\'s set up your first tag.</string>
     <string name="welcome_to_senra">Welcome to SENRA!</string>
     <string name="whats_next">What\'s next?</string>
+    <!-- Tags coming soon -->
+    <string name="tags_coming_soon_title">Physical tags are coming soon</string>
+    <string name="tags_coming_soon_body">We\'re shipping our first batch shortly. Check back in a few days.</string>
+
 
 </resources>

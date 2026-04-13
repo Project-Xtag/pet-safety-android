@@ -92,6 +92,9 @@ fun OrderReplacementTagScreen(
     val eligibility by viewModel.replacementEligibility.collectAsState()
     val isCheckingEligibility by viewModel.isCheckingEligibility.collectAsState()
     val shippingPrices by viewModel.shippingPrices.collectAsState()
+    // Fail-closed: only confirmed-true permits replacement order. Loading
+    // and fetch errors block, matching the backend gate (503).
+    val tagsAvailable by appStateViewModel.tagsAvailable.collectAsState()
 
     val replacementOrderedMessage = stringResource(R.string.replacement_ordered)
     val replacementFailedMessage = stringResource(R.string.replacement_failed)
@@ -536,6 +539,9 @@ fun OrderReplacementTagScreen(
                     .background(MaterialTheme.colorScheme.background)
                     .padding(20.dp)
             ) {
+                if (!tagsAvailable) {
+                    TagsComingSoonBanner()
+                } else {
                 Button(
                     onClick = {
                         val request = CreateReplacementOrderRequest(
@@ -600,7 +606,41 @@ fun OrderReplacementTagScreen(
                         )
                     }
                 }
+                } // end if (tagsAvailable)
             }
+        }
+    }
+}
+
+/**
+ * Replaces the proceed button when TAGS_AVAILABLE is off. Same vertical
+ * footprint so the bottom bar doesn't jump when the gate flips.
+ */
+@Composable
+private fun TagsComingSoonBanner() {
+    Card(
+        modifier = Modifier.fillMaxWidth(),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant),
+        shape = RoundedCornerShape(16.dp)
+    ) {
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.spacedBy(4.dp)
+        ) {
+            Text(
+                text = stringResource(R.string.tags_coming_soon_title),
+                style = MaterialTheme.typography.titleMedium,
+                fontWeight = FontWeight.SemiBold
+            )
+            Text(
+                text = stringResource(R.string.tags_coming_soon_body),
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                textAlign = androidx.compose.ui.text.style.TextAlign.Center
+            )
         }
     }
 }

@@ -6,10 +6,13 @@ import com.petsafety.app.data.model.PetFoundEvent
 import com.petsafety.app.data.model.SightingReportedEvent
 import com.petsafety.app.data.model.TagScannedEvent
 import com.petsafety.app.data.notifications.NotificationHelper
+import com.petsafety.app.data.network.ApiService
 import com.petsafety.app.data.network.SseService
+import com.petsafety.app.data.network.model.AppConfig
 import com.petsafety.app.data.sync.NetworkMonitor
 import com.petsafety.app.data.sync.SyncService
 import com.petsafety.app.util.StringProvider
+import io.mockk.coEvery
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
@@ -37,6 +40,7 @@ class AppStateViewModelTest {
     private lateinit var networkMonitor: NetworkMonitor
     private lateinit var syncService: SyncService
     private lateinit var stringProvider: StringProvider
+    private lateinit var apiService: ApiService
     private lateinit var viewModel: AppStateViewModel
 
     private val isConnectedFlow = MutableStateFlow(true)
@@ -55,6 +59,11 @@ class AppStateViewModelTest {
         networkMonitor = mockk(relaxed = true)
         syncService = mockk(relaxed = true)
         stringProvider = mockk(relaxed = true)
+        apiService = mockk(relaxed = true)
+        // Stub config fetch so the constructor's fire-and-forget call doesn't
+        // throw. Default to tagsAvailable=false to match the gate's
+        // fail-closed semantics in tests that don't override.
+        coEvery { apiService.getAppConfig() } returns AppConfig(tagsAvailable = false)
 
         every { networkMonitor.isConnected } returns isConnectedFlow
 
@@ -103,7 +112,8 @@ class AppStateViewModelTest {
             networkMonitor = networkMonitor,
             syncService = syncService,
             stringProvider = stringProvider,
-            subscriptionEventBus = SubscriptionEventBus()
+            subscriptionEventBus = SubscriptionEventBus(),
+            apiService = apiService
         )
     }
 

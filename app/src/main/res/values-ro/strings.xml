@@ -1406,5 +1406,9 @@
     <string name="error_tag_not_found">Această etichetă nu a fost găsită în sistem.</string>
     <string name="notif_tag_activated_body">Eticheta SENRA pentru %s este acum activă. Animalul tău este protejat.</string>
     <string name="notif_tag_activated_title">Etichetă activată!</string>
+    <!-- Tags coming soon -->
+    <string name="tags_coming_soon_title">Medalioanele fizice vor fi disponibile în curând</string>
+    <string name="tags_coming_soon_body">Vom expedia primul lot foarte curând. Revino peste câteva zile.</string>
+
 
 </resources>

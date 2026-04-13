@@ -740,6 +740,10 @@
     <string name="checkout_cancelled_message">Payment was cancelled. You can try again when ready.</string>
     <string name="proceed_to_payment">Proceed to Payment</string>
     <string name="redirecting_to_payment">Redirecting to payment…</string>
+
+    <!-- Tags coming soon (gates proceed-to-payment when TAGS_AVAILABLE=false) -->
+    <string name="tags_coming_soon_title">Physical tags are coming soon</string>
+    <string name="tags_coming_soon_body">We\'re shipping our first batch shortly. Check back in a few days.</string>
     <string name="checkout_failed">Failed to start checkout</string>
     <string name="sse_subscription_activated">Your %1$s plan is now active!</string>
     <string name="sse_subscription_cancelled">Your %1$s subscription has been cancelled.</string>

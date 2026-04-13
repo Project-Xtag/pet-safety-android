@@ -1425,5 +1425,9 @@
     <string name="error_tag_not_found">Ten identyfikator nie został znaleziony w systemie.</string>
     <string name="notif_tag_activated_body">Identyfikator SENRA dla %s jest teraz aktywny. Twój pupil jest chroniony.</string>
     <string name="notif_tag_activated_title">Identyfikator aktywowany!</string>
+    <!-- Tags coming soon -->
+    <string name="tags_coming_soon_title">Fizyczne nieśki wkrótce dostępne</string>
+    <string name="tags_coming_soon_body">Już niedługo wyślemy pierwszą partię. Wróć za kilka dni.</string>
+
 
 </resources>

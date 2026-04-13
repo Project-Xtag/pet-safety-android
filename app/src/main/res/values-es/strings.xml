@@ -1405,5 +1405,9 @@
     <string name="error_tag_not_found">Esta chapa no se encontró en el sistema.</string>
     <string name="notif_tag_activated_body">La chapa SENRA de %s ya está activa. Tu mascota está protegida.</string>
     <string name="notif_tag_activated_title">¡Chapa activada!</string>
+    <!-- Tags coming soon -->
+    <string name="tags_coming_soon_title">Las placas físicas llegarán pronto</string>
+    <string name="tags_coming_soon_body">Pronto enviaremos nuestro primer lote. Vuelve en unos días.</string>
+
 
 </resources>

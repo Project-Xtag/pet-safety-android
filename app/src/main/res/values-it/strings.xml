@@ -1400,5 +1400,9 @@
     <string name="error_tag_not_found">Questo medaglione non è stato trovato nel sistema.</string>
     <string name="notif_tag_activated_body">Il medaglione SENRA di %s è ora attivo. Il tuo animale è protetto.</string>
     <string name="notif_tag_activated_title">Medaglione attivato!</string>
+    <!-- Tags coming soon -->
+    <string name="tags_coming_soon_title">Le medagliette fisiche arrivano presto</string>
+    <string name="tags_coming_soon_body">Spediremo il nostro primo lotto a breve. Torna tra qualche giorno.</string>
+
 
 </resources>

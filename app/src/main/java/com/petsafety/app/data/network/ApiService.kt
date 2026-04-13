@@ -194,6 +194,12 @@ interface ApiService {
     @POST("orders/create-checkout")
     suspend fun createTagCheckout(@Body request: CreateTagCheckoutRequest): ApiEnvelope<TagCheckoutResponse>
 
+    // Public runtime config — feature flags for client-side gating.
+    // Currently exposes tagsAvailable (controls proceed-to-payment buttons).
+    // No auth, server-cached for 60s.
+    @GET("config")
+    suspend fun getAppConfig(): AppConfig
+
     // Shipping Prices (dynamic)
     @GET("orders/shipping-prices")
     suspend fun getShippingPrices(): ApiEnvelope<ShippingPricesResponse>

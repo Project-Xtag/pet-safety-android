@@ -1397,5 +1397,9 @@
     <string name="error_tag_not_found">Ce médaillon n\'a pas été trouvé dans le système.</string>
     <string name="notif_tag_activated_body">Le médaillon SENRA de %s est maintenant actif. Votre animal est protégé.</string>
     <string name="notif_tag_activated_title">Médaillon activé !</string>
+    <!-- Tags coming soon -->
+    <string name="tags_coming_soon_title">Les médailles physiques arrivent bientôt</string>
+    <string name="tags_coming_soon_body">Nous expédierons notre premier lot très bientôt. Reviens dans quelques jours.</string>
+
 
 </resources>

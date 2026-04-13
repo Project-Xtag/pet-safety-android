@@ -1400,5 +1400,9 @@
     <string name="error_tag_not_found">Ovaj privjesak nije pronađen u sustavu.</string>
     <string name="notif_tag_activated_body">SENRA privjesak za %s je sada aktivan. Vaš ljubimac je zaštićen.</string>
     <string name="notif_tag_activated_title">Privjesak aktiviran!</string>
+    <!-- Tags coming soon -->
+    <string name="tags_coming_soon_title">Fizičke pločice uskoro stižu</string>
+    <string name="tags_coming_soon_body">Uskoro šaljemo prvu seriju. Vrati se za nekoliko dana.</string>
+
 
 </resources>

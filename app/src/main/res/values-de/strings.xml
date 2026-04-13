@@ -1406,5 +1406,9 @@
     <string name="error_tag_not_found">Diese Marke wurde im System nicht gefunden.</string>
     <string name="notif_tag_activated_body">Die SENRA-Marke von %s ist jetzt aktiv. Ihr Haustier ist geschützt.</string>
     <string name="notif_tag_activated_title">Marke aktiviert!</string>
+    <!-- Tags coming soon -->
+    <string name="tags_coming_soon_title">Physische Namensschilder kommen bald</string>
+    <string name="tags_coming_soon_body">Wir versenden bald unsere erste Charge. Schau in ein paar Tagen wieder vorbei.</string>
+
 
 </resources>

@@ -1,12 +1,16 @@
 package com.petsafety.app.ui.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.petsafety.app.data.events.SubscriptionEventBus
 import com.petsafety.app.data.model.ReferralUsedEvent
 import com.petsafety.app.data.model.SightingReportedEvent
 import com.petsafety.app.data.model.SubscriptionChangedEvent
 import com.petsafety.app.data.model.TagScannedEvent
 import com.petsafety.app.data.model.PetFoundEvent
+import com.petsafety.app.data.network.ApiService
+import com.petsafety.app.data.network.model.AppConfig
 import com.petsafety.app.data.notifications.NotificationHelper
 import com.petsafety.app.data.network.SseService
 import com.petsafety.app.data.sync.NetworkMonitor
@@ -19,6 +23,7 @@ import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 import com.petsafety.app.R
 
@@ -29,7 +34,8 @@ class AppStateViewModel @Inject constructor(
     private val networkMonitor: NetworkMonitor,
     val syncService: SyncService,
     private val stringProvider: StringProvider,
-    private val subscriptionEventBus: SubscriptionEventBus
+    private val subscriptionEventBus: SubscriptionEventBus,
+    private val apiService: ApiService
 ) : ViewModel() {
     private val _snackbarMessage = MutableStateFlow<String?>(null)
     val snackbarMessage: StateFlow<String?> = _snackbarMessage.asStateFlow()
@@ -45,8 +51,48 @@ class AppStateViewModel @Inject constructor(
     private val _navigateToSubscription = MutableSharedFlow<Unit>(extraBufferCapacity = 1)
     val navigateToSubscriptionEvent: SharedFlow<Unit> = _navigateToSubscription.asSharedFlow()
 
+    /**
+     * Public runtime config (currently just feature flags). Null while the
+     * first fetch is in flight or if it failed entirely. Consumers gating UI
+     * on this should treat null as "do not enable the gated action" — see
+     * the tagsAvailable convenience below for the canonical fail-closed read.
+     */
+    private val _appConfig = MutableStateFlow<AppConfig?>(null)
+    val appConfig: StateFlow<AppConfig?> = _appConfig.asStateFlow()
+
+    /**
+     * True only when the server has confirmed tags are in stock. Loading
+     * (null) and any fetch failure both return false — fail-closed, matching
+     * the backend gate that returns 503 TAGS_UNAVAILABLE.
+     */
+    val tagsAvailable: StateFlow<Boolean> = MutableStateFlow(false).also { sf ->
+        viewModelScope.launch {
+            _appConfig.collect { sf.value = it?.tagsAvailable == true }
+        }
+    }.asStateFlow()
+
     init {
         setupSseHandlers()
+        // Fire-and-forget config fetch on construction. Views observe
+        // appConfig / tagsAvailable and re-render when the value lands.
+        refreshAppConfig()
+    }
+
+    /**
+     * Re-fetches /api/config. Safe to call repeatedly (e.g. when the app
+     * resumes from background) so a stockout flip reaches users without a
+     * full app restart. Failure leaves the previous value in place rather
+     * than regressing a known-good config to null.
+     */
+    fun refreshAppConfig() {
+        viewModelScope.launch {
+            try {
+                _appConfig.value = apiService.getAppConfig()
+            } catch (e: Exception) {
+                Log.w("AppStateViewModel", "Failed to load app config", e)
+                // Leave _appConfig as-is. If still null we stay fail-closed.
+            }
+        }
     }
 
     fun showError(message: String) {

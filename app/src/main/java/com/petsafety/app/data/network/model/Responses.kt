@@ -10,6 +10,16 @@ data class LoginResponse(
     @SerialName("expiresIn") val expiresIn: Int? = null
 )
 
+/**
+ * Public runtime config from GET /api/config. Drives client-side gating
+ * for behavior the backend can toggle without a release. New fields can be
+ * added safely — older app versions silently ignore unknown JSON keys.
+ */
+@Serializable
+data class AppConfig(
+    val tagsAvailable: Boolean = false
+)
+
 @Serializable
 data class VerifyOtpResponse(
     val token: String,

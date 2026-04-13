@@ -1414,5 +1414,9 @@
     <string name="error_tag_not_found">Tento štítek nebyl nalezen v systému.</string>
     <string name="notif_tag_activated_body">SENRA štítek pro %s je nyní aktivní. Váš mazlíček je chráněn.</string>
     <string name="notif_tag_activated_title">Štítek aktivován!</string>
+    <!-- Tags coming soon -->
+    <string name="tags_coming_soon_title">Fyzické známky brzy dorazí</string>
+    <string name="tags_coming_soon_body">Brzy odešleme naši první sérii. Vrať se za pár dní.</string>
+
 
 </resources>

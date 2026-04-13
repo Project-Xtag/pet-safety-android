@@ -1405,5 +1405,9 @@
     <string name="error_tag_not_found">Esta etiqueta não foi encontrada no sistema.</string>
     <string name="notif_tag_activated_body">A etiqueta SENRA de %s está agora ativa. O seu animal está protegido.</string>
     <string name="notif_tag_activated_title">Etiqueta ativada!</string>
+    <!-- Tags coming soon -->
+    <string name="tags_coming_soon_title">As placas físicas estão a chegar</string>
+    <string name="tags_coming_soon_body">Em breve enviaremos o nosso primeiro lote. Volta dentro de alguns dias.</string>
+
 
 </resources>

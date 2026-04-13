@@ -97,6 +97,10 @@ fun OrderMoreTagsScreen(
     val deliveryPoints by viewModel.deliveryPoints.collectAsState()
     val isSearchingPoints by viewModel.isSearchingPoints.collectAsState()
     val shippingPrices by viewModel.shippingPrices.collectAsState()
+    // Fail-closed gate: only confirmed-true permits checkout. Loading state
+    // and fetch errors both block, matching the backend gate (503
+    // TAGS_UNAVAILABLE) and the matching iOS / web behavior.
+    val tagsAvailable by appStateViewModel.tagsAvailable.collectAsState()
 
     // Fetch shipping prices on screen load
     LaunchedEffect(Unit) {
@@ -650,6 +654,9 @@ fun OrderMoreTagsScreen(
                     .background(MaterialTheme.colorScheme.background)
                     .padding(20.dp)
             ) {
+                if (!tagsAvailable) {
+                    TagsComingSoonBanner()
+                } else {
                 Button(
                     onClick = {
                         if (isGift.value) {
@@ -759,7 +766,42 @@ fun OrderMoreTagsScreen(
                         )
                     }
                 }
+                } // end if (tagsAvailable)
             }
+        }
+    }
+}
+
+/**
+ * Replaces the proceed-to-payment Button when TAGS_AVAILABLE is off. Same
+ * vertical footprint as the gated Button so the bottom bar doesn't jump
+ * when the gate flips.
+ */
+@Composable
+private fun TagsComingSoonBanner() {
+    Card(
+        modifier = Modifier.fillMaxWidth(),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant),
+        shape = RoundedCornerShape(16.dp)
+    ) {
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.spacedBy(4.dp)
+        ) {
+            Text(
+                text = stringResource(R.string.tags_coming_soon_title),
+                style = MaterialTheme.typography.titleMedium,
+                fontWeight = FontWeight.SemiBold
+            )
+            Text(
+                text = stringResource(R.string.tags_coming_soon_body),
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                textAlign = androidx.compose.ui.text.style.TextAlign.Center
+            )
         }
     }
 }
