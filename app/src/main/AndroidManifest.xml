@@ -111,7 +111,7 @@
                     android:pathPrefix="/t/" />
             </intent-filter>
 
-            <!-- Country-prefixed QR tag deep links (e.g. /hu/qr/PS-ABC123) -->
+            <!-- Country-prefixed QR tag deep links (e.g. /hu/qr/PS-ABC123, /hu/t/abc) -->
             <intent-filter android:autoVerify="true">
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -119,7 +119,11 @@
                 <data
                     android:scheme="https"
                     android:host="senra.pet"
-                    android:pathPattern="/../../qr/.*" />
+                    android:pathPattern="/../qr/.*" />
+                <data
+                    android:scheme="https"
+                    android:host="senra.pet"
+                    android:pathPattern="/../t/.*" />
             </intent-filter>
 
             <intent-filter>
