@@ -164,7 +164,7 @@ class AuthViewModelTest {
 
     @Test
     fun `verifyOtp - success - sets authenticated and user`() = runTest {
-        coEvery { authRepository.verifyOtp("test@example.com", "123456") } returns VerifyResult(testUser, false)
+        coEvery { authRepository.verifyOtp("test@example.com", "123456", null, null) } returns VerifyResult(testUser, false)
 
         var successCalled = false
 
@@ -184,7 +184,7 @@ class AuthViewModelTest {
     @Test
     fun `verifyOtp - failure - calls onFailure callback`() = runTest {
         val errorMsg = "Invalid OTP"
-        coEvery { authRepository.verifyOtp(any(), any()) } throws RuntimeException(errorMsg)
+        coEvery { authRepository.verifyOtp(any(), any(), any(), any()) } throws RuntimeException(errorMsg)
 
         var failureMessage: String? = null
 
@@ -205,8 +205,13 @@ class AuthViewModelTest {
     @Test
     fun `logout - clears user and auth state`() = runTest {
         // First, simulate logged in state
-        coEvery { authRepository.verifyOtp(any(), any()) } returns VerifyResult(testUser, false)
-        viewModel.verifyOtp("test@example.com", "123456", {}, {})
+        coEvery { authRepository.verifyOtp(any(), any(), any(), any()) } returns VerifyResult(testUser, false)
+        viewModel.verifyOtp(
+            email = "test@example.com",
+            code = "123456",
+            onSuccess = {},
+            onFailure = {}
+        )
         testDispatcher.scheduler.advanceUntilIdle()
         assertTrue(viewModel.isAuthenticated.value)
 

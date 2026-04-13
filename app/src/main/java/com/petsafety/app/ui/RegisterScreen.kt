@@ -427,15 +427,9 @@ fun RegisterScreen(
                             authViewModel.verifyOtp(
                                 email = trimmedEmail,
                                 code = otpCode,
+                                firstName = trimmedFirstName.ifBlank { null },
+                                lastName = lastName.trim().ifBlank { null },
                                 onSuccess = {
-                                    // Update profile with first/last name
-                                    val updates = mutableMapOf<String, Any>(
-                                        "first_name" to trimmedFirstName
-                                    )
-                                    if (lastName.trim().isNotBlank()) {
-                                        updates["last_name"] = lastName.trim()
-                                    }
-                                    authViewModel.updateProfile(updates) { _, _ -> }
                                     appStateViewModel.showSuccess(welcomeNewUserMessage)
                                 },
                                 onFailure = { message ->

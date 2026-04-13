@@ -103,12 +103,19 @@ class AuthViewModel @Inject constructor(
         }
     }
 
-    fun verifyOtp(email: String, code: String, onSuccess: () -> Unit, onFailure: (String) -> Unit) {
+    fun verifyOtp(
+        email: String,
+        code: String,
+        firstName: String? = null,
+        lastName: String? = null,
+        onSuccess: () -> Unit,
+        onFailure: (String) -> Unit
+    ) {
         viewModelScope.launch {
             _isLoading.value = true
             _errorMessage.value = null
             try {
-                val result = authRepository.verifyOtp(email, code)
+                val result = authRepository.verifyOtp(email, code, firstName, lastName)
                 _currentUser.value = result.user
                 _isAuthenticated.value = true
                 _isNewUser.value = result.isNewUser

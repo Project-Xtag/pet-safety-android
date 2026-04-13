@@ -35,8 +35,20 @@ class AuthRepository(
         }
     }
 
-    suspend fun verifyOtp(email: String, code: String): VerifyResult {
-        val response = apiService.verifyOtp(VerifyOtpRequest(email, code))
+    suspend fun verifyOtp(
+        email: String,
+        code: String,
+        firstName: String? = null,
+        lastName: String? = null
+    ): VerifyResult {
+        val response = apiService.verifyOtp(
+            VerifyOtpRequest(
+                email = email,
+                otp = code,
+                firstName = firstName?.takeIf { it.isNotBlank() },
+                lastName = lastName?.takeIf { it.isNotBlank() }
+            )
+        )
         if (!response.success) {
             throw Exception(response.error ?: "OTP verification failed")
         }
