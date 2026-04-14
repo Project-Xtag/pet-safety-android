@@ -71,6 +71,8 @@ android {
             initWith(getByName("debug"))
             matchingFallbacks += listOf("debug")
             isDebuggable = true
+            applicationIdSuffix = ".staging"
+            versionNameSuffix = "-staging"
             buildConfigField("String", "API_BASE_URL", "\"https://staging.senra.pet/api/\"")
             buildConfigField("String", "SSE_BASE_URL", "\"https://staging.senra.pet/api/sse/events\"")
         }
