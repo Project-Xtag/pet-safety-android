@@ -5,6 +5,7 @@ import android.net.Uri
 import android.os.Bundle
 import timber.log.Timber
 import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.fragment.app.FragmentActivity
 import android.preference.PreferenceManager
@@ -42,9 +43,8 @@ class MainActivity : FragmentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         val splashScreen = installSplashScreen()
         Timber.d("=== MainActivity.onCreate START ===")
+        enableEdgeToEdge()
         super.onCreate(savedInstanceState)
-        // Allow Compose to handle window insets (needed for imePadding to work)
-        androidx.core.view.WindowCompat.setDecorFitsSystemWindows(window, false)
         Timber.d("=== handleIntent ===")
         handleIntent(intent)
         Timber.d("=== setContent ===")
