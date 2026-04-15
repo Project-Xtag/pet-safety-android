@@ -108,7 +108,6 @@
     <!-- ============================================ -->
     <!-- MARK: Home / Pets List -->
     <!-- ============================================ -->
-    <string name="pet_owner_default">Proprietar animal</string>
     <string name="welcome_back_greeting">Bine ai revenit,</string>
     <string name="view_all">Vezi tot</string>
     <string name="search_pets_hint">Caută după nume, rasă, specie\u2026</string>
@@ -1400,4 +1399,5 @@
     <string name="tags_coming_soon_body">Vom expedia primul lot foarte curând. Revino peste câteva zile.</string>
 
 
+    <string name="welcome_back_no_name">Bine ai revenit!</string>
 </resources>

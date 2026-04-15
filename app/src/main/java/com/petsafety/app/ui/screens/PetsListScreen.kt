@@ -209,7 +209,7 @@ fun PetsListScreen(
                     ) {
                         // Header Section
                         val cachedName by authViewModel?.cachedFirstName?.collectAsState() ?: remember { mutableStateOf(null) }
-                        HeaderSection(userName = currentUser?.firstName ?: cachedName ?: stringResource(R.string.pet_owner_default), onNotifications = onNotifications)
+                        HeaderSection(userName = (currentUser?.firstName ?: cachedName)?.takeIf { it.isNotBlank() }, onNotifications = onNotifications)
 
                         Spacer(modifier = Modifier.height(24.dp))
 
@@ -299,7 +299,7 @@ fun PetsListScreen(
 }
 
 @Composable
-private fun HeaderSection(userName: String, onNotifications: () -> Unit = {}) {
+private fun HeaderSection(userName: String?, onNotifications: () -> Unit = {}) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -308,23 +308,34 @@ private fun HeaderSection(userName: String, onNotifications: () -> Unit = {}) {
         verticalAlignment = Alignment.CenterVertically
     ) {
         Column(modifier = Modifier.weight(1f)) {
-            Text(
-                text = stringResource(R.string.welcome_back_greeting),
-                style = MaterialTheme.typography.bodyMedium.copy(
-                    fontSize = AdaptiveLayout.scaledSp(14),
-                    fontWeight = FontWeight.Medium
-                ),
-                color = MaterialTheme.colorScheme.onSurfaceVariant
-            )
-            Spacer(modifier = Modifier.height(4.dp))
-            Text(
-                text = userName,
-                style = MaterialTheme.typography.headlineSmall.copy(
-                    fontSize = AdaptiveLayout.scaledSp(24),
-                    fontWeight = FontWeight.Bold
-                ),
-                color = MaterialTheme.colorScheme.onSurface
-            )
+            if (userName != null) {
+                Text(
+                    text = stringResource(R.string.welcome_back_greeting),
+                    style = MaterialTheme.typography.bodyMedium.copy(
+                        fontSize = AdaptiveLayout.scaledSp(14),
+                        fontWeight = FontWeight.Medium
+                    ),
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+                Spacer(modifier = Modifier.height(4.dp))
+                Text(
+                    text = userName,
+                    style = MaterialTheme.typography.headlineSmall.copy(
+                        fontSize = AdaptiveLayout.scaledSp(24),
+                        fontWeight = FontWeight.Bold
+                    ),
+                    color = MaterialTheme.colorScheme.onSurface
+                )
+            } else {
+                Text(
+                    text = stringResource(R.string.welcome_back_no_name),
+                    style = MaterialTheme.typography.headlineSmall.copy(
+                        fontSize = AdaptiveLayout.scaledSp(24),
+                        fontWeight = FontWeight.Bold
+                    ),
+                    color = MaterialTheme.colorScheme.onSurface
+                )
+            }
         }
         IconButton(onClick = onNotifications) {
             Icon(

@@ -116,7 +116,6 @@
     <!-- ============================================ -->
     <!-- MARK: Home / Pets List -->
     <!-- ============================================ -->
-    <string name="pet_owner_default">Haustierbesitzer</string>
     <string name="welcome_back_greeting">Willkommen zurück,</string>
     <string name="view_all">Alle anzeigen</string>
     <string name="search_pets_hint">Suche nach Name, Rasse, Tierart\u2026</string>
@@ -1400,4 +1399,5 @@
     <string name="tags_coming_soon_body">Wir versenden bald unsere erste Charge. Schau in ein paar Tagen wieder vorbei.</string>
 
 
+    <string name="welcome_back_no_name">Willkommen zurück!</string>
 </resources>

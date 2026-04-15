@@ -116,7 +116,6 @@
     <!-- ============================================ -->
     <!-- MARK: Home / Pets List -->
     <!-- ============================================ -->
-    <string name="pet_owner_default">Dono do animal</string>
     <string name="welcome_back_greeting">Bem-vindo de volta,</string>
     <string name="view_all">Ver tudo</string>
     <string name="search_pets_hint">Pesquisar por nome, raça, espécie\u2026</string>
@@ -1399,4 +1398,5 @@
     <string name="tags_coming_soon_body">Em breve enviaremos o nosso primeiro lote. Volta dentro de alguns dias.</string>
 
 
+    <string name="welcome_back_no_name">Bem-vindo/a de volta!</string>
 </resources>

@@ -116,7 +116,6 @@
     <!-- ============================================ -->
     <!-- MARK: Home / Pets List -->
     <!-- ============================================ -->
-    <string name="pet_owner_default">Kedvenc gazdija</string>
     <string name="welcome_back_greeting">Üdv újra,</string>
     <string name="view_all">Összes megtekintése</string>
     <string name="search_pets_hint">Keresés név, fajta, faj szerint\u2026</string>
@@ -1397,4 +1396,5 @@
     <string name="help_faq_q28">Hogyan regisztrálhatom a SENRA hálózatában a kedvencem állatorvosi rendelőjét vagy a menhelyet, ahonnan a kisállatomat örökbe fogadtam?</string>
     <string name="help_faq_a28">Állatklinikák és menhelyek a senra.pet/register-vet-shelter oldalon regisztrálhatnak. Töltsd ki a rendelő vagy szervezet adatait, és mi küldünk nekik egy ellenőrző e-mailt. A megerősítés után automatikusan értesítéseket küldünk nekik is, amikor kedvencek tűnnek el a környékeden — ezzel is segítve az elveszett kedvencek mielőbbi hazajuttatását. A regisztrációnak nincs költsége és nem szükséges hozzá bejelentkezés.</string>
 
+    <string name="welcome_back_no_name">Üdv újra!</string>
 </resources>

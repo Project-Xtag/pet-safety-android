@@ -112,7 +112,6 @@
     <!-- ============================================ -->
     <!-- MARK: Home / Pets List -->
     <!-- ============================================ -->
-    <string name="pet_owner_default">Pet Owner</string>
     <string name="welcome_back_greeting">Welcome back,</string>
     <string name="view_all">View All</string>
     <string name="search_pets_hint">Search by name, breed, species\u2026</string>
@@ -1406,4 +1405,5 @@
     <string name="help_faq_q28">How can I register my pet\'s vet clinic or the shelter where I adopted my pet in the SENRA network?</string>
     <string name="help_faq_a28">Vet clinics and shelters can register at senra.pet/register-vet-shelter. Fill in the clinic or organisation details, and we\'ll send them a verification email. After confirmation, we\'ll automatically send them notifications when pets go missing in your area — helping lost pets get home sooner. There\'s no cost and no login required.</string>
 
+    <string name="welcome_back_no_name">Welcome back!</string>
 </resources>

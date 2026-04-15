@@ -116,7 +116,6 @@
     <!-- ============================================ -->
     <!-- MARK: Home / Pets List -->
     <!-- ============================================ -->
-    <string name="pet_owner_default">Majitel mazlíčka</string>
     <string name="welcome_back_greeting">Vítejte zpět,</string>
     <string name="view_all">Zobrazit vše</string>
     <string name="search_pets_hint">Hledat podle jména, plemene, druhu\u2026</string>
@@ -1408,4 +1407,5 @@
     <string name="tags_coming_soon_body">Brzy odešleme naši první sérii. Vrať se za pár dní.</string>
 
 
+    <string name="welcome_back_no_name">Vítejte zpět!</string>
 </resources>

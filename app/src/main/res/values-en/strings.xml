@@ -100,7 +100,6 @@
     <!-- ============================================ -->
     <!-- MARK: Home / Pets List -->
     <!-- ============================================ -->
-    <string name="pet_owner_default">Pet Owner</string>
     <string name="welcome_back_greeting">Welcome back,</string>
     <string name="view_all">View All</string>
     <string name="search_pets_hint">Search by name, breed, species\u2026</string>
@@ -1376,4 +1375,5 @@
     <string name="tags_coming_soon_body">We\'re shipping our first batch shortly. Check back in a few days.</string>
 
 
+    <string name="welcome_back_no_name">Welcome back!</string>
 </resources>
