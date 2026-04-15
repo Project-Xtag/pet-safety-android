@@ -1222,17 +1222,6 @@
     <string name="identity_locked_desc">Ova polja ne mogu se mijenjati nakon aktivacije pločice. Kontaktiraj podršku ako trebaš napraviti promjene.</string>
 
     <!-- Shelter Adoption -->
-    <string name="profile_shelter_code">Kôd udomljavanja iz skloništa</string>
-    <string name="shelter_code_title">Kôd skloništa</string>
-    <string name="shelter_code_enter">Unesi ADOPT-XXXX kôd</string>
-    <string name="shelter_code_enter_footer">Unesi ADOPT-XXXX kôd koji si dobio od skloništa.</string>
-    <string name="shelter_code_redeem">Iskoristi</string>
-    <string name="shelter_code_success">Kôd uspješno iskorišten!</string>
-    <string name="shelter_code_invalid">Nevažeći ili već iskorišteni kôd.</string>
-    <string name="shelter_how_it_works">Kako funkcionira</string>
-    <string name="shelter_step_1">Udomi ljubimca iz partnerskog skloništa</string>
-    <string name="shelter_step_2">Unesi kôd koji si dobio pri udomljavanju</string>
-    <string name="shelter_step_3">Dobij 3 mjeseca besplatnog Standard paketa + besplatni QR pločica</string>
     <string name="trial_ends_on">Probno razdoblje završava %1$s</string>
     <string name="trial_upgrade_now">Nadogradi sada da zadržiš značajke!</string>
     <!-- Referral Status -->

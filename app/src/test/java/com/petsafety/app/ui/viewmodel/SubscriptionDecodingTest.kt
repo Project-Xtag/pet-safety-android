@@ -2,12 +2,11 @@ package com.petsafety.app.ui.viewmodel
 
 import com.petsafety.app.data.model.SubscriptionStatus
 import com.petsafety.app.data.model.UserSubscription
-import com.petsafety.app.data.network.model.ShelterCodeRedeemResponse
 import kotlinx.serialization.json.Json
 import org.junit.Assert.*
 import org.junit.Test
 
-class ShelterCodeTest {
+class SubscriptionDecodingTest {
 
     private val json = Json { ignoreUnknownKeys = true }
 
@@ -44,19 +43,5 @@ class ShelterCodeTest {
         val sub = json.decodeFromString<UserSubscription>(jsonStr)
         assertFalse(sub.isTrialing)
         assertTrue(sub.isActive)
-    }
-
-    @Test
-    fun `ShelterCodeRedeemResponse deserializes correctly`() {
-        val jsonStr = """
-        {
-            "message": "Welcome! 3 months free.",
-            "order_id": "order-123"
-        }
-        """.trimIndent()
-
-        val response = json.decodeFromString<ShelterCodeRedeemResponse>(jsonStr)
-        assertEquals("Welcome! 3 months free.", response.message)
-        assertEquals("order-123", response.orderId)
     }
 }

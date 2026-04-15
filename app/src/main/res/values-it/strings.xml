@@ -1225,17 +1225,6 @@
     <string name="identity_locked_desc">Questi campi non possono essere modificati dopo l\'attivazione della targhetta.</string>
 
     <!-- Shelter Adoption -->
-    <string name="profile_shelter_code">Codice di adozione del rifugio</string>
-    <string name="shelter_code_title">Codice del rifugio</string>
-    <string name="shelter_code_enter">Inserisci il codice ADOPT-XXXX</string>
-    <string name="shelter_code_enter_footer">Inserisci il codice ADOPT-XXXX ricevuto dal rifugio.</string>
-    <string name="shelter_code_redeem">Riscatta</string>
-    <string name="shelter_code_success">Codice riscattato con successo!</string>
-    <string name="shelter_code_invalid">Codice non valido o già riscattato.</string>
-    <string name="shelter_how_it_works">How It Works</string>
-    <string name="shelter_step_1">Adopt a pet from a partner shelter</string>
-    <string name="shelter_step_2">Enter the code you received at adoption</string>
-    <string name="shelter_step_3">Get 3 months free Standard plan + a free QR tag</string>
     <string name="trial_ends_on">Trial ends on</string>
     <string name="trial_upgrade_now">Upgrade now to keep your features!</string>
     <!-- Referral Status -->

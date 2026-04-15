@@ -1222,17 +1222,6 @@
     <string name="identity_locked_desc">Ces champs ne peuvent pas être modifiés après l\'activation de la médaille.</string>
 
     <!-- Shelter Adoption -->
-    <string name="profile_shelter_code">Code d\'adoption du refuge</string>
-    <string name="shelter_code_title">Code du refuge</string>
-    <string name="shelter_code_enter">Entre le code ADOPT-XXXX</string>
-    <string name="shelter_code_enter_footer">Entre le code ADOPT-XXXX que tu as reçu du refuge.</string>
-    <string name="shelter_code_redeem">Utiliser</string>
-    <string name="shelter_code_success">Code utilisé avec succès !</string>
-    <string name="shelter_code_invalid">Code invalide ou déjà utilisé.</string>
-    <string name="shelter_how_it_works">How It Works</string>
-    <string name="shelter_step_1">Adopt a pet from a partner shelter</string>
-    <string name="shelter_step_2">Enter the code you received at adoption</string>
-    <string name="shelter_step_3">Get 3 months free Standard plan + a free QR tag</string>
     <string name="trial_ends_on">Trial ends on</string>
     <string name="trial_upgrade_now">Upgrade now to keep your features!</string>
     <!-- Referral Status -->

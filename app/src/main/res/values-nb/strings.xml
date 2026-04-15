@@ -1224,17 +1224,6 @@
     <string name="identity_locked_desc">Disse feltene kan ikke endres etter merkeaktivering.</string>
 
     <!-- Shelter Adoption -->
-    <string name="profile_shelter_code">Adopsjonskode fra krisesenter</string>
-    <string name="shelter_code_title">Krisesenter-kode</string>
-    <string name="shelter_code_enter">Skriv inn ADOPT-XXXX-koden</string>
-    <string name="shelter_code_enter_footer">Skriv inn ADOPT-XXXX-koden du fikk fra krisesenteret.</string>
-    <string name="shelter_code_redeem">Løs inn</string>
-    <string name="shelter_code_success">Koden er innløst!</string>
-    <string name="shelter_code_invalid">Ugyldig eller allerede innløst kode.</string>
-    <string name="shelter_how_it_works">How It Works</string>
-    <string name="shelter_step_1">Adopt a pet from a partner shelter</string>
-    <string name="shelter_step_2">Enter the code you received at adoption</string>
-    <string name="shelter_step_3">Get 3 months free Standard plan + a free QR tag</string>
     <string name="trial_ends_on">Trial ends on</string>
     <string name="trial_upgrade_now">Upgrade now to keep your features!</string>
     <!-- Referral Status -->

@@ -115,7 +115,6 @@ private enum class ProfileSection {
     ORDERS,
     BILLING,
     REFERRAL,
-    SHELTER_CODE,
     PRICING,
     PENDING_TAGS,
     NOTIFICATION_INBOX,
@@ -157,7 +156,6 @@ fun ProfileScreen(
         )
         ProfileSection.BILLING -> BillingScreen(onBack = { section = ProfileSection.MAIN })
         ProfileSection.REFERRAL -> ReferralScreen(onBack = { section = ProfileSection.MAIN })
-        ProfileSection.SHELTER_CODE -> ShelterCodeScreen(onBack = { section = ProfileSection.MAIN })
         ProfileSection.PRICING -> {
             // Subscription management handled on web — redirect back to main
             section = ProfileSection.MAIN
@@ -377,12 +375,6 @@ private fun ProfileMain(
                         icon = Icons.Default.ShoppingBag,
                         title = stringResource(R.string.orders_and_invoices),
                         onClick = { onNavigate(ProfileSection.ORDERS) }
-                    )
-                    HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
-                    ProfileMenuRow(
-                        icon = Icons.Default.Pets,
-                        title = stringResource(R.string.profile_shelter_code),
-                        onClick = { onNavigate(ProfileSection.SHELTER_CODE) }
                     )
                     HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
                     ProfileMenuRow(

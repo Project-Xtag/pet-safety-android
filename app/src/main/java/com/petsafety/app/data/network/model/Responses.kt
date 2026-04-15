@@ -357,12 +357,6 @@ data class ReferralApplyResponse(
     @SerialName("stripe_promo_code_id") val stripePromoCodeId: String? = null
 )
 
-@Serializable
-data class ShelterCodeRedeemResponse(
-    val message: String = "",
-    @SerialName("order_id") val orderId: String? = null
-)
-
 /** Error response from backend 403 when pet limit is reached */
 @Serializable
 data class SubscriptionLimitInfo(

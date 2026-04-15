@@ -1234,17 +1234,6 @@
     <string name="identity_locked_desc">Ezek a mezők a biléta aktiválása után nem módosíthatók. Kérjük, lépj kapcsolatba az ügyfélszolgálattal!</string>
 
     <!-- Menhelyi örökbefogadás -->
-    <string name="profile_shelter_code">Menhelyi kód beváltása</string>
-    <string name="shelter_code_title">Menhelyi kód</string>
-    <string name="shelter_code_enter">ADOPT-XXXX kód megadása</string>
-    <string name="shelter_code_enter_footer">Írd be a menhelytől kapott kódot!</string>
-    <string name="shelter_code_redeem">Beváltás</string>
-    <string name="shelter_code_success">Kód sikeresen beváltva!</string>
-    <string name="shelter_code_invalid">Érvénytelen vagy már beváltott kód.</string>
-    <string name="shelter_how_it_works">Hogyan működik?</string>
-    <string name="shelter_step_1">Fogadj örökbe egy kisállatot egy partner menhelyről!</string>
-    <string name="shelter_step_2">Írd be az örökbefogadáskor kapott kódot</string>
-    <string name="shelter_step_3">Kapj 3 hónap ingyenes Standard csomagot + ingyenes QR biléta</string>
     <string name="trial_ends_on">A próbaidőszak vége</string>
     <string name="trial_upgrade_now">Frissíts most, hogy megtartsd a funkcióidat!</string>
     <!-- Referral Status -->

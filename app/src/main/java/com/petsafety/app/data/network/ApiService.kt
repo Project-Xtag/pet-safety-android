@@ -301,9 +301,6 @@ interface ApiService {
     @POST("referrals/apply")
     suspend fun applyReferralCode(@Body request: ApplyReferralRequest): ApiEnvelope<ReferralApplyResponse>
 
-    @POST("referrals/redeem-shelter-code")
-    suspend fun redeemShelterCode(@Body request: RedeemShelterCodeRequest): ApiEnvelope<ShelterCodeRedeemResponse>
-
     @GET("referrals/status")
     suspend fun getReferralStatus(): ApiEnvelope<ReferralStatusResponse>
 

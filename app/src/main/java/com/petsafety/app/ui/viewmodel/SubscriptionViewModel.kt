@@ -65,12 +65,6 @@ class SubscriptionViewModel @Inject constructor(
     private val _friendCodeMessage = MutableStateFlow<String?>(null)
     val friendCodeMessage: StateFlow<String?> = _friendCodeMessage.asStateFlow()
 
-    private val _shelterCodeRedeemed = MutableStateFlow(false)
-    val shelterCodeRedeemed: StateFlow<Boolean> = _shelterCodeRedeemed.asStateFlow()
-
-    private val _shelterCodeMessage = MutableStateFlow<String?>(null)
-    val shelterCodeMessage: StateFlow<String?> = _shelterCodeMessage.asStateFlow()
-
     val currentPlanName: String get() = _subscription.value?.resolvedPlanName ?: stringProvider.getString(R.string.no_plan)
     val isOnStarterPlan: Boolean get() = _subscription.value?.resolvedPlanName?.lowercase() == "starter"
 
@@ -263,28 +257,6 @@ class SubscriptionViewModel @Inject constructor(
                 _error.value = serverMessage ?: stringProvider.getString(R.string.referral_code_invalid)
             } catch (e: Exception) {
                 _error.value = stringProvider.getString(R.string.referral_code_invalid)
-            }
-            _isProcessing.value = false
-        }
-    }
-
-    fun redeemShelterCode(code: String) {
-        viewModelScope.launch {
-            _isProcessing.value = true
-            _error.value = null
-            try {
-                val response = repository.redeemShelterCode(code.trim())
-                _shelterCodeRedeemed.value = true
-                _shelterCodeMessage.value = response.message
-                loadSubscription()
-            } catch (e: retrofit2.HttpException) {
-                val body = e.response()?.errorBody()?.string()
-                val serverMessage = try {
-                    kotlinx.serialization.json.Json.decodeFromString<com.petsafety.app.data.network.model.ErrorResponse>(body ?: "").error
-                } catch (_: Exception) { null }
-                _error.value = serverMessage ?: stringProvider.getString(R.string.shelter_code_invalid)
-            } catch (e: Exception) {
-                _error.value = stringProvider.getString(R.string.shelter_code_invalid)
             }
             _isProcessing.value = false
         }

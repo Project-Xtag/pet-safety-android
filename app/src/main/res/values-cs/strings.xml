@@ -1239,17 +1239,6 @@
     <string name="identity_locked_desc">Tato pole nelze změnit po aktivaci známky.</string>
 
     <!-- Shelter Adoption -->
-    <string name="profile_shelter_code">Kód adopce z útulku</string>
-    <string name="shelter_code_title">Kód z útulku</string>
-    <string name="shelter_code_enter">Zadej kód ADOPT-XXXX</string>
-    <string name="shelter_code_enter_footer">Zadej kód ADOPT-XXXX, který jsi dostal z útulku.</string>
-    <string name="shelter_code_redeem">Uplatnit</string>
-    <string name="shelter_code_success">Kód úspěšně uplatněn!</string>
-    <string name="shelter_code_invalid">Neplatný nebo již uplatněný kód.</string>
-    <string name="shelter_how_it_works">How It Works</string>
-    <string name="shelter_step_1">Adopt a pet from a partner shelter</string>
-    <string name="shelter_step_2">Enter the code you received at adoption</string>
-    <string name="shelter_step_3">Get 3 months free Standard plan + a free QR tag</string>
     <string name="trial_ends_on">Trial ends on</string>
     <string name="trial_upgrade_now">Upgrade now to keep your features!</string>
     <!-- Referral Status -->
