@@ -22,6 +22,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import java.util.concurrent.atomic.AtomicBoolean
 import javax.inject.Inject
 
 @HiltViewModel
@@ -55,6 +56,18 @@ class AuthViewModel @Inject constructor(
     // Event emitted when session expires and user needs to re-authenticate
     private val _sessionExpiredEvent = MutableSharedFlow<String>()
     val sessionExpiredEvent: SharedFlow<String> = _sessionExpiredEvent.asSharedFlow()
+
+    // Idempotency guards for one-shot auth actions. These make concurrent
+    // submissions impossible even if the UI button handler re-fires — e.g. a
+    // double-tap while the first request is in flight, a slow network that
+    // makes the disabled state land late, or a recomposition hazard. On
+    // 2026-04-16 we saw two /auth/verify-otp POSTs within the same second
+    // for one device; the second one 500'd on the backend because the OTP
+    // had already been consumed by the first. Belt-and-braces on top of the
+    // `_isLoading` flag because AtomicBoolean#compareAndSet is the authoritative
+    // gate — no coroutine is launched if the guard is already held.
+    private val loginInFlight = AtomicBoolean(false)
+    private val verifyOtpInFlight = AtomicBoolean(false)
 
     init {
         viewModelScope.launch {
@@ -90,6 +103,13 @@ class AuthViewModel @Inject constructor(
     }
 
     fun login(email: String, onSuccess: () -> Unit, onFailure: (String) -> Unit) {
+        // Reject the duplicate at the source — no coroutine is launched. Prevents
+        // a double-tap from triggering two OTP emails (and confusing the user about
+        // which code to use).
+        if (!loginInFlight.compareAndSet(false, true)) {
+            Timber.d("login: duplicate submission suppressed")
+            return
+        }
         viewModelScope.launch {
             _isLoading.value = true
             _errorMessage.value = null
@@ -102,6 +122,7 @@ class AuthViewModel @Inject constructor(
                 onFailure(message)
             } finally {
                 _isLoading.value = false
+                loginInFlight.set(false)
             }
         }
     }
@@ -114,6 +135,13 @@ class AuthViewModel @Inject constructor(
         onSuccess: () -> Unit,
         onFailure: (String) -> Unit
     ) {
+        // Reject the duplicate at the source — no coroutine is launched. Prevents
+        // the Apr 16 scenario where two concurrent verify-otp POSTs both raced
+        // against the single-use OTP record and one 500'd on the backend.
+        if (!verifyOtpInFlight.compareAndSet(false, true)) {
+            Timber.d("verifyOtp: duplicate submission suppressed")
+            return
+        }
         viewModelScope.launch {
             _isLoading.value = true
             _errorMessage.value = null
@@ -126,7 +154,8 @@ class AuthViewModel @Inject constructor(
                 if (Sentry.isEnabled()) {
                     Sentry.setUser(SentryUser().apply { id = result.user.id })
                 }
-                registerFCMToken()
+                // FCM register is handled by the isAuthenticated observer above —
+                // calling it inline too would hit the backend twice per login.
                 onSuccess()
             } catch (ex: Exception) {
                 val message = ex.localizedMessage ?: ex.message ?: application.getString(R.string.error_verification_failed)
@@ -134,6 +163,7 @@ class AuthViewModel @Inject constructor(
                 onFailure(message)
             } finally {
                 _isLoading.value = false
+                verifyOtpInFlight.set(false)
             }
         }
     }

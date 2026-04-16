@@ -16,6 +16,7 @@ import io.mockk.coVerify
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
+import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -557,5 +558,143 @@ class AuthViewModelTest {
 
         // Then
         assertEquals("Failed to submit support request", errorMessage)
+    }
+
+    // ============================================================
+    // Idempotency guards on login() and verifyOtp().
+    //
+    // On 2026-04-16 nginx recorded two /auth/verify-otp POSTs from the same
+    // device within a single second; the second one 500'd on the backend
+    // because the OTP was already consumed by the first. The user-visible
+    // trigger is a slow-network double-tap — but we don't trust the UI alone.
+    // These tests pin the AtomicBoolean guard inside the ViewModel: a second
+    // submission must be a no-op until the first completes, and must succeed
+    // after the first completes (whether it succeeded or failed).
+    // ============================================================
+
+    @Test
+    fun `verifyOtp rejects concurrent submissions while one is in flight`() = runTest {
+        // Make the first verifyOtp suspend until we explicitly release it.
+        val gate = CompletableDeferred<VerifyResult>()
+        coEvery { authRepository.verifyOtp(any(), any(), any(), any()) } coAnswers { gate.await() }
+
+        viewModel.verifyOtp("a@b.com", "111111", onSuccess = {}, onFailure = {})
+        // Second tap arrives before the network call returns.
+        viewModel.verifyOtp("a@b.com", "222222", onSuccess = {}, onFailure = {})
+        viewModel.verifyOtp("a@b.com", "333333", onSuccess = {}, onFailure = {})
+
+        // Release the first call and drain.
+        gate.complete(VerifyResult(testUser, false))
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        // Only the first code reached the backend — the others were swallowed.
+        coVerify(exactly = 1) { authRepository.verifyOtp("a@b.com", any(), any(), any()) }
+        coVerify(exactly = 1) { authRepository.verifyOtp("a@b.com", "111111", null, null) }
+        coVerify(exactly = 0) { authRepository.verifyOtp(any(), "222222", any(), any()) }
+        coVerify(exactly = 0) { authRepository.verifyOtp(any(), "333333", any(), any()) }
+    }
+
+    @Test
+    fun `verifyOtp guard releases after success so the user can retry next login`() = runTest {
+        coEvery { authRepository.verifyOtp(any(), any(), any(), any()) } returns VerifyResult(testUser, false)
+
+        viewModel.verifyOtp("a@b.com", "111111", onSuccess = {}, onFailure = {})
+        testDispatcher.scheduler.advanceUntilIdle()
+        viewModel.verifyOtp("a@b.com", "222222", onSuccess = {}, onFailure = {})
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        coVerify(exactly = 1) { authRepository.verifyOtp("a@b.com", "111111", null, null) }
+        coVerify(exactly = 1) { authRepository.verifyOtp("a@b.com", "222222", null, null) }
+    }
+
+    @Test
+    fun `verifyOtp guard releases after failure so the user can retry`() = runTest {
+        // First attempt fails; guard must be released so a corrected OTP gets through.
+        coEvery { authRepository.verifyOtp(any(), any(), any(), any()) } throws RuntimeException("Invalid OTP")
+        viewModel.verifyOtp("a@b.com", "wrong1", onSuccess = {}, onFailure = {})
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        coEvery { authRepository.verifyOtp(any(), any(), any(), any()) } returns VerifyResult(testUser, false)
+        viewModel.verifyOtp("a@b.com", "correct", onSuccess = {}, onFailure = {})
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        coVerify(exactly = 1) { authRepository.verifyOtp("a@b.com", "wrong1", null, null) }
+        coVerify(exactly = 1) { authRepository.verifyOtp("a@b.com", "correct", null, null) }
+        assertTrue(viewModel.isAuthenticated.value)
+    }
+
+    @Test
+    fun `verifyOtp success callbacks fire exactly once on duplicate taps`() = runTest {
+        val gate = CompletableDeferred<VerifyResult>()
+        coEvery { authRepository.verifyOtp(any(), any(), any(), any()) } coAnswers { gate.await() }
+
+        var successCount = 0
+        viewModel.verifyOtp("a@b.com", "111111", onSuccess = { successCount++ }, onFailure = {})
+        viewModel.verifyOtp("a@b.com", "111111", onSuccess = { successCount++ }, onFailure = {})
+        viewModel.verifyOtp("a@b.com", "111111", onSuccess = { successCount++ }, onFailure = {})
+
+        gate.complete(VerifyResult(testUser, false))
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        assertEquals("Only the accepted submission's callback should fire", 1, successCount)
+    }
+
+    @Test
+    fun `login rejects concurrent submissions while one is in flight`() = runTest {
+        val gate = CompletableDeferred<Unit>()
+        coEvery { authRepository.login(any()) } coAnswers { gate.await() }
+
+        viewModel.login("a@b.com", onSuccess = {}, onFailure = {})
+        viewModel.login("a@b.com", onSuccess = {}, onFailure = {})
+        viewModel.login("different@b.com", onSuccess = {}, onFailure = {})
+
+        gate.complete(Unit)
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        // A double-tap must not trigger two OTP emails to the backend.
+        coVerify(exactly = 1) { authRepository.login(any()) }
+    }
+
+    @Test
+    fun `login guard releases after success`() = runTest {
+        coEvery { authRepository.login(any()) } returns Unit
+
+        viewModel.login("a@b.com", onSuccess = {}, onFailure = {})
+        testDispatcher.scheduler.advanceUntilIdle()
+        viewModel.login("a@b.com", onSuccess = {}, onFailure = {})
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        coVerify(exactly = 2) { authRepository.login("a@b.com") }
+    }
+
+    @Test
+    fun `login guard releases after failure`() = runTest {
+        coEvery { authRepository.login(any()) } throws RuntimeException("Network error")
+        viewModel.login("a@b.com", onSuccess = {}, onFailure = {})
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        coEvery { authRepository.login(any()) } returns Unit
+        viewModel.login("a@b.com", onSuccess = {}, onFailure = {})
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        coVerify(exactly = 2) { authRepository.login("a@b.com") }
+    }
+
+    @Test
+    fun `verifyOtp and login guards are independent`() = runTest {
+        val otpGate = CompletableDeferred<VerifyResult>()
+        coEvery { authRepository.verifyOtp(any(), any(), any(), any()) } coAnswers { otpGate.await() }
+        coEvery { authRepository.login(any()) } returns Unit
+
+        viewModel.verifyOtp("a@b.com", "111111", onSuccess = {}, onFailure = {})
+        // Login should NOT be blocked by an in-flight verifyOtp.
+        viewModel.login("a@b.com", onSuccess = {}, onFailure = {})
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        coVerify(exactly = 1) { authRepository.login("a@b.com") }
+
+        otpGate.complete(VerifyResult(testUser, false))
+        testDispatcher.scheduler.advanceUntilIdle()
+        coVerify(exactly = 1) { authRepository.verifyOtp(any(), any(), any(), any()) }
     }
 }
