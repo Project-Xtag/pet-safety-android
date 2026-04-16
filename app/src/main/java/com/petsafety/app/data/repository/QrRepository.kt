@@ -105,20 +105,4 @@ class QrRepository(private val apiService: ApiService) {
             ?: error("Missing share location response")
     }
 
-    /**
-     * Legacy method for backward compatibility
-     * @deprecated Use shareLocation with LocationConsent instead
-     */
-    @Deprecated("Use shareLocation with LocationConsent", ReplaceWith("shareLocation(qrCode, LocationConsent.PRECISE, latitude, longitude)"))
-    suspend fun shareLocation(
-        qrCode: String,
-        latitude: Double,
-        longitude: Double,
-        address: String?
-    ): ShareLocationResponse = shareLocation(
-        qrCode = qrCode,
-        consent = LocationConsent.PRECISE,
-        latitude = latitude,
-        longitude = longitude
-    )
 }

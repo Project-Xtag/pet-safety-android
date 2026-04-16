@@ -15,6 +15,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
@@ -138,7 +139,9 @@ class OrdersViewModel @Inject constructor(
         viewModelScope.launch {
             try {
                 _shippingPrices.value = repository.getShippingPrices()
-            } catch (_: Exception) { }
+            } catch (e: Exception) {
+                Timber.w(e, "fetchShippingPrices failed")
+            }
         }
     }
 

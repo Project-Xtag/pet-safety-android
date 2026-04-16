@@ -7,7 +7,9 @@ import com.petsafety.app.data.model.User
 import com.petsafety.app.data.network.model.CanDeleteAccountResponse
 import com.petsafety.app.data.network.model.MissingPetInfo
 import com.petsafety.app.data.fcm.FCMRepository
+import com.petsafety.app.data.network.TokenAuthenticator
 import com.petsafety.app.data.repository.AuthRepository
+import com.petsafety.app.data.repository.LogoutReason
 import com.petsafety.app.data.repository.VerifyResult
 import io.mockk.coEvery
 import io.mockk.coVerify
@@ -462,6 +464,69 @@ class AuthViewModelTest {
         coVerify {
             authRepository.submitSupportRequest(category, subject, message)
         }
+    }
+
+    // ============================================================
+    // Session-expired flow — regression for the April 3 production loop.
+    //
+    // TokenAuthenticator emits authExpiredEvent once tokens are cleared;
+    // AuthViewModel listens and must call logout(TOKEN_EXPIRED) so the
+    // FCM-unregister DELETE is NOT fired with dead credentials. If it were,
+    // that DELETE would 401 → re-enter the authenticator → re-emit expiry →
+    // back into this collector → loop.
+    // ============================================================
+
+    @Test
+    fun `session expired event triggers TOKEN_EXPIRED logout`() = runTest {
+        val isAuthFlow = MutableStateFlow(true)
+        every { authRepository.isAuthenticated } returns isAuthFlow
+        coEvery { authRepository.getCurrentUser() } returns testUser
+        viewModel = AuthViewModel(application, authRepository, fcmRepository)
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        TokenAuthenticator.resetExpiryGuard()
+        TokenAuthenticator.emitExpiryForTest()
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        // The TOKEN_EXPIRED path was taken. (Exact-count assertions are
+        // brittle because the authExpiredEvent SharedFlow is companion-level
+        // and shared across tests; what we actually care about is that the
+        // dangerous USER_INITIATED path never fires on token expiry.)
+        coVerify(atLeast = 1) { authRepository.logout(LogoutReason.TOKEN_EXPIRED) }
+        coVerify(exactly = 0) { authRepository.logout(LogoutReason.USER_INITIATED) }
+        assertFalse(viewModel.isAuthenticated.value)
+    }
+
+    @Test
+    fun `repeated expiry events never fall back to USER_INITIATED`() = runTest {
+        val isAuthFlow = MutableStateFlow(true)
+        every { authRepository.isAuthenticated } returns isAuthFlow
+        coEvery { authRepository.getCurrentUser() } returns testUser
+        viewModel = AuthViewModel(application, authRepository, fcmRepository)
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        TokenAuthenticator.resetExpiryGuard()
+        // Even if someone bypasses the authenticator's own guard and emits
+        // repeatedly, the collector must stay on the TOKEN_EXPIRED path —
+        // USER_INITIATED would hit the FCM endpoint and start the loop.
+        repeat(5) { TokenAuthenticator.emitExpiryForTest() }
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        coVerify(exactly = 0) { authRepository.logout(LogoutReason.USER_INITIATED) }
+    }
+
+    @Test
+    fun `user-initiated logout still calls server-side cleanup`() = runTest {
+        coEvery { authRepository.verifyOtp(any(), any(), any(), any()) } returns VerifyResult(testUser, false)
+        viewModel.verifyOtp("e@x.com", "123456", onSuccess = {}, onFailure = {})
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        viewModel.logout()
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        // User tap → default (USER_INITIATED) path, which in turn should
+        // reach the backend (FCM unregister). Tokens are still valid here.
+        coVerify { authRepository.logout() }
     }
 
     @Test

@@ -13,6 +13,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import timber.log.Timber
 import java.util.concurrent.atomic.AtomicBoolean
 import javax.inject.Inject
 
@@ -66,7 +67,7 @@ class QrScannerViewModel @Inject constructor(
                     _lookupState.value = TagLookupState.ActiveWithPet(lookup, code)
                     // Fire-and-forget scan to log + notify owner
                     launch {
-                        try { repository.scanQr(code) } catch (_: Exception) { }
+                        try { repository.scanQr(code) } catch (e: Exception) { Timber.w(e, "scanQr log failed") }
                     }
                 } else if (!lookup.hasPet && lookup.canActivate) {
                     _lookupState.value = TagLookupState.NeedsActivation(code)
@@ -108,23 +109,6 @@ class QrScannerViewModel @Inject constructor(
                 onResult(false, ex.localizedMessage)
             }
         }
-    }
-
-    @Deprecated("Use shareLocation with LocationConsent", ReplaceWith("shareLocation(qrCode, LocationConsent.PRECISE, latitude, longitude)"))
-    fun shareLocation(
-        qrCode: String,
-        latitude: Double,
-        longitude: Double,
-        address: String?,
-        onResult: (Boolean, String?) -> Unit
-    ) {
-        shareLocation(
-            qrCode = qrCode,
-            consent = LocationConsent.PRECISE,
-            latitude = latitude,
-            longitude = longitude,
-            onResult = onResult
-        )
     }
 
     fun reset() {

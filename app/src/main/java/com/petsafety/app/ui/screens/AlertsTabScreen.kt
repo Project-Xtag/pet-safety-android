@@ -3,6 +3,7 @@ package com.petsafety.app.ui.screens
 import android.Manifest
 import android.content.pm.PackageManager
 import android.os.Build
+import timber.log.Timber
 import android.os.Looper
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
@@ -96,8 +97,9 @@ fun AlertsTabScreen(
                             alertsViewModel.fetchNearbyAlerts(it.latitude, it.longitude, 10.0)
                         }
                     }
-                } catch (_: Exception) {
+                } catch (e: Exception) {
                     // Geocoding failed, no fallback available
+                    Timber.w(e, "Address geocoding failed for nearby-alerts lookup")
                 }
             }
         }

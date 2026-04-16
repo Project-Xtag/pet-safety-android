@@ -19,6 +19,7 @@ import okhttp3.RequestBody.Companion.toRequestBody
 import okhttp3.Response
 import okhttp3.Route
 import java.util.concurrent.TimeUnit
+import java.util.concurrent.atomic.AtomicBoolean
 
 /**
  * Handles 401 Unauthorized responses by attempting a token refresh.
@@ -31,16 +32,46 @@ import java.util.concurrent.TimeUnit
  * 1. On 401, read the stored refresh token.
  * 2. Call POST /auth/refresh with the refresh token.
  * 3. If successful, save the new tokens and retry the original request.
- * 4. If refresh fails, clear all tokens and emit authExpiredEvent.
+ * 4. If refresh fails, clear all tokens and emit authExpiredEvent **once**.
+ *
+ * Expiry-notification idempotency:
+ *   Once tokens are cleared, any still-in-flight request will return 401 and
+ *   re-enter this authenticator. Without a guard, each re-entry would re-emit
+ *   authExpiredEvent — and downstream handlers that call the server (e.g. FCM
+ *   unregister during logout) would feed that loop forever. We emit the event
+ *   at most once per "session loss" via `hasNotifiedExpiry`. The guard is
+ *   re-armed when tokens are next saved (fresh login via [resetExpiryGuard]
+ *   or successful refresh inside [authenticate]).
  */
 class TokenAuthenticator(
-    private val tokenStore: AuthTokenStore
+    private val tokenStore: AuthTokenStore,
+    private val refreshUrl: String = "${BuildConfig.API_BASE_URL}auth/refresh"
 ) : Authenticator {
 
     companion object {
         // Shared flow to notify observers when auth expires
         private val _authExpiredEvent = MutableSharedFlow<Unit>(extraBufferCapacity = 1)
         val authExpiredEvent: SharedFlow<Unit> = _authExpiredEvent.asSharedFlow()
+
+        // One-shot guard so the expiry event fires at most once per session loss.
+        private val hasNotifiedExpiry = AtomicBoolean(false)
+
+        /**
+         * Re-arm the expiry notification after a fresh login.
+         * Call from the auth repository after new tokens are persisted.
+         */
+        fun resetExpiryGuard() {
+            hasNotifiedExpiry.set(false)
+        }
+
+        /**
+         * Test hook: force an expiry emission without going through the 401
+         * machinery. Not to be called from production code.
+         */
+        @androidx.annotation.VisibleForTesting(otherwise = androidx.annotation.VisibleForTesting.NONE)
+        internal fun emitExpiryForTest() {
+            _authExpiredEvent.tryEmit(Unit)
+        }
     }
 
     private val json = Json { ignoreUnknownKeys = true }
@@ -64,6 +95,12 @@ class TokenAuthenticator(
         }
 
         synchronized(this) {
+            // Fast path: session already ended. Don't attempt refresh or re-emit
+            // the expiry event — that's exactly the loop we're preventing.
+            if (hasNotifiedExpiry.get()) {
+                return null
+            }
+
             // Check if token was already refreshed by another concurrent thread.
             // If the current stored token differs from the one used in the failed request,
             // another thread already refreshed it — just retry with the new token.
@@ -92,6 +129,8 @@ class TokenAuthenticator(
                 if (newTokens != null) {
                     Timber.d("Token refresh successful")
                     tokenStore.saveTokensSync(newTokens.first, newTokens.second)
+                    // Fresh tokens — re-arm so future expiries will be reported.
+                    hasNotifiedExpiry.set(false)
                     response.request.newBuilder()
                         .header("Authorization", "Bearer ${newTokens.first}")
                         .header("Retry-Auth", "true")
@@ -121,7 +160,7 @@ class TokenAuthenticator(
             .toRequestBody("application/json".toMediaType())
 
         val request = Request.Builder()
-            .url("${BuildConfig.API_BASE_URL}auth/refresh")
+            .url(refreshUrl)
             .post(requestBody)
             .build()
 
@@ -153,10 +192,17 @@ class TokenAuthenticator(
     }
 
     /**
-     * Clear all stored tokens and user info, then notify observers.
+     * Clear all stored tokens and user info, then notify observers **once**.
+     *
+     * The atomic guard prevents the re-entrant 401-cascade: after tokens are
+     * cleared, any follow-up request (e.g. an FCM unregister during logout)
+     * re-enters this authenticator, but the guard stops it from looping on
+     * the expiry event.
      */
     private fun clearAndNotify() {
         tokenStore.clearAllSync()
-        _authExpiredEvent.tryEmit(Unit)
+        if (hasNotifiedExpiry.compareAndSet(false, true)) {
+            _authExpiredEvent.tryEmit(Unit)
+        }
     }
 }

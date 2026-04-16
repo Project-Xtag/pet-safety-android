@@ -17,6 +17,7 @@ import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.toRequestBody
 import retrofit2.HttpException
+import timber.log.Timber
 
 class PetsRepository(
     private val apiService: ApiService,
@@ -151,8 +152,9 @@ class PetsRepository(
                 apiService.updateAlertStatus(activeAlert.id)
                 lastResolvedAlertId = activeAlert.id
             }
-        } catch (_: Exception) {
+        } catch (e: Exception) {
             // Alert resolution failed — continue with pet update so the user isn't blocked
+            Timber.w(e, "Failed to resolve active alert for pet=%s, continuing with pet update", petId)
         }
 
         // Then update the pet status

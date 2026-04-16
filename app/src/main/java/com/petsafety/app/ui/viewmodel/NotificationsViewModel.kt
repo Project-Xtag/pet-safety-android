@@ -8,6 +8,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
@@ -40,7 +41,8 @@ class NotificationsViewModel @Inject constructor(
                 val (items, pagination) = repository.getNotifications(1, 20)
                 _notifications.value = items
                 _hasMore.value = pagination != null && pagination.page < pagination.totalPages
-            } catch (_: Exception) {
+            } catch (e: Exception) {
+                Timber.w(e, "fetchNotifications failed")
                 _notifications.value = emptyList()
             } finally {
                 _isLoading.value = false
@@ -56,7 +58,8 @@ class NotificationsViewModel @Inject constructor(
                 val (items, pagination) = repository.getNotifications(currentPage, 20)
                 _notifications.value = _notifications.value + items
                 _hasMore.value = pagination != null && pagination.page < pagination.totalPages
-            } catch (_: Exception) {
+            } catch (e: Exception) {
+                Timber.w(e, "loadMore failed, rolling back page")
                 currentPage--
             }
         }
@@ -71,7 +74,9 @@ class NotificationsViewModel @Inject constructor(
                 _notifications.value = items
                 _hasMore.value = pagination != null && pagination.page < pagination.totalPages
                 fetchUnreadCount()
-            } catch (_: Exception) {}
+            } catch (e: Exception) {
+                Timber.w(e, "refresh notifications failed")
+            }
             _isRefreshing.value = false
         }
     }
@@ -80,7 +85,9 @@ class NotificationsViewModel @Inject constructor(
         viewModelScope.launch {
             try {
                 _unreadCount.value = repository.getUnreadCount()
-            } catch (_: Exception) {}
+            } catch (e: Exception) {
+                Timber.w(e, "fetchUnreadCount failed")
+            }
         }
     }
 
@@ -92,7 +99,9 @@ class NotificationsViewModel @Inject constructor(
                     if (it.id == id) it.copy(isRead = true) else it
                 }
                 _unreadCount.value = maxOf(0, _unreadCount.value - 1)
-            } catch (_: Exception) {}
+            } catch (e: Exception) {
+                Timber.w(e, "markAsRead failed for id=%s", id)
+            }
         }
     }
 
@@ -102,7 +111,9 @@ class NotificationsViewModel @Inject constructor(
                 repository.markAllAsRead()
                 _notifications.value = _notifications.value.map { it.copy(isRead = true) }
                 _unreadCount.value = 0
-            } catch (_: Exception) {}
+            } catch (e: Exception) {
+                Timber.w(e, "markAllAsRead failed")
+            }
         }
     }
 }

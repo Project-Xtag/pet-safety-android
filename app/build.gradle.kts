@@ -45,8 +45,8 @@ android {
         applicationId = "com.petsafety.app"
         minSdk = 26
         targetSdk = 35
-        versionCode = 9
-        versionName = "1.0.0-beta1"
+        versionCode = 10
+        versionName = "1.0.0-beta2"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -191,6 +191,7 @@ dependencies {
     testImplementation(libs.mockk)
     testImplementation(libs.coroutines.test)
     testImplementation(libs.datastore.preferences)
+    testImplementation(libs.okhttp.mockwebserver)
     testImplementation("org.robolectric:robolectric:4.14.1")
     testImplementation("androidx.work:work-testing:2.9.1")
     testImplementation(libs.androidx.test.core)

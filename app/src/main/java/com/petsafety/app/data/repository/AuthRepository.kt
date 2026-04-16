@@ -5,6 +5,7 @@ import com.petsafety.app.data.fcm.FCMRepository
 import com.petsafety.app.data.local.AuthTokenStore
 import com.petsafety.app.data.model.User
 import com.petsafety.app.data.network.ApiService
+import com.petsafety.app.data.network.TokenAuthenticator
 import com.petsafety.app.data.network.model.CanDeleteAccountResponse
 import com.petsafety.app.data.network.model.LoginRequest
 import com.petsafety.app.data.network.model.SupportRequest
@@ -18,6 +19,19 @@ import kotlinx.coroutines.flow.map
 import okhttp3.MultipartBody
 
 data class VerifyResult(val user: User, val isNewUser: Boolean)
+
+/**
+ * Why we're logging out.
+ *
+ * USER_INITIATED: the user tapped "Log out" — our tokens are still valid, so
+ * we can (and should) tell the server: unregister FCM, hit /auth/logout, etc.
+ *
+ * TOKEN_EXPIRED: the server told us the session is dead (TokenAuthenticator
+ * already cleared tokens and emitted authExpiredEvent). Authenticated calls
+ * will 401 — attempting them re-enters the authenticator and loops. Local
+ * cleanup only.
+ */
+enum class LogoutReason { USER_INITIATED, TOKEN_EXPIRED }
 
 class AuthRepository(
     private val apiService: ApiService,
@@ -59,15 +73,21 @@ class AuthRepository(
         data.refreshToken?.let { tokenStore.saveRefreshToken(it) }
         tokenStore.saveUserInfo(user.id, user.email, user.firstName)
 
-        // Register FCM token after successful login
-        registerFCMToken()
+        // Fresh session — re-arm the 401-expiry notifier so subsequent token
+        // death gets reported. AuthViewModel handles FCM register via its
+        // isAuthenticated observer, so we don't duplicate that call here.
+        TokenAuthenticator.resetExpiryGuard()
 
         return VerifyResult(user, data.isNewUser)
     }
 
-    suspend fun logout() {
-        // Unregister FCM token before clearing auth
-        unregisterFCMToken()
+    suspend fun logout(reason: LogoutReason = LogoutReason.USER_INITIATED) {
+        // Only reach the server when our tokens are still valid. For TOKEN_EXPIRED
+        // the tokens are already dead — the DELETE would 401 and re-enter the
+        // authenticator, which is the exact loop this guard prevents.
+        if (reason == LogoutReason.USER_INITIATED) {
+            unregisterFCMToken()
+        }
 
         tokenStore.clearAuthToken()
         tokenStore.clearRefreshToken()

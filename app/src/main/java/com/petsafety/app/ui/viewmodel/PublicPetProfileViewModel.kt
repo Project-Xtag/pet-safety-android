@@ -12,6 +12,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
@@ -48,7 +49,7 @@ class PublicPetProfileViewModel @Inject constructor(
                 // Log scan and notify owner (fire-and-forget)
                 if (lookup.hasPet && lookup.pet != null) {
                     launch {
-                        try { qrRepository.scanQr(qrCode) } catch (_: Exception) { }
+                        try { qrRepository.scanQr(qrCode) } catch (e: Exception) { Timber.w(e, "scanQr log failed") }
                     }
                 }
             } catch (ex: Exception) {

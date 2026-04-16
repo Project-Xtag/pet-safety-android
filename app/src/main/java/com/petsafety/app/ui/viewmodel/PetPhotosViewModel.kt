@@ -9,6 +9,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
@@ -83,7 +84,8 @@ class PetPhotosViewModel @Inject constructor(
                 try {
                     repository.uploadPetPhoto(petId, bytes, false)
                     succeeded++
-                } catch (_: Exception) {
+                } catch (e: Exception) {
+                    Timber.w(e, "uploadPetPhoto failed (batch %d/%d)", index + 1, images.size)
                     failed++
                 } finally {
                     _uploadProgress.value = (index + 1).toFloat() / images.size

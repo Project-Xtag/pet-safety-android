@@ -10,6 +10,7 @@ import com.petsafety.app.data.network.model.CanDeleteAccountResponse
 import com.petsafety.app.data.fcm.FCMRepository
 import okhttp3.MultipartBody
 import com.petsafety.app.data.repository.AuthRepository
+import com.petsafety.app.data.repository.LogoutReason
 import dagger.hilt.android.lifecycle.HiltViewModel
 import timber.log.Timber
 import io.sentry.Sentry
@@ -65,11 +66,13 @@ class AuthViewModel @Inject constructor(
                 }
             }
         }
-        // Listen for auth expiration events from TokenAuthenticator
+        // Listen for auth expiration events from TokenAuthenticator.
+        // Pass TOKEN_EXPIRED so logout() skips the FCM-unregister network call;
+        // tokens are already dead and any authenticated request would 401 back
+        // into the authenticator — the loop that prompted this whole fix.
         viewModelScope.launch {
             TokenAuthenticator.authExpiredEvent.collect {
-                // Perform full logout to unregister FCM token and clean up state
-                authRepository.logout()
+                authRepository.logout(LogoutReason.TOKEN_EXPIRED)
                 _isAuthenticated.value = false
                 _currentUser.value = null
                 if (Sentry.isEnabled()) { Sentry.setUser(null) }
@@ -270,8 +273,9 @@ class AuthViewModel @Inject constructor(
             if (user != null && Sentry.isEnabled()) {
                 Sentry.setUser(SentryUser().apply { id = user.id })
             }
-        } catch (_: Exception) {
+        } catch (e: Exception) {
             // Token might be invalid; let logout handle in UI
+            Timber.w(e, "loadCurrentUser failed")
         }
     }
 

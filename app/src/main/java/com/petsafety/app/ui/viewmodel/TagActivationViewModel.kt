@@ -14,6 +14,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import timber.log.Timber
 import javax.inject.Inject
 
 sealed class ActivationState {
@@ -50,7 +51,8 @@ class TagActivationViewModel @Inject constructor(
             try {
                 val result = petsRepository.fetchPets()
                 _pets.value = result.first
-            } catch (_: Exception) {
+            } catch (e: Exception) {
+                Timber.w(e, "fetchPets failed")
                 _pets.value = emptyList()
             } finally {
                 _isLoadingPets.value = false
@@ -64,11 +66,17 @@ class TagActivationViewModel @Inject constructor(
             try {
                 val petsDeferred = async { petsRepository.fetchPets() }
                 val orderDeferred = async {
-                    try { ordersRepository.getUnactivatedTagsForQRCode(qrCode) } catch (_: Exception) { emptyList() }
+                    try {
+                        ordersRepository.getUnactivatedTagsForQRCode(qrCode)
+                    } catch (e: Exception) {
+                        Timber.w(e, "getUnactivatedTagsForQRCode failed for %s", qrCode)
+                        emptyList()
+                    }
                 }
                 _pets.value = petsDeferred.await().first
                 _orderItems.value = orderDeferred.await()
-            } catch (_: Exception) {
+            } catch (e: Exception) {
+                Timber.w(e, "loadActivationData failed for %s", qrCode)
                 _pets.value = emptyList()
                 _orderItems.value = emptyList()
             } finally {
@@ -140,8 +148,9 @@ class TagActivationViewModel @Inject constructor(
                         )
                     }
                 }
-            } catch (_: Exception) {
+            } catch (e: Exception) {
                 // Pet refresh failed — user can still activate manually
+                Timber.w(e, "refreshAndAutoActivate: pet refresh failed")
             }
         }
     }

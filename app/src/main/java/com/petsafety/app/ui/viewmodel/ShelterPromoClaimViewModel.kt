@@ -12,6 +12,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
@@ -41,8 +42,8 @@ class ShelterPromoClaimViewModel @Inject constructor(
             _isLoadingPets.value = true
             try {
                 _pets.value = petsRepository.fetchPets().first
-            } catch (_: Exception) {
-                // Non-blocking
+            } catch (e: Exception) {
+                Timber.w(e, "loadPets failed for promo claim")
             }
             _isLoadingPets.value = false
         }
