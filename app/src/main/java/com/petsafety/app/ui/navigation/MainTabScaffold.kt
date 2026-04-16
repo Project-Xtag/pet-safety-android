@@ -8,12 +8,18 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.animation.Crossfade
 import com.petsafety.app.ui.util.AdaptiveLayout
 import androidx.compose.animation.core.tween
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
+import androidx.compose.material3.NavigationRail
+import androidx.compose.material3.NavigationRailItem
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.VerticalDivider
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -147,28 +153,9 @@ fun MainTabScaffold(
         return
     }
 
-    // Bottom navigation for both phones and tablets
-    Scaffold(
-        bottomBar = {
-            NavigationBar {
-                tabs.forEach { tab ->
-                    NavigationBarItem(
-                        selected = tab == selectedTab,
-                        onClick = { selectedTab = tab },
-                        icon = { Icon(tab.icon, contentDescription = null) },
-                        label = {
-                            Text(
-                                text = stringResource(tab.labelRes),
-                                fontSize = AdaptiveLayout.scaledSp(10),
-                                maxLines = 1,
-                                overflow = TextOverflow.Ellipsis
-                            )
-                        }
-                    )
-                }
-            }
-        }
-    ) { innerPadding ->
+    val showRail = AdaptiveLayout.useNavigationRail()
+
+    val tabContentParams: @Composable (Modifier) -> Unit = { mod ->
         TabContent(
             selectedTab = selectedTab,
             appStateViewModel = appStateViewModel,
@@ -185,8 +172,58 @@ fun MainTabScaffold(
             onScanTag = { selectedTab = TabItem.Scan },
             onExploreAccount = { selectedTab = TabItem.Profile },
             onNavigateToPets = { selectedTab = TabItem.Pets },
-            modifier = Modifier.padding(innerPadding)
+            modifier = mod
         )
+    }
+
+    if (showRail) {
+        // Tablet: NavigationRail on the left + content on the right
+        Row(modifier = Modifier.fillMaxSize()) {
+            NavigationRail(modifier = Modifier.fillMaxHeight()) {
+                tabs.forEach { tab ->
+                    NavigationRailItem(
+                        selected = tab == selectedTab,
+                        onClick = { selectedTab = tab },
+                        icon = { Icon(tab.icon, contentDescription = null) },
+                        label = {
+                            Text(
+                                text = stringResource(tab.labelRes),
+                                fontSize = AdaptiveLayout.scaledSp(10),
+                                maxLines = 1,
+                                overflow = TextOverflow.Ellipsis
+                            )
+                        }
+                    )
+                }
+            }
+            VerticalDivider()
+            tabContentParams(Modifier.weight(1f))
+        }
+    } else {
+        // Phone: bottom navigation bar (existing layout)
+        Scaffold(
+            bottomBar = {
+                NavigationBar {
+                    tabs.forEach { tab ->
+                        NavigationBarItem(
+                            selected = tab == selectedTab,
+                            onClick = { selectedTab = tab },
+                            icon = { Icon(tab.icon, contentDescription = null) },
+                            label = {
+                                Text(
+                                    text = stringResource(tab.labelRes),
+                                    fontSize = AdaptiveLayout.scaledSp(10),
+                                    maxLines = 1,
+                                    overflow = TextOverflow.Ellipsis
+                                )
+                            }
+                        )
+                    }
+                }
+            }
+        ) { innerPadding ->
+            tabContentParams(Modifier.padding(innerPadding))
+        }
     }
 }
 
