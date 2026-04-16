@@ -53,12 +53,12 @@
     <string name="alerts">Riasztások</string>
     <string name="profile">Profil</string>
     <string name="tab_my_pets">Kedvenceim</string>
-    <string name="tab_scan_qr">QR-kód beolvasás</string>
+    <string name="tab_scan_qr">QR beolvasás</string>
     <string name="tab_alerts">Riasztások</string>
     <string name="tab_profile">Profil</string>
     <string name="tab_missing">Eltűnt</string>
     <string name="tab_found">Megtalált</string>
-    <string name="tab_success">Megtalált kedvencek</string>
+    <string name="tab_success">Megtaláltak</string>
 
     <!-- ============================================ -->
     <!-- MARK: Auth -->
@@ -120,7 +120,7 @@
     <string name="view_all">Összes megtekintése</string>
     <string name="search_pets_hint">Keresés név, fajta, faj szerint\u2026</string>
     <string name="quick_actions">Gyors műveletek</string>
-    <string name="action_add_pet">ÚJ KISÁLLAT HOZZÁADÁSA</string>
+    <string name="action_add_pet">ÚJ KISÁLLAT</string>
     <string name="action_mark_found">JELÖLÉS MEGTALÁLTNAK</string>
     <string name="action_report_missing">JELENTÉS ELTŰNTNEK</string>
     <string name="action_order_tags">BILÉTÁK RENDELÉSE</string>
@@ -147,7 +147,7 @@
     <string name="age_label">Kor: %1$s</string>
     <string name="medical_information">Egészségügyi információk</string>
     <string name="additional_information">További információk</string>
-    <string name="edit_pet">Kedvenced profiljának szerkesztése</string>
+    <string name="edit_pet">Szerkesztés</string>
     <string name="view_pet_photos">%1$s fotóinak megtekintése</string>
     <string name="mark_as_found">Jelölés megtaláltként</string>
     <string name="mark_as_lost">Jelölés eltűntként</string>
@@ -302,7 +302,7 @@
     <!-- MARK: Tag Activation -->
     <!-- ============================================ -->
     <string name="tag_activate_title">Biléta aktiválása</string>
-    <string name="tag_loading_pets">Kedvencek betöltése...</string>
+    <string name="tag_loading_pets">Kedvencek betöltése…</string>
     <string name="tag_activated">Biléta aktiválva!</string>
     <string name="tag_activated_message">Ez a biléta %1$s-hoz van csatolva</string>
     <string name="tag_choose_plan">Töltsd ki a kedvenced profilját, hogy könnyebben megtalálják, ha elveszne!</string>
@@ -312,7 +312,7 @@
     <string name="tag_no_pets_message"></string>
     <string name="tag_code_label">Biléta kód</string>
     <string name="tag_select_pet">Válassz egy kedvencet a biléta aktiválásához!</string>
-    <string name="tag_activating">Aktiválás...</string>
+    <string name="tag_activating">Aktiválás…</string>
     <string name="tag_activate_button">Biléta aktiválása</string>
     <string name="tag_link_message">A biléta a kiválasztott kedvenchez lesz regisztrálva</string>
 
@@ -375,7 +375,7 @@
     <string name="sighting_location">Észlelés helye</string>
     <string name="use_current_location">Jelenlegi hely használata</string>
     <string name="location_captured">Hely rögzítve</string>
-    <string name="getting_location">Hely lekérése...</string>
+    <string name="getting_location">Hely lekérése…</string>
     <string name="update_alert_failed">Nem sikerült frissíteni a riasztást</string>
     <string name="report_sighting_failed">Nem sikerült bejelenteni az észlelést</string>
     <string name="report_missing_pet">Eltűnt kedvenc bejelentése</string>
@@ -412,7 +412,7 @@
     <string name="your_email">Email címed</string>
     <string name="address_or_description">Cím vagy leírás</string>
     <string name="where_did_you_see">Hol láttad a kedvencet?</string>
-    <string name="sighting_notes_placeholder">Írd le, mit láttál, a kedvenc állapotát, haladási irányt...</string>
+    <string name="sighting_notes_placeholder">Írd le, mit láttál, a kedvenc állapotát, haladási irányt…</string>
     <string name="submit_sighting_report">Észlelés beküldése</string>
     <string name="sighting_reported_owner_notified">Észlelés bejelentve! A gazdit értesítettük.</string>
     <string name="sighting_queued_offline">Észlelés jelentés sorba állítva. Szinkronizálás, ha újra online leszel.</string>
@@ -471,7 +471,7 @@
     <string name="notification_tag_scanned_title">%1$s megkerült!</string>
     <string name="notification_sighting_title">%1$s észlelve!</string>
     <string name="notification_pet_found_title">Jó hír!</string>
-    <string name="notification_channel_name">Pet Safety riasztások</string>
+    <string name="notification_channel_name">SENRA riasztások</string>
     <string name="notification_channel_tag_scans">Biléta beolvasások</string>
     <string name="notification_channel_tag_scans_desc">Értesítések, amikor beolvassák a kedvenced bilétáját</string>
     <string name="notification_channel_alerts">Eltűnt kedvenc riasztások</string>
@@ -553,7 +553,7 @@
     <string name="shared_via_pet_safety">Megosztva a SENRA alkalmazásból</string>
     <string name="story_share_good_news">Oszd meg a jó hírt!</string>
     <string name="story_social_caption">%1$s újra a családjával van! Köszönjük a SENRA közösségnek, hogy segítettétek %1$s hazajutását. SENRA</string>
-    <string name="story_generating_card">Megosztási kártya készítése...</string>
+    <string name="story_generating_card">Megosztási kártya készítése…</string>
     <string name="story_pet_is_home_title">%1$s itthon van!</string>
     <string name="story_inspire_others_message">Segíts inspirálni más gazdikat azzal, hogy megosztod, hogyan egyesültél újra %1$s-szal.</string>
     <string name="sighting_reports_desc">Észlelési jelentések</string>
@@ -866,7 +866,7 @@
     <!-- MARK: Offline Mode -->
     <!-- ============================================ -->
     <string name="offline_mode">Offline mód</string>
-    <string name="syncing">Szinkronizálás...</string>
+    <string name="syncing">Szinkronizálás…</string>
     <string name="sync_completed">Szinkronizálás kész</string>
     <string name="sync_failed">Szinkronizálás sikertelen: %1$s</string>
     <string name="sync_no_connection">Nem lehet szinkronizálni: nincs internetkapcsolat</string>
@@ -1061,7 +1061,7 @@
     <string name="pet_limit_reached_message">A %1$s előfizetésed %2$d kedvencet engedélyez. Váltás %3$s csomagra (%4$s) a korlátlan kedvencekhez.</string>
     <string name="share_owner_notified">A gazdi értesítve lett</string>
     <string name="sse_connection_lost">A valós idejű frissítések nem elérhetők. Húzd le a frissítéshez.</string>
-    <string name="story_placeholder">Meséld el az újraegyesülés történetét...</string>
+    <string name="story_placeholder">Meséld el az újraegyesülés történetét…</string>
     <string name="upgrade_to_plan">Váltás erre: %1$s</string>
 
     <!-- Gift order -->
@@ -1305,7 +1305,7 @@
     <string name="welcome_step_1">Olvasd be a QR-kódot a címkédről</string>
     <string name="welcome_step_2">Hozd létre kedvenced profilját</string>
     <string name="welcome_step_3">Kedvenced védelem alatt áll!</string>
-    <string name="welcome_scan_first_tag">Első biléta beolvasása</string>
+    <string name="welcome_scan_first_tag">Biléta beolvasása</string>
     <string name="welcome_explore_account">Fiók felfedezése</string>
     <string name="setup_your_tags">Címkék beállítása</string>
     <string name="setup_your_tags_subtitle">Ezekhez az kisállatokhoz rendeltél címkét:</string>

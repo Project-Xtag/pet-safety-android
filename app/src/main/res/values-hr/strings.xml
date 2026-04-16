@@ -21,7 +21,7 @@
     <string name="remove">Ukloni</string>
     <string name="search">Pretraži</string>
     <string name="updated">Ažurirano</string>
-    <string name="update_failed">A frissítés sikertelen</string>
+    <string name="update_failed">Ažuriranje nije uspjelo</string>
     <string name="enable">Omogući</string>
     <string name="change">Promijeni</string>
     <string name="primary">Primarni</string>
@@ -33,7 +33,7 @@
     <!-- ============================================ -->
     <!-- MARK: Tab Bar -->
     <!-- ============================================ -->
-    <string name="my_pets">Moji ljubimci</string>
+    <string name="my_pets">Moji kućni ljubimci</string>
     <string name="scan_qr">Skeniraj QR</string>
     <string name="alerts">Uzbune</string>
     <string name="profile">Profil</string>
@@ -43,7 +43,7 @@
     <string name="tab_profile">Profil</string>
     <string name="tab_missing">Nestali</string>
     <string name="tab_found">Pronađeni</string>
-    <string name="tab_success">Pronađeni ljubimci</string>
+    <string name="tab_success">Pronađeni</string>
 
     <!-- ============================================ -->
     <!-- MARK: Auth -->
@@ -58,20 +58,20 @@
     <string name="code_sent_to_email">Kod poslan na: %1$s</string>
     <string name="otp_sent_to">Unesi 6-znamenkasti kod poslan na:</string>
     <string name="login_failed">Prijava nije uspjela</string>
-    <string name="verification_failed">Sikertelen ellenőrzés</string>
+    <string name="verification_failed">Provjera neuspješna</string>
     <string name="invalid_email">Unesi ispravnu e-mail adresu</string>
     <string name="otp_placeholder" translatable="false">Unesi 6-znamenkasti kôd</string>
     <string name="resend_code_cooldown">Ponovo pošalji kod za %1$d s</string>
     <string name="resend_code_prompt">Nisi primio kod? Pošalji ponovo</string>
     <string name="dont_have_account">Nemaš račun?</string>
-    <string name="start_here_order_free_tag">Započni ovdje i naruči besplatni pločica</string>
+    <string name="start_here_order_free_tag">Započni ovdje i naruči besplatni privjesak</string>
     <string name="create_account">Izradi račun</string>
     <string name="enter_details_subtitle">Unesi svoje podatke za početak.</string>
     <string name="register">Registracija</string>
     <string name="already_have_account">Već imaš račun?</string>
     <string name="log_in">Prijava</string>
     <string name="terms_login_prefix">Prijavom prihvaćaš naše </string>
-    <string name="terms_register_prefix">Regisztrációval elfogadod a(z) </string>
+    <string name="terms_register_prefix">Registracijom prihvaćaš naše </string>
     <string name="terms_and"> i </string>
     <string name="terms_of_service">Uvjete korištenja</string>
     <string name="privacy_policy">Pravila privatnosti</string>
@@ -85,7 +85,7 @@
     <!-- ============================================ -->
     <string name="biometric_login_title">Biometrijska prijava</string>
     <string name="biometric_login_subtitle">Koristi otisak prsta ili lice za prijavu</string>
-    <string name="use_password">Email használata</string>
+    <string name="use_password">Koristi e-mail</string>
     <string name="login_with_biometric">Prijava biometrijom</string>
     <string name="enable_biometric_title">Omogući biometrijsku prijavu?</string>
     <string name="enable_biometric_message">Koristi otisak prsta ili lice za brzu prijavu sljedeći put.</string>
@@ -109,19 +109,19 @@
     <string name="action_mark_found">OZNAČI PRONAĐENIM</string>
     <string name="action_report_missing">PRIJAVI NESTANAK</string>
     <string name="action_order_tags">NARUČI PRIVJESKE</string>
-    <string name="action_replace_tag">ZAMIJENI PRIVJESAK</string>
-    <string name="empty_pets_title">Još nema registriranih ljubimaca</string>
-    <string name="empty_pets_message">Dodaj svog prvog ljubimca za početak korištenja SENRA zajedničkog pločice</string>
+    <string name="action_replace_tag">ZAMIJENI</string>
+    <string name="empty_pets_title">Još nema registriranih kućnih ljubimaca</string>
+    <string name="empty_pets_message">Dodaj svog prvog kućnog ljubimca za početak korištenja SENRA zajedničkog privjeska</string>
     <string name="missing_badge">NESTAO</string>
-    <string name="add_pet">Dodaj ljubimca</string>
-    <string name="pet_name">Ime ljubimca</string>
-    <string name="failed_load_pets">Učitavanje ljubimaca nije uspjelo</string>
+    <string name="add_pet">Dodaj kućnog ljubimca</string>
+    <string name="pet_name">Ime kućnog ljubimca</string>
+    <string name="failed_load_pets">Učitavanje kućnih ljubimaca nije uspjelo</string>
     <string name="clear_search">Obriši pretragu</string>
-    <string name="pet_photo">Fotografija ljubimca</string>
-    <string name="pet_photo_placeholder">Zamjenska fotografija ljubimca</string>
-    <string name="no_pets">Nema ljubimaca</string>
+    <string name="pet_photo">Fotografija kućnog ljubimca</string>
+    <string name="pet_photo_placeholder">Zamjenska fotografija kućnog ljubimca</string>
+    <string name="no_pets">Nema kućnih ljubimaca</string>
     <string name="success_stories">Priče o uspjehu</string>
-    <string name="found_pets">Pronađeni ljubimci</string>
+    <string name="found_pets">Pronađeni kućni ljubimci</string>
     <string name="success_stories_subtitle">Pogledaj sretna spajanja u tvojoj blizini</string>
 
     <!-- ============================================ -->
@@ -132,16 +132,16 @@
     <string name="age_label">Dob: %1$s</string>
     <string name="medical_information">Zdravstvene informacije</string>
     <string name="additional_information">Dodatne informacije</string>
-    <string name="edit_pet">Uredi profil ljubimca</string>
-    <string name="view_pet_photos">Pogledaj fotografije ljubimca %1$s</string>
+    <string name="edit_pet">Uredi ljubimca</string>
+    <string name="view_pet_photos">Pogledaj fotografije kućnog ljubimca %1$s</string>
     <string name="mark_as_found">Označi kao pronađenog</string>
     <string name="mark_as_lost">Označi kao nestalog</string>
     <string name="age">Dob</string>
-    <string name="view_public_profile">Pogledaj javni profil ljubimca %1$s</string>
-    <string name="edit_pet_profile">Uredi profil ljubimca %1$s</string>
+    <string name="view_public_profile">Pogledaj javni profil kućnog ljubimca %1$s</string>
+    <string name="edit_pet_profile">Uredi profil kućnog ljubimca %1$s</string>
     <string name="delete_pet_confirm_title">Obrisati %1$s?</string>
     <string name="delete_pet_confirm_message">Ova radnja se ne može poništiti. Svi podaci za %1$s bit će trajno obrisani.</string>
-    <string name="cannot_delete_missing_pet">Nestali ljubimac se ne može obrisati</string>
+    <string name="cannot_delete_missing_pet">Nestali kućni ljubimac se ne može obrisati</string>
     <string name="cannot_delete_missing_message">%1$s je trenutno označen kao nestao. Označi ga kao pronađenog prije brisanja.</string>
     <string name="mark_found_confirm_title">Označiti %1$s kao pronađenog?</string>
     <string name="mark_found_confirm_message">Ovo će zatvoriti uzbunu o nestanku za %1$s. Jesi li siguran?</string>
@@ -150,7 +150,7 @@
     <string name="mark_found_failed">Označavanje kao pronađenog nije uspjelo</string>
     <string name="mark_missing_failed">Označavanje kao nestalog nije uspjelo</string>
     <string name="pet_deleted">%1$s je obrisan</string>
-    <string name="delete_pet_failed">Brisanje ljubimca nije uspjelo</string>
+    <string name="delete_pet_failed">Brisanje kućnog ljubimca nije uspjelo</string>
 
     <!-- ============================================ -->
     <!-- MARK: Pet Form -->
@@ -164,7 +164,7 @@
     <string name="photo">Fotografija</string>
     <string name="edit_photo">Uredi fotografiju</string>
     <string name="photo_selected_hint">Fotografija odabrana</string>
-    <string name="choose_photo_hint">Odaberi fotografiju svog ljubimca</string>
+    <string name="choose_photo_hint">Odaberi fotografiju svog kućnog ljubimca</string>
     <string name="basic_information">Osnovni podaci</string>
     <string name="colour">Boja</string>
     <string name="colour_optional">Boja (neobavezno)</string>
@@ -176,12 +176,12 @@
     <string name="medical_notes_hint">Zdravstvene bilješke (stanja, operacije itd.)</string>
     <string name="behavior_notes_hint">Bilješke o ponašanju (temperament, dresura itd.)</string>
     <string name="save_changes">Spremi promjene</string>
-    <string name="delete_pet_button">Obriši ljubimca</string>
+    <string name="delete_pet_button">Obriši kućnog ljubimca</string>
     <string name="delete_pet_dialog_title">Obrisati %1$s?</string>
-    <string name="delete_pet_dialog_message">Sigurno želiš obrisati ovog ljubimca? Ova radnja se ne može poništiti.</string>
+    <string name="delete_pet_dialog_message">Sigurno želiš obrisati ovog kućnog ljubimca? Ova radnja se ne može poništiti.</string>
     <string name="delete_pet_warning_title">Obrisati %1$s?</string>
-    <string name="delete_pet_warning_message">%1$s će biti trajno uklonjen s tvog računa. QR pločica odmah prestaje raditi. Ako je ovo tvoj posljednji ljubimac, pretplata će također biti otkazana.</string>
-    <string name="delete_pet_warning_confirm">Obriši ljubimca</string>
+    <string name="delete_pet_warning_message">%1$s će biti trajno uklonjen s tvog računa. QR privjesak odmah prestaje raditi. Ako je ovo tvoj posljednji kućni ljubimac, pretplata će također biti otkazana.</string>
+    <string name="delete_pet_warning_confirm">Obriši kućnog ljubimca</string>
     <string name="male">Mužjak</string>
     <string name="female">Ženka</string>
     <string name="default_species_dog">Pas</string>
@@ -192,20 +192,20 @@
     <string name="weight_optional">Težina u kg (neobavezno)</string>
     <string name="pet_form_age_label">Dob</string>
     <string name="pet_form_age_placeholder">npr. 3 godine</string>
-    <string name="unique_features_hint">Posebne značajke (oznake, ožiljci itd.)</string>
-    <string name="pet_created">Ljubimac izrađen</string>
-    <string name="pet_create_failed">Izrada ljubimca nije uspjela</string>
-    <string name="pet_updated">Ljubimac ažuriran</string>
-    <string name="pet_update_failed">Ažuriranje ljubimca nije uspjelo</string>
-    <string name="pet_default_name">Ljubimac</string>
+    <string name="unique_features_hint">Posebne značajke (privjeska, ožiljci itd.)</string>
+    <string name="pet_created">Kućni ljubimac izrađen</string>
+    <string name="pet_create_failed">Izrada kućnog ljubimca nije uspjela</string>
+    <string name="pet_updated">Kućni ljubimac ažuriran</string>
+    <string name="pet_update_failed">Ažuriranje kućnog ljubimca nije uspjelo</string>
+    <string name="pet_default_name">Kućni ljubimac</string>
 
     <!-- ============================================ -->
     <!-- MARK: Photo Gallery -->
     <!-- ============================================ -->
     <string name="photo_gallery_title">Galerija fotografija</string>
-    <string name="pet_photos_title">Fotografije ljubimca %1$s</string>
+    <string name="pet_photos_title">Fotografije kućnog ljubimca %1$s</string>
     <string name="add_photos">Dodaj fotografije</string>
-    <string name="uploading_photos">Fotók feltöltése\u2026</string>
+    <string name="uploading_photos">Učitavanje fotografija\u2026</string>
     <string name="loading_photos">Učitavanje fotografija\u2026</string>
     <string name="no_photos_yet">Još nema fotografija</string>
     <string name="add_photos_gallery_hint">Dodaj fotografije za izradu galerije za %1$s</string>
@@ -217,7 +217,7 @@
     <string name="delete_photo_confirm">Sigurno želiš obrisati ovu fotografiju? Ova radnja se ne može poništiti.</string>
     <string name="photo_tip">Savjet: Dugo pritisni fotografiju za postavljanje primarne ili brisanje</string>
     <string name="photo_uploaded">Fotografija učitana</string>
-    <string name="upload_failed">Feltöltés sikertelen</string>
+    <string name="upload_failed">Učitavanje nije uspjelo</string>
     <string name="primary_updated">Primarna fotografija ažurirana</string>
     <string name="primary_failed">Postavljanje primarnog nije uspjelo</string>
     <string name="photo_deleted">Fotografija obrisana</string>
@@ -226,14 +226,14 @@
     <string name="move_down">Pomakni dolje</string>
     <string name="photos_reordered">Fotografije preraspoređene</string>
     <string name="photos_reorder_failed">Promjena redoslijeda fotografija nije uspjela</string>
-    <string name="upload_photo_failed">Nem sikerült feltölteni a fotót</string>
+    <string name="upload_photo_failed">Učitavanje fotografije nije uspjelo</string>
     <string name="add_photo">Dodaj fotografiju</string>
     <string name="use_camera">Eszköz kamera megnyitása</string>
     <string name="choose_from_gallery">Odaberi iz galerije</string>
     <string name="select_existing_photo">Odaberi postojeću fotografiju</string>
     <string name="take_photo">Snimi fotografiju</string>
-    <string name="pet_photo_fullscreen">Fotografija ljubimca na cijelom zaslonu</string>
-    <string name="view_photo">Fotó megtekintése</string>
+    <string name="pet_photo_fullscreen">Fotografija kućnog ljubimca na cijelom zaslonu</string>
+    <string name="view_photo">Pregledaj fotografiju</string>
     <string name="primary_photo">Primarna fotografija</string>
     <string name="set_as_primary">Postavi kao primarnu</string>
 
@@ -241,33 +241,33 @@
     <!-- MARK: QR Scanner -->
     <!-- ============================================ -->
     <string name="scan_qr_code">Skeniraj QR kôd</string>
-    <string name="scan_qr_subtitle">Usmjeri kameru na QR kôd na pločici ljubimca</string>
+    <string name="scan_qr_subtitle">Usmjeri kameru na QR kôd na privjesku kućnog ljubimca</string>
     <string name="camera_access_required">Potreban pristup kameri</string>
     <string name="camera_access_message">Omogući pristup kameri za skeniranje QR kodova</string>
     <string name="enable_camera">Omogući kameru</string>
     <string name="qr_scanned">QR skeniran</string>
     <string name="manual_code_label">QR kôd</string>
-    <string name="submit_code">Kód beküldése</string>
+    <string name="submit_code">Pošalji kod</string>
     <string name="invalid_qr_code">Unesi ispravan kôd</string>
-    <string name="turn_off_flashlight">Zseblámpa kikapcsolása</string>
-    <string name="turn_on_flashlight">Zseblámpa bekapcsolása</string>
+    <string name="turn_off_flashlight">Isključi svjetiljku</string>
+    <string name="turn_on_flashlight">Uključi svjetiljku</string>
     <string name="hello_pet_name">Bok! Ja sam %1$s</string>
-    <string name="scanned_tag_thanks">Upravo si skenirao moj pločica. Hvala ti što mi pomažeš!</string>
+    <string name="scanned_tag_thanks">Upravo si skenirao moj privjesak. Hvala ti što mi pomažeš!</string>
     <string name="share_location_with_owner">Podijeli lokaciju s vlasnikom</string>
-    <string name="owner_notified_message">Vlasnik ljubimca %1$s primit će obavijest s tvojom lokacijom</string>
-    <string name="share_location_help">Pomozi vlasniku ljubimca %1$s pronaći ga dijeljenjem svoje lokacije</string>
+    <string name="owner_notified_message">Vlasnik kućnog ljubimca %1$s primit će obavijest s tvojom lokacijom</string>
+    <string name="share_location_help">Pomozi vlasniku kućnog ljubimca %1$s pronaći ga dijeljenjem svoje lokacije</string>
     <string name="precise_location">Točna lokacija</string>
     <string name="precise_location_desc">Podijeli svoje točne GPS koordinate</string>
     <string name="approximate_location">Približna lokacija</string>
     <string name="approximate_location_desc">Dijeljenje približne lokacije (u skladu s GDPR-om)</string>
     <string name="dont_share_location">Ne dijeli lokaciju</string>
-    <string name="dont_share_location_desc">Samo obavijesti vlasnika da je ljubimac pronađen</string>
+    <string name="dont_share_location_desc">Samo obavijesti vlasnika da je kućni ljubimac pronađen</string>
     <string name="confirm_notify_owner">Potvrdi &amp; obavijesti vlasnika</string>
     <string name="share_exact_location_toggle">Podijeli točnu lokaciju</string>
     <string name="contact_owner">Kontakt vlasnika</string>
     <string name="call_phone">Nazovi: %1$s</string>
     <string name="email_contact">E-mail: %1$s</string>
-    <string name="privacy_notice">Tvoja privatnost je važna. Lokaciju dijelimo samo s vlasnikom ljubimca %1$s kako bismo pomogli u spajanju.</string>
+    <string name="privacy_notice">Tvoja privatnost je važna. Lokaciju dijelimo samo s vlasnikom kućnog ljubimca %1$s kako bismo pomogli u spajanju.</string>
     <string name="found_pet_title">%1$s pronađen</string>
     <string name="share_location">Podijeli lokaciju</string>
     <string name="location_shared">Lokacija podijeljena</string>
@@ -286,20 +286,20 @@
     <!-- ============================================ -->
     <!-- MARK: Tag Activation -->
     <!-- ============================================ -->
-    <string name="tag_activate_title">Aktiviraj pločica</string>
-    <string name="tag_loading_pets">Učitavanje ljubimaca...</string>
-    <string name="tag_activated">Pločica aktiviran!</string>
-    <string name="tag_activated_message">Ez a biléta %1$s-hoz van csatolva</string>
-    <string name="tag_choose_plan">Dovrši profil ljubimca kako bi ga bilo lakše pronaći ako nestane</string>
-    <string name="tag_choose_plan_button">Dovrši profil ljubimca</string>
+    <string name="tag_activate_title">Aktiviraj privjesak</string>
+    <string name="tag_loading_pets">Učitavanje kućnih ljubimaca…</string>
+    <string name="tag_activated">Privjesak aktiviran!</string>
+    <string name="tag_activated_message">Ova privjesak je sada povezana s %1$s</string>
+    <string name="tag_choose_plan">Dovrši profil kućnog ljubimca kako bi ga bilo lakše pronaći ako nestane</string>
+    <string name="tag_choose_plan_button">Dovrši profil kućnog ljubimca</string>
     <string name="tag_skip_for_now">Napravit ću to kasnije</string>
-    <string name="tag_no_pets">Još nema ljubimaca</string>
-    <string name="tag_no_pets_message">Prvo dodaj ljubimca prije aktivacije pločice</string>
-    <string name="tag_code_label">Kôd pločice</string>
-    <string name="tag_select_pet">Odaberi ljubimca za povezivanje s ovim pločicom</string>
-    <string name="tag_activating">Aktivacija...</string>
-    <string name="tag_activate_button">Aktiviraj pločica</string>
-    <string name="tag_link_message">Ovaj pločica bit će povezan s odabranim ljubimcem</string>
+    <string name="tag_no_pets">Još nema kućnih ljubimaca</string>
+    <string name="tag_no_pets_message">Prvo dodaj kućnog ljubimca prije aktivacije privjeska</string>
+    <string name="tag_code_label">Kôd privjeska</string>
+    <string name="tag_select_pet">Odaberi kućnog ljubimca za povezivanje s ovim privjeskom</string>
+    <string name="tag_activating">Aktivacija…</string>
+    <string name="tag_activate_button">Aktiviraj privjesak</string>
+    <string name="tag_link_message">Ovaj privjesak bit će povezan s odabranim kućnim ljubimcem</string>
 
     <!-- ============================================ -->
     <!-- MARK: Plan Selection -->
@@ -308,20 +308,20 @@
     <!-- ============================================ -->
     <!-- MARK: Alerts -->
     <!-- ============================================ -->
-    <string name="show_list">Lista megjelenítése</string>
-    <string name="show_map">Térkép megjelenítése</string>
-    <string name="unknown_pet">Ismeretlen kedvenc</string>
-    <string name="pet_alert">Uzbuna o ljubimcu</string>
+    <string name="show_list">Prikaži popis</string>
+    <string name="show_map">Prikaži kartu</string>
+    <string name="unknown_pet">Nepoznati kućni ljubimac</string>
+    <string name="pet_alert">Uzbuna o kućnom ljubimcu</string>
     <string name="alert_marker">Uzbuna</string>
     <string name="loading_alerts">Učitavanje uzbuna\u2026</string>
     <string name="failed_load_alerts">Učitavanje uzbuna nije uspjelo</string>
     <string name="no_active_alerts">Nema aktivnih uzbuna</string>
-    <string name="no_active_alerts_message">Trenutno nemaš aktivnih uzbuna o nestalim ljubimcima</string>
-    <string name="no_found_alerts">Nema uzbuna o pronađenim ljubimcima</string>
-    <string name="no_found_alerts_message">U tvom području nedavno nisu pronađeni ljubimci</string>
-    <string name="missing_pet_alerts_title">Uzbune o nestalim ljubimcima</string>
+    <string name="no_active_alerts_message">Trenutno nemaš aktivnih uzbuna o nestalim kućnim ljubimcima</string>
+    <string name="no_found_alerts">Nema uzbuna o pronađenim kućnim ljubimcima</string>
+    <string name="no_found_alerts_message">U tvom području nedavno nisu pronađeni kućni ljubimci</string>
+    <string name="missing_pet_alerts_title">Uzbune o nestalim kućnim ljubimcima</string>
     <string name="sighting_count_singular">1 viđenje</string>
-    <string name="unknown_breed">Ismeretlen fajta</string>
+    <string name="unknown_breed">Nepoznata pasmina</string>
     <string name="last_seen_label">Posljednji put viđen</string>
     <string name="reported_sightings_count">Prijavljena viđenja (%1$d)</string>
     <string name="report_a_sighting">Prijavi viđenje</string>
@@ -348,23 +348,23 @@
     <!-- ============================================ -->
     <!-- MARK: Report Missing / Sighting -->
     <!-- ============================================ -->
-    <string name="report_missing_title">Prijavi nestanak ljubimca %1$s</string>
+    <string name="report_missing_title">Prijavi nestanak kućnog ljubimca %1$s</string>
     <string name="last_seen_location">Posljednje poznato mjesto</string>
     <string name="additional_info">Dodatne informacije</string>
     <string name="report">Prijavi</string>
     <string name="report_sighting">Prijavi viđenje</string>
     <string name="report_sighting_prompt">Podijeli detalje o tome gdje si vidio %1$s.</string>
     <string name="notes">Bilješke</string>
-    <string name="sighting_reported">Észlelés bejelentve</string>
+    <string name="sighting_reported">Uočavanje prijavljeno</string>
     <string name="report_failed">Prijava nije uspjela</string>
     <string name="sighting_location">Mjesto viđenja</string>
     <string name="use_current_location">Koristi trenutnu lokaciju</string>
     <string name="location_captured">Lokacija zabilježena putem GPS-a</string>
-    <string name="getting_location">Dohvaćanje lokacije...</string>
-    <string name="update_alert_failed">Nem sikerült frissíteni a riasztást</string>
+    <string name="getting_location">Dohvaćanje lokacije…</string>
+    <string name="update_alert_failed">Ažuriranje upozorenja nije uspjelo</string>
     <string name="report_sighting_failed">Prijava viđenja nije uspjela</string>
-    <string name="report_missing_pet">Prijavi nestanak ljubimca</string>
-    <string name="select_pet_to_report">Odaberi ljubimca</string>
+    <string name="report_missing_pet">Prijavi nestanak kućnog ljubimca</string>
+    <string name="select_pet_to_report">Odaberi kućnog ljubimca</string>
     <string name="add_missing_details">Dodaj detalje o nestanku</string>
     <string name="enter_address_or_location">Unesi adresu ili opis lokacije</string>
     <string name="additional_details">Dodatni detalji</string>
@@ -372,32 +372,32 @@
     <string name="reward_amount_label">Nagrada (neobavezno)</string>
     <string name="reward_amount_placeholder">npr. €50</string>
     <string name="report_missing">Prijavi nestanak</string>
-    <string name="no_pets_to_report_message">Prvo dodaj ljubimca za prijavu nestanka</string>
-    <string name="mark_pet_found">Označi ljubimca pronađenim</string>
-    <string name="select_pet_to_mark_found">Odaberi ljubimca koji je pronađen</string>
-    <string name="no_missing_pets_message">Nemaš ljubimaca označenih kao nestale</string>
-    <string name="select_pet_header">Odaberi ljubimca</string>
-    <string name="no_pets_available">Nema dostupnih ljubimaca. Prvo dodaj ljubimca.</string>
-    <string name="pet_picker_label">Ljubimac</string>
+    <string name="no_pets_to_report_message">Prvo dodaj kućnog ljubimca za prijavu nestanka</string>
+    <string name="mark_pet_found">Označi kućnog ljubimca pronađenim</string>
+    <string name="select_pet_to_mark_found">Odaberi kućnog ljubimca koji je pronađen</string>
+    <string name="no_missing_pets_message">Nemaš kućnih ljubimaca označenih kao nestale</string>
+    <string name="select_pet_header">Odaberi kućnog ljubimca</string>
+    <string name="no_pets_available">Nema dostupnih kućnih ljubimaca. Prvo dodaj kućnog ljubimca.</string>
+    <string name="pet_picker_label">Kućni ljubimac</string>
     <string name="last_seen_location_header">Posljednje poznato mjesto</string>
     <string name="enter_location">Unesi lokaciju</string>
     <string name="additional_information_header">Dodatne informacije</string>
-    <string name="additional_details_placeholder">Navedi dodatne detalje o tome kada i gdje si posljednji put vidio svog ljubimca...</string>
-    <string name="your_contact_information">Elérhetőségeid</string>
+    <string name="additional_details_placeholder">Navedi dodatne detalje o tome kada i gdje si posljednji put vidio svog kućnog ljubimca…</string>
+    <string name="your_contact_information">Tvoji kontaktni podaci</string>
     <string name="name_optional">Ime (neobavezno)</string>
     <string name="phone_optional">Telefon (neobavezno)</string>
     <string name="email_optional">E-mail (neobavezno)</string>
-    <string name="sighting_reported_success">Észlelés sikeresen bejelentve!</string>
+    <string name="sighting_reported_success">Uočavanje uspješno prijavljeno!</string>
     <string name="report_sighting_header">Prijavi viđenje</string>
-    <string name="report_sighting_help">Pomozi spojiti ovog ljubimca s vlasnikom dijeljenjem lokacije gdje si ga vidio.</string>
+    <string name="report_sighting_help">Pomozi spojiti ovog kućnog ljubimca s vlasnikom dijeljenjem lokacije gdje si ga vidio.</string>
     <string name="share_contact_info">Podijeli moje kontakt podatke</string>
-    <string name="share_contact_info_desc">Dopusti vlasniku ljubimca da te izravno kontaktira</string>
+    <string name="share_contact_info_desc">Dopusti vlasniku kućnog ljubimca da te izravno kontaktira</string>
     <string name="your_name">Tvoje ime</string>
     <string name="your_phone_number">Tvoj broj telefona</string>
     <string name="your_email">Tvoj e-mail</string>
     <string name="address_or_description">Adresa ili opis</string>
-    <string name="where_did_you_see">Gdje si vidio ljubimca?</string>
-    <string name="sighting_notes_placeholder">Opiši što si vidio, stanje ljubimca, smjer kretanja...</string>
+    <string name="where_did_you_see">Gdje si vidio kućnog ljubimca?</string>
+    <string name="sighting_notes_placeholder">Opiši što si vidio, stanje kućnog ljubimca, smjer kretanja…</string>
     <string name="submit_sighting_report">Pošalji prijavu viđenja</string>
     <string name="sighting_reported_owner_notified">Viđenje prijavljeno! Vlasnik je obaviješten.</string>
     <string name="sighting_queued_offline">Prijava viđenja na čekanju — bit će poslana kad budeš online.</string>
@@ -410,8 +410,8 @@
     <string name="notification_center">Centar obavijesti</string>
     <string name="alerts_radius_info">Uzbune će biti poslane unutar 10 km od ove lokacije</string>
     <string name="current_location">Trenutna lokacija</string>
-    <string name="tap_get_location">Koppints a jelenlegi hely lekéréséhez\u2026</string>
-    <string name="using_registered_address">A regisztrált címed használata</string>
+    <string name="tap_get_location">Dodirni za dohvat trenutne lokacije\u2026</string>
+    <string name="using_registered_address">Koristi tvoju registriranu adresu</string>
     <string name="enter_address_notifications">Unesi adresu za obavijesti</string>
     <string name="notification_source_current_location">Trenutna lokacija</string>
     <string name="notification_source_my_address">Moja adresa</string>
@@ -419,27 +419,27 @@
     <string name="no_registered_address">Nema registrirane adrese. Ažuriraj profil.</string>
 
         <!-- Mark Lost Flow (matching iOS MarkAsLostView) -->
-    <string name="mark_lost_pet_info">Podaci o ljubimcu</string>
+    <string name="mark_lost_pet_info">Podaci o kućnom ljubimcu</string>
     <string name="mark_lost_last_seen">Posljednje poznato mjesto</string>
     <string name="mark_lost_alerts_footer">Uzbune će biti poslane korisnicima, veterinarima i skloništima unutar 10 km.</string>
     <string name="mark_lost_getting_location">Dohvaćanje lokacije…</string>
     <string name="mark_lost_no_address">Nema registrirane adrese. Idi na Profil za dodavanje adrese.</string>
     <string name="mark_lost_address_placeholder">Unesi adresu ili lokaciju</string>
     <string name="mark_lost_additional_info">Dodatne informacije</string>
-    <string name="mark_lost_additional_placeholder">Opiši kada i gdje si posljednji put vidio svog ljubimca, što je nosio itd.</string>
+    <string name="mark_lost_additional_placeholder">Opiši kada i gdje si posljednji put vidio svog kućnog ljubimca, što je nosio itd.</string>
     <string name="mark_lost_sends_to">Ova uzbuna bit će poslana na:</string>
-    <string name="mark_lost_nearby_owners">Vlasnici ljubimaca u blizini</string>
+    <string name="mark_lost_nearby_owners">Vlasnici kućnih ljubimaca u blizini</string>
     <string name="mark_lost_vet_clinics">Veterinarske klinike u području</string>
     <string name="mark_lost_shelters">Skloništa za životinje u blizini</string>
     <string name="mark_lost_report">Prijavi nestanak</string>
     <string name="mark_lost_title">Prijavi nestanak</string>
     <string name="mark_lost_starter_notice">Nadogradi za slanje obavijesti zajednici</string>
-    <string name="mark_lost_upgrade_prompt">S planom Starter tvoj ljubimac bit će označen kao nestao, ali obavijesti korisnicima, veterinarima i skloništima zahtijevaju pretplatu Standard ili Maximum.</string>
+    <string name="mark_lost_upgrade_prompt">S planom Starter tvoj kućni ljubimac bit će označen kao nestao, ali obavijesti korisnicima, veterinarima i skloništima zahtijevaju pretplatu Standard ili Maximum.</string>
     <string name="mark_lost_success_with_alerts">%1$s je prijavljen kao nestao. Uzbune se šalju korisnicima u blizini.</string>
     <string name="mark_lost_success_no_location">%1$s je označen kao nestao. Dodaj lokaciju za slanje obavijesti zajednici.</string>
     <string name="mark_lost_address_required">Navedi adresu ili omogući lokacijske usluge.</string>
-    <string name="quick_lost_select_pet">Odaberi ljubimca za prijavu nestanka</string>
-    <string name="quick_lost_all_missing">Svi tvoji ljubimci su već označeni kao nestali.</string>
+    <string name="quick_lost_select_pet">Odaberi kućnog ljubimca za prijavu nestanka</string>
+    <string name="quick_lost_all_missing">Svi tvoji kućni ljubimci su već označeni kao nestali.</string>
     <string name="quick_lost_title">Prijavi nestanak</string>
     <string name="location_current">Trenutna lokacija</string>
     <string name="location_my_address">Moja adresa</string>
@@ -448,7 +448,7 @@
     <!-- ============================================ -->
     <!-- MARK: Notifications -->
     <!-- ============================================ -->
-    <string name="tag_scanned_message">Pločica ljubimca %1$s skeniran na lokaciji %2$s!</string>
+    <string name="tag_scanned_message">Privjesak kućnog ljubimca %1$s skeniran na lokaciji %2$s!</string>
     <string name="unknown_location">ismeretlen helyen</string>
     <string name="sighting_message_with_location">%1$s je viđen na lokaciji %2$s!</string>
     <string name="sighting_message_no_location">%1$s je viđen!</string>
@@ -457,28 +457,28 @@
     <string name="notification_sighting_title">%1$s viđen!</string>
     <string name="notification_pet_found_title">Sjajna vijest!</string>
     <string name="notification_channel_name">SENRA uzbune</string>
-    <string name="notification_channel_tag_scans">Skeniranja pločice</string>
-    <string name="notification_channel_tag_scans_desc">Obavijesti kada je pločica tvog ljubimca skeniran</string>
-    <string name="notification_channel_alerts">Uzbune o nestalim ljubimcima</string>
-    <string name="notification_channel_alerts_desc">Obavijesti o nestalim ljubimcima u tvom području</string>
+    <string name="notification_channel_tag_scans">Skeniranja privjeska</string>
+    <string name="notification_channel_tag_scans_desc">Obavijesti kada je privjesak tvog kućnog ljubimca skeniran</string>
+    <string name="notification_channel_alerts">Uzbune o nestalim kućnim ljubimcima</string>
+    <string name="notification_channel_alerts_desc">Obavijesti o nestalim kućnim ljubimcima u tvom području</string>
     <string name="notification_channel_sightings">Prijave viđenja</string>
-    <string name="notification_channel_sightings_desc">Obavijesti kada je tvoj nestali ljubimac viđen</string>
+    <string name="notification_channel_sightings_desc">Obavijesti kada je tvoj nestali kućni ljubimac viđen</string>
     <string name="notification_method_required">Barem jedan način obavještavanja mora biti omogućen</string>
 
     <!-- FCM Notification Strings -->
-    <string name="notif_tag_scanned_title">Pločica skeniran</string>
-    <string name="notif_tag_scanned_body">Pločica ljubimca %1$s je skeniran!</string>
-    <string name="notif_tag_scanned_body_location">Pločica ljubimca %1$s je skeniran! %2$s</string>
-    <string name="notif_missing_pet_title">Nestao ljubimac u blizini</string>
+    <string name="notif_tag_scanned_title">Privjesak skeniran</string>
+    <string name="notif_tag_scanned_body">Privjesak kućnog ljubimca %1$s je skeniran!</string>
+    <string name="notif_tag_scanned_body_location">Privjesak kućnog ljubimca %1$s je skeniran! %2$s</string>
+    <string name="notif_missing_pet_title">Nestao kućni ljubimac u blizini</string>
     <string name="notif_missing_pet_body">%1$s je nestao u %2$s. Obrati pozornost!</string>
-    <string name="notif_pet_found_title">Ljubimac pronađen!</string>
+    <string name="notif_pet_found_title">Kućni ljubimac pronađen!</string>
     <string name="notif_pet_found_body">Sjajna vijest! %1$s je pronađen!</string>
     <string name="notif_sighting_title">Viđenje prijavljeno</string>
     <string name="notif_sighting_body_location">%1$s viđen na lokaciji %2$s!</string>
     <string name="notif_sighting_body_no_location">%1$s je viđen! Provjeri lokaciju viđenja.</string>
     <string name="notif_fallback_title">SENRA Pet</string>
-    <string name="notif_fallback_pet_name">Tvoj ljubimac</string>
-    <string name="notif_fallback_a_pet">Jedan ljubimac</string>
+    <string name="notif_fallback_pet_name">Tvoj kućni ljubimac</string>
+    <string name="notif_fallback_a_pet">Jedan kućni ljubimac</string>
     <string name="notif_fallback_your_area">tvoje područje</string>
     <string name="notif_location_shared">Lokacija podijeljena</string>
     <string name="notif_location_approximate">Približna lokacija</string>
@@ -500,17 +500,17 @@
     <string name="email_notifications_subtitle">Primi obavijesti putem e-maila</string>
     <string name="sms_notifications">SMS obavijesti</string>
     <string name="sms_notifications_subtitle">Primi obavijesti tekstualnom porukom</string>
-    <string name="pet_alerts">Uzbune o ljubimcima</string>
-    <string name="missing_pet_alerts">Uzbune o nestalim ljubimcima</string>
-    <string name="missing_pet_alerts_subtitle">Primi obavijesti o nestalim ljubimcima u tvom području</string>
+    <string name="pet_alerts">Uzbune o kućnim ljubimcima</string>
+    <string name="missing_pet_alerts">Uzbune o nestalim kućnim ljubimcima</string>
+    <string name="missing_pet_alerts_subtitle">Primi obavijesti o nestalim kućnim ljubimcima u tvom području</string>
     <string name="nearby_alerts_10km">Obližnje uzbune (10 km)</string>
-    <string name="nearby_alerts_subtitle">Uzbune za ljubimce unutar 10 km od tvoje lokacije</string>
+    <string name="nearby_alerts_subtitle">Uzbune za kućne ljubimce unutar 10 km od tvoje lokacije</string>
     <string name="account_and_orders">Račun &amp; narudžbe</string>
     <string name="order_updates">Ažuriranja narudžbi</string>
     <string name="order_updates_subtitle">Obavijesti o dostavi i isporuci</string>
     <string name="account_activity">Aktivnost računa</string>
     <string name="account_activity_subtitle">Obavijesti o prijavi i sigurnosti</string>
-    <string name="critical_alerts_note">Napomena: kritične obavijesti o tvojim ljubimcima uvijek se šalju bez obzira na ove postavke.</string>
+    <string name="critical_alerts_note">Napomena: kritične obavijesti o tvojim kućnim ljubimcima uvijek se šalju bez obzira na ove postavke.</string>
 
     <!-- Notification Preferences -->
 
@@ -518,11 +518,11 @@
     <!-- MARK: Success Stories -->
     <!-- ============================================ -->
     <string name="share_your_story">Podijeli svoju priču</string>
-    <string name="success_story_prompt">Jó hír! %1$s megkerült! Szeretnéd megosztani az újraegyesülés történetét, hogy inspirálj másokat?</string>
-    <string name="your_story">A történeted</string>
+    <string name="success_story_prompt">Sjajne vijesti! %1$s je pronađen! Želiš li podijeliti svoju priču o ponovnom susretu kako bi inspirirao druge?</string>
+    <string name="your_story">Tvoja priča</string>
     <string name="share_story">Podijeli priču</string>
-    <string name="story_shared">Történet sikeresen megosztva</string>
-    <string name="story_share_failed">Nem sikerült megosztani a történetet</string>
+    <string name="story_shared">Priča je uspješno podijeljena</string>
+    <string name="story_share_failed">Dijeljenje priče nije uspjelo</string>
     <string name="loading_success_stories">Učitavanje priča o uspjehu…</string>
     <string name="no_success_stories">Nema priča o uspjehu u blizini</string>
     <string name="no_success_stories_message">Budi prvi koji će podijeliti sretnu priču u svom području!</string>
@@ -538,10 +538,10 @@
     <string name="shared_via_pet_safety">Podijeljeno putem SENRA aplikacije</string>
     <string name="story_share_good_news">Podijeli dobru vijest</string>
     <string name="story_social_caption">%1$s újra a családjával van! Köszönjük a SENRA közösségnek, hogy segített %1$s hazajutni. senra.pet</string>
-    <string name="story_generating_card">Izrada kartice za dijeljenje...</string>
-    <string name="story_pet_is_home_title">%1$s itthon van!</string>
-    <string name="story_inspire_others_message">Segíts inspirálni más gazdikat azzal, hogy megosztod, hogyan egyesültél újra %1$s-szal.</string>
-    <string name="sighting_reports_desc">Észlelési jelentések</string>
+    <string name="story_generating_card">Izrada kartice za dijeljenje…</string>
+    <string name="story_pet_is_home_title">%1$s je doma!</string>
+    <string name="story_inspire_others_message">Pomozi inspirirati druge vlasnike kućnih ljubimaca dijeleći kako si se ponovno spojio s %1$s.</string>
+    <string name="sighting_reports_desc">Izvještaji o uočavanju</string>
 
     <!-- Success Story Time -->
 
@@ -569,9 +569,9 @@
     <string name="delete_confirm_checkbox">Razumijem da se ova radnja ne može poništiti i da će svi moji podaci biti trajno obrisani</string>
     <string name="cancel_subscription_title">Otkazati pretplatu?</string>
     <string name="cancel_warning_a">Izgubit ćeš trenutačne obavijesti e-mailom, SMS-om i obavijesti zajednice</string>
-    <string name="cancel_warning_b">Besplatna zamjena pločica više neće biti dostupna</string>
+    <string name="cancel_warning_b">Besplatna zamjena privjesak više neće biti dostupna</string>
     <string name="cancel_warning_c">Izgubit ćeš pristup obavijestima veterinarima i skloništima</string>
-    <string name="cancel_warning_d">Tvoj račun i registracije ljubimaca ostaju aktivni</string>
+    <string name="cancel_warning_d">Tvoj račun i registracije kućnih ljubimaca ostaju aktivni</string>
     <string name="cancel_access_until">Zadržat ćeš pristup do %1$s</string>
     <string name="cancel_confirm">Otkaži pretplatu</string>
     <string name="keep_subscription">Zadrži pretplatu</string>
@@ -589,7 +589,7 @@
     <string name="city">Grad</string>
     <string name="post_code">Poštanski broj</string>
     <string name="country">Država</string>
-    <string name="street">Utca</string>
+    <string name="street">Ulica</string>
     <string name="address_updated">Adresa ažurirana</string>
 
     <!-- ============================================ -->
@@ -600,22 +600,22 @@
     <string name="secondary_email_optional">Sekundarni e-mail (neobavezno)</string>
     <string name="phone_numbers">Telefonski brojevi</string>
     <string name="primary_phone">Primarni telefon</string>
-    <string name="show_on_qr_tag">Megjelenítés a QR bilétán</string>
+    <string name="show_on_qr_tag">Prikaži na QR privjesku</string>
     <string name="secondary_phone_optional">Sekundarni telefon (neobavezno)</string>
-    <string name="contacts_qr_tag_info">Kontakti označeni kao vidljivi prikazat će se na QR pločici tvog ljubimca kada ga netko skenira.</string>
+    <string name="contacts_qr_tag_info">Kontakti označeni kao vidljivi prikazat će se na QR privjesku tvog kućnog ljubimca kada ga netko skenira.</string>
     <string name="contact_details">Kontakt podaci</string>
 
     <!-- ============================================ -->
     <!-- MARK: Contact Visibility -->
     <!-- ============================================ -->
     <string name="contact_visibility">Vidljivost kontakta</string>
-    <string name="contact_visibility_desc">Kontroliraj koji kontakt podaci su vidljivi kada netko skenira QR pločica tvog ljubimca.</string>
-    <string name="show_phone_number">Telefonszám megjelenítése</string>
-    <string name="show_phone_subtitle">A telefonszámod látható lesz a megtalálók számára</string>
-    <string name="show_email_address">Email cím megjelenítése</string>
-    <string name="show_email_subtitle">Az emailed látható lesz a megtalálók számára</string>
+    <string name="contact_visibility_desc">Kontroliraj koji kontakt podaci su vidljivi kada netko skenira QR privjesak tvog kućnog ljubimca.</string>
+    <string name="show_phone_number">Prikaži broj telefona</string>
+    <string name="show_phone_subtitle">Tvoj broj telefona bit će vidljiv pronalazačima</string>
+    <string name="show_email_address">Prikaži e-mail adresu</string>
+    <string name="show_email_subtitle">Tvoj e-mail bit će vidljiv pronalazačima</string>
     <string name="show_address">Prikaži adresu</string>
-    <string name="show_address_subtitle">A címed látható lesz a megtalálók számára</string>
+    <string name="show_address_subtitle">Tvoja adresa bit će vidljiva pronalazačima</string>
 
     <!-- ============================================ -->
     <!-- MARK: Privacy Mode -->
@@ -629,14 +629,14 @@
     <!-- MARK: Delete Account -->
     <!-- ============================================ -->
     <string name="delete_account">Obriši račun</string>
-    <string name="delete_account_warning">Ova radnja se ne može poništiti. Svi tvoji podaci, uključujući ljubimce, uzbune i fotografije, bit će trajno obrisani.</string>
+    <string name="delete_account_warning">Ova radnja se ne može poništiti. Svi tvoji podaci, uključujući kućne ljubimce, uzbune i fotografije, bit će trajno obrisani.</string>
     <string name="delete_account_confirm_prompt">Za potvrdu upiši DELETE ispod:</string>
-    <string name="type_delete_to_confirm">Írd be: DELETE</string>
+    <string name="type_delete_to_confirm">Upiši: DELETE</string>
     <string name="account_deleted">Račun obrisan</string>
     <string name="delete_account_failed">Brisanje računa nije uspjelo</string>
     <string name="cannot_delete_account">Račun se ne može obrisati</string>
-    <string name="cannot_delete_missing_pets">Ne možeš obrisati račun dok imaš ljubimce označene kao nestale. Prvo ih označi kao pronađene.</string>
-    <string name="missing_pets_label">Nestali ljubimci: %1$s</string>
+    <string name="cannot_delete_missing_pets">Ne možeš obrisati račun dok imaš kućne ljubimce označene kao nestale. Prvo ih označi kao pronađene.</string>
+    <string name="missing_pets_label">Nestali kućni ljubimci: %1$s</string>
     <string name="checking_delete_eligibility">Provjera\u2026</string>
 
     <!-- ============================================ -->
@@ -644,7 +644,7 @@
     <!-- ============================================ -->
     <string name="get_help">Zatraži pomoć</string>
     <string name="faq">Često postavljana pitanja</string>
-    <string name="user_guides">Felhasználói útmutatók</string>
+    <string name="user_guides">Korisnički vodiči</string>
     <string name="legal">Pravne informacije</string>
     <string name="support_response_time">Naš tim za podršku obično odgovara unutar 24 sata.</string>
     <string name="contact_support">Kontaktiraj podršku</string>
@@ -668,35 +668,35 @@
 
     <!-- FAQ Items -->
     <!-- Guide Items -->
-    <string name="help_guide_qr_tags_title">QR pločice za kućne ljubimce</string>
-    <string name="help_guide_qr_tags_desc">Svaki SENRA pločica ima jedinstveni QR kôd koji vodi na digitalni profil tvog ljubimca. Svatko tko pronađe tvog ljubimca može skenirati kôd kamerom telefona — nije potrebno preuzimanje aplikacije. Skener odmah vidi fotografiju, ime, zdravstvene podatke i tvoje kontakt podatke. Također mogu podijeliti svoju GPS lokaciju s tobom kako bi znao točno gdje je tvoj ljubimac. Privjesci rade sa svim modernim pametnim telefonima.</string>
-    <string name="help_guide_materials_title">Materijali i izdržljivost pločice</string>
-    <string name="help_guide_materials_desc">SENRA pločice izrađeni su od izdržljivog, laganog metala s epoksi premazom za dodatnu zaštitu. Vodootporni su i UV-otporni, prikladni za sve vremenske uvjete. QR kôd otisnut je tintom otpornom na blijeđenje. Privjesci se sigurno pričvršćuju na ogrlicu ljubimca. Ako se pločica ošteti ili QR kôd više nije čitljiv, možeš naručiti zamjenu sa stranice Račun — besplatno za Standard i Maximum pretplatnike.</string>
+    <string name="help_guide_qr_tags_title">QR privjeska za kućne ljubimce</string>
+    <string name="help_guide_qr_tags_desc">Svaki SENRA privjesak ima jedinstveni QR kôd koji vodi na digitalni profil tvog kućnog ljubimca. Svatko tko pronađe tvog kućnog ljubimca može skenirati kôd kamerom telefona — nije potrebno preuzimanje aplikacije. Skener odmah vidi fotografiju, ime, zdravstvene podatke i tvoje kontakt podatke. Također mogu podijeliti svoju GPS lokaciju s tobom kako bi znao točno gdje je tvoj kućni ljubimac. Privjesci rade sa svim modernim pametnim telefonima.</string>
+    <string name="help_guide_materials_title">Materijali i izdržljivost privjeska</string>
+    <string name="help_guide_materials_desc">SENRA privjeska izrađeni su od izdržljivog, laganog metala s epoksi premazom za dodatnu zaštitu. Vodootporni su i UV-otporni, prikladni za sve vremenske uvjete. QR kôd otisnut je tintom otpornom na blijeđenje. Privjesci se sigurno pričvršćuju na ogrlicu kućnog ljubimca. Ako se privjesak ošteti ili QR kôd više nije čitljiv, možeš naručiti zamjenu sa stranice Račun — besplatno za Standard i Maximum pretplatnike.</string>
     <string name="help_guide_emergency_title">Hitni kontakt i uzbune</string>
-    <string name="help_guide_emergency_desc">Kada netko skenira pločica tvog ljubimca, odmah primaš obavijest e-mailom s lokacijom pronalazača. Standard i Maximum pretplatnici također primaju SMS uzbune za brži odgovor. Ako označiš ljubimca kao nestalog, obavijest zajednice šalje se svim SENRA korisnicima unutar 10 km, a registrirani veterinari i skloništa u tvom području također su obaviješteni. Svatko u zajednici može prijaviti viđenja sa svojom lokacijom, gradeći trag za pronalazak tvog ljubimca.</string>
-    <string name="help_guide_profile_title">Upravljanje profilom ljubimca</string>
-    <string name="help_guide_profile_desc">Digitalni profil tvog ljubimca srce je Senre. Dodaj bitne podatke poput imena, vrste, pasmine, dobi i jasne fotografije. Možeš uključiti i zdravstvene podatke (alergije, lijekove, stanja), broj mikročipa i posebne značajke. Učitaj više fotografija u galeriju. Sve podatke možeš ažurirati u bilo kojem trenutku iz sekcije \'Moji ljubimci\'. Ti kontroliraš koji od tvojih osobnih podataka (telefon, e-mail, adresa) su vidljivi ljudima koji skeniraju pločica.</string>
-    <string name="help_guide_missing_alerts_title">Uzbune o nestalim ljubimcima i viđenja</string>
-    <string name="help_guide_missing_alerts_desc">Ako tvoj ljubimac nestane, označi ga kao nestalog iz \'Moji ljubimci\' za trenutnu obavijest zajednice. Fotografija i podaci tvog ljubimca pojavljuju se na karti nestalih ljubimaca vidljivoj svim SENRA korisnicima u tvom području. Članovi zajednice mogu prijaviti viđenja sa svojom GPS lokacijom, koja primaš kao obavijesti. Registrirani veterinari i skloništa također su obaviješteni. Kada je ljubimac pronađen, označi ga kao pronađenog i neobavezno podijeli priču o spajanju da inspiriraš zajednicu.</string>
-    <string name="help_guide_community_title">Zajednica i pronađeni ljubimci</string>
-    <string name="help_guide_community_desc">Snaga Senre je u njezinoj zajednici. Karta nestalih ljubimaca prikazuje aktivne uzbune u tvojoj blizini — provjeri je da vidiš jesu li ljubimci prijavljeni kao nestali u tvom području. Stranica pronađenih ljubimaca slavi uspješna spajanja s pričama vlasnika. Možeš registrirati svog lokalnog veterinara ili sklonište na Senri kako bi automatski primali uzbune o nestalim ljubimcima, pomažeš izgraditi jaču sigurnosnu mrežu za sve ljubimce u tvom području.</string>
+    <string name="help_guide_emergency_desc">Kada netko skenira privjesak tvog kućnog ljubimca, odmah primaš obavijest e-mailom s lokacijom pronalazača. Standard i Maximum pretplatnici također primaju SMS uzbune za brži odgovor. Ako označiš kućnog ljubimca kao nestalog, obavijest zajednice šalje se svim SENRA korisnicima unutar 10 km, a registrirani veterinari i skloništa u tvom području također su obaviješteni. Svatko u zajednici može prijaviti viđenja sa svojom lokacijom, gradeći trag za pronalazak tvog kućnog ljubimca.</string>
+    <string name="help_guide_profile_title">Upravljanje profilom kućnog ljubimca</string>
+    <string name="help_guide_profile_desc">Digitalni profil tvog kućnog ljubimca srce je Senre. Dodaj bitne podatke poput imena, vrste, pasmine, dobi i jasne fotografije. Možeš uključiti i zdravstvene podatke (alergije, lijekove, stanja), broj mikročipa i posebne značajke. Učitaj više fotografija u galeriju. Sve podatke možeš ažurirati u bilo kojem trenutku iz sekcije \'Moji kućni ljubimci\'. Ti kontroliraš koji od tvojih osobnih podataka (telefon, e-mail, adresa) su vidljivi ljudima koji skeniraju privjesak.</string>
+    <string name="help_guide_missing_alerts_title">Uzbune o nestalim kućnim ljubimcima i viđenja</string>
+    <string name="help_guide_missing_alerts_desc">Ako tvoj kućni ljubimac nestane, označi ga kao nestalog iz \'Moji kućni ljubimci\' za trenutnu obavijest zajednice. Fotografija i podaci tvog kućnog ljubimca pojavljuju se na karti nestalih kućnih ljubimaca vidljivoj svim SENRA korisnicima u tvom području. Članovi zajednice mogu prijaviti viđenja sa svojom GPS lokacijom, koja primaš kao obavijesti. Registrirani veterinari i skloništa također su obaviješteni. Kada je kućni ljubimac pronađen, označi ga kao pronađenog i neobavezno podijeli priču o spajanju da inspiriraš zajednicu.</string>
+    <string name="help_guide_community_title">Zajednica i pronađeni kućni ljubimci</string>
+    <string name="help_guide_community_desc">Snaga Senre je u njezinoj zajednici. Karta nestalih kućnih ljubimaca prikazuje aktivne uzbune u tvojoj blizini — provjeri je da vidiš jesu li kućni ljubimci prijavljeni kao nestali u tvom području. Stranica pronađenih kućnih ljubimaca slavi uspješna spajanja s pričama vlasnika. Možeš registrirati svog lokalnog veterinara ili sklonište na Senri kako bi automatski primali uzbune o nestalim kućnim ljubimcima, pomažeš izgraditi jaču sigurnosnu mrežu za sve kućne ljubimce u tvom području.</string>
     <!-- ============================================ -->
     <!-- MARK: Orders -->
     <!-- ============================================ -->
     <string name="orders_title">Narudžbe</string>
     <string name="order_number">Narudžba #%1$s</string>
     <string name="order_total">Ukupno: %1$s</string>
-    <string name="order_tags">Naruči pločice</string>
-    <string name="replace_tag">Zamijeni pločica</string>
-    <string name="add_pet_first_replacement">Prvo dodaj ljubimca za narudžbu zamjenskog pločice.</string>
-    <string name="order_more_tags_title">Naruči više pločica</string>
-    <string name="add_another_pet">Dodaj još jednog ljubimca</string>
+    <string name="order_tags">Naruči privjeska</string>
+    <string name="replace_tag">Zamijeni privjesak</string>
+    <string name="add_pet_first_replacement">Prvo dodaj kućnog ljubimca za narudžbu zamjenskog privjeska.</string>
+    <string name="order_more_tags_title">Naruči više privjesak</string>
+    <string name="add_another_pet">Dodaj još jednog kućnog ljubimca</string>
     <string name="full_name">Puno ime</string>
     <string name="place_order">Naruči</string>
     <string name="order_created_payment_pending">Narudžba izrađena. Plaćanje na čekanju.</string>
     <string name="payment_intent_failed">Zahtjev za plaćanje nije uspio</string>
     <string name="order_create_failed">Izrada narudžbe nije uspjela</string>
-    <string name="order_replacement_title">Naruči zamjenski pločica</string>
+    <string name="order_replacement_title">Naruči zamjenski privjesak</string>
     <string name="order_replacement_button">Naruči zamjenu</string>
     <string name="replacement_ordered">Zamjena naručena</string>
     <string name="replacement_failed">Narudžba zamjene nije uspjela</string>
@@ -708,21 +708,21 @@
     <string name="order_id_short">Narudžba #%1$s</string>
     <string name="order_information">Podaci o narudžbi</string>
     <string name="order_id_label">ID narudžbe</string>
-    <string name="status">Állapot</string>
+    <string name="status">Status</string>
     <string name="total_amount">Ukupni iznos</string>
     <string name="order_date">Datum narudžbe</string>
     <string name="items">Stavke</string>
     <string name="quantity_label">Količina: %1$d</string>
-    <string name="qr_tag_pending">QR pločica na čekanju</string>
-    <string name="qr_tag_assigned">QR pločica dodijeljen</string>
+    <string name="qr_tag_pending">QR privjesak na čekanju</string>
+    <string name="qr_tag_assigned">QR privjesak dodijeljen</string>
     <plurals name="item_count">
         <item quantity="one">%d item</item>
         <item quantity="other">%d items</item>
     </plurals>
 
     <!-- Order More Tags -->
-    <string name="get_qr_tags_subtitle">Nabavi QR pločice za svoje ljubimce</string>
-    <string name="pet_names">Imena ljubimaca</string>
+    <string name="get_qr_tags_subtitle">Nabavi QR privjeska za svoje kućne ljubimce</string>
+    <string name="pet_names">Imena kućnih ljubimaca</string>
     <string name="shipping_address">Adresa za dostavu</string>
     <string name="shipping">Dostava</string>
     <string name="shipping_price">Izračunato pri naplati</string>
@@ -730,12 +730,12 @@
     <!-- Order Replacement Tag -->
     <string name="replacement_subtitle">Izgubljen ili oštećen? Poslat ćemo ti novi</string>
     <string name="free_replacement">Besplatna zamjena</string>
-    <string name="replacement_shipping_info">Zamjenski pločica bit će poslan u roku 2\u20133 radna dana\u2026</string>
+    <string name="replacement_shipping_info">Zamjenski privjesak bit će poslan u roku 2\u20133 radna dana\u2026</string>
     <string name="replacement_shipping_required">Potrebna naknada za dostavu</string>
-    <string name="replacement_shipping_cost">Za narudžbu zamjenskog pločice primjenjuje se naknada za dostavu od %1$s.</string>
+    <string name="replacement_shipping_cost">Za narudžbu zamjenskog privjeska primjenjuje se naknada za dostavu od %1$s.</string>
     <string name="delivery_method_title">Način dostave</string>
     <string name="home_delivery_option">Dostava na adresu</string>
-    <string name="postapoint_delivery_option">PostaPont</string>
+    <string name="postapoint_delivery_option">PostaPont preuzimanje</string>
     <string name="postapoint_zip_placeholder">Poštanski broj</string>
     <string name="postapoint_search">Pretraži</string>
     <string name="postapoint_no_results">Nema PostaPont lokacija za ovaj poštanski broj</string>
@@ -744,18 +744,18 @@
     <!-- ============================================ -->
     <!-- MARK: Subscription / Pricing -->
     <!-- ============================================ -->
-    <string name="subscription_title">Előfizetés</string>
-    <string name="subscription_choose_plan">Csomag kiválasztása</string>
-    <string name="subscription_monthly">Havi</string>
-    <string name="subscription_yearly">Éves</string>
-    <string name="subscription_popular">Népszerű</string>
-    <string name="subscription_current_plan">Jelenlegi csomag</string>
-    <string name="subscription_select">Csomag kiválasztása</string>
-    <string name="subscription_max_pets">Max kedvenc: %1$s</string>
-    <string name="subscription_vet_alerts">Állatorvosi &amp; mentő riasztások</string>
-    <string name="subscription_sms">SMS értesítések</string>
-    <string name="subscription_community_alerts">Közösségi riasztások</string>
-    <string name="subscription_free_replacement">Ingyenes biléta csere</string>
+    <string name="subscription_title">Pretplata</string>
+    <string name="subscription_choose_plan">Odaberi paket</string>
+    <string name="subscription_monthly">Mjesečno</string>
+    <string name="subscription_yearly">Godišnje</string>
+    <string name="subscription_popular">Popularno</string>
+    <string name="subscription_current_plan">Trenutni paket</string>
+    <string name="subscription_select">Odaberi paket</string>
+    <string name="subscription_max_pets">Maksimalno kućnih ljubimaca: %1$s</string>
+    <string name="subscription_vet_alerts">Veterinarska i spasilačka upozorenja</string>
+    <string name="subscription_sms">SMS obavijesti</string>
+    <string name="subscription_community_alerts">Upozorenja zajednice</string>
+    <string name="subscription_free_replacement">Besplatna zamjena privjeska</string>
 
     <!-- ============================================ -->
     <!-- MARK: Billing -->
@@ -792,7 +792,7 @@
     <string name="referral_copy">Kopiraj</string>
     <string name="referral_share">Podijeli</string>
     <string name="referral_pending">Na čekanju</string>
-    <string name="referral_share_text">Koristi moj kôd za preporuku %1$s za 2 mjeseca besplatno na Senri! https://senra.pet/choose-plan?referral=%1$s</string>
+    <string name="referral_share_text">Koristi moj kôd za preporuku %1$s za 2 mjeseca besplatno na Senri! https://senra.pet/choose-plan?referral=%2$s</string>
     <string name="referral_clipboard_label">Kôd za preporuku</string>
     <string name="referral_use_friend_code">Koristi kôd prijatelja</string>
     <string name="enter_friend_code">Unesi kôd za preporuku</string>
@@ -805,11 +805,11 @@
     <!-- MARK: Push Notification Prompt -->
     <!-- ============================================ -->
     <string name="push_prompt_title">Ostani povezan</string>
-    <string name="push_prompt_subtitle">Omogući obavijesti da ne propustiš važna ažuriranja o ljubimcu:</string>
-    <string name="push_prompt_benefit_scan">Trenutne obavijesti kada je pločica ljubimca skeniran</string>
+    <string name="push_prompt_subtitle">Omogući obavijesti da ne propustiš važna ažuriranja o kućnom ljubimcu:</string>
+    <string name="push_prompt_benefit_scan">Trenutne obavijesti kada je privjesak kućnog ljubimca skeniran</string>
     <string name="push_prompt_benefit_sighting">Prijave viđenja od zajednice</string>
-    <string name="push_prompt_benefit_found">Saznaj odmah kada je tvoj ljubimac pronađen</string>
-    <string name="push_prompt_benefit_missing">Uzbune o nestalim ljubimcima u tvom području</string>
+    <string name="push_prompt_benefit_found">Saznaj odmah kada je tvoj kućni ljubimac pronađen</string>
+    <string name="push_prompt_benefit_missing">Uzbune o nestalim kućnim ljubimcima u tvom području</string>
     <string name="push_prompt_enable">Omogući obavijesti</string>
     <string name="push_prompt_later">Možda kasnije</string>
 
@@ -826,8 +826,8 @@
     <!-- ============================================ -->
     <string name="public_profile_preview">Pregled javnog profila</string>
     <string name="failed_load_profile">Učitavanje profila nije uspjelo</string>
-    <string name="public_profile_subtitle">Ovako drugi vide profil ljubimca %1$s</string>
-    <string name="owner_notified_sms_email">Vlasnik ljubimca %1$s primit će SMS i e-mail s tvojom lokacijom</string>
+    <string name="public_profile_subtitle">Ovako drugi vide profil kućnog ljubimca %1$s</string>
+    <string name="owner_notified_sms_email">Vlasnik kućnog ljubimca %1$s primit će SMS i e-mail s tvojom lokacijom</string>
     <string name="contact_owner_plea">Molimo te javi mom vlasniku da si me pronašao…</string>
     <string name="contact_owner_plea_full">Molim te, obavijesti mog vlasnika da si me pronašao. Možeš ga kontaktirati koristeći podatke za kontakt u nastavku.</string>
     <string name="contact_info_not_set">Kontakt podaci još nisu postavljeni</string>
@@ -844,26 +844,26 @@
     <string name="step_owner_notified">Vlasnik prima obavijest</string>
     <string name="step_owner_notified_desc">Vlasnik prima SMS i e-mail s tvojom lokacijom</string>
     <string name="step_quick_reunion">Brzo spajanje</string>
-    <string name="step_quick_reunion_desc">Vlasnik može navigirati do tvoje lokacije da pokupi svog ljubimca</string>
+    <string name="step_quick_reunion_desc">Vlasnik može navigirati do tvoje lokacije da pokupi svog kućnog ljubimca</string>
     <string name="step_share_location_desc_public">Kattints a fenti gombra, hogy megoszd, hol találtad meg %1$s-t</string>
-    <string name="step_owner_notified_desc_public">A gazdi SMS-t kap a helyedről a Google Maps-en</string>
-    <string name="step_quick_reunion_desc_public">Maradj a hely közelében, hogy a gazdi megtalálhasson téged és %1$s-t</string>
+    <string name="step_owner_notified_desc_public">Vlasnik prima SMS s tvojom lokacijom na Google Maps</string>
+    <string name="step_quick_reunion_desc_public">Ostani blizu lokacije kako bi vlasnik mogao pronaći tebe i %1$s</string>
     <string name="owner_phone_label">Telefon vlasnika: %1$s</string>
     <string name="owner_email_label">E-mail vlasnika: %1$s</string>
-    <string name="your_privacy_notice">Fontos az adatvédelem. A helyedet csak %1$s gazdijával osztjuk meg a kifejezett hozzájárulásoddal.</string>
+    <string name="your_privacy_notice">Tvoja privatnost je važna. Tvoju lokaciju ćemo podijeliti samo s vlasnikom %1$s uz tvoj izričiti pristanak.</string>
 
     <!-- ============================================ -->
     <!-- MARK: Offline Mode -->
     <!-- ============================================ -->
     <string name="offline_mode">Izvanmrežni način</string>
-    <string name="syncing">Sinkronizacija...</string>
+    <string name="syncing">Sinkronizacija…</string>
     <string name="sync_completed">Sinkronizacija dovršena</string>
     <string name="sync_failed">Sinkronizacija nije uspjela: %1$s</string>
     <string name="sync_no_connection">Nije moguće sinkronizirati: nema internetske veze</string>
     <string name="pending_changes">Promjene na čekanju</string>
     <string name="online">Online</string>
     <string name="offline_changes_sync">Promjene će se sinkronizirati kad budeš online</string>
-    <string name="tap_view_queued_actions">Koppints a sorba állított műveletek megtekintéséhez</string>
+    <string name="tap_view_queued_actions">Dodirni za pregled radnji u redu čekanja</string>
     <string name="connected">Povezano</string>
     <string name="sync_now">Sinkroniziraj sada</string>
     <string name="changes_sync_restored">Promjene će se automatski sinkronizirati kada se veza uspostavi.</string>
@@ -873,13 +873,13 @@
     </plurals>
 
     <!-- Sync Error Banner -->
-    <string name="sync_actions_failed">%1$d művelet szinkronizálása sikertelen</string>
-    <string name="sync_tried_count">%1$d alkalommal próbáltuk</string>
+    <string name="sync_actions_failed">%1$d radnji nije uspjelo sinkronizirati</string>
+    <string name="sync_tried_count">Pokušano %1$d puta</string>
     <string name="sync_retry_all">Pokušaj sve ponovo</string>
     <string name="sync_dismiss_all">Odbaci sve</string>
     <string name="sync_syncing">Sinkronizacija…</string>
-    <string name="sync_count_failed">%1$d sikertelen</string>
-    <string name="sync_count_pending">%1$d függőben</string>
+    <string name="sync_count_failed">%1$d neuspješno</string>
+    <string name="sync_count_pending">%1$d na čekanju</string>
 
     <!-- ============================================ -->
     <!-- MARK: Error / Retry -->
@@ -891,16 +891,16 @@
     <string name="error_login_failed">Prijava nije uspjela</string>
     <string name="error_verification_failed">Provjera nije uspjela</string>
     <string name="error_submit_support">Slanje zahtjeva za podršku nije uspjelo</string>
-    <string name="error_load_pets">Učitavanje ljubimaca nije uspjelo</string>
-    <string name="error_refresh_pets">Osvježavanje ljubimaca nije uspjelo</string>
+    <string name="error_load_pets">Učitavanje kućnih ljubimaca nije uspjelo</string>
+    <string name="error_refresh_pets">Osvježavanje kućnih ljubimaca nije uspjelo</string>
     <string name="error_load_alerts">Učitavanje uzbuna nije uspjelo</string>
-    <string name="error_load_pet_profile">Učitavanje profila ljubimca nije uspjelo</string>
+    <string name="error_load_pet_profile">Učitavanje profila kućnog ljubimca nije uspjelo</string>
     <string name="error_load_stories">Učitavanje priča nije uspjelo</string>
 
     <!-- ============================================ -->
     <!-- MARK: Map App Picker -->
     <!-- ============================================ -->
-    <string name="location_title">Lokacija ljubimca %1$s</string>
+    <string name="location_title">Lokacija kućnog ljubimca %1$s</string>
     <string name="approximate_location_note">Ovo je približna lokacija (~500 m). Pretraži okolno područje.</string>
     <string name="coordinates_label">Koordinate: %1$s</string>
     <string name="open_in">Otvori u:</string>
@@ -908,9 +908,9 @@
     <string name="waze">Waze</string>
     <string name="other_maps_app">Druga kartografska aplikacija</string>
     <string name="open_with">Otvori s\u2026</string>
-    <string name="map_label_pet_location">Lokacija ljubimca</string>
-    <string name="map_label_tag_scanned">Pločica skeniran</string>
-    <string name="map_label_sighting">Viđenje ljubimca</string>
+    <string name="map_label_pet_location">Lokacija kućnog ljubimca</string>
+    <string name="map_label_tag_scanned">Privjesak skeniran</string>
+    <string name="map_label_sighting">Viđenje kućnog ljubimca</string>
 
     <!-- ============================================ -->
     <!-- MARK: App Info -->
@@ -921,7 +921,7 @@
     <!-- ============================================ -->
     <!-- MARK: Relative Time -->
     <!-- ============================================ -->
-    <string name="time_ago_just_now">épp most</string>
+    <string name="time_ago_just_now">upravo sada</string>
     <plurals name="time_ago_days">
         <item quantity="one">%d day ago</item>
         <item quantity="other">%d days ago</item>
@@ -943,7 +943,7 @@
     <string name="remove_from_success_stories">Ukloni iz priča o uspjehu</string>
     <string name="removed_from_success_stories">Uklonjeno iz priča o uspjehu</string>
     <string name="remove_story_confirm_title">Ukloniti priču o uspjehu?</string>
-    <string name="remove_story_confirm_message">Ovo će ukloniti priču tvog ljubimca iz javnih priča o uspjehu.</string>
+    <string name="remove_story_confirm_message">Ovo će ukloniti priču tvog kućnog ljubimca iz javnih priča o uspjehu.</string>
     <string name="remove_story_failed">Uklanjanje priče nije uspjelo</string>
     <plurals name="time_hours_duration">
         <item quantity="one">%d hour</item>
@@ -962,17 +962,17 @@
     <!-- MARK: Reward & Sighting Details -->
     <!-- ============================================ -->
     <string name="reward_optional">Nagrada (neobavezno)</string>
-    <string name="sighting_details_title">Észlelések</string>
-    <string name="sighting_at">Látták itt: %1$s</string>
-    <string name="sighting_reported_at">Bejelentve: %1$s</string>
-    <string name="sighting_no_details">Még nincs bejelentett észlelés</string>
-    <string name="sighting_anonymous">Névtelen bejelentő</string>
+    <string name="sighting_details_title">Uočavanja</string>
+    <string name="sighting_at">Viđen u %1$s</string>
+    <string name="sighting_reported_at">Prijavljeno %1$s</string>
+    <string name="sighting_no_details">Još nema prijavljenih uočavanja</string>
+    <string name="sighting_anonymous">Anonimni prijavitelj</string>
     <string name="reporter_name">Tvoje ime</string>
     <string name="reporter_phone">Broj telefona</string>
     <string name="reporter_email">E-mail</string>
 
     <!-- Hardcoded String Fixes -->
-    <string name="someone_fallback">Valaki</string>
+    <string name="someone_fallback">Netko</string>
     <string name="no_plan">Nema</string>
     <string name="current_location_fallback">Trenutna lokacija</string>
     <string name="share_card_reunited">Ponovo zajedno!</string>
@@ -982,7 +982,7 @@
     <string name="guides_title">Korisničke upute</string>
     <string name="help_faq_group_getting_started">Prvi koraci</string>
     <string name="help_faq_group_tags_scanning">Privjesci i skeniranje</string>
-    <string name="help_faq_group_missing_pets">Nestali ljubimci i uzbune</string>
+    <string name="help_faq_group_missing_pets">Nestali kućni ljubimci i uzbune</string>
     <string name="help_faq_group_billing_plans">Naplata i paketi</string>
     <string name="help_faq_group_privacy_account">Privatnost i račun</string>
     <string name="help_faq_group_troubleshooting">Rješavanje problema</string>
@@ -995,9 +995,9 @@
     <string name="checkout_failed">Pokretanje plaćanja nije uspjelo</string>
 
     <!-- SSE Events -->
-    <string name="sse_subscription_activated">A(z) %1$s csomagod most aktív!</string>
-    <string name="sse_subscription_cancelled">A(z) %1$s előfizetésed lemondva.</string>
-    <string name="sse_referral_used">%1$s felhasználta az ajánlókódod!</string>
+    <string name="sse_subscription_activated">Tvoj %1$s paket je sada aktivan!</string>
+    <string name="sse_subscription_cancelled">Tvoja %1$s pretplata je otkazana.</string>
+    <string name="sse_referral_used">%1$s je iskoristio tvoj kod za preporuku!</string>
 
     <!-- Reward -->
     <string name="reward_placeholder">npr. €50 ili poseban poklon</string>
@@ -1005,8 +1005,8 @@
 
     <!-- Checkout & Order Status -->
     <string name="checkout_subscription_success">Tvoja pretplata je sada aktivna!</string>
-    <string name="checkout_tag_order_success">Plaćanje uspješno! Tvoja narudžba pločice se obrađuje.</string>
-    <string name="checkout_replacement_success">Plaćanje uspješno! Tvoj zamjenski pločica je na putu.</string>
+    <string name="checkout_tag_order_success">Plaćanje uspješno! Tvoja narudžba privjeska se obrađuje.</string>
+    <string name="checkout_replacement_success">Plaćanje uspješno! Tvoj zamjenski privjesak je na putu.</string>
     <string name="order_status_completed">Dovršeno</string>
     <string name="order_status_pending">Na čekanju</string>
     <string name="order_status_failed">Neuspjelo</string>
@@ -1028,32 +1028,32 @@
     <string name="breed_custom_hint">Unesi naziv pasmine…</string>
     <string name="breed_custom_label">Naziv pasmine</string>
     <string name="breed_other">Ostalo</string>
-    <string name="cannot_delete_missing_pet_message">Ne možeš obrisati ljubimca koji je prijavljen kao nestao. Prvo ga označi kao pronađenog.</string>
+    <string name="cannot_delete_missing_pet_message">Ne možeš obrisati kućnog ljubimca koji je prijavljen kao nestao. Prvo ga označi kao pronađenog.</string>
     <string name="edit_alert">Uredi uzbunu</string>
     <string name="health_info_empty_hint">Nema dodanih zdravstvenih informacija</string>
     <string name="notification_channel_info">Barem jedan kanal obavijesti mora biti aktivan kako bi te mogli obavijestiti.</string>
     <string name="province">Županija / Pokrajina</string>
     <string name="sex_optional">Neobavezno</string>
-    <string name="street2">Lh. / Emelet / Ajtó (Opcionális)</string>
+    <string name="street2">Stan / Apartman / Kat (Neobavezno)</string>
 
-    <string name="pet_limit_reached">Dosegnut limit ljubimaca</string>
-    <string name="pet_limit_reached_message">Tvoj %1$s paket dopušta %2$d ljubimca. Nadogradi na %3$s za %4$s za registraciju do 10 ljubimaca.</string>
+    <string name="pet_limit_reached">Dosegnut limit kućnih ljubimaca</string>
+    <string name="pet_limit_reached_message">Tvoj %1$s paket dopušta %2$d kućnog ljubimca. Nadogradi na %3$s za %4$s za registraciju do 10 kućnih ljubimaca.</string>
     <string name="share_owner_notified">Vlasnik je obaviješten!</string>
-    <string name="sse_connection_lost">A valós idejű frissítések nem elérhetők. Húzd le a frissítéshez.</string>
-    <string name="story_placeholder">Meséld el az újraegyesülés történetét...</string>
-    <string name="upgrade_to_plan">Váltás erre: %1$s</string>
+    <string name="sse_connection_lost">Ažuriranja u stvarnom vremenu nisu dostupna. Povuci za osvježavanje.</string>
+    <string name="story_placeholder">Ispričaj svoju priču o ponovnom susretu\u2026</string>
+    <string name="upgrade_to_plan">Nadogradi na %1$s</string>
     <string name="show_secondary_email">Prikaži sekundarni e-mail</string>
-    <string name="show_secondary_email_subtitle">Másodlagos e-mail címed megjelenítése a kisállatod nyilvános profilján</string>
+    <string name="show_secondary_email_subtitle">Prikaži tvoj sekundarni e-mail na javnom profilu kućnog ljubimca</string>
     <string name="show_secondary_phone">Prikaži sekundarni telefon</string>
-    <string name="show_secondary_phone_subtitle">Másodlagos telefonszámod megjelenítése a kisállatod nyilvános profilján</string>
+    <string name="show_secondary_phone_subtitle">Prikaži tvoj sekundarni telefon na javnom profilu kućnog ljubimca</string>
 
     <!-- Gift order -->
     <string name="order_gift_toggle">Naruči kao poklon</string>
-    <string name="order_gift_description">Za poklon narudžbe imena ljubimaca su neobavezna. Primatelj ih može dodati pri aktivaciji pločica.</string>
-    <string name="order_gift_quantity">Broj pločica</string>
+    <string name="order_gift_description">Za poklon narudžbe imena kućnih ljubimaca su neobavezna. Primatelj ih može dodati pri aktivaciji privjesak.</string>
+    <string name="order_gift_quantity">Broj privjesak</string>
     <string name="order_gift_recipient_name">Ime primatelja (neobavezno)</string>
     <string name="order_gift_message">Poruka za poklon (neobavezno)</string>
-    <string name="order_gift_message_placeholder">Dodaj osobnu poruku...</string>
+    <string name="order_gift_message_placeholder">Dodaj osobnu poruku…</string>
     <string name="order_gift_badge">Poklon narudžba</string>
     <string name="shipping_section_title">Dostava</string>
     <string name="tracking_number_label">Broj za praćenje</string>
@@ -1064,39 +1064,39 @@
     <string name="pending_registrations_title">Privjesci na čekanju</string>
     <string name="ready_to_activate">Spremni za aktivaciju</string>
     <string name="still_processing">Još u obradi</string>
-    <string name="scan_tag_now">Skeniraj pločica</string>
+    <string name="scan_tag_now">Skeniraj privjesak</string>
     <string name="create_profile_first">Izradi profil</string>
     <string name="create_profile_while_waiting">Izradi profil dok čekaš</string>
     <string name="all_caught_up">Sve je u redu!</string>
-    <string name="all_caught_up_description">Nemaš pločica na čekanju za registraciju.</string>
+    <string name="all_caught_up_description">Nemaš privjesak na čekanju za registraciju.</string>
     <string name="status_shipped">Poslano</string>
     <string name="status_delivered">Dostavljeno</string>
     <string name="status_processing">U obradi</string>
     <string name="status_pending">Na čekanju</string>
-    <string name="activation_help_title">Kako aktivirati pločica</string>
-    <string name="activation_help_step1">Pričekaj da pločica stigne</string>
-    <string name="activation_help_step2">Skeniraj QR kôd na pločici</string>
-    <string name="activation_help_step3">Odaberi ljubimca za povezivanje</string>
+    <string name="activation_help_title">Kako aktivirati privjesak</string>
+    <string name="activation_help_step1">Pričekaj da privjesak stigne</string>
+    <string name="activation_help_step2">Skeniraj QR kôd na privjesku</string>
+    <string name="activation_help_step3">Odaberi kućnog ljubimca za povezivanje</string>
     <string name="activation_help_step4">Odaberi pretplatnički paket</string>
-    <string name="pets_from_order">Ljubimci iz tvoje narudžbe</string>
+    <string name="pets_from_order">Kućni ljubimci iz tvoje narudžbe</string>
     <string name="from_your_order">Iz tvoje narudžbe</string>
     <string name="needs_profile">Potreban profil</string>
     <string name="create_profile_for">Izradi profil za %1$s</string>
-    <string name="other_pets">Ostali ljubimci</string>
+    <string name="other_pets">Ostali kućni ljubimci</string>
     <string name="link_to_pet">Poveži s %1$s</string>
-    <string name="no_pets_yet">Još nema ljubimaca</string>
-    <string name="create_first_pet">Izradi profil prvog ljubimca za aktivaciju ovog pločice.</string>
-    <string name="create_new_pet">Izradi novog ljubimca</string>
+    <string name="no_pets_yet">Još nema kućnih ljubimaca</string>
+    <string name="create_first_pet">Izradi profil prvog kućnog ljubimca za aktivaciju ovog privjeska.</string>
+    <string name="create_new_pet">Izradi novog kućnog ljubimca</string>
     <string name="notifications_title">Obavijesti</string>
     <string name="no_notifications">Nema obavijesti</string>
-    <string name="no_notifications_desc">Sve si pročitao! Obavijesti će se pojaviti ovdje kada netko skenira pločica tvog ljubimca.</string>
+    <string name="no_notifications_desc">Sve si pročitao! Obavijesti će se pojaviti ovdje kada netko skenira privjesak tvog kućnog ljubimca.</string>
     <string name="mark_all_read">Označi sve pročitanim</string>
-    <string name="create_profile_hint">Prvo izradi profil ljubimca, zatim ponovo skeniraj pločica za aktivaciju.</string>
-    <string name="activation_error_qr_not_found">QR kôd nije prepoznat. Provjeri skeniraš li službeni SENRA pločica.</string>
-    <string name="activation_error_already_activated">Ovaj pločica je već povezan s drugim ljubimcem. Kontaktiraj podršku ako misliš da je to tvoj pločica.</string>
-    <string name="activation_error_not_linked">Ovaj pločica još nije dodijeljen tvojoj narudžbi. Pričekaj potvrdu dostave.</string>
-    <string name="activation_error_not_shipped">Tvoja narudžba još nije poslana. Pričekaj dok ne primiš pločica.</string>
-    <string name="activation_error_not_owner">Ovaj ljubimac nije tvoj. Odaberi jednog od svojih ljubimaca.</string>
+    <string name="create_profile_hint">Prvo izradi profil kućnog ljubimca, zatim ponovo skeniraj privjesak za aktivaciju.</string>
+    <string name="activation_error_qr_not_found">QR kôd nije prepoznat. Provjeri skeniraš li službeni SENRA privjesak.</string>
+    <string name="activation_error_already_activated">Ovaj privjesak je već povezan s drugim kućnim ljubimcem. Kontaktiraj podršku ako misliš da je to tvoj privjesak.</string>
+    <string name="activation_error_not_linked">Ovaj privjesak još nije dodijeljen tvojoj narudžbi. Pričekaj potvrdu dostave.</string>
+    <string name="activation_error_not_shipped">Tvoja narudžba još nije poslana. Pričekaj dok ne primiš privjesak.</string>
+    <string name="activation_error_not_owner">Ovaj kućni ljubimac nije tvoj. Odaberi jednog od svojih kućnih ljubimaca.</string>
 
     <!-- Allergies & Medications -->
     <string name="allergies_label">Alergije</string>
@@ -1212,33 +1212,33 @@
     <string name="breed_cat_toyger">Toyger</string>
     <string name="breed_cat_chausie">Chausie</string>
     <string name="reunion_city_label">Grad (neobavezno)</string>
-    <string name="reunion_city_placeholder">Gdje je tvoj ljubimac pronađen?</string>
+    <string name="reunion_city_placeholder">Gdje je tvoj kućni ljubimac pronađen?</string>
 
     <!-- Pet form warnings -->
-    <string name="profile_incomplete_warning">Dovrši profil ljubimca</string>
-    <string name="profile_incomplete_desc">Nedostajući podaci otežavaju pronalazak ljubimca ako nestane. Molimo te ispuni težinu, boju i zdravstvene podatke.</string>
+    <string name="profile_incomplete_warning">Dovrši profil kućnog ljubimca</string>
+    <string name="profile_incomplete_desc">Nedostajući podaci otežavaju pronalazak kućnog ljubimca ako nestane. Molimo te ispuni težinu, boju i zdravstvene podatke.</string>
     <string name="identity_locked_title">Ime, vrsta i pasmina su zaključani</string>
-    <string name="identity_locked_desc">Ova polja ne mogu se mijenjati nakon aktivacije pločice. Kontaktiraj podršku ako trebaš napraviti promjene.</string>
+    <string name="identity_locked_desc">Ova polja ne mogu se mijenjati nakon aktivacije privjeska. Kontaktiraj podršku ako trebaš napraviti promjene.</string>
 
     <!-- Shelter Adoption -->
-    <string name="trial_ends_on">Probno razdoblje završava %1$s</string>
+    <string name="trial_ends_on">Probno razdoblje završava</string>
     <string name="trial_upgrade_now">Nadogradi sada da zadržiš značajke!</string>
     <!-- Referral Status -->
     <string name="referral_status_pending">Na čekanju</string>
     <string name="referral_status_signed_up">Registriran</string>
     <string name="referral_status_subscribed">Pretplaćen</string>
     <string name="referral_status_rewarded">Nagrađen</string>
-    <string name="referral_redeemed_on">Iskorišteno: %1$s</string>
-    <string name="referral_rewarded_on">Nagrađeno: %1$s</string>
+    <string name="referral_redeemed_on">Iskorišteno:</string>
+    <string name="referral_rewarded_on">Nagrađeno:</string>
     <string name="referral_expires">Istječe:</string>
 
     <!-- Notification: new types -->
     <string name="notif_alert_confirmation_title">Uzbuna izrađena</string>
-    <string name="notif_alert_confirmation_body">Tvoja uzbuna o nestalom ljubimcu je sada aktivna.</string>
+    <string name="notif_alert_confirmation_body">Tvoja uzbuna o nestalom kućnom ljubimcu je sada aktivna.</string>
     <string name="notif_promo_expiring_title">Probno razdoblje uskoro istječe</string>
     <string name="notif_promo_expiring_body">Pretplati se sada da zadržiš premium značajke.</string>
-    <string name="notif_alert_reminder_title">Podsjetnik o nestalom ljubimcu</string>
-    <string name="notif_alert_reminder_body">Tvoj ljubimac je još uvijek nestao.</string>
+    <string name="notif_alert_reminder_title">Podsjetnik o nestalom kućnom ljubimcu</string>
+    <string name="notif_alert_reminder_body">Tvoj kućni ljubimac je još uvijek nestao.</string>
     <string name="notif_multiple_sightings_title">Više viđenja!</string>
     <string name="notif_multiple_sightings_body">Više viđenja prijavljeno u obližnjem području.</string>
     <string name="notif_channel_lifecycle">Pretplata &amp; podsjetnici</string>
@@ -1291,28 +1291,28 @@
     <string name="weight_helper">Težina u kg (npr. 4,5)</string>
 
     <string name="welcome_to_senra">Dobrodošli u Senru!</string>
-    <string name="welcome_subtitle">Sigurnost vašeg ljubimca počinje ovdje. Postavite svoju prvu oznaku.</string>
+    <string name="welcome_subtitle">Sigurnost vašeg kućnog ljubimca počinje ovdje. Postavite svoju prvu privjesak.</string>
     <string name="welcome_step_1">Skenirajte QR kod na oznaci</string>
-    <string name="welcome_step_2">Stvorite profil svog ljubimca</string>
-    <string name="welcome_step_3">Vaš ljubimac je zaštićen!</string>
-    <string name="welcome_scan_first_tag">Skeniraj prvu oznaku</string>
+    <string name="welcome_step_2">Stvorite profil svog kućnog ljubimca</string>
+    <string name="welcome_step_3">Vaš kućni ljubimac je zaštićen!</string>
+    <string name="welcome_scan_first_tag">Skeniraj privjesak</string>
     <string name="welcome_explore_account">Istraži svoj račun</string>
-    <string name="setup_your_tags">Postavi oznake</string>
-    <string name="setup_your_tags_subtitle">Naručili ste oznake za ove ljubimce:</string>
+    <string name="setup_your_tags">Postavi privjeska</string>
+    <string name="setup_your_tags_subtitle">Naručili ste privjeska za ove kućne ljubimce:</string>
     <string name="ready_to_setup">Spremno za postavljanje</string>
     <string name="already_activated">Već aktivirano</string>
-    <string name="setting_up_tag_for">Postavljanje oznake za %s</string>
+    <string name="setting_up_tag_for">Postavljanje privjeska za %s</string>
     <string name="tag_activated_for">Oznaka aktivirana za %s!</string>
-    <string name="pet_now_protected">Vaš ljubimac je sada zaštićen sa Senrom</string>
-    <string name="more_tags_to_setup">Još imate oznaka za postavljanje</string>
-    <string name="setup_pet_tag">Postavi oznaku za %s</string>
+    <string name="pet_now_protected">Vaš kućni ljubimac je sada zaštićen sa Senrom</string>
+    <string name="more_tags_to_setup">Još imate privjesak za postavljanje</string>
+    <string name="setup_pet_tag">Postavi privjesak za %s</string>
     <string name="whats_next">Što slijedi?</string>
     <string name="choose_subscription_plan">Odaberite plan pretplate</string>
     <string name="register_your_vet">Registrirajte svog veterinara</string>
     <string name="update_contact_details">Ažurirajte kontakt podatke i privatnost</string>
     <string name="go_to_home">Na početnu</string>
     <string name="thank_you_senra">Hvala što koristite Senru!</string>
-    <string name="tap_pet_name_hint">Dodirnite ime ljubimca za postavljanje oznake</string>
+    <string name="tap_pet_name_hint">Dodirnite ime kućnog ljubimca za postavljanje privjeska</string>
     <plurals name="age_years">
         <item quantity="one">%d godina</item>
         <item quantity="other">%d godina</item>
@@ -1322,74 +1322,74 @@
         <item quantity="other">%d mjeseci</item>
     </plurals>
     <string name="show_name">Prikaži svoje ime</string>
-    <string name="show_name_subtitle">Vaše ime će biti vidljivo na javnom profilu ljubimca kada netko skenira pločicu</string>
+    <string name="show_name_subtitle">Vaše ime će biti vidljivo na javnom profilu kućnog ljubimca kada netko skenira privjesak</string>
     <!-- FAQ Questions and Answers -->
-    <string name="help_faq_q1">Kako registriram svog ljubimca?</string>
-    <string name="help_faq_a1">Možeš registrirati svog ljubimca u izborniku \'Moji Ljubimci\' klikom na \'Dodaj Novog Ljubimca\'. Ispuni potrebne podatke i učitaj jednu ili više fotografija.</string>
-    <string name="help_faq_q2">Koje podatke trebam unijeti u profil svog ljubimca?</string>
-    <string name="help_faq_a2">Ime svog ljubimca si unio pri narudžbi pločice, a ono će se pojaviti u profilu tvog ljubimca nakon aktivacije pločice. Unesi vrstu i pasminu svog ljubimca. Radi sprječavanja zloupotrebe, ovi podaci se mogu unijeti samo jednom. Ako pogriješiš, kontaktiraj nas i pomoći ćemo ti. Ovdje možeš dodati i težinu, dob, boju i bilo kakva posebna obilježja ili tipično ponašanje tvoje mačke/psa. Možeš učitati i fotografije. Ti odlučuješ koje su informacije vidljive o tvom ljubimcu ako se izgubi.</string>
-    <string name="help_faq_q3">Kako funkcionira pločica s QR kodom?</string>
-    <string name="help_faq_a3">Svaki ljubimac dobiva jedinstvenu pločicu s QR kodom. Ovaj kod je povezan s profilom tvog ljubimca. Kada netko skenira QR kod telefonom, odmah može vidjeti profil tvog ljubimca i kontaktne podatke koje si označio kao javne.</string>
-    <string name="help_faq_q4">Mogu li kasnije ažurirati podatke svog ljubimca?</string>
-    <string name="help_faq_a4">Da! Možeš ažurirati podatke svog ljubimca u bilo kojem trenutku u sekciji \'Moji Ljubimci\' odabirom ljubimca i klikom na \'Uredi Profil\'. Možeš ažurirati sva polja osim imena, vrste i pasmine, uključujući fotografije. Promjene se spremaju odmah.</string>
-    <string name="help_faq_q5">Kako naručim zamjensku pločicu?</string>
-    <string name="help_faq_a5">Idi na stranicu \'Početna/Moj Račun\' i klikni \'Naruči Zamjensku Pločicu\'. Odaberi kojem ljubimcu treba nova pločica. Pretplatnici Maximum i Standard mogu zatražiti besplatne zamjenske pločice, dok članovi Starter mogu naručiti zamjenu uz cijenu dostave.</string>
-    <string name="help_faq_q6">Kako aktiviram svoju pločicu nakon što stigne?</string>
-    <string name="help_faq_a6">Preuzmi mobilnu aplikaciju SENRA iz Google Play Storea ili App Storea! Otvori je i idi na izbornik \'Aktivacija\', usmjeri kameru telefona na QR kod na pločici! Skeniranje povezuje pločicu s tvojim računom. Zatim odaberi postojećeg ljubimca ili stvori novi profil. Nakon aktivacije možeš odabrati pretplatnički plan.</string>
-    <string name="help_faq_q7">Mogu li pokloniti SENRA pločicu?</string>
-    <string name="help_faq_a7">Da! SENRA pločice su izvrstan poklon za vlasnike kućnih ljubimaca. Jednostavno naruči pločicu sa svog računa — kada je primatelj primi, može skenirati QR kod, stvoriti vlastiti račun i aktivirati pločicu za svog ljubimca.</string>
-    <string name="help_faq_q8">Što trebam učiniti ako moj ljubimac nestane?</string>
-    <string name="help_faq_a8">Idi na \'Moji Ljubimci\', klikni izbornik na kartici ljubimca i odaberi \'Označi kao Nestao\'. Ovo stvara \'upozorenje o nestalom ljubimcu\' koje se šalje svim članovima zajednice SENRA registriranim u krugu od 10 km. Veterinari i skloništa su također obaviješteni. Dobivaš trenutnu obavijest za svako uočavanje.</string>
-    <string name="help_faq_q9">Kako funkcioniraju upozorenja o nestalim ljubimcima?</string>
-    <string name="help_faq_a9">Kada označiš svoju mačku ili psa kao nestalog, stvara se upozorenje s fotografijom i podacima tvog ljubimca. Korisnici SENRA u krugu od 10 km su odmah obaviješteni i tvoj ljubimac se pojavljuje na karti \'Nestali Ljubimci\'. Veterinari i skloništa registrirana u sustavu SENRA u tvom području također primaju upozorenje.</string>
-    <string name="help_faq_q10">Kako naručim zamjensku pločicu?</string>
-    <string name="help_faq_a10">Idi na stranicu \'Početna/Moj Račun\' i klikni \'Naruči Zamjensku Pločicu\'. Pretplatnici Maximum i Standard mogu zatražiti besplatne zamjene, članovi Starter plaćaju dostavu.</string>
+    <string name="help_faq_q1">Kako registriram svog kućnog ljubimca?</string>
+    <string name="help_faq_a1">Možeš registrirati svog kućnog ljubimca u izborniku \'Moji Kućni ljubimci\' klikom na \'Dodaj Novog Kućnog ljubimca\'. Ispuni potrebne podatke i učitaj jednu ili više fotografija.</string>
+    <string name="help_faq_q2">Koje podatke trebam unijeti u profil svog kućnog ljubimca?</string>
+    <string name="help_faq_a2">Ime svog kućnog ljubimca si unio pri narudžbi privjeska, a ono će se pojaviti u profilu tvog kućnog ljubimca nakon aktivacije privjeska. Unesi vrstu i pasminu svog kućnog ljubimca. Radi sprječavanja zloupotrebe, ovi podaci se mogu unijeti samo jednom. Ako pogriješiš, kontaktiraj nas i pomoći ćemo ti. Ovdje možeš dodati i težinu, dob, boju i bilo kakva posebna obilježja ili tipično ponašanje tvoje mačke/psa. Možeš učitati i fotografije. Ti odlučuješ koje su informacije vidljive o tvom kućnom ljubimcu ako se izgubi.</string>
+    <string name="help_faq_q3">Kako funkcionira privjesak s QR kodom?</string>
+    <string name="help_faq_a3">Svaki kućni ljubimac dobiva jedinstvenu privjesak s QR kodom. Ovaj kod je povezan s profilom tvog kućnog ljubimca. Kada netko skenira QR kod telefonom, odmah može vidjeti profil tvog kućnog ljubimca i kontaktne podatke koje si označio kao javne.</string>
+    <string name="help_faq_q4">Mogu li kasnije ažurirati podatke svog kućnog ljubimca?</string>
+    <string name="help_faq_a4">Da! Možeš ažurirati podatke svog kućnog ljubimca u bilo kojem trenutku u sekciji \'Moji Kućni ljubimci\' odabirom kućnog ljubimca i klikom na \'Uredi Profil\'. Možeš ažurirati sva polja osim imena, vrste i pasmine, uključujući fotografije. Promjene se spremaju odmah.</string>
+    <string name="help_faq_q5">Kako naručim zamjensku privjesak?</string>
+    <string name="help_faq_a5">Idi na stranicu \'Početna/Moj Račun\' i klikni \'Naruči Zamjensku Privjesak\'. Odaberi kojem kućnom ljubimcu treba nova privjesak. Pretplatnici Maximum i Standard mogu zatražiti besplatne zamjenske privjeska, dok članovi Starter mogu naručiti zamjenu uz cijenu dostave.</string>
+    <string name="help_faq_q6">Kako aktiviram svoju privjesak nakon što stigne?</string>
+    <string name="help_faq_a6">Preuzmi mobilnu aplikaciju SENRA iz Google Play Storea ili App Storea! Otvori je i idi na izbornik \'Aktivacija\', usmjeri kameru telefona na QR kod na privjesku! Skeniranje povezuje privjesak s tvojim računom. Zatim odaberi postojećeg kućnog ljubimca ili stvori novi profil. Nakon aktivacije možeš odabrati pretplatnički plan.</string>
+    <string name="help_faq_q7">Mogu li pokloniti SENRA privjesak?</string>
+    <string name="help_faq_a7">Da! SENRA privjeska su izvrstan poklon za vlasnike kućnih ljubimaca. Jednostavno naruči privjesak sa svog računa — kada je primatelj primi, može skenirati QR kod, stvoriti vlastiti račun i aktivirati privjesak za svog kućnog ljubimca.</string>
+    <string name="help_faq_q8">Što trebam učiniti ako moj kućni ljubimac nestane?</string>
+    <string name="help_faq_a8">Idi na \'Moji Kućni ljubimci\', klikni izbornik na kartici kućnog ljubimca i odaberi \'Označi kao Nestao\'. Ovo stvara \'upozorenje o nestalom kućnom ljubimcu\' koje se šalje svim članovima zajednice SENRA registriranim u krugu od 10 km. Veterinari i skloništa su također obaviješteni. Dobivaš trenutnu obavijest za svako uočavanje.</string>
+    <string name="help_faq_q9">Kako funkcioniraju upozorenja o nestalim kućnim ljubimcima?</string>
+    <string name="help_faq_a9">Kada označiš svoju mačku ili psa kao nestalog, stvara se upozorenje s fotografijom i podacima tvog kućnog ljubimca. Korisnici SENRA u krugu od 10 km su odmah obaviješteni i tvoj kućni ljubimac se pojavljuje na karti \'Nestali Kućni ljubimci\'. Veterinari i skloništa registrirana u sustavu SENRA u tvom području također primaju upozorenje.</string>
+    <string name="help_faq_q10">Kako naručim zamjensku privjesak?</string>
+    <string name="help_faq_a10">Idi na stranicu \'Početna/Moj Račun\' i klikni \'Naruči Zamjensku Privjesak\'. Pretplatnici Maximum i Standard mogu zatražiti besplatne zamjene, članovi Starter plaćaju dostavu.</string>
     <string name="help_faq_q11">Što je program preporuka?</string>
     <string name="help_faq_a11">U izborniku Preporuke na stranici Profila možeš generirati osobni kod za preporuku. Podijeli ga s prijateljima i obitelji. Kada netko koristi tvoj kod i pretplati se na plaćeni plan (Standard ili Maximum), ti i tvoj prijatelj dobivate 2 mjeseca besplatno.</string>
     <string name="help_faq_q12">U koje zemlje šaljete?</string>
     <string name="help_faq_a12">Trenutno šaljemo u Mađarsku, Slovačku, Češku, Austriju, Rumunjsku, Hrvatsku, Španjolsku, Italiju, Francusku, Njemačku, Norvešku i Portugal. Dostava unutar Mađarske: {{huPostapoint}} (PostaPont) ili {{huHome}} (kućna dostava). Međunarodna dostava: {{intlPrice}} po narudžbi.</string>
-    <string name="help_faq_q13">Mogu li imati više ljubimaca na jednom računu?</string>
-    <string name="help_faq_a13">Da. S planom Starter (besplatno) možeš registrirati do 10 ljubimaca s ograničenim funkcijama. Plan Standard je za jednu mačku ili psa sa svim funkcijama. Plan Maximum uključuje sve s registracijom do 10 ljubimaca.</string>
-    <string name="help_faq_q14">Kako prijavim pronađenog ljubimca?</string>
-    <string name="help_faq_a14">Ako ljubimac ima SENRA pločicu, jednostavno skeniraj QR kod kamerom — nije potrebna aplikacija. Možeš vidjeti profil ljubimca i podijeliti svoju lokaciju s vlasnikom.</string>
+    <string name="help_faq_q13">Mogu li imati više kućnih ljubimaca na jednom računu?</string>
+    <string name="help_faq_a13">Da. S planom Starter (besplatno) možeš registrirati do 10 kućnih ljubimaca s ograničenim funkcijama. Plan Standard je za jednu mačku ili psa sa svim funkcijama. Plan Maximum uključuje sve s registracijom do 10 kućnih ljubimaca.</string>
+    <string name="help_faq_q14">Kako prijavim pronađenog kućnog ljubimca?</string>
+    <string name="help_faq_a14">Ako kućni ljubimac ima SENRA privjesak, jednostavno skeniraj QR kod kamerom — nije potrebna aplikacija. Možeš vidjeti profil kućnog ljubimca i podijeliti svoju lokaciju s vlasnikom.</string>
     <string name="help_faq_q15">Jesu li moji osobni podaci sigurni?</string>
-    <string name="help_faq_a15">Da. Ti kontroliraš točno koji podaci su vidljivi kada netko skenira pločicu. U \'Postavke\' &gt; \'Postavke Privatnosti\' možeš odabrati prikazuje li se tvoj telefon, email ili adresa. Prijava je zaštićena jednokratnim kodom svaki put. Možeš obrisati račun i podatke u bilo kojem trenutku.</string>
-    <string name="help_faq_q16">Izgubili smo pločicu ili se oštetila — što da radim?</string>
-    <string name="help_faq_a16">Ne brini — digitalni profil tvog ljubimca je siguran i ne pohranjuje se na pločici. Idi na stranicu Račun i klikni \'Naruči Zamjenu\'. Povezat ćemo novu pločicu s novim QR kodom s tvojim postojećim profilom. Pretplatnici Standard i Maximum mogu zatražiti neograničene besplatne zamjene. Stara pločica se odmah deaktivira.</string>
-    <string name="help_faq_q17">Moja pločica se ne skenira — što da radim?</string>
+    <string name="help_faq_a15">Da. Ti kontroliraš točno koji podaci su vidljivi kada netko skenira privjesak. U \'Postavke\' &gt; \'Postavke Privatnosti\' možeš odabrati prikazuje li se tvoj telefon, email ili adresa. Prijava je zaštićena jednokratnim kodom svaki put. Možeš obrisati račun i podatke u bilo kojem trenutku.</string>
+    <string name="help_faq_q16">Izgubili smo privjesak ili se oštetila — što da radim?</string>
+    <string name="help_faq_a16">Ne brini — digitalni profil tvog kućnog ljubimca je siguran i ne pohranjuje se na privjesku. Idi na stranicu Račun i klikni \'Naruči Zamjenu\'. Povezat ćemo novu privjesak s novim QR kodom s tvojim postojećim profilom. Pretplatnici Standard i Maximum mogu zatražiti neograničene besplatne zamjene. Stara privjesak se odmah deaktivira.</string>
+    <string name="help_faq_q17">Moja privjesak se ne skenira — što da radim?</string>
     <string name="help_faq_a17">Pokušaj: očisti površinu vlažnom krpom, osiguraj dobro osvjetljenje, drži kameru stabilno na udaljenosti 10-15 cm. Ako je QR kod ogreban ili istrošen, naruči besplatnu zamjenu s \'Početna/Moj Račun\'.</string>
-    <string name="help_faq_q18">Pronašao sam ljubimca bez SENRA pločice — što mogu učiniti?</string>
-    <string name="help_faq_a18">Provjeri kartu Nestalih Ljubimaca na SENRA web stranici (senra.pet). Možeš vidjeti upozorenja i u aplikaciji. Odvedi životinju najbližem veterinaru za skeniranje mikročipa. Ako ima SENRA pločicu, skeniraj QR kod — prikazuju se kontakt podaci vlasnika. Uvijek obavijesti i lokalne vlasti i obližnja skloništa.</string>
+    <string name="help_faq_q18">Pronašao sam kućnog ljubimca bez SENRA privjeska — što mogu učiniti?</string>
+    <string name="help_faq_a18">Provjeri kartu Nestalih Ljubimaca na SENRA web stranici (senra.pet). Možeš vidjeti upozorenja i u aplikaciji. Odvedi životinju najbližem veterinaru za skeniranje mikročipa. Ako ima SENRA privjesak, skeniraj QR kod — prikazuju se kontakt podaci vlasnika. Uvijek obavijesti i lokalne vlasti i obližnja skloništa.</string>
     <string name="help_faq_q19">Mogu li promijeniti svoju email adresu?</string>
     <string name="help_faq_a19">Tvoja primarna email adresa služi kao identifikator računa i ne može se izravno promijeniti. Možeš dodati sekundaran email u \'Postavke\' &gt; \'Kontakt Podaci\'. Ako apsolutno trebaš promijeniti primarni email, kontaktiraj nas na hello@senra.pet.</string>
-    <string name="help_faq_q20">Koja je razlika između mikročipa i SENRA QR pločice?</string>
-    <string name="help_faq_a20">Mikročip je mali implantat pod kožom ljubimca koji pohranjuje jedinstveni 15-znamenkasti identifikator — ali zahtijeva specijalni čitač. SENRA QR pločica se može lako skenirati bilo kojom kamerom pametnog telefona, odmah prikazujući potpuni profil, fotografiju i odobrene kontakt podatke. Pronalazač može podijeliti i GPS koordinate.</string>
+    <string name="help_faq_q20">Koja je razlika između mikročipa i SENRA QR privjeska?</string>
+    <string name="help_faq_a20">Mikročip je mali implantat pod kožom kućnog ljubimca koji pohranjuje jedinstveni 15-znamenkasti identifikator — ali zahtijeva specijalni čitač. SENRA QR privjesak se može lako skenirati bilo kojom kamerom pametnog telefona, odmah prikazujući potpuni profil, fotografiju i odobrene kontakt podatke. Pronalazač može podijeliti i GPS koordinate.</string>
     <string name="help_faq_q21">Što se događa s mojim podacima ako otkazem pretplatu?</string>
-    <string name="help_faq_a21">Ako otkažeš, zadržavaš pristup plaćenim funkcijama do kraja tekućeg razdoblja. Zatim se račun automatski prebacuje na besplatni Starter plan. Profili, fotografije i QR pločice ostaju aktivne. Podaci se ne brišu. Za trajno brisanje koristi opciju Obriši Račun u Postavkama.</string>
+    <string name="help_faq_a21">Ako otkažeš, zadržavaš pristup plaćenim funkcijama do kraja tekućeg razdoblja. Zatim se račun automatski prebacuje na besplatni Starter plan. Profili, fotografije i QR privjeska ostaju aktivne. Podaci se ne brišu. Za trajno brisanje koristi opciju Obriši Račun u Postavkama.</string>
     <string name="help_faq_q22">Kako mogu registrirati svoju kliniku ili sklonište u SENRA?</string>
-    <string name="help_faq_a22">Veterinarske klinike i skloništa se mogu registrirati na senra.pet/register-vet-shelter. Ispuni podatke i šaljemo verifikacijski email. Nakon potvrde automatski šaljemo obavijesti kada se ljubimci izgube u području. Bez troškova i bez prijave.</string>
-    <string name="help_faq_q23">Kako mogu podijeliti priču o uspjehu ako je moj ljubimac pronađen?</string>
-    <string name="help_faq_a23">Kada označiš ljubimca kao \'Pronađen\', pitamo te želiš li podijeliti dobru vijest. Možeš objaviti kratku priču. Javne priče se pojavljuju na karti \'Pronađeni Ljubimci\'.</string>
+    <string name="help_faq_a22">Veterinarske klinike i skloništa se mogu registrirati na senra.pet/register-vet-shelter. Ispuni podatke i šaljemo verifikacijski email. Nakon potvrde automatski šaljemo obavijesti kada se kućni ljubimci izgube u području. Bez troškova i bez prijave.</string>
+    <string name="help_faq_q23">Kako mogu podijeliti priču o uspjehu ako je moj kućni ljubimac pronađen?</string>
+    <string name="help_faq_a23">Kada označiš kućnog ljubimca kao \'Pronađen\', pitamo te želiš li podijeliti dobru vijest. Možeš objaviti kratku priču. Javne priče se pojavljuju na karti \'Pronađeni Kućni ljubimci\'.</string>
     <string name="help_faq_q24">Koji preglednici i uređaji su podržani?</string>
-    <string name="help_faq_a24">SENRA radi na svim preglednicima, uključujući Chrome, Safari, Firefox i Edge, na mobilnim i desktop uređajima. Skeniranje QR pločice radi s bilo kojom kamerom pametnog telefona — pronalazaču nije potrebna SENRA aplikacija ni račun.</string>
-    <string name="help_faq_q25">Mogu li naručiti više pločica za svoje ljubimce odjednom?</string>
-    <string name="help_faq_a25">Da, možeš naručiti pločice za sve ljubimce istovremeno. Nakon dolaska, skeniraj svaku za aktivaciju i dodjelu ispravnom profilu.</string>
-    <string name="help_faq_q26">Kako upozorenja o nestalim ljubimcima dolaze do veterinara i skloništa?</string>
-    <string name="help_faq_a26">Kada označiš ljubimca kao \'Nestalog\', SENRA automatski šalje email upozorenja svim registriranim veterinarima i skloništima u tvom području. Što ih je više registrirano, to mreža bolje funkcionira.</string>
-    <string name="help_faq_q27">Mogu li prenijeti pločicu na drugog ljubimca?</string>
-    <string name="help_faq_a27">Ne. Svaka QR pločica je trajno povezana s profilom jednog ljubimca. Ako ljubimac ugine ili ti pločica više ne treba, jednostavno postaje neaktivna. Naruči novu pločicu za novog ljubimca na SENRA web stranici.</string>
-    <string name="help_faq_q28">Kako mogu registrirati veterinarsku kliniku svog ljubimca ili sklonište gdje sam udomio ljubimca u SENRA mrežu?</string>
-    <string name="help_faq_a28">Veterinarske klinike i skloništa se mogu registrirati na senra.pet/register-vet-shelter. Ispuni podatke i šaljemo verifikacijski email. Nakon potvrde automatski šaljemo obavijesti — pomažući nestalim ljubimcima da se brže vrate kući. Bez troškova i bez prijave.</string>
+    <string name="help_faq_a24">SENRA radi na svim preglednicima, uključujući Chrome, Safari, Firefox i Edge, na mobilnim i desktop uređajima. Skeniranje QR privjeska radi s bilo kojom kamerom pametnog telefona — pronalazaču nije potrebna SENRA aplikacija ni račun.</string>
+    <string name="help_faq_q25">Mogu li naručiti više privjesak za svoje kućne ljubimce odjednom?</string>
+    <string name="help_faq_a25">Da, možeš naručiti privjeska za sve kućne ljubimce istovremeno. Nakon dolaska, skeniraj svaku za aktivaciju i dodjelu ispravnom profilu.</string>
+    <string name="help_faq_q26">Kako upozorenja o nestalim kućnim ljubimcima dolaze do veterinara i skloništa?</string>
+    <string name="help_faq_a26">Kada označiš kućnog ljubimca kao \'Nestalog\', SENRA automatski šalje email upozorenja svim registriranim veterinarima i skloništima u tvom području. Što ih je više registrirano, to mreža bolje funkcionira.</string>
+    <string name="help_faq_q27">Mogu li prenijeti privjesak na drugog kućnog ljubimca?</string>
+    <string name="help_faq_a27">Ne. Svaka QR privjesak je trajno povezana s profilom jednog kućnog ljubimca. Ako kućni ljubimac ugine ili ti privjesak više ne treba, jednostavno postaje neaktivna. Naruči novu privjesak za novog kućnog ljubimca na SENRA web stranici.</string>
+    <string name="help_faq_q28">Kako mogu registrirati veterinarsku kliniku svog kućnog ljubimca ili sklonište gdje sam udomio kućnog ljubimca u SENRA mrežu?</string>
+    <string name="help_faq_a28">Veterinarske klinike i skloništa se mogu registrirati na senra.pet/register-vet-shelter. Ispuni podatke i šaljemo verifikacijski email. Nakon potvrde automatski šaljemo obavijesti — pomažući nestalim kućnim ljubimcima da se brže vrate kući. Bez troškova i bez prijave.</string>
 
 
     <!-- Tag activation strings -->
     <string name="error_tag_lookup_failed">Nije moguće pronaći privjesak. Pokušajte ponovo.</string>
     <string name="error_tag_not_activated">Ovaj privjesak još nije aktiviran.</string>
     <string name="error_tag_not_found">Ovaj privjesak nije pronađen u sustavu.</string>
-    <string name="notif_tag_activated_body">SENRA privjesak za %s je sada aktivan. Vaš ljubimac je zaštićen.</string>
+    <string name="notif_tag_activated_body">SENRA privjesak za %s je sada aktivan. Vaš kućni ljubimac je zaštićen.</string>
     <string name="notif_tag_activated_title">Privjesak aktiviran!</string>
     <!-- Tags coming soon -->
-    <string name="tags_coming_soon_title">Fizičke pločice uskoro stižu</string>
+    <string name="tags_coming_soon_title">Fizičke privjeska uskoro stižu</string>
     <string name="tags_coming_soon_body">Uskoro šaljemo prvu seriju. Vrati se za nekoliko dana.</string>
 
 

@@ -9,7 +9,7 @@
     <string name="pet_limit_reached">Pet Limit Reached</string>
     <string name="pet_limit_reached_message">Your %1$s plan allows %2$d pet. Upgrade to %3$s for %4$s to add unlimited pets.</string>
     <string name="upgrade_to_plan">Upgrade to %1$s</string>
-    <string name="story_placeholder">Tell your reunion story...</string>
+    <string name="story_placeholder">Tell your reunion story…</string>
     <string name="share_owner_notified">The owner has been notified</string>
     <plurals name="photos_uploaded">
         <item quantity="one">%d photo uploaded</item>
@@ -122,7 +122,7 @@
     <string name="action_order_tags">ORDER TAGS</string>
     <string name="action_replace_tag">REPLACE TAG</string>
     <string name="empty_pets_title">No Pets Yet</string>
-    <string name="empty_pets_message">Add your first pet to get started with Pet Safety</string>
+    <string name="empty_pets_message">Add your first pet to get started with SENRA</string>
     <string name="missing_badge">MISSING</string>
     <string name="add_pet">Add Pet</string>
     <string name="pet_name">Pet Name</string>
@@ -485,7 +485,7 @@
     <string name="notification_tag_scanned_title">%1$s Found!</string>
     <string name="notification_sighting_title">%1$s Sighted!</string>
     <string name="notification_pet_found_title">Great News!</string>
-    <string name="notification_channel_name">Pet Safety Alerts</string>
+    <string name="notification_channel_name">SENRA Alerts</string>
     <string name="notification_channel_tag_scans">Tag Scans</string>
     <string name="notification_channel_tag_scans_desc">Notifications when your pet\'s tag is scanned</string>
     <string name="notification_channel_alerts">Missing Pet Alerts</string>

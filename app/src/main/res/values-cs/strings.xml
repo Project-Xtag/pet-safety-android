@@ -58,32 +58,32 @@
     <string name="tab_profile">Profil</string>
     <string name="tab_missing">Ztracený</string>
     <string name="tab_found">Nalezený</string>
-    <string name="tab_success">Nalezení mazlíčci</string>
+    <string name="tab_success">Nalezení</string>
 
     <!-- ============================================ -->
     <!-- MARK: Auth -->
     <!-- ============================================ -->
     <string name="welcome_back">Vítejte zpět!</string>
     <string name="welcome_new_user">Vítej v SENRA Pet!</string>
-    <string name="enter_email_subtitle">Zadejte e-mail pro obdržení přihlašovacího kódu.</string>
+    <string name="enter_email_subtitle">Zadej e-mail pro obdržení přihlašovacího kódu.</string>
     <string name="email_address">E-mailová adresa</string>
     <string name="send_login_code">Odeslat přihlašovací kód</string>
     <string name="verify_code">Ověřit kód</string>
     <string name="use_different_email">Použít jiný e-mail</string>
     <string name="code_sent_to_email">Kód odeslán na %1$s</string>
-    <string name="otp_sent_to">Zadejte 6místný kód odeslaný na</string>
-    <string name="otp_placeholder">Zadejte 6místný kód</string>
+    <string name="otp_sent_to">Zadej 6místný kód odeslaný na</string>
+    <string name="otp_placeholder">Zadej 6místný kód</string>
     <string name="login_failed">Přihlášení se nezdařilo</string>
     <string name="verification_failed">Ověření se nezdařilo</string>
-    <string name="invalid_email">Zadejte platnou e-mailovou adresu</string>
+    <string name="invalid_email">Zadej platnou e-mailovou adresu</string>
     <string name="resend_code_cooldown">Znovu odeslat kód za %1$ds</string>
-    <string name="resend_code_prompt">Nedostali jste kód? Odeslat znovu</string>
+    <string name="resend_code_prompt">Nedostali jsi kód? Odeslat znovu</string>
     <string name="dont_have_account">Nemáte účet?</string>
-    <string name="start_here_order_free_tag">Začněte zde a objednejte si bezplatnou známku</string>
+    <string name="start_here_order_free_tag">Začněte zde a objednejte si bezplatnou psí známku</string>
     <string name="create_account">Vytvořit účet</string>
-    <string name="enter_details_subtitle">Zadejte své údaje a začněte.</string>
+    <string name="enter_details_subtitle">Zadej své údaje a začněte.</string>
     <string name="register">Registrovat</string>
-    <string name="already_have_account">Už máte účet?</string>
+    <string name="already_have_account">Už máš účet?</string>
     <string name="log_in">Přihlásit se</string>
     <string name="terms_login_prefix">Přihlášením souhlasíte s našimi </string>
     <string name="terms_register_prefix">Registrací souhlasíte s našimi </string>
@@ -99,18 +99,18 @@
     <!-- MARK: Biometric -->
     <!-- ============================================ -->
     <string name="biometric_login_title">Biometrické přihlášení</string>
-    <string name="biometric_login_subtitle">Použijte otisk prstu nebo obličej k přihlášení</string>
+    <string name="biometric_login_subtitle">Použij otisk prstu nebo obličej k přihlášení</string>
     <string name="use_password">Použít e-mail</string>
     <string name="login_with_biometric">Přihlásit se biometricky</string>
     <string name="enable_biometric_title">Povolit biometrické přihlášení?</string>
-    <string name="enable_biometric_message">Použijte otisk prstu nebo obličej pro rychlé přihlášení příště.</string>
+    <string name="enable_biometric_message">Použij otisk prstu nebo obličej pro rychlé přihlášení příště.</string>
     <string name="biometric_enabled">Biometrické přihlášení povoleno</string>
 
     <!-- ============================================ -->
     <!-- MARK: Session -->
     <!-- ============================================ -->
     <string name="session_expired_title">Relace vypršela</string>
-    <string name="session_expired_message">Vaše relace vypršela. Přihlaste se znovu.</string>
+    <string name="session_expired_message">Tvé relace vypršela. Přihlas se znovu.</string>
     <string name="session_expired_log_in">Přihlásit se</string>
 
     <!-- ============================================ -->
@@ -126,7 +126,7 @@
     <string name="action_order_tags">OBJEDNAT ZNÁMKY</string>
     <string name="action_replace_tag">VYMĚNIT ZNÁMKU</string>
     <string name="empty_pets_title">Zatím žádní mazlíčci</string>
-    <string name="empty_pets_message">Přidejte prvního mazlíčka a začněte s Pet Safety</string>
+    <string name="empty_pets_message">Přidej prvního mazlíčka a začněte s SENRA</string>
     <string name="missing_badge">ZTRACENÝ</string>
     <string name="add_pet">Přidat mazlíčka</string>
     <string name="pet_name">Jméno mazlíčka</string>
@@ -137,7 +137,7 @@
     <string name="no_pets">Žádní mazlíčci</string>
     <string name="success_stories">Příběhy úspěchu</string>
     <string name="found_pets">Nalezení mazlíčci</string>
-    <string name="success_stories_subtitle">Podívejte se na šťastná shledání ve vašem okolí</string>
+    <string name="success_stories_subtitle">Podívej se na šťastná shledání ve tvém okolí</string>
 
     <!-- ============================================ -->
     <!-- MARK: Pet Detail -->
@@ -179,7 +179,7 @@
     <string name="photo">Fotka</string>
     <string name="edit_photo">Upravit fotku</string>
     <string name="photo_selected_hint">Fotka vybrána</string>
-    <string name="choose_photo_hint">Vyberte fotku svého mazlíčka</string>
+    <string name="choose_photo_hint">Vyber fotku svého mazlíčka</string>
     <string name="basic_information">Základní informace</string>
     <string name="colour">Barva</string>
     <string name="colour_optional">Barva (volitelné)</string>
@@ -193,9 +193,9 @@
     <string name="save_changes">Uložit změny</string>
     <string name="delete_pet_button">Smazat mazlíčka</string>
     <string name="delete_pet_dialog_title">Smazat %1$s?</string>
-    <string name="delete_pet_dialog_message">Opravdu chcete smazat tohoto mazlíčka? Tuto akci nelze vrátit.</string>
+    <string name="delete_pet_dialog_message">Opravdu chceš smazat tohoto mazlíčka? Tuto akci nelze vrátit.</string>
     <string name="delete_pet_warning_title">Smazat %1$s?</string>
-    <string name="delete_pet_warning_message">%1$s bude trvale odstraněn z vašeho účtu. QR známka bude okamžitě deaktivován a při naskenování přestane fungovat. Pokud je to vaše poslední zvíře, vaše předplatné bude také zrušeno.</string>
+    <string name="delete_pet_warning_message">%1$s bude trvale odstraněn z tvého účtu. QR psí známka bude okamžitě deaktivován a při naskenování přestane fungovat. Pokud je to tvé poslední zvíře, tvé předplatné bude také zrušeno.</string>
     <string name="delete_pet_warning_confirm">Smazat zvíře</string>
     <string name="male">Samec</string>
     <string name="female">Samice</string>
@@ -207,7 +207,7 @@
     <string name="weight_optional">Hmotnost v kg (volitelné)</string>
     <string name="pet_form_age_label">Věk</string>
     <string name="pet_form_age_placeholder">např. 3 roky</string>
-    <string name="unique_features_hint">Jedinečné znaky (známky, jizvy, výrazné rysy\u2026)</string>
+    <string name="unique_features_hint">Jedinečné znaky (psí známky, jizvy, výrazné rysy\u2026)</string>
     <string name="pet_created">Mazlíček vytvořen</string>
     <string name="pet_create_failed">Mazlíčka se nepodařilo vytvořit</string>
     <string name="pet_updated">Mazlíček aktualizován</string>
@@ -223,14 +223,14 @@
     <string name="uploading_photos">Nahrávání fotek\u2026</string>
     <string name="loading_photos">Načítání fotek\u2026</string>
     <string name="no_photos_yet">Zatím žádné fotky</string>
-    <string name="add_photos_gallery_hint">Přidejte fotky a vytvořte galerii pro %1$s</string>
-    <string name="add_photos_gallery_generic">Přidejte fotky a vytvořte galerii</string>
+    <string name="add_photos_gallery_hint">Přidej fotky a vytvořte galerii pro %1$s</string>
+    <string name="add_photos_gallery_generic">Přidej fotky a vytvořte galerii</string>
     <string name="choose_photo_source">Vybrat zdroj fotografií</string>
     <string name="camera">Fotoaparát</string>
     <string name="library">Knihovna</string>
     <string name="delete_photo">Smazat fotku</string>
-    <string name="delete_photo_confirm">Opravdu chcete smazat tuto fotku? Tuto akci nelze vrátit.</string>
-    <string name="photo_tip">Tip: Dlouze stiskněte fotku pro nastavení jako hlavní nebo smazání</string>
+    <string name="delete_photo_confirm">Opravdu chceš smazat tuto fotku? Tuto akci nelze vrátit.</string>
+    <string name="photo_tip">Tip: Dlouze stiskni fotku pro nastavení jako hlavní nebo smazání</string>
     <string name="photo_uploaded">Fotka nahrána</string>
     <string name="upload_failed">Nahrání selhalo</string>
     <string name="primary_updated">Hlavní fotka aktualizována</string>
@@ -256,33 +256,33 @@
     <!-- MARK: QR Scanner -->
     <!-- ============================================ -->
     <string name="scan_qr_code">Skenovat QR kód</string>
-    <string name="scan_qr_subtitle">Naměřte kameru na QR známku mazlíčka</string>
+    <string name="scan_qr_subtitle">Naměřte kameru na QR psí známku mazlíčka</string>
     <string name="camera_access_required">Vyžadován přístup ke kameře</string>
-    <string name="camera_access_message">Povolte přístup ke kameře pro skenování QR kódů</string>
+    <string name="camera_access_message">Povol přístup ke kameře pro skenování QR kódů</string>
     <string name="enable_camera">Povolit kameru</string>
     <string name="qr_scanned">QR naskenováno</string>
     <string name="manual_code_label">QR kód</string>
     <string name="submit_code">Odeslat kód</string>
-    <string name="invalid_qr_code">Zadejte platný kód</string>
+    <string name="invalid_qr_code">Zadej platný kód</string>
     <string name="turn_off_flashlight">Vypnout baterku</string>
     <string name="turn_on_flashlight">Zapnout baterku</string>
     <string name="hello_pet_name">Ahoj! Jmenuji se %1$s</string>
-    <string name="scanned_tag_thanks">Právě jste naskenovali mou známku. Děkuji, že mi pomáháte!</string>
-    <string name="share_location_with_owner">Sdílet moji polohu s majitelem</string>
-    <string name="owner_notified_message">Majitel %1$s obdrží upozornění s vaší polohou</string>
-    <string name="share_location_help">Pomozte majiteli %1$s najít mazlíčka sdílením vaší polohy</string>
+    <string name="scanned_tag_thanks">Právě jsi naskenovali mou psí známku. Děkuji, že mi pomáháte!</string>
+    <string name="share_location_with_owner">Sdílet moji polohu s páníčkem</string>
+    <string name="owner_notified_message">Páníček %1$s obdrží upozornění s tvé polohou</string>
+    <string name="share_location_help">Pomozte páníčkovi %1$s najít mazlíčka sdílením tvé polohy</string>
     <string name="precise_location">Přesná poloha</string>
-    <string name="precise_location_desc">Sdílejte přesné GPS souřadnice</string>
+    <string name="precise_location_desc">Sdílej přesné GPS souřadnice</string>
     <string name="approximate_location">Přibližná poloha</string>
     <string name="approximate_location_desc">Přibližné sdílení polohy (v souladu s GDPR)</string>
     <string name="dont_share_location">Nesdílet polohu</string>
-    <string name="dont_share_location_desc">Pouze informovat majitele, že mazlíček byl nalezen</string>
-    <string name="confirm_notify_owner">Potvrdit a informovat majitele</string>
+    <string name="dont_share_location_desc">Pouze informovat páníčka, že mazlíček byl nalezen</string>
+    <string name="confirm_notify_owner">Potvrdit a informovat páníčka</string>
     <string name="share_exact_location_toggle">Sdílet přesnou polohu</string>
-    <string name="contact_owner">Kontaktovat majitele</string>
+    <string name="contact_owner">Kontaktovat páníčka</string>
     <string name="call_phone">Volat: %1$s</string>
     <string name="email_contact">E-mail: %1$s</string>
-    <string name="privacy_notice">Na vašem soukromí záleží. Vaši polohu sdílíme pouze s majitelem %1$s pro pomoc při shledání.</string>
+    <string name="privacy_notice">Na tvém soukromí záleží. Tvou polohu sdílíme pouze s páníčkem %1$s pro pomoc při shledání.</string>
     <string name="found_pet_title">%1$s nalezen</string>
     <string name="share_location">Sdílet polohu</string>
     <string name="location_shared">Poloha sdílena</string>
@@ -301,20 +301,20 @@
     <!-- ============================================ -->
     <!-- MARK: Tag Activation -->
     <!-- ============================================ -->
-    <string name="tag_activate_title">Aktivovat známku</string>
-    <string name="tag_loading_pets">Načítání vašich mazlíčků\u2026</string>
+    <string name="tag_activate_title">Aktivovat psí známku</string>
+    <string name="tag_loading_pets">Načítání tvých mazlíčků\u2026</string>
     <string name="tag_activated">Známka aktivována!</string>
-    <string name="tag_activated_message">Tato známka je nyní propojena s %1$s</string>
-    <string name="tag_choose_plan">Vyplňte profil zvířete, aby bylo snazší ho najít</string>
+    <string name="tag_activated_message">Tato psí známka je nyní propojena s %1$s</string>
+    <string name="tag_choose_plan">Vyplň profil zvířete, aby bylo snazší ho najít</string>
     <string name="tag_choose_plan_button">Dokončit profil zvířete</string>
     <string name="tag_skip_for_now">Udělám to později</string>
     <string name="tag_no_pets">Zatím žádní mazlíčci</string>
-    <string name="tag_no_pets_message">Před aktivací známky nejprve přidejte mazlíčka</string>
-    <string name="tag_code_label">Kód známky</string>
-    <string name="tag_select_pet">Vyberte mazlíčka pro propojení se známkou</string>
+    <string name="tag_no_pets_message">Před aktivací psí známky nejprve přidej mazlíčka</string>
+    <string name="tag_code_label">Kód psí známky</string>
+    <string name="tag_select_pet">Vyber mazlíčka pro propojení se psí známkou</string>
     <string name="tag_activating">Aktivace\u2026</string>
-    <string name="tag_activate_button">Aktivovat známku</string>
-    <string name="tag_link_message">Tato známka bude propojena s vybraným mazlíčkem</string>
+    <string name="tag_activate_button">Aktivovat psí známku</string>
+    <string name="tag_link_message">Tato psí známka bude propojena s vybraným mazlíčkem</string>
 
     <!-- ============================================ -->
     <!-- MARK: Plan Selection -->
@@ -331,9 +331,9 @@
     <string name="loading_alerts">Načítání upozornění\u2026</string>
     <string name="failed_load_alerts">Upozornění se nepodařilo načíst</string>
     <string name="no_active_alerts">Žádná aktivní upozornění</string>
-    <string name="no_active_alerts_message">Aktuálně nemáte žádná upozornění na ztracené mazlíčky</string>
+    <string name="no_active_alerts_message">Aktuálně nemáš žádná upozornění na ztracené mazlíčky</string>
     <string name="no_found_alerts">Žádná upozornění na nalezení</string>
-    <string name="no_found_alerts_message">Ve vašem okolí nebyli nedávno nalezeni žádní mazlíčci</string>
+    <string name="no_found_alerts_message">Ve tvém okolí nebyli nedávno nalezeni žádní mazlíčci</string>
     <string name="missing_pet_alerts_title">Upozornění na ztracené mazlíčky</string>
     <string name="sighting_count_singular">1 pozorování</string>
     <string name="unknown_breed">Neznámé plemeno</string>
@@ -369,7 +369,7 @@
     <string name="additional_info">Další info</string>
     <string name="report">Nahlásit</string>
     <string name="report_sighting">Nahlásit pozorování</string>
-    <string name="report_sighting_prompt">Sdílejte detaily o tom, kde jste viděli %1$s.</string>
+    <string name="report_sighting_prompt">Sdílej detaily o tom, kde jsi viděli %1$s.</string>
     <string name="notes">Poznámky</string>
     <string name="sighting_reported">Pozorování nahlášeno</string>
     <string name="report_failed">Nahlášení se nezdařilo</string>
@@ -380,42 +380,42 @@
     <string name="update_alert_failed">Nepodařilo se aktualizovat upozornění</string>
     <string name="report_sighting_failed">Nepodařilo se nahlásit pozorování</string>
     <string name="report_missing_pet">Nahlásit ztraceného mazlíčka</string>
-    <string name="select_pet_to_report">Vyberte mazlíčka</string>
+    <string name="select_pet_to_report">Vyber mazlíčka</string>
     <string name="add_missing_details">Přidat detaily o ztrátě</string>
-    <string name="enter_address_or_location">Zadejte adresu nebo popis místa</string>
+    <string name="enter_address_or_location">Zadej adresu nebo popis místa</string>
     <string name="additional_details">Další detaily</string>
     <string name="describe_circumstances">Popište okolnosti, rozlišovací znaky apod.</string>
     <string name="reward_amount_label">Odměna (volitelné)</string>
     <string name="reward_amount_placeholder">např. 50 €</string>
     <string name="report_missing">Nahlásit ztrátu</string>
-    <string name="no_pets_to_report_message">Nejdříve přidejte mazlíčka, abyste jej mohli nahlásit jako ztraceného</string>
+    <string name="no_pets_to_report_message">Nejdříve přidej mazlíčka, abyste jej mohli nahlásit jako ztraceného</string>
     <string name="mark_pet_found">Označit mazlíčka jako nalezeného</string>
-    <string name="select_pet_to_mark_found">Vyberte mazlíčka, který byl nalezen</string>
+    <string name="select_pet_to_mark_found">Vyber mazlíčka, který byl nalezen</string>
     <string name="no_missing_pets_message">Nemáte žádné mazlíčky označené jako ztracené</string>
     <string name="select_pet_header">Vybrat mazlíčka</string>
-    <string name="no_pets_available">Žádní mazlíčci nejsou dostupní. Nejprve přidejte mazlíčka.</string>
+    <string name="no_pets_available">Žádní mazlíčci nejsou dostupní. Nejprve přidej mazlíčka.</string>
     <string name="pet_picker_label">Mazlíček</string>
     <string name="last_seen_location_header">Místo posledního výskytu</string>
-    <string name="enter_location">Zadejte polohu</string>
+    <string name="enter_location">Zadej polohu</string>
     <string name="additional_information_header">Další informace</string>
-    <string name="additional_details_placeholder">Uveďte další podrobnosti o tom, kdy a kde jste mazlíčka naposledy viděli\u2026</string>
-    <string name="your_contact_information">Vaše kontaktní údaje</string>
+    <string name="additional_details_placeholder">Uveďte další podrobnosti o tom, kdy a kde jsi mazlíčka naposledy viděli\u2026</string>
+    <string name="your_contact_information">Tvé kontaktní údaje</string>
     <string name="name_optional">Jméno (volitelné)</string>
     <string name="phone_optional">Telefon (volitelné)</string>
     <string name="email_optional">E-mail (volitelné)</string>
     <string name="sighting_reported_success">Pozorování úspěšně nahlášeno!</string>
     <string name="report_sighting_header">Nahlásit pozorování</string>
-    <string name="report_sighting_help">Pomozte mazlíčkovi znovu se shledat s majitelem sdílením místa pozorování.</string>
+    <string name="report_sighting_help">Pomozte mazlíčkovi znovu se shledat s páníčkem sdílením místa pozorování.</string>
     <string name="share_contact_info">Sdílet moje kontaktní údaje</string>
-    <string name="share_contact_info_desc">Umožněte majiteli kontaktovat vás přímo</string>
-    <string name="your_name">Vaše jméno</string>
-    <string name="your_phone_number">Váš telefon</string>
-    <string name="your_email">Váš e-mail</string>
+    <string name="share_contact_info_desc">Umožněte páníčkovi kontaktovat vás přímo</string>
+    <string name="your_name">Tvé jméno</string>
+    <string name="your_phone_number">Tvůj telefon</string>
+    <string name="your_email">Tvůj e-mail</string>
     <string name="address_or_description">Adresa nebo popis</string>
-    <string name="where_did_you_see">Kde jste mazlíčka viděli?</string>
-    <string name="sighting_notes_placeholder">Popište, co jste viděli, stav mazlíčka, směr pohybu\u2026</string>
+    <string name="where_did_you_see">Kde jsi mazlíčka viděli?</string>
+    <string name="sighting_notes_placeholder">Popište, co jsi viděli, stav mazlíčka, směr pohybu\u2026</string>
     <string name="submit_sighting_report">Odeslat hlášení o pozorování</string>
-    <string name="sighting_reported_owner_notified">Pozorování nahlášeno! Majitel byl informován.</string>
+    <string name="sighting_reported_owner_notified">Pozorování nahlášeno! Páníček byl informován.</string>
     <string name="sighting_queued_offline">Pozorování ve frontě - odešle se po připojení.</string>
 
     <!-- ============================================ -->
@@ -426,23 +426,23 @@
     <string name="notification_center">Centrum oznámení</string>
     <string name="alerts_radius_info">Upozornění budou odeslána v okruhu 10 km od této polohy</string>
     <string name="current_location">Aktuální poloha</string>
-    <string name="tap_get_location">Klepněte pro získání aktuální polohy\u2026</string>
-    <string name="using_registered_address">Používá se vaše registrovaná adresa</string>
-    <string name="enter_address_notifications">Zadejte adresu pro oznámení</string>
+    <string name="tap_get_location">Klepni pro získání aktuální polohy\u2026</string>
+    <string name="using_registered_address">Používá se tvé registrovaná adresa</string>
+    <string name="enter_address_notifications">Zadej adresu pro oznámení</string>
     <string name="notification_source_current_location">Aktuální poloha</string>
     <string name="notification_source_my_address">Moje adresa</string>
     <string name="notification_source_custom">Vlastní</string>
-    <string name="no_registered_address">Nebyla nalezena žádná registrovaná adresa. Aktualizujte svůj profil.</string>
+    <string name="no_registered_address">Nebyla nalezena žádná registrovaná adresa. Aktualizuj svůj profil.</string>
 
         <!-- Mark Lost Flow (matching iOS MarkAsLostView) -->
     <string name="mark_lost_pet_info">Informace o mazlíčkovi</string>
     <string name="mark_lost_last_seen">Místo posledního výskytu</string>
     <string name="mark_lost_alerts_footer">Upozornění budou odeslána blízkým uživatelům, veterinářům a útulkům v okruhu 10 km.</string>
     <string name="mark_lost_getting_location">Získávání polohy…</string>
-    <string name="mark_lost_no_address">Žádná registrovaná adresa. Jděte do Profilu a přidejte adresu.</string>
-    <string name="mark_lost_address_placeholder">Zadejte adresu nebo místo</string>
+    <string name="mark_lost_no_address">Žádná registrovaná adresa. Jděte do Profilu a přidej adresu.</string>
+    <string name="mark_lost_address_placeholder">Zadej adresu nebo místo</string>
     <string name="mark_lost_additional_info">Další informace</string>
-    <string name="mark_lost_additional_placeholder">Popište, kdy a kde jste mazlíčka naposledy viděli, co měl na sobě, apod.</string>
+    <string name="mark_lost_additional_placeholder">Popište, kdy a kde jsi mazlíčka naposledy viděli, co měl na sobě, apod.</string>
     <string name="mark_lost_sends_to">Toto upozornění bude odesláno:</string>
     <string name="mark_lost_nearby_owners">Majitelům mazlíčků v okolí</string>
     <string name="mark_lost_vet_clinics">Veterinárním klinikám v okolí</string>
@@ -452,10 +452,10 @@
     <string name="mark_lost_starter_notice">Vylepšite pro komunitní upozornění</string>
     <string name="mark_lost_upgrade_prompt">V plánu Starter bude tvůj mazlíček označen jako ztracený, ale upozornění uživatelům, veterinářům a útulkům vyžadují předplatné Standard nebo Maximum.</string>
     <string name="mark_lost_success_with_alerts">%1$s byl nahlášen jako ztracený. Upozornění se posílají blízkým uživatelům.</string>
-    <string name="mark_lost_success_no_location">%1$s byl označen jako ztracený. Přidejte polohu k odeslání upozornění.</string>
-    <string name="mark_lost_address_required">Zadejte adresu nebo povolte služby určování polohy.</string>
-    <string name="quick_lost_select_pet">Vyberte mazlíčka pro nahlášení jako ztraceného</string>
-    <string name="quick_lost_all_missing">Všichni vaši mazlíčci jsou již označeni jako ztracení.</string>
+    <string name="mark_lost_success_no_location">%1$s byl označen jako ztracený. Přidej polohu k odeslání upozornění.</string>
+    <string name="mark_lost_address_required">Zadej adresu nebo povol služby určování polohy.</string>
+    <string name="quick_lost_select_pet">Vyber mazlíčka pro nahlášení jako ztraceného</string>
+    <string name="quick_lost_all_missing">Všichni tvou mazlíčci jsou již označeni jako ztracení.</string>
     <string name="quick_lost_title">Nahlásit ztrátu</string>
     <string name="location_current">Aktuální poloha</string>
     <string name="location_my_address">Moje adresa</string>
@@ -472,13 +472,13 @@
     <string name="notification_tag_scanned_title">%1$s nalezen!</string>
     <string name="notification_sighting_title">%1$s spatřen!</string>
     <string name="notification_pet_found_title">Skvělá zpráva!</string>
-    <string name="notification_channel_name">Pet Safety upozornění</string>
-    <string name="notification_channel_tag_scans">Skeny známek</string>
-    <string name="notification_channel_tag_scans_desc">Oznámení, když je známka mazlíčka naskenována</string>
+    <string name="notification_channel_name">SENRA upozornění</string>
+    <string name="notification_channel_tag_scans">Skeny psích známek</string>
+    <string name="notification_channel_tag_scans_desc">Oznámení, když je psí známka mazlíčka naskenována</string>
     <string name="notification_channel_alerts">Upozornění na ztracené mazlíčky</string>
-    <string name="notification_channel_alerts_desc">Oznámení o ztracených mazlíčcích ve vašem okolí</string>
+    <string name="notification_channel_alerts_desc">Oznámení o ztracených mazlíčcích ve tvém okolí</string>
     <string name="notification_channel_sightings">Hlášení pozorování</string>
-    <string name="notification_channel_sightings_desc">Oznámení, když je váš ztracený mazlíček spatřen</string>
+    <string name="notification_channel_sightings_desc">Oznámení, když je tvůj ztracený mazlíček spatřen</string>
     <string name="notification_method_required">Musí být povolen alespoň jeden způsob oznámení</string>
 
     <!-- FCM Notification Strings -->
@@ -492,10 +492,10 @@
     <string name="notif_sighting_title">Pozorování nahlášeno</string>
     <string name="notif_sighting_body_location">%1$s byl spatřen v %2$s!</string>
     <string name="notif_sighting_body_no_location">%1$s byl spatřen! Zkontrolujte místo pozorování.</string>
-    <string name="notif_fallback_title">Pet Safety</string>
-    <string name="notif_fallback_pet_name">Váš mazlíček</string>
+    <string name="notif_fallback_title">SENRA</string>
+    <string name="notif_fallback_pet_name">Tvůj mazlíček</string>
     <string name="notif_fallback_a_pet">Mazlíček</string>
-    <string name="notif_fallback_your_area">vaše oblast</string>
+    <string name="notif_fallback_your_area">tvé oblast</string>
     <string name="notif_location_shared">Poloha sdílena</string>
     <string name="notif_location_approximate">Přibližná poloha</string>
 
@@ -518,30 +518,30 @@
     <string name="sms_notifications_subtitle">Přijímat oznámení SMS</string>
     <string name="pet_alerts">Upozornění na mazlíčky</string>
     <string name="missing_pet_alerts">Upozornění na ztracené mazlíčky</string>
-    <string name="missing_pet_alerts_subtitle">Získávejte upozornění o ztracených mazlíčcích ve vašem okolí</string>
+    <string name="missing_pet_alerts_subtitle">Získávejte upozornění o ztracených mazlíčcích ve tvém okolí</string>
     <string name="nearby_alerts_10km">Upozornění v okolí (10 km)</string>
-    <string name="nearby_alerts_subtitle">Upozornění na mazlíčky v okruhu 10 km od vaší polohy</string>
+    <string name="nearby_alerts_subtitle">Upozornění na mazlíčky v okruhu 10 km od tvé polohy</string>
     <string name="account_and_orders">Účet a objednávky</string>
     <string name="order_updates">Aktualizace objednávek</string>
     <string name="order_updates_subtitle">Oznámení o dopravě a doručení</string>
     <string name="account_activity">Aktivita účtu</string>
     <string name="account_activity_subtitle">Oznámení o přihlášení a bezpečnosti</string>
-    <string name="critical_alerts_note">Poznámka: Kritická upozornění o vašich mazlíčcích budou vždy odeslána bez ohledu na toto nastavení.</string>
+    <string name="critical_alerts_note">Poznámka: Kritická upozornění o tvých mazlíčcích budou vždy odeslána bez ohledu na toto nastavení.</string>
 
     <!-- Notification Preferences -->
 
     <!-- ============================================ -->
     <!-- MARK: Success Stories -->
     <!-- ============================================ -->
-    <string name="share_your_story">Sdílejte svůj příběh</string>
-    <string name="success_story_prompt">Skvělé zprávy! %1$s byl nalezen! Chcete sdílet svůj příběh shledání a inspirovat ostatní?</string>
-    <string name="your_story">Váš příběh</string>
+    <string name="share_your_story">Sdílej svůj příběh</string>
+    <string name="success_story_prompt">Skvělé zprávy! %1$s byl nalezen! Chceš sdílet svůj příběh shledání a inspirovat ostatní?</string>
+    <string name="your_story">Tvůj příběh</string>
     <string name="share_story">Sdílet příběh</string>
     <string name="story_shared">Příběh úspěšně sdílen</string>
     <string name="story_share_failed">Sdílení příběhu se nezdařilo</string>
     <string name="loading_success_stories">Načítání příběhů úspěchu\u2026</string>
     <string name="no_success_stories">Žádné příběhy úspěchu v okolí</string>
-    <string name="no_success_stories_message">Buďte první, kdo sdílí šťastné shledání ve vašem okolí!</string>
+    <string name="no_success_stories_message">Buďte první, kdo sdílí šťastné shledání ve tvém okolí!</string>
     <string name="found_and_reunited">Nalezen a shledán</string>
     <string name="distance_km">%.1f km daleko</string>
     <string name="missing_since">Ztracen od %1$s</string>
@@ -551,12 +551,12 @@
     <string name="missing_for">Ztracen po dobu %1$s</string>
     <string name="pet_found_share">%1$s nalezen!</string>
     <string name="reunited_in">Shledáno za %1$s</string>
-    <string name="shared_via_pet_safety">Sdíleno přes Pet Safety aplikaci</string>
+    <string name="shared_via_pet_safety">Sdíleno přes SENRA aplikaci</string>
     <string name="story_share_good_news">Sdílej dobrou zprávu</string>
     <string name="story_social_caption">%1$s se opět shledal se svou rodinou! Děkujeme komunitě SENRA za pomoc s návratem %1$s domů. senra.pet</string>
     <string name="story_generating_card">Vytváření sdílecí karty\u2026</string>
     <string name="story_pet_is_home_title">%1$s je doma!</string>
-    <string name="story_inspire_others_message">Pomozte inspirovat ostatní majitele sdílením příběhu o shledání s %1$s.</string>
+    <string name="story_inspire_others_message">Pomozte inspirovat ostatní páníčka sdílením příběhu o shledání s %1$s.</string>
     <string name="sighting_reports_desc">Hlášení pozorování</string>
 
     <!-- Success Story Time -->
@@ -577,17 +577,17 @@
     <string name="help_support">Nápověda &amp; podpora</string>
     <string name="danger_zone">NEBEZPEČNÁ ZÓNA</string>
     <string name="deleting">Mazání\u2026</string>
-    <string name="delete_account_permanent">Tímto dojde k trvalému smazání vašeho účtu a všech dat</string>
-    <string name="logout_confirm">Opravdu se chcete odhlásit?</string>
-    <string name="delete_account_full_warning">Tuto akci nelze vrátit. Váš účet bude trvale smazán, všechna osobní data budou odstraněna a případná aktivní předplatná budou zrušena.</string>
-    <string name="delete_premium_warning">Máte aktivní předplatné %1$s do %2$s. Smazáním účtu trvale smažete svůj profil a okamžitě ztratíte přístup ke zbývajícímu placenému období. Pokud chcete jen zastavit budoucí platby, použijte možnost Zrušit předplatné.</string>
+    <string name="delete_account_permanent">Tímto dojde k trvalému smazání tvého účtu a všech dat</string>
+    <string name="logout_confirm">Opravdu se chceš odhlásit?</string>
+    <string name="delete_account_full_warning">Tuto akci nelze vrátit. Tvůj účet bude trvale smazán, všechna osobní data budou odstraněna a případná aktivní předplatná budou zrušena.</string>
+    <string name="delete_premium_warning">Máš aktivní předplatné %1$s do %2$s. Smazáním účtu trvale smažete svůj profil a okamžitě ztratíte přístup ke zbývajícímu placenému období. Pokud chceš jen zastavit budoucí platby, použij možnost Zrušit předplatné.</string>
     <string name="cancel_instead">Místo toho zrušit předplatné</string>
     <string name="delete_confirm_checkbox">Rozumím, že tato akce je nevratná a všechna má data budou trvale smazána</string>
     <string name="cancel_subscription_title">Zrušit předplatné?</string>
     <string name="cancel_warning_a">Přijdete o okamžitá e-mailová, SMS upozornění a komunitní výstrahy</string>
-    <string name="cancel_warning_b">Bezplatné výměny známek již nebudou dostupné</string>
+    <string name="cancel_warning_b">Bezplatné výměny psích známek již nebudou dostupné</string>
     <string name="cancel_warning_c">Přijdete o přístup k upozorněním od veterinářů a útulků</string>
-    <string name="cancel_warning_d">Váš účet a registrace zvířat zůstanou aktivní</string>
+    <string name="cancel_warning_d">Tvůj účet a registrace zvířat zůstanou aktivní</string>
     <string name="cancel_access_until">Přístup si zachováte do %1$s</string>
     <string name="cancel_confirm">Zrušit předplatné</string>
     <string name="keep_subscription">Ponechat předplatné</string>
@@ -616,26 +616,26 @@
     <string name="secondary_email_optional">Sekundární e-mail (volitelné)</string>
     <string name="phone_numbers">Telefonní čísla</string>
     <string name="primary_phone">Hlavní telefon</string>
-    <string name="show_on_qr_tag">Zobrazit na QR známce</string>
+    <string name="show_on_qr_tag">Zobrazit na QR psí známce</string>
     <string name="secondary_phone_optional">Sekundární telefon (volitelné)</string>
-    <string name="contacts_qr_tag_info">Kontakty označené jako viditelné se zobrazí na QR známce vašeho mazlíčka při skenování.</string>
+    <string name="contacts_qr_tag_info">Kontakty označené jako viditelné se zobrazí na QR psí známce tvého mazlíčka při skenování.</string>
     <string name="contact_details">Kontaktní údaje</string>
 
     <!-- ============================================ -->
     <!-- MARK: Contact Visibility -->
     <!-- ============================================ -->
     <string name="contact_visibility">Viditelnost kontaktů</string>
-    <string name="contact_visibility_desc">Ovládejte, jaké kontaktní údaje jsou viditelné při skenování QR známky vašeho mazlíčka</string>
+    <string name="contact_visibility_desc">Ovládejte, jaké kontaktní údaje jsou viditelné při skenování QR psí známky tvého mazlíčka</string>
     <string name="show_phone_number">Zobrazit telefonní číslo</string>
-    <string name="show_phone_subtitle">Vaše telefonní číslo bude viditelné pro nálezce</string>
+    <string name="show_phone_subtitle">Tvé telefonní číslo bude viditelné pro nálezce</string>
     <string name="show_email_address">Zobrazit e-mail</string>
-    <string name="show_email_subtitle">Váš e-mail bude viditelný pro nálezce</string>
+    <string name="show_email_subtitle">Tvůj e-mail bude viditelný pro nálezce</string>
     <string name="show_address">Zobrazit adresu</string>
-    <string name="show_address_subtitle">Vaše adresa bude viditelná pro nálezce</string>
+    <string name="show_address_subtitle">Tvé adresa bude viditelná pro nálezce</string>
     <string name="show_secondary_phone">Zobrazit sekundární telefon</string>
-    <string name="show_secondary_phone_subtitle">Zobrazit vaše sekundární telefonní číslo na veřejném profilu mazlíčka</string>
+    <string name="show_secondary_phone_subtitle">Zobrazit tvé sekundární telefonní číslo na veřejném profilu mazlíčka</string>
     <string name="show_secondary_email">Zobrazit sekundární e-mail</string>
-    <string name="show_secondary_email_subtitle">Zobrazit vaši sekundární e-mailovou adresu na veřejném profilu mazlíčka</string>
+    <string name="show_secondary_email_subtitle">Zobrazit tvou sekundární e-mailovou adresu na veřejném profilu mazlíčka</string>
 
     <!-- ============================================ -->
     <!-- MARK: Privacy Mode -->
@@ -649,13 +649,13 @@
     <!-- MARK: Delete Account -->
     <!-- ============================================ -->
     <string name="delete_account">Smazat účet</string>
-    <string name="delete_account_warning">Tuto akci nelze vrátit. Všechna vaše data včetně mazlíčků, upozornění a fotek budou trvale smazána.</string>
+    <string name="delete_account_warning">Tuto akci nelze vrátit. Všechna tvé data včetně mazlíčků, upozornění a fotek budou trvale smazána.</string>
     <string name="delete_account_confirm_prompt">Pro potvrzení napište níže DELETE:</string>
     <string name="type_delete_to_confirm">Napište DELETE</string>
     <string name="account_deleted">Účet smazán</string>
     <string name="delete_account_failed">Smazání účtu se nezdařilo</string>
     <string name="cannot_delete_account">Účet nelze smazat</string>
-    <string name="cannot_delete_missing_pets">Nemůžete smazat účet, dokud máte mazlíčky označené jako ztracené. Nejprve je označte jako nalezené.</string>
+    <string name="cannot_delete_missing_pets">Nemůžete smazat účet, dokud máš mazlíčky označené jako ztracené. Nejprve je označte jako nalezené.</string>
     <string name="missing_pets_label">Ztracení mazlíčci: %1$s</string>
     <string name="checking_delete_eligibility">Kontrola\u2026</string>
 
@@ -695,17 +695,17 @@
     <string name="orders_title">Objednávky</string>
     <string name="order_number">Objednávka #%1$s</string>
     <string name="order_total">Celkem: %1$s</string>
-    <string name="order_tags">Objednat známky</string>
-    <string name="replace_tag">Vyměnit známku</string>
-    <string name="add_pet_first_replacement">Nejprve přidejte mazlíčka, abyste mohli objednat náhradní známku.</string>
-    <string name="order_more_tags_title">Objednat více známek</string>
+    <string name="order_tags">Objednat psí známky</string>
+    <string name="replace_tag">Vyměnit psí známku</string>
+    <string name="add_pet_first_replacement">Nejprve přidej mazlíčka, abyste mohli objednat náhradní psí známku.</string>
+    <string name="order_more_tags_title">Objednat více psích známek</string>
     <string name="add_another_pet">Přidat dalšího mazlíčka</string>
     <string name="full_name">Celé jméno</string>
     <string name="place_order">Odeslat objednávku</string>
     <string name="order_created_payment_pending">Objednávka vytvořena. Platba čeká.</string>
     <string name="payment_intent_failed">Záměr platby selhal</string>
     <string name="order_create_failed">Objednávku se nepodařilo vytvořit</string>
-    <string name="order_replacement_title">Objednat náhradní známku</string>
+    <string name="order_replacement_title">Objednat náhradní psí známku</string>
     <string name="order_replacement_button">Objednat náhradu</string>
     <string name="replacement_ordered">Náhrada objednána</string>
     <string name="replacement_failed">Náhradu se nepodařilo objednat</string>
@@ -713,7 +713,7 @@
     <string name="create_payment_intent_failed">Záměr platby se nepodařilo vytvořit</string>
     <string name="failed_load_orders">Objednávky se nepodařilo načíst</string>
     <string name="no_orders">Žádné objednávky</string>
-    <string name="no_orders_message">Zatím jste neprovedli žádnou objednávku</string>
+    <string name="no_orders_message">Zatím jsi neprovedli žádnou objednávku</string>
     <string name="order_id_short">Objednávka #%1$s</string>
     <string name="order_information">Informace o objednávce</string>
     <string name="order_id_label">ID objednávky</string>
@@ -722,8 +722,8 @@
     <string name="order_date">Datum objednávky</string>
     <string name="items">Položky</string>
     <string name="quantity_label">Množství: %1$d</string>
-    <string name="qr_tag_pending">QR známka čeká</string>
-    <string name="qr_tag_assigned">QR známka přiřazena</string>
+    <string name="qr_tag_pending">QR psí známka čeká</string>
+    <string name="qr_tag_assigned">QR psí známka přiřazena</string>
     <plurals name="item_count">
         <item quantity="one">%d položka</item>
         <item quantity="few">%d položky</item>
@@ -731,18 +731,18 @@
     </plurals>
 
     <!-- Order More Tags -->
-    <string name="get_qr_tags_subtitle">Získejte QR známky pro své mazlíčky</string>
+    <string name="get_qr_tags_subtitle">Získejte QR psí známky pro své mazlíčky</string>
     <string name="pet_names">Jména mazlíčků</string>
     <string name="shipping_address">Doručovací adresa</string>
     <string name="shipping">Doprava</string>
-    <string name="shipping_price">Calculated at checkout</string>
+    <string name="shipping_price">Vypočítáno při pokladně</string>
 
     <!-- Order Replacement Tag -->
     <string name="replacement_subtitle">Ztracená nebo poškozená? Pošleme novou</string>
     <string name="free_replacement">Bezplatná náhrada</string>
-    <string name="replacement_shipping_info">Náhradní známka bude odeslána do 2\u20133 pracovních dnů\u2026</string>
+    <string name="replacement_shipping_info">Náhradní psí známka bude odeslána do 2\u20133 pracovních dnů\u2026</string>
     <string name="replacement_shipping_required">Vyžaduje se poštovné</string>
-    <string name="replacement_shipping_cost">Na objednávku náhradní známky se vztahuje poštovné %1$s.</string>
+    <string name="replacement_shipping_cost">Na objednávku náhradní psí známky se vztahuje poštovné %1$s.</string>
     <string name="delivery_method_title">Způsob doručení</string>
     <string name="home_delivery_option">Doručení domů</string>
     <string name="postapoint_delivery_option">PostaPont vyzvednutí</string>
@@ -765,7 +765,7 @@
     <string name="subscription_vet_alerts">Upozornění pro veterináře &amp; záchranu</string>
     <string name="subscription_sms">SMS upozornění</string>
     <string name="subscription_community_alerts">Komunitní upozornění</string>
-    <string name="subscription_free_replacement">Bezplatná náhrada známky</string>
+    <string name="subscription_free_replacement">Bezplatná náhrada psí známky</string>
 
     <!-- ============================================ -->
     <!-- MARK: Billing -->
@@ -781,7 +781,7 @@
     <string name="billing_invoices">Faktury</string>
     <string name="billing_no_invoices">Zatím žádné faktury</string>
     <string name="billing_subscription">Předplatné</string>
-    <string name="billing_portal_footer">Spravujte předplatné, platební metodu a fakturační údaje přes Stripe.</string>
+    <string name="billing_portal_footer">Spravuj předplatné, platební metodu a fakturační údaje přes Stripe.</string>
     <string name="billing_loading_invoices">Načítání faktur\u2026</string>
     <string name="billing_invoice">Faktura</string>
     <string name="billing_unknown">Neznámé</string>
@@ -791,37 +791,37 @@
     <!-- ============================================ -->
     <string name="referral_title">Doporučte příteli</string>
     <string name="referral_loading">Načítání\u2026</string>
-    <string name="referral_your_code">Váš doporučovací kód</string>
-    <string name="referral_share_footer">Sdílejte svůj kód s přáteli. Když si předplatí, oba dostanete odměnu!</string>
+    <string name="referral_your_code">Tvůj doporučovací kód</string>
+    <string name="referral_share_footer">Sdílej svůj kód s přáteli. Když si předplatí, oba dostanete odměnu!</string>
     <string name="referral_how_it_works">Jak to funguje</string>
-    <string name="referral_step_1">Sdílejte svůj jedinečný kód s přáteli</string>
+    <string name="referral_step_1">Sdílej svůj jedinečný kód s přáteli</string>
     <string name="referral_step_2">Použijí jej při předplatném placeného plánu</string>
     <string name="referral_step_3">Oba získáte 2 měsíce zdarma</string>
     <string name="referral_history">Historie doporučení</string>
-    <string name="referral_no_referrals">Zatím žádná doporučení. Sdílejte svůj kód a začněte!</string>
+    <string name="referral_no_referrals">Zatím žádná doporučení. Sdílej svůj kód a začněte!</string>
     <string name="referral_generate">Vygenerovat doporučovací kód</string>
     <string name="referral_copied">Zkopírováno!</string>
     <string name="referral_copy">Kopírovat</string>
     <string name="referral_share">Sdílet</string>
     <string name="referral_pending">Čeká</string>
-    <string name="referral_share_text">Použijte můj doporučovací kód %1$s a získejte 2 měsíce Pet Safety zdarma! https://senra.pet/choose-plan?referral=%2$s</string>
+    <string name="referral_share_text">Použij můj doporučovací kód %1$s a získejte 2 měsíce SENRA zdarma! https://senra.pet/choose-plan?referral=%2$s</string>
     <string name="referral_clipboard_label">Doporučovací kód</string>
     <string name="referral_use_friend_code">Použít kód přítele</string>
-    <string name="enter_friend_code">Zadejte kód doporučení</string>
+    <string name="enter_friend_code">Zadej kód doporučení</string>
     <string name="apply_code">Použít</string>
     <string name="referral_code_applied">Kód doporučení byl použit! Získáte 2 měsíce zdarma.</string>
     <string name="referral_code_invalid">Neplatný nebo vypršený kód doporučení</string>
-    <string name="referral_use_friend_footer">Zadejte kód doporučení přítele a získejte 2 měsíce předplatného zdarma.</string>
+    <string name="referral_use_friend_footer">Zadej kód doporučení přítele a získejte 2 měsíce předplatného zdarma.</string>
 
     <!-- ============================================ -->
     <!-- MARK: Push Notification Prompt -->
     <!-- ============================================ -->
     <string name="push_prompt_title">Zůstaňte v kontaktu</string>
-    <string name="push_prompt_subtitle">Povolte oznámení, abyste nezmeškali důležité aktualizace:</string>
-    <string name="push_prompt_benefit_scan">Okamžitá upozornění, když je známka vašeho mazlíčka naskenována</string>
+    <string name="push_prompt_subtitle">Povol oznámení, abyste nezmeškali důležité aktualizace:</string>
+    <string name="push_prompt_benefit_scan">Okamžitá upozornění, když je psí známka tvého mazlíčka naskenována</string>
     <string name="push_prompt_benefit_sighting">Hlášení pozorování od komunity</string>
     <string name="push_prompt_benefit_found">Okamžitě se dozvíte, když je mazlíček nalezen</string>
-    <string name="push_prompt_benefit_missing">Upozornění na ztracené mazlíčky ve vašem okolí</string>
+    <string name="push_prompt_benefit_missing">Upozornění na ztracené mazlíčky ve tvém okolí</string>
     <string name="push_prompt_enable">Povolit oznámení</string>
     <string name="push_prompt_later">Možná později</string>
 
@@ -839,30 +839,30 @@
     <string name="public_profile_preview">Náhled veřejného profilu</string>
     <string name="failed_load_profile">Nepodařilo se načíst profil</string>
     <string name="public_profile_subtitle">Takto ostatní uvidí profil %1$s</string>
-    <string name="owner_notified_sms_email">Majitel %1$s obdrží SMS a e-mail s vaší polohou</string>
-    <string name="contact_owner_plea">Prosím, dejte mému majiteli vědět, že jste mě našli\u2026</string>
-    <string name="contact_owner_plea_full">Prosím, dejte vědět mému majiteli, že jste mě našli. Můžete ho kontaktovat pomocí níže uvedených kontaktních údajů.</string>
+    <string name="owner_notified_sms_email">Páníček %1$s obdrží SMS a e-mail s tvé polohou</string>
+    <string name="contact_owner_plea">Prosím, dejte mému páníčkovi vědět, že jsi mě našli\u2026</string>
+    <string name="contact_owner_plea_full">Prosím, dejte vědět mému páníčkovi, že jsi mě našli. Můžeš ho kontaktovat pomocí níže uvedených kontaktních údajů.</string>
     <string name="contact_info_not_set">Kontaktní údaje ještě nejsou nastaveny</string>
     <string name="contact_info_hidden">Kontaktní údaje jsou skryté</string>
-    <string name="contact_info_hidden_hint">Kontaktní údaje jsou nastaveny, ale skryty kvůli nastavení soukromí. Aktualizujte v Účet \u2192 Režim soukromí.</string>
+    <string name="contact_info_hidden_hint">Kontaktní údaje jsou nastaveny, ale skryty kvůli nastavení soukromí. Aktualizuj v Účet \u2192 Režim soukromí.</string>
     <string name="allergies">Alergie</string>
     <string name="medications">Léky</string>
     <string name="unique_features">Jedinečné znaky</string>
     <string name="behavior_notes">Poznámky k chování</string>
     <string name="how_it_works">Jak to funguje</string>
-    <string name="help_reunite_pet">Pomozte bezpečně shledat %1$s s majitelem</string>
-    <string name="step_share_location">Sdílejte svou polohu</string>
-    <string name="step_share_location_desc">Klepněte na tlačítko výše pro sdílení polohy s majitelem</string>
-    <string name="step_owner_notified">Majitel je informován</string>
-    <string name="step_owner_notified_desc">Majitel obdrží SMS a e-mail s vaší polohou</string>
+    <string name="help_reunite_pet">Pomozte bezpečně shledat %1$s s páníčkem</string>
+    <string name="step_share_location">Sdílej svou polohu</string>
+    <string name="step_share_location_desc">Klepni na tlačítko výše pro sdílení polohy s páníčkem</string>
+    <string name="step_owner_notified">Páníček je informován</string>
+    <string name="step_owner_notified_desc">Páníček obdrží SMS a e-mail s tvé polohou</string>
     <string name="step_quick_reunion">Rychlé shledání</string>
-    <string name="step_quick_reunion_desc">Majitel může navigovat k vaší poloze a vyzvednout svého mazlíčka</string>
-    <string name="step_share_location_desc_public">Klikněte na tlačítko výše a sdílejte, kde jste našli %1$s</string>
-    <string name="step_owner_notified_desc_public">Majitel obdrží SMS s vaší polohou na Google Maps</string>
-    <string name="step_quick_reunion_desc_public">Zůstaňte poblíž, aby majitel našel vás i %1$s</string>
-    <string name="owner_phone_label">Telefon majitele: %1$s</string>
-    <string name="owner_email_label">E-mail majitele: %1$s</string>
-    <string name="your_privacy_notice">Vaše soukromí je důležité. Vaši polohu sdílíme s majitelem %1$s pouze s vaším výslovným souhlasem.</string>
+    <string name="step_quick_reunion_desc">Páníček může navigovat k tvé poloze a vyzvednout svého mazlíčka</string>
+    <string name="step_share_location_desc_public">Klikni na tlačítko výše a sdílej, kde jsi našli %1$s</string>
+    <string name="step_owner_notified_desc_public">Páníček obdrží SMS s tvé polohou na Google Maps</string>
+    <string name="step_quick_reunion_desc_public">Zůstaňte poblíž, aby páníček našel vás i %1$s</string>
+    <string name="owner_phone_label">Telefon páníčka: %1$s</string>
+    <string name="owner_email_label">E-mail páníčka: %1$s</string>
+    <string name="your_privacy_notice">Tvé soukromí je důležité. Tvou polohu sdílíme s páníčkem %1$s pouze s tvým výslovným souhlasem.</string>
 
     <!-- ============================================ -->
     <!-- MARK: Offline Mode -->
@@ -875,7 +875,7 @@
     <string name="pending_changes">Čekající změny</string>
     <string name="online">Online</string>
     <string name="offline_changes_sync">Změny se synchronizují po připojení</string>
-    <string name="tap_view_queued_actions">Klepněte pro zobrazení čekajících akcí</string>
+    <string name="tap_view_queued_actions">Klepni pro zobrazení čekajících akcí</string>
     <string name="connected">Připojeno</string>
     <string name="sync_now">Synchronizovat nyní</string>
     <string name="changes_sync_restored">Změny se budou automaticky synchronizovat po obnovení připojení.</string>
@@ -900,7 +900,7 @@
     <string name="error_something_wrong">Něco se pokazilo</string>
     <string name="something_went_wrong">Něco se pokazilo</string>
     <string name="try_again">Zkusit znovu</string>
-    <string name="error_session_expired_message">Vaše relace vypršela. Přihlaste se znovu.</string>
+    <string name="error_session_expired_message">Tvé relace vypršela. Přihlas se znovu.</string>
     <string name="error_login_failed">Přihlášení se nezdařilo</string>
     <string name="error_verification_failed">Ověření se nezdařilo</string>
     <string name="error_submit_support">Nepodařilo se odeslat žádost na podporu</string>
@@ -954,12 +954,12 @@
     <!-- Úspěšné příběhy shledání -->
     <string name="reunion_template">%1$s se vrátil domů. Po %2$s postrádání se %3$s úspěšně shledal se svou rodinou. Děkujeme naší úžasné komunitě za přivedení %4$s domů!</string>
     <string name="reunion_template_no_time">%1$s se shledal se svou rodinou! Děkujeme naší úžasné komunitě za přivedení %2$s domů!</string>
-    <string name="owners_story">Příběh majitele:</string>
+    <string name="owners_story">Příběh páníčka:</string>
     <string name="post_to_success_stories">Přidat k úspěšným příběhům</string>
     <string name="remove_from_success_stories">Odstranit z úspěšných příběhů</string>
     <string name="removed_from_success_stories">Odstraněno z úspěšných příběhů</string>
     <string name="remove_story_confirm_title">Odstranit úspěšný příběh?</string>
-    <string name="remove_story_confirm_message">Tímto odstraníte příběh vašeho mazlíčka z veřejného seznamu úspěšných příběhů.</string>
+    <string name="remove_story_confirm_message">Tímto odstraníte příběh tvého mazlíčka z veřejného seznamu úspěšných příběhů.</string>
     <string name="remove_story_failed">Nepodařilo se odstranit příběh</string>
     <plurals name="time_hours_duration">
         <item quantity="one">%d hodina</item>
@@ -986,7 +986,7 @@
     <string name="sighting_reported_at">Nahlášeno %1$s</string>
     <string name="sighting_no_details">Zatím žádná nahlášená pozorování</string>
     <string name="sighting_anonymous">Anonymní oznamovatel</string>
-    <string name="reporter_name">Vaše jméno</string>
+    <string name="reporter_name">Tvé jméno</string>
     <string name="reporter_phone">Telefonní číslo</string>
     <string name="reporter_email">E-mail</string>
 
@@ -1001,15 +1001,15 @@
     <string name="guides_title">Uživatelské příručky</string>
 
     <!-- Checkout & SSE -->
-    <string name="checkout_success_message">Platba proběhla úspěšně! Vaše objednávka se zpracovává.</string>
-    <string name="checkout_cancelled_message">Platba byla zrušena. Zkuste to znovu, až budete připraveni.</string>
+    <string name="checkout_success_message">Platba proběhla úspěšně! Tvé objednávka se zpracovává.</string>
+    <string name="checkout_cancelled_message">Platba byla zrušena. Zkus to znovu, až budete připraveni.</string>
     <string name="proceed_to_payment">Pokračovat k platbě</string>
     <string name="redirecting_to_payment">Přesměrování na platbu…</string>
     <string name="checkout_failed">Nepodařilo se zahájit platbu</string>
-    <string name="sse_subscription_activated">Váš plán %1$s je nyní aktivní!</string>
-    <string name="sse_subscription_cancelled">Vaše předplatné %1$s bylo zrušeno.</string>
-    <string name="sse_referral_used">%1$s použil váš doporučující kód!</string>
-    <string name="help_guide_qr_tags_title">QR známky pro mazlíčky</string>
+    <string name="sse_subscription_activated">Tvůj plán %1$s je nyní aktivní!</string>
+    <string name="sse_subscription_cancelled">Tvé předplatné %1$s bylo zrušeno.</string>
+    <string name="sse_referral_used">%1$s použil tvůj doporučující kód!</string>
+    <string name="help_guide_qr_tags_title">QR psí známky pro mazlíčky</string>
     <string name="help_guide_qr_tags_desc">Zjistěte více o našich chytrých QR štítcích.</string>
     <string name="help_guide_materials_title">Materiály a odolnost</string>
     <string name="help_guide_materials_desc">Informace o materiálech a péči.</string>
@@ -1018,9 +1018,9 @@
     <string name="help_guide_profile_title">Správa profilu</string>
     <string name="help_guide_profile_desc">Správa a aktualizace profilu mazlíčka.</string>
     <string name="help_guide_missing_alerts_title">Upozornění na ztracené mazlíčky a pozorování</string>
-    <string name="help_guide_missing_alerts_desc">Pokud se váš mazlíček ztratí, označte ho jako ztraceného v \'Moji mazlíčci\' a vytvořte okamžité komunitní upozornění. Fotografie a údaje vašeho mazlíčka se zobrazí na mapě ztracených mazlíčků viditelné pro všechny uživatele SENRA ve vašem okolí. Členové komunity mohou hlásit pozorování se svou GPS polohou, která obdržíte jako oznámení. Registrovaní veterináři a útulky jsou také upozorněni. Jakmile je váš mazlíček nalezen, označte ho jako nalezeného a volitelně sdílejte svůj příběh shledání pro inspiraci komunity.</string>
+    <string name="help_guide_missing_alerts_desc">Pokud se tvůj mazlíček ztratí, označte ho jako ztraceného v \'Moji mazlíčci\' a vytvořte okamžité komunitní upozornění. Fotografie a údaje tvého mazlíčka se zobrazí na mapě ztracených mazlíčků viditelné pro všechny uživatele SENRA ve tvém okolí. Členové komunity mohou hlásit pozorování se svou GPS polohou, která obdržíte jako oznámení. Registrovaní veterináři a útulky jsou také upozorněni. Jakmile je tvůj mazlíček nalezen, označte ho jako nalezeného a volitelně sdílej svůj příběh shledání pro inspiraci komunity.</string>
     <string name="help_guide_community_title">Komunita a nalezení mazlíčci</string>
-    <string name="help_guide_community_desc">Síla SENRA je v její komunitě. Mapa ztracených mazlíčků zobrazuje aktivní upozornění ve vašem okolí — podívejte se, zda nebyli ve vašem okolí nahlášeni ztracení mazlíčci. Stránka nalezených mazlíčků oslavuje úspěšná shledání s příběhy majitelů. Můžete zaregistrovat svého místního veterináře nebo útulok na SENRA, aby automaticky dostávali upozornění na ztracené mazlíčky, a pomoci tak vytvořit silnější bezpečnostní síť pro všechny mazlíčky ve vašem okolí.</string>
+    <string name="help_guide_community_desc">Síla SENRA je v její komunitě. Mapa ztracených mazlíčků zobrazuje aktivní upozornění ve tvém okolí — podívej se, zda nebyli ve tvém okolí nahlášeni ztracení mazlíčci. Stránka nalezených mazlíčků oslavuje úspěšná shledání s příběhy páníčků. Můžeš zaregistrovat svého místního veterináře nebo útulok na SENRA, aby automaticky dostávali upozornění na ztracené mazlíčky, a pomoci tak vytvořit silnější bezpečnostní síť pro všechny mazlíčky ve tvém okolí.</string>
     <string name="help_faq_group_getting_started">Začínáme</string>
     <string name="help_faq_group_tags_scanning">Známky a skenování</string>
     <string name="help_faq_group_missing_pets">Ztracení mazlíčci a upozornění</string>
@@ -1028,9 +1028,9 @@
     <string name="help_faq_group_privacy_account">Soukromí a účet</string>
     <string name="help_faq_group_troubleshooting">Řešení problémů</string>
     <!-- Checkout & Order Status -->
-    <string name="checkout_subscription_success">Vaše předplatné je nyní aktivní!</string>
-    <string name="checkout_tag_order_success">Platba proběhla úspěšně! Vaše objednávka známky se zpracovává.</string>
-    <string name="checkout_replacement_success">Platba proběhla úspěšně! Vaše náhradní známka je na cestě.</string>
+    <string name="checkout_subscription_success">Tvé předplatné je nyní aktivní!</string>
+    <string name="checkout_tag_order_success">Platba proběhla úspěšně! Tvé objednávka psí známky se zpracovává.</string>
+    <string name="checkout_replacement_success">Platba proběhla úspěšně! Tvé náhradní psí známka je na cestě.</string>
     <string name="order_status_completed">Dokončeno</string>
     <string name="order_status_pending">Čeká na vyřízení</string>
     <string name="order_status_failed">Neúspěšné</string>
@@ -1046,16 +1046,16 @@
     <string name="alert_update_failed">Nepodařilo se aktualizovat upozornění</string>
     <string name="alert_updated">Upozornění úspěšně aktualizováno</string>
     <string name="at_least_one_channel_required">Alespoň jeden kanál upozornění musí zůstat aktivní</string>
-    <string name="billing_past_due_message">Vaše poslední platba selhala. Aktualizujte platební metodu, abyste předešli přerušení služby.</string>
+    <string name="billing_past_due_message">Tvé poslední platba selhala. Aktualizuj platební metodu, abyste předešli přerušení služby.</string>
     <string name="billing_past_due_title">Platba po splatnosti</string>
     <string name="billing_update_payment">Aktualizovat platební metodu</string>
-    <string name="breed_custom_hint">Zadejte název plemene…</string>
+    <string name="breed_custom_hint">Zadej název plemene…</string>
     <string name="breed_custom_label">Název plemene</string>
     <string name="breed_other">Jiné</string>
     <string name="cannot_delete_missing_pet_message">Nemůžete smazat mazlíčka, který je nahlášen jako ztracený. Nejprve ho označte jako nalezeného.</string>
     <string name="edit_alert">Upravit upozornění</string>
     <string name="health_info_empty_hint">Žádné zdravotní informace</string>
-    <string name="notification_channel_info">Alespoň jeden kanál upozornění musí být aktivní, abyste byli informováni, když je QR známka vašeho mazlíčka naskenován.</string>
+    <string name="notification_channel_info">Alespoň jeden kanál upozornění musí být aktivní, abyste byli informováni, když je QR psí známka tvého mazlíčka naskenován.</string>
     <string name="province">Kraj / Okres</string>
     <string name="reward_badge_text">Odměna: %1$s</string>
     <string name="reward_placeholder">např. €50, $100 nebo speciální dárek</string>
@@ -1064,18 +1064,18 @@
 
     <string name="pet_limit_reached">Limit domácích zvířat dosažen</string>
     <string name="pet_limit_reached_message">Tvůj %1$s plán povoluje %2$d domácí zvíře. Přejdi na %3$s za %4$s pro neomezený počet zvířat.</string>
-    <string name="share_owner_notified">Majitel byl upozorněn</string>
+    <string name="share_owner_notified">Páníček byl upozorněn</string>
     <string name="sse_connection_lost">Aktualizace v reálném čase nejsou dostupné. Potáhni dolů pro obnovení.</string>
-    <string name="story_placeholder">Pověz svůj příběh o opětovném shledání...</string>
+    <string name="story_placeholder">Pověz svůj příběh o opětovném shledání…</string>
     <string name="upgrade_to_plan">Přejít na %1$s</string>
 
     <!-- Gift order -->
     <string name="order_gift_toggle">Objednat jako dárek</string>
-    <string name="order_gift_description">U dárkových objednávek nejsou jména mazlíčků povinná. Příjemce je může přidat při aktivaci známek.</string>
-    <string name="order_gift_quantity">Počet známek</string>
+    <string name="order_gift_description">U dárkových objednávek nejsou jména mazlíčků povinná. Příjemce je může přidat při aktivaci psích známek.</string>
+    <string name="order_gift_quantity">Počet psích známek</string>
     <string name="order_gift_recipient_name">Jméno příjemce (volitelné)</string>
     <string name="order_gift_message">Dárková zpráva (volitelné)</string>
-    <string name="order_gift_message_placeholder">Přidejte osobní zprávu…</string>
+    <string name="order_gift_message_placeholder">Přidej osobní zprávu…</string>
     <string name="order_gift_badge">Dárková objednávka</string>
     <plurals name="photo_count">n        <item quantity="one">%d fotka</item>n        <item quantity="other">%d fotek</item>n    </plurals>
     <string name="shipping_section_title">Doručení</string>
@@ -1084,42 +1084,42 @@
     <string name="delivery_method_label">Způsob doručení</string>
     <string name="delivery_home">Doručení domů</string>
     <string name="delivery_postapoint">PostaPont vyzvednutí</string>
-    <string name="pending_registrations_title">Čekající známky</string>
+    <string name="pending_registrations_title">Čekající psí známky</string>
     <string name="ready_to_activate">Připraveno k aktivaci</string>
     <string name="still_processing">Zpracovává se</string>
-    <string name="scan_tag_now">Skenovat známku</string>
+    <string name="scan_tag_now">Skenovat psí známku</string>
     <string name="create_profile_first">Vytvořit profil</string>
     <string name="create_profile_while_waiting">Vytvořit profil při čekání</string>
     <string name="all_caught_up">Vše hotovo!</string>
-    <string name="all_caught_up_description">Nemáte žádné čekající registrace známek.</string>
+    <string name="all_caught_up_description">Nemáte žádné čekající registrace psích známek.</string>
     <string name="status_shipped">Odesláno</string>
     <string name="status_delivered">Doručeno</string>
     <string name="status_processing">Zpracovává se</string>
     <string name="status_pending">Čekající</string>
-    <string name="activation_help_title">Jak aktivovat známku</string>
-    <string name="activation_help_step1">Počkejte na doručení známky</string>
-    <string name="activation_help_step2">Naskenujte QR kód na známce</string>
-    <string name="activation_help_step3">Vyberte domácí zvíře</string>
-    <string name="activation_help_step4">Vyberte předplatné</string>
-    <string name="pets_from_order">Zvířata z vaší objednávky</string>
-    <string name="from_your_order">Z vaší objednávky</string>
+    <string name="activation_help_title">Jak aktivovat psí známku</string>
+    <string name="activation_help_step1">Počkej na doručení psí známky</string>
+    <string name="activation_help_step2">Naskenuj QR kód na psí známce</string>
+    <string name="activation_help_step3">Vyber domácí zvíře</string>
+    <string name="activation_help_step4">Vyber předplatné</string>
+    <string name="pets_from_order">Zvířata z tvé objednávky</string>
+    <string name="from_your_order">Z tvé objednávky</string>
     <string name="needs_profile">Potřebuje profil</string>
     <string name="create_profile_for">Vytvořit profil pro %1$s</string>
     <string name="other_pets">Ostatní zvířata</string>
     <string name="link_to_pet">Propojit s %1$s</string>
     <string name="no_pets_yet">Zatím žádná zvířata</string>
-    <string name="create_first_pet">Vytvořte profil svého zvířete pro aktivaci známky.</string>
+    <string name="create_first_pet">Vytvořte profil svého zvířete pro aktivaci psí známky.</string>
     <string name="create_new_pet">Vytvořit nové zvíře</string>
     <string name="notifications_title">Oznámení</string>
     <string name="no_notifications">Žádná oznámení</string>
-    <string name="no_notifications_desc">Vše aktuální! Oznámení se zde zobrazí, když někdo naskenuje známku vašeho zvířete.</string>
+    <string name="no_notifications_desc">Vše aktuální! Oznámení se zde zobrazí, když někdo naskenuje psí známku tvého zvířete.</string>
     <string name="mark_all_read">Označit vše jako přečtené</string>
-    <string name="create_profile_hint">Nejprve vytvořte profil zvířete, poté znovu naskenujte známku k aktivaci.</string>
-    <string name="activation_error_qr_not_found">QR kód nebyl rozpoznán. Ujistěte se, že skenujete oficiální SENRA známku.</string>
-    <string name="activation_error_already_activated">Tato známka je již přiřazena jinému zvířeti. Kontaktujte podporu.</string>
-    <string name="activation_error_not_linked">Tato známka zatím nebyla přiřazena k vaší objednávce. Počkejte na potvrzení odeslání.</string>
-    <string name="activation_error_not_shipped">Vaše objednávka ještě nebyla odeslána. Počkejte na doručení.</string>
-    <string name="activation_error_not_owner">Toto není vaše zvíře. Vyberte jedno ze svých zvířat.</string>
+    <string name="create_profile_hint">Nejprve vytvořte profil zvířete, poté znovu naskenuj psí známku k aktivaci.</string>
+    <string name="activation_error_qr_not_found">QR kód nebyl rozpoznán. Ujisti se, že skenujete oficiální SENRA psí známku.</string>
+    <string name="activation_error_already_activated">Tato psí známka je již přiřazena jinému zvířeti. Kontaktuj podporu.</string>
+    <string name="activation_error_not_linked">Tato psí známka zatím nebyla přiřazena k tvé objednávce. Počkej na potvrzení odeslání.</string>
+    <string name="activation_error_not_shipped">Tvé objednávka ještě nebyla odeslána. Počkej na doručení.</string>
+    <string name="activation_error_not_owner">Toto není tvé zvíře. Vyber jedno ze svých zvířat.</string>
 
     <!-- Allergies & Medications -->
     <string name="allergies_label">Alergie</string>
@@ -1229,17 +1229,17 @@
     <string name="breed_cat_toyger">Toyger</string>
     <string name="breed_cat_chausie">Chausie</string>
     <string name="reunion_city_label">Město (volitelné)</string>
-    <string name="reunion_city_placeholder">Kde jste našli své zvíře?</string>
+    <string name="reunion_city_placeholder">Kde jsi našli své zvíře?</string>
 
     <!-- Pet form warnings -->
     <string name="profile_incomplete_warning">Dokončete profil zvířete</string>
-    <string name="profile_incomplete_desc">Chybějící údaje ztěžují nalezení zvířete. Vyplňte hmotnost, barvu a zdravotní informace.</string>
+    <string name="profile_incomplete_desc">Chybějící údaje ztěžují nalezení zvířete. Vyplň hmotnost, barvu a zdravotní informace.</string>
     <string name="identity_locked_title">Jméno, druh a plemeno jsou uzamčeny</string>
-    <string name="identity_locked_desc">Tato pole nelze změnit po aktivaci známky.</string>
+    <string name="identity_locked_desc">Tato pole nelze změnit po aktivaci psí známky.</string>
 
     <!-- Shelter Adoption -->
-    <string name="trial_ends_on">Trial ends on</string>
-    <string name="trial_upgrade_now">Upgrade now to keep your features!</string>
+    <string name="trial_ends_on">Zkušební období končí</string>
+    <string name="trial_upgrade_now">Aktualizuj nyní, aby sis zachoval funkce!</string>
     <!-- Referral Status -->
     <string name="referral_status_pending">Čekající</string>
     <string name="referral_status_signed_up">Zaregistrovaný</string>
@@ -1264,12 +1264,12 @@
     <string name="share_location_title">Sdílet polohu</string>
     <string name="share_location_exact">Sdílet přesnou polohu</string>
     <string name="share_location_approximate">Sdílet přibližnou polohu (~100m)</string>
-    <string name="share_location_exact_note">Majitel uvidí vaše přesné GPS souřadnice</string>
-    <string name="share_location_approximate_note">Majitel uvidí přibližnou oblast</string>
+    <string name="share_location_exact_note">Páníček uvidí tvé přesné GPS souřadnice</string>
+    <string name="share_location_approximate_note">Páníček uvidí přibližnou oblast</string>
     <string name="share_location_confirm">Sdílet</string>
-    <string name="share_location_success">Poloha sdílena! Majitel byl upozorněn.</string>
-    <string name="share_location_denied">Povolení polohy je potřebné ke sdílení vaší polohy</string>
-    <string name="share_location_error">Nepodařilo se sdílet polohu. Zkuste to znovu.</string>
+    <string name="share_location_success">Poloha sdílena! Páníček byl upozorněn.</string>
+    <string name="share_location_denied">Povolení polohy je potřebné ke sdílení tvé polohy</string>
+    <string name="share_location_error">Nepodařilo se sdílet polohu. Zkus to znovu.</string>
 
     <!-- Pet Localization (species, breed, sex) -->
     <string name="species_dog">Pes</string>
@@ -1295,9 +1295,9 @@
     <!-- Account menu restructuring -->
     <string name="notification_settings">Nastavení oznámení</string>
     <string name="orders_and_invoices">Objednávky a faktury</string>
-    <string name="contact_us">Kontaktujte nás</string>
+    <string name="contact_us">Kontaktuj nás</string>
     <string name="identity_will_lock_title">Jméno, druh a plemeno budou uzamčeny</string>
-    <string name="identity_will_lock_desc">Tato pole nelze po registraci změnit. Před uložením se ujistěte, že jsou správná.</string>
+    <string name="identity_will_lock_desc">Tato pole nelze po registraci změnit. Před uložením se ujisti, že jsou správná.</string>
     <string name="date_of_birth">Datum narození</string>
     <string name="dob_set_date">Nastavit datum narození</string>
     <string name="dob_approximate">Přibližné datum</string>
@@ -1305,28 +1305,28 @@
     <string name="weight_helper">Hmotnost v kg (např. 4,5)</string>
 
     <string name="welcome_to_senra">Vítejte v SENRA!</string>
-    <string name="welcome_subtitle">Bezpečnost vašeho mazlíčka začíná zde. Nastavte si první štítek.</string>
-    <string name="welcome_step_1">Naskenujte QR kód na štítku</string>
+    <string name="welcome_subtitle">Bezpečnost tvého mazlíčka začíná zde. Nastavte si první psí známka.</string>
+    <string name="welcome_step_1">Naskenuj QR kód na psí známky</string>
     <string name="welcome_step_2">Vytvořte profil svého mazlíčka</string>
-    <string name="welcome_step_3">Váš mazlíček je chráněn!</string>
-    <string name="welcome_scan_first_tag">Naskenovat první štítek</string>
+    <string name="welcome_step_3">Tvůj mazlíček je chráněn!</string>
+    <string name="welcome_scan_first_tag">Naskenovat známku</string>
     <string name="welcome_explore_account">Prozkoumat účet</string>
-    <string name="setup_your_tags">Nastavení štítků</string>
-    <string name="setup_your_tags_subtitle">Objednali jste štítky pro tato zvířata:</string>
+    <string name="setup_your_tags">Nastavení psích známek</string>
+    <string name="setup_your_tags_subtitle">Objednali jsi psí známky pro tato zvířata:</string>
     <string name="ready_to_setup">Připraveno k nastavení</string>
     <string name="already_activated">Již aktivováno</string>
-    <string name="setting_up_tag_for">Nastavení štítku pro %s</string>
-    <string name="tag_activated_for">Štítek pro %s aktivován!</string>
-    <string name="pet_now_protected">Váš mazlíček je nyní chráněn se SENRA</string>
-    <string name="more_tags_to_setup">Ještě máte štítky k nastavení</string>
-    <string name="setup_pet_tag">Nastavit štítek pro %s</string>
+    <string name="setting_up_tag_for">Nastavení psí známky pro %s</string>
+    <string name="tag_activated_for">Psí psí známka pro %s aktivován!</string>
+    <string name="pet_now_protected">Tvůj mazlíček je nyní chráněn se SENRA</string>
+    <string name="more_tags_to_setup">Ještě máš psí známky k nastavení</string>
+    <string name="setup_pet_tag">Nastavit psí známka pro %s</string>
     <string name="whats_next">Co dál?</string>
-    <string name="choose_subscription_plan">Vyberte si předplatné</string>
+    <string name="choose_subscription_plan">Vyber si předplatné</string>
     <string name="register_your_vet">Zaregistrujte svého veterináře</string>
-    <string name="update_contact_details">Aktualizujte kontaktní údaje a soukromí</string>
+    <string name="update_contact_details">Aktualizuj kontaktní údaje a soukromí</string>
     <string name="go_to_home">Na úvodní stránku</string>
     <string name="thank_you_senra">Děkujeme, že používáte SENRA!</string>
-    <string name="tap_pet_name_hint">Stačí klepnout na jméno mazlíčka a nastavit jeho štítek</string>
+    <string name="tap_pet_name_hint">Stačí klepnout na jméno mazlíčka a nastavit jeho psí známka</string>
     <plurals name="age_years">
         <item quantity="one">%d rok</item>
         <item quantity="other">%d let</item>
@@ -1335,29 +1335,29 @@
         <item quantity="one">%d měsíc</item>
         <item quantity="other">%d měsíců</item>
     </plurals>
-    <string name="show_name">Zobrazení vašeho jména</string>
-    <string name="show_name_subtitle">Vaše jméno bude viditelné na veřejném profilu mazlíčka při skenování štítku</string>
+    <string name="show_name">Zobrazení tvého jména</string>
+    <string name="show_name_subtitle">Tvé jméno bude viditelné na veřejném profilu mazlíčka při skenování psí známky</string>
     <!-- FAQ Questions and Answers -->
     <string name="help_faq_q1">Jak zaregistruji svého mazlíčka?</string>
     <string name="help_faq_a1">Svého mazlíčka můžeš zaregistrovat v menu \'Moji mazlíčci\' kliknutím na \'Přidat nového mazlíčka\'. Vyplň požadované informace a nahraj jednu nebo více fotografií.</string>
     <string name="help_faq_q2">Jaké informace mám uvést v profilu svého mazlíčka?</string>
-    <string name="help_faq_a2">Jméno svého mazlíčka jsi zadal při objednání známky a po aktivaci známky se zobrazí v profilu tvého mazlíčka. Zadej druh a plemeno svého mazlíčka. Aby se předešlo zneužití, tyto údaje lze zadat pouze jednou. Pokud uděláš chybu nebo překlep, kontaktuj nás a pomůžeme ti. Zde můžeš zadat také hmotnost, věk, barvu a jakékoliv zvláštní znaky nebo typické chování tvé kočky/psa. Můžeš nahrát i fotografie. Ty mohou pomoci při rychlé identifikaci a bezpečném návratu tvého mazlíčka. Ty rozhoduješ, jaké informace budou o tvém mazlíčkovi viditelné v případě, že se ztratí.</string>
-    <string name="help_faq_q3">Jak funguje QR kódová známka?</string>
-    <string name="help_faq_a3">Každý mazlíček dostane unikátní QR kódovou známku. Tento kód je propojen s profilem tvého mazlíčka. Když někdo naskenuje QR kód telefonem, okamžitě uvidí profil tvého mazlíčka a kontaktní údaje, které jsi označil jako veřejné.</string>
+    <string name="help_faq_a2">Jméno svého mazlíčka jsi zadal při objednání psí známky a po aktivaci psí známky se zobrazí v profilu tvého mazlíčka. Zadej druh a plemeno svého mazlíčka. Aby se předešlo zneužití, tyto údaje lze zadat pouze jednou. Pokud uděláš chybu nebo překlep, kontaktuj nás a pomůžeme ti. Zde můžeš zadat také hmotnost, věk, barvu a jakékoliv zvláštní znaky nebo typické chování tvé kočky/psa. Můžeš nahrát i fotografie. Ty mohou pomoci při rychlé identifikaci a bezpečném návratu tvého mazlíčka. Ty rozhoduješ, jaké informace budou o tvém mazlíčkovi viditelné v případě, že se ztratí.</string>
+    <string name="help_faq_q3">Jak funguje QR kódová psí známka?</string>
+    <string name="help_faq_a3">Každý mazlíček dostane unikátní QR kódovou psí známku. Tento kód je propojen s profilem tvého mazlíčka. Když někdo naskenuje QR kód telefonem, okamžitě uvidí profil tvého mazlíčka a kontaktní údaje, které jsi označil jako veřejné.</string>
     <string name="help_faq_q4">Mohu později aktualizovat údaje svého mazlíčka?</string>
     <string name="help_faq_a4">Ano! Údaje svého mazlíčka můžeš kdykoliv aktualizovat v sekci \'Moji mazlíčci\' výběrem mazlíčka a kliknutím na \'Upravit profil\'. Můžeš aktualizovat všechna pole kromě jména, druhu a plemene, včetně fotografií. Změny se uloží okamžitě.</string>
-    <string name="help_faq_q5">Jak si objednám náhradní známku?</string>
-    <string name="help_faq_a5">Jdi na stránku \'Domů/Můj účet\' a klikni na \'Objednat náhradní známku\'. Vyber, který mazlíček potřebuje novou známku. Předplatitelé Maximum a Standard si mohou vyžádat bezplatné náhradní známky, zatímco členové Starter si mohou objednat náhradu za poštovné.</string>
-    <string name="help_faq_q6">Jak aktivuji svou známku po doručení?</string>
-    <string name="help_faq_a6">Stáhni si mobilní aplikaci SENRA z Google Play nebo App Store! Otevři ji a jdi do menu \'Aktivace\', namiř kameru telefonu na QR kód na známce! Naskenování QR kódu propojí známku s tvým účtem. Poté musíš vybrat existujícího mazlíčka nebo vytvořit nový profil. Po dokončení aktivace si můžeš vybrat předplatný balíček.</string>
-    <string name="help_faq_q7">Mohu darovat SENRA známku?</string>
-    <string name="help_faq_a7">Ano! SENRA známky jsou skvělé dárky pro majitele domácích zvířat. Jednoduše objednej známku ze svého účtu — když ji obdarovaný dostane, může naskenovat QR kód, vytvořit si vlastní účet a aktivovat známku pro svého mazlíčka. Obdarovaný se nemusí předem registrovat — naskenování známky ho provede vytvořením účtu a propojením známky s jeho mazlíčkem.</string>
+    <string name="help_faq_q5">Jak si objednám náhradní psí známku?</string>
+    <string name="help_faq_a5">Jdi na stránku \'Domů/Můj účet\' a klikni na \'Objednat náhradní psí známku\'. Vyber, který mazlíček potřebuje novou psí známku. Předplatitelé Maximum a Standard si mohou vyžádat bezplatné náhradní psí známky, zatímco členové Starter si mohou objednat náhradu za poštovné.</string>
+    <string name="help_faq_q6">Jak aktivuji svou psí známku po doručení?</string>
+    <string name="help_faq_a6">Stáhni si mobilní aplikaci SENRA z Google Play nebo App Store! Otevři ji a jdi do menu \'Aktivace\', namiř kameru telefonu na QR kód na psí známce! Naskenování QR kódu propojí psí známku s tvým účtem. Poté musíš vybrat existujícího mazlíčka nebo vytvořit nový profil. Po dokončení aktivace si můžeš vybrat předplatný balíček.</string>
+    <string name="help_faq_q7">Mohu darovat SENRA psí známku?</string>
+    <string name="help_faq_a7">Ano! SENRA psí známky jsou skvělé dárky pro páníčka domácích zvířat. Jednoduše objednej psí známku ze svého účtu — když ji obdarovaný dostane, může naskenovat QR kód, vytvořit si vlastní účet a aktivovat psí známku pro svého mazlíčka. Obdarovaný se nemusí předem registrovat — naskenování psí známky ho provede vytvořením účtu a propojením psí známky s jeho mazlíčkem.</string>
     <string name="help_faq_q8">Co mám dělat, když se můj mazlíček ztratí?</string>
     <string name="help_faq_a8">Jdi do \'Moji mazlíčci\', klikni na menu na kartě mazlíčka a vyber \'Označit jako ztraceného\'. Tím se vytvoří \'upozornění na ztraceného mazlíčka\', které dostanou všichni členové komunity SENRA registrovaní v okruhu 10 km. Upozorněni jsou i veterináři a útulky. Lidé v okolí vidí upozornění a mohou tě informovat, pokud viděli nebo našli tvého mazlíčka. Při každém pozorování dostaneš okamžité upozornění.</string>
     <string name="help_faq_q9">Jak fungují upozornění na ztracené mazlíčky?</string>
-    <string name="help_faq_a9">Když označíš svou kočku nebo psa jako ztraceného, vytvoří se upozornění s fotkou a údaji tvého mazlíčka. Uživatelé SENRA v okruhu 10 km jsou okamžitě upozorněni a tvůj mazlíček se objeví na mapě \'Ztracení mazlíčci\'. Veterináři a útulky registrované v systému SENRA v tvém okolí také dostanou upozornění. Kdokoliv, kdo naskenuje známku tvého mazlíčka, ti může poslat místo nálezu a své kontaktní údaje.</string>
-    <string name="help_faq_q10">Jak si objednám náhradní známku?</string>
-    <string name="help_faq_a10">Jdi na stránku \'Domů/Můj účet\' a klikni na \'Objednat náhradní známku\'. Vyber, který mazlíček potřebuje novou známku. Předplatitelé Maximum a Standard si mohou vyžádat bezplatné náhradní známky, zatímco členové Starter si mohou objednat náhradu za poštovné.</string>
+    <string name="help_faq_a9">Když označíš svou kočku nebo psa jako ztraceného, vytvoří se upozornění s fotkou a údaji tvého mazlíčka. Uživatelé SENRA v okruhu 10 km jsou okamžitě upozorněni a tvůj mazlíček se objeví na mapě \'Ztracení mazlíčci\'. Veterináři a útulky registrované v systému SENRA v tvém okolí také dostanou upozornění. Kdokoliv, kdo naskenuje psí známku tvého mazlíčka, ti může poslat místo nálezu a své kontaktní údaje.</string>
+    <string name="help_faq_q10">Jak si objednám náhradní psí známku?</string>
+    <string name="help_faq_a10">Jdi na stránku \'Domů/Můj účet\' a klikni na \'Objednat náhradní psí známku\'. Vyber, který mazlíček potřebuje novou psí známku. Předplatitelé Maximum a Standard si mohou vyžádat bezplatné náhradní psí známky, zatímco členové Starter si mohou objednat náhradu za poštovné.</string>
     <string name="help_faq_q11">Co je to doporučovací program?</string>
     <string name="help_faq_a11">V menu Doporučení na stránce svého profilu můžeš vygenerovat osobní doporučovací kód. Sdílej ho s přáteli a rodinou. Když někdo použije tvůj kód a předplatí si placený balíček (Standard nebo Maximum), ty i tvůj přítel získáte 2 měsíce zdarma. Svá doporučení a jejich stav můžeš sledovat na stránce Doporučení.</string>
     <string name="help_faq_q12">Do kterých zemí doručujete?</string>
@@ -1365,45 +1365,45 @@
     <string name="help_faq_q13">Mohu mít více mazlíčků na jednom účtu?</string>
     <string name="help_faq_a13">Ano. S balíčkem Starter (zdarma) můžeš zaregistrovat až 10 mazlíčků, ale dostupné funkce jsou omezené. Balíček Standard je navržen pro jednu kočku nebo psa, ale obsahuje všechny funkce. Balíček Maximum zahrnuje všechny funkce a můžeš zaregistrovat až 10 mazlíčků. Balíček můžeš kdykoliv změnit v sekci \'Domů/Můj účet\'.</string>
     <string name="help_faq_q14">Jak nahlásím nalezeného mazlíčka?</string>
-    <string name="help_faq_a14">Pokud má mazlíček SENRA známku, jednoduše naskenuj QR kód kamerou telefonu — není potřeba žádná aplikace. Můžeš si prohlédnout profil mazlíčka a sdílet svou polohu s majitelem.</string>
+    <string name="help_faq_a14">Pokud má mazlíček SENRA psí známku, jednoduše naskenuj QR kód kamerou telefonu — není potřeba žádná aplikace. Můžeš si prohlédnout profil mazlíčka a sdílet svou polohu s páníčkem.</string>
     <string name="help_faq_q15">Jsou moje osobní údaje v bezpečí?</string>
-    <string name="help_faq_a15">Ano. Ty určuješ, přesně které údaje jsou viditelné, když někdo naskenuje známku tvého mazlíčka. V \'Nastavení\' &gt; \'Nastavení soukromí\' si můžeš vybrat, zda se zobrazí tvé telefonní číslo, e-mailová adresa nebo domácí adresa. Tvé přihlášení je pokaždé chráněno jednorázovým ověřovacím kódem — neexistuje žádné heslo, které by se dalo ukrást. Svůj účet a všechny údaje můžeš kdykoliv smazat.</string>
-    <string name="help_faq_q16">Ztratili jsme známku nebo se poškodila — co mám dělat?</string>
-    <string name="help_faq_a16">Neboj se — digitální profil tvého mazlíčka je v bezpečí a není uložen na známce. Jdi na stránku Účet a klikni na \'Objednat náhradu\'. Propojíme novou známku s novým QR kódem s tvým existujícím profilem mazlíčka. Předplatitelé Standard a Maximum si mohou vyžádat neomezené bezplatné náhrady, zatímco členové Starter musí zaplatit poštovné. Stará známka se deaktivuje okamžitě při objednání náhrady.</string>
-    <string name="help_faq_q17">Moje známka se nedá naskenovat — co mám dělat?</string>
-    <string name="help_faq_a17">Zkus následující: vyčisti povrch známky vlhkým hadříkem, zajisti dobré osvětlení, drž kameru telefonu stabilně asi 10-15 cm od známky a ověř, zda tvá kamera nebo QR čtečka funguje. Pokud je QR kód poškrábaný nebo opotřebovaný, objednej bezplatnou náhradu na stránce \'Domů/Můj účet\' (bezplatná náhrada je dostupná pro předplatitele Standard a Maximum — členové Starter musí zaplatit poštovné).</string>
-    <string name="help_faq_q18">Našel jsem mazlíčka bez SENRA známky — co mohu udělat?</string>
-    <string name="help_faq_a18">Zkontroluj mapu Ztracených mazlíčků na webu SENRA (senra.pet) — mazlíček mohl být nahlášen jako ztracený ve tvém okolí. Upozornění na ztracené mazlíčky si můžeš prohlédnout i v aplikaci. Zaves zvířátko k nejbližšímu veterináři, aby naskenovali mikročip. Pokud má mazlíček SENRA známku, naskenuj QR kód kamerou telefonu — zobrazí se kontaktní údaje majitele. Vždy informuj i místní úřady a blízké útulky.</string>
+    <string name="help_faq_a15">Ano. Ty určuješ, přesně které údaje jsou viditelné, když někdo naskenuje psí známku tvého mazlíčka. V \'Nastavení\' &gt; \'Nastavení soukromí\' si můžeš vybrat, zda se zobrazí tvé telefonní číslo, e-mailová adresa nebo domácí adresa. Tvé přihlášení je pokaždé chráněno jednorázovým ověřovacím kódem — neexistuje žádné heslo, které by se dalo ukrást. Svůj účet a všechny údaje můžeš kdykoliv smazat.</string>
+    <string name="help_faq_q16">Ztratili jsme psí známku nebo se poškodila — co mám dělat?</string>
+    <string name="help_faq_a16">Neboj se — digitální profil tvého mazlíčka je v bezpečí a není uložen na psí známce. Jdi na stránku Účet a klikni na \'Objednat náhradu\'. Propojíme novou psí známku s novým QR kódem s tvým existujícím profilem mazlíčka. Předplatitelé Standard a Maximum si mohou vyžádat neomezené bezplatné náhrady, zatímco členové Starter musí zaplatit poštovné. Stará psí známka se deaktivuje okamžitě při objednání náhrady.</string>
+    <string name="help_faq_q17">Moje psí známka se nedá naskenovat — co mám dělat?</string>
+    <string name="help_faq_a17">Zkus následující: vyčisti povrch psí známky vlhkým hadříkem, zajisti dobré osvětlení, drž kameru telefonu stabilně asi 10-15 cm od psí známky a ověř, zda tvá kamera nebo QR čtečka funguje. Pokud je QR kód poškrábaný nebo opotřebovaný, objednej bezplatnou náhradu na stránce \'Domů/Můj účet\' (bezplatná náhrada je dostupná pro předplatitele Standard a Maximum — členové Starter musí zaplatit poštovné).</string>
+    <string name="help_faq_q18">Našel jsem mazlíčka bez SENRA psí známky — co mohu udělat?</string>
+    <string name="help_faq_a18">Zkontroluj mapu Ztracených mazlíčků na webu SENRA (senra.pet) — mazlíček mohl být nahlášen jako ztracený ve tvém okolí. Upozornění na ztracené mazlíčky si můžeš prohlédnout i v aplikaci. Zaves zvířátko k nejbližšímu veterináři, aby naskenovali mikročip. Pokud má mazlíček SENRA psí známku, naskenuj QR kód kamerou telefonu — zobrazí se kontaktní údaje páníčka. Vždy informuj i místní úřady a blízké útulky.</string>
     <string name="help_faq_q19">Mohu změnit svou e-mailovou adresu?</string>
     <string name="help_faq_a19">Tvá primární e-mailová adresa slouží jako identifikátor účtu, a proto se nedá přímo změnit. Pokud chceš jako veřejný kontakt použít jiný e-mail, můžeš přidat sekundární e-mailovou adresu v \'Nastavení\' &gt; \'Kontaktní údaje\'. Pokud nevyhnutelně potřebuješ změnit primární e-mail, kontaktuj nás na hello@senra.pet a pomůžeme s migrací účtu.</string>
-    <string name="help_faq_q20">Jaký je rozdíl mezi mikročipem a SENRA QR známkou?</string>
-    <string name="help_faq_a20">Mikročip je malý implantát pod kůží tvého mazlíčka, který uchovává unikátní 15místný identifikátor — ale vyžaduje speciální čtečku (obvykle dostupnou jen u veterinářů a v útulcích). SENRA QR známka se dá jednoduše naskenovat jakoukoliv kamerou smartphonu, okamžitě zobrazí kompletní profil tvého mazlíčka, fotku a tebou schválené kontaktní údaje. Nálezce může také sdílet GPS souřadnice místa nálezu.</string>
+    <string name="help_faq_q20">Jaký je rozdíl mezi mikročipem a SENRA QR psí známkou?</string>
+    <string name="help_faq_a20">Mikročip je malý implantát pod kůží tvého mazlíčka, který uchovává unikátní 15místný identifikátor — ale vyžaduje speciální čtečku (obvykle dostupnou jen u veterinářů a v útulcích). SENRA QR psí známka se dá jednoduše naskenovat jakoukoliv kamerou smartphonu, okamžitě zobrazí kompletní profil tvého mazlíčka, fotku a tebou schválené kontaktní údaje. Nálezce může také sdílet GPS souřadnice místa nálezu.</string>
     <string name="help_faq_q21">Co se stane s mými údaji, když zruším předplatné?</string>
-    <string name="help_faq_a21">Pokud zrušíš předplatné, zachováš si přístup k placeným funkcím do konce aktuálního fakturačního období. Poté se tvůj účet automaticky přepne na bezplatný balíček Starter. Profily mazlíčků, fotky a QR známky zůstanou aktivní — ztratíš jen přístup k prémiovým funkcím. Tvoje údaje se při zrušení nesmažou. Na trvalé smazání všech údajů použi možnost Smazat účet v Nastavení.</string>
+    <string name="help_faq_a21">Pokud zrušíš předplatné, zachováš si přístup k placeným funkcím do konce aktuálního fakturačního období. Poté se tvůj účet automaticky přepne na bezplatný balíček Starter. Profily mazlíčků, fotky a QR psí známky zůstanou aktivní — ztratíš jen přístup k prémiovým funkcím. Tvoje údaje se při zrušení nesmažou. Na trvalé smazání všech údajů použi možnost Smazat účet v Nastavení.</string>
     <string name="help_faq_q22">Jak mohu zaregistrovat svou praxi nebo útulek v SENRA?</string>
     <string name="help_faq_a22">Veterinární praxe a útulky se mohou zaregistrovat na senra.pet/register-vet-shelter. Vyplň údaje praxe nebo organizace a my jim pošleme ověřovací e-mail. Po potvrzení jim automaticky posíláme upozornění, když se v okolí ztratí mazlíčci. Bez poplatků a bez nutnosti přihlášení.</string>
     <string name="help_faq_q23">Jak mohu sdílet úspěšný příběh, pokud byl můj mazlíček nalezen?</string>
     <string name="help_faq_a23">Když označíš svého mazlíčka jako \'Nalezený\', zeptáme se tě, zda bys chtěl sdílet dobrou zprávu s ostatními. Můžeš zveřejnit krátký příběh o tom, jak byl tvůj mazlíček nalezen. Veřejné příběhy se zobrazí na mapě \'Nalezení mazlíčci\'.</string>
     <string name="help_faq_q24">Jaké prohlížeče a zařízení jsou podporovány?</string>
-    <string name="help_faq_a24">SENRA funguje ve všech prohlížečích, včetně Chrome, Safari, Firefox a Edge, na mobilních i desktopových zařízeních. Skenování QR známky funguje s jakoukoliv kamerou smartphonu — nálezce nepotřebuje aplikaci SENRA ani účet.</string>
-    <string name="help_faq_q25">Mohu si objednat více známek pro své mazlíčky najednou?</string>
-    <string name="help_faq_a25">Ano, můžeš si objednat známky pro všechny mazlíčky najednou. Po doručení známek naskenuj každou z nich k aktivaci a přiřazení ke správnému profilu mazlíčka.</string>
+    <string name="help_faq_a24">SENRA funguje ve všech prohlížečích, včetně Chrome, Safari, Firefox a Edge, na mobilních i desktopových zařízeních. Skenování QR psí známky funguje s jakoukoliv kamerou smartphonu — nálezce nepotřebuje aplikaci SENRA ani účet.</string>
+    <string name="help_faq_q25">Mohu si objednat více psích známek pro své mazlíčky najednou?</string>
+    <string name="help_faq_a25">Ano, můžeš si objednat psí známky pro všechny mazlíčky najednou. Po doručení psích známek naskenuj každou z nich k aktivaci a přiřazení ke správnému profilu mazlíčka.</string>
     <string name="help_faq_q26">Jak se upozornění na ztracené mazlíčky dostanou k veterinářům a útulkům?</string>
     <string name="help_faq_a26">Když označíš svého mazlíčka jako \'Ztraceného\', SENRA automaticky posílá e-mailová upozornění všem registrovaným veterinářům a útulkům ve tvém okolí. Čím více veterinářů a útulků je zaregistrovaných, tím lépe tato síť funguje.</string>
-    <string name="help_faq_q27">Mohu převést známku na jiného mazlíčka?</string>
-    <string name="help_faq_a27">Ne. Každá QR známka je trvale propojená s profilem jednoho mazlíčka. Pokud mazlíček uhyne nebo už známku nepotřebuješ, stará známka se jednoduše stane neaktivní. Pro nového mazlíčka objednej novou známku na webu SENRA.</string>
+    <string name="help_faq_q27">Mohu převést psí známku na jiného mazlíčka?</string>
+    <string name="help_faq_a27">Ne. Každá QR psí známka je trvale propojená s profilem jednoho mazlíčka. Pokud mazlíček uhyne nebo už psí známku nepotřebuješ, stará psí známka se jednoduše stane neaktivní. Pro nového mazlíčka objednej novou psí známku na webu SENRA.</string>
     <string name="help_faq_q28">Jak mohu zaregistrovat veterinární praxi svého mazlíčka nebo útulek, odkud jsem mazlíčka adoptoval, v síti SENRA?</string>
     <string name="help_faq_a28">Veterinární praxe a útulky se mohou zaregistrovat na senra.pet/register-vet-shelter. Vyplň údaje praxe nebo organizace a my jim pošleme ověřovací e-mail. Po potvrzení jim automaticky posíláme upozornění, když se v okolí ztratí mazlíčci. Bez poplatků a bez nutnosti přihlášení.</string>
 
 
     <!-- Tag activation strings -->
-    <string name="error_tag_lookup_failed">Nepodařilo se vyhledat štítek. Zkuste to znovu.</string>
-    <string name="error_tag_not_activated">Tento štítek ještě nebyl aktivován.</string>
-    <string name="error_tag_not_found">Tento štítek nebyl nalezen v systému.</string>
-    <string name="notif_tag_activated_body">SENRA štítek pro %s je nyní aktivní. Váš mazlíček je chráněn.</string>
-    <string name="notif_tag_activated_title">Štítek aktivován!</string>
+    <string name="error_tag_lookup_failed">Nepodařilo se vyhledat psí známka. Zkus to znovu.</string>
+    <string name="error_tag_not_activated">Tento psí známka ještě nebyl aktivován.</string>
+    <string name="error_tag_not_found">Tento psí známka nebyl nalezen v systému.</string>
+    <string name="notif_tag_activated_body">SENRA psí známka pro %s je nyní aktivní. Tvůj mazlíček je chráněn.</string>
+    <string name="notif_tag_activated_title">Psí psí známka aktivován!</string>
     <!-- Tags coming soon -->
-    <string name="tags_coming_soon_title">Fyzické známky brzy dorazí</string>
+    <string name="tags_coming_soon_title">Fyzické psí známky brzy dorazí</string>
     <string name="tags_coming_soon_body">Brzy odešleme naši první sérii. Vrať se za pár dní.</string>
 
 

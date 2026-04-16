@@ -6,11 +6,11 @@
     <!-- MARK: Common -->
     <!-- ============================================ -->
     <string name="cancel">Anuluj</string>
-    <string name="pet_limit_reached">Osiągnięto limit zwierząt</string>
-    <string name="pet_limit_reached_message">Twój plan %1$s pozwala na %2$d zwierzę. Przejdź na %3$s za %4$s, aby dodawać nieograniczoną liczbę zwierząt.</string>
+    <string name="pet_limit_reached">Osiągnięto limit pupili</string>
+    <string name="pet_limit_reached_message">Twój plan %1$s pozwala na %2$d pupila. Przejdź na %3$s za %4$s, aby dodawać nieograniczoną liczbę pupili.</string>
     <string name="upgrade_to_plan">Przejdź na %1$s</string>
     <string name="story_placeholder">Opowiedz historię waszego ponownego spotkania…</string>
-    <string name="share_owner_notified">Właściciel został powiadomiony</string>
+    <string name="share_owner_notified">Opiekun został powiadomiony</string>
     <plurals name="photos_uploaded">
         <item quantity="one">%d zdjęcie przesłane</item>
         <item quantity="few">%d zdjęcia przesłane</item>
@@ -48,17 +48,17 @@
     <!-- ============================================ -->
     <!-- MARK: Tab Bar -->
     <!-- ============================================ -->
-    <string name="my_pets">Moje zwierzęta</string>
+    <string name="my_pets">Moje pupile</string>
     <string name="scan_qr">Skanuj QR</string>
     <string name="alerts">Alarmy</string>
     <string name="profile">Profil</string>
-    <string name="tab_my_pets">Moje zwierzęta</string>
+    <string name="tab_my_pets">Moje pupile</string>
     <string name="tab_scan_qr">Skanuj kod QR</string>
     <string name="tab_alerts">Alarmy</string>
     <string name="tab_profile">Profil</string>
     <string name="tab_missing">Zaginione</string>
     <string name="tab_found">Znalezione</string>
-    <string name="tab_success">Znalezione zwierzęta</string>
+    <string name="tab_success">Odnalezione</string>
 
     <!-- ============================================ -->
     <!-- MARK: Auth -->
@@ -125,18 +125,18 @@
     <string name="action_report_missing">ZGŁOŚ ZAGINIĘCIE</string>
     <string name="action_order_tags">ZAMÓW ZAWIESZKI</string>
     <string name="action_replace_tag">WYMIEŃ ZAWIESZKĄ</string>
-    <string name="empty_pets_title">Nie masz jeszcze zwierząt</string>
+    <string name="empty_pets_title">Nie masz jeszcze pupili</string>
     <string name="empty_pets_message">Dodaj swojego pierwszego pupila, aby zacząć korzystać z SENRA</string>
     <string name="missing_badge">ZAGINIONE</string>
-    <string name="add_pet">Dodaj zwierzę</string>
-    <string name="pet_name">Imię zwierzęcia</string>
-    <string name="failed_load_pets">Nie udało się wczytać zwierząt</string>
+    <string name="add_pet">Dodaj pupila</string>
+    <string name="pet_name">Imię pupila</string>
+    <string name="failed_load_pets">Nie udało się wczytać pupili</string>
     <string name="clear_search">Wyczyść wyszukiwanie</string>
-    <string name="pet_photo">Zdjęcie zwierzęcia</string>
-    <string name="pet_photo_placeholder">Zdjęcie zwierzęcia – symbol zastępczy</string>
-    <string name="no_pets">Brak zwierząt</string>
+    <string name="pet_photo">Zdjęcie pupila</string>
+    <string name="pet_photo_placeholder">Zdjęcie pupila – symbol zastępczy</string>
+    <string name="no_pets">Brak pupili</string>
     <string name="success_stories">Historie sukcesu</string>
-    <string name="found_pets">Znalezione zwierzęta</string>
+    <string name="found_pets">Znalezione pupile</string>
     <string name="success_stories_subtitle">Szczęśliwe powroty do domu w twojej okolicy</string>
 
     <!-- ============================================ -->
@@ -147,7 +147,7 @@
     <string name="age_label">Wiek: %1$s</string>
     <string name="medical_information">Informacje medyczne</string>
     <string name="additional_information">Dodatkowe informacje</string>
-    <string name="edit_pet">Edytuj profil zwierzęcia</string>
+    <string name="edit_pet">Edytuj pupila</string>
     <string name="view_pet_photos">Zobacz zdjęcia %1$s</string>
     <string name="mark_as_found">Oznacz jako znalezione</string>
     <string name="mark_as_lost">Oznacz jako zaginione</string>
@@ -156,8 +156,8 @@
     <string name="edit_pet_profile">Edytuj profil %1$s</string>
     <string name="delete_pet_confirm_title">Usunąć %1$s?</string>
     <string name="delete_pet_confirm_message">Tej czynności nie można cofnąć. Wszystkie dane dotyczące %1$s zostaną trwale usunięte.</string>
-    <string name="cannot_delete_missing_pet">Nie można usunąć zaginionego zwierzęcia</string>
-    <string name="cannot_delete_missing_pet_message">Nie możesz usunąć zwierzęcia, które jest aktualnie zgłoszone jako zaginione. Najpierw oznacz je jako znalezione.</string>
+    <string name="cannot_delete_missing_pet">Nie można usunąć zaginionego pupila</string>
+    <string name="cannot_delete_missing_pet_message">Nie możesz usunąć pupila, które jest aktualnie zgłoszone jako zaginione. Najpierw oznacz je jako znalezione.</string>
     <string name="cannot_delete_missing_message">%1$s jest aktualnie oznaczone jako zaginione. Przed usunięciem oznacz je jako znalezione.</string>
     <string name="mark_found_confirm_title">Oznaczyć %1$s jako znalezione?</string>
     <string name="mark_found_confirm_message">Spowoduje to zamknięcie alarmu zaginięcia dla %1$s. Czy na pewno?</string>
@@ -166,7 +166,7 @@
     <string name="mark_found_failed">Nie udało się oznaczyć jako znalezione</string>
     <string name="mark_missing_failed">Nie udało się oznaczyć jako zaginione</string>
     <string name="pet_deleted">%1$s zostało usunięte</string>
-    <string name="delete_pet_failed">Nie udało się usunąć zwierzęcia</string>
+    <string name="delete_pet_failed">Nie udało się usunąć pupila</string>
 
     <!-- ============================================ -->
     <!-- MARK: Pet Form -->
@@ -180,7 +180,7 @@
     <string name="photo">Zdjęcie</string>
     <string name="edit_photo">Edytuj zdjęcie</string>
     <string name="photo_selected_hint">Zdjęcie wybrane</string>
-    <string name="choose_photo_hint">Wybierz zdjęcie swojego zwierzęcia</string>
+    <string name="choose_photo_hint">Wybierz zdjęcie swojego pupila</string>
     <string name="basic_information">Podstawowe informacje</string>
     <string name="colour">Umaszczenie</string>
     <string name="colour_optional">Umaszczenie (opcjonalnie)</string>
@@ -193,12 +193,12 @@
     <string name="medical_notes_hint">Notatki medyczne (choroby, operacje itp.)</string>
     <string name="behavior_notes_hint">Notatki o zachowaniu (temperament, szkolenie itp.)</string>
     <string name="save_changes">Zapisz zmiany</string>
-    <string name="delete_pet_button">Usuń zwierzę</string>
+    <string name="delete_pet_button">Usuń pupila</string>
     <string name="delete_pet_dialog_title">Usunąć %1$s?</string>
-    <string name="delete_pet_dialog_message">Czy na pewno chcesz usunąć to zwierzę? Tej czynności nie można cofnąć.</string>
+    <string name="delete_pet_dialog_message">Czy na pewno chcesz usunąć to pupila? Tej czynności nie można cofnąć.</string>
     <string name="delete_pet_warning_title">Usunąć %1$s?</string>
-    <string name="delete_pet_warning_message">%1$s zostanie trwale usunięty z Twojego konta. Tag QR zostanie natychmiast dezaktywowany i nie będzie działał po zeskanowaniu. Jeśli to Twoje ostatnie zwierzę, Twoja subskrypcja również zostanie anulowana.</string>
-    <string name="delete_pet_warning_confirm">Usuń zwierzę</string>
+    <string name="delete_pet_warning_message">%1$s zostanie trwale usunięty z Twojego konta. Adresówka QR zostanie natychmiast dezaktywowany i nie będzie działał po zeskanowaniu. Jeśli to Twoje ostatnie pupila, Twoja subskrypcja również zostanie anulowana.</string>
+    <string name="delete_pet_warning_confirm">Usuń pupila</string>
     <string name="male">Samiec</string>
     <string name="female">Samica</string>
     <string name="breed_other">Inne</string>
@@ -212,7 +212,7 @@
     <string name="alert_updated">Alarm zaktualizowany pomyślnie</string>
     <string name="alert_update_failed">Aktualizacja alarmu nie powiodła się</string>
     <string name="at_least_one_channel_required">Co najmniej jeden kanał powiadomień musi pozostać aktywny</string>
-    <string name="notification_channel_info">Co najmniej jeden kanał powiadomień musi być aktywny, abyś mógł(-a) być powiadamiany(-a) o skanowaniu nieśki QR swojego zwierzęcia.</string>
+    <string name="notification_channel_info">Co najmniej jeden kanał powiadomień musi być aktywny, abyś mógł(-a) być powiadamiany(-a) o skanowaniu nieśki QR swojego pupila.</string>
     <string name="default_species_dog">Pies</string>
     <string name="species_cat">Kot</string>
     <string name="search_breed">Szukaj rasy\u2026</string>
@@ -222,11 +222,11 @@
     <string name="pet_form_age_label">Wiek</string>
     <string name="pet_form_age_placeholder">np. 3 lata</string>
     <string name="unique_features_hint">Charakterystyczne cechy (umaszczenie, blizny, wyróżniki\u2026)</string>
-    <string name="pet_created">Zwierzę dodane</string>
-    <string name="pet_create_failed">Nie udało się dodać zwierzęcia</string>
-    <string name="pet_updated">Zwierzę zaktualizowane</string>
-    <string name="pet_update_failed">Nie udało się zaktualizować zwierzęcia</string>
-    <string name="pet_default_name">Zwierzę</string>
+    <string name="pet_created">Pupila dodane</string>
+    <string name="pet_create_failed">Nie udało się dodać pupila</string>
+    <string name="pet_updated">Pupila zaktualizowane</string>
+    <string name="pet_update_failed">Nie udało się zaktualizować pupila</string>
+    <string name="pet_default_name">Pupila</string>
 
     <!-- ============================================ -->
     <!-- MARK: Photo Gallery -->
@@ -261,7 +261,7 @@
     <string name="choose_from_gallery">Wybierz z galerii</string>
     <string name="select_existing_photo">Wybierz istniejące zdjęcie</string>
     <string name="take_photo">Zrób zdjęcie</string>
-    <string name="pet_photo_fullscreen">Zdjęcie zwierzęcia na pełnym ekranie</string>
+    <string name="pet_photo_fullscreen">Zdjęcie pupila na pełnym ekranie</string>
     <string name="view_photo">Wyświetl zdjęcie</string>
     <string name="primary_photo">Główne zdjęcie</string>
     <string name="set_as_primary">Ustaw jako główne</string>
@@ -270,7 +270,7 @@
     <!-- MARK: QR Scanner -->
     <!-- ============================================ -->
     <string name="scan_qr_code">Skanuj kod QR</string>
-    <string name="scan_qr_subtitle">Skieruj aparat na nieśką QR zwierzęcia</string>
+    <string name="scan_qr_subtitle">Skieruj aparat na nieśką QR pupila</string>
     <string name="camera_access_required">Wymagany dostęp do aparatu</string>
     <string name="camera_access_message">Włącz dostęp do aparatu, aby skanować kody QR</string>
     <string name="enable_camera">Włącz aparat</string>
@@ -282,21 +282,21 @@
     <string name="turn_on_flashlight">Włącz latarkę</string>
     <string name="hello_pet_name">Cześć! Jestem %1$s</string>
     <string name="scanned_tag_thanks">Właśnie zeskanowałeś(-aś) moją nieśką. Dziękuję za pomoc!</string>
-    <string name="share_location_with_owner">Udostępnij moją lokalizację właścicielowi</string>
-    <string name="owner_notified_message">Właściciel %1$s otrzyma powiadomienie z twoją lokalizacją</string>
-    <string name="share_location_help">Pomóż właścicielowi %1$s go znaleźć, udostępniając swoją lokalizację</string>
+    <string name="share_location_with_owner">Udostępnij moją lokalizację opiekunowi</string>
+    <string name="owner_notified_message">Opiekun %1$s otrzyma powiadomienie z twoją lokalizacją</string>
+    <string name="share_location_help">Pomóż opiekunowi %1$s go znaleźć, udostępniając swoją lokalizację</string>
     <string name="precise_location">Dokładna lokalizacja</string>
     <string name="precise_location_desc">Udostępnij dokładne współrzędne GPS</string>
     <string name="approximate_location">Przybliżona lokalizacja</string>
     <string name="approximate_location_desc">Przybliżone udostępnianie lokalizacji (zgodne z RODO)</string>
     <string name="dont_share_location">Nie udostępniaj lokalizacji</string>
-    <string name="dont_share_location_desc">Tylko powiadom właściciela, że jego zwierzę zostało znalezione</string>
-    <string name="confirm_notify_owner">Potwierdź &amp; powiadom właściciela</string>
+    <string name="dont_share_location_desc">Tylko powiadom opiekuna, że jego pupila zostało znalezione</string>
+    <string name="confirm_notify_owner">Potwierdź &amp; powiadom opiekuna</string>
     <string name="share_exact_location_toggle">Udostępnij dokładną lokalizację</string>
-    <string name="contact_owner">Kontakt z właścicielem</string>
+    <string name="contact_owner">Kontakt z opiekunem</string>
     <string name="call_phone">Zadzwoń: %1$s</string>
     <string name="email_contact">E-mail: %1$s</string>
-    <string name="privacy_notice">Twoja prywatność jest dla nas ważna. Udostępnimy twoją lokalizację tylko właścicielowi %1$s, aby pomóc im się odnaleźć.</string>
+    <string name="privacy_notice">Twoja prywatność jest dla nas ważna. Udostępnimy twoją lokalizację tylko opiekunowi %1$s, aby pomóc im się odnaleźć.</string>
     <string name="found_pet_title">Znaleziono %1$s</string>
     <string name="share_location">Udostępnij lokalizację</string>
     <string name="location_shared">Lokalizacja udostępniona</string>
@@ -316,19 +316,19 @@
     <!-- MARK: Tag Activation -->
     <!-- ============================================ -->
     <string name="tag_activate_title">Aktywuj nieśką</string>
-    <string name="tag_loading_pets">Wczytywanie zwierząt\u2026</string>
+    <string name="tag_loading_pets">Wczytywanie pupili\u2026</string>
     <string name="tag_activated">Zawieszką aktywowana!</string>
     <string name="tag_activated_message">Ta nieśką jest teraz powiązana z %1$s</string>
-    <string name="tag_choose_plan">Uzupełnij profil zwierzęcia, aby ułatwić jego znalezienie w razie zaginięcia</string>
-    <string name="tag_choose_plan_button">Uzupełnij profil zwierzęcia</string>
+    <string name="tag_choose_plan">Uzupełnij profil pupila, aby ułatwić jego znalezienie w razie zaginięcia</string>
+    <string name="tag_choose_plan_button">Uzupełnij profil pupila</string>
     <string name="tag_skip_for_now">Zrobię to później</string>
-    <string name="tag_no_pets">Nie masz jeszcze żadnych zwierząt</string>
-    <string name="tag_no_pets_message">Najpierw dodaj zwierzę, a potem aktywuj nieśką</string>
+    <string name="tag_no_pets">Nie masz jeszcze żadnych pupili</string>
+    <string name="tag_no_pets_message">Najpierw dodaj pupila, a potem aktywuj nieśką</string>
     <string name="tag_code_label">Kod nieśki</string>
-    <string name="tag_select_pet">Wybierz zwierzę, z którym powiązać tę nieśką</string>
+    <string name="tag_select_pet">Wybierz pupila, z którym powiązać tę nieśką</string>
     <string name="tag_activating">Aktywowanie\u2026</string>
     <string name="tag_activate_button">Aktywuj nieśką</string>
-    <string name="tag_link_message">Ta nieśką zostanie powiązana z wybranym zwierzęciem</string>
+    <string name="tag_link_message">Ta nieśką zostanie powiązana z wybranym pupilem</string>
 
     <!-- ============================================ -->
     <!-- MARK: Plan Selection -->
@@ -339,16 +339,16 @@
     <!-- ============================================ -->
     <string name="show_list">Pokaż listę</string>
     <string name="show_map">Pokaż mapę</string>
-    <string name="unknown_pet">Nieznane zwierzę</string>
-    <string name="pet_alert">Alarm o zwierzęciu</string>
+    <string name="unknown_pet">Nieznane pupila</string>
+    <string name="pet_alert">Alarm o pupilowi</string>
     <string name="alert_marker">Alarm</string>
     <string name="loading_alerts">Wczytywanie alarmów\u2026</string>
     <string name="failed_load_alerts">Nie udało się wczytać alarmów</string>
     <string name="no_active_alerts">Brak aktywnych alarmów</string>
-    <string name="no_active_alerts_message">Nie masz żadnych aktywnych alarmów o zaginięciu zwierzęcia</string>
+    <string name="no_active_alerts_message">Nie masz żadnych aktywnych alarmów o zaginięciu pupila</string>
     <string name="no_found_alerts">Brak alarmów o znalezieniu</string>
-    <string name="no_found_alerts_message">W ostatnim czasie nie znaleziono żadnych zwierząt w twojej okolicy</string>
-    <string name="missing_pet_alerts_title">Alarmy o zaginięciu zwierzęcia</string>
+    <string name="no_found_alerts_message">W ostatnim czasie nie znaleziono żadnych pupili w twojej okolicy</string>
+    <string name="missing_pet_alerts_title">Alarmy o zaginięciu pupila</string>
     <string name="sighting_count_singular">1 obserwacja</string>
     <string name="unknown_breed">Nieznana rasa</string>
     <string name="last_seen_label">Ostatnio widziane</string>
@@ -400,8 +400,8 @@
     <string name="getting_location">Pobieranie lokalizacji\u2026</string>
     <string name="update_alert_failed">Aktualizacja alarmu nie powiodła się</string>
     <string name="report_sighting_failed">Zgłoszenie obserwacji nie powiodło się</string>
-    <string name="report_missing_pet">Zgłoś zaginięcie zwierzęcia</string>
-    <string name="select_pet_to_report">Wybierz zwierzę</string>
+    <string name="report_missing_pet">Zgłoś zaginięcie pupila</string>
+    <string name="select_pet_to_report">Wybierz pupila</string>
     <string name="add_missing_details">Dodaj szczegóły zaginięcia</string>
     <string name="enter_address_or_location">Podaj adres lub opis miejsca</string>
     <string name="additional_details">Dodatkowe szczegóły</string>
@@ -409,34 +409,34 @@
     <string name="reward_amount_label">Nagroda (opcjonalnie)</string>
     <string name="reward_amount_placeholder">np. 200 zł</string>
     <string name="report_missing">Zgłoś zaginięcie</string>
-    <string name="no_pets_to_report_message">Dodaj zwierzę, aby móc zgłosić jego zaginięcie</string>
-    <string name="mark_pet_found">Oznacz zwierzę jako znalezione</string>
-    <string name="select_pet_to_mark_found">Wybierz zwierzę, które zostało znalezione</string>
-    <string name="no_missing_pets_message">Nie masz żadnych zwierząt oznaczonych jako zaginione</string>
-    <string name="select_pet_header">Wybierz zwierzę</string>
-    <string name="no_pets_available">Brak dostępnych zwierząt. Najpierw dodaj zwierzę.</string>
-    <string name="pet_picker_label">Zwierzę</string>
+    <string name="no_pets_to_report_message">Dodaj pupila, aby móc zgłosić jego zaginięcie</string>
+    <string name="mark_pet_found">Oznacz pupila jako znalezione</string>
+    <string name="select_pet_to_mark_found">Wybierz pupila, które zostało znalezione</string>
+    <string name="no_missing_pets_message">Nie masz żadnych pupili oznaczonych jako zaginione</string>
+    <string name="select_pet_header">Wybierz pupila</string>
+    <string name="no_pets_available">Brak dostępnych pupili. Najpierw dodaj pupila.</string>
+    <string name="pet_picker_label">Pupila</string>
     <string name="last_seen_location_header">Ostatnio widziane w</string>
     <string name="enter_location">Podaj lokalizację</string>
     <string name="additional_information_header">Dodatkowe informacje</string>
-    <string name="additional_details_placeholder">Podaj dodatkowe szczegóły dotyczące tego, kiedy i gdzie ostatnio widziałeś(-aś) swoje zwierzę\u2026</string>
+    <string name="additional_details_placeholder">Podaj dodatkowe szczegóły dotyczące tego, kiedy i gdzie ostatnio widziałeś(-aś) swoje pupila\u2026</string>
     <string name="your_contact_information">Twoje dane kontaktowe</string>
     <string name="name_optional">Imię (opcjonalnie)</string>
     <string name="phone_optional">Telefon (opcjonalnie)</string>
     <string name="email_optional">E-mail (opcjonalnie)</string>
     <string name="sighting_reported_success">Obserwacja zgłoszona pomyślnie!</string>
     <string name="report_sighting_header">Zgłoś obserwację</string>
-    <string name="report_sighting_help">Pomóż zaginięciu zwierzęcia powrócić do właściciela, podając miejsce, gdzie je widziałeś(-aś).</string>
+    <string name="report_sighting_help">Pomóż zaginięciu pupila powrócić do opiekuna, podając miejsce, gdzie je widziałeś(-aś).</string>
     <string name="share_contact_info">Udostępnij moje dane kontaktowe</string>
-    <string name="share_contact_info_desc">Zezwól właścicielowi zwierzęcia na bezpośredni kontakt z tobą</string>
+    <string name="share_contact_info_desc">Zezwól opiekunowi pupila na bezpośredni kontakt z tobą</string>
     <string name="your_name">Twoje imię</string>
     <string name="your_phone_number">Twój numer telefonu</string>
     <string name="your_email">Twój adres e-mail</string>
     <string name="address_or_description">Adres lub opis</string>
-    <string name="where_did_you_see">Gdzie widziałeś(-aś) zwierzę?</string>
-    <string name="sighting_notes_placeholder">Opisz, co widziałeś(-aś), stan zwierzęcia, kierunek poruszania się\u2026</string>
+    <string name="where_did_you_see">Gdzie widziałeś(-aś) pupila?</string>
+    <string name="sighting_notes_placeholder">Opisz, co widziałeś(-aś), stan pupila, kierunek poruszania się\u2026</string>
     <string name="submit_sighting_report">Wyślij zgłoszenie obserwacji</string>
-    <string name="sighting_reported_owner_notified">Obserwacja zgłoszona! Właściciel został powiadomiony.</string>
+    <string name="sighting_reported_owner_notified">Obserwacja zgłoszona! Opiekun został powiadomiony.</string>
     <string name="sighting_queued_offline">Obserwacja w kolejce – zostanie wysłana po powrocie online.</string>
 
     <!-- ============================================ -->
@@ -456,27 +456,27 @@
     <string name="no_registered_address">Brak zarejestrowanego adresu. Zaktualizuj swój profil.</string>
 
         <!-- Mark Lost Flow (matching iOS MarkAsLostView) -->
-    <string name="mark_lost_pet_info">Informacje o zwierzęciu</string>
+    <string name="mark_lost_pet_info">Informacje o pupilowi</string>
     <string name="mark_lost_last_seen">Ostatnie znane miejsce</string>
     <string name="mark_lost_alerts_footer">Alerty zostaną wysłane do użytkowników, weterynarzy i schronisk w promieniu 10km.</string>
     <string name="mark_lost_getting_location">Pobieranie lokalizacji…</string>
     <string name="mark_lost_no_address">Brak zarejestrowanego adresu. Przejdź do Profilu, aby dodać adres.</string>
     <string name="mark_lost_address_placeholder">Podaj adres lub lokalizację</string>
     <string name="mark_lost_additional_info">Dodatkowe informacje</string>
-    <string name="mark_lost_additional_placeholder">Opisz, kiedy i gdzie widziałeś/aś ostatnio swoje zwierzę, co miało na sobie itp.</string>
+    <string name="mark_lost_additional_placeholder">Opisz, kiedy i gdzie widziałeś/aś ostatnio swoje pupila, co miało na sobie itp.</string>
     <string name="mark_lost_sends_to">Ten alert zostanie wysłany do:</string>
-    <string name="mark_lost_nearby_owners">Pobliskich właścicieli zwierząt</string>
+    <string name="mark_lost_nearby_owners">Pobliskich opiekunów pupili</string>
     <string name="mark_lost_vet_clinics">Klinik weterynaryjnych w okolicy</string>
-    <string name="mark_lost_shelters">Pobliskich schronisk dla zwierząt</string>
+    <string name="mark_lost_shelters">Pobliskich schronisk dla pupili</string>
     <string name="mark_lost_report">Zgłoś zaginięcie</string>
     <string name="mark_lost_title">Zgłoś zaginięcie</string>
     <string name="mark_lost_starter_notice">Ulepsz plan, aby wysyłać alerty</string>
-    <string name="mark_lost_upgrade_prompt">W planie Starter twoje zwierzę zostanie oznaczone jako zagubione, ale powiadomienia do użytkowników, weterynarzy i schronisk wymagają subskrypcji Standard lub Maximum.</string>
+    <string name="mark_lost_upgrade_prompt">W planie Starter twoje pupila zostanie oznaczone jako zagubione, ale powiadomienia do użytkowników, weterynarzy i schronisk wymagają subskrypcji Standard lub Maximum.</string>
     <string name="mark_lost_success_with_alerts">%1$s został zgłoszony jako zaginiony. Powiadomienia są wysyłane do użytkowników w pobliżu.</string>
     <string name="mark_lost_success_no_location">%1$s został oznaczony jako zaginiony. Dodaj lokalizację, aby wysłać alerty społecznościowe.</string>
     <string name="mark_lost_address_required">Podaj adres lub włącz usługi lokalizacji.</string>
-    <string name="quick_lost_select_pet">Wybierz zwierzę do zgłoszenia jako zaginione</string>
-    <string name="quick_lost_all_missing">Wszystkie twoje zwierzęta są już oznaczone jako zaginione.</string>
+    <string name="quick_lost_select_pet">Wybierz pupila do zgłoszenia jako zaginione</string>
+    <string name="quick_lost_all_missing">Wszystkie twoje pupile są już oznaczone jako zaginione.</string>
     <string name="quick_lost_title">Zgłoś zaginięcie</string>
     <string name="location_current">Bieżąca lokalizacja</string>
     <string name="location_my_address">Mój adres</string>
@@ -495,27 +495,27 @@
     <string name="notification_pet_found_title">Dobra wiadomość!</string>
     <string name="notification_channel_name">Alarmy SENRA Pet</string>
     <string name="notification_channel_tag_scans">Skanowania nieśki</string>
-    <string name="notification_channel_tag_scans_desc">Powiadomienia o skanowaniu nieśki twojego zwierzęcia</string>
+    <string name="notification_channel_tag_scans_desc">Powiadomienia o skanowaniu nieśki twojego pupila</string>
     <string name="notification_channel_alerts">Alarmy o zaginięciu</string>
-    <string name="notification_channel_alerts_desc">Powiadomienia o zagubionych zwierzętach w twojej okolicy</string>
+    <string name="notification_channel_alerts_desc">Powiadomienia o zagubionych pupilach w twojej okolicy</string>
     <string name="notification_channel_sightings">Zgłoszenia obserwacji</string>
-    <string name="notification_channel_sightings_desc">Powiadomienia o obserwacji twojego zaginionego zwierzęcia</string>
+    <string name="notification_channel_sightings_desc">Powiadomienia o obserwacji twojego zaginionego pupila</string>
     <string name="notification_method_required">Musi być włączona co najmniej jedna metoda powiadomień</string>
 
     <!-- FCM Notification Strings -->
     <string name="notif_tag_scanned_title">Zawieszką zeskanowana</string>
     <string name="notif_tag_scanned_body">Zawieszką %1$s została zeskanowana!</string>
     <string name="notif_tag_scanned_body_location">Zawieszką %1$s została zeskanowana! %2$s</string>
-    <string name="notif_missing_pet_title">Zaginione zwierzę w pobliżu</string>
+    <string name="notif_missing_pet_title">Zaginione pupila w pobliżu</string>
     <string name="notif_missing_pet_body">%1$s zaginęło w %2$s. Miej oczy otwarte!</string>
-    <string name="notif_pet_found_title">Zwierzę znalezione!</string>
+    <string name="notif_pet_found_title">Pupila znalezione!</string>
     <string name="notif_pet_found_body">Dobra wiadomość! %1$s wróciło!</string>
     <string name="notif_sighting_title">Zgłoszono obserwację</string>
     <string name="notif_sighting_body_location">%1$s zostało zauważone w %2$s!</string>
     <string name="notif_sighting_body_no_location">%1$s zostało zauważone! Sprawdź miejsce obserwacji.</string>
     <string name="notif_fallback_title">SENRA Pet</string>
-    <string name="notif_fallback_pet_name">Twoje zwierzę</string>
-    <string name="notif_fallback_a_pet">Zwierzę</string>
+    <string name="notif_fallback_pet_name">Twoje pupila</string>
+    <string name="notif_fallback_a_pet">Pupila</string>
     <string name="notif_fallback_your_area">twoja okolica</string>
     <string name="notif_location_shared">Lokalizacja udostępniona</string>
     <string name="notif_location_approximate">Przybliżona lokalizacja</string>
@@ -537,17 +537,17 @@
     <string name="email_notifications_subtitle">Odbieraj powiadomienia e-mailem</string>
     <string name="sms_notifications">Powiadomienia SMS</string>
     <string name="sms_notifications_subtitle">Odbieraj powiadomienia przez SMS</string>
-    <string name="pet_alerts">Alarmy o zwierzętach</string>
+    <string name="pet_alerts">Alarmy o pupilach</string>
     <string name="missing_pet_alerts">Alarmy o zaginięciu</string>
-    <string name="missing_pet_alerts_subtitle">Otrzymuj powiadomienia o zagubionych zwierzętach w twojej okolicy</string>
+    <string name="missing_pet_alerts_subtitle">Otrzymuj powiadomienia o zagubionych pupilach w twojej okolicy</string>
     <string name="nearby_alerts_10km">Alarmy w pobliżu (10 km)</string>
-    <string name="nearby_alerts_subtitle">Alarmy o zwierzętach w promieniu 10 km od twojej lokalizacji</string>
+    <string name="nearby_alerts_subtitle">Alarmy o pupilach w promieniu 10 km od twojej lokalizacji</string>
     <string name="account_and_orders">Konto &amp; zamówienia</string>
     <string name="order_updates">Aktualizacje zamówień</string>
     <string name="order_updates_subtitle">Powiadomienia o wysyłce i dostawie</string>
     <string name="account_activity">Aktywność konta</string>
     <string name="account_activity_subtitle">Powiadomienia o logowaniu i bezpieczeństwie</string>
-    <string name="critical_alerts_note">Uwaga: krytyczne alarmy dotyczące twoich zwierząt zawsze będą wysyłane, niezależnie od tych ustawień.</string>
+    <string name="critical_alerts_note">Uwaga: krytyczne alarmy dotyczące twoich pupili zawsze będą wysyłane, niezależnie od tych ustawień.</string>
 
     <!-- Notification Preferences -->
 
@@ -563,7 +563,7 @@
     <string name="loading_success_stories">Wczytywanie historii sukcesu\u2026</string>
     <string name="no_success_stories">Brak historii sukcesu w pobliżu</string>
     <string name="no_success_stories_message">Bądź pierwszą osobą, która podzieli się szczęśliwym powrotem w twojej okolicy!</string>
-    <string name="found_and_reunited">Znalezione &amp; znów z właścicielem</string>
+    <string name="found_and_reunited">Znalezione &amp; znów z opiekunem</string>
     <string name="distance_km">%.1f km stąd</string>
     <string name="missing_since">Zaginione od %1$s</string>
     <string name="found_on">Znalezione %1$s</string>
@@ -574,12 +574,12 @@
     <string name="reunited_in">Zjednoczeni po %1$s</string>
 
 
-    <string name="shared_via_pet_safety">Udostępniono przez aplikację Pet Safety</string>
+    <string name="shared_via_pet_safety">Udostępniono przez aplikację SENRA</string>
     <string name="story_share_good_news">Podziel się dobrą nowiną</string>
     <string name="story_social_caption">%1$s wrócił do swojej rodziny! Dziękujemy społeczności SENRA za pomoc w odnalezieniu %1$s. senra.pet</string>
     <string name="story_generating_card">Tworzenie karty do udostępnienia\u2026</string>
     <string name="story_pet_is_home_title">%1$s jest w domu!</string>
-    <string name="story_inspire_others_message">Zainspiruj innych właścicieli, dzieląc się historią powrotu %1$s do ciebie.</string>
+    <string name="story_inspire_others_message">Zainspiruj innych opiekunów, dzieląc się historią powrotu %1$s do ciebie.</string>
     <string name="sighting_reports_desc">Zgłoszenia znalezienia</string>
 
     <!-- ============================================ -->
@@ -604,7 +604,7 @@
     <string name="cancel_warning_a">Stracisz natychmiastowe powiadomienia e-mail, SMS i alerty społecznościowe</string>
     <string name="cancel_warning_b">Bezpłatne wymiany znaczników nie będą już dostępne</string>
     <string name="cancel_warning_c">Stracisz dostęp do alertów weterynaryjnych i ze schronisk</string>
-    <string name="cancel_warning_d">Twoje konto i rejestracje zwierząt pozostaną aktywne</string>
+    <string name="cancel_warning_d">Twoje konto i rejestracje pupili pozostaną aktywne</string>
     <string name="cancel_access_until">Zachowasz dostęp do %1$s</string>
     <string name="cancel_confirm">Anuluj subskrypcję</string>
     <string name="keep_subscription">Zachowaj subskrypcję</string>
@@ -635,16 +635,16 @@
     <string name="secondary_email_optional">Dodatkowy adres e-mail (opcjonalnie)</string>
     <string name="phone_numbers">Numery telefonów</string>
     <string name="primary_phone">Główny numer telefonu</string>
-    <string name="show_on_qr_tag">Pokaż na zawieszce QR</string>
+    <string name="show_on_qr_tag">Pokaż na adresówce QR</string>
     <string name="secondary_phone_optional">Dodatkowy numer telefonu (opcjonalnie)</string>
-    <string name="contacts_qr_tag_info">Dane kontaktowe oznaczone jako widoczne będą wyświetlane na zawieszce QR twojego zwierzęcia, gdy ktoś ją zeskanuje.</string>
+    <string name="contacts_qr_tag_info">Dane kontaktowe oznaczone jako widoczne będą wyświetlane na adresówce QR twojego pupila, gdy ktoś ją zeskanuje.</string>
     <string name="contact_details">Dane kontaktowe</string>
 
     <!-- ============================================ -->
     <!-- MARK: Contact Visibility -->
     <!-- ============================================ -->
     <string name="contact_visibility">Widoczność danych kontaktowych</string>
-    <string name="contact_visibility_desc">Kontroluj, jakie dane kontaktowe są widoczne po zeskanowaniu nieśki QR twojego zwierzęcia</string>
+    <string name="contact_visibility_desc">Kontroluj, jakie dane kontaktowe są widoczne po zeskanowaniu nieśki QR twojego pupila</string>
     <string name="show_phone_number">Pokaż numer telefonu</string>
     <string name="show_phone_subtitle">Twój numer telefonu będzie widoczny dla znalazców</string>
     <string name="show_email_address">Pokaż adres e-mail</string>
@@ -652,9 +652,9 @@
     <string name="show_address">Pokaż adres</string>
     <string name="show_address_subtitle">Twój adres będzie widoczny dla znalazców</string>
     <string name="show_secondary_phone">Pokaż dodatkowy numer telefonu</string>
-    <string name="show_secondary_phone_subtitle">Wyświetlaj dodatkowy numer telefonu na publicznym profilu twojego zwierzęcia</string>
+    <string name="show_secondary_phone_subtitle">Wyświetlaj dodatkowy numer telefonu na publicznym profilu twojego pupila</string>
     <string name="show_secondary_email">Pokaż dodatkowy adres e-mail</string>
-    <string name="show_secondary_email_subtitle">Wyświetlaj dodatkowy adres e-mail na publicznym profilu twojego zwierzęcia</string>
+    <string name="show_secondary_email_subtitle">Wyświetlaj dodatkowy adres e-mail na publicznym profilu twojego pupila</string>
 
     <!-- ============================================ -->
     <!-- MARK: Privacy Mode -->
@@ -668,14 +668,14 @@
     <!-- MARK: Delete Account -->
     <!-- ============================================ -->
     <string name="delete_account">Usuń konto</string>
-    <string name="delete_account_warning">Ta operacja jest nieodwracalna. Wszystkie dane, w tym zwierzęta, alerty i zdjęcia, zostaną trwale usunięte.</string>
+    <string name="delete_account_warning">Ta operacja jest nieodwracalna. Wszystkie dane, w tym pupile, alerty i zdjęcia, zostaną trwale usunięte.</string>
     <string name="delete_account_confirm_prompt">Aby potwierdzić, wpisz poniżej DELETE:</string>
     <string name="type_delete_to_confirm">Wpisz DELETE</string>
     <string name="account_deleted">Konto usunięte</string>
     <string name="delete_account_failed">Nie udało się usunąć konta</string>
     <string name="cannot_delete_account">Nie można usunąć konta</string>
-    <string name="cannot_delete_missing_pets">Nie możesz usunąć konta, gdy masz zwierzęta oznaczone jako zaginione. Najpierw oznacz je jako odnalezione.</string>
-    <string name="missing_pets_label">Zaginione zwierzęta: %1$s</string>
+    <string name="cannot_delete_missing_pets">Nie możesz usunąć konta, gdy masz pupile oznaczone jako zaginione. Najpierw oznacz je jako odnalezione.</string>
+    <string name="missing_pets_label">Zaginione pupile: %1$s</string>
     <string name="checking_delete_eligibility">Sprawdzanie\u2026</string>
 
     <!-- ============================================ -->
@@ -707,18 +707,18 @@
 
     <!-- FAQ Items -->
     <!-- Guide Items -->
-    <string name="help_guide_qr_tags_title">Nieśki QR dla zwierząt</string>
-    <string name="help_guide_qr_tags_desc">Poznaj nasze nieśki QR dla społeczności zwierząt i dowiedz się, jak działają.</string>
+    <string name="help_guide_qr_tags_title">Nieśki QR dla pupili</string>
+    <string name="help_guide_qr_tags_desc">Poznaj nasze nieśki QR dla społeczności pupili i dowiedz się, jak działają.</string>
     <string name="help_guide_materials_title">Materiały i trwałość nieśki</string>
     <string name="help_guide_materials_desc">Informacje o używanych przez nas materiałach oraz o pielęgnacji nieśki.</string>
     <string name="help_guide_emergency_title">Kontakt i alerty awaryjne</string>
     <string name="help_guide_emergency_desc">Jak działa nasz system kontaktu awaryjnego, który pomaga szybko odzyskać zaginionego pupila.</string>
     <string name="help_guide_profile_title">Zarządzanie profilem pupila</string>
     <string name="help_guide_profile_desc">Zarządzanie publicznym profilem pupila i aktualizacja jego danych.</string>
-    <string name="help_guide_missing_alerts_title">Alerty o zaginionych zwierzętach i obserwacje</string>
-    <string name="help_guide_missing_alerts_desc">Jeśli twój pupil zaginie, oznacz go jako zaginionego w sekcji „Moje zwierzęta", aby natychmiast uruchomić alert społecznościowy. Zdjęcie i dane pupila pojawią się na mapie Zaginionych zwierząt widocznej dla wszystkich użytkowników SENRA w twojej okolicy. Wszyscy zarejestrowani użytkownicy w promieniu 10 km otrzymują powiadomienia e-mail i SMS, a członkowie społeczności mogą zgłaszać obserwacje z lokalizacją GPS. Zarejestrowani weterynarze i schroniska również otrzymują alert. Gdy pupil wróci do domu, oznacz go jako odnalezionego! Jeśli chcesz, podziel się historią jego powrotu, aby dodać otuchy innym.</string>
-    <string name="help_guide_community_title">Społeczność i odnalezione zwierzęta</string>
-    <string name="help_guide_community_desc">Siłą SENRA jest jej społeczność. Na mapie Zaginionych zwierząt widzisz aktywne alerty w pobliżu — sprawdź, czy w twojej okolicy zgłoszono zaginięcie. Strona Odnalezionych zwierząt świętuje szczęśliwe powroty i historie właścicieli. W systemie SENRA możesz zarejestrować własną klinikę weterynaryjną lub lokalne schronisko, dzięki czemu będą automatycznie otrzymywać powiadomienia o zaginionych zwierzętach — tworząc silniejszą sieć bezpieczeństwa dla wszystkich zwierząt w okolicy.</string>
+    <string name="help_guide_missing_alerts_title">Alerty o zaginionych pupilach i obserwacje</string>
+    <string name="help_guide_missing_alerts_desc">Jeśli twój pupil zaginie, oznacz go jako zaginionego w sekcji „Moje pupile", aby natychmiast uruchomić alert społecznościowy. Zdjęcie i dane pupila pojawią się na mapie Zaginionych pupili widocznej dla wszystkich użytkowników SENRA w twojej okolicy. Wszyscy zarejestrowani użytkownicy w promieniu 10 km otrzymują powiadomienia e-mail i SMS, a członkowie społeczności mogą zgłaszać obserwacje z lokalizacją GPS. Zarejestrowani weterynarze i schroniska również otrzymują alert. Gdy pupil wróci do domu, oznacz go jako odnalezionego! Jeśli chcesz, podziel się historią jego powrotu, aby dodać otuchy innym.</string>
+    <string name="help_guide_community_title">Społeczność i odnalezione pupile</string>
+    <string name="help_guide_community_desc">Siłą SENRA jest jej społeczność. Na mapie Zaginionych pupili widzisz aktywne alerty w pobliżu — sprawdź, czy w twojej okolicy zgłoszono zaginięcie. Strona Odnalezionych pupili świętuje szczęśliwe powroty i historie opiekunów. W systemie SENRA możesz zarejestrować własną klinikę weterynaryjną lub lokalne schronisko, dzięki czemu będą automatycznie otrzymywać powiadomienia o zaginionych pupilach — tworząc silniejszą sieć bezpieczeństwa dla wszystkich pupili w okolicy.</string>
     <!-- ============================================ -->
     <!-- MARK: Orders -->
     <!-- ============================================ -->
@@ -849,7 +849,7 @@
     <string name="referral_copy">Kopiuj</string>
     <string name="referral_share">Udostępnij</string>
     <string name="referral_pending">Oczekujące</string>
-    <string name="referral_share_text">Użyj mojego kodu polecającego %1$s i otrzymaj 2 miesiące Pet Safety za darmo! https://senra.pet/choose-plan?referral=%2$s</string>
+    <string name="referral_share_text">Użyj mojego kodu polecającego %1$s i otrzymaj 2 miesiące SENRA za darmo! https://senra.pet/choose-plan?referral=%2$s</string>
     <string name="referral_clipboard_label">Kod polecający</string>
     <string name="referral_use_friend_code">Użyj kodu znajomego</string>
     <string name="enter_friend_code">Wpisz kod polecający</string>
@@ -866,7 +866,7 @@
     <string name="push_prompt_benefit_scan">Natychmiastowe alerty po zeskanowaniu nieśki pupila</string>
     <string name="push_prompt_benefit_sighting">Zgłoszenia obserwacji od społeczności</string>
     <string name="push_prompt_benefit_found">Natychmiastowa informacja, gdy pupil zostanie odnaleziony</string>
-    <string name="push_prompt_benefit_missing">Alerty o zaginionych zwierzętach w twojej okolicy</string>
+    <string name="push_prompt_benefit_missing">Alerty o zaginionych pupilach w twojej okolicy</string>
     <string name="push_prompt_enable">Włącz powiadomienia</string>
     <string name="push_prompt_later">Może później</string>
 
@@ -884,9 +884,9 @@
     <string name="public_profile_preview">Podgląd profilu publicznego</string>
     <string name="failed_load_profile">Nie udało się załadować profilu</string>
     <string name="public_profile_subtitle">Tak inni widzą profil %1$s</string>
-    <string name="owner_notified_sms_email">Właściciel %1$s otrzyma SMS i e-mail z twoją lokalizacją</string>
-    <string name="contact_owner_plea">Proszę, daj znać mojemu właścicielowi, że mnie znalazłeś\u2026</string>
-    <string name="contact_owner_plea_full">Proszę, poinformuj mojego właściciela, że mnie znalazłeś. Możesz się z nim skontaktować korzystając z poniższych danych kontaktowych.</string>
+    <string name="owner_notified_sms_email">Opiekun %1$s otrzyma SMS i e-mail z twoją lokalizacją</string>
+    <string name="contact_owner_plea">Proszę, daj znać mojemu opiekunowi, że mnie znalazłeś\u2026</string>
+    <string name="contact_owner_plea_full">Proszę, poinformuj mojego opiekuna, że mnie znalazłeś. Możesz się z nim skontaktować korzystając z poniższych danych kontaktowych.</string>
     <string name="contact_info_not_set">Dane kontaktowe jeszcze nie zostały skonfigurowane</string>
     <string name="contact_info_hidden">Dane kontaktowe są ukryte</string>
     <string name="contact_info_hidden_hint">Twoje dane kontaktowe są ustawione, ale ukryte ze względu na ustawienia prywatności. Zaktualizuj w Konto \u2192 Tryb prywatności.</string>
@@ -895,19 +895,19 @@
     <string name="unique_features">Charakterystyczne cechy</string>
     <string name="behavior_notes">Uwagi o zachowaniu</string>
     <string name="how_it_works">Jak to działa</string>
-    <string name="help_reunite_pet">Pomóż bezpiecznie połączyć %1$s z właścicielem</string>
+    <string name="help_reunite_pet">Pomóż bezpiecznie połączyć %1$s z opiekunem</string>
     <string name="step_share_location">Udostępnij lokalizację</string>
-    <string name="step_share_location_desc">Kliknij przycisk powyżej, aby udostępnić lokalizację właścicielowi</string>
-    <string name="step_owner_notified">Właściciel otrzymał powiadomienie</string>
-    <string name="step_owner_notified_desc">Właściciel otrzyma SMS i e-mail z twoją lokalizacją</string>
+    <string name="step_share_location_desc">Kliknij przycisk powyżej, aby udostępnić lokalizację opiekunowi</string>
+    <string name="step_owner_notified">Opiekun otrzymał powiadomienie</string>
+    <string name="step_owner_notified_desc">Opiekun otrzyma SMS i e-mail z twoją lokalizacją</string>
     <string name="step_quick_reunion">Szybkie spotkanie</string>
-    <string name="step_quick_reunion_desc">Właściciel może dotrzeć do twojej lokalizacji, aby odebrać pupila</string>
+    <string name="step_quick_reunion_desc">Opiekun może dotrzeć do twojej lokalizacji, aby odebrać pupila</string>
     <string name="step_share_location_desc_public">Kliknij przycisk powyżej, aby udostępnić miejsce, gdzie znalazłeś %1$s</string>
-    <string name="step_owner_notified_desc_public">Właściciel otrzyma SMS z twoją lokalizacją w Google Maps</string>
-    <string name="step_quick_reunion_desc_public">Pozostań w pobliżu miejsca, aby właściciel mógł cię znaleźć i odebrać %1$s</string>
-    <string name="owner_phone_label">Telefon właściciela: %1$s</string>
-    <string name="owner_email_label">E-mail właściciela: %1$s</string>
-    <string name="your_privacy_notice">Twoja prywatność jest ważna. Twoją lokalizację udostępnimy właścicielowi %1$s wyłącznie za twoją wyraźną zgodą.</string>
+    <string name="step_owner_notified_desc_public">Opiekun otrzyma SMS z twoją lokalizacją w Google Maps</string>
+    <string name="step_quick_reunion_desc_public">Pozostań w pobliżu miejsca, aby opiekun mógł cię znaleźć i odebrać %1$s</string>
+    <string name="owner_phone_label">Telefon opiekuna: %1$s</string>
+    <string name="owner_email_label">E-mail opiekuna: %1$s</string>
+    <string name="your_privacy_notice">Twoja prywatność jest ważna. Twoją lokalizację udostępnimy opiekunowi %1$s wyłącznie za twoją wyraźną zgodą.</string>
 
     <!-- ============================================ -->
     <!-- MARK: Offline Mode -->
@@ -950,8 +950,8 @@
     <string name="error_login_failed">Logowanie nieudane</string>
     <string name="error_verification_failed">Weryfikacja nieudana</string>
     <string name="error_submit_support">Nie udało się wysłać zgłoszenia do pomocy technicznej</string>
-    <string name="error_load_pets">Nie udało się załadować zwierząt</string>
-    <string name="error_refresh_pets">Nie udało się odświeżyć zwierząt</string>
+    <string name="error_load_pets">Nie udało się załadować pupili</string>
+    <string name="error_refresh_pets">Nie udało się odświeżyć pupili</string>
     <string name="error_load_alerts">Nie udało się załadować alertów</string>
     <string name="error_load_pet_profile">Nie udało się załadować profilu pupila</string>
     <string name="error_load_stories">Nie udało się załadować historii</string>
@@ -1005,7 +1005,7 @@
     <!-- ============================================ -->
     <string name="reunion_template">%1$s wrócił do domu. Po %2$s poszukiwań %3$s szczęśliwie znowu jest z rodziną. Dziękujemy naszej wspaniałej społeczności za pomoc w powrocie %4$s!</string>
     <string name="reunion_template_no_time">%1$s znowu jest z rodziną! Dziękujemy naszej wspaniałej społeczności za pomoc w powrocie %2$s!</string>
-    <string name="owners_story">Historia właściciela:</string>
+    <string name="owners_story">Historia opiekuna:</string>
     <string name="post_to_success_stories">Opublikuj w historiach sukcesu</string>
     <string name="remove_from_success_stories">Usuń z historii sukcesu</string>
     <string name="removed_from_success_stories">Usunięto z historii sukcesu</string>
@@ -1061,7 +1061,7 @@
     <string name="guides_title">Poradniki użytkownika</string>
     <string name="help_faq_group_getting_started">Pierwsze kroki</string>
     <string name="help_faq_group_tags_scanning">Nieśki i skanowanie</string>
-    <string name="help_faq_group_missing_pets">Zaginione zwierzęta i alerty</string>
+    <string name="help_faq_group_missing_pets">Zaginione pupile i alerty</string>
     <string name="help_faq_group_billing_plans">Rozliczenia i plany</string>
     <string name="help_faq_group_privacy_account">Prywatność i konto</string>
     <string name="help_faq_group_troubleshooting">Rozwiązywanie problemów</string>
@@ -1080,7 +1080,7 @@
 
     <!-- Gift order -->
     <string name="order_gift_toggle">Zamów jako prezent</string>
-    <string name="order_gift_description">Imiona zwierząt są opcjonalne w zamówieniach prezentowych. Odbiorca może je dodać podczas aktywacji znaczników.</string>
+    <string name="order_gift_description">Imiona pupili są opcjonalne w zamówieniach prezentowych. Odbiorca może je dodać podczas aktywacji znaczników.</string>
     <string name="order_gift_quantity">Liczba znaczników</string>
     <string name="order_gift_recipient_name">Imię odbiorcy (opcjonalnie)</string>
     <string name="order_gift_message">Wiadomość prezentowa (opcjonalnie)</string>
@@ -1109,28 +1109,28 @@
     <string name="status_pending">Oczekujące</string>
     <string name="activation_help_title">Jak aktywować nieśkę</string>
     <string name="activation_help_step1">Poczekaj na dostarczenie nieśki</string>
-    <string name="activation_help_step2">Zeskanuj kod QR na zawieszce</string>
-    <string name="activation_help_step3">Wybierz zwierzaka do powiązania</string>
+    <string name="activation_help_step2">Zeskanuj kod QR na adresówce</string>
+    <string name="activation_help_step3">Wybierz pupila do powiązania</string>
     <string name="activation_help_step4">Wybierz plan subskrypcji</string>
-    <string name="pets_from_order">Zwierzęta z Twojego zamówienia</string>
+    <string name="pets_from_order">Pupile z Twojego zamówienia</string>
     <string name="from_your_order">Z Twojego zamówienia</string>
     <string name="needs_profile">Potrzebuje profilu</string>
     <string name="create_profile_for">Utwórz profil dla %1$s</string>
-    <string name="other_pets">Inne zwierzęta</string>
+    <string name="other_pets">Inne pupile</string>
     <string name="link_to_pet">Połącz z %1$s</string>
-    <string name="no_pets_yet">Jeszcze brak zwierząt</string>
-    <string name="create_first_pet">Utwórz profil zwierzęcia, aby aktywować nieśkę.</string>
-    <string name="create_new_pet">Utwórz nowe zwierzę</string>
+    <string name="no_pets_yet">Jeszcze brak pupili</string>
+    <string name="create_first_pet">Utwórz profil pupila, aby aktywować nieśkę.</string>
+    <string name="create_new_pet">Utwórz nowe pupila</string>
     <string name="notifications_title">Powiadomienia</string>
     <string name="no_notifications">Brak powiadomień</string>
-    <string name="no_notifications_desc">Wszystko aktualne! Powiadomienia pojawią się tutaj, gdy ktoś zeskanuje nieśkę Twojego zwierzęcia.</string>
+    <string name="no_notifications_desc">Wszystko aktualne! Powiadomienia pojawią się tutaj, gdy ktoś zeskanuje nieśkę Twojego pupila.</string>
     <string name="mark_all_read">Oznacz wszystkie jako przeczytane</string>
-    <string name="create_profile_hint">Najpierw utwórz profil zwierzęcia, następnie ponownie zeskanuj nieśkę, aby ją aktywować.</string>
+    <string name="create_profile_hint">Najpierw utwórz profil pupila, następnie ponownie zeskanuj nieśkę, aby ją aktywować.</string>
     <string name="activation_error_qr_not_found">Kod QR nie został rozpoznany. Upewnij się, że skanujesz oficjalną nieśkę SENRA.</string>
-    <string name="activation_error_already_activated">Ta nieśka jest już przypisana do innego zwierzęcia. Skontaktuj się ze wsparciem.</string>
+    <string name="activation_error_already_activated">Ta nieśka jest już przypisana do innego pupila. Skontaktuj się ze wsparciem.</string>
     <string name="activation_error_not_linked">Ta nieśka nie została jeszcze przypisana do Twojego zamówienia. Poczekaj na potwierdzenie wysyłki.</string>
     <string name="activation_error_not_shipped">Twoje zamówienie nie zostało jeszcze wysłane. Poczekaj na dostawę.</string>
-    <string name="activation_error_not_owner">To nie jest Twoje zwierzę. Wybierz jedno ze swoich zwierząt.</string>
+    <string name="activation_error_not_owner">To nie jest Twoje pupila. Wybierz jedno ze swoich pupili.</string>
 
     <!-- Allergies & Medications -->
     <string name="allergies_label">Alergie</string>
@@ -1240,17 +1240,17 @@
     <string name="breed_cat_toyger">Toyger</string>
     <string name="breed_cat_chausie">Chausie</string>
     <string name="reunion_city_label">Miasto (opcjonalnie)</string>
-    <string name="reunion_city_placeholder">Gdzie znaleziono Twoje zwierzę?</string>
+    <string name="reunion_city_placeholder">Gdzie znaleziono Twoje pupila?</string>
 
     <!-- Pet form warnings -->
-    <string name="profile_incomplete_warning">Uzupełnij profil zwierzęcia</string>
-    <string name="profile_incomplete_desc">Brakujące dane utrudniają odnalezienie zwierzęcia. Uzupełnij wagę, kolor i informacje medyczne.</string>
+    <string name="profile_incomplete_warning">Uzupełnij profil pupila</string>
+    <string name="profile_incomplete_desc">Brakujące dane utrudniają odnalezienie pupila. Uzupełnij wagę, kolor i informacje medyczne.</string>
     <string name="identity_locked_title">Imię, gatunek i rasa są zablokowane</string>
     <string name="identity_locked_desc">Tych pól nie można zmienić po aktywacji nieśki.</string>
 
     <!-- Shelter Adoption -->
-    <string name="trial_ends_on">Trial ends on</string>
-    <string name="trial_upgrade_now">Upgrade now to keep your features!</string>
+    <string name="trial_ends_on">Okres próbny kończy się</string>
+    <string name="trial_upgrade_now">Zaktualizuj teraz, aby zachować swoje funkcje!</string>
     <!-- Referral Status -->
     <string name="referral_status_pending">Oczekujące</string>
     <string name="referral_status_signed_up">Zarejestrowany</string>
@@ -1275,10 +1275,10 @@
     <string name="share_location_title">Udostępnij lokalizację</string>
     <string name="share_location_exact">Udostępnij dokładną lokalizację</string>
     <string name="share_location_approximate">Udostępnij przybliżoną lokalizację (~100m)</string>
-    <string name="share_location_exact_note">Właściciel zobaczy dokładne współrzędne GPS</string>
-    <string name="share_location_approximate_note">Właściciel zobaczy przybliżony obszar</string>
+    <string name="share_location_exact_note">Opiekun zobaczy dokładne współrzędne GPS</string>
+    <string name="share_location_approximate_note">Opiekun zobaczy przybliżony obszar</string>
     <string name="share_location_confirm">Udostępnij</string>
-    <string name="share_location_success">Lokalizacja udostępniona! Właściciel został powiadomiony.</string>
+    <string name="share_location_success">Lokalizacja udostępniona! Opiekun został powiadomiony.</string>
     <string name="share_location_denied">Wymagane uprawnienie do lokalizacji, aby udostępnić swoją lokalizację</string>
     <string name="share_location_error">Nie udało się udostępnić lokalizacji. Spróbuj ponownie.</string>
 
@@ -1316,28 +1316,28 @@
     <string name="weight_helper">Waga w kg (np. 4,5)</string>
 
     <string name="welcome_to_senra">Witaj w SENRA!</string>
-    <string name="welcome_subtitle">Bezpieczeństwo Twojego zwierzaka zaczyna się tutaj. Skonfiguruj swoją pierwszą plakietkę.</string>
+    <string name="welcome_subtitle">Bezpieczeństwo Twojego pupila zaczyna się tutaj. Skonfiguruj swoją pierwszą adresówkę.</string>
     <string name="welcome_step_1">Zeskanuj kod QR na plakietce</string>
-    <string name="welcome_step_2">Utwórz profil swojego zwierzaka</string>
-    <string name="welcome_step_3">Twój zwierzak jest chroniony!</string>
-    <string name="welcome_scan_first_tag">Skanuj pierwszą plakietkę</string>
+    <string name="welcome_step_2">Utwórz profil swojego pupila</string>
+    <string name="welcome_step_3">Twój pupil jest chroniony!</string>
+    <string name="welcome_scan_first_tag">Skanuj adresówkę</string>
     <string name="welcome_explore_account">Przeglądaj swoje konto</string>
-    <string name="setup_your_tags">Skonfiguruj plakietki</string>
-    <string name="setup_your_tags_subtitle">Zamówiłeś plakietki dla tych zwierząt:</string>
+    <string name="setup_your_tags">Skonfiguruj adresówki</string>
+    <string name="setup_your_tags_subtitle">Zamówiłeś adresówki dla tych pupili:</string>
     <string name="ready_to_setup">Gotowe do konfiguracji</string>
     <string name="already_activated">Już aktywowana</string>
-    <string name="setting_up_tag_for">Konfiguracja plakietki dla %s</string>
-    <string name="tag_activated_for">Plakietka aktywowana dla %s!</string>
-    <string name="pet_now_protected">Twój zwierzak jest teraz chroniony przez SENRA</string>
-    <string name="more_tags_to_setup">Masz jeszcze plakietki do skonfigurowania</string>
-    <string name="setup_pet_tag">Skonfiguruj plakietkę %s</string>
+    <string name="setting_up_tag_for">Konfiguracja adresówki dla %s</string>
+    <string name="tag_activated_for">Adresówka aktywowana dla %s!</string>
+    <string name="pet_now_protected">Twój pupil jest teraz chroniony przez SENRA</string>
+    <string name="more_tags_to_setup">Masz jeszcze adresówki do skonfigurowania</string>
+    <string name="setup_pet_tag">Skonfiguruj adresówkę %s</string>
     <string name="whats_next">Co dalej?</string>
     <string name="choose_subscription_plan">Wybierz plan subskrypcji</string>
     <string name="register_your_vet">Zarejestruj swojego weterynarza</string>
     <string name="update_contact_details">Zaktualizuj dane kontaktowe i prywatność</string>
     <string name="go_to_home">Przejdź na stronę główną</string>
     <string name="thank_you_senra">Dziękujemy za korzystanie z SENRA!</string>
-    <string name="tap_pet_name_hint">Dotknij imienia zwierzaka, aby skonfigurować plakietkę</string>
+    <string name="tap_pet_name_hint">Dotknij imienia pupila, aby skonfigurować adresówkę</string>
     <plurals name="age_years">
         <item quantity="one">%d rok</item>
         <item quantity="other">%d lat</item>
@@ -1349,62 +1349,62 @@
     <string name="show_name">Wyświetlanie imienia</string>
     <string name="show_name_subtitle">Twoje imię będzie widoczne na publicznym profilu pupila przy skanowaniu znacznika</string>
     <!-- FAQ Questions and Answers -->
-    <string name="help_faq_q1">Jak zarejestrować mojego zwierzaka?</string>
-    <string name="help_faq_a1">Możesz zarejestrować swojego zwierzaka w menu \'Moje Zwierzaki\' klikając \'Dodaj Nowego Zwierzaka\'. Wypełnij wymagane informacje i prześlij jedno lub więcej zdjęć.</string>
-    <string name="help_faq_q2">Jakie informacje powinienem podać w profilu mojego zwierzaka?</string>
-    <string name="help_faq_a2">Imię zwierzaka podałeś już przy zamawianiu plakietki i pojawi się ono w profilu zwierzaka po aktywacji plakietki. Wprowadź gatunek i rasę. Aby zapobiec nadużyciom, te dane można wprowadzić tylko raz. Jeśli popełnisz błąd, skontaktuj się z nami, a pomożemy. Tutaj możesz też dodać wagę, wiek, kolor i wszelkie cechy szczególne lub typowe zachowania kota/psa. Możesz też przesłać zdjęcia. Ty decydujesz, jakie informacje będą widoczne o Twoim zwierzaku, jeśli się zgubi.</string>
-    <string name="help_faq_q3">Jak działa plakietka z kodem QR?</string>
-    <string name="help_faq_a3">Każdy zwierzak otrzymuje unikalną plakietkę z kodem QR. Ten kod jest powiązany z profilem Twojego zwierzaka. Gdy ktoś zeskanuje kod QR telefonem, może natychmiast zobaczyć profil zwierzaka i dane kontaktowe oznaczone jako publiczne.</string>
-    <string name="help_faq_q4">Czy mogę później zaktualizować dane mojego zwierzaka?</string>
-    <string name="help_faq_a4">Tak! Możesz aktualizować dane zwierzaka w dowolnym momencie w sekcji \'Moje Zwierzaki\' wybierając zwierzaka i klikając \'Edytuj Profil\'. Możesz aktualizować wszystkie pola z wyjątkiem imienia, gatunku i rasy, łącznie ze zdjęciami. Zmiany są zapisywane natychmiast.</string>
-    <string name="help_faq_q5">Jak zamówić plakietkę zastępczą?</string>
-    <string name="help_faq_a5">Przejdź do \'Strona Główna/Moje Konto\' i kliknij \'Zamów Plakietkę Zastępczą\'. Wybierz, który zwierzak potrzebuje nowej plakietki. Subskrybenci Maximum i Standard mogą żądać bezpłatnych zamienników, członkowie Starter płacą koszt wysyłki.</string>
-    <string name="help_faq_q6">Jak aktywować plakietkę po jej otrzymaniu?</string>
-    <string name="help_faq_a6">Pobierz aplikację mobilną SENRA z Google Play lub App Store! Otwórz ją i przejdź do menu \'Aktywacja\', skieruj aparat telefonu na kod QR na plakietce! Skanowanie łączy plakietkę z Twoim kontem. Następnie wybierz istniejącego zwierzaka lub utwórz nowy profil. Po aktywacji możesz wybrać plan subskrypcji.</string>
-    <string name="help_faq_q7">Czy mogę podarować plakietkę SENRA?</string>
-    <string name="help_faq_a7">Tak! Plakietki SENRA to świetne prezenty dla właścicieli zwierząt. Zamów plakietkę ze swojego konta — gdy obdarowany ją otrzyma, może zeskanować kod QR, utworzyć konto i aktywować plakietkę dla swojego zwierzaka.</string>
-    <string name="help_faq_q8">Co powinienem zrobić, jeśli mój zwierzak zaginął?</string>
-    <string name="help_faq_a8">Przejdź do \'Moje Zwierzaki\', kliknij menu na karcie zwierzaka i wybierz \'Oznacz jako Zaginionego\'. To tworzy \'alert o zaginionym zwierzaku\' wysyłany do wszystkich członków społeczności SENRA w promieniu 10 km. Weterynarze i schroniska również są powiadamiani. Otrzymasz natychmiastowe powiadomienie o każdym spostrzeżeniu.</string>
-    <string name="help_faq_q9">Jak działają alerty o zaginionych zwierzakach?</string>
-    <string name="help_faq_a9">Gdy oznaczysz kota lub psa jako zaginionego, tworzony jest alert ze zdjęciem i danymi zwierzaka. Użytkownicy SENRA w promieniu 10 km są natychmiast powiadamiani, a zwierzak pojawia się na mapie \'Zaginione Zwierzaki\'. Weterynarze i schroniska zarejestrowane w systemie SENRA również otrzymują alert.</string>
-    <string name="help_faq_q10">Jak zamówić plakietkę zastępczą?</string>
+    <string name="help_faq_q1">Jak zarejestrować mojego pupila?</string>
+    <string name="help_faq_a1">Możesz zarejestrować swojego pupila w menu \'Moje Pupile\' klikając \'Dodaj Nowego Zwierzaka\'. Wypełnij wymagane informacje i prześlij jedno lub więcej zdjęć.</string>
+    <string name="help_faq_q2">Jakie informacje powinienem podać w profilu mojego pupila?</string>
+    <string name="help_faq_a2">Imię pupila podałeś już przy zamawianiu adresówki i pojawi się ono w profilu pupila po aktywacji adresówki. Wprowadź gatunek i rasę. Aby zapobiec nadużyciom, te dane można wprowadzić tylko raz. Jeśli popełnisz błąd, skontaktuj się z nami, a pomożemy. Tutaj możesz też dodać wagę, wiek, kolor i wszelkie cechy szczególne lub typowe zachowania kota/psa. Możesz też przesłać zdjęcia. Ty decydujesz, jakie informacje będą widoczne o Twoim pupilu, jeśli się zgubi.</string>
+    <string name="help_faq_q3">Jak działa adresówka z kodem QR?</string>
+    <string name="help_faq_a3">Każdy pupil otrzymuje unikalną adresówkę z kodem QR. Ten kod jest powiązany z profilem Twojego pupila. Gdy ktoś zeskanuje kod QR telefonem, może natychmiast zobaczyć profil pupila i dane kontaktowe oznaczone jako publiczne.</string>
+    <string name="help_faq_q4">Czy mogę później zaktualizować dane mojego pupila?</string>
+    <string name="help_faq_a4">Tak! Możesz aktualizować dane pupila w dowolnym momencie w sekcji \'Moje Pupile\' wybierając pupila i klikając \'Edytuj Profil\'. Możesz aktualizować wszystkie pola z wyjątkiem imienia, gatunku i rasy, łącznie ze zdjęciami. Zmiany są zapisywane natychmiast.</string>
+    <string name="help_faq_q5">Jak zamówić adresówkę zastępczą?</string>
+    <string name="help_faq_a5">Przejdź do \'Strona Główna/Moje Konto\' i kliknij \'Zamów Plakietkę Zastępczą\'. Wybierz, który pupil potrzebuje nowej adresówki. Subskrybenci Maximum i Standard mogą żądać bezpłatnych zamienników, członkowie Starter płacą koszt wysyłki.</string>
+    <string name="help_faq_q6">Jak aktywować adresówkę po jej otrzymaniu?</string>
+    <string name="help_faq_a6">Pobierz aplikację mobilną SENRA z Google Play lub App Store! Otwórz ją i przejdź do menu \'Aktywacja\', skieruj aparat telefonu na kod QR na plakietce! Skanowanie łączy adresówkę z Twoim kontem. Następnie wybierz istniejącego pupila lub utwórz nowy profil. Po aktywacji możesz wybrać plan subskrypcji.</string>
+    <string name="help_faq_q7">Czy mogę podarować adresówkę SENRA?</string>
+    <string name="help_faq_a7">Tak! Plakietki SENRA to świetne prezenty dla opiekunów pupili. Zamów adresówkę ze swojego konta — gdy obdarowany ją otrzyma, może zeskanować kod QR, utworzyć konto i aktywować adresówkę dla swojego pupila.</string>
+    <string name="help_faq_q8">Co powinienem zrobić, jeśli mój pupil zaginął?</string>
+    <string name="help_faq_a8">Przejdź do \'Moje Pupile\', kliknij menu na karcie pupila i wybierz \'Oznacz jako Zaginionego\'. To tworzy \'alert o zaginionym pupilu\' wysyłany do wszystkich członków społeczności SENRA w promieniu 10 km. Weterynarze i schroniska również są powiadamiani. Otrzymasz natychmiastowe powiadomienie o każdym spostrzeżeniu.</string>
+    <string name="help_faq_q9">Jak działają alerty o zaginionych pupilach?</string>
+    <string name="help_faq_a9">Gdy oznaczysz kota lub psa jako zaginionego, tworzony jest alert ze zdjęciem i danymi pupila. Użytkownicy SENRA w promieniu 10 km są natychmiast powiadamiani, a pupil pojawia się na mapie \'Zaginione Pupile\'. Weterynarze i schroniska zarejestrowane w systemie SENRA również otrzymują alert.</string>
+    <string name="help_faq_q10">Jak zamówić adresówkę zastępczą?</string>
     <string name="help_faq_a10">Przejdź do \'Strona Główna/Moje Konto\' i kliknij \'Zamów Plakietkę Zastępczą\'. Subskrybenci Maximum i Standard mogą żądać bezpłatnych zamienników, członkowie Starter płacą koszt wysyłki.</string>
     <string name="help_faq_q11">Czym jest program poleceń?</string>
     <string name="help_faq_a11">W menu Polecenia na stronie Profilu możesz wygenerować osobisty kod polecający. Podziel się nim z przyjaciółmi i rodziną. Gdy ktoś użyje Twojego kodu i wykupi płatny plan (Standard lub Maximum), Ty i Twój przyjaciel otrzymujecie 2 miesiące za darmo.</string>
     <string name="help_faq_q12">Do jakich krajów wysyłacie?</string>
     <string name="help_faq_a12">Obecnie wysyłamy do Węgier, Słowacji, Czech, Austrii, Rumunii, Chorwacji, Hiszpanii, Włoch, Francji, Niemiec, Norwegii i Portugalii. Wysyłka krajowa na Węgrzech: {{huPostapoint}} (PostaPont) lub {{huHome}} (dostawa do domu). Wysyłka międzynarodowa: {{intlPrice}} za zamówienie.</string>
-    <string name="help_faq_q13">Czy mogę mieć wiele zwierząt na jednym koncie?</string>
-    <string name="help_faq_a13">Tak. Z planem Starter (bezpłatnym) możesz zarejestrować do 10 zwierząt z ograniczonymi funkcjami. Plan Standard jest dla jednego kota lub psa ze wszystkimi funkcjami. Plan Maximum obejmuje wszystko z rejestracją do 10 zwierząt.</string>
-    <string name="help_faq_q14">Jak zgłosić znalezione zwierzę?</string>
-    <string name="help_faq_a14">Jeśli zwierzę ma plakietkę SENRA, po prostu zeskanuj kod QR aparatem — nie potrzebujesz aplikacji. Możesz zobaczyć profil zwierzaka i udostępnić swoją lokalizację właścicielowi.</string>
+    <string name="help_faq_q13">Czy mogę mieć wiele pupili na jednym koncie?</string>
+    <string name="help_faq_a13">Tak. Z planem Starter (bezpłatnym) możesz zarejestrować do 10 pupili z ograniczonymi funkcjami. Plan Standard jest dla jednego kota lub psa ze wszystkimi funkcjami. Plan Maximum obejmuje wszystko z rejestracją do 10 pupili.</string>
+    <string name="help_faq_q14">Jak zgłosić znalezione pupila?</string>
+    <string name="help_faq_a14">Jeśli pupila ma adresówkę SENRA, po prostu zeskanuj kod QR aparatem — nie potrzebujesz aplikacji. Możesz zobaczyć profil pupila i udostępnić swoją lokalizację opiekunowi.</string>
     <string name="help_faq_q15">Czy moje dane osobowe są bezpieczne?</string>
-    <string name="help_faq_a15">Tak. Ty kontrolujesz, jakie dane są widoczne po zeskanowaniu plakietki. W \'Ustawienia\' &gt; \'Ustawienia Prywatności\' możesz wybrać, czy pokazywać telefon, email czy adres. Logowanie jest chronione jednorazowym kodem weryfikacyjnym. Możesz usunąć konto i dane w dowolnym momencie.</string>
-    <string name="help_faq_q16">Zgubiliśmy plakietkę lub się uszkodziła — co robić?</string>
-    <string name="help_faq_a16">Nie martw się — profil cyfrowy jest bezpieczny i nie jest przechowywany na plakietce. Przejdź do strony Konto i kliknij \'Zamów Zamiennik\'. Połączymy nową plakietkę z nowym kodem QR z istniejącym profilem. Subskrybenci Standard i Maximum mogą żądać nieograniczonych bezpłatnych zamienników. Stara plakietka jest natychmiast dezaktywowana.</string>
-    <string name="help_faq_q17">Moja plakietka nie skanuje się — co robić?</string>
+    <string name="help_faq_a15">Tak. Ty kontrolujesz, jakie dane są widoczne po zeskanowaniu adresówki. W \'Ustawienia\' &gt; \'Ustawienia Prywatności\' możesz wybrać, czy pokazywać telefon, email czy adres. Logowanie jest chronione jednorazowym kodem weryfikacyjnym. Możesz usunąć konto i dane w dowolnym momencie.</string>
+    <string name="help_faq_q16">Zgubiliśmy adresówkę lub się uszkodziła — co robić?</string>
+    <string name="help_faq_a16">Nie martw się — profil cyfrowy jest bezpieczny i nie jest przechowywany na plakietce. Przejdź do strony Konto i kliknij \'Zamów Zamiennik\'. Połączymy nową adresówkę z nowym kodem QR z istniejącym profilem. Subskrybenci Standard i Maximum mogą żądać nieograniczonych bezpłatnych zamienników. Stara adresówka jest natychmiast dezaktywowana.</string>
+    <string name="help_faq_q17">Moja adresówka nie skanuje się — co robić?</string>
     <string name="help_faq_a17">Spróbuj: wyczyść powierzchnię wilgotną ściereczką, zapewnij dobre oświetlenie, trzymaj aparat stabilnie w odległości 10-15 cm. Jeśli kod QR jest porysowany lub zużyty, zamów bezpłatny zamiennik z \'Strona Główna/Moje Konto\'.</string>
-    <string name="help_faq_q18">Znalazłem zwierzę bez plakietki SENRA — co mogę zrobić?</string>
-    <string name="help_faq_a18">Sprawdź mapę Zaginionych Zwierząt na stronie SENRA (senra.pet). Możesz też zobaczyć alerty w aplikacji. Zanieś zwierzę do najbliższego weterynarza, aby zeskanować mikrochip. Jeśli ma plakietkę SENRA, zeskanuj kod QR — pojawią się dane kontaktowe właściciela. Zawsze powiadom też lokalne władze i pobliskie schroniska.</string>
+    <string name="help_faq_q18">Znalazłem pupila bez adresówki SENRA — co mogę zrobić?</string>
+    <string name="help_faq_a18">Sprawdź mapę Zaginionych Zwierząt na stronie SENRA (senra.pet). Możesz też zobaczyć alerty w aplikacji. Zanieś pupila do najbliższego weterynarza, aby zeskanować mikrochip. Jeśli ma adresówkę SENRA, zeskanuj kod QR — pojawią się dane kontaktowe opiekuna. Zawsze powiadom też lokalne władze i pobliskie schroniska.</string>
     <string name="help_faq_q19">Czy mogę zmienić swój adres email?</string>
     <string name="help_faq_a19">Twój główny email służy jako identyfikator konta i nie można go bezpośrednio zmienić. Możesz dodać dodatkowy email w \'Ustawienia\' &gt; \'Dane Kontaktowe\'. Jeśli koniecznie musisz zmienić główny email, skontaktuj się z nami na hello@senra.pet.</string>
-    <string name="help_faq_q20">Jaka jest różnica między mikrochipem a plakietką QR SENRA?</string>
-    <string name="help_faq_a20">Mikrochip to mały implant pod skórą zwierzaka przechowujący unikalny 15-cyfrowy identyfikator — ale wymaga specjalnego czytnika. Plakietka QR SENRA może być łatwo zeskanowana dowolnym aparatem smartfona, natychmiast wyświetlając pełny profil, zdjęcie i zatwierdzone dane kontaktowe. Znalazca może też udostępnić współrzędne GPS.</string>
+    <string name="help_faq_q20">Jaka jest różnica między mikrochipem a adresówką QR SENRA?</string>
+    <string name="help_faq_a20">Mikrochip to mały implant pod skórą pupila przechowujący unikalny 15-cyfrowy identyfikator — ale wymaga specjalnego czytnika. Adresówka QR SENRA może być łatwo zeskanowana dowolnym aparatem smartfona, natychmiast wyświetlając pełny profil, zdjęcie i zatwierdzone dane kontaktowe. Znalazca może też udostępnić współrzędne GPS.</string>
     <string name="help_faq_q21">Co się stanie z moimi danymi, jeśli anuluję subskrypcję?</string>
-    <string name="help_faq_a21">Jeśli anulujesz, zachowujesz dostęp do płatnych funkcji do końca okresu rozliczeniowego. Potem konto przechodzi na bezpłatny plan Starter. Profile, zdjęcia i plakietki QR pozostają aktywne. Dane nie są usuwane. Aby trwale usunąć wszystko, użyj opcji Usuń Konto w Ustawieniach.</string>
+    <string name="help_faq_a21">Jeśli anulujesz, zachowujesz dostęp do płatnych funkcji do końca okresu rozliczeniowego. Potem konto przechodzi na bezpłatny plan Starter. Profile, zdjęcia i adresówki QR pozostają aktywne. Dane nie są usuwane. Aby trwale usunąć wszystko, użyj opcji Usuń Konto w Ustawieniach.</string>
     <string name="help_faq_q22">Jak mogę zarejestrować moją klinikę lub schronisko w SENRA?</string>
-    <string name="help_faq_a22">Kliniki weterynaryjne i schroniska mogą się zarejestrować na senra.pet/register-vet-shelter. Wypełnij dane i wyślemy email weryfikacyjny. Po potwierdzeniu automatycznie wysyłamy powiadomienia gdy zwierzaki giną w okolicy. Bez opłat i bez logowania.</string>
-    <string name="help_faq_q23">Jak mogę podzielić się historią sukcesu, jeśli mój zwierzak został odnaleziony?</string>
-    <string name="help_faq_a23">Gdy oznaczysz zwierzaka jako \'Odnaleziony\', zapytamy, czy chcesz podzielić się dobrą wiadomością. Możesz opublikować krótką historię. Publiczne historie pojawiają się na mapie \'Odnalezione Zwierzaki\'.</string>
+    <string name="help_faq_a22">Kliniki weterynaryjne i schroniska mogą się zarejestrować na senra.pet/register-vet-shelter. Wypełnij dane i wyślemy email weryfikacyjny. Po potwierdzeniu automatycznie wysyłamy powiadomienia gdy pupile giną w okolicy. Bez opłat i bez logowania.</string>
+    <string name="help_faq_q23">Jak mogę podzielić się historią sukcesu, jeśli mój pupil został odnaleziony?</string>
+    <string name="help_faq_a23">Gdy oznaczysz pupila jako \'Odnaleziony\', zapytamy, czy chcesz podzielić się dobrą wiadomością. Możesz opublikować krótką historię. Publiczne historie pojawiają się na mapie \'Odnalezione Pupile\'.</string>
     <string name="help_faq_q24">Jakie przeglądarki i urządzenia są obsługiwane?</string>
-    <string name="help_faq_a24">SENRA działa we wszystkich przeglądarkach, w tym Chrome, Safari, Firefox i Edge, na urządzeniach mobilnych i stacjonarnych. Skanowanie plakietki QR działa z dowolnym aparatem smartfona — znalazca nie potrzebuje aplikacji SENRA ani konta.</string>
-    <string name="help_faq_q25">Czy mogę zamówić wiele plakietek dla moich zwierząt naraz?</string>
-    <string name="help_faq_a25">Tak, możesz zamówić plakietki dla wszystkich zwierząt jednocześnie. Po dostawie zeskanuj każdą, aby aktywować i przypisać do odpowiedniego profilu.</string>
-    <string name="help_faq_q26">Jak alerty o zaginionych zwierzakach docierają do weterynarzy i schronisk?</string>
-    <string name="help_faq_a26">Gdy oznaczysz zwierzaka jako \'Zaginionego\', SENRA automatycznie wysyła alerty emailowe do wszystkich zarejestrowanych weterynarzy i schronisk w okolicy. Im więcej zarejestrowanych, tym lepiej działa sieć.</string>
-    <string name="help_faq_q27">Czy mogę przenieść plakietkę na inne zwierzę?</string>
-    <string name="help_faq_a27">Nie. Każda plakietka QR jest trwale powiązana z profilem jednego zwierzaka. Jeśli zwierzak umrze lub nie potrzebujesz już plakietki, staje się po prostu nieaktywna. Zamów nową plakietkę dla nowego zwierzaka na stronie SENRA.</string>
-    <string name="help_faq_q28">Jak mogę zarejestrować klinikę weterynaryjną mojego zwierzaka lub schronisko, z którego adoptowałem zwierzaka, w sieci SENRA?</string>
-    <string name="help_faq_a28">Kliniki weterynaryjne i schroniska mogą się zarejestrować na senra.pet/register-vet-shelter. Wypełnij dane i wyślemy email weryfikacyjny. Po potwierdzeniu automatycznie wysyłamy powiadomienia — pomagając zaginionym zwierzakom szybciej wrócić do domu. Bez opłat i bez logowania.</string>
+    <string name="help_faq_a24">SENRA działa we wszystkich przeglądarkach, w tym Chrome, Safari, Firefox i Edge, na urządzeniach mobilnych i stacjonarnych. Skanowanie adresówki QR działa z dowolnym aparatem smartfona — znalazca nie potrzebuje aplikacji SENRA ani konta.</string>
+    <string name="help_faq_q25">Czy mogę zamówić wiele plakietek dla moich pupili naraz?</string>
+    <string name="help_faq_a25">Tak, możesz zamówić adresówki dla wszystkich pupili jednocześnie. Po dostawie zeskanuj każdą, aby aktywować i przypisać do odpowiedniego profilu.</string>
+    <string name="help_faq_q26">Jak alerty o zaginionych pupilach docierają do weterynarzy i schronisk?</string>
+    <string name="help_faq_a26">Gdy oznaczysz pupila jako \'Zaginionego\', SENRA automatycznie wysyła alerty emailowe do wszystkich zarejestrowanych weterynarzy i schronisk w okolicy. Im więcej zarejestrowanych, tym lepiej działa sieć.</string>
+    <string name="help_faq_q27">Czy mogę przenieść adresówkę na inne pupila?</string>
+    <string name="help_faq_a27">Nie. Każda adresówka QR jest trwale powiązana z profilem jednego pupila. Jeśli pupil umrze lub nie potrzebujesz już adresówki, staje się po prostu nieaktywna. Zamów nową adresówkę dla nowego pupila na stronie SENRA.</string>
+    <string name="help_faq_q28">Jak mogę zarejestrować klinikę weterynaryjną mojego pupila lub schronisko, z którego adoptowałem pupila, w sieci SENRA?</string>
+    <string name="help_faq_a28">Kliniki weterynaryjne i schroniska mogą się zarejestrować na senra.pet/register-vet-shelter. Wypełnij dane i wyślemy email weryfikacyjny. Po potwierdzeniu automatycznie wysyłamy powiadomienia — pomagając zaginionym pupilom szybciej wrócić do domu. Bez opłat i bez logowania.</string>
 
 
     <!-- Tag activation strings -->

@@ -50,7 +50,7 @@
     <string name="tab_profile">Profil</string>
     <string name="tab_missing">Dispărut</string>
     <string name="tab_found">Găsit</string>
-    <string name="tab_success">Animale găsite</string>
+    <string name="tab_success">Găsite</string>
 
     <!-- ============================================ -->
     <!-- MARK: Auth -->
@@ -115,18 +115,18 @@
     <string name="action_add_pet">ADAUGĂ ANIMAL</string>
     <string name="action_mark_found">MARCHEAZĂ GĂSIT</string>
     <string name="action_report_missing">RAPORTEAZĂ DISPĂRUT</string>
-    <string name="action_order_tags">COMANDĂ ETICHETE</string>
-    <string name="action_replace_tag">ÎNLOCUIRE ETICHETĂ</string>
-    <string name="empty_pets_title">Încă nu ai animale</string>
-    <string name="empty_pets_message">Adaugă primul animal pentru a începe cu Pet Safety</string>
+    <string name="action_order_tags">COMANDĂ</string>
+    <string name="action_replace_tag">ÎNLOCUIRE</string>
+    <string name="empty_pets_title">Încă nu ai animale de companie</string>
+    <string name="empty_pets_message">Adaugă primul animal de companie pentru a începe cu SENRA</string>
     <string name="missing_badge">DISPĂRUT</string>
-    <string name="add_pet">Adaugă animal</string>
-    <string name="pet_name">Numele animalului</string>
-    <string name="failed_load_pets">Nu s-au putut încărca animalele</string>
+    <string name="add_pet">Adaugă animal de companie</string>
+    <string name="pet_name">Numele animalului de companie</string>
+    <string name="failed_load_pets">Nu s-au putut încărca animalele de companie</string>
     <string name="clear_search">Șterge căutarea</string>
-    <string name="pet_photo">Fotografie animal</string>
-    <string name="pet_photo_placeholder">Placeholder fotografie animal</string>
-    <string name="no_pets">Fără animale</string>
+    <string name="pet_photo">Fotografie animal de companie</string>
+    <string name="pet_photo_placeholder">Placeholder fotografie animal de companie</string>
+    <string name="no_pets">Fără animale de companie</string>
     <string name="success_stories">Povești de succes</string>
     <string name="found_pets">Animale găsite</string>
     <string name="success_stories_subtitle">Vezi reuniuni fericite în apropierea ta</string>
@@ -148,7 +148,7 @@
     <string name="edit_pet_profile">Editează profilul lui %1$s</string>
     <string name="delete_pet_confirm_title">Ștergi %1$s?</string>
     <string name="delete_pet_confirm_message">Această acțiune nu poate fi anulată. Toate datele pentru %1$s vor fi șterse definitiv.</string>
-    <string name="cannot_delete_missing_pet">Nu se poate șterge un animal dispărut</string>
+    <string name="cannot_delete_missing_pet">Nu se poate șterge un animal de companie dispărut</string>
     <string name="cannot_delete_missing_message">%1$s este marcat ca dispărut. Marchează-l ca găsit înainte de ștergere.</string>
     <string name="mark_found_confirm_title">Marchezi %1$s ca găsit?</string>
     <string name="mark_found_confirm_message">Aceasta va închide alerta de dispariție pentru %1$s. Ești sigur?</string>
@@ -157,7 +157,7 @@
     <string name="mark_found_failed">Nu s-a putut marca găsit</string>
     <string name="mark_missing_failed">Nu s-a putut marca dispărut</string>
     <string name="pet_deleted">%1$s a fost șters</string>
-    <string name="delete_pet_failed">Nu s-a putut șterge animalul</string>
+    <string name="delete_pet_failed">Nu s-a putut șterge animalul de companie</string>
 
     <!-- ============================================ -->
     <!-- MARK: Pet Form -->
@@ -171,7 +171,7 @@
     <string name="photo">Foto</string>
     <string name="edit_photo">Editează fotografia</string>
     <string name="photo_selected_hint">Fotografie selectată</string>
-    <string name="choose_photo_hint">Alege o fotografie a animalului tău</string>
+    <string name="choose_photo_hint">Alege o fotografie a animalului de companie tău</string>
     <string name="basic_information">Informații de bază</string>
     <string name="colour">Culoare</string>
     <string name="colour_optional">Culoare (opțional)</string>
@@ -183,12 +183,12 @@
     <string name="medical_notes_hint">Note medicale (afecțiuni, intervenții etc.)</string>
     <string name="behavior_notes_hint">Note comportamentale (temperament, dresaj, etc.)</string>
     <string name="save_changes">Salvează modificările</string>
-    <string name="delete_pet_button">Șterge animalul</string>
+    <string name="delete_pet_button">Șterge animalul de companie</string>
     <string name="delete_pet_dialog_title">Ștergi %1$s?</string>
-    <string name="delete_pet_dialog_message">Sigur dorești să ștergi acest animal? Această acțiune nu poate fi anulată.</string>
+    <string name="delete_pet_dialog_message">Sigur dorești să ștergi acest animal de companie? Această acțiune nu poate fi anulată.</string>
     <string name="delete_pet_warning_title">Ștergi pe %1$s?</string>
-    <string name="delete_pet_warning_message">%1$s va fi eliminat permanent din contul tău. Eticheta QR va fi dezactivată imediat și nu va mai funcționa la scanare. Dacă acesta este ultimul tău animal, abonamentul va fi și el anulat.</string>
-    <string name="delete_pet_warning_confirm">Șterge animalul</string>
+    <string name="delete_pet_warning_message">%1$s va fi eliminat permanent din contul tău. Plăcuța inteligentă QR va fi dezactivată imediat și nu va mai funcționa la scanare. Dacă acesta este ultimul tău animal de companie, abonamentul va fi și el anulat.</string>
+    <string name="delete_pet_warning_confirm">Șterge animalul de companie</string>
     <string name="male">Mascul</string>
     <string name="female">Femelă</string>
     <string name="default_species_dog">Câine</string>
@@ -201,9 +201,9 @@
     <string name="pet_form_age_placeholder">ex. 3 ani</string>
     <string name="unique_features_hint">Caracteristici unice (semne, cicatrici, trăsături distinctive\u2026)</string>
     <string name="pet_created">Animal creat</string>
-    <string name="pet_create_failed">Nu s-a putut crea animalul</string>
+    <string name="pet_create_failed">Nu s-a putut crea animalul de companie</string>
     <string name="pet_updated">Animal actualizat</string>
-    <string name="pet_update_failed">Nu s-a putut actualiza animalul</string>
+    <string name="pet_update_failed">Nu s-a putut actualiza animalul de companie</string>
     <string name="pet_default_name">Animal</string>
 
     <!-- ============================================ -->
@@ -239,7 +239,7 @@
     <string name="choose_from_gallery">Alege din galerie</string>
     <string name="select_existing_photo">Selectează o fotografie existentă</string>
     <string name="take_photo">Fă o fotografie</string>
-    <string name="pet_photo_fullscreen">Fotografie animal pe tot ecranul</string>
+    <string name="pet_photo_fullscreen">Fotografie animal de companie pe tot ecranul</string>
     <string name="view_photo">Vezi fotografia</string>
     <string name="primary_photo">Fotografie principală</string>
     <string name="set_as_primary">Setează ca principală</string>
@@ -248,7 +248,7 @@
     <!-- MARK: QR Scanner -->
     <!-- ============================================ -->
     <string name="scan_qr_code">Scanează cod QR</string>
-    <string name="scan_qr_subtitle">Îndreaptă camera către medalonul QR a animalului</string>
+    <string name="scan_qr_subtitle">Îndreaptă camera către medalonul QR a animalului de companie</string>
     <string name="camera_access_required">Acces la cameră necesar</string>
     <string name="camera_access_message">Activează accesul la cameră pentru a scana coduri QR</string>
     <string name="enable_camera">Activează camera</string>
@@ -260,21 +260,21 @@
     <string name="turn_on_flashlight">Pornește lanterna</string>
     <string name="hello_pet_name">Salut! Sunt %1$s</string>
     <string name="scanned_tag_thanks">Tocmai ai scanat medalonul mea. Mulțumesc că mă ajuți!</string>
-    <string name="share_location_with_owner">Partajează locația mea cu proprietarul</string>
-    <string name="owner_notified_message">Proprietarul lui %1$s va primi o notificare cu locația ta</string>
-    <string name="share_location_help">Ajută proprietarul lui %1$s să-l găsească partajând locația ta</string>
+    <string name="share_location_with_owner">Partajează locația mea cu stăpânul</string>
+    <string name="owner_notified_message">Stăpânul lui %1$s va primi o notificare cu locația ta</string>
+    <string name="share_location_help">Ajută stăpânul lui %1$s să-l găsească partajând locația ta</string>
     <string name="precise_location">Locație precisă</string>
     <string name="precise_location_desc">Partajează coordonatele GPS exacte</string>
     <string name="approximate_location">Locație aproximativă</string>
     <string name="approximate_location_desc">Partajare aproximativă a locației (conform GDPR)</string>
     <string name="dont_share_location">Nu partaja locația</string>
-    <string name="dont_share_location_desc">Doar notifică proprietarul că animalul a fost găsit</string>
-    <string name="confirm_notify_owner">Confirmă și notifică proprietarul</string>
+    <string name="dont_share_location_desc">Doar notifică stăpânul că animalul de companie a fost găsit</string>
+    <string name="confirm_notify_owner">Confirmă și notifică stăpânul</string>
     <string name="share_exact_location_toggle">Partajează locația exactă</string>
-    <string name="contact_owner">Contactează proprietarul</string>
+    <string name="contact_owner">Contactează stăpânul</string>
     <string name="call_phone">Sună: %1$s</string>
     <string name="email_contact">E-mail: %1$s</string>
-    <string name="privacy_notice">Confidențialitatea ta contează. Vom partaja locația ta doar cu proprietarul lui %1$s pentru a ajuta la reunire.</string>
+    <string name="privacy_notice">Confidențialitatea ta contează. Vom partaja locația ta doar cu stăpânul lui %1$s pentru a ajuta la reunire.</string>
     <string name="found_pet_title">%1$s găsit</string>
     <string name="share_location">Partajează locația</string>
     <string name="location_shared">Locație partajată</string>
@@ -294,19 +294,19 @@
     <!-- MARK: Tag Activation -->
     <!-- ============================================ -->
     <string name="tag_activate_title">Activează medalonul</string>
-    <string name="tag_loading_pets">Se încarcă animalele tale\u2026</string>
-    <string name="tag_activated">Etichetă activată!</string>
-    <string name="tag_activated_message">Această medalion este acum asociată cu %1$s</string>
-    <string name="tag_choose_plan">Completează profilul animalului pentru a facilita găsirea acestuia</string>
-    <string name="tag_choose_plan_button">Completează profilul animalului</string>
+    <string name="tag_loading_pets">Se încarcă animalele de companie tale\u2026</string>
+    <string name="tag_activated">Plăcuță inteligentă activată!</string>
+    <string name="tag_activated_message">Această plăcuță inteligentă este acum asociată cu %1$s</string>
+    <string name="tag_choose_plan">Completează profilul animalului de companie pentru a facilita găsirea acestuia</string>
+    <string name="tag_choose_plan_button">Completează profilul animalului de companie</string>
     <string name="tag_skip_for_now">O fac mai târziu</string>
-    <string name="tag_no_pets">Încă nu ai animale</string>
-    <string name="tag_no_pets_message">Adaugă un animal înainte de a activa o medalion</string>
-    <string name="tag_code_label">Cod medalion</string>
-    <string name="tag_select_pet">Selectează un animal pentru a-l lega de această medalion</string>
+    <string name="tag_no_pets">Încă nu ai animale de companie</string>
+    <string name="tag_no_pets_message">Adaugă un animal de companie înainte de a activa o plăcuță inteligentă</string>
+    <string name="tag_code_label">Cod plăcuță inteligentă</string>
+    <string name="tag_select_pet">Selectează un animal de companie pentru a-l lega de această plăcuță inteligentă</string>
     <string name="tag_activating">Se activează\u2026</string>
     <string name="tag_activate_button">Activează medalonul</string>
-    <string name="tag_link_message">Această medalion va fi asociată cu animalul selectat</string>
+    <string name="tag_link_message">Această plăcuță inteligentă va fi asociată cu animalul de companie selectat</string>
 
     <!-- ============================================ -->
     <!-- MARK: Plan Selection -->
@@ -318,15 +318,15 @@
     <string name="show_list">Afișează lista</string>
     <string name="show_map">Afișează harta</string>
     <string name="unknown_pet">Animal necunoscut</string>
-    <string name="pet_alert">Alertă animal</string>
+    <string name="pet_alert">Alertă animal de companie</string>
     <string name="alert_marker">Alertă</string>
     <string name="loading_alerts">Se încarcă alertele\u2026</string>
     <string name="failed_load_alerts">Nu s-au putut încărca alertele</string>
     <string name="no_active_alerts">Nicio alertă activă</string>
-    <string name="no_active_alerts_message">În prezent nu ai alerte pentru animale dispărute</string>
-    <string name="no_found_alerts">Nicio alertă de animale găsite</string>
-    <string name="no_found_alerts_message">Nu au fost găsite animale recent în zona ta</string>
-    <string name="missing_pet_alerts_title">Alerte animale dispărute</string>
+    <string name="no_active_alerts_message">În prezent nu ai alerte pentru animale de companie dispărute</string>
+    <string name="no_found_alerts">Nicio alertă de animale de companie găsite</string>
+    <string name="no_found_alerts_message">Nu au fost găsite animale de companie recent în zona ta</string>
+    <string name="missing_pet_alerts_title">Alerte animale de companie dispărute</string>
     <string name="sighting_count_singular">1 observație</string>
     <string name="unknown_breed">Rasă necunoscută</string>
     <string name="last_seen_label">Văzut ultima dată</string>
@@ -371,8 +371,8 @@
     <string name="getting_location">Se obține locația\u2026</string>
     <string name="update_alert_failed">Nu s-a putut actualiza alerta</string>
     <string name="report_sighting_failed">Nu s-a putut raporta observația</string>
-    <string name="report_missing_pet">Raportează animal dispărut</string>
-    <string name="select_pet_to_report">Selectează un animal</string>
+    <string name="report_missing_pet">Raportează animal de companie dispărut</string>
+    <string name="select_pet_to_report">Selectează un animal de companie</string>
     <string name="add_missing_details">Adaugă detalii despre dispariție</string>
     <string name="enter_address_or_location">Introdu adresa sau descrierea locației</string>
     <string name="additional_details">Detalii suplimentare</string>
@@ -380,34 +380,34 @@
     <string name="reward_amount_label">Recompensă (opțional)</string>
     <string name="reward_amount_placeholder">ex. 50 €</string>
     <string name="report_missing">Raportează dispariția</string>
-    <string name="no_pets_to_report_message">Adaugă un animal înainte de a-l raporta ca dispărut</string>
-    <string name="mark_pet_found">Marchează animal ca găsit</string>
-    <string name="select_pet_to_mark_found">Selectează animalul care a fost găsit</string>
-    <string name="no_missing_pets_message">Nu ai animale marcate ca dispărute</string>
-    <string name="select_pet_header">Selectează animal</string>
-    <string name="no_pets_available">Nu există animale disponibile. Adaugă unul mai întâi.</string>
+    <string name="no_pets_to_report_message">Adaugă un animal de companie înainte de a-l raporta ca dispărut</string>
+    <string name="mark_pet_found">Marchează animal de companie ca găsit</string>
+    <string name="select_pet_to_mark_found">Selectează animalul de companie care a fost găsit</string>
+    <string name="no_missing_pets_message">Nu ai animale de companie marcate ca dispărute</string>
+    <string name="select_pet_header">Selectează animal de companie</string>
+    <string name="no_pets_available">Nu există animale de companie disponibile. Adaugă unul mai întâi.</string>
     <string name="pet_picker_label">Animal</string>
     <string name="last_seen_location_header">Locația unde a fost văzut ultima dată</string>
     <string name="enter_location">Introdu locația</string>
     <string name="additional_information_header">Informații suplimentare</string>
-    <string name="additional_details_placeholder">Oferă detalii despre când și unde ai văzut ultima dată animalul\u2026</string>
+    <string name="additional_details_placeholder">Oferă detalii despre când și unde ai văzut ultima dată animalul de companie\u2026</string>
     <string name="your_contact_information">Informațiile tale de contact</string>
     <string name="name_optional">Nume (opțional)</string>
     <string name="phone_optional">Telefon (opțional)</string>
     <string name="email_optional">E-mail (opțional)</string>
     <string name="sighting_reported_success">Observație raportată cu succes!</string>
     <string name="report_sighting_header">Raportează o observație</string>
-    <string name="report_sighting_help">Ajută la reunirea animalului cu proprietarul împărtășind locul unde l-ai văzut.</string>
+    <string name="report_sighting_help">Ajută la reunirea animalului de companie cu stăpânul împărtășind locul unde l-ai văzut.</string>
     <string name="share_contact_info">Partajează datele mele de contact</string>
-    <string name="share_contact_info_desc">Permite proprietarului să te contacteze direct</string>
+    <string name="share_contact_info_desc">Permite stăpânului să te contacteze direct</string>
     <string name="your_name">Numele tău</string>
     <string name="your_phone_number">Numărul tău de telefon</string>
     <string name="your_email">E-mailul tău</string>
     <string name="address_or_description">Adresă sau descriere</string>
-    <string name="where_did_you_see">Unde ai văzut animalul?</string>
-    <string name="sighting_notes_placeholder">Descrie ce ai văzut, starea animalului, direcția de deplasare\u2026</string>
+    <string name="where_did_you_see">Unde ai văzut animalul de companie?</string>
+    <string name="sighting_notes_placeholder">Descrie ce ai văzut, starea animalului de companie, direcția de deplasare\u2026</string>
     <string name="submit_sighting_report">Trimite raportul de observație</string>
-    <string name="sighting_reported_owner_notified">Observație raportată! Proprietarul a fost notificat.</string>
+    <string name="sighting_reported_owner_notified">Observație raportată! Stăpânul a fost notificat.</string>
     <string name="sighting_queued_offline">Observație în coadă - va fi trimisă când ești online.</string>
 
     <!-- ============================================ -->
@@ -427,27 +427,27 @@
     <string name="no_registered_address">Nu s-a găsit nicio adresă înregistrată. Actualizează-ți profilul.</string>
 
         <!-- Mark Lost Flow (matching iOS MarkAsLostView) -->
-    <string name="mark_lost_pet_info">Informații despre animal</string>
+    <string name="mark_lost_pet_info">Informații despre animal de companie</string>
     <string name="mark_lost_last_seen">Locația unde a fost văzut ultima dată</string>
     <string name="mark_lost_alerts_footer">Alertele vor fi trimise utilizatorilor din apropiere, veterinarilor și adăposturilor pe o rază de 10 km.</string>
     <string name="mark_lost_getting_location">Se obține locația…</string>
     <string name="mark_lost_no_address">Nu există adresă înregistrată. Mergi la Profil pentru a adăuga adresa.</string>
     <string name="mark_lost_address_placeholder">Introdu adresa sau locația</string>
     <string name="mark_lost_additional_info">Informații suplimentare</string>
-    <string name="mark_lost_additional_placeholder">Descrie când și unde ai văzut ultima dată animalul, ce purta, etc.</string>
+    <string name="mark_lost_additional_placeholder">Descrie când și unde ai văzut ultima dată animalul de companie, ce purta, etc.</string>
     <string name="mark_lost_sends_to">Această alertă va fi trimisă către:</string>
-    <string name="mark_lost_nearby_owners">Proprietari de animale din apropiere</string>
+    <string name="mark_lost_nearby_owners">Stăpâni de animale de companie din apropiere</string>
     <string name="mark_lost_vet_clinics">Clinici veterinare din zonă</string>
-    <string name="mark_lost_shelters">Adăposturi de animale din apropiere</string>
+    <string name="mark_lost_shelters">Adăposturi de animale de companie din apropiere</string>
     <string name="mark_lost_report">Raportează dispariția</string>
     <string name="mark_lost_title">Raportează dispariția</string>
     <string name="mark_lost_starter_notice">Actualizează pentru alerte comunitare</string>
-    <string name="mark_lost_upgrade_prompt">Cu planul Starter animalul tău va fi marcat ca dispărut, dar notificările către utilizatori, veterinari și adăposturi necesită un abonament Standard sau Maximum.</string>
+    <string name="mark_lost_upgrade_prompt">Cu planul Starter animalul de companie tău va fi marcat ca dispărut, dar notificările către utilizatori, veterinari și adăposturi necesită un abonament Standard sau Maximum.</string>
     <string name="mark_lost_success_with_alerts">%1$s a fost raportat ca dispărut. Se trimit alerte utilizatorilor din apropiere.</string>
     <string name="mark_lost_success_no_location">%1$s a fost marcat ca dispărut. Adăugați locația pentru a trimite alerte comunitare.</string>
     <string name="mark_lost_address_required">Vă rugăm să furnizați o adresă sau activați serviciile de localizare.</string>
-    <string name="quick_lost_select_pet">Selectează un animal pentru a-l raporta ca dispărut</string>
-    <string name="quick_lost_all_missing">Toate animalele tale sunt deja marcate ca dispărute.</string>
+    <string name="quick_lost_select_pet">Selectează un animal de companie pentru a-l raporta ca dispărut</string>
+    <string name="quick_lost_all_missing">Toate animalele de companie tale sunt deja marcate ca dispărute.</string>
     <string name="quick_lost_title">Raportează dispariția</string>
     <string name="location_current">Locația curentă</string>
     <string name="location_my_address">Adresa mea</string>
@@ -456,7 +456,7 @@
     <!-- ============================================ -->
     <!-- MARK: Notifications -->
     <!-- ============================================ -->
-    <string name="tag_scanned_message">Eticheta lui %1$s a fost scanată la %2$s!</string>
+    <string name="tag_scanned_message">Plăcuța inteligentă lui %1$s a fost scanată la %2$s!</string>
     <string name="unknown_location">o locație necunoscută</string>
     <string name="sighting_message_with_location">%1$s a fost văzut la %2$s!</string>
     <string name="sighting_message_no_location">%1$s a fost văzut!</string>
@@ -464,19 +464,19 @@
     <string name="notification_tag_scanned_title">%1$s găsit!</string>
     <string name="notification_sighting_title">%1$s văzut!</string>
     <string name="notification_pet_found_title">Vești bune!</string>
-    <string name="notification_channel_name">Alerte Pet Safety</string>
-    <string name="notification_channel_tag_scans">Scanări medalion</string>
-    <string name="notification_channel_tag_scans_desc">Notificări când medalonul animalului tău este scanată</string>
-    <string name="notification_channel_alerts">Alerte animale dispărute</string>
-    <string name="notification_channel_alerts_desc">Notificări pentru animale dispărute în zona ta</string>
+    <string name="notification_channel_name">Alerte SENRA</string>
+    <string name="notification_channel_tag_scans">Scanări plăcuță inteligentă</string>
+    <string name="notification_channel_tag_scans_desc">Notificări când medalonul animalului de companie tău este scanată</string>
+    <string name="notification_channel_alerts">Alerte animale de companie dispărute</string>
+    <string name="notification_channel_alerts_desc">Notificări pentru animale de companie dispărute în zona ta</string>
     <string name="notification_channel_sightings">Raportări de observații</string>
-    <string name="notification_channel_sightings_desc">Notificări când animalul tău dispărut este văzut</string>
+    <string name="notification_channel_sightings_desc">Notificări când animalul de companie tău dispărut este văzut</string>
     <string name="notification_method_required">Cel puțin un mod de notificare trebuie să fie activ</string>
 
     <!-- FCM Notification Strings -->
-    <string name="notif_tag_scanned_title">Etichetă scanată</string>
-    <string name="notif_tag_scanned_body">Eticheta lui %1$s a fost scanată!</string>
-    <string name="notif_tag_scanned_body_location">Eticheta lui %1$s a fost scanată! %2$s</string>
+    <string name="notif_tag_scanned_title">Plăcuță inteligentă scanată</string>
+    <string name="notif_tag_scanned_body">Plăcuța inteligentă lui %1$s a fost scanată!</string>
+    <string name="notif_tag_scanned_body_location">Plăcuța inteligentă lui %1$s a fost scanată! %2$s</string>
     <string name="notif_missing_pet_title">Animal dispărut în apropiere</string>
     <string name="notif_missing_pet_body">%1$s este dispărut în %2$s. Fii atent!</string>
     <string name="notif_pet_found_title">Animal găsit!</string>
@@ -484,9 +484,9 @@
     <string name="notif_sighting_title">Observație raportată</string>
     <string name="notif_sighting_body_location">%1$s a fost văzut la %2$s!</string>
     <string name="notif_sighting_body_no_location">%1$s a fost văzut! Verifică locația observației.</string>
-    <string name="notif_fallback_title">Pet Safety</string>
+    <string name="notif_fallback_title">SENRA</string>
     <string name="notif_fallback_pet_name">Animalul tău</string>
-    <string name="notif_fallback_a_pet">Un animal</string>
+    <string name="notif_fallback_a_pet">Un animal de companie</string>
     <string name="notif_fallback_your_area">zona ta</string>
     <string name="notif_location_shared">Locație partajată</string>
     <string name="notif_location_approximate">Locație aproximativă</string>
@@ -508,17 +508,17 @@
     <string name="email_notifications_subtitle">Primește notificări prin e-mail</string>
     <string name="sms_notifications">Notificări SMS</string>
     <string name="sms_notifications_subtitle">Primește notificări prin SMS</string>
-    <string name="pet_alerts">Alerte animale</string>
-    <string name="missing_pet_alerts">Alerte animale dispărute</string>
-    <string name="missing_pet_alerts_subtitle">Primește notificări despre animale dispărute în zona ta</string>
+    <string name="pet_alerts">Alerte animale de companie</string>
+    <string name="missing_pet_alerts">Alerte animale de companie dispărute</string>
+    <string name="missing_pet_alerts_subtitle">Primește notificări despre animale de companie dispărute în zona ta</string>
     <string name="nearby_alerts_10km">Alerte în apropiere (10 km)</string>
-    <string name="nearby_alerts_subtitle">Alerte pentru animale în raza de 10 km de locația ta</string>
+    <string name="nearby_alerts_subtitle">Alerte pentru animale de companie în raza de 10 km de locația ta</string>
     <string name="account_and_orders">Cont și comenzi</string>
     <string name="order_updates">Actualizări comenzi</string>
     <string name="order_updates_subtitle">Notificări despre livrare și expediere</string>
     <string name="account_activity">Activitatea contului</string>
     <string name="account_activity_subtitle">Notificări de autentificare și securitate</string>
-    <string name="critical_alerts_note">Notă: Alertele critice despre animalele tale vor fi întotdeauna trimise indiferent de aceste setări.</string>
+    <string name="critical_alerts_note">Notă: Alertele critice despre animalele de companie tale vor fi întotdeauna trimise indiferent de aceste setări.</string>
 
     <!-- Notification Preferences -->
 
@@ -543,12 +543,12 @@
     <string name="missing_for">Dispărut de %1$s</string>
     <string name="pet_found_share">%1$s găsit!</string>
     <string name="reunited_in">Reunit în %1$s</string>
-    <string name="shared_via_pet_safety">Partajat prin aplicația Pet Safety</string>
+    <string name="shared_via_pet_safety">Partajat prin aplicația SENRA</string>
     <string name="story_share_good_news">Împărtășește vestea bună</string>
     <string name="story_social_caption">%1$s s-a reunit cu familia! Mulțumim comunității SENRA pentru că a ajutat la aducerea lui %1$s acasă. senra.pet</string>
     <string name="story_generating_card">Se creează cardul de partajare\u2026</string>
     <string name="story_pet_is_home_title">%1$s este acasă!</string>
-    <string name="story_inspire_others_message">Inspiră alți proprietari împărtășind cum s-a reunit %1$s cu tine.</string>
+    <string name="story_inspire_others_message">Inspiră alți stăpâni împărtășind cum s-a reunit %1$s cu tine.</string>
     <string name="sighting_reports_desc">Raportări de observații</string>
 
     <!-- Success Story Time -->
@@ -577,9 +577,9 @@
     <string name="delete_confirm_checkbox">Înțeleg că această acțiune nu poate fi anulată și toate datele mele vor fi șterse permanent</string>
     <string name="cancel_subscription_title">Anulare abonament?</string>
     <string name="cancel_warning_a">Vei pierde notificările instantanee prin email, SMS și alertele comunitare</string>
-    <string name="cancel_warning_b">Înlocuirile gratuite de etichete nu vor mai fi disponibile</string>
+    <string name="cancel_warning_b">Înlocuirile gratuite de plăcuțe inteligente nu vor mai fi disponibile</string>
     <string name="cancel_warning_c">Vei pierde accesul la alertele de la veterinari și adăposturi</string>
-    <string name="cancel_warning_d">Contul tău și înregistrările animalelor rămân active</string>
+    <string name="cancel_warning_d">Contul tău și înregistrările animalelor de companie rămân active</string>
     <string name="cancel_access_until">Vei păstra accesul până la %1$s</string>
     <string name="cancel_confirm">Anulare abonament</string>
     <string name="keep_subscription">Păstrare abonament</string>
@@ -610,24 +610,24 @@
     <string name="primary_phone">Telefon principal</string>
     <string name="show_on_qr_tag">Afișează pe medalonul QR</string>
     <string name="secondary_phone_optional">Telefon secundar (opțional)</string>
-    <string name="contacts_qr_tag_info">Contactele marcate ca vizibile vor fi afișate pe medalonul QR a animalului atunci când este scanată.</string>
+    <string name="contacts_qr_tag_info">Contactele marcate ca vizibile vor fi afișate pe medalonul QR a animalului de companie atunci când este scanată.</string>
     <string name="contact_details">Detalii de contact</string>
 
     <!-- ============================================ -->
     <!-- MARK: Contact Visibility -->
     <!-- ============================================ -->
     <string name="contact_visibility">Vizibilitatea contactelor</string>
-    <string name="contact_visibility_desc">Controlează ce informații de contact sunt vizibile când se scanează medalonul QR a animalului</string>
+    <string name="contact_visibility_desc">Controlează ce informații de contact sunt vizibile când se scanează medalonul QR a animalului de companie</string>
     <string name="show_phone_number">Afișează numărul de telefon</string>
-    <string name="show_phone_subtitle">Numărul tău de telefon va fi vizibil pentru cei care găsesc animalul</string>
+    <string name="show_phone_subtitle">Numărul tău de telefon va fi vizibil pentru cei care găsesc animalul de companie</string>
     <string name="show_email_address">Afișează adresa de e-mail</string>
-    <string name="show_email_subtitle">E-mailul tău va fi vizibil pentru cei care găsesc animalul</string>
+    <string name="show_email_subtitle">E-mailul tău va fi vizibil pentru cei care găsesc animalul de companie</string>
     <string name="show_address">Afișează adresa</string>
-    <string name="show_address_subtitle">Adresa ta va fi vizibilă pentru cei care găsesc animalul</string>
+    <string name="show_address_subtitle">Adresa ta va fi vizibilă pentru cei care găsesc animalul de companie</string>
     <string name="show_secondary_phone">Afișează telefonul secundar</string>
-    <string name="show_secondary_phone_subtitle">Afișează numărul tău de telefon secundar pe profilul public al animalului</string>
+    <string name="show_secondary_phone_subtitle">Afișează numărul tău de telefon secundar pe profilul public al animalului de companie</string>
     <string name="show_secondary_email">Afișează e-mailul secundar</string>
-    <string name="show_secondary_email_subtitle">Afișează adresa ta de e-mail secundară pe profilul public al animalului</string>
+    <string name="show_secondary_email_subtitle">Afișează adresa ta de e-mail secundară pe profilul public al animalului de companie</string>
 
     <!-- ============================================ -->
     <!-- MARK: Privacy Mode -->
@@ -641,13 +641,13 @@
     <!-- MARK: Delete Account -->
     <!-- ============================================ -->
     <string name="delete_account">Șterge contul</string>
-    <string name="delete_account_warning">Această acțiune nu poate fi anulată. Toate datele tale, inclusiv animale, alerte și fotografii, vor fi șterse definitiv.</string>
+    <string name="delete_account_warning">Această acțiune nu poate fi anulată. Toate datele tale, inclusiv animale de companie, alerte și fotografii, vor fi șterse definitiv.</string>
     <string name="delete_account_confirm_prompt">Pentru a confirma, tastează DELETE mai jos:</string>
     <string name="type_delete_to_confirm">Tastează DELETE</string>
     <string name="account_deleted">Cont șters</string>
     <string name="delete_account_failed">Nu s-a putut șterge contul</string>
     <string name="cannot_delete_account">Contul nu poate fi șters</string>
-    <string name="cannot_delete_missing_pets">Nu poți șterge contul cât timp ai animale marcate ca dispărute. Marchează-le ca găsite mai întâi.</string>
+    <string name="cannot_delete_missing_pets">Nu poți șterge contul cât timp ai animale de companie marcate ca dispărute. Marchează-le ca găsite mai întâi.</string>
     <string name="missing_pets_label">Animale dispărute: %1$s</string>
     <string name="checking_delete_eligibility">Se verifică\u2026</string>
 
@@ -687,17 +687,17 @@
     <string name="orders_title">Comenzi</string>
     <string name="order_number">Comanda #%1$s</string>
     <string name="order_total">Total: %1$s</string>
-    <string name="order_tags">Comandă etichete</string>
+    <string name="order_tags">Comandă plăcuțe inteligente</string>
     <string name="replace_tag">Înlocuiește medalonul</string>
-    <string name="add_pet_first_replacement">Adaugă un animal înainte de a comanda o medalion de înlocuire.</string>
-    <string name="order_more_tags_title">Comandă mai multe etichete</string>
-    <string name="add_another_pet">Adaugă alt animal</string>
+    <string name="add_pet_first_replacement">Adaugă un animal de companie înainte de a comanda o plăcuță inteligentă de înlocuire.</string>
+    <string name="order_more_tags_title">Comandă mai multe plăcuțe inteligente</string>
+    <string name="add_another_pet">Adaugă alt animal de companie</string>
     <string name="full_name">Nume complet</string>
     <string name="place_order">Plasează comanda</string>
     <string name="order_created_payment_pending">Comandă creată. Plata este în așteptare.</string>
     <string name="payment_intent_failed">Intenția de plată a eșuat</string>
     <string name="order_create_failed">Nu s-a putut crea comanda</string>
-    <string name="order_replacement_title">Comandă medalion de înlocuire</string>
+    <string name="order_replacement_title">Comandă plăcuță inteligentă de înlocuire</string>
     <string name="order_replacement_button">Comandă înlocuirea</string>
     <string name="replacement_ordered">Înlocuire comandată</string>
     <string name="replacement_failed">Nu s-a putut comanda înlocuirea</string>
@@ -714,8 +714,8 @@
     <string name="order_date">Data comenzii</string>
     <string name="items">Produse</string>
     <string name="quantity_label">Cantitate: %1$d</string>
-    <string name="qr_tag_pending">Etichetă QR în așteptare</string>
-    <string name="qr_tag_assigned">Etichetă QR alocată</string>
+    <string name="qr_tag_pending">Plăcuță inteligentă QR în așteptare</string>
+    <string name="qr_tag_assigned">Plăcuță inteligentă QR alocată</string>
     <plurals name="item_count">
         <item quantity="one">%d articol</item>
         <item quantity="few">%d articole</item>
@@ -723,18 +723,18 @@
     </plurals>
 
     <!-- Order More Tags -->
-    <string name="get_qr_tags_subtitle">Obține etichete QR pentru animalele tale</string>
-    <string name="pet_names">Numele animalelor</string>
+    <string name="get_qr_tags_subtitle">Obține plăcuțe inteligente QR pentru animalele de companie tale</string>
+    <string name="pet_names">Numele animalelor de companie</string>
     <string name="shipping_address">Adresă de livrare</string>
     <string name="shipping">Livrare</string>
-    <string name="shipping_price">Calculated at checkout</string>
+    <string name="shipping_price">Calculat la finalizare</string>
 
     <!-- Order Replacement Tag -->
     <string name="replacement_subtitle">Pierdută sau deteriorată? Îți trimitem una nouă</string>
     <string name="free_replacement">Înlocuire gratuită</string>
-    <string name="replacement_shipping_info">Eticheta de înlocuire va fi expediată în 2\u20133 zile lucrătoare\u2026</string>
+    <string name="replacement_shipping_info">Plăcuța inteligentă de înlocuire va fi expediată în 2\u20133 zile lucrătoare\u2026</string>
     <string name="replacement_shipping_required">Taxă de livrare necesară</string>
-    <string name="replacement_shipping_cost">Se aplică o taxă de livrare de %1$s pentru comanda ta de medalion de înlocuire.</string>
+    <string name="replacement_shipping_cost">Se aplică o taxă de livrare de %1$s pentru comanda ta de plăcuță inteligentă de înlocuire.</string>
     <string name="delivery_method_title">Metodă de livrare</string>
     <string name="home_delivery_option">Livrare la domiciliu</string>
     <string name="postapoint_delivery_option">Ridicare PostaPont</string>
@@ -753,11 +753,11 @@
     <string name="subscription_popular">Popular</string>
     <string name="subscription_current_plan">Planul curent</string>
     <string name="subscription_select">Selectează planul</string>
-    <string name="subscription_max_pets">Max. animale: %1$s</string>
+    <string name="subscription_max_pets">Max. animale de companie: %1$s</string>
     <string name="subscription_vet_alerts">Alerte către veterinari &amp; salvare</string>
     <string name="subscription_sms">Notificări SMS</string>
     <string name="subscription_community_alerts">Alerte comunitare</string>
-    <string name="subscription_free_replacement">Înlocuire medalion gratuită</string>
+    <string name="subscription_free_replacement">Înlocuire plăcuță inteligentă gratuită</string>
 
     <!-- ============================================ -->
     <!-- MARK: Billing -->
@@ -796,7 +796,7 @@
     <string name="referral_copy">Copiază</string>
     <string name="referral_share">Partajează</string>
     <string name="referral_pending">În așteptare</string>
-    <string name="referral_share_text">Folosește codul meu de recomandare %1$s pentru 2 luni gratuite la Pet Safety! https://senra.pet/choose-plan?referral=%2$s</string>
+    <string name="referral_share_text">Folosește codul meu de recomandare %1$s pentru 2 luni gratuite la SENRA! https://senra.pet/choose-plan?referral=%2$s</string>
     <string name="referral_clipboard_label">Cod de recomandare</string>
     <string name="referral_use_friend_code">Folosește codul unui prieten</string>
     <string name="enter_friend_code">Introduceți codul de recomandare</string>
@@ -810,10 +810,10 @@
     <!-- ============================================ -->
     <string name="push_prompt_title">Rămâi conectat</string>
     <string name="push_prompt_subtitle">Activează notificările pentru a nu rata actualizări importante:</string>
-    <string name="push_prompt_benefit_scan">Alerte instant când medalonul animalului tău este scanată</string>
+    <string name="push_prompt_benefit_scan">Alerte instant când medalonul animalului de companie tău este scanată</string>
     <string name="push_prompt_benefit_sighting">Raportări de observații din comunitate</string>
-    <string name="push_prompt_benefit_found">Află imediat când animalul tău este găsit</string>
-    <string name="push_prompt_benefit_missing">Alerte pentru animale dispărute în zona ta</string>
+    <string name="push_prompt_benefit_found">Află imediat când animalul de companie tău este găsit</string>
+    <string name="push_prompt_benefit_missing">Alerte pentru animale de companie dispărute în zona ta</string>
     <string name="push_prompt_enable">Activează notificările</string>
     <string name="push_prompt_later">Poate mai târziu</string>
 
@@ -831,8 +831,8 @@
     <string name="public_profile_preview">Previzualizare profil public</string>
     <string name="failed_load_profile">Nu s-a putut încărca profilul</string>
     <string name="public_profile_subtitle">Așa văd ceilalți profilul lui %1$s</string>
-    <string name="owner_notified_sms_email">Proprietarul lui %1$s va primi un SMS și un e-mail cu locația ta</string>
-    <string name="contact_owner_plea">Te rog anunță proprietarul că m-ai găsit\u2026</string>
+    <string name="owner_notified_sms_email">Stăpânul lui %1$s va primi un SMS și un e-mail cu locația ta</string>
+    <string name="contact_owner_plea">Te rog anunță stăpânul că m-ai găsit\u2026</string>
     <string name="contact_owner_plea_full">Te rog, anunță-l pe stăpânul meu că m-ai găsit. Îl poți contacta folosind datele de contact de mai jos.</string>
     <string name="contact_info_not_set">Datele de contact nu sunt încă setate</string>
     <string name="contact_info_hidden">Datele de contact sunt ascunse</string>
@@ -842,19 +842,19 @@
     <string name="unique_features">Caracteristici unice</string>
     <string name="behavior_notes">Note comportament</string>
     <string name="how_it_works">Cum funcționează</string>
-    <string name="help_reunite_pet">Ajută la reunirea în siguranță a lui %1$s cu proprietarul</string>
+    <string name="help_reunite_pet">Ajută la reunirea în siguranță a lui %1$s cu stăpânul</string>
     <string name="step_share_location">Partajează locația</string>
-    <string name="step_share_location_desc">Apasă butonul de mai sus pentru a partaja locația cu proprietarul</string>
-    <string name="step_owner_notified">Proprietarul este notificat</string>
-    <string name="step_owner_notified_desc">Proprietarul primește SMS și e-mail cu locația ta</string>
+    <string name="step_share_location_desc">Apasă butonul de mai sus pentru a partaja locația cu stăpânul</string>
+    <string name="step_owner_notified">Stăpânul este notificat</string>
+    <string name="step_owner_notified_desc">Stăpânul primește SMS și e-mail cu locația ta</string>
     <string name="step_quick_reunion">Reunire rapidă</string>
-    <string name="step_quick_reunion_desc">Proprietarul poate naviga către locația ta pentru a-și recupera animalul</string>
+    <string name="step_quick_reunion_desc">Stăpânul poate naviga către locația ta pentru a-și recupera animalul de companie</string>
     <string name="step_share_location_desc_public">Apasă butonul de mai sus pentru a partaja unde ai găsit %1$s</string>
-    <string name="step_owner_notified_desc_public">Proprietarul primește un SMS cu locația ta pe Google Maps</string>
-    <string name="step_quick_reunion_desc_public">Rămâi aproape pentru ca proprietarul să te găsească pe tine și pe %1$s</string>
-    <string name="owner_phone_label">Telefon proprietar: %1$s</string>
-    <string name="owner_email_label">E-mail proprietar: %1$s</string>
-    <string name="your_privacy_notice">Confidențialitatea ta contează. Vom partaja locația ta doar cu proprietarul lui %1$s cu consimțământul tău explicit.</string>
+    <string name="step_owner_notified_desc_public">Stăpânul primește un SMS cu locația ta pe Google Maps</string>
+    <string name="step_quick_reunion_desc_public">Rămâi aproape pentru ca stăpânul să te găsească pe tine și pe %1$s</string>
+    <string name="owner_phone_label">Telefon stăpân: %1$s</string>
+    <string name="owner_email_label">E-mail stăpân: %1$s</string>
+    <string name="your_privacy_notice">Confidențialitatea ta contează. Vom partaja locația ta doar cu stăpânul lui %1$s cu consimțământul tău explicit.</string>
 
     <!-- ============================================ -->
     <!-- MARK: Offline Mode -->
@@ -896,10 +896,10 @@
     <string name="error_login_failed">Autentificare eșuată</string>
     <string name="error_verification_failed">Verificare eșuată</string>
     <string name="error_submit_support">Nu s-a putut trimite solicitarea de suport</string>
-    <string name="error_load_pets">Nu s-au putut încărca animalele</string>
-    <string name="error_refresh_pets">Nu s-au putut actualiza animalele</string>
+    <string name="error_load_pets">Nu s-au putut încărca animalele de companie</string>
+    <string name="error_refresh_pets">Nu s-au putut actualiza animalele de companie</string>
     <string name="error_load_alerts">Nu s-au putut încărca alertele</string>
-    <string name="error_load_pet_profile">Nu s-a putut încărca profilul animalului</string>
+    <string name="error_load_pet_profile">Nu s-a putut încărca profilul animalului de companie</string>
     <string name="error_load_stories">Nu s-au putut încărca poveștile</string>
 
     <!-- ============================================ -->
@@ -913,9 +913,9 @@
     <string name="waze">Waze</string>
     <string name="other_maps_app">Altă aplicație de hărți</string>
     <string name="open_with">Deschide cu\u2026</string>
-    <string name="map_label_pet_location">Locație animal</string>
-    <string name="map_label_tag_scanned">Etichetă animal scanată</string>
-    <string name="map_label_sighting">Observație animal</string>
+    <string name="map_label_pet_location">Locație animal de companie</string>
+    <string name="map_label_tag_scanned">Plăcuță inteligentă animal de companie scanată</string>
+    <string name="map_label_sighting">Observație animal de companie</string>
 
     <!-- ============================================ -->
     <!-- MARK: App Info -->
@@ -946,12 +946,12 @@
     <!-- Povești de succes reuniune -->
     <string name="reunion_template">%1$s s-a reunit. După %2$s dispărut, %3$s s-a reunit cu succes cu familia sa. Mulțumim comunității noastre uimitoare pentru aducerea lui %4$s acasă!</string>
     <string name="reunion_template_no_time">%1$s s-a reunit cu familia sa! Mulțumim comunității noastre uimitoare pentru aducerea lui %2$s acasă!</string>
-    <string name="owners_story">Povestea proprietarului:</string>
+    <string name="owners_story">Povestea stăpânului:</string>
     <string name="post_to_success_stories">Publică în poveștile de succes</string>
     <string name="remove_from_success_stories">Elimină din poveștile de succes</string>
     <string name="removed_from_success_stories">Eliminat din poveștile de succes</string>
     <string name="remove_story_confirm_title">Elimini povestea de succes?</string>
-    <string name="remove_story_confirm_message">Aceasta va elimina povestea animalului tău din lista publică de povești de succes.</string>
+    <string name="remove_story_confirm_message">Aceasta va elimina povestea animalului de companie tău din lista publică de povești de succes.</string>
     <string name="remove_story_failed">Nu s-a putut elimina povestea</string>
     <plurals name="time_hours_duration">
         <item quantity="one">%d oră</item>
@@ -1001,28 +1001,28 @@
     <string name="sse_subscription_activated">Planul tău %1$s este acum activ!</string>
     <string name="sse_subscription_cancelled">Abonamentul tău %1$s a fost anulat.</string>
     <string name="sse_referral_used">%1$s a folosit codul tău de recomandare!</string>
-    <string name="help_guide_qr_tags_title">Etichete QR pentru animale</string>
-    <string name="help_guide_qr_tags_desc">Află despre medalioanele noastre smart QR.</string>
+    <string name="help_guide_qr_tags_title">Plăcuțe inteligente QR pentru animale de companie</string>
+    <string name="help_guide_qr_tags_desc">Află despre plăcuțe inteligentele inteligente noastre smart QR.</string>
     <string name="help_guide_materials_title">Materiale și durabilitate</string>
     <string name="help_guide_materials_desc">Informații despre materiale și îngrijire.</string>
     <string name="help_guide_emergency_title">Funcții de contact de urgență</string>
     <string name="help_guide_emergency_desc">Cum funcționează sistemul de contact.</string>
     <string name="help_guide_profile_title">Gestionare profil</string>
-    <string name="help_guide_profile_desc">Gestionează și actualizează profilul animalului.</string>
-    <string name="help_guide_missing_alerts_title">Alerte animale dispărute și observări</string>
-    <string name="help_guide_missing_alerts_desc">Dacă animalul tău dispare, marchează-l ca dispărut din „Animalele mele” pentru a crea o alertă instant către comunitate. Fotografia și detaliile animalului apar pe harta Animale dispărute, vizibilă tuturor utilizatorilor SENRA din zona ta. Membrii comunității pot raporta observări cu locația GPS, pe care le primești ca notificări. Veterinarii și adăposturile înregistrate sunt de asemenea alertați. Odată ce animalul este găsit, marchează-l ca găsit și opțional partajează povestea de reunire pentru a inspira comunitatea.</string>
-    <string name="help_guide_community_title">Comunitate și animale găsite</string>
-    <string name="help_guide_community_desc">Puterea SENRA este comunitatea. Harta Animale dispărute arată alertele active din apropierea ta — verifică pentru a vedea dacă vreun animal a fost raportat ca dispărut în zona ta. Pagina Animale găsite celebrează reunirile reușite cu povești de la proprietari. Poți înregistra veterinarul sau adăpostul local la SENRA pentru a primi alerte automate despre animale dispărute, contribuind la crearea unei rețele mai puternice de siguranță pentru toate animalele din zona ta.</string>
+    <string name="help_guide_profile_desc">Gestionează și actualizează profilul animalului de companie.</string>
+    <string name="help_guide_missing_alerts_title">Alerte animale de companie dispărute și observări</string>
+    <string name="help_guide_missing_alerts_desc">Dacă animalul de companie tău dispare, marchează-l ca dispărut din „Animalele mele” pentru a crea o alertă instant către comunitate. Fotografia și detaliile animalului de companie apar pe harta Animale dispărute, vizibilă tuturor utilizatorilor SENRA din zona ta. Membrii comunității pot raporta observări cu locația GPS, pe care le primești ca notificări. Veterinarii și adăposturile înregistrate sunt de asemenea alertați. Odată ce animalul de companie este găsit, marchează-l ca găsit și opțional partajează povestea de reunire pentru a inspira comunitatea.</string>
+    <string name="help_guide_community_title">Comunitate și animale de companie găsite</string>
+    <string name="help_guide_community_desc">Puterea SENRA este comunitatea. Harta Animale dispărute arată alertele active din apropierea ta — verifică pentru a vedea dacă vreun animal de companie a fost raportat ca dispărut în zona ta. Pagina Animale găsite celebrează reunirile reușite cu povești de la stăpâni. Poți înregistra veterinarul sau adăpostul local la SENRA pentru a primi alerte automate despre animale de companie dispărute, contribuind la crearea unei rețele mai puternice de siguranță pentru toate animalele de companie din zona ta.</string>
     <string name="help_faq_group_getting_started">Primii pași</string>
-    <string name="help_faq_group_tags_scanning">Etichete și scanare</string>
+    <string name="help_faq_group_tags_scanning">Plăcuțe inteligente și scanare</string>
     <string name="help_faq_group_missing_pets">Animale dispărute și alerte</string>
     <string name="help_faq_group_billing_plans">Facturare și planuri</string>
     <string name="help_faq_group_privacy_account">Confidențialitate și cont</string>
     <string name="help_faq_group_troubleshooting">Depanare</string>
     <!-- Checkout & Order Status -->
     <string name="checkout_subscription_success">Abonamentul tău este acum activ!</string>
-    <string name="checkout_tag_order_success">Plată reușită! Comanda ta de medalion este în curs de procesare.</string>
-    <string name="checkout_replacement_success">Plată reușită! Eticheta de înlocuire este pe drum.</string>
+    <string name="checkout_tag_order_success">Plată reușită! Comanda ta de plăcuță inteligentă este în curs de procesare.</string>
+    <string name="checkout_replacement_success">Plată reușită! Plăcuța inteligentă de înlocuire este pe drum.</string>
     <string name="order_status_completed">Finalizată</string>
     <string name="order_status_pending">În așteptare</string>
     <string name="order_status_failed">Eșuată</string>
@@ -1044,27 +1044,27 @@
     <string name="breed_custom_hint">Introdu numele rasei…</string>
     <string name="breed_custom_label">Numele rasei</string>
     <string name="breed_other">Alta</string>
-    <string name="cannot_delete_missing_pet_message">Nu poți șterge un animal raportat ca dispărut. Te rugăm să-l marchezi ca găsit mai întâi.</string>
+    <string name="cannot_delete_missing_pet_message">Nu poți șterge un animal de companie raportat ca dispărut. Te rugăm să-l marchezi ca găsit mai întâi.</string>
     <string name="edit_alert">Editează alerta</string>
     <string name="health_info_empty_hint">Nicio informație de sănătate adăugată</string>
-    <string name="notification_channel_info">Cel puțin un canal de notificare trebuie să fie activ pentru a fi notificat când medalonul QR a animalului tău este scanată.</string>
+    <string name="notification_channel_info">Cel puțin un canal de notificare trebuie să fie activ pentru a fi notificat când medalonul QR a animalului de companie tău este scanată.</string>
     <string name="province">Județ / Regiune</string>
     <string name="reward_badge_text">Recompensă: %1$s</string>
     <string name="reward_placeholder">ex. €50, $100 sau un cadou special</string>
     <string name="sex_optional">Opțional</string>
     <string name="street2">Apt. / Etaj / Bloc (Opțional)</string>
 
-    <string name="pet_limit_reached">Limita de animale atinsă</string>
-    <string name="pet_limit_reached_message">Planul tău %1$s permite %2$d animal. Treci la %3$s pentru %4$s pentru animale nelimitate.</string>
-    <string name="share_owner_notified">Proprietarul a fost notificat</string>
+    <string name="pet_limit_reached">Limita de animale de companie atinsă</string>
+    <string name="pet_limit_reached_message">Planul tău %1$s permite %2$d animal de companie. Treci la %3$s pentru %4$s pentru animale de companie nelimitate.</string>
+    <string name="share_owner_notified">Stăpânul a fost notificat</string>
     <string name="sse_connection_lost">Actualizările în timp real nu sunt disponibile. Trage în jos pentru a reîmprospăta.</string>
-    <string name="story_placeholder">Spune povestea reuniunii tale...</string>
+    <string name="story_placeholder">Spune povestea reuniunii tale…</string>
     <string name="upgrade_to_plan">Treci la %1$s</string>
 
     <!-- Gift order -->
     <string name="order_gift_toggle">Comandă ca un cadou</string>
-    <string name="order_gift_description">Numele animalelor sunt opționale pentru comenzile cadou. Destinatarul le poate adăuga la activarea etichetelor.</string>
-    <string name="order_gift_quantity">Număr de etichete</string>
+    <string name="order_gift_description">Numele animalelor de companie sunt opționale pentru comenzile cadou. Destinatarul le poate adăuga la activarea plăcuțe inteligentelor inteligente.</string>
+    <string name="order_gift_quantity">Număr de plăcuțe inteligente</string>
     <string name="order_gift_recipient_name">Numele destinatarului (opțional)</string>
     <string name="order_gift_message">Mesaj cadou (opțional)</string>
     <string name="order_gift_message_placeholder">Adaugă un mesaj personal…</string>
@@ -1076,42 +1076,42 @@
     <string name="delivery_method_label">Metodă de livrare</string>
     <string name="delivery_home">Livrare la domiciliu</string>
     <string name="delivery_postapoint">Ridicare PostaPont</string>
-    <string name="pending_registrations_title">Etichete în așteptare</string>
+    <string name="pending_registrations_title">Plăcuțe inteligente în așteptare</string>
     <string name="ready_to_activate">Gata de activare</string>
     <string name="still_processing">În procesare</string>
     <string name="scan_tag_now">Scanează medalonul</string>
     <string name="create_profile_first">Creează profil</string>
     <string name="create_profile_while_waiting">Creează profil în timp ce aștepți</string>
     <string name="all_caught_up">Totul e la zi!</string>
-    <string name="all_caught_up_description">Nu aveți înregistrări de etichete în așteptare.</string>
+    <string name="all_caught_up_description">Nu aveți înregistrări de plăcuțe inteligente în așteptare.</string>
     <string name="status_shipped">Expediat</string>
     <string name="status_delivered">Livrat</string>
     <string name="status_processing">În procesare</string>
     <string name="status_pending">În așteptare</string>
     <string name="activation_help_title">Cum să activezi medalonul</string>
     <string name="activation_help_step1">Așteaptă să ajungă medalonul</string>
-    <string name="activation_help_step2">Scanează codul QR de pe medalion</string>
+    <string name="activation_help_step2">Scanează codul QR de pe plăcuță inteligentă</string>
     <string name="activation_help_step3">Selectează animalul de companie</string>
     <string name="activation_help_step4">Alege planul de abonament</string>
     <string name="pets_from_order">Animale din comanda ta</string>
     <string name="from_your_order">Din comanda ta</string>
     <string name="needs_profile">Necesită profil</string>
     <string name="create_profile_for">Creează profil pentru %1$s</string>
-    <string name="other_pets">Alte animale</string>
+    <string name="other_pets">Alte animale de companie</string>
     <string name="link_to_pet">Asociază cu %1$s</string>
-    <string name="no_pets_yet">Niciun animal încă</string>
-    <string name="create_first_pet">Creează profilul animalului tău pentru a activa medalonul.</string>
-    <string name="create_new_pet">Creează animal nou</string>
+    <string name="no_pets_yet">Niciun animal de companie încă</string>
+    <string name="create_first_pet">Creează profilul animalului de companie tău pentru a activa medalonul.</string>
+    <string name="create_new_pet">Creează animal de companie nou</string>
     <string name="notifications_title">Notificări</string>
     <string name="no_notifications">Nicio notificare</string>
-    <string name="no_notifications_desc">Totul e la zi! Notificările vor apărea aici când cineva scanează medalonul animalului tău.</string>
+    <string name="no_notifications_desc">Totul e la zi! Notificările vor apărea aici când cineva scanează medalonul animalului de companie tău.</string>
     <string name="mark_all_read">Marchează toate ca citite</string>
-    <string name="create_profile_hint">Creează mai întâi un profil de animal, apoi scanează din nou medalonul pentru activare.</string>
-    <string name="activation_error_qr_not_found">Codul QR nu a fost recunoscut. Asigurați-vă că scanați o medalion oficială SENRA.</string>
-    <string name="activation_error_already_activated">Această medalion este deja asociată altui animal. Contactați suportul.</string>
-    <string name="activation_error_not_linked">Această medalion nu a fost încă atribuită comenzii dumneavoastră. Așteptați confirmarea expedierii.</string>
+    <string name="create_profile_hint">Creează mai întâi un profil de animal de companie, apoi scanează din nou medalonul pentru activare.</string>
+    <string name="activation_error_qr_not_found">Codul QR nu a fost recunoscut. Asigurați-vă că scanați o plăcuță inteligentă oficială SENRA.</string>
+    <string name="activation_error_already_activated">Această plăcuță inteligentă este deja asociată altui animal de companie. Contactați suportul.</string>
+    <string name="activation_error_not_linked">Această plăcuță inteligentă nu a fost încă atribuită comenzii dumneavoastră. Așteptați confirmarea expedierii.</string>
     <string name="activation_error_not_shipped">Comanda nu a fost încă expediată. Așteptați livrarea.</string>
-    <string name="activation_error_not_owner">Acesta nu este animalul dumneavoastră. Selectați unul dintre animalele proprii.</string>
+    <string name="activation_error_not_owner">Acesta nu este animalul de companie dumneavoastră. Selectați unul dintre animalele de companie proprii.</string>
 
     <!-- Allergies & Medications -->
     <string name="allergies_label">Alergii</string>
@@ -1221,17 +1221,17 @@
     <string name="breed_cat_toyger">Toyger</string>
     <string name="breed_cat_chausie">Chausie</string>
     <string name="reunion_city_label">Oraș (opțional)</string>
-    <string name="reunion_city_placeholder">Unde a fost găsit animalul tău?</string>
+    <string name="reunion_city_placeholder">Unde a fost găsit animalul de companie tău?</string>
 
     <!-- Pet form warnings -->
-    <string name="profile_incomplete_warning">Completează profilul animalului</string>
-    <string name="profile_incomplete_desc">Detaliile lipsă îngreunează găsirea animalului. Completează greutatea, culoarea și informațiile medicale.</string>
+    <string name="profile_incomplete_warning">Completează profilul animalului de companie</string>
+    <string name="profile_incomplete_desc">Detaliile lipsă îngreunează găsirea animalului de companie. Completează greutatea, culoarea și informațiile medicale.</string>
     <string name="identity_locked_title">Numele, specia și rasa sunt blocate</string>
     <string name="identity_locked_desc">Aceste câmpuri nu pot fi modificate după activarea medalonului.</string>
 
     <!-- Shelter Adoption -->
-    <string name="trial_ends_on">Trial ends on</string>
-    <string name="trial_upgrade_now">Upgrade now to keep your features!</string>
+    <string name="trial_ends_on">Perioada de probă se încheie</string>
+    <string name="trial_upgrade_now">Actualizează acum pentru a-ți păstra funcțiile!</string>
     <!-- Referral Status -->
     <string name="referral_status_pending">În așteptare</string>
     <string name="referral_status_signed_up">Înregistrat</string>
@@ -1256,10 +1256,10 @@
     <string name="share_location_title">Partajare locație</string>
     <string name="share_location_exact">Partajare locație exactă</string>
     <string name="share_location_approximate">Partajare locație aproximativă (~100m)</string>
-    <string name="share_location_exact_note">Proprietarul va vedea coordonatele GPS exacte</string>
-    <string name="share_location_approximate_note">Proprietarul va vedea o zonă aproximativă</string>
+    <string name="share_location_exact_note">Stăpânul va vedea coordonatele GPS exacte</string>
+    <string name="share_location_approximate_note">Stăpânul va vedea o zonă aproximativă</string>
     <string name="share_location_confirm">Partajare</string>
-    <string name="share_location_success">Locație partajată! Proprietarul a fost notificat.</string>
+    <string name="share_location_success">Locație partajată! Stăpânul a fost notificat.</string>
     <string name="share_location_denied">Este necesară permisiunea de localizare pentru a partaja locația</string>
     <string name="share_location_error">Nu s-a putut partaja locația. Încercați din nou.</string>
 
@@ -1297,28 +1297,28 @@
     <string name="weight_helper">Greutate în kg (ex. 4,5)</string>
 
     <string name="welcome_to_senra">Bine ai venit la SENRA!</string>
-    <string name="welcome_subtitle">Siguranța animalului tău începe aici. Configurează prima etichetă.</string>
-    <string name="welcome_step_1">Scanează codul QR de pe etichetă</string>
-    <string name="welcome_step_2">Creează profilul animalului tău</string>
+    <string name="welcome_subtitle">Siguranța animalului de companie tău începe aici. Configurează prima plăcuță inteligentă.</string>
+    <string name="welcome_step_1">Scanează codul QR de pe plăcuță inteligentă</string>
+    <string name="welcome_step_2">Creează profilul animalului de companie tău</string>
     <string name="welcome_step_3">Animalul tău este protejat!</string>
-    <string name="welcome_scan_first_tag">Scanează prima etichetă</string>
+    <string name="welcome_scan_first_tag">Scanează plăcuța</string>
     <string name="welcome_explore_account">Explorează contul tău</string>
-    <string name="setup_your_tags">Configurare etichete</string>
-    <string name="setup_your_tags_subtitle">Ai comandat etichete pentru aceste animale:</string>
+    <string name="setup_your_tags">Configurare plăcuțe inteligente</string>
+    <string name="setup_your_tags_subtitle">Ai comandat plăcuțe inteligente pentru aceste animale de companie:</string>
     <string name="ready_to_setup">Gata de configurare</string>
     <string name="already_activated">Deja activată</string>
-    <string name="setting_up_tag_for">Configurare etichetă pentru %s</string>
-    <string name="tag_activated_for">Etichetă activată pentru %s!</string>
+    <string name="setting_up_tag_for">Configurare plăcuță inteligentă pentru %s</string>
+    <string name="tag_activated_for">Plăcuță inteligentă activată pentru %s!</string>
     <string name="pet_now_protected">Animalul tău este acum protejat cu SENRA</string>
-    <string name="more_tags_to_setup">Mai ai etichete de configurat</string>
-    <string name="setup_pet_tag">Configurează eticheta lui %s</string>
+    <string name="more_tags_to_setup">Mai ai plăcuțe inteligente de configurat</string>
+    <string name="setup_pet_tag">Configurează plăcuța inteligentă lui %s</string>
     <string name="whats_next">Ce urmează?</string>
     <string name="choose_subscription_plan">Alege planul de abonament</string>
     <string name="register_your_vet">Înregistrează-ți veterinarul</string>
     <string name="update_contact_details">Actualizează datele de contact și confidențialitatea</string>
     <string name="go_to_home">Acasă</string>
     <string name="thank_you_senra">Mulțumim că folosești SENRA!</string>
-    <string name="tap_pet_name_hint">Atinge numele animalului tău pentru a configura eticheta</string>
+    <string name="tap_pet_name_hint">Atinge numele animalului de companie tău pentru a configura plăcuța inteligentă</string>
     <plurals name="age_years">
         <item quantity="one">%d an</item>
         <item quantity="other">%d ani</item>
@@ -1328,74 +1328,74 @@
         <item quantity="other">%d luni</item>
     </plurals>
     <string name="show_name">Afișează numele tău</string>
-    <string name="show_name_subtitle">Numele tău va fi vizibil pe profilul public al animalului tău când cineva scanează eticheta</string>
+    <string name="show_name_subtitle">Numele tău va fi vizibil pe profilul public al animalului de companie tău când cineva scanează plăcuța inteligentă</string>
     <!-- FAQ Questions and Answers -->
     <string name="help_faq_q1">Cum îmi înregistrez animalul de companie?</string>
-    <string name="help_faq_a1">Poți să-ți înregistrezi animalul în meniul \'Animalele Mele\' apăsând pe \'Adaugă Animal Nou\'. Completează informațiile necesare și încarcă una sau mai multe fotografii.</string>
-    <string name="help_faq_q2">Ce informații trebuie să furnizez în profilul animalului meu?</string>
-    <string name="help_faq_a2">Ai furnizat deja numele animalului tău când ai comandat medalionul, și va apărea în profilul animalului odată ce medalionul este activat. Introdu specia și rasa animalului tău. Pentru a preveni abuzurile, aceste date pot fi introduse doar o dată. Dacă faci o greșeală, contactează-ne și te ajutăm. Aici poți adăuga și greutatea, vârsta, culoarea și orice caracteristici distinctive sau comportament tipic al pisicii/câinelui tău. Poți încărca și fotografii. Acestea pot ajuta la identificarea rapidă și returnarea în siguranță a animalului tău. Tu decizi ce informații sunt vizibile despre animalul tău dacă se pierde.</string>
-    <string name="help_faq_q3">Cum funcționează medalionul cu cod QR?</string>
-    <string name="help_faq_a3">Fiecare animal primește un medalion cu cod QR unic. Acest cod este legat de profilul animalului tău. Când cineva scanează codul QR cu telefonul, poate vedea instant profilul animalului și datele de contact pe care le-ai marcat ca publice.</string>
-    <string name="help_faq_q4">Pot actualiza datele animalului meu mai târziu?</string>
-    <string name="help_faq_a4">Da! Poți actualiza oricând datele animalului în secțiunea \'Animalele Mele\' selectând animalul și apăsând \'Editează Profilul\'. Poți actualiza toate câmpurile cu excepția numelui, speciei și rasei, inclusiv fotografiile. Modificările se salvează imediat.</string>
-    <string name="help_faq_q5">Cum comand un medalion de înlocuire?</string>
-    <string name="help_faq_a5">Mergi la pagina \'Acasă/Contul Meu\' și apasă \'Comandă Medalion de Înlocuire\'. Selectează care animal are nevoie de un medalion nou. Abonații Maximum și Standard pot solicita medalionae de înlocuire gratuite, iar membrii Starter pot comanda înlocuiri pentru costul livrării.</string>
-    <string name="help_faq_q6">Cum activez medalionul după ce ajunge?</string>
-    <string name="help_faq_a6">Descarcă aplicația mobilă SENRA din Google Play Store sau App Store! Deschide-o și mergi la meniul \'Activare\', îndreaptă camera telefonului spre codul QR de pe medalion! Scanarea codului QR leagă medalionul de contul tău. Apoi trebuie să selectezi animalul existent sau să creezi un profil nou. După finalizarea activării, poți alege planul de abonament.</string>
-    <string name="help_faq_q7">Pot oferi cadou un medalion SENRA?</string>
-    <string name="help_faq_a7">Da! Medalionele SENRA sunt cadouri excelente pentru proprietarii de animale. Pur și simplu comandă medalionul din contul tău — când destinatarul îl primește, poate scana codul QR, își poate crea propriul cont și activa medalionul pentru animalul său.</string>
-    <string name="help_faq_q8">Ce trebuie să fac dacă animalul meu dispare?</string>
-    <string name="help_faq_a8">Mergi la \'Animalele Mele\', apasă meniul de pe cardul animalului și selectează \'Marchează ca Dispărut\'. Aceasta creează o \'alertă de animal pierdut\' trimisă tuturor membrilor comunității SENRA înregistrați într-o rază de 10 km. Veterinarii și adăposturile sunt de asemenea notificate. Primești o notificare instantanee pentru fiecare observare.</string>
-    <string name="help_faq_q9">Cum funcționează alertele de animale pierdute?</string>
-    <string name="help_faq_a9">Când marchezi pisica sau câinele ca dispărut, se creează o alertă cu fotografia și datele animalului tău. Utilizatorii SENRA într-o rază de 10 km sunt notificați imediat și animalul tău apare pe harta \'Animale Pierdute\'. Veterinarii și adăposturile înregistrate în zona ta primesc de asemenea alerta.</string>
-    <string name="help_faq_q10">Cum comand un medalion de înlocuire?</string>
-    <string name="help_faq_a10">Mergi la pagina \'Acasă/Contul Meu\' și apasă \'Comandă Medalion de Înlocuire\'. Selectează care animal are nevoie de un medalion nou. Abonații Maximum și Standard pot solicita medalionae de înlocuire gratuite, iar membrii Starter pot comanda înlocuiri pentru costul livrării.</string>
+    <string name="help_faq_a1">Poți să-ți înregistrezi animalul de companie în meniul \'Animalele Mele\' apăsând pe \'Adaugă Animal Nou\'. Completează informațiile necesare și încarcă una sau mai multe fotografii.</string>
+    <string name="help_faq_q2">Ce informații trebuie să furnizez în profilul animalului de companie meu?</string>
+    <string name="help_faq_a2">Ai furnizat deja numele animalului de companie tău când ai comandat plăcuța inteligentă, și va apărea în profilul animalului de companie odată ce plăcuța inteligentă este activat. Introdu specia și rasa animalului de companie tău. Pentru a preveni abuzurile, aceste date pot fi introduse doar o dată. Dacă faci o greșeală, contactează-ne și te ajutăm. Aici poți adăuga și greutatea, vârsta, culoarea și orice caracteristici distinctive sau comportament tipic al pisicii/câinelui tău. Poți încărca și fotografii. Acestea pot ajuta la identificarea rapidă și returnarea în siguranță a animalului de companie tău. Tu decizi ce informații sunt vizibile despre animalul de companie tău dacă se pierde.</string>
+    <string name="help_faq_q3">Cum funcționează plăcuța inteligentă cu cod QR?</string>
+    <string name="help_faq_a3">Fiecare animal de companie primește o plăcuță inteligentă cu cod QR unic. Acest cod este legat de profilul animalului de companie tău. Când cineva scanează codul QR cu telefonul, poate vedea instant profilul animalului de companie și datele de contact pe care le-ai marcat ca publice.</string>
+    <string name="help_faq_q4">Pot actualiza datele animalului de companie meu mai târziu?</string>
+    <string name="help_faq_a4">Da! Poți actualiza oricând datele animalului de companie în secțiunea \'Animalele Mele\' selectând animalul de companie și apăsând \'Editează Profilul\'. Poți actualiza toate câmpurile cu excepția numelui, speciei și rasei, inclusiv fotografiile. Modificările se salvează imediat.</string>
+    <string name="help_faq_q5">Cum comand o plăcuță inteligentă de înlocuire?</string>
+    <string name="help_faq_a5">Mergi la pagina \'Acasă/Contul Meu\' și apasă \'Comandă Plăcuță inteligentă de Înlocuire\'. Selectează care animal de companie are nevoie de o plăcuță inteligentă nou. Abonații Maximum și Standard pot solicita plăcuțe inteligente de înlocuire gratuite, iar membrii Starter pot comanda înlocuiri pentru costul livrării.</string>
+    <string name="help_faq_q6">Cum activez plăcuța inteligentă după ce ajunge?</string>
+    <string name="help_faq_a6">Descarcă aplicația mobilă SENRA din Google Play Store sau App Store! Deschide-o și mergi la meniul \'Activare\', îndreaptă camera telefonului spre codul QR de pe plăcuță inteligentă! Scanarea codului QR leagă plăcuța inteligentă de contul tău. Apoi trebuie să selectezi animalul de companie existent sau să creezi un profil nou. După finalizarea activării, poți alege planul de abonament.</string>
+    <string name="help_faq_q7">Pot oferi cadou o plăcuță inteligentă SENRA?</string>
+    <string name="help_faq_a7">Da! Plăcuțele inteligente SENRA sunt cadouri excelente pentru stăpânii de animale de companie. Pur și simplu comandă plăcuța inteligentă din contul tău — când destinatarul îl primește, poate scana codul QR, își poate crea propriul cont și activa plăcuța inteligentă pentru animalul de companie său.</string>
+    <string name="help_faq_q8">Ce trebuie să fac dacă animalul de companie meu dispare?</string>
+    <string name="help_faq_a8">Mergi la \'Animalele Mele\', apasă meniul de pe cardul animalului de companie și selectează \'Marchează ca Dispărut\'. Aceasta creează o \'alertă de animal de companie pierdut\' trimisă tuturor membrilor comunității SENRA înregistrați într-o rază de 10 km. Veterinarii și adăposturile sunt de asemenea notificate. Primești o notificare instantanee pentru fiecare observare.</string>
+    <string name="help_faq_q9">Cum funcționează alertele de animale de companie pierdute?</string>
+    <string name="help_faq_a9">Când marchezi pisica sau câinele ca dispărut, se creează o alertă cu fotografia și datele animalului de companie tău. Utilizatorii SENRA într-o rază de 10 km sunt notificați imediat și animalul de companie tău apare pe harta \'Animale Pierdute\'. Veterinarii și adăposturile înregistrate în zona ta primesc de asemenea alerta.</string>
+    <string name="help_faq_q10">Cum comand o plăcuță inteligentă de înlocuire?</string>
+    <string name="help_faq_a10">Mergi la pagina \'Acasă/Contul Meu\' și apasă \'Comandă Plăcuță inteligentă de Înlocuire\'. Selectează care animal de companie are nevoie de o plăcuță inteligentă nou. Abonații Maximum și Standard pot solicita plăcuțe inteligente de înlocuire gratuite, iar membrii Starter pot comanda înlocuiri pentru costul livrării.</string>
     <string name="help_faq_q11">Ce este programul de recomandare?</string>
     <string name="help_faq_a11">În meniul de Recomandări din pagina Profilului tău, poți genera un cod personal de recomandare. Partajează-l cu prietenii și familia. Când cineva folosește codul tău și se abonează la un plan plătit (Standard sau Maximum), tu și prietenul tău primiți 2 luni gratuite.</string>
     <string name="help_faq_q12">În ce țări livrați?</string>
     <string name="help_faq_a12">Momentan livrăm în Ungaria, Slovacia, Cehia, Austria, România, Croația, Spania, Italia, Franța, Germania, Norvegia și Portugalia. Livrare internă în Ungaria: {{huPostapoint}} (PostaPont) sau {{huHome}} (livrare la domiciliu). Livrare internațională: {{intlPrice}} per comandă.</string>
-    <string name="help_faq_q13">Pot avea mai multe animale pe un cont?</string>
-    <string name="help_faq_a13">Da. Cu planul Starter (gratuit), poți înregistra până la 10 animale, dar funcționalitățile sunt limitate. Planul Standard este pentru o pisică sau un câine, cu toate funcționalitățile. Planul Maximum include totul și poți înregistra până la 10 animale.</string>
-    <string name="help_faq_q14">Cum raportez un animal găsit?</string>
-    <string name="help_faq_a14">Dacă animalul are un medalion SENRA, pur și simplu scanează codul QR cu camera telefonului — nu ai nevoie de aplicație. Poți vedea profilul animalului și partaja locația ta cu proprietarul.</string>
+    <string name="help_faq_q13">Pot avea mai multe animale de companie pe un cont?</string>
+    <string name="help_faq_a13">Da. Cu planul Starter (gratuit), poți înregistra până la 10 animale de companie, dar funcționalitățile sunt limitate. Planul Standard este pentru o pisică sau un câine, cu toate funcționalitățile. Planul Maximum include totul și poți înregistra până la 10 animale de companie.</string>
+    <string name="help_faq_q14">Cum raportez un animal de companie găsit?</string>
+    <string name="help_faq_a14">Dacă animalul de companie are o plăcuță inteligentă SENRA, pur și simplu scanează codul QR cu camera telefonului — nu ai nevoie de aplicație. Poți vedea profilul animalului de companie și partaja locația ta cu stăpânul.</string>
     <string name="help_faq_q15">Sunt datele mele personale în siguranță?</string>
-    <string name="help_faq_a15">Da. Tu controlezi exact ce date sunt vizibile când cineva scanează medalionul animalului tău. În \'Setări\' &gt; \'Setări de Confidențialitate\', poți alege dacă să afișezi numărul de telefon, emailul sau adresa. Conectarea ta este protejată de un cod de verificare unic de fiecare dată. Poți șterge contul și datele oricând.</string>
-    <string name="help_faq_q16">Am pierdut medalionul sau s-a deteriorat — ce fac?</string>
-    <string name="help_faq_a16">Nu-ți face griji — profilul digital al animalului tău este în siguranță și nu este stocat pe medalion. Mergi la pagina Cont și apasă \'Comandă Înlocuire\'. Legăm un medalion nou cu cod QR nou de profilul existent. Abonații Standard și Maximum pot solicita înlocuiri nelimitate gratuite. Medalionul vechi se dezactivează imediat.</string>
-    <string name="help_faq_q17">Medalionul meu nu se scanează — ce fac?</string>
-    <string name="help_faq_a17">Încearcă următoarele: curăță suprafața medalionului cu o cârpă umedă, asigură iluminare bună, ține camera stabilă la circa 10-15 cm de medalion. Dacă codul QR este zgâriat sau uzat, comandă o înlocuire gratuită din \'Acasă/Contul Meu\'.</string>
-    <string name="help_faq_q18">Am găsit un animal fără medalion SENRA — ce pot face?</string>
-    <string name="help_faq_a18">Verifică harta Animalelor Pierdute pe site-ul SENRA (senra.pet). Poți vedea alertele și în aplicație. Du animalul la cel mai apropiat veterinar pentru scanarea microchipului. Dacă are medalion SENRA, scanează codul QR — apar datele proprietarului. Informează întotdeauna și autoritățile locale și adăposturile din apropiere.</string>
+    <string name="help_faq_a15">Da. Tu controlezi exact ce date sunt vizibile când cineva scanează plăcuța inteligentă animalului de companie tău. În \'Setări\' &gt; \'Setări de Confidențialitate\', poți alege dacă să afișezi numărul de telefon, emailul sau adresa. Conectarea ta este protejată de un cod de verificare unic de fiecare dată. Poți șterge contul și datele oricând.</string>
+    <string name="help_faq_q16">Am pierdut plăcuța inteligentă sau s-a deteriorat — ce fac?</string>
+    <string name="help_faq_a16">Nu-ți face griji — profilul digital al animalului de companie tău este în siguranță și nu este stocat pe plăcuță inteligentă. Mergi la pagina Cont și apasă \'Comandă Înlocuire\'. Legăm o plăcuță inteligentă nou cu cod QR nou de profilul existent. Abonații Standard și Maximum pot solicita înlocuiri nelimitate gratuite. Plăcuța inteligentă vechi se dezactivează imediat.</string>
+    <string name="help_faq_q17">Plăcuța inteligentă meu nu se scanează — ce fac?</string>
+    <string name="help_faq_a17">Încearcă următoarele: curăță suprafața plăcuțe inteligentei inteligente cu o cârpă umedă, asigură iluminare bună, ține camera stabilă la circa 10-15 cm de plăcuță inteligentă. Dacă codul QR este zgâriat sau uzat, comandă o înlocuire gratuită din \'Acasă/Contul Meu\'.</string>
+    <string name="help_faq_q18">Am găsit un animal de companie fără plăcuță inteligentă SENRA — ce pot face?</string>
+    <string name="help_faq_a18">Verifică harta Animalelor Pierdute pe site-ul SENRA (senra.pet). Poți vedea alertele și în aplicație. Du animalul de companie la cel mai apropiat veterinar pentru scanarea microchipului. Dacă are plăcuță inteligentă SENRA, scanează codul QR — apar datele stăpânului. Informează întotdeauna și autoritățile locale și adăposturile din apropiere.</string>
     <string name="help_faq_q19">Pot schimba adresa mea de email?</string>
     <string name="help_faq_a19">Emailul tău principal servește ca identificator de cont și nu poate fi schimbat direct. Poți adăuga un email secundar în \'Setări\' &gt; \'Date de Contact\'. Dacă ai nevoie neapărat să schimbi emailul principal, contactează-ne la hello@senra.pet.</string>
-    <string name="help_faq_q20">Care este diferența dintre un microchip și un medalion QR SENRA?</string>
-    <string name="help_faq_a20">Un microchip este un mic implant sub pielea animalului care stochează un identificator unic de 15 cifre — dar necesită un cititor special. Medalionul QR SENRA poate fi scanat cu orice cameră de smartphone, afișând instantaneu profilul complet, fotografia și datele de contact aprobate. Cel care găsește poate partaja și coordonatele GPS.</string>
+    <string name="help_faq_q20">Care este diferența dintre un microchip și o plăcuță inteligentă QR SENRA?</string>
+    <string name="help_faq_a20">Un microchip este un mic implant sub pielea animalului de companie care stochează un identificator unic de 15 cifre — dar necesită un cititor special. Plăcuța inteligentă QR SENRA poate fi scanat cu orice cameră de smartphone, afișând instantaneu profilul complet, fotografia și datele de contact aprobate. Cel care găsește poate partaja și coordonatele GPS.</string>
     <string name="help_faq_q21">Ce se întâmplă cu datele mele dacă anulez abonamentul?</string>
-    <string name="help_faq_a21">Dacă anulezi abonamentul, păstrezi accesul la funcționalitățile plătite până la sfârșitul perioadei curente de facturare. Apoi contul trece automat la planul gratuit Starter. Profilurile, fotografiile și medalionele QR rămân active. Datele nu sunt șterse la anulare. Pentru ștergere permanentă, folosește opțiunea Șterge Cont din Setări.</string>
+    <string name="help_faq_a21">Dacă anulezi abonamentul, păstrezi accesul la funcționalitățile plătite până la sfârșitul perioadei curente de facturare. Apoi contul trece automat la planul gratuit Starter. Profilurile, fotografiile și plăcuțe inteligentele inteligente QR rămân active. Datele nu sunt șterse la anulare. Pentru ștergere permanentă, folosește opțiunea Șterge Cont din Setări.</string>
     <string name="help_faq_q22">Cum pot înregistra clinica sau adăpostul meu la SENRA?</string>
-    <string name="help_faq_a22">Clinicile veterinare și adăposturile se pot înregistra la senra.pet/register-vet-shelter. Completează datele și trimitem un email de verificare. După confirmare, trimitem automat notificări când animalele se pierd în zonă. Fără costuri și fără login.</string>
-    <string name="help_faq_q23">Cum pot partaja o poveste de succes dacă animalul meu a fost găsit?</string>
-    <string name="help_faq_a23">Când marchezi animalul ca \'Găsit\', te întrebăm dacă vrei să partajezi vestea bună. Poți publica o scurtă poveste. Poveștile publice apar pe harta \'Animale Găsite\'.</string>
+    <string name="help_faq_a22">Clinicile veterinare și adăposturile se pot înregistra la senra.pet/register-vet-shelter. Completează datele și trimitem un email de verificare. După confirmare, trimitem automat notificări când animalele de companie se pierd în zonă. Fără costuri și fără login.</string>
+    <string name="help_faq_q23">Cum pot partaja o poveste de succes dacă animalul de companie meu a fost găsit?</string>
+    <string name="help_faq_a23">Când marchezi animalul de companie ca \'Găsit\', te întrebăm dacă vrei să partajezi vestea bună. Poți publica o scurtă poveste. Poveștile publice apar pe harta \'Animale Găsite\'.</string>
     <string name="help_faq_q24">Ce browsere și dispozitive sunt suportate?</string>
-    <string name="help_faq_a24">SENRA funcționează pe toate browserele, inclusiv Chrome, Safari, Firefox și Edge, pe dispozitive mobile și desktop. Scanarea medalionului QR funcționează cu orice cameră de smartphone — cel care găsește nu are nevoie de aplicația SENRA sau de cont.</string>
-    <string name="help_faq_q25">Pot comanda mai multe medalionae pentru animalele mele deodată?</string>
-    <string name="help_faq_a25">Da, poți comanda medalionae pentru toate animalele deodată. După ce sosesc, scanează fiecare pentru activare și atribuire la profilul corect.</string>
-    <string name="help_faq_q26">Cum ajung alertele de animale pierdute la veterinari și adăposturi?</string>
-    <string name="help_faq_a26">Când marchezi animalul ca \'Pierdut\', SENRA trimite automat alerte prin email tuturor veterinarilor și adăposturilor înregistrate în zona ta. Cu cât sunt mai mulți înregistrați, cu atât rețeaua funcționează mai bine.</string>
-    <string name="help_faq_q27">Pot transfera un medalion la alt animal?</string>
-    <string name="help_faq_a27">Nu. Fiecare medalion QR este legat permanent de profilul unui animal. Dacă un animal moare sau nu mai ai nevoie de medalion, acesta devine inactiv. Comandă un medalion nou pentru noul animal pe site-ul SENRA.</string>
-    <string name="help_faq_q28">Cum pot înregistra clinica veterinară a animalului meu sau adăpostul unde am adoptat animalul în rețeaua SENRA?</string>
-    <string name="help_faq_a28">Clinicile veterinare și adăposturile se pot înregistra la senra.pet/register-vet-shelter. Completează datele și trimitem un email de verificare. După confirmare, trimitem automat notificări când animalele se pierd în zonă — ajutând animalele pierdute să ajungă acasă mai repede. Fără costuri și fără login.</string>
+    <string name="help_faq_a24">SENRA funcționează pe toate browserele, inclusiv Chrome, Safari, Firefox și Edge, pe dispozitive mobile și desktop. Scanarea plăcuțe inteligentei inteligente QR funcționează cu orice cameră de smartphone — cel care găsește nu are nevoie de aplicația SENRA sau de cont.</string>
+    <string name="help_faq_q25">Pot comanda mai multe plăcuțe inteligente pentru animalele de companie mele deodată?</string>
+    <string name="help_faq_a25">Da, poți comanda plăcuțe inteligente pentru toate animalele de companie deodată. După ce sosesc, scanează fiecare pentru activare și atribuire la profilul corect.</string>
+    <string name="help_faq_q26">Cum ajung alertele de animale de companie pierdute la veterinari și adăposturi?</string>
+    <string name="help_faq_a26">Când marchezi animalul de companie ca \'Pierdut\', SENRA trimite automat alerte prin email tuturor veterinarilor și adăposturilor înregistrate în zona ta. Cu cât sunt mai mulți înregistrați, cu atât rețeaua funcționează mai bine.</string>
+    <string name="help_faq_q27">Pot transfera o plăcuță inteligentă la alt animal de companie?</string>
+    <string name="help_faq_a27">Nu. Fiecare plăcuță inteligentă QR este legată permanent de profilul unui animal de companie. Dacă un animal de companie moare sau nu mai ai nevoie de plăcuță inteligentă, acesta devine inactiv. Comandă o plăcuță inteligentă nou pentru noul animal de companie pe site-ul SENRA.</string>
+    <string name="help_faq_q28">Cum pot înregistra clinica veterinară a animalului de companie meu sau adăpostul unde am adoptat animalul de companie în rețeaua SENRA?</string>
+    <string name="help_faq_a28">Clinicile veterinare și adăposturile se pot înregistra la senra.pet/register-vet-shelter. Completează datele și trimitem un email de verificare. După confirmare, trimitem automat notificări când animalele de companie se pierd în zonă — ajutând animalele de companie pierdute să ajungă acasă mai repede. Fără costuri și fără login.</string>
 
 
     <!-- Tag activation strings -->
-    <string name="error_tag_lookup_failed">Nu s-a putut căuta eticheta. Vă rugăm să încercați din nou.</string>
-    <string name="error_tag_not_activated">Această etichetă nu a fost încă activată.</string>
-    <string name="error_tag_not_found">Această etichetă nu a fost găsită în sistem.</string>
-    <string name="notif_tag_activated_body">Eticheta SENRA pentru %s este acum activă. Animalul tău este protejat.</string>
-    <string name="notif_tag_activated_title">Etichetă activată!</string>
+    <string name="error_tag_lookup_failed">Nu s-a putut căuta plăcuța inteligentă. Vă rugăm să încercați din nou.</string>
+    <string name="error_tag_not_activated">Această plăcuță inteligentă nu a fost încă activată.</string>
+    <string name="error_tag_not_found">Această plăcuță inteligentă nu a fost găsită în sistem.</string>
+    <string name="notif_tag_activated_body">Plăcuța inteligentă SENRA pentru %s este acum activă. Animalul tău este protejat.</string>
+    <string name="notif_tag_activated_title">Plăcuță inteligentă activată!</string>
     <!-- Tags coming soon -->
-    <string name="tags_coming_soon_title">Medalioanele fizice vor fi disponibile în curând</string>
+    <string name="tags_coming_soon_title">Plăcuțele inteligente fizice vor fi disponibile în curând</string>
     <string name="tags_coming_soon_body">Vom expedia primul lot foarte curând. Revino peste câteva zile.</string>
 
 
