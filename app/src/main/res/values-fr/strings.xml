@@ -144,7 +144,7 @@
     <string name="age_label">Âge\u00a0: %1$s</string>
     <string name="medical_information">Informations médicales</string>
     <string name="additional_information">Informations complémentaires</string>
-    <string name="edit_pet">Modifier l'animal</string>
+    <string name="edit_pet">Modifier l\'animal</string>
     <string name="view_pet_photos">Voir les photos de %1$s</string>
     <string name="mark_as_found">Marquer comme retrouvé</string>
     <string name="mark_as_lost">Marquer comme disparu</string>
