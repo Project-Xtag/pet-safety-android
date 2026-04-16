@@ -26,6 +26,7 @@ import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import com.petsafety.app.ui.util.AdaptiveLayout
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
@@ -80,6 +81,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.content.ContextCompat
+import androidx.compose.ui.res.painterResource
 import coil.compose.AsyncImage
 import com.google.android.gms.location.LocationServices
 import com.petsafety.app.R
@@ -91,6 +93,7 @@ import com.petsafety.app.ui.components.MarkFoundSheet
 import com.petsafety.app.ui.components.OfflineIndicator
 import com.petsafety.app.ui.components.PetsListSkeleton
 import com.petsafety.app.ui.components.ReportMissingSheet
+import com.petsafety.app.ui.components.TealButton
 import com.petsafety.app.ui.theme.BrandOrange
 import com.petsafety.app.ui.theme.ErrorColor
 import com.petsafety.app.ui.theme.PeachBackground
@@ -779,20 +782,12 @@ private fun WelcomeView(
     ) {
         Spacer(modifier = Modifier.height(20.dp))
 
-        // Hero icon
-        Box(
-            modifier = Modifier
-                .size(120.dp)
-                .background(BrandOrange.copy(alpha = 0.15f), CircleShape),
-            contentAlignment = Alignment.Center
-        ) {
-            Icon(
-                imageVector = Icons.Default.Pets,
-                contentDescription = null,
-                modifier = Modifier.size(50.dp),
-                tint = BrandOrange
-            )
-        }
+        // Hero logo
+        Image(
+            painter = painterResource(R.drawable.logo),
+            contentDescription = stringResource(R.string.app_name),
+            modifier = Modifier.size(120.dp)
+        )
 
         Spacer(modifier = Modifier.height(28.dp))
 
@@ -828,7 +823,7 @@ private fun WelcomeView(
         Spacer(modifier = Modifier.height(36.dp))
 
         // Primary CTA
-        BrandButton(
+        TealButton(
             text = stringResource(R.string.welcome_scan_first_tag),
             onClick = onScanTag,
             modifier = Modifier.fillMaxWidth()
@@ -841,7 +836,7 @@ private fun WelcomeView(
             Text(
                 text = stringResource(R.string.welcome_explore_account),
                 style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.Medium),
-                color = BrandOrange
+                color = TealAccent
             )
         }
 
@@ -865,7 +860,7 @@ private fun WelcomeStep(
         Box(
             modifier = Modifier
                 .size(36.dp)
-                .background(BrandOrange, CircleShape),
+                .background(TealAccent, CircleShape),
             contentAlignment = Alignment.Center
         ) {
             Text(
@@ -881,7 +876,7 @@ private fun WelcomeStep(
             imageVector = icon,
             contentDescription = null,
             modifier = Modifier.size(22.dp),
-            tint = BrandOrange
+            tint = TealAccent
         )
 
         Spacer(modifier = Modifier.width(10.dp))
