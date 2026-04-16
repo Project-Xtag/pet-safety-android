@@ -458,14 +458,13 @@ private fun SuccessStoriesMap(
         }
     }
 
-    val first = stories.firstOrNull()
     val cameraPositionState = rememberCameraPositionState {
         position = CameraPosition.fromLatLngZoom(
             LatLng(
-                first?.resolvedLatitude ?: userLatitude ?: 51.5074,
-                first?.resolvedLongitude ?: userLongitude ?: -0.1278
+                userLatitude ?: 51.5074,
+                userLongitude ?: -0.1278
             ),
-            11f
+            10f // ~50 km radius
         )
     }
     var selectedStory by remember { mutableStateOf<SuccessStory?>(null) }
