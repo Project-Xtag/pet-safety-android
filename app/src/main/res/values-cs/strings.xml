@@ -372,6 +372,8 @@
     <string name="report_sighting_prompt">Sdílej detaily o tom, kde jsi viděli %1$s.</string>
     <string name="notes">Poznámky</string>
     <string name="sighting_reported">Pozorování nahlášeno</string>
+    <string name="sighting_address_not_found">Tuto adresu jsme nenašli. Zkontroluj pravopis nebo zkus blízkou památku.</string>
+    <string name="sighting_location_required">Sdílej svou aktuální polohu nebo zadej adresu.</string>
     <string name="report_failed">Nahlášení se nezdařilo</string>
     <string name="sighting_location">Místo pozorování</string>
     <string name="use_current_location">Použít aktuální polohu</string>
@@ -395,7 +397,7 @@
     <string name="select_pet_header">Vybrat mazlíčka</string>
     <string name="no_pets_available">Žádní mazlíčci nejsou dostupní. Nejprve přidej mazlíčka.</string>
     <string name="pet_picker_label">Mazlíček</string>
-    <string name="last_seen_location_header">Místo posledního výskytu</string>
+    <string name="last_seen_location_header">Poslední známé místo</string>
     <string name="enter_location">Zadej polohu</string>
     <string name="additional_information_header">Další informace</string>
     <string name="additional_details_placeholder">Uveďte další podrobnosti o tom, kdy a kde jsi mazlíčka naposledy viděli\u2026</string>

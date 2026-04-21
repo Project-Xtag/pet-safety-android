@@ -393,6 +393,8 @@
     <string name="report_sighting_prompt">Podaj szczegóły dotyczące miejsca, w którym widziałeś(-aś) %1$s.</string>
     <string name="notes">Notatki</string>
     <string name="sighting_reported">Obserwacja zgłoszona</string>
+    <string name="sighting_address_not_found">Nie znaleźliśmy tego adresu. Sprawdź pisownię lub spróbuj pobliskiego punktu orientacyjnego.</string>
+    <string name="sighting_location_required">Udostępnij swoją obecną lokalizację lub wpisz adres.</string>
     <string name="report_failed">Zgłoszenie nie powiodło się</string>
     <string name="sighting_location">Miejsce obserwacji</string>
     <string name="use_current_location">Użyj bieżącej lokalizacji</string>
@@ -416,7 +418,7 @@
     <string name="select_pet_header">Wybierz pupila</string>
     <string name="no_pets_available">Brak dostępnych pupili. Najpierw dodaj pupila.</string>
     <string name="pet_picker_label">Pupila</string>
-    <string name="last_seen_location_header">Ostatnio widziane w</string>
+    <string name="last_seen_location_header">Ostatnia znana lokalizacja</string>
     <string name="enter_location">Podaj lokalizację</string>
     <string name="additional_information_header">Dodatkowe informacje</string>
     <string name="additional_details_placeholder">Podaj dodatkowe szczegóły dotyczące tego, kiedy i gdzie ostatnio widziałeś(-aś) swoje pupila\u2026</string>

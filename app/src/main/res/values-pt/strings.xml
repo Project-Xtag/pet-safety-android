@@ -371,6 +371,8 @@
     <string name="report_sighting_prompt">Partilha detalhes sobre onde viste %1$s.</string>
     <string name="notes">Notas</string>
     <string name="sighting_reported">Avistamento reportado</string>
+    <string name="sighting_address_not_found">Não encontramos esse endereço. Verifica a ortografia ou tenta um ponto de referência próximo.</string>
+    <string name="sighting_location_required">Partilha a tua localização atual ou insere uma morada.</string>
     <string name="report_failed">Falha ao reportar</string>
     <string name="sighting_location">Localização do avistamento</string>
     <string name="use_current_location">Usar localização atual</string>
@@ -394,7 +396,7 @@
     <string name="select_pet_header">Selecionar animal de estimação</string>
     <string name="no_pets_available">Sem animais de estimação disponíveis. Adicione um animal de estimação primeiro.</string>
     <string name="pet_picker_label">Animal de estimação</string>
-    <string name="last_seen_location_header">Localização onde foi visto pela última vez</string>
+    <string name="last_seen_location_header">Última localização conhecida</string>
     <string name="enter_location">Introduzir localização</string>
     <string name="additional_information_header">Informação adicional</string>
     <string name="additional_details_placeholder">Forneça detalhes sobre quando e onde viu o seu animal de estimação pela última vez\u2026</string>

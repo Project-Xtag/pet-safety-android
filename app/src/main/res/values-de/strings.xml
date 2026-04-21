@@ -371,6 +371,8 @@
     <string name="report_sighting_prompt">Teile Details darüber, wo du %1$s gesehen haben.</string>
     <string name="notes">Notizen</string>
     <string name="sighting_reported">Sichtung gemeldet</string>
+    <string name="sighting_address_not_found">Diese Adresse konnten wir nicht finden. Prüfe die Schreibweise oder versuche einen nahegelegenen Orientierungspunkt.</string>
+    <string name="sighting_location_required">Teile deinen aktuellen Standort oder gib eine Adresse ein.</string>
     <string name="report_failed">Melden fehlgeschlagen</string>
     <string name="sighting_location">Sichtungsort</string>
     <string name="use_current_location">Aktuellen Standort verwenden</string>
@@ -394,7 +396,7 @@
     <string name="select_pet_header">Haustier auswählen</string>
     <string name="no_pets_available">Keine Haustiere verfügbar. Bitte fügen du zuerst ein Haustier hinzu.</string>
     <string name="pet_picker_label">Haustier</string>
-    <string name="last_seen_location_header">Zuletzt gesehener Standort</string>
+    <string name="last_seen_location_header">Zuletzt bekannter Ort</string>
     <string name="enter_location">Standort eingeben</string>
     <string name="additional_information_header">Zusätzliche Informationen</string>
     <string name="additional_details_placeholder">Gib weitere Details an, wann und wo du dein Haustier zuletzt gesehen haben\u2026</string>

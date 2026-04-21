@@ -385,6 +385,8 @@
     <string name="report_sighting_prompt">Share any details about where you saw %1$s.</string>
     <string name="notes">Notes</string>
     <string name="sighting_reported">Sighting reported</string>
+    <string name="sighting_address_not_found">We couldn\'t find that address. Please check the spelling or try a nearby landmark.</string>
+    <string name="sighting_location_required">Please share your current location or enter an address.</string>
     <string name="report_failed">Failed to report</string>
     <string name="sighting_location">Sighting location</string>
     <string name="use_current_location">Use Current Location</string>
@@ -408,7 +410,7 @@
     <string name="select_pet_header">Select Pet</string>
     <string name="no_pets_available">No pets available. Please add a pet first.</string>
     <string name="pet_picker_label">Pet</string>
-    <string name="last_seen_location_header">Last Seen Location</string>
+    <string name="last_seen_location_header">Last known location</string>
     <string name="enter_location">Enter location</string>
     <string name="additional_information_header">Additional Information</string>
     <string name="additional_details_placeholder">Provide any additional details about when and where your pet was last seen\u2026</string>

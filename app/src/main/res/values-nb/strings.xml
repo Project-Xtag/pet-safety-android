@@ -385,6 +385,8 @@
     <string name="report_sighting_prompt">Del detaljer om hvor du så %1$s.</string>
     <string name="notes">Notater</string>
     <string name="sighting_reported">Observasjon rapportert</string>
+    <string name="sighting_address_not_found">Vi fant ikke denne adressen. Sjekk stavemåten eller prøv et landemerke i nærheten.</string>
+    <string name="sighting_location_required">Del din nåværende posisjon, eller skriv inn en adresse.</string>
     <string name="report_failed">Rapportering mislyktes</string>
     <string name="sighting_location">Observasjonssted</string>
     <string name="use_current_location">Bruk gjeldende posisjon</string>

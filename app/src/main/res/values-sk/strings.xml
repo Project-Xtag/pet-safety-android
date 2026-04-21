@@ -371,6 +371,8 @@
     <string name="report_sighting_prompt">Zdieľaj podrobnosti o tom, kde si videli %1$s.</string>
     <string name="notes">Poznámky</string>
     <string name="sighting_reported">Pozorovanie nahlásené</string>
+    <string name="sighting_address_not_found">Túto adresu sme nenašli. Skontroluj pravopis alebo skús blízku pamätihodnosť.</string>
+    <string name="sighting_location_required">Zdieľaj svoju aktuálnu polohu alebo zadaj adresu.</string>
     <string name="report_failed">Nahlásenie zlyhalo</string>
     <string name="sighting_location">Miesto pozorovania</string>
     <string name="use_current_location">Použiť aktuálnu polohu</string>
@@ -394,7 +396,7 @@
     <string name="select_pet_header">Vyber zviera</string>
     <string name="no_pets_available">Žiadne zvieratá nie sú k dispozícii. Najprv pridaj zviera.</string>
     <string name="pet_picker_label">Zviera</string>
-    <string name="last_seen_location_header">Naposledy videné miesto</string>
+    <string name="last_seen_location_header">Posledné známe miesto</string>
     <string name="enter_location">Zadať miesto</string>
     <string name="additional_information_header">Ďalšie informácie</string>
     <string name="additional_details_placeholder">Uveďte ďalšie podrobnosti o tom, kedy a kde si zviera naposledy videli\u2026</string>

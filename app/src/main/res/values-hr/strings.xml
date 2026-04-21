@@ -356,6 +356,8 @@
     <string name="report_sighting_prompt">Podijeli detalje o tome gdje si vidio %1$s.</string>
     <string name="notes">Bilješke</string>
     <string name="sighting_reported">Uočavanje prijavljeno</string>
+    <string name="sighting_address_not_found">Tu adresu nismo pronašli. Provjeri pravopis ili pokušaj s obližnjom znamenitošću.</string>
+    <string name="sighting_location_required">Podijeli trenutnu lokaciju ili unesi adresu.</string>
     <string name="report_failed">Prijava nije uspjela</string>
     <string name="sighting_location">Mjesto viđenja</string>
     <string name="use_current_location">Koristi trenutnu lokaciju</string>

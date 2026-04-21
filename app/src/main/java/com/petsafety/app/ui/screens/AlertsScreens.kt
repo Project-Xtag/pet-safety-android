@@ -61,7 +61,13 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateMapOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.suspendCancellableCoroutine
+import kotlinx.coroutines.withContext
+import kotlin.coroutines.resume
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -794,12 +800,17 @@ private fun ReportSightingDialog(
     onSubmit: (LocationCoordinate?, String?, String?, String?, String?, String?) -> Unit
 ) {
     val context = LocalContext.current
+    val scope = rememberCoroutineScope()
     val locationProvider = remember { LocationServices.getFusedLocationProviderClient(context) }
+    val addressNotFoundMessage = stringResource(R.string.sighting_address_not_found)
+    val locationRequiredMessage = stringResource(R.string.sighting_location_required)
 
     var locationText by remember { mutableStateOf("") }
     var notes by remember { mutableStateOf("") }
     var capturedCoordinate by remember { mutableStateOf<LocationCoordinate?>(null) }
     var isCapturingLocation by remember { mutableStateOf(false) }
+    var isGeocoding by remember { mutableStateOf(false) }
+    var errorText by remember { mutableStateOf<String?>(null) }
     var shareContact by remember { mutableStateOf(false) }
     var reporterName by remember { mutableStateOf("") }
     var reporterPhone by remember { mutableStateOf("") }
@@ -954,22 +965,69 @@ private fun ReportSightingDialog(
                         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email)
                     )
                 }
+
+                errorText?.let { err ->
+                    Spacer(modifier = Modifier.height(8.dp))
+                    Text(
+                        text = err,
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.error
+                    )
+                }
             }
         },
         confirmButton = {
             Button(
                 onClick = {
-                    onSubmit(
-                        capturedCoordinate,
-                        locationText.ifBlank { null },
-                        notes.ifBlank { null },
-                        if (shareContact) reporterName.ifBlank { null } else null,
-                        if (shareContact) reporterPhone.ifBlank { null } else null,
-                        if (shareContact) reporterEmail.ifBlank { null } else null
-                    )
+                    errorText = null
+                    val trimmed = locationText.trim()
+                    // If we already have GPS coords, submit immediately
+                    val existingCoord = capturedCoordinate
+                    if (existingCoord != null) {
+                        onSubmit(
+                            existingCoord,
+                            trimmed.ifBlank { null },
+                            notes.ifBlank { null },
+                            if (shareContact) reporterName.ifBlank { null } else null,
+                            if (shareContact) reporterPhone.ifBlank { null } else null,
+                            if (shareContact) reporterEmail.ifBlank { null } else null
+                        )
+                        return@Button
+                    }
+                    // No GPS — backend requires coords, so geocode the typed address first
+                    if (trimmed.isBlank()) {
+                        errorText = locationRequiredMessage
+                        return@Button
+                    }
+                    scope.launch {
+                        isGeocoding = true
+                        val coord = geocodeSightingAddress(context, trimmed)
+                        isGeocoding = false
+                        if (coord == null) {
+                            errorText = addressNotFoundMessage
+                        } else {
+                            onSubmit(
+                                coord,
+                                trimmed,
+                                notes.ifBlank { null },
+                                if (shareContact) reporterName.ifBlank { null } else null,
+                                if (shareContact) reporterPhone.ifBlank { null } else null,
+                                if (shareContact) reporterEmail.ifBlank { null } else null
+                            )
+                        }
+                    }
                 },
+                enabled = !isGeocoding,
                 colors = ButtonDefaults.buttonColors(containerColor = BrandOrange)
             ) {
+                if (isGeocoding) {
+                    CircularProgressIndicator(
+                        modifier = Modifier.size(16.dp),
+                        strokeWidth = 2.dp,
+                        color = Color.White
+                    )
+                    Spacer(modifier = Modifier.width(8.dp))
+                }
                 Text(stringResource(R.string.submit))
             }
         },
@@ -1962,6 +2020,35 @@ private fun formatDateAbbreviated(dateString: String): String {
         }
     } catch (e: Exception) {
         dateString.take(10)
+    }
+}
+
+/**
+ * Geocode a typed address to coordinates. The backend sighting endpoint requires
+ * lat/lng, so if the user types an address without capturing GPS we need to
+ * resolve it here. Returns null if geocoding fails or returns no match.
+ */
+private suspend fun geocodeSightingAddress(
+    context: android.content.Context,
+    address: String
+): LocationCoordinate? = withContext(Dispatchers.IO) {
+    try {
+        @Suppress("DEPRECATION")
+        val geocoder = android.location.Geocoder(context, Locale.getDefault())
+        if (android.os.Build.VERSION.SDK_INT >= 33) {
+            suspendCancellableCoroutine { cont ->
+                geocoder.getFromLocationName(address, 1) { results ->
+                    val first = results.firstOrNull()
+                    cont.resume(first?.let { LocationCoordinate(it.latitude, it.longitude) })
+                }
+            }
+        } else {
+            @Suppress("DEPRECATION")
+            val results = geocoder.getFromLocationName(address, 1)
+            results?.firstOrNull()?.let { LocationCoordinate(it.latitude, it.longitude) }
+        }
+    } catch (_: Exception) {
+        null
     }
 }
 

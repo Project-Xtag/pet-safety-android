@@ -371,6 +371,8 @@
     <string name="report_sighting_prompt">Oszd meg azokat a részleteket, ahol láttad %1$s-t!</string>
     <string name="notes">Megjegyzések</string>
     <string name="sighting_reported">Észlelés bejelentve</string>
+    <string name="sighting_address_not_found">Nem találjuk ezt a címet. Ellenőrizd a helyesírást vagy próbálj meg egy közeli nevezetességet.</string>
+    <string name="sighting_location_required">Oszd meg a jelenlegi helyzeted, vagy adj meg egy címet.</string>
     <string name="report_failed">Nem sikerült bejelenteni</string>
     <string name="sighting_location">Észlelés helye</string>
     <string name="use_current_location">Jelenlegi hely használata</string>

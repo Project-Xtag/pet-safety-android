@@ -364,6 +364,8 @@
     <string name="report_sighting_prompt">Împărtășește detalii despre unde l-ai văzut pe %1$s.</string>
     <string name="notes">Note</string>
     <string name="sighting_reported">Observație raportată</string>
+    <string name="sighting_address_not_found">Nu am găsit această adresă. Verifică ortografia sau încearcă un reper din apropiere.</string>
+    <string name="sighting_location_required">Distribuie locația curentă sau introdu o adresă.</string>
     <string name="report_failed">Raportarea a eșuat</string>
     <string name="sighting_location">Locația observației</string>
     <string name="use_current_location">Folosește locația curentă</string>
@@ -387,7 +389,7 @@
     <string name="select_pet_header">Selectează animal de companie</string>
     <string name="no_pets_available">Nu există animale de companie disponibile. Adaugă unul mai întâi.</string>
     <string name="pet_picker_label">Animal</string>
-    <string name="last_seen_location_header">Locația unde a fost văzut ultima dată</string>
+    <string name="last_seen_location_header">Ultima locație cunoscută</string>
     <string name="enter_location">Introdu locația</string>
     <string name="additional_information_header">Informații suplimentare</string>
     <string name="additional_details_placeholder">Oferă detalii despre când și unde ai văzut ultima dată animalul de companie\u2026</string>

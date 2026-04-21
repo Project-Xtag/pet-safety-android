@@ -385,6 +385,8 @@
     <string name="report_sighting_prompt">Condividi i dettagli su dove hai visto %1$s.</string>
     <string name="notes">Note</string>
     <string name="sighting_reported">Avvistamento segnalato</string>
+    <string name="sighting_address_not_found">Non abbiamo trovato questo indirizzo. Controlla l\'ortografia o prova un punto di riferimento vicino.</string>
+    <string name="sighting_location_required">Condividi la tua posizione attuale o inserisci un indirizzo.</string>
     <string name="report_failed">Segnalazione non riuscita</string>
     <string name="sighting_location">Luogo dell\'avvistamento</string>
     <string name="use_current_location">Usa posizione attuale</string>
