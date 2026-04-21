@@ -428,9 +428,9 @@
     <string name="tap_get_location">Toque para obter a localização atual\u2026</string>
     <string name="using_registered_address">A usar a sua morada registada</string>
     <string name="enter_address_notifications">Introduza a morada para notificações</string>
-    <string name="notification_source_current_location">Localização atual</string>
-    <string name="notification_source_my_address">A minha morada</string>
-    <string name="notification_source_custom">Personalizada</string>
+    <string name="notification_source_current_location">Morada atual de localização</string>
+    <string name="notification_source_my_address">Morada registada</string>
+    <string name="notification_source_custom">Outra morada</string>
     <string name="no_registered_address">Não foi encontrada morada registada. Atualize o seu perfil.</string>
 
         <!-- Mark Lost Flow (matching iOS MarkAsLostView) -->
@@ -441,13 +441,13 @@
     <string name="mark_lost_no_address">Sem morada registada. Vá a Perfil para adicionar a sua morada.</string>
     <string name="mark_lost_address_placeholder">Introduza a morada ou localização</string>
     <string name="mark_lost_additional_info">Informação adicional</string>
-    <string name="mark_lost_additional_placeholder">Descreva quando e onde viu o animal de estimação pela última vez, o que usava, etc.</string>
+    <string name="mark_lost_additional_placeholder">Qualquer detalhe que possa ajudar a encontrar o seu animal de estimação (cor da coleira, comportamento, marcas distintivas…)</string>
     <string name="mark_lost_sends_to">Este alerta será enviado para:</string>
     <string name="mark_lost_nearby_owners">Tutores de animais de estimação próximos</string>
     <string name="mark_lost_vet_clinics">Clínicas veterinárias na área</string>
     <string name="mark_lost_shelters">Abrigos de animais de estimação próximos</string>
     <string name="mark_lost_report">Reportar desaparecido</string>
-    <string name="mark_lost_title">Reportar desaparecido</string>
+    <string name="mark_lost_title">Marcar %1$s como desaparecido</string>
     <string name="mark_lost_starter_notice">Atualize para enviar alertas comunitários</string>
     <string name="mark_lost_upgrade_prompt">Com o plano Starter o seu animal de estimação será marcado como desaparecido, mas as notificações a utilizadores, veterinários e abrigos requerem uma subscrição Standard ou Maximum.</string>
     <string name="mark_lost_success_with_alerts">%1$s foi reportado como desaparecido. Alertas estão sendo enviados a utilizadores próximos.</string>
@@ -456,9 +456,9 @@
     <string name="quick_lost_select_pet">Selecione um animal de estimação para reportar como desaparecido</string>
     <string name="quick_lost_all_missing">Todos os seus animais de estimação já estão marcados como desaparecidos.</string>
     <string name="quick_lost_title">Reportar desaparecido</string>
-    <string name="location_current">Localização atual</string>
-    <string name="location_my_address">A minha morada</string>
-    <string name="location_custom">Morada personalizada</string>
+    <string name="location_current">Morada atual de localização</string>
+    <string name="location_my_address">Morada registada</string>
+    <string name="location_custom">Outra morada</string>
 
     <!-- ============================================ -->
     <!-- MARK: Notifications -->

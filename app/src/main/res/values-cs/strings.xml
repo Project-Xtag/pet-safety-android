@@ -429,9 +429,9 @@
     <string name="tap_get_location">Klepni pro získání aktuální polohy\u2026</string>
     <string name="using_registered_address">Používá se tvé registrovaná adresa</string>
     <string name="enter_address_notifications">Zadej adresu pro oznámení</string>
-    <string name="notification_source_current_location">Aktuální poloha</string>
-    <string name="notification_source_my_address">Moje adresa</string>
-    <string name="notification_source_custom">Vlastní</string>
+    <string name="notification_source_current_location">Aktuální adresa pobytu</string>
+    <string name="notification_source_my_address">Registrovaná adresa</string>
+    <string name="notification_source_custom">Jiná adresa</string>
     <string name="no_registered_address">Nebyla nalezena žádná registrovaná adresa. Aktualizuj svůj profil.</string>
 
         <!-- Mark Lost Flow (matching iOS MarkAsLostView) -->
@@ -442,13 +442,13 @@
     <string name="mark_lost_no_address">Žádná registrovaná adresa. Jděte do Profilu a přidej adresu.</string>
     <string name="mark_lost_address_placeholder">Zadej adresu nebo místo</string>
     <string name="mark_lost_additional_info">Další informace</string>
-    <string name="mark_lost_additional_placeholder">Popište, kdy a kde jsi mazlíčka naposledy viděli, co měl na sobě, apod.</string>
+    <string name="mark_lost_additional_placeholder">Jakékoli podrobnosti, které by mohly pomoci najít tvého mazlíčka (barva obojku, chování, rozpoznávací znaky…)</string>
     <string name="mark_lost_sends_to">Toto upozornění bude odesláno:</string>
     <string name="mark_lost_nearby_owners">Majitelům mazlíčků v okolí</string>
     <string name="mark_lost_vet_clinics">Veterinárním klinikám v okolí</string>
     <string name="mark_lost_shelters">Útulkům v okolí</string>
     <string name="mark_lost_report">Nahlásit ztrátu</string>
-    <string name="mark_lost_title">Nahlásit ztrátu</string>
+    <string name="mark_lost_title">Označit %1$s jako ztraceného</string>
     <string name="mark_lost_starter_notice">Vylepšite pro komunitní upozornění</string>
     <string name="mark_lost_upgrade_prompt">V plánu Starter bude tvůj mazlíček označen jako ztracený, ale upozornění uživatelům, veterinářům a útulkům vyžadují předplatné Standard nebo Maximum.</string>
     <string name="mark_lost_success_with_alerts">%1$s byl nahlášen jako ztracený. Upozornění se posílají blízkým uživatelům.</string>
@@ -457,9 +457,9 @@
     <string name="quick_lost_select_pet">Vyber mazlíčka pro nahlášení jako ztraceného</string>
     <string name="quick_lost_all_missing">Všichni tvou mazlíčci jsou již označeni jako ztracení.</string>
     <string name="quick_lost_title">Nahlásit ztrátu</string>
-    <string name="location_current">Aktuální poloha</string>
-    <string name="location_my_address">Moje adresa</string>
-    <string name="location_custom">Vlastní adresa</string>
+    <string name="location_current">Aktuální adresa pobytu</string>
+    <string name="location_my_address">Registrovaná adresa</string>
+    <string name="location_custom">Jiná adresa</string>
 
     <!-- ============================================ -->
     <!-- MARK: Notifications -->

@@ -443,9 +443,9 @@
     <string name="tap_get_location">Appuie pour obtenir la position actuelle\u2026</string>
     <string name="using_registered_address">Utilisation de ton adresse enregistrée</string>
     <string name="enter_address_notifications">Saisis une adresse pour les notifications</string>
-    <string name="notification_source_current_location">Position actuelle</string>
-    <string name="notification_source_my_address">Mon adresse</string>
-    <string name="notification_source_custom">Personnalisé</string>
+    <string name="notification_source_current_location">Adresse de localisation actuelle</string>
+    <string name="notification_source_my_address">Adresse enregistrée</string>
+    <string name="notification_source_custom">Autre adresse</string>
     <string name="no_registered_address">Aucune adresse enregistrée. Mets à jour ton profil.</string>
 
         <!-- Mark Lost Flow (matching iOS MarkAsLostView) -->
@@ -456,13 +456,13 @@
     <string name="mark_lost_no_address">Aucune adresse enregistrée. Va dans Profil pour ajouter ton adresse.</string>
     <string name="mark_lost_address_placeholder">Saisis une adresse ou un lieu</string>
     <string name="mark_lost_additional_info">Informations supplémentaires</string>
-    <string name="mark_lost_additional_placeholder">Décris où et quand tu as vu ton animal pour la dernière fois, ce qu\'il portait, etc.</string>
+    <string name="mark_lost_additional_placeholder">Tout détail pouvant aider à retrouver ton animal (couleur du collier, comportement, signes distinctifs…)</string>
     <string name="mark_lost_sends_to">Cette alerte sera envoyée à :</string>
     <string name="mark_lost_nearby_owners">Propriétaires d\'animaux à proximité</string>
     <string name="mark_lost_vet_clinics">Cabinets vétérinaires de la zone</string>
     <string name="mark_lost_shelters">Refuges animaliers à proximité</string>
     <string name="mark_lost_report">Signaler la disparition</string>
-    <string name="mark_lost_title">Signaler la disparition</string>
+    <string name="mark_lost_title">Signaler %1$s comme disparu</string>
     <string name="mark_lost_starter_notice">Passe à un plan supérieur pour les alertes</string>
     <string name="mark_lost_upgrade_prompt">Avec le plan Starter ton animal sera marqué comme disparu, mais les notifications aux utilisateurs, vétérinaires et refuges nécessitent un abonnement Standard ou Maximum.</string>
     <string name="mark_lost_success_with_alerts">%1$s a été signalé comme disparu. Des alertes sont envoyées aux utilisateurs à proximité.</string>
@@ -471,9 +471,9 @@
     <string name="quick_lost_select_pet">Sélectionne un animal à signaler comme disparu</string>
     <string name="quick_lost_all_missing">Tous tes animaux sont déjà signalés comme disparus.</string>
     <string name="quick_lost_title">Signaler une disparition</string>
-    <string name="location_current">Localisation actuelle</string>
-    <string name="location_my_address">Mon adresse</string>
-    <string name="location_custom">Adresse personnalisée</string>
+    <string name="location_current">Adresse de localisation actuelle</string>
+    <string name="location_my_address">Adresse enregistrée</string>
+    <string name="location_custom">Autre adresse</string>
 
     <!-- ============================================ -->
     <!-- MARK: Notifications -->

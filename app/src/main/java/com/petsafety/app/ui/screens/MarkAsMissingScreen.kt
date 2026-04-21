@@ -6,6 +6,7 @@ import android.location.Geocoder
 import android.os.Build
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
@@ -23,6 +24,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.content.ContextCompat
@@ -73,6 +75,8 @@ fun MarkAsMissingScreen(
     var isGeocoding by remember { mutableStateOf(false) }
     var isSubmitting by remember { mutableStateOf(false) }
     var capturedLocation by remember { mutableStateOf<LocationCoordinate?>(null) }
+    var capturedLocationAddress by remember { mutableStateOf<String?>(null) }
+    var isReverseGeocodingCurrent by remember { mutableStateOf(false) }
     var isGettingLocation by remember { mutableStateOf(false) }
 
     val fusedLocationClient = remember { LocationServices.getFusedLocationProviderClient(context) }
@@ -190,6 +194,18 @@ fun MarkAsMissingScreen(
         }
     }
 
+    // Reverse-geocode the captured location for display whenever it changes
+    LaunchedEffect(capturedLocation) {
+        val loc = capturedLocation
+        if (loc != null) {
+            isReverseGeocodingCurrent = true
+            capturedLocationAddress = reverseGeocode(loc)
+            isReverseGeocodingCurrent = false
+        } else {
+            capturedLocationAddress = null
+        }
+    }
+
     fun submitReport() {
         scope.launch {
             isGeocoding = true
@@ -268,7 +284,7 @@ fun MarkAsMissingScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text(stringResource(R.string.mark_lost_title)) },
+                title = { Text(stringResource(R.string.mark_lost_title, pet.name)) },
                 navigationIcon = {
                     IconButton(onClick = onDismiss) {
                         Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = stringResource(R.string.cancel))
@@ -347,27 +363,27 @@ fun MarkAsMissingScreen(
                     )
 
                     // Location source chips
-                    Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                        FilterChip(
+                    Row(
+                        horizontalArrangement = Arrangement.spacedBy(8.dp),
+                        modifier = Modifier.height(IntrinsicSize.Min)
+                    ) {
+                        LocationSourceChip(
                             selected = locationSource == LocationSource.CURRENT,
+                            label = stringResource(R.string.location_current),
                             onClick = { locationSource = LocationSource.CURRENT },
-                            label = { Text(stringResource(R.string.location_current), fontSize = 12.sp) },
-                            leadingIcon = if (locationSource == LocationSource.CURRENT) {{ Icon(Icons.Default.Check, null, Modifier.size(16.dp)) }} else null,
-                            modifier = Modifier.weight(1f)
+                            modifier = Modifier.weight(1f).fillMaxHeight()
                         )
-                        FilterChip(
+                        LocationSourceChip(
                             selected = locationSource == LocationSource.REGISTERED,
+                            label = stringResource(R.string.location_my_address),
                             onClick = { locationSource = LocationSource.REGISTERED },
-                            label = { Text(stringResource(R.string.location_my_address), fontSize = 12.sp) },
-                            leadingIcon = if (locationSource == LocationSource.REGISTERED) {{ Icon(Icons.Default.Check, null, Modifier.size(16.dp)) }} else null,
-                            modifier = Modifier.weight(1f)
+                            modifier = Modifier.weight(1f).fillMaxHeight()
                         )
-                        FilterChip(
+                        LocationSourceChip(
                             selected = locationSource == LocationSource.CUSTOM,
+                            label = stringResource(R.string.location_custom),
                             onClick = { locationSource = LocationSource.CUSTOM },
-                            label = { Text(stringResource(R.string.location_custom), fontSize = 12.sp) },
-                            leadingIcon = if (locationSource == LocationSource.CUSTOM) {{ Icon(Icons.Default.Check, null, Modifier.size(16.dp)) }} else null,
-                            modifier = Modifier.weight(1f)
+                            modifier = Modifier.weight(1f).fillMaxHeight()
                         )
                     }
 
@@ -378,8 +394,14 @@ fun MarkAsMissingScreen(
                                 Row(verticalAlignment = Alignment.CenterVertically) {
                                     Icon(Icons.Default.LocationOn, contentDescription = null, tint = MaterialTheme.colorScheme.primary, modifier = Modifier.size(20.dp))
                                     Spacer(modifier = Modifier.width(8.dp))
+                                    val addr = capturedLocationAddress
+                                    val display = when {
+                                        !addr.isNullOrBlank() -> addr
+                                        isReverseGeocodingCurrent -> stringResource(R.string.mark_lost_getting_location)
+                                        else -> String.format(Locale.US, "%.6f, %.6f", capturedLocation!!.lat, capturedLocation!!.lng)
+                                    }
                                     Text(
-                                        String.format("%.6f, %.6f", capturedLocation!!.lat, capturedLocation!!.lng),
+                                        display,
                                         style = MaterialTheme.typography.bodySmall,
                                         color = MaterialTheme.colorScheme.onSurfaceVariant
                                     )
@@ -545,6 +567,49 @@ fun MarkAsMissingScreen(
                     modifier = Modifier.padding(bottom = 16.dp)
                 )
             }
+        }
+    }
+}
+
+@Composable
+private fun LocationSourceChip(
+    selected: Boolean,
+    label: String,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier
+) {
+    Surface(
+        onClick = onClick,
+        modifier = modifier.heightIn(min = 56.dp),
+        shape = RoundedCornerShape(8.dp),
+        color = if (selected) MaterialTheme.colorScheme.secondaryContainer else MaterialTheme.colorScheme.surface,
+        border = BorderStroke(
+            width = 1.dp,
+            color = if (selected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.outlineVariant
+        )
+    ) {
+        Row(
+            modifier = Modifier.padding(horizontal = 8.dp, vertical = 8.dp).fillMaxHeight(),
+            horizontalArrangement = Arrangement.Center,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            if (selected) {
+                Icon(
+                    Icons.Default.Check,
+                    contentDescription = null,
+                    modifier = Modifier.size(14.dp),
+                    tint = MaterialTheme.colorScheme.primary
+                )
+                Spacer(modifier = Modifier.width(4.dp))
+            }
+            Text(
+                text = label,
+                fontSize = 12.sp,
+                lineHeight = 14.sp,
+                maxLines = 2,
+                textAlign = TextAlign.Center,
+                color = if (selected) MaterialTheme.colorScheme.onSecondaryContainer else MaterialTheme.colorScheme.onSurface
+            )
         }
     }
 }
