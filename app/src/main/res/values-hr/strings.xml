@@ -319,7 +319,7 @@
     <string name="no_active_alerts_message">Trenutno nemaš aktivnih uzbuna o nestalim kućnim ljubimcima</string>
     <string name="no_found_alerts">Nema uzbuna o pronađenim kućnim ljubimcima</string>
     <string name="no_found_alerts_message">U tvom području nedavno nisu pronađeni kućni ljubimci</string>
-    <string name="missing_pet_alerts_title">Uzbune o nestalim kućnim ljubimcima</string>
+    <string name="missing_pet_alerts_title">Nestali kućni ljubimci</string>
     <string name="sighting_count_singular">1 viđenje</string>
     <string name="unknown_breed">Nepoznata pasmina</string>
     <string name="last_seen_label">Posljednji put viđen</string>
@@ -558,7 +558,7 @@
     <string name="log_out">Odjava</string>
     <string name="personal_information">Osobni podaci</string>
     <string name="address">Adresa</string>
-    <string name="contacts">Kontakti</string>
+    <string name="contacts">Kontakt podaci</string>
     <string name="privacy_mode">Postavke privatnosti</string>
     <string name="help_support">Pomoć &amp; podrška</string>
     <string name="danger_zone">OPASNA ZONA</string>

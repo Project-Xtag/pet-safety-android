@@ -334,7 +334,7 @@
     <string name="no_active_alerts_message">Derzeit haben du keine Vermisstenwarnungen</string>
     <string name="no_found_alerts">Keine Fundmeldungen</string>
     <string name="no_found_alerts_message">In deiner Nähe wurden kürzlich keine Haustiere gefunden</string>
-    <string name="missing_pet_alerts_title">Vermisstenwarnungen</string>
+    <string name="missing_pet_alerts_title">Vermisste Tiere</string>
     <string name="sighting_count_singular">1 Sichtung</string>
     <string name="unknown_breed">Unbekannte Rasse</string>
     <string name="last_seen_label">Zuletzt gesehen</string>
@@ -573,7 +573,7 @@
     <string name="log_out">Ausloggen</string>
     <string name="personal_information">Persönliche Informationen</string>
     <string name="address">Adresse</string>
-    <string name="contacts">Kontakte</string>
+    <string name="contacts">Kontaktdaten</string>
     <string name="privacy_mode">Privatsphäre-Modus</string>
     <string name="help_support">Hilfe &amp; Support</string>
     <string name="danger_zone">GEFAHRENZONE</string>

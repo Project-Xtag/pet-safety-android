@@ -333,7 +333,7 @@
     <string name="no_active_alerts_message">Momentálne nemáš žiadne upozornenia na stratené zvieratá</string>
     <string name="no_found_alerts">Žiadne nájdené upozornenia</string>
     <string name="no_found_alerts_message">V poslednom čase neboli vo tvojom okolí nájdené žiadne zvieratá</string>
-    <string name="missing_pet_alerts_title">Upozornenia na stratené zvieratá</string>
+    <string name="missing_pet_alerts_title">Stratené domáce miláčikovia</string>
     <string name="sighting_count_singular">1 pozorovanie</string>
     <string name="unknown_breed">Neznáme plemeno</string>
     <string name="last_seen_label">Naposledy videné</string>
@@ -573,7 +573,7 @@
     <string name="log_out">Odhlásiť sa</string>
     <string name="personal_information">Osobné informácie</string>
     <string name="address">Adresa</string>
-    <string name="contacts">Kontakty</string>
+    <string name="contacts">Kontaktné údaje</string>
     <string name="privacy_mode">Režim súkromia</string>
     <string name="help_support">Pomoc a podpora</string>
     <string name="danger_zone">NEBEZPEČNÁ ZÓNA</string>

@@ -334,7 +334,7 @@
     <string name="no_active_alerts_message">Jelenleg nincs eltűnt kedvenc riasztásod</string>
     <string name="no_found_alerts">Nincsenek megtalált riasztások</string>
     <string name="no_found_alerts_message">Mostanában nem találtak kedvenceket a környékeden</string>
-    <string name="missing_pet_alerts_title">Eltűnt kedvenc riasztások</string>
+    <string name="missing_pet_alerts_title">Eltűnt kedvencek</string>
     <string name="sighting_count_singular">1 észlelés</string>
     <string name="unknown_breed">Ismeretlen fajta</string>
     <string name="last_seen_label">Utoljára látva</string>
@@ -573,7 +573,7 @@
     <string name="log_out">Kijelentkezés</string>
     <string name="personal_information">Személyes adatok</string>
     <string name="address">Cím</string>
-    <string name="contacts">Kapcsolatok</string>
+    <string name="contacts">Elérhetőségek</string>
     <string name="privacy_mode">Adatvédelmi beállítások</string>
     <string name="help_support">Súgó és támogatás</string>
     <string name="danger_zone">VESZÉLYZÓNA</string>

@@ -334,7 +334,7 @@
     <string name="no_active_alerts_message">Aktuálně nemáš žádná upozornění na ztracené mazlíčky</string>
     <string name="no_found_alerts">Žádná upozornění na nalezení</string>
     <string name="no_found_alerts_message">Ve tvém okolí nebyli nedávno nalezeni žádní mazlíčci</string>
-    <string name="missing_pet_alerts_title">Upozornění na ztracené mazlíčky</string>
+    <string name="missing_pet_alerts_title">Ztracení mazlíčci</string>
     <string name="sighting_count_singular">1 pozorování</string>
     <string name="unknown_breed">Neznámé plemeno</string>
     <string name="last_seen_label">Naposledy viděn</string>
@@ -574,7 +574,7 @@
     <string name="log_out">Odhlásit se</string>
     <string name="personal_information">Osobní údaje</string>
     <string name="address">Adresa</string>
-    <string name="contacts">Kontakty</string>
+    <string name="contacts">Kontaktní údaje</string>
     <string name="privacy_mode">Režim soukromí</string>
     <string name="help_support">Nápověda &amp; podpora</string>
     <string name="danger_zone">NEBEZPEČNÁ ZÓNA</string>

@@ -344,7 +344,7 @@
     <string name="no_active_alerts_message">Du har ingen aktive varsler om savnede dyr for øyeblikket</string>
     <string name="no_found_alerts">Ingen funne varsler</string>
     <string name="no_found_alerts_message">Ingen dyr er blitt funnet nylig i ditt område</string>
-    <string name="missing_pet_alerts_title">Varsler om savnede dyr</string>
+    <string name="missing_pet_alerts_title">Savnede dyr</string>
     <string name="sighting_count_singular">1 observasjon</string>
     <string name="unknown_breed">Ukjent rase</string>
     <string name="last_seen_label">Sist sett</string>
@@ -581,7 +581,7 @@
     <string name="log_out">Logg ut</string>
     <string name="personal_information">Personlig informasjon</string>
     <string name="address">Adresse</string>
-    <string name="contacts">Kontakter</string>
+    <string name="contacts">Kontaktopplysninger</string>
     <string name="privacy_mode">Personvernmodus</string>
     <string name="help_support">Hjelp og støtte</string>
     <string name="danger_zone">FARESONE</string>

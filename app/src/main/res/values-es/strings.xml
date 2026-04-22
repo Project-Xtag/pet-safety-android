@@ -334,7 +334,7 @@
     <string name="no_active_alerts_message">No tienes alertas de mascotas perdidas en este momento</string>
     <string name="no_found_alerts">No hay alertas de encontradas</string>
     <string name="no_found_alerts_message">No se han encontrado mascotas recientemente en tu área</string>
-    <string name="missing_pet_alerts_title">Alertas de mascotas perdidas</string>
+    <string name="missing_pet_alerts_title">Mascotas perdidas</string>
     <string name="sighting_count_singular">1 avistamiento</string>
     <string name="unknown_breed">Raza desconocida</string>
     <string name="last_seen_label">Visto por última vez</string>
@@ -573,7 +573,7 @@
     <string name="log_out">Cerrar sesión</string>
     <string name="personal_information">Información personal</string>
     <string name="address">Dirección</string>
-    <string name="contacts">Contactos</string>
+    <string name="contacts">Datos de contacto</string>
     <string name="privacy_mode">Modo de privacidad</string>
     <string name="help_support">Ayuda y soporte</string>
     <string name="danger_zone">ZONA DE PELIGRO</string>

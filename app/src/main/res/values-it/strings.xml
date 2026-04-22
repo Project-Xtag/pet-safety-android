@@ -344,7 +344,7 @@
     <string name="no_active_alerts_message">Al momento non hai avvisi di animali di compagnia scomparsi</string>
     <string name="no_found_alerts">Nessun avviso di ritrovamento</string>
     <string name="no_found_alerts_message">Nessun animale di compagnia è stato trovato di recente nella tua zona</string>
-    <string name="missing_pet_alerts_title">Avvisi animali di compagnia scomparsi</string>
+    <string name="missing_pet_alerts_title">Animali di compagnia scomparsi</string>
     <string name="sighting_count_singular">1 avvistamento</string>
     <string name="unknown_breed">Razza sconosciuta</string>
     <string name="last_seen_label">Ultimo avvistamento</string>
@@ -582,7 +582,7 @@
     <string name="log_out">Esci</string>
     <string name="personal_information">Informazioni personali</string>
     <string name="address">Indirizzo</string>
-    <string name="contacts">Contatti</string>
+    <string name="contacts">Dati di contatto</string>
     <string name="privacy_mode">Modalità privacy</string>
     <string name="help_support">Aiuto e supporto</string>
     <string name="danger_zone">ZONA PERICOLOSA</string>

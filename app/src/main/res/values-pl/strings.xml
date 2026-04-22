@@ -348,7 +348,7 @@
     <string name="no_active_alerts_message">Nie masz żadnych aktywnych alarmów o zaginięciu pupila</string>
     <string name="no_found_alerts">Brak alarmów o znalezieniu</string>
     <string name="no_found_alerts_message">W ostatnim czasie nie znaleziono żadnych pupili w twojej okolicy</string>
-    <string name="missing_pet_alerts_title">Alarmy o zaginięciu pupila</string>
+    <string name="missing_pet_alerts_title">Zaginione zwierzęta</string>
     <string name="sighting_count_singular">1 obserwacja</string>
     <string name="unknown_breed">Nieznana rasa</string>
     <string name="last_seen_label">Ostatnio widziane</string>

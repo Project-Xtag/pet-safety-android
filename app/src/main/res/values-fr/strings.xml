@@ -345,7 +345,7 @@
     <string name="no_active_alerts_message">Tu n\'as aucune alerte de disparition d\'animal en ce moment</string>
     <string name="no_found_alerts">Aucune alerte de retrouvaille</string>
     <string name="no_found_alerts_message">Aucun animal n\'a été trouvé récemment dans ta zone</string>
-    <string name="missing_pet_alerts_title">Alertes animaux disparus</string>
+    <string name="missing_pet_alerts_title">Animaux de compagnie perdus</string>
     <string name="sighting_count_singular">1 signalement</string>
     <string name="unknown_breed">Race inconnue</string>
     <string name="last_seen_label">Dernière apparition</string>
@@ -582,7 +582,7 @@
     <string name="log_out">Se déconnecter</string>
     <string name="personal_information">Informations personnelles</string>
     <string name="address">Adresse</string>
-    <string name="contacts">Contacts</string>
+    <string name="contacts">Coordonnées</string>
     <string name="privacy_mode">Mode de confidentialité</string>
     <string name="help_support">Aide &amp; Support</string>
     <string name="danger_zone">ZONE DANGEREUSE</string>

@@ -326,7 +326,7 @@
     <string name="no_active_alerts_message">În prezent nu ai alerte pentru animale de companie dispărute</string>
     <string name="no_found_alerts">Nicio alertă de animale de companie găsite</string>
     <string name="no_found_alerts_message">Nu au fost găsite animale de companie recent în zona ta</string>
-    <string name="missing_pet_alerts_title">Alerte animale de companie dispărute</string>
+    <string name="missing_pet_alerts_title">Animale de companie dispărute</string>
     <string name="sighting_count_singular">1 observație</string>
     <string name="unknown_breed">Rasă necunoscută</string>
     <string name="last_seen_label">Văzut ultima dată</string>
@@ -566,7 +566,7 @@
     <string name="log_out">Deconectare</string>
     <string name="personal_information">Informații personale</string>
     <string name="address">Adresă</string>
-    <string name="contacts">Contacte</string>
+    <string name="contacts">Date de contact</string>
     <string name="privacy_mode">Mod confidențialitate</string>
     <string name="help_support">Ajutor &amp; suport</string>
     <string name="danger_zone">ZONĂ PERICULOASĂ</string>

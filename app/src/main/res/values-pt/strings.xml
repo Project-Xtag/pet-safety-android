@@ -334,7 +334,7 @@
     <string name="no_active_alerts_message">De momento não tem alertas de animais de estimação desaparecidos</string>
     <string name="no_found_alerts">Sem alertas de encontrados</string>
     <string name="no_found_alerts_message">Nenhum animal de estimação foi encontrado recentemente na sua área</string>
-    <string name="missing_pet_alerts_title">Alertas de animais de estimação desaparecidos</string>
+    <string name="missing_pet_alerts_title">Animais de estimação desaparecidos</string>
     <string name="sighting_count_singular">1 avistamento</string>
     <string name="unknown_breed">Raça desconhecida</string>
     <string name="last_seen_label">Visto pela última vez</string>
@@ -573,7 +573,7 @@
     <string name="log_out">Terminar sessão</string>
     <string name="personal_information">Informação pessoal</string>
     <string name="address">Morada</string>
-    <string name="contacts">Contactos</string>
+    <string name="contacts">Dados de contacto</string>
     <string name="privacy_mode">Modo de privacidade</string>
     <string name="help_support">Ajuda &amp; suporte</string>
     <string name="danger_zone">ZONA DE PERIGO</string>

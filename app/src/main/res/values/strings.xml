@@ -344,7 +344,7 @@
     <string name="no_active_alerts_message">You don\'t have any missing pet alerts at the moment</string>
     <string name="no_found_alerts">No Found Alerts</string>
     <string name="no_found_alerts_message">No pets have been found recently in your area</string>
-    <string name="missing_pet_alerts_title">Missing Pet Alerts</string>
+    <string name="missing_pet_alerts_title">Missing Pets</string>
     <string name="sighting_count_singular">1 sighting</string>
     <string name="unknown_breed">Unknown Breed</string>
     <string name="last_seen_label">Last Seen</string>
@@ -587,7 +587,7 @@
     <string name="log_out">Log Out</string>
     <string name="personal_information">Personal Information</string>
     <string name="address">Address</string>
-    <string name="contacts">Contacts</string>
+    <string name="contacts">Contact Details</string>
     <string name="privacy_mode">Privacy Mode</string>
     <string name="help_support">Help &amp; Support</string>
     <string name="danger_zone">DANGER ZONE</string>
