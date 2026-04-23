@@ -959,6 +959,7 @@
     <string name="map_label_pet_location">Position de l\'animal</string>
     <string name="map_label_tag_scanned">Médaille connectée scannée</string>
     <string name="map_label_sighting">Observation de l\'animal</string>
+    <string name="map_label_sighting_named">Observation de %1$s</string>
 
     <!-- ============================================ -->
     <!-- MARK: App Info -->

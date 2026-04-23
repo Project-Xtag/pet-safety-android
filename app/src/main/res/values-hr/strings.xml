@@ -913,6 +913,7 @@
     <string name="map_label_pet_location">Lokacija kućnog ljubimca</string>
     <string name="map_label_tag_scanned">Privjesak skeniran</string>
     <string name="map_label_sighting">Viđenje kućnog ljubimca</string>
+    <string name="map_label_sighting_named">Viđenje: %1$s</string>
 
     <!-- ============================================ -->
     <!-- MARK: App Info -->

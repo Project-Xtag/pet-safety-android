@@ -912,6 +912,7 @@
     <string name="map_label_pet_location">Pet Location</string>
     <string name="map_label_tag_scanned">Pet Tag Scanned</string>
     <string name="map_label_sighting">Pet Sighting</string>
+    <string name="map_label_sighting_named">%1$s sighting</string>
 
     <!-- ============================================ -->
     <!-- MARK: App Info -->

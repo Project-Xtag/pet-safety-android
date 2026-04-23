@@ -959,6 +959,7 @@
     <string name="map_label_pet_location">Posizione animale di compagnia</string>
     <string name="map_label_tag_scanned">Medaglietta animale di compagnia scansionata</string>
     <string name="map_label_sighting">Avvistamento animale di compagnia</string>
+    <string name="map_label_sighting_named">Avvistamento di %1$s</string>
 
     <!-- ============================================ -->
     <!-- MARK: App Info -->

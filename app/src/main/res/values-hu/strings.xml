@@ -923,6 +923,7 @@
     <string name="map_label_pet_location">Kedvenc helye</string>
     <string name="map_label_tag_scanned">Kedvenc biléta beolvasva</string>
     <string name="map_label_sighting">Kedvenc észlelés</string>
+    <string name="map_label_sighting_named">%1$s észlelés</string>
 
     <!-- ============================================ -->
     <!-- MARK: App Info -->

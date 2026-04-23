@@ -141,7 +141,12 @@ data class ShareLocationRequest(
 data class FCMTokenRequest(
     val token: String,
     @SerialName("device_name") val deviceName: String? = null,
-    val platform: String = "android"
+    val platform: String = "android",
+    // BCP 47 language tag (e.g. "hu-HU"). Sent so the backend can route
+    // pushes in the user's current device locale even before a profile
+    // sync happens — otherwise a user switching to DE mid-session keeps
+    // getting HU pushes until another /me profile call lands.
+    val locale: String? = null
 )
 
 @Serializable

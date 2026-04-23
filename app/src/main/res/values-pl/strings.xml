@@ -972,6 +972,7 @@
     <string name="map_label_pet_location">Lokalizacja pupila</string>
     <string name="map_label_tag_scanned">Zeskanowano nieśką pupila</string>
     <string name="map_label_sighting">Obserwacja pupila</string>
+    <string name="map_label_sighting_named">Obserwacja: %1$s</string>
 
     <!-- ============================================ -->
     <!-- MARK: App Info -->

@@ -958,6 +958,7 @@
     <string name="map_label_pet_location">Dyrets posisjon</string>
     <string name="map_label_tag_scanned">Dyremerke skannet</string>
     <string name="map_label_sighting">Dyreobservasjon</string>
+    <string name="map_label_sighting_named">%1$s-observasjon</string>
 
     <!-- ============================================ -->
     <!-- MARK: App Info -->

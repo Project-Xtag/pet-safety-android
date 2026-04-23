@@ -923,6 +923,7 @@
     <string name="map_label_pet_location">Ubicación de la mascota</string>
     <string name="map_label_tag_scanned">Chapa inteligente de mascota escaneada</string>
     <string name="map_label_sighting">Avistamiento de mascota</string>
+    <string name="map_label_sighting_named">Avistamiento de %1$s</string>
 
     <!-- ============================================ -->
     <!-- MARK: App Info -->

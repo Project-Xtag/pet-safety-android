@@ -304,7 +304,8 @@ class NotificationHelper @Inject constructor(private val context: Context) {
 
         // Add "Get Directions" action if location is available
         location?.let { loc ->
-            val mapIntent = createNavigationIntent(loc.latitude, loc.longitude, "$petName sighting")
+            val mapLabel = context.getString(R.string.map_label_sighting_named, petName)
+            val mapIntent = createNavigationIntent(loc.latitude, loc.longitude, mapLabel)
             val mapPendingIntent = PendingIntent.getActivity(
                 context, generateNotificationId(), mapIntent,
                 PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE

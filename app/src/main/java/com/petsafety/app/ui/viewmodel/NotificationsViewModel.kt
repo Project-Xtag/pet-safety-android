@@ -31,6 +31,15 @@ class NotificationsViewModel @Inject constructor(
     private val _hasMore = MutableStateFlow(true)
     val hasMore = _hasMore.asStateFlow()
 
+    /**
+     * Surface transient fetch/refresh errors to the UI so the user can
+     * retry. Previously fetch failure silently replaced the list with an
+     * empty list — the user saw "No notifications" forever after a 502,
+     * even after the network came back.
+     */
+    private val _errorState = MutableStateFlow<String?>(null)
+    val errorState = _errorState.asStateFlow()
+
     private var currentPage = 1
 
     fun fetchNotifications() {
@@ -41,13 +50,21 @@ class NotificationsViewModel @Inject constructor(
                 val (items, pagination) = repository.getNotifications(1, 20)
                 _notifications.value = items
                 _hasMore.value = pagination != null && pagination.page < pagination.totalPages
+                _errorState.value = null
             } catch (e: Exception) {
                 Timber.w(e, "fetchNotifications failed")
-                _notifications.value = emptyList()
+                // Keep prior list intact — empty list reads as "you have no
+                // notifications" which is a wrong and alarming UX when the
+                // real reason is a transient network failure.
+                _errorState.value = e.localizedMessage ?: e.message ?: "Failed to load notifications"
             } finally {
                 _isLoading.value = false
             }
         }
+    }
+
+    fun clearError() {
+        _errorState.value = null
     }
 
     fun loadMore() {

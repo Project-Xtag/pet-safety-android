@@ -923,6 +923,7 @@
     <string name="map_label_pet_location">Haustier-Standort</string>
     <string name="map_label_tag_scanned">Haustier-Haustiermarke gescannt</string>
     <string name="map_label_sighting">Haustier-Sichtung</string>
+    <string name="map_label_sighting_named">%1$s — Sichtung</string>
 
     <!-- ============================================ -->
     <!-- MARK: App Info -->

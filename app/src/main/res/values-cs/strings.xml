@@ -926,6 +926,7 @@
     <string name="map_label_pet_location">Poloha mazlíčka</string>
     <string name="map_label_tag_scanned">Známka mazlíčka naskenována</string>
     <string name="map_label_sighting">Pozorování mazlíčka</string>
+    <string name="map_label_sighting_named">Pozorování: %1$s</string>
 
     <!-- ============================================ -->
     <!-- MARK: App Info -->

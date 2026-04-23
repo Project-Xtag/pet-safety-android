@@ -90,8 +90,9 @@ class PetSafetyFirebaseMessagingService : FirebaseMessagingService() {
         val scanId = data["scan_id"]
         val petId = data["pet_id"]
         val locationType = data["location_type"] ?: "none"
-        val latitude = data["latitude"]?.toDoubleOrNull()
-        val longitude = data["longitude"]?.toDoubleOrNull()
+        val coords = parseValidCoords(data["latitude"], data["longitude"])
+        val latitude = coords?.first
+        val longitude = coords?.second
         val address = data["address"]
 
         val locationInfo = when (locationType) {
@@ -156,8 +157,9 @@ class PetSafetyFirebaseMessagingService : FirebaseMessagingService() {
         val petName = data["pet_name"] ?: getString(R.string.notif_fallback_pet_name)
         val alertId = data["alert_id"]
         val sightingId = data["sighting_id"]
-        val latitude = data["latitude"]?.toDoubleOrNull()
-        val longitude = data["longitude"]?.toDoubleOrNull()
+        val coords = parseValidCoords(data["latitude"], data["longitude"])
+        val latitude = coords?.first
+        val longitude = coords?.second
         val address = data["address"]
 
         val body = if (address != null) {
@@ -229,6 +231,24 @@ class PetSafetyFirebaseMessagingService : FirebaseMessagingService() {
             body = data["body"] ?: getString(R.string.notif_multiple_sightings_body),
             alertId = alertId
         )
+    }
+
+    /**
+     * Parse lat/lng strings from an FCM data payload and range-validate them.
+     *
+     * Returns null if either value is missing, non-numeric, out of range
+     * (|lat| > 90 or |lng| > 180), or is the (0,0) sentinel — an all-zeros
+     * payload used to point at the Gulf of Guinea would otherwise flow
+     * through to a "View on Map" action that opens the ocean. A malformed
+     * push shouldn't crash the app but also shouldn't render a map link
+     * pointing at junk.
+     */
+    private fun parseValidCoords(latStr: String?, lngStr: String?): Pair<Double, Double>? {
+        val lat = latStr?.toDoubleOrNull() ?: return null
+        val lng = lngStr?.toDoubleOrNull() ?: return null
+        if (kotlin.math.abs(lat) > 90.0 || kotlin.math.abs(lng) > 180.0) return null
+        if (lat == 0.0 && lng == 0.0) return null
+        return lat to lng
     }
 
     companion object

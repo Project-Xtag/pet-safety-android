@@ -923,6 +923,7 @@
     <string name="map_label_pet_location">Localização do animal de estimação</string>
     <string name="map_label_tag_scanned">Plaquinha inteligente do animal de estimação lida</string>
     <string name="map_label_sighting">Avistamento do animal de estimação</string>
+    <string name="map_label_sighting_named">Avistamento de %1$s</string>
 
     <!-- ============================================ -->
     <!-- MARK: App Info -->

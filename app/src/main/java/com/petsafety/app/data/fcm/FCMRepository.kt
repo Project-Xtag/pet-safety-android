@@ -10,7 +10,9 @@ import com.google.firebase.messaging.FirebaseMessaging
 import com.petsafety.app.data.network.ApiService
 import com.petsafety.app.data.network.model.FCMTokenRequest
 import dagger.hilt.android.qualifiers.ApplicationContext
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.tasks.await
+import java.util.Locale
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -87,24 +89,44 @@ class FCMRepository @Inject constructor(
     }
 
     /**
-     * Register FCM token with backend
+     * Register FCM token with backend.
+     *
+     * Retries transient failures (network / 5xx) with exponential backoff.
+     * A single 502 during login previously meant the user got zero pushes
+     * until Firebase naturally rotated the token (days). The retry is
+     * in-process; a stronger guarantee (persistent retry across process
+     * death) would be a WorkManager job — intentionally deferred until we
+     * see retries fail in telemetry.
      */
     suspend fun registerToken(token: String? = null) {
         val tokenToRegister = token ?: getCurrentToken() ?: return
+        val deviceName = "${Build.MANUFACTURER} ${Build.MODEL}"
+        val request = FCMTokenRequest(
+            token = tokenToRegister,
+            deviceName = deviceName,
+            platform = "android",
+            locale = Locale.getDefault().toLanguageTag()
+        )
 
-        try {
-            val deviceName = "${Build.MANUFACTURER} ${Build.MODEL}"
-            val request = FCMTokenRequest(
-                token = tokenToRegister,
-                deviceName = deviceName,
-                platform = "android"
-            )
-            apiService.registerFCMToken(request)
-            Timber.d("FCM token registered with backend")
-        } catch (e: Exception) {
-            Timber.e("Failed to register FCM token with backend", e)
-            throw e
+        var lastError: Exception? = null
+        var delayMs = 1_000L
+        repeat(3) { attempt ->
+            try {
+                apiService.registerFCMToken(request)
+                Timber.d("FCM token registered with backend (attempt=${attempt + 1})")
+                return
+            } catch (e: Exception) {
+                lastError = e
+                Timber.w("FCM token registration attempt ${attempt + 1}/3 failed: ${e.message}")
+                if (attempt < 2) {
+                    delay(delayMs)
+                    delayMs *= 2
+                }
+            }
         }
+
+        Timber.e("Failed to register FCM token with backend after 3 attempts", lastError)
+        throw lastError ?: IllegalStateException("FCM registration failed without an exception")
     }
 
     /**

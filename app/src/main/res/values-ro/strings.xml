@@ -918,6 +918,7 @@
     <string name="map_label_pet_location">Locație animal de companie</string>
     <string name="map_label_tag_scanned">Plăcuță inteligentă animal de companie scanată</string>
     <string name="map_label_sighting">Observație animal de companie</string>
+    <string name="map_label_sighting_named">Observație: %1$s</string>
 
     <!-- ============================================ -->
     <!-- MARK: App Info -->
