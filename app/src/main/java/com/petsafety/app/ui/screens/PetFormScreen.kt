@@ -505,10 +505,18 @@ fun PetFormScreen(
                 }
 
                 if (showDatePicker) {
+                    // Lower-bound the DOB picker to 100 years ago. Previously
+                    // only upper-bounded at "now", which meant users could
+                    // scroll back to the 1800s — the backend accepts the
+                    // date but downstream age calculations produce absurd
+                    // values and the "pet too old" sanity heuristic trips.
+                    val maxMillis = System.currentTimeMillis()
+                    val minMillis = maxMillis - (100L * 365L * 24L * 60L * 60L * 1000L)
                     val datePickerState = rememberDatePickerState(
-                        initialSelectedDateMillis = dobMillis ?: System.currentTimeMillis(),
+                        initialSelectedDateMillis = dobMillis ?: maxMillis,
                         selectableDates = object : SelectableDates {
-                            override fun isSelectableDate(utcTimeMillis: Long): Boolean = utcTimeMillis <= System.currentTimeMillis()
+                            override fun isSelectableDate(utcTimeMillis: Long): Boolean =
+                                utcTimeMillis in minMillis..maxMillis
                         }
                     )
                     DatePickerDialog(

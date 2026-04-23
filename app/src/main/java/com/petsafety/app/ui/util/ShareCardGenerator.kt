@@ -17,6 +17,7 @@ import coil.request.ImageRequest
 import coil.request.SuccessResult
 import com.petsafety.app.R
 import com.petsafety.app.util.LocalizedLogo
+import timber.log.Timber
 
 object ShareCardGenerator {
     private const val CARD_SIZE = 1080
@@ -51,7 +52,12 @@ object ShareCardGenerator {
                     null
                 )
             }
-        } catch (_: Exception) {
+        } catch (e: Exception) {
+            // Logo load failure used to silently fall through to the text
+            // "Senra" without any trace — breaking share cards without
+            // any signal to engineering. Log + use the localized app
+            // name instead of a hardcoded string.
+            Timber.e(e, "ShareCardGenerator: failed to load logo, falling back to text")
             val textPaint = Paint().apply {
                 color = Color.WHITE
                 textSize = 36f
@@ -59,7 +65,7 @@ object ShareCardGenerator {
                 textAlign = Paint.Align.CENTER
                 isAntiAlias = true
             }
-            canvas.drawText("Senra", CARD_SIZE / 2f, 65f, textPaint)
+            canvas.drawText(context.getString(R.string.app_name), CARD_SIZE / 2f, 65f, textPaint)
         }
 
         // "Reunited!" text
@@ -104,7 +110,14 @@ object ShareCardGenerator {
                 if (result is SuccessResult) {
                     petBitmap = result.drawable.toBitmap()
                 }
-            } catch (_: Exception) { }
+            } catch (e: Exception) {
+                // Pet-image fetch can fail for a dozen reasons (S3, coil
+                // cache corruption, OOM). We still render the card with
+                // a placeholder, but emit the error so we stop guessing
+                // why "some users don't get pet photo on their share
+                // card".
+                Timber.e(e, "ShareCardGenerator: failed to load pet image")
+            }
         }
 
         if (petBitmap != null) {

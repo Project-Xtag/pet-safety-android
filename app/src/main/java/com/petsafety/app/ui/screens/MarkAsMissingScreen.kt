@@ -35,6 +35,9 @@ import com.google.android.gms.location.LocationServices
 import com.google.android.gms.location.Priority
 import com.google.android.gms.tasks.CancellationTokenSource
 import com.petsafety.app.R
+import com.petsafety.app.util.InputValidators
+import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.ui.text.input.KeyboardType
 import com.petsafety.app.data.model.LocationCoordinate
 import com.petsafety.app.data.model.Pet
 import com.petsafety.app.ui.components.BrandButton
@@ -487,10 +490,21 @@ fun MarkAsMissingScreen(
                     Spacer(modifier = Modifier.height(8.dp))
                     OutlinedTextField(
                         value = rewardAmount,
-                        onValueChange = { rewardAmount = it },
+                        onValueChange = { raw ->
+                            // Keep only digits and one separator; cap at
+                            // MAX_REWARD_AMOUNT (20). The char-length
+                            // cap alone used to accept 20 digits of "9"
+                            // (99_999_999_999_999_999_999) which is way
+                            // beyond our server bound of 1_000_000.
+                            val cleaned = raw.filter { it.isDigit() || it == '.' || it == ',' }
+                                .take(InputValidators.MAX_REWARD_AMOUNT)
+                            rewardAmount = cleaned
+                        },
                         placeholder = { Text(stringResource(R.string.reward_amount_placeholder)) },
                         modifier = Modifier.fillMaxWidth(),
-                        singleLine = true
+                        singleLine = true,
+                        isError = rewardAmount.isNotBlank() && !InputValidators.isValidRewardAmount(rewardAmount),
+                        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal)
                     )
                 }
             }

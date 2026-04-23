@@ -51,7 +51,15 @@ class PetsRepository(
                         if (parsed.subscription != null) {
                             throw PetLimitExceededException(parsed.subscription)
                         }
-                    } catch (_: kotlinx.serialization.SerializationException) { }
+                    } catch (sErr: kotlinx.serialization.SerializationException) {
+                        // Empty catch used to drop the limit info silently,
+                        // so users who hit the quota saw a generic "403
+                        // forbidden" error instead of the proper
+                        // "upgrade required" dialog. Log so the next
+                        // error-body schema drift shows up in Crashlytics
+                        // before it reaches users.
+                        Timber.w(sErr, "Failed to parse pet-limit error body")
+                    }
                 }
             }
             throw e
