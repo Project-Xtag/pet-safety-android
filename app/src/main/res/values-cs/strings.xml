@@ -585,6 +585,8 @@
     <string name="delete_premium_warning">Máš aktivní předplatné %1$s do %2$s. Smazáním účtu trvale smažete svůj profil a okamžitě ztratíte přístup ke zbývajícímu placenému období. Pokud chceš jen zastavit budoucí platby, použij možnost Zrušit předplatné.</string>
     <string name="cancel_instead">Místo toho zrušit předplatné</string>
     <string name="delete_confirm_checkbox">Rozumím, že tato akce je nevratná a všechna má data budou trvale smazána</string>
+    <string name="delete_confirm_type_delete">Napiš DELETE pro potvrzení</string>
+    <string name="delete_confirm_placeholder">DELETE</string>
     <string name="cancel_subscription_title">Zrušit předplatné?</string>
     <string name="cancel_warning_a">Přijdete o okamžitá e-mailová, SMS upozornění a komunitní výstrahy</string>
     <string name="cancel_warning_b">Bezplatné výměny psích známek již nebudou dostupné</string>

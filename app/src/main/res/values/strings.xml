@@ -598,6 +598,8 @@
     <string name="delete_premium_warning">You have an active %1$s subscription until %2$s. Deleting your account will permanently erase your profile and you will immediately lose access to your remaining paid time. If you just want to stop future payments, please Cancel Subscription instead.</string>
     <string name="cancel_instead">Cancel Subscription Instead</string>
     <string name="delete_confirm_checkbox">I understand that this action cannot be undone and all my data will be permanently deleted</string>
+    <string name="delete_confirm_type_delete">Type DELETE to confirm</string>
+    <string name="delete_confirm_placeholder">DELETE</string>
 
     <!-- Cancel Subscription Warning -->
     <string name="cancel_subscription_title">Cancel Subscription?</string>

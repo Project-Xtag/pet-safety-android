@@ -584,6 +584,8 @@
     <string name="delete_premium_warning">Aktív %1$s előfizetésed van %2$s-ig. A fiókod törlésével véglegesen törlődik a profilod, és azonnal elveszíted a hátralévő fizetett időszakhoz való hozzáférést. Ha csak a jövőbeli fizetéseket szeretnéd leállítani, kérjük, használd az Előfizetés lemondása lehetőséget.</string>
     <string name="cancel_instead">Előfizetés lemondása helyett</string>
     <string name="delete_confirm_checkbox">Megértem, hogy ez a művelet nem vonható vissza és minden adatom véglegesen törlésre kerül</string>
+    <string name="delete_confirm_type_delete">Írd be: DELETE a megerősítéshez</string>
+    <string name="delete_confirm_placeholder">DELETE</string>
     <string name="cancel_subscription_title">Előfizetés lemondása?</string>
     <string name="cancel_warning_a">Elveszíted az azonnali e-mail, SMS értesítéseket és közösségi riasztásokat</string>
     <string name="cancel_warning_b">Az ingyenes bilétacserék többé nem lesznek elérhetőek</string>

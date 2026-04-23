@@ -584,6 +584,8 @@
     <string name="delete_premium_warning">Tem uma subscrição %1$s ativa até %2$s. Eliminar a sua conta apagará permanentemente o seu perfil e perderá imediatamente o acesso ao tempo pago restante. Se apenas pretende parar pagamentos futuros, utilize a opção Cancelar subscrição.</string>
     <string name="cancel_instead">Cancelar subscrição em vez disso</string>
     <string name="delete_confirm_checkbox">Compreendo que esta ação não pode ser desfeita e todos os meus dados serão permanentemente eliminados</string>
+    <string name="delete_confirm_type_delete">Escreve DELETE para confirmar</string>
+    <string name="delete_confirm_placeholder">DELETE</string>
     <string name="cancel_subscription_title">Cancelar subscrição?</string>
     <string name="cancel_warning_a">Perderá as notificações instantâneas por email, SMS e os alertas comunitários</string>
     <string name="cancel_warning_b">As substituições gratuitas de plaquinha inteligentes inteligentes deixarão de estar disponíveis</string>

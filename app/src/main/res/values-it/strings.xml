@@ -593,6 +593,8 @@
     <string name="delete_premium_warning">Hai un abbonamento %1$s attivo fino al %2$s. L\'eliminazione del tuo account cancellerà permanentemente il tuo profilo e perderai immediatamente l\'accesso al tempo pagato rimanente. Se vuoi solo interrompere i pagamenti futuri, utilizza l\'opzione Annulla abbonamento.</string>
     <string name="cancel_instead">Annulla abbonamento invece</string>
     <string name="delete_confirm_checkbox">Capisco che questa azione non può essere annullata e tutti i miei dati verranno eliminati permanentemente</string>
+    <string name="delete_confirm_type_delete">Digita DELETE per confermare</string>
+    <string name="delete_confirm_placeholder">DELETE</string>
     <string name="cancel_subscription_title">Annullare l\'abbonamento?</string>
     <string name="cancel_warning_a">Perderai le notifiche istantanee via email, SMS e gli avvisi della comunità</string>
     <string name="cancel_warning_b">Ti sostituzioni gratuite delle medagliette non saranno più disponibili</string>

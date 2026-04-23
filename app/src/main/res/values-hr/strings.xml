@@ -569,6 +569,8 @@
     <string name="delete_premium_warning">Imaš aktivnu %1$s pretplatu do %2$s. Brisanjem računa trajno ćeš izbrisati svoj profil i odmah izgubiti pristup preostalom plaćenom vremenu. Ako samo želiš zaustaviti buduća plaćanja, otkaži pretplatu.</string>
     <string name="cancel_instead">Umjesto toga otkaži pretplatu</string>
     <string name="delete_confirm_checkbox">Razumijem da se ova radnja ne može poništiti i da će svi moji podaci biti trajno obrisani</string>
+    <string name="delete_confirm_type_delete">Upiši DELETE za potvrdu</string>
+    <string name="delete_confirm_placeholder">DELETE</string>
     <string name="cancel_subscription_title">Otkazati pretplatu?</string>
     <string name="cancel_warning_a">Izgubit ćeš trenutačne obavijesti e-mailom, SMS-om i obavijesti zajednice</string>
     <string name="cancel_warning_b">Besplatna zamjena privjesak više neće biti dostupna</string>

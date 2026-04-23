@@ -593,6 +593,8 @@
     <string name="delete_premium_warning">Tu as un abonnement %1$s actif jusqu\'au %2$s. La suppression de ton compte effacera définitivement ton profil et tu perdras immédiatement l\'accès à ton temps payé restant. Si tu veux juste arrêter les paiements futurs, utilise l\'option Annuler l\'abonnement.</string>
     <string name="cancel_instead">Annuler l\'abonnement à la place</string>
     <string name="delete_confirm_checkbox">Je comprends que cette action est irréversible et que toutes mes données seront définitivement supprimées</string>
+    <string name="delete_confirm_type_delete">Saisis DELETE pour confirmer</string>
+    <string name="delete_confirm_placeholder">DELETE</string>
     <string name="cancel_subscription_title">Annuler l\'abonnement ?</string>
     <string name="cancel_warning_a">Tu perdras les notifications instantanées par e-mail, SMS et les alertes communautaires</string>
     <string name="cancel_warning_b">Les remplacements gratuits d\'étiquettes ne seront plus disponibles</string>

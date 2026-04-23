@@ -53,13 +53,19 @@ class BiometricHelper(private val context: Context) {
 
         val biometricPrompt = BiometricPrompt(activity, executor, callback)
 
+        // BIOMETRIC_STRONG only: Class 3 biometric per the Android CDD.
+        // Dropped BIOMETRIC_WEAK (Class 2) to match canUseBiometric() above
+        // and close the gap the Pass 2 audit flagged — Class 2 auth on a
+        // device without a device lock lets a theoretical attacker with
+        // a spoofed fingerprint enter the app without re-OTP. Class 3
+        // biometric implicitly requires the device to have a secure lock
+        // screen set, which is the real-world protection.
         val promptInfo = BiometricPrompt.PromptInfo.Builder()
             .setTitle(title)
             .setSubtitle(subtitle)
             .setNegativeButtonText(negativeButtonText)
             .setAllowedAuthenticators(
-                BiometricManager.Authenticators.BIOMETRIC_STRONG or
-                BiometricManager.Authenticators.BIOMETRIC_WEAK
+                BiometricManager.Authenticators.BIOMETRIC_STRONG
             )
             .build()
 

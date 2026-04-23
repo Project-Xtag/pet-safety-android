@@ -584,6 +584,8 @@
     <string name="delete_premium_warning">Tienes una suscripción %1$s activa hasta %2$s. Eliminar tu cuenta borrará permanentemente tu perfil y perderás inmediatamente el acceso a tu tiempo de pago restante. Si solo quieres detener los pagos futuros, utiliza la opción Cancelar suscripción.</string>
     <string name="cancel_instead">Cancelar suscripción en su lugar</string>
     <string name="delete_confirm_checkbox">Entiendo que esta acción no se puede deshacer y todos mis datos serán eliminados permanentemente</string>
+    <string name="delete_confirm_type_delete">Escribe DELETE para confirmar</string>
+    <string name="delete_confirm_placeholder">DELETE</string>
     <string name="cancel_subscription_title">¿Cancelar suscripción?</string>
     <string name="cancel_warning_a">Perderás las notificaciones instantáneas por email, SMS y las alertas comunitarias</string>
     <string name="cancel_warning_b">Los reemplazos gratuitos de chapa inteligentes inteligentes ya no estarán disponibles</string>

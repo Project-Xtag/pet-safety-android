@@ -584,6 +584,8 @@
     <string name="delete_premium_warning">Máš aktívne predplatné %1$s do %2$s. Vymazaním účtu natrvalo vymažete svoj profil a okamžite stratíte prístup k zostávajúcemu platenému obdobiu. Ak chceš len zastaviť budúce platby, použi možnosť Zrušiť predplatné.</string>
     <string name="cancel_instead">Namiesto toho zrušiť predplatné</string>
     <string name="delete_confirm_checkbox">Rozumiem, že táto akcia je nezvratná a všetky moje údaje budú natrvalo vymazané</string>
+    <string name="delete_confirm_type_delete">Napíš DELETE na potvrdenie</string>
+    <string name="delete_confirm_placeholder">DELETE</string>
     <string name="cancel_subscription_title">Zrušiť predplatné?</string>
     <string name="cancel_warning_a">Stratíte okamžité e-mailové, SMS upozornenia a komunitné výstrahy</string>
     <string name="cancel_warning_b">Bezplatné výmeny známok už nebudú dostupné</string>

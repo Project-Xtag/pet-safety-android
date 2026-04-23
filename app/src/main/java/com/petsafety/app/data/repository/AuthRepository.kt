@@ -157,8 +157,27 @@ class AuthRepository(
     }
 
     suspend fun deleteAccount() {
-        // Unregister FCM token before deleting account
-        unregisterFCMToken()
+        // For account deletion specifically, we MUST successfully revoke
+        // the FCM token before the server anonymizes the user — otherwise
+        // the deleted user's device keeps receiving pushes bound to the
+        // now-anonymized row. unregisterFCMToken() (logout path) swallows
+        // failures by design; here we need the harder guarantee, so we
+        // retry once and abort on persistent failure so the caller can
+        // surface an error.
+        var fcmRevoked = false
+        for (attempt in 1..2) {
+            try {
+                fcmRepository?.removeToken()
+                fcmRevoked = true
+                break
+            } catch (e: Exception) {
+                Timber.w("FCM unregister attempt $attempt/2 failed: ${e.message}")
+            }
+        }
+        if (!fcmRevoked) {
+            Timber.e("FCM unregister failed persistently, aborting account deletion")
+            throw Exception("Could not revoke push notification token. Please try again in a few minutes.")
+        }
 
         apiService.deleteAccount()
         tokenStore.clearAuthToken()

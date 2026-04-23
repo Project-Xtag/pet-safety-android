@@ -1643,6 +1643,7 @@ private fun HelpSupportScreen(
     var showContactForm by remember { mutableStateOf(false) }
     var showDeleteDialog by remember { mutableStateOf(false) }
     var confirmDeleteChecked by remember { mutableStateOf(false) }
+    var confirmDeleteText by remember { mutableStateOf("") }
     var showDeleteErrorDialog by remember { mutableStateOf(false) }
     var isDeleting by remember { mutableStateOf(false) }
     var isCheckingDelete by remember { mutableStateOf(false) }
@@ -1945,6 +1946,17 @@ private fun HelpSupportScreen(
                             style = MaterialTheme.typography.bodySmall
                         )
                     }
+                    // Require the user to type DELETE before the destructive
+                    // button enables. A single checkbox is too easy to tick
+                    // accidentally, and account deletion is irreversible.
+                    OutlinedTextField(
+                        value = confirmDeleteText,
+                        onValueChange = { confirmDeleteText = it },
+                        label = { Text(stringResource(R.string.delete_confirm_type_delete)) },
+                        placeholder = { Text(stringResource(R.string.delete_confirm_placeholder)) },
+                        singleLine = true,
+                        modifier = Modifier.fillMaxWidth()
+                    )
                 }
             },
             confirmButton = {
@@ -1952,6 +1964,7 @@ private fun HelpSupportScreen(
                     onClick = {
                         isDeleting = true
                         confirmDeleteChecked = false
+                        confirmDeleteText = ""
                         authViewModel.deleteAccount { success, message ->
                             isDeleting = false
                             if (success) {
@@ -1962,7 +1975,9 @@ private fun HelpSupportScreen(
                         }
                         showDeleteDialog = false
                     },
-                    enabled = confirmDeleteChecked && !isDeleting,
+                    enabled = confirmDeleteChecked
+                        && confirmDeleteText.trim().equals("DELETE", ignoreCase = false)
+                        && !isDeleting,
                     colors = ButtonDefaults.textButtonColors(contentColor = MaterialTheme.colorScheme.error)
                 ) {
                     Text(stringResource(R.string.delete_account))

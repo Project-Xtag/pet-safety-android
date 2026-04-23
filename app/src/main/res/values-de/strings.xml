@@ -584,6 +584,8 @@
     <string name="delete_premium_warning">du haben ein aktives %1$s-Abonnement bis %2$s. Das Löschen deines Benutzerkontos löscht dein Profil dauerhaft und du verlieren sofort den Zugang zu deiner verbleibenden bezahlten Zeit. Wenn du nur zukünftige Zahlungen stoppen möchten, nutzen du bitte die Option Abonnement kündigen.</string>
     <string name="cancel_instead">Stattdessen Abonnement kündigen</string>
     <string name="delete_confirm_checkbox">Ich verstehe, dass diese Aktion nicht rückgängig gemacht werden kann und alle meine Daten dauerhaft gelöscht werden</string>
+    <string name="delete_confirm_type_delete">Gib DELETE zur Bestätigung ein</string>
+    <string name="delete_confirm_placeholder">DELETE</string>
     <string name="cancel_subscription_title">Abonnement kündigen?</string>
     <string name="cancel_warning_a">du verlieren sofortige E-Mail-, SMS-Benachrichtigungen und Community-Warnungen</string>
     <string name="cancel_warning_b">Kostenlose Markenersatzteile sind nicht mehr verfügbar</string>

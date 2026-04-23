@@ -141,7 +141,11 @@ class TokenAuthenticator(
                     null
                 }
             } catch (e: Exception) {
-                Timber.e("Token refresh failed: ${e.message}")
+                // Log structured context. A 500 from the backend is
+                // distinct from a parse error locally, but the bare
+                // message-only log collapsed them into one bucket.
+                val responseCode = response.code
+                Timber.e(e, "Token refresh failed (responseCode=$responseCode): ${e.message}")
                 clearAndNotify()
                 null
             }

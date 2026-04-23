@@ -263,15 +263,24 @@ fun ReferralScreen(
                         ) {
                             OutlinedTextField(
                                 value = friendCode,
-                                onValueChange = { friendCode = it.uppercase() },
+                                onValueChange = { raw ->
+                                    // Keep only [A-Z0-9], max 32 chars.
+                                    // Previously accepted any string of any
+                                    // length — a paste of a 10k-char blob
+                                    // reached the backend; non-ASCII chars
+                                    // produced cryptic API errors.
+                                    friendCode = raw.uppercase()
+                                        .filter { it.isLetterOrDigit() }
+                                        .take(32)
+                                },
                                 label = { Text(stringResource(R.string.enter_friend_code)) },
                                 singleLine = true,
                                 modifier = Modifier.weight(1f)
                             )
                             Button(
-                                onClick = { viewModel.applyFriendCode(friendCode) },
+                                onClick = { viewModel.applyFriendCode(friendCode.trim()) },
                                 colors = ButtonDefaults.buttonColors(containerColor = BrandOrange),
-                                enabled = friendCode.isNotBlank() && !isProcessing
+                                enabled = friendCode.length >= 4 && !isProcessing
                             ) {
                                 if (isProcessing) {
                                     CircularProgressIndicator(modifier = Modifier.size(18.dp), color = Color.White, strokeWidth = 2.dp)

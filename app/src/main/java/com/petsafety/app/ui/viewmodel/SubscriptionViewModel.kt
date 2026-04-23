@@ -13,6 +13,7 @@ import com.petsafety.app.data.repository.SubscriptionRepository
 import com.petsafety.app.util.StringProvider
 import com.petsafety.app.R
 import dagger.hilt.android.lifecycle.HiltViewModel
+import timber.log.Timber
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -256,6 +257,12 @@ class SubscriptionViewModel @Inject constructor(
                 } catch (_: Exception) { null }
                 _error.value = serverMessage ?: stringProvider.getString(R.string.referral_code_invalid)
             } catch (e: Exception) {
+                // Previously showed "invalid code" to the user with no log
+                // — an OOM, a JSON parse error, or a Retrofit-internal
+                // crash all collapsed to the same generic UX with zero
+                // signal for oncall. Log so we can tell "genuinely bad
+                // code" apart from "client lib blew up".
+                Timber.e(e, "applyFriendCode failed (non-HTTP)")
                 _error.value = stringProvider.getString(R.string.referral_code_invalid)
             }
             _isProcessing.value = false
