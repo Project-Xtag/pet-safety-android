@@ -1263,6 +1263,7 @@
     <string name="notif_multiple_sightings_title">Viaceré pozorovania!</string>
     <string name="notif_multiple_sightings_body">Viacero pozorovaní</string>
     <string name="notif_channel_lifecycle">Predplatné a pripomienky</string>
+    <string name="notif_channel_lifecycle_desc">Aktualizácie o tvojom predplatnom, pláne a pripomienky.</string>
 
     <!-- Location Sharing Consent -->
     <string name="share_location_title">Zdieľať polohu</string>

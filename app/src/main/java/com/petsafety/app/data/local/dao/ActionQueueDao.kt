@@ -22,4 +22,7 @@ interface ActionQueueDao {
 
     @Query("DELETE FROM action_queue WHERE id = :id")
     suspend fun deleteById(id: String)
+
+    @Query("DELETE FROM action_queue")
+    suspend fun deleteAll()
 }

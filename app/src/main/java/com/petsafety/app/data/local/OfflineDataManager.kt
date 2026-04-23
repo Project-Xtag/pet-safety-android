@@ -240,4 +240,22 @@ class OfflineDataManager(private val database: AppDatabase) {
             )
         }
     }
+
+    /**
+     * Wipe every cached row and every queued offline action.
+     *
+     * Called from AuthRepository.logout() + deleteAccount() so the user's
+     * pets, alerts, stories, and pending offline edits don't persist on
+     * this device after sign-out. Room is SQLCipher-encrypted, but the
+     * key lives on-device — GDPR right-to-erasure expects the PII itself
+     * gone, not "encrypted until someone extracts the key". Queued
+     * actions are particularly sensitive since they can contain owner
+     * phone / email / address from an unsynced edit.
+     */
+    suspend fun clearAllData() {
+        database.actionQueueDao().deleteAll()
+        database.alertDao().deleteAll()
+        database.successStoryDao().deleteAll()
+        database.petDao().deleteAll()
+    }
 }

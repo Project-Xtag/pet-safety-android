@@ -1250,6 +1250,7 @@
     <string name="notif_multiple_sightings_title">Avvistamenti multipli!</string>
     <string name="notif_multiple_sightings_body">Diversi avvistamenti segnalati</string>
     <string name="notif_channel_lifecycle">Abbonamento e promemoria</string>
+    <string name="notif_channel_lifecycle_desc">Aggiornamenti su abbonamento, piani e promemoria.</string>
 
     <!-- Location Sharing Consent -->
     <string name="share_location_title">Condividi posizione</string>

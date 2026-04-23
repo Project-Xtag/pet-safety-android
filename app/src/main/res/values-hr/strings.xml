@@ -1247,6 +1247,7 @@
     <string name="notif_multiple_sightings_title">Više viđenja!</string>
     <string name="notif_multiple_sightings_body">Više viđenja prijavljeno u obližnjem području.</string>
     <string name="notif_channel_lifecycle">Pretplata &amp; podsjetnici</string>
+    <string name="notif_channel_lifecycle_desc">Ažuriranja o tvojoj pretplati, planovima i podsjetnicima.</string>
 
     <!-- Location Sharing Consent -->
     <string name="share_location_title">Podijeli svoju lokaciju</string>

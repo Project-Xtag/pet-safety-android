@@ -121,8 +121,9 @@ object AppModule {
     fun provideAuthRepository(
         apiService: ApiService,
         tokenStore: AuthTokenStore,
-        fcmRepository: FCMRepository
-    ): AuthRepository = AuthRepository(apiService, tokenStore, fcmRepository)
+        fcmRepository: FCMRepository,
+        offlineDataManager: OfflineDataManager
+    ): AuthRepository = AuthRepository(apiService, tokenStore, fcmRepository, offlineDataManager)
 
     @Provides
     @Singleton

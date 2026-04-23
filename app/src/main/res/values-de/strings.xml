@@ -1255,6 +1255,7 @@
     <string name="notif_multiple_sightings_title">Mehrere Sichtungen!</string>
     <string name="notif_multiple_sightings_body">Mehrere Sichtungen gemeldet</string>
     <string name="notif_channel_lifecycle">Abonnement &amp; Erinnerungen</string>
+    <string name="notif_channel_lifecycle_desc">Aktualisierungen zu deinem Abonnement, Plänen und Erinnerungen.</string>
 
     <!-- Location Sharing Consent -->
     <string name="share_location_title">Standort teilen</string>

@@ -19,4 +19,7 @@ interface SuccessStoryDao {
 
     @Query("DELETE FROM success_stories WHERE id = :id")
     suspend fun deleteById(id: String)
+
+    @Query("DELETE FROM success_stories")
+    suspend fun deleteAll()
 }

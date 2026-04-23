@@ -1246,6 +1246,7 @@
     <string name="notif_multiple_sightings_title">Multiple Sightings!</string>
     <string name="notif_multiple_sightings_body">Several sightings reported in a nearby area.</string>
     <string name="notif_channel_lifecycle">Subscription &amp; Reminders</string>
+    <string name="notif_channel_lifecycle_desc">Updates about your subscription, plans, and reminders.</string>
 
     <!-- Location Sharing Consent -->
     <string name="share_location_title">Share Your Location</string>

@@ -1256,6 +1256,7 @@
     <string name="notif_multiple_sightings_title">Observări multiple!</string>
     <string name="notif_multiple_sightings_body">Mai multe observări raportate</string>
     <string name="notif_channel_lifecycle">Abonament și mementouri</string>
+    <string name="notif_channel_lifecycle_desc">Actualizări despre abonamentul, planurile și memento-urile tale.</string>
 
     <!-- Location Sharing Consent -->
     <string name="share_location_title">Partajare locație</string>

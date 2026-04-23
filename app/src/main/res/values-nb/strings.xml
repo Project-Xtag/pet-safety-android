@@ -1249,6 +1249,7 @@
     <string name="notif_multiple_sightings_title">Flere observasjoner!</string>
     <string name="notif_multiple_sightings_body">Flere observasjoner rapportert</string>
     <string name="notif_channel_lifecycle">Abonnement og påminnelser</string>
+    <string name="notif_channel_lifecycle_desc">Oppdateringer om abonnement, planer og påminnelser.</string>
 
     <!-- Location Sharing Consent -->
     <string name="share_location_title">Del posisjon</string>

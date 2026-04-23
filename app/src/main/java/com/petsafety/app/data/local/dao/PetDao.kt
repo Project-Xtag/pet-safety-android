@@ -19,4 +19,7 @@ interface PetDao {
 
     @Query("DELETE FROM pets WHERE id = :id")
     suspend fun deleteById(id: String)
+
+    @Query("DELETE FROM pets")
+    suspend fun deleteAll()
 }

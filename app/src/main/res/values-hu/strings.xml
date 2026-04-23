@@ -1259,6 +1259,7 @@
     <string name="notif_multiple_sightings_title">Többszörös észlelés!</string>
     <string name="notif_multiple_sightings_body">Több észlelés érkezett egy közeli területről.</string>
     <string name="notif_channel_lifecycle">Előfizetés és emlékeztetők</string>
+    <string name="notif_channel_lifecycle_desc">Értesítések az előfizetésedről, a csomagodról és emlékeztetőkről.</string>
 
     <!-- Location Sharing Consent -->
     <string name="share_location_title">Helyzeted megosztása</string>

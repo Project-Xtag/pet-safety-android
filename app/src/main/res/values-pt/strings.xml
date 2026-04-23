@@ -1255,6 +1255,7 @@
     <string name="notif_multiple_sightings_title">Múltiplos avistamentos!</string>
     <string name="notif_multiple_sightings_body">Vários avistamentos reportados</string>
     <string name="notif_channel_lifecycle">Assinatura e lembretes</string>
+    <string name="notif_channel_lifecycle_desc">Atualizações sobre a tua subscrição, planos e lembretes.</string>
 
     <!-- Location Sharing Consent -->
     <string name="share_location_title">Partilhar localização</string>

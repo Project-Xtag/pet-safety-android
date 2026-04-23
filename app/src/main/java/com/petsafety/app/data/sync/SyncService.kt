@@ -90,6 +90,22 @@ class SyncService(
             try {
                 processAction(action.actionType, action.actionDataJson)
                 offlineDataManager.completeAction(action.id)
+            } catch (ex: retrofit2.HttpException) {
+                // A 4xx (except 408 Timeout / 429 Rate-limit) means the
+                // server permanently rejected the request — usually the
+                // pet got deleted on another device, permissions changed,
+                // or the schema drifted. Retrying burns through the 5×
+                // retryCount silently and then deletes the action with
+                // zero user signal. Fast-forward to max retries on the
+                // first 4xx so the user sees a real failure.
+                val permanent = ex.code() in 400..499 && ex.code() != 408 && ex.code() != 429
+                if (permanent) {
+                    val msg = "Server rejected (${ex.code()}): ${ex.message()}"
+                    // Burn retries to max so the action is removed next pass.
+                    repeat(5) { offlineDataManager.failAction(action.id, msg) }
+                } else {
+                    offlineDataManager.failAction(action.id, ex.localizedMessage ?: "HTTP ${ex.code()}")
+                }
             } catch (ex: Exception) {
                 offlineDataManager.failAction(action.id, ex.localizedMessage ?: "Unknown error")
             }
@@ -108,8 +124,23 @@ class SyncService(
         }
     }
 
+    /**
+     * A queued action without its primary-key field is unrecoverable — we
+     * can't fabricate a petId / alertId. Throw a specific exception so the
+     * sync harness routes it through failAction(), which increments the
+     * retry counter and (after N attempts) marks the action failed-
+     * permanently so the user sees it instead of losing the edit silently.
+     *
+     * Prior behaviour was `?: return` which quietly completed the action
+     * in the queue — the user's offline edit vanished with zero signal.
+     */
+    private fun requireKey(data: JsonObject, key: String, type: String): String {
+        return data.string(key)
+            ?: throw IllegalArgumentException("Queued $type action is missing required field '$key'")
+    }
+
     private suspend fun processMarkPetLost(data: JsonObject) {
-        val petId = data.string("petId") ?: return
+        val petId = requireKey(data, "petId", ActionType.MARK_PET_LOST.value)
         val latitude = data.double("latitude")
         val longitude = data.double("longitude")
         val request = MarkMissingRequest(
@@ -123,13 +154,13 @@ class SyncService(
     }
 
     private suspend fun processMarkPetFound(data: JsonObject) {
-        val petId = data.string("petId") ?: return
+        val petId = requireKey(data, "petId", ActionType.MARK_PET_FOUND.value)
         val request = UpdatePetRequest(isMissing = false)
         apiService.updatePet(petId, request)
     }
 
     private suspend fun processReportSighting(data: JsonObject) {
-        val alertId = data.string("alertId") ?: return
+        val alertId = requireKey(data, "alertId", ActionType.REPORT_SIGHTING.value)
         val latitude = data.double("latitude")
         val longitude = data.double("longitude")
         val request = ReportSightingRequest(
@@ -146,7 +177,7 @@ class SyncService(
     }
 
     private suspend fun processCreateAlert(data: JsonObject) {
-        val petId = data.string("petId") ?: return
+        val petId = requireKey(data, "petId", ActionType.CREATE_ALERT.value)
         val latitude = data.double("latitude")
         val longitude = data.double("longitude")
         val request = CreateAlertRequest(
@@ -166,7 +197,7 @@ class SyncService(
     }
 
     private suspend fun processUpdatePet(data: JsonObject) {
-        val petId = data.string("petId") ?: return
+        val petId = requireKey(data, "petId", ActionType.UPDATE_PET.value)
         val request = UpdatePetRequest(
             name = data.string("name"),
             species = data.string("species"),

@@ -109,7 +109,10 @@ class NotificationHelper @Inject constructor(private val context: Context) {
             context.getString(R.string.notif_channel_lifecycle),
             NotificationManager.IMPORTANCE_DEFAULT
         ).apply {
-            description = context.getString(R.string.notif_channel_lifecycle)
+            // Previously description reused the channel name, so Android
+            // Settings showed redundant text. Use a dedicated description
+            // string so users understand what's in this channel.
+            description = context.getString(R.string.notif_channel_lifecycle_desc)
         }
 
         manager.createNotificationChannels(

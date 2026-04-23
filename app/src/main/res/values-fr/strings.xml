@@ -1247,6 +1247,7 @@
     <string name="notif_multiple_sightings_title">Observations multiples !</string>
     <string name="notif_multiple_sightings_body">Plusieurs observations signalées</string>
     <string name="notif_channel_lifecycle">Abonnement et rappels</string>
+    <string name="notif_channel_lifecycle_desc">Mises à jour sur ton abonnement, tes plans et rappels.</string>
 
     <!-- Location Sharing Consent -->
     <string name="share_location_title">Partager la position</string>

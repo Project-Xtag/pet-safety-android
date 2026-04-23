@@ -3,6 +3,7 @@ package com.petsafety.app.data.repository
 import timber.log.Timber
 import com.petsafety.app.data.fcm.FCMRepository
 import com.petsafety.app.data.local.AuthTokenStore
+import com.petsafety.app.data.local.OfflineDataManager
 import com.petsafety.app.data.model.User
 import com.petsafety.app.data.network.ApiService
 import com.petsafety.app.data.network.TokenAuthenticator
@@ -36,7 +37,8 @@ enum class LogoutReason { USER_INITIATED, TOKEN_EXPIRED }
 class AuthRepository(
     private val apiService: ApiService,
     private val tokenStore: AuthTokenStore,
-    private val fcmRepository: FCMRepository? = null // Optional for backward compatibility
+    private val fcmRepository: FCMRepository? = null, // Optional for backward compatibility
+    private val offlineDataManager: OfflineDataManager? = null // Optional for backward compatibility
 ) {
     val cachedFirstName: StateFlow<String?> = tokenStore.userFirstName
     val isAuthenticated: Flow<Boolean> = tokenStore.authToken.map { !it.isNullOrBlank() }
@@ -92,6 +94,17 @@ class AuthRepository(
         tokenStore.clearAuthToken()
         tokenStore.clearRefreshToken()
         tokenStore.clearUserInfo()
+
+        // GDPR: wipe local Room cache + queued offline actions. Previously
+        // left pets / alerts / stories / pending edits on disk, so the
+        // next user on this device could theoretically replay them. Safe
+        // to swallow failure — logout must always complete even if the
+        // DB wipe hits a transient error (user can uninstall if it fails).
+        try {
+            offlineDataManager?.clearAllData()
+        } catch (e: Exception) {
+            Timber.e(e, "Failed to clear offline data on logout")
+        }
     }
 
     /**
@@ -190,6 +203,15 @@ class AuthRepository(
             fcmRepository?.deleteInstanceId()
         } catch (e: Exception) {
             Timber.e("Failed to delete FCM instance ID", e)
+        }
+
+        // GDPR right-to-erasure: wipe local Room cache + queued offline
+        // actions so no pet / alert / sighting PII survives on disk
+        // after the backend account is anonymized.
+        try {
+            offlineDataManager?.clearAllData()
+        } catch (e: Exception) {
+            Timber.e(e, "Failed to clear offline data after account deletion")
         }
     }
 

@@ -1264,6 +1264,7 @@
     <string name="notif_multiple_sightings_title">Vícenásobná pozorování!</string>
     <string name="notif_multiple_sightings_body">Několik pozorování</string>
     <string name="notif_channel_lifecycle">Předplatné a připomínky</string>
+    <string name="notif_channel_lifecycle_desc">Informace o tvém předplatném, plánu a připomínky.</string>
 
     <!-- Location Sharing Consent -->
     <string name="share_location_title">Sdílet polohu</string>

@@ -1275,6 +1275,7 @@
     <string name="notif_multiple_sightings_title">Wielokrotne obserwacje!</string>
     <string name="notif_multiple_sightings_body">Kilka obserwacji zgłoszonych</string>
     <string name="notif_channel_lifecycle">Subskrypcja i przypomnienia</string>
+    <string name="notif_channel_lifecycle_desc">Aktualizacje dotyczące subskrypcji, planów i przypomnienia.</string>
 
     <!-- Location Sharing Consent -->
     <string name="share_location_title">Udostępnij lokalizację</string>

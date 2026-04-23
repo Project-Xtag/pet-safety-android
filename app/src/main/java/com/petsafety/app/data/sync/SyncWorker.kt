@@ -7,6 +7,7 @@ import dagger.hilt.EntryPoint
 import dagger.hilt.InstallIn
 import dagger.hilt.android.EntryPointAccessors
 import dagger.hilt.components.SingletonComponent
+import kotlinx.serialization.SerializationException
 import timber.log.Timber
 
 class SyncWorker(
@@ -22,10 +23,26 @@ class SyncWorker(
             entryPoint.syncService().performFullSync()
             Result.success()
         } catch (e: Exception) {
-            Timber.w(e, "SyncWorker failed, scheduling retry")
-            Result.retry()
+            // Distinguish transient (retryable) from permanent (non-retryable)
+            // failures. A SerializationException / IllegalArgumentException
+            // is NOT going to resolve on its own — retrying would loop with
+            // exponential backoff forever, eating battery and still losing
+            // the queued actions silently. Mark permanent, let WorkManager
+            // stop rescheduling; the individual action's retryCount in
+            // failAction() already tracks per-action retries for transient
+            // API-side failures.
+            if (isNonRetryable(e)) {
+                Timber.e(e, "SyncWorker permanent failure, not rescheduling")
+                Result.failure()
+            } else {
+                Timber.w(e, "SyncWorker transient failure, scheduling retry")
+                Result.retry()
+            }
         }
     }
+
+    private fun isNonRetryable(e: Throwable): Boolean =
+        e is SerializationException || e is IllegalArgumentException
 }
 
 @EntryPoint
