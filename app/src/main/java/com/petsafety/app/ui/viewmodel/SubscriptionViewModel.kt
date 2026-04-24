@@ -11,6 +11,7 @@ import com.petsafety.app.data.model.UserSubscription
 import com.petsafety.app.data.network.model.SubscriptionFeaturesResponse
 import com.petsafety.app.data.repository.SubscriptionRepository
 import com.petsafety.app.util.StringProvider
+import com.petsafety.app.util.WebUrlHelper
 import com.petsafety.app.R
 import dagger.hilt.android.lifecycle.HiltViewModel
 import timber.log.Timber
@@ -150,9 +151,11 @@ class SubscriptionViewModel @Inject constructor(
                     _subscription.value = repository.upgradeToStarter()
                 } else {
                     // Paid plans — redirect to web app for subscription checkout
-                    // Subscriptions are web-only (no in-app purchasing / no store entitlement needed)
-                    val baseUrl = "https://senra.pet/choose-plan"
-                    _checkoutUrl.value = if (countryCode != null) "$baseUrl?country=$countryCode" else baseUrl
+                    // Subscriptions are web-only (no in-app purchasing / no store entitlement needed).
+                    // URL must include a /:country/ path segment; the SPA router treats unprefixed
+                    // URLs as "country = <first path segment>" and falls back to the home page.
+                    val cc = countryCode?.lowercase().takeIf { it in WebUrlHelper.validCountryCodes } ?: WebUrlHelper.countryCode
+                    _checkoutUrl.value = "https://senra.pet/$cc/choose-plan"
                 }
             } catch (e: Exception) {
                 _error.value = e.message

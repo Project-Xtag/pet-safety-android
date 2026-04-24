@@ -1,6 +1,7 @@
 package com.petsafety.app.ui.screens
 
 import com.petsafety.app.util.InputValidators
+import com.petsafety.app.util.WebUrlHelper
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -844,7 +845,7 @@ fun PetFormScreen(
                     viewModel.dismissUpgradePrompt()
                     val intent = android.content.Intent(
                         android.content.Intent.ACTION_VIEW,
-                        android.net.Uri.parse("https://senra.pet/manage-subscription")
+                        android.net.Uri.parse(WebUrlHelper.url("/manage-subscription"))
                     )
                     context.startActivity(intent)
                 }) {
