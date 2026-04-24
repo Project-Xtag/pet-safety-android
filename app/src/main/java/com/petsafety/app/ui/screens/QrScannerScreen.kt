@@ -98,6 +98,7 @@ import com.petsafety.app.ui.theme.TealAccent
 import com.petsafety.app.ui.viewmodel.AppStateViewModel
 import com.petsafety.app.ui.viewmodel.QrScannerViewModel
 import com.petsafety.app.ui.viewmodel.TagLookupState
+import com.petsafety.app.util.QrCodeParser
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -138,7 +139,7 @@ fun QrScannerScreen(
 
     LaunchedEffect(pendingQrCode) {
         if (!pendingQrCode.isNullOrBlank()) {
-            viewModel.lookupAndRoute(extractTagCodeFromUrl(pendingQrCode))
+            viewModel.lookupAndRoute(QrCodeParser.extractTagCode(pendingQrCode))
             onQrCodeHandled()
         }
     }
@@ -180,7 +181,7 @@ fun QrScannerScreen(
                 lifecycleOwner = lifecycleOwner,
                 onQrCodeScanned = { rawCode ->
                     haptic.performHapticFeedback(HapticFeedbackType.LongPress)
-                    val code = extractTagCodeFromUrl(rawCode)
+                    val code = QrCodeParser.extractTagCode(rawCode)
                     viewModel.lookupAndRoute(code)
                     appStateViewModel.showSuccess(qrScannedMessage)
                 },
@@ -927,27 +928,7 @@ private fun InfoCard(
     }
 }
 
-/**
- * Extract the short tag code from a scanned QR value.
- * Handles full URLs (https://senra.pet/t/CODE, /qr/CODE) and plain codes.
- */
-private fun extractTagCodeFromUrl(rawValue: String): String {
-    val trimmed = rawValue.trim()
-    return try {
-        val uri = Uri.parse(trimmed)
-        val host = uri.host?.lowercase()
-        if (host != "senra.pet" && host != "www.senra.pet") return trimmed
-        val segments = uri.pathSegments ?: return trimmed
-        // Strip country prefix if present (e.g., /hu/t/CODE)
-        val stripped = if (segments.size >= 3 && segments[0].length == 2) segments.drop(1) else segments
-        val prefix = stripped.getOrNull(0)?.lowercase()
-        if (stripped.size >= 2 && (prefix == "t" || prefix == "qr")) {
-            stripped[1]
-        } else {
-            trimmed
-        }
-    } catch (_: Exception) {
-        trimmed
-    }
-}
+// Extraction logic moved to com.petsafety.app.util.QrCodeParser so that
+// this screen, MainActivity deep-link handling, and any future caller
+// all agree on what counts as a valid tag scan.
 
