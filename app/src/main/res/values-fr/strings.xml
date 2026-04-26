@@ -125,6 +125,7 @@
     <string name="empty_pets_title">Pas encore d\'animal</string>
     <string name="empty_pets_message">Ajoute ton premier animal pour commencer à utiliser SENRA</string>
     <string name="missing_badge">DISPARU</string>
+    <string name="tag_pending_badge">EN ROUTE</string>
     <string name="add_pet">Ajouter un animal</string>
     <string name="pet_name">Nom de l\'animal</string>
     <string name="failed_load_pets">Impossible de charger les animaux</string>

@@ -124,6 +124,7 @@
     <string name="empty_pets_title">Nessun animale di compagnia registrato</string>
     <string name="empty_pets_message">Aggiungi il tuo primo animale di compagnia per iniziare a usare SENRA</string>
     <string name="missing_badge">SCOMPARSO</string>
+    <string name="tag_pending_badge">IN ARRIVO</string>
     <string name="add_pet">Aggiungi animale di compagnia</string>
     <string name="pet_name">Nome dell\'animale di compagnia</string>
     <string name="failed_load_pets">Impossibile caricare gli animali di compagnia</string>

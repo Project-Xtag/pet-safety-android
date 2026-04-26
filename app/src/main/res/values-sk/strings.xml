@@ -127,6 +127,7 @@
     <string name="empty_pets_title">Zatiaľ žiadne zvieratá</string>
     <string name="empty_pets_message">Pridaj prvé zviera a začnite s SENRA</string>
     <string name="missing_badge">STRATENÉ</string>
+    <string name="tag_pending_badge">NA CESTE</string>
     <string name="add_pet">Pridať zviera</string>
     <string name="pet_name">Meno zvieraťa</string>
     <string name="failed_load_pets">Načítanie zvierat zlyhalo</string>

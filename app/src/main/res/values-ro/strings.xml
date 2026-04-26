@@ -120,6 +120,7 @@
     <string name="empty_pets_title">Încă nu ai animale de companie</string>
     <string name="empty_pets_message">Adaugă primul animal de companie pentru a începe cu SENRA</string>
     <string name="missing_badge">DISPĂRUT</string>
+    <string name="tag_pending_badge">PE DRUM</string>
     <string name="add_pet">Adaugă animal de companie</string>
     <string name="pet_name">Numele animalului de companie</string>
     <string name="failed_load_pets">Nu s-au putut încărca animalele de companie</string>

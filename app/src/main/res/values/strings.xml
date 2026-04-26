@@ -124,6 +124,7 @@
     <string name="empty_pets_title">No Pets Yet</string>
     <string name="empty_pets_message">Add your first pet to get started with SENRA</string>
     <string name="missing_badge">MISSING</string>
+    <string name="tag_pending_badge">TAG ON ITS WAY</string>
     <string name="add_pet">Add Pet</string>
     <string name="pet_name">Pet Name</string>
     <string name="failed_load_pets">Failed to load pets</string>

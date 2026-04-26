@@ -128,6 +128,7 @@
     <string name="empty_pets_title">Nie masz jeszcze pupili</string>
     <string name="empty_pets_message">Dodaj swojego pierwszego pupila, aby zacząć korzystać z SENRA</string>
     <string name="missing_badge">ZAGINIONE</string>
+    <string name="tag_pending_badge">W DRODZE</string>
     <string name="add_pet">Dodaj pupila</string>
     <string name="pet_name">Imię pupila</string>
     <string name="failed_load_pets">Nie udało się wczytać pupili</string>

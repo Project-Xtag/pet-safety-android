@@ -128,6 +128,7 @@
     <string name="empty_pets_title">Ainda sem animais de estimação</string>
     <string name="empty_pets_message">Adicione o seu primeiro animal de estimação para começar com o SENRA</string>
     <string name="missing_badge">DESAPARECIDO</string>
+    <string name="tag_pending_badge">A CAMINHO</string>
     <string name="add_pet">Adicionar animal de estimação</string>
     <string name="pet_name">Nome do animal de estimação</string>
     <string name="failed_load_pets">Falha ao carregar animais de estimação</string>

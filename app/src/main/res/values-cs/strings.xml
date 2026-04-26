@@ -128,6 +128,7 @@
     <string name="empty_pets_title">Zatím žádní mazlíčci</string>
     <string name="empty_pets_message">Přidej prvního mazlíčka a začněte s SENRA</string>
     <string name="missing_badge">ZTRACENÝ</string>
+    <string name="tag_pending_badge">NA CESTĚ</string>
     <string name="add_pet">Přidat mazlíčka</string>
     <string name="pet_name">Jméno mazlíčka</string>
     <string name="failed_load_pets">Nepodařilo se načíst mazlíčky</string>
