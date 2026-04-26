@@ -45,8 +45,8 @@ android {
         applicationId = "com.petsafety.app"
         minSdk = 26
         targetSdk = 35
-        versionCode = 11
-        versionName = "1.0.0-beta3"
+        versionCode = 12
+        versionName = "1.0.0-beta4"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -63,9 +63,15 @@ android {
     buildTypes {
         debug {
             isMinifyEnabled = false
-            // Use production API (same as iOS) for OTP to work
-            buildConfigField("String", "API_BASE_URL", "\"https://api.senra.pet/api/\"")
-            buildConfigField("String", "SSE_BASE_URL", "\"https://api.senra.pet/api/sse/events\"")
+            // Debug builds point at the staging backend so routine local
+            // development on a debug install does NOT live-fire production
+            // (creating real orders, sending real emails/SMS). The dedicated
+            // `staging` build type below adds applicationIdSuffix/versionNameSuffix
+            // and is what QA installs alongside the prod app; this debug
+            // path is what a developer hits when they hit Run in Android
+            // Studio. Both ultimately talk to the same staging API.
+            buildConfigField("String", "API_BASE_URL", "\"https://staging.senra.pet/api/\"")
+            buildConfigField("String", "SSE_BASE_URL", "\"https://staging.senra.pet/api/sse/events\"")
         }
         create("staging") {
             initWith(getByName("debug"))

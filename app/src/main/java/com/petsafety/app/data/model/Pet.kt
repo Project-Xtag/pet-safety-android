@@ -31,6 +31,10 @@ data class Pet(
     val sex: String? = null,
     @SerialName("is_neutered") val isNeutered: Boolean? = null,
     @SerialName("qr_code") val qrCode: String? = null,
+    /** Server-computed flag: true once any qr_tag with status='active' is linked
+     *  to this pet. Null/false means the user just ordered a tag and is waiting
+     *  for it to arrive — render the "tag on its way" placeholder card. */
+    @SerialName("has_active_tag") val hasActiveTag: Boolean? = null,
     @SerialName("date_of_birth") val dateOfBirth: String? = null,
     @SerialName("dob_is_approximate") val dobIsApproximate: Boolean? = null,
     @SerialName("owner_name") val ownerName: String? = null,

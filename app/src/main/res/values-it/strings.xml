@@ -124,6 +124,7 @@
     <string name="empty_pets_title">Nessun animale di compagnia registrato</string>
     <string name="empty_pets_message">Aggiungi il tuo primo animale di compagnia per iniziare a usare SENRA</string>
     <string name="missing_badge">SCOMPARSO</string>
+    <string name="tag_pending_badge">IN ARRIVO</string>
     <string name="add_pet">Aggiungi animale di compagnia</string>
     <string name="pet_name">Nome dell\'animale di compagnia</string>
     <string name="failed_load_pets">Impossibile caricare gli animali di compagnia</string>
@@ -464,8 +465,9 @@
     <string name="mark_lost_shelters">Rifugi animali di compagnia nelle vicinanze</string>
     <string name="mark_lost_report">Segnala scomparsa</string>
     <string name="mark_lost_title">Segnalare %1$s come scomparso</string>
-    <string name="mark_lost_starter_notice">Aggiorna per inviare avvisi alla comunità</string>
-    <string name="mark_lost_upgrade_prompt">Con il piano Starter il tuo animale di compagnia sarà segnalato come smarrito, ma le notifiche a utenti, veterinari e rifugi richiedono un abbonamento Standard o Maximum.</string>
+    <string name="mark_lost_starter_notice">Aggiorna per segnalare un animale come smarrito</string>
+    <string name="mark_lost_starter_upgrade_cta">Vedi piani</string>
+    <string name="mark_lost_upgrade_prompt">Segnalare un animale come smarrito e avvisare la community è incluso nei piani Standard e Maximum. Passa a un piano superiore per usare questa funzionalità.</string>
     <string name="mark_lost_success_with_alerts">%1$s è stato segnalato come smarrito. Gli avvisi vengono inviati agli utenti nelle vicinanze.</string>
     <string name="mark_lost_success_no_location">%1$s è stato contrassegnato come smarrito. Aggiungi la posizione per inviare avvisi alla comunità.</string>
     <string name="mark_lost_address_required">Fornisci un indirizzo o attiva i servizi di localizzazione.</string>

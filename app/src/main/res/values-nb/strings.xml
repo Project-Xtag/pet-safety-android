@@ -124,6 +124,7 @@
     <string name="empty_pets_title">Ingen dyr ennå</string>
     <string name="empty_pets_message">Legg til ditt første dyr for å komme i gang med SENRA</string>
     <string name="missing_badge">SAVNET</string>
+    <string name="tag_pending_badge">PÅ VEI</string>
     <string name="add_pet">Legg til dyr</string>
     <string name="pet_name">Dyrets navn</string>
     <string name="failed_load_pets">Kunne ikke laste inn dyrene</string>

@@ -284,6 +284,15 @@ fun MarkAsMissingScreen(
         }
     }
 
+    // Starter users can't mark a pet missing — backend rejects with 403
+    // (api.pet.missing_paid_plan_required) and even before the gate the
+    // mark-missing route on the backend leaked notifications. Short-circuit
+    // to an upgrade-only screen so the intent is clear.
+    if (isOnStarterPlan) {
+        StarterUpgradeScreen(petName = pet.name, onDismiss = onDismiss)
+        return
+    }
+
     Scaffold(
         topBar = {
             TopAppBar(
@@ -624,6 +633,71 @@ private fun LocationSourceChip(
                 textAlign = TextAlign.Center,
                 color = if (selected) MaterialTheme.colorScheme.onSecondaryContainer else MaterialTheme.colorScheme.onSurface
             )
+        }
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun StarterUpgradeScreen(petName: String, onDismiss: () -> Unit) {
+    val context = LocalContext.current
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                title = { Text(stringResource(R.string.mark_lost_title, petName)) },
+                navigationIcon = {
+                    IconButton(onClick = onDismiss) {
+                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = stringResource(R.string.cancel))
+                    }
+                },
+                colors = TopAppBarDefaults.topAppBarColors(navigationIconContentColor = BrandOrange)
+            )
+        }
+    ) { padding ->
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(padding)
+                .padding(24.dp),
+            verticalArrangement = Arrangement.spacedBy(24.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Spacer(modifier = Modifier.height(48.dp))
+            Icon(
+                Icons.Default.Warning,
+                contentDescription = null,
+                tint = BrandOrange,
+                modifier = Modifier.size(56.dp)
+            )
+            Text(
+                text = stringResource(R.string.mark_lost_starter_notice),
+                style = MaterialTheme.typography.titleLarge,
+                fontWeight = FontWeight.SemiBold,
+                textAlign = TextAlign.Center
+            )
+            Text(
+                text = stringResource(R.string.mark_lost_upgrade_prompt),
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                textAlign = TextAlign.Center
+            )
+            Spacer(modifier = Modifier.weight(1f))
+            // Subscription management lives on the web app — open senra.pet/plans
+            // in a browser rather than navigate to a screen we don't ship.
+            BrandButton(
+                text = stringResource(R.string.mark_lost_starter_upgrade_cta),
+                onClick = {
+                    val intent = android.content.Intent(android.content.Intent.ACTION_VIEW, android.net.Uri.parse("https://senra.pet/plans"))
+                    context.startActivity(intent)
+                },
+                modifier = Modifier.fillMaxWidth()
+            )
+            TextButton(
+                onClick = onDismiss,
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Text(stringResource(R.string.cancel))
+            }
         }
     }
 }

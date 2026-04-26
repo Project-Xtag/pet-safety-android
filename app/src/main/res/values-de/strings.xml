@@ -128,6 +128,7 @@
     <string name="empty_pets_title">Noch keine Haustiere</string>
     <string name="empty_pets_message">Füge dein erstes Haustier hinzu, um mit SENRA zu starten</string>
     <string name="missing_badge">VERMISST</string>
+    <string name="tag_pending_badge">TAG UNTERWEGS</string>
     <string name="add_pet">Haustier hinzufügen</string>
     <string name="pet_name">Name des Haustiers</string>
     <string name="failed_load_pets">Haustiere konnten nicht geladen werden</string>
@@ -450,8 +451,9 @@
     <string name="mark_lost_shelters">Tierheime in der Nähe</string>
     <string name="mark_lost_report">Vermisst melden</string>
     <string name="mark_lost_title">%1$s als vermisst markieren</string>
-    <string name="mark_lost_starter_notice">Upgrade für Community-Benachrichtigungen</string>
-    <string name="mark_lost_upgrade_prompt">Mit dem Starter-Plan wird dein Haustier als vermisst markiert, aber Benachrichtigungen an Nutzer, Tierärzte und Tierheime erfordern ein Standard- oder Maximum-Abo.</string>
+    <string name="mark_lost_starter_notice">Upgrade, um ein Haustier als vermisst zu melden</string>
+    <string name="mark_lost_starter_upgrade_cta">Pläne ansehen</string>
+    <string name="mark_lost_upgrade_prompt">Das Melden eines vermissten Haustiers und die Benachrichtigung der Community sind in Standard und Maximum enthalten. Schließe ein höheres Abo ab, um diese Funktion zu nutzen.</string>
     <string name="mark_lost_success_with_alerts">%1$s wurde als vermisst gemeldet. Benachrichtigungen werden an Nutzer in der Nähe gesendet.</string>
     <string name="mark_lost_success_no_location">%1$s wurde als vermisst markiert. Füge einen Standort hinzu, um Benachrichtigungen zu senden.</string>
     <string name="mark_lost_address_required">Bitte geben du eine Adresse ein oder aktivieren du die Ortungsdienste.</string>

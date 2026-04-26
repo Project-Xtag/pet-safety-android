@@ -128,6 +128,7 @@
     <string name="empty_pets_title">Nie masz jeszcze pupili</string>
     <string name="empty_pets_message">Dodaj swojego pierwszego pupila, aby zacząć korzystać z SENRA</string>
     <string name="missing_badge">ZAGINIONE</string>
+    <string name="tag_pending_badge">W DRODZE</string>
     <string name="add_pet">Dodaj pupila</string>
     <string name="pet_name">Imię pupila</string>
     <string name="failed_load_pets">Nie udało się wczytać pupili</string>
@@ -472,8 +473,9 @@
     <string name="mark_lost_shelters">Pobliskich schronisk dla pupili</string>
     <string name="mark_lost_report">Zgłoś zaginięcie</string>
     <string name="mark_lost_title">Oznacz %1$s jako zaginione</string>
-    <string name="mark_lost_starter_notice">Ulepsz plan, aby wysyłać alerty</string>
-    <string name="mark_lost_upgrade_prompt">W planie Starter twoje pupila zostanie oznaczone jako zagubione, ale powiadomienia do użytkowników, weterynarzy i schronisk wymagają subskrypcji Standard lub Maximum.</string>
+    <string name="mark_lost_starter_notice">Wykup płatny plan, aby oznaczyć pupila jako zaginionego</string>
+    <string name="mark_lost_starter_upgrade_cta">Zobacz plany</string>
+    <string name="mark_lost_upgrade_prompt">Oznaczenie pupila jako zaginionego i powiadomienie społeczności jest dostępne w planach Standard i Maximum. Wykup wyższy plan, aby korzystać z tej funkcji.</string>
     <string name="mark_lost_success_with_alerts">%1$s został zgłoszony jako zaginiony. Powiadomienia są wysyłane do użytkowników w pobliżu.</string>
     <string name="mark_lost_success_no_location">%1$s został oznaczony jako zaginiony. Dodaj lokalizację, aby wysłać alerty społecznościowe.</string>
     <string name="mark_lost_address_required">Podaj adres lub włącz usługi lokalizacji.</string>

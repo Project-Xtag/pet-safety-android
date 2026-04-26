@@ -128,6 +128,7 @@
     <string name="empty_pets_title">Zatím žádní mazlíčci</string>
     <string name="empty_pets_message">Přidej prvního mazlíčka a začněte s SENRA</string>
     <string name="missing_badge">ZTRACENÝ</string>
+    <string name="tag_pending_badge">NA CESTĚ</string>
     <string name="add_pet">Přidat mazlíčka</string>
     <string name="pet_name">Jméno mazlíčka</string>
     <string name="failed_load_pets">Nepodařilo se načíst mazlíčky</string>
@@ -451,8 +452,9 @@
     <string name="mark_lost_shelters">Útulkům v okolí</string>
     <string name="mark_lost_report">Nahlásit ztrátu</string>
     <string name="mark_lost_title">Označit %1$s jako ztraceného</string>
-    <string name="mark_lost_starter_notice">Vylepšite pro komunitní upozornění</string>
-    <string name="mark_lost_upgrade_prompt">V plánu Starter bude tvůj mazlíček označen jako ztracený, ale upozornění uživatelům, veterinářům a útulkům vyžadují předplatné Standard nebo Maximum.</string>
+    <string name="mark_lost_starter_notice">Aktivuj předplatné, abys mohl označit mazlíčka jako pohřešovaného</string>
+    <string name="mark_lost_starter_upgrade_cta">Zobrazit plány</string>
+    <string name="mark_lost_upgrade_prompt">Označení mazlíčka jako pohřešovaného a upozornění komunity je součástí plánů Standard a Maximum. Aktivuj si vyšší plán, abys mohl použít tuto funkci.</string>
     <string name="mark_lost_success_with_alerts">%1$s byl nahlášen jako ztracený. Upozornění se posílají blízkým uživatelům.</string>
     <string name="mark_lost_success_no_location">%1$s byl označen jako ztracený. Přidej polohu k odeslání upozornění.</string>
     <string name="mark_lost_address_required">Zadej adresu nebo povol služby určování polohy.</string>

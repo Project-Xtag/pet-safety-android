@@ -128,6 +128,7 @@
     <string name="empty_pets_title">Még nincs regisztrált kedvenc</string>
     <string name="empty_pets_message">Add hozzá az első kedvenced és kezdd el a SENRA Közösségi Biléta használatát</string>
     <string name="missing_badge">ELTŰNT</string>
+    <string name="tag_pending_badge">BILÉTA ÚTON</string>
     <string name="add_pet">Kedvenc hozzáadása</string>
     <string name="pet_name">Kedvenc neve</string>
     <string name="failed_load_pets">Nem sikerült betölteni a kedvenceket</string>
@@ -450,8 +451,9 @@
     <string name="mark_lost_shelters">Közeli állatmenhelyek</string>
     <string name="mark_lost_report">Eltűnés jelentése</string>
     <string name="mark_lost_title">%1$s elveszettként jelölése</string>
-    <string name="mark_lost_starter_notice">Válts magasabb csomagra a közösségi riasztások küldéséhez!</string>
-    <string name="mark_lost_upgrade_prompt">A Starter csomaggal a kedvenced eltűntként lesz jelölve, de az értesítések küldéséhez a közeli felhasználóknak, állatorvosoknak és menhelyeknek Standard vagy Maximum előfizetés szükséges.</string>
+    <string name="mark_lost_starter_notice">Fizess elő, hogy eltűntként jelölhesd a kedvenced</string>
+    <string name="mark_lost_starter_upgrade_cta">Csomagok megtekintése</string>
+    <string name="mark_lost_upgrade_prompt">A kedvenc eltűntként való megjelölése és a közösség értesítése a Standard és Maximum csomagok része. Fizess elő egy magasabb csomagra, hogy használhasd ezt a funkciót.</string>
     <string name="mark_lost_success_with_alerts">%1$s eltűntként lett jelentve. Az értesítések küldése folyamatban van a közeli felhasználóknak, állatorvosoknak és menhelyeknek.</string>
     <string name="mark_lost_success_no_location">%1$s eltűntként lett jelölve. Adj meg egy helyet a közösségi riasztások küldéséhez!</string>
     <string name="mark_lost_address_required">Kérjük, adj meg egy címet, vagy engedélyezd a helymeghatározást!</string>
