@@ -436,8 +436,9 @@
     <string name="mark_lost_shelters">Skloništa za životinje u blizini</string>
     <string name="mark_lost_report">Prijavi nestanak</string>
     <string name="mark_lost_title">Označi %1$s kao nestalog</string>
-    <string name="mark_lost_starter_notice">Nadogradi za slanje obavijesti zajednici</string>
-    <string name="mark_lost_upgrade_prompt">S planom Starter tvoj kućni ljubimac bit će označen kao nestao, ali obavijesti korisnicima, veterinarima i skloništima zahtijevaju pretplatu Standard ili Maximum.</string>
+    <string name="mark_lost_starter_notice">Nadogradi paket kako bi označio ljubimca kao nestalog</string>
+    <string name="mark_lost_starter_upgrade_cta">Pogledaj pakete</string>
+    <string name="mark_lost_upgrade_prompt">Označavanje ljubimca kao nestalog i obavještavanje zajednice uključeno je u pakete Standard i Maximum. Nadogradi na viši paket kako bi koristio ovu značajku.</string>
     <string name="mark_lost_success_with_alerts">%1$s je prijavljen kao nestao. Uzbune se šalju korisnicima u blizini.</string>
     <string name="mark_lost_success_no_location">%1$s je označen kao nestao. Dodaj lokaciju za slanje obavijesti zajednici.</string>
     <string name="mark_lost_address_required">Navedi adresu ili omogući lokacijske usluge.</string>

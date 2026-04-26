@@ -435,8 +435,9 @@
     <string name="mark_lost_shelters">Animal shelters nearby</string>
     <string name="mark_lost_report">Report Missing</string>
     <string name="mark_lost_title">Mark %1$s as Missing</string>
-    <string name="mark_lost_starter_notice">Upgrade to send community alerts</string>
-    <string name="mark_lost_upgrade_prompt">On Starter plan, your pet will be marked as missing but notifications to nearby users, vets, and shelters require a Standard or Maximum subscription.</string>
+    <string name="mark_lost_starter_notice">Upgrade to mark a pet as missing</string>
+    <string name="mark_lost_starter_upgrade_cta">See plans</string>
+    <string name="mark_lost_upgrade_prompt">Marking a pet as missing and alerting the community is included with Standard and Maximum. Upgrade your subscription to use this feature.</string>
     <string name="mark_lost_success_with_alerts">%1$s has been reported as missing. Alerts are being sent to nearby users, vets, and shelters.</string>
     <string name="mark_lost_success_no_location">%1$s has been marked as missing. Add a location to send community alerts.</string>
     <string name="mark_lost_address_required">Please provide an address or enable location services.</string>

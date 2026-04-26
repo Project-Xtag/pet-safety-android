@@ -444,8 +444,9 @@
     <string name="mark_lost_shelters">Adăposturi de animale de companie din apropiere</string>
     <string name="mark_lost_report">Raportează dispariția</string>
     <string name="mark_lost_title">Marchează pe %1$s ca dispărut</string>
-    <string name="mark_lost_starter_notice">Actualizează pentru alerte comunitare</string>
-    <string name="mark_lost_upgrade_prompt">Cu planul Starter animalul de companie tău va fi marcat ca dispărut, dar notificările către utilizatori, veterinari și adăposturi necesită un abonament Standard sau Maximum.</string>
+    <string name="mark_lost_starter_notice">Abonează-te pentru a marca un animal ca dispărut</string>
+    <string name="mark_lost_starter_upgrade_cta">Vezi planurile</string>
+    <string name="mark_lost_upgrade_prompt">Marcarea unui animal ca dispărut și alertarea comunității este inclusă în planurile Standard și Maximum. Abonează-te la un plan superior pentru a folosi această funcție.</string>
     <string name="mark_lost_success_with_alerts">%1$s a fost raportat ca dispărut. Se trimit alerte utilizatorilor din apropiere.</string>
     <string name="mark_lost_success_no_location">%1$s a fost marcat ca dispărut. Adăugați locația pentru a trimite alerte comunitare.</string>
     <string name="mark_lost_address_required">Vă rugăm să furnizați o adresă sau activați serviciile de localizare.</string>

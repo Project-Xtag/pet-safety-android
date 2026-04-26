@@ -451,8 +451,9 @@
     <string name="mark_lost_shelters">Közeli állatmenhelyek</string>
     <string name="mark_lost_report">Eltűnés jelentése</string>
     <string name="mark_lost_title">%1$s elveszettként jelölése</string>
-    <string name="mark_lost_starter_notice">Válts magasabb csomagra a közösségi riasztások küldéséhez!</string>
-    <string name="mark_lost_upgrade_prompt">A Starter csomaggal a kedvenced eltűntként lesz jelölve, de az értesítések küldéséhez a közeli felhasználóknak, állatorvosoknak és menhelyeknek Standard vagy Maximum előfizetés szükséges.</string>
+    <string name="mark_lost_starter_notice">Fizess elő, hogy eltűntként jelölhesd a kedvenced</string>
+    <string name="mark_lost_starter_upgrade_cta">Csomagok megtekintése</string>
+    <string name="mark_lost_upgrade_prompt">A kedvenc eltűntként való megjelölése és a közösség értesítése a Standard és Maximum csomagok része. Fizess elő egy magasabb csomagra, hogy használhasd ezt a funkciót.</string>
     <string name="mark_lost_success_with_alerts">%1$s eltűntként lett jelentve. Az értesítések küldése folyamatban van a közeli felhasználóknak, állatorvosoknak és menhelyeknek.</string>
     <string name="mark_lost_success_no_location">%1$s eltűntként lett jelölve. Adj meg egy helyet a közösségi riasztások küldéséhez!</string>
     <string name="mark_lost_address_required">Kérjük, adj meg egy címet, vagy engedélyezd a helymeghatározást!</string>

@@ -451,8 +451,9 @@
     <string name="mark_lost_shelters">Refugios de animales cercanos</string>
     <string name="mark_lost_report">Reportar pérdida</string>
     <string name="mark_lost_title">Marcar a %1$s como desaparecido</string>
-    <string name="mark_lost_starter_notice">Mejora para enviar alertas comunitarias</string>
-    <string name="mark_lost_upgrade_prompt">Con el plan Starter tu mascota se marcará como perdida, pero las notificaciones a usuarios, veterinarios y refugios requieren una suscripción Standard o Maximum.</string>
+    <string name="mark_lost_starter_notice">Suscríbete para marcar una mascota como perdida</string>
+    <string name="mark_lost_starter_upgrade_cta">Ver planes</string>
+    <string name="mark_lost_upgrade_prompt">Marcar una mascota como perdida y alertar a la comunidad está incluido con Standard y Maximum. Suscríbete a un plan superior para usar esta función.</string>
     <string name="mark_lost_success_with_alerts">%1$s ha sido reportado como perdido. Se están enviando alertas a usuarios cercanos.</string>
     <string name="mark_lost_success_no_location">%1$s ha sido marcado como perdido. Añade ubicación para enviar alertas comunitarias.</string>
     <string name="mark_lost_address_required">Por favor, proporciona una dirección o activa los servicios de ubicación.</string>

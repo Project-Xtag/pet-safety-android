@@ -451,8 +451,9 @@
     <string name="mark_lost_shelters">Útulkom v okolí</string>
     <string name="mark_lost_report">Nahlásiť stratené</string>
     <string name="mark_lost_title">Označiť %1$s ako stratené</string>
-    <string name="mark_lost_starter_notice">Vylepšite pre komunitné upozornenia</string>
-    <string name="mark_lost_upgrade_prompt">V pláne Starter bude tvoje zviera označené ako stratené, ale upozornenia pre používateľov, veterinárov a útulky vyžadujú predplatné Standard alebo Maximum.</string>
+    <string name="mark_lost_starter_notice">Aktivuj predplatné, aby si mohol označiť maznáčika ako nezvestného</string>
+    <string name="mark_lost_starter_upgrade_cta">Zobraziť plány</string>
+    <string name="mark_lost_upgrade_prompt">Označenie maznáčika ako nezvestného a upozornenie komunity je súčasťou plánov Standard a Maximum. Aktivuj si vyšší plán, aby si mohol použiť túto funkciu.</string>
     <string name="mark_lost_success_with_alerts">%1$s bol nahlásený ako stratený. Upozornenia sa posielajú blízkym používateľom.</string>
     <string name="mark_lost_success_no_location">%1$s bol označený ako stratený. Pridaj polohu na odoslanie upozornení.</string>
     <string name="mark_lost_address_required">Zadaj adresu alebo povoľte služby určovania polohy.</string>

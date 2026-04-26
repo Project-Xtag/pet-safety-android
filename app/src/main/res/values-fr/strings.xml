@@ -466,8 +466,9 @@
     <string name="mark_lost_shelters">Refuges animaliers à proximité</string>
     <string name="mark_lost_report">Signaler la disparition</string>
     <string name="mark_lost_title">Signaler %1$s comme disparu</string>
-    <string name="mark_lost_starter_notice">Passe à un plan supérieur pour les alertes</string>
-    <string name="mark_lost_upgrade_prompt">Avec le plan Starter ton animal sera marqué comme disparu, mais les notifications aux utilisateurs, vétérinaires et refuges nécessitent un abonnement Standard ou Maximum.</string>
+    <string name="mark_lost_starter_notice">Passe à un plan supérieur pour signaler un animal comme disparu</string>
+    <string name="mark_lost_starter_upgrade_cta">Voir les forfaits</string>
+    <string name="mark_lost_upgrade_prompt">Signaler un animal comme disparu et alerter la communauté est inclus dans Standard et Maximum. Souscris à un plan supérieur pour utiliser cette fonctionnalité.</string>
     <string name="mark_lost_success_with_alerts">%1$s a été signalé comme disparu. Des alertes sont envoyées aux utilisateurs à proximité.</string>
     <string name="mark_lost_success_no_location">%1$s a été marqué comme disparu. Ajoutez un lieu pour envoyer des alertes communautaires.</string>
     <string name="mark_lost_address_required">Veuillez fournir une adresse ou activer les services de localisation.</string>
