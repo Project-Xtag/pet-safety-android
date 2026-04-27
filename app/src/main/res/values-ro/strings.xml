@@ -919,6 +919,7 @@
     <string name="waze">Waze</string>
     <string name="other_maps_app">Altă aplicație de hărți</string>
     <string name="open_with">Deschide cu\u2026</string>
+    <string name="no_browser_for_navigation">Nu este disponibilă nicio aplicație pentru a deschide harta. Instalează Waze sau un browser.</string>
     <string name="map_label_pet_location">Locație animal de companie</string>
     <string name="map_label_tag_scanned">Plăcuță inteligentă animal de companie scanată</string>
     <string name="map_label_sighting">Observație animal de companie</string>

@@ -924,6 +924,7 @@
     <string name="waze">Waze</string>
     <string name="other_maps_app">Otra app de mapas</string>
     <string name="open_with">Abrir con\u2026</string>
+    <string name="no_browser_for_navigation">No hay ninguna app disponible para abrir el mapa. Instala Waze o un navegador.</string>
     <string name="map_label_pet_location">Ubicación de la mascota</string>
     <string name="map_label_tag_scanned">Chapa inteligente de mascota escaneada</string>
     <string name="map_label_sighting">Avistamiento de mascota</string>

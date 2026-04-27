@@ -924,6 +924,7 @@
     <string name="waze">Waze</string>
     <string name="other_maps_app">Andere Karten-App</string>
     <string name="open_with">Öffnen mit\u2026</string>
+    <string name="no_browser_for_navigation">Keine App zum Öffnen der Karte verfügbar. Installiere Waze oder einen Browser.</string>
     <string name="map_label_pet_location">Haustier-Standort</string>
     <string name="map_label_tag_scanned">Haustier-Haustiermarke gescannt</string>
     <string name="map_label_sighting">Haustier-Sichtung</string>

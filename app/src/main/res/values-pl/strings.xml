@@ -973,6 +973,7 @@
     <string name="waze">Waze</string>
     <string name="other_maps_app">Inna aplikacja z mapami</string>
     <string name="open_with">Otwórz za pomocą\u2026</string>
+    <string name="no_browser_for_navigation">Brak aplikacji do otwarcia mapy. Zainstaluj Waze lub przeglądarkę.</string>
     <string name="map_label_pet_location">Lokalizacja pupila</string>
     <string name="map_label_tag_scanned">Zeskanowano nieśką pupila</string>
     <string name="map_label_sighting">Obserwacja pupila</string>

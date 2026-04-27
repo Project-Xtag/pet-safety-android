@@ -960,6 +960,7 @@
     <string name="waze">Waze</string>
     <string name="other_maps_app">Altra app mappe</string>
     <string name="open_with">Apri con\u2026</string>
+    <string name="no_browser_for_navigation">Nessuna app disponibile per aprire la mappa. Installa Waze o un browser.</string>
     <string name="map_label_pet_location">Posizione animale di compagnia</string>
     <string name="map_label_tag_scanned">Medaglietta animale di compagnia scansionata</string>
     <string name="map_label_sighting">Avvistamento animale di compagnia</string>

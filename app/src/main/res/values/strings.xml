@@ -978,6 +978,7 @@
     <string name="waze">Waze</string>
     <string name="other_maps_app">Other Maps App</string>
     <string name="open_with">Open with\u2026</string>
+    <string name="no_browser_for_navigation">No app available to open the map. Install Waze or a browser.</string>
     <string name="map_label_pet_location">Pet Location</string>
     <string name="map_label_tag_scanned">Pet Tag Scanned</string>
     <string name="map_label_sighting">Pet Sighting</string>

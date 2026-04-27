@@ -924,6 +924,7 @@
     <string name="waze">Waze</string>
     <string name="other_maps_app">Más térkép alkalmazás</string>
     <string name="open_with">Megnyitás ezzel\u2026</string>
+    <string name="no_browser_for_navigation">Nincs alkalmazás, amely megnyitná a térképet. Telepítsd a Waze-t vagy egy böngészőt.</string>
     <string name="map_label_pet_location">Kedvenc helye</string>
     <string name="map_label_tag_scanned">Kedvenc biléta beolvasva</string>
     <string name="map_label_sighting">Kedvenc észlelés</string>

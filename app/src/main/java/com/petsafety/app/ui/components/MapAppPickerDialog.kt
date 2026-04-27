@@ -1,8 +1,10 @@
 package com.petsafety.app.ui.components
 
+import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import android.widget.Toast
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -185,10 +187,62 @@ private fun openGoogleMaps(context: Context, lat: Double, lng: Double, label: St
     }
 }
 
+/**
+ * Pure helper deciding which Waze intent to fire based on what's installed.
+ * Exposed `internal` so unit tests can exercise it without a Context (audit H46).
+ *
+ * Order of preference:
+ *   1. waze:// deep link — lands directly in the in-app navigator
+ *   2. https://waze.com/ul universal link — handled by Waze if installed,
+ *      else by the default browser (a Waze landing page that re-prompts
+ *      install — graceful, no crash)
+ *   3. nothing resolvable (no Waze, no browser) — caller must show a toast
+ */
+internal sealed class WazeIntent {
+    data class Resolved(val intent: Intent) : WazeIntent()
+    object NoneAvailable : WazeIntent()
+}
+
+internal fun chooseWazeIntent(
+    lat: Double,
+    lng: Double,
+    canResolve: (Intent) -> Boolean,
+): WazeIntent {
+    val deepLink = Intent(Intent.ACTION_VIEW, Uri.parse("waze://?ll=$lat,$lng&navigate=yes"))
+    if (canResolve(deepLink)) return WazeIntent.Resolved(deepLink)
+
+    val web = Intent(Intent.ACTION_VIEW, Uri.parse("https://waze.com/ul?ll=$lat,$lng&navigate=yes"))
+    if (canResolve(web)) return WazeIntent.Resolved(web)
+
+    return WazeIntent.NoneAvailable
+}
+
 private fun openWaze(context: Context, lat: Double, lng: Double) {
-    val wazeUri = Uri.parse("https://waze.com/ul?ll=$lat,$lng&navigate=yes")
-    val intent = Intent(Intent.ACTION_VIEW, wazeUri)
-    context.startActivity(intent)
+    val choice = chooseWazeIntent(lat, lng) { intent ->
+        intent.resolveActivity(context.packageManager) != null
+    }
+    when (choice) {
+        is WazeIntent.Resolved -> {
+            try {
+                context.startActivity(choice.intent)
+            } catch (e: ActivityNotFoundException) {
+                // resolveActivity said yes but startActivity disagreed — rare
+                // (uninstall race after package query). Fall through to toast.
+                Toast.makeText(
+                    context,
+                    context.getString(R.string.no_browser_for_navigation),
+                    Toast.LENGTH_LONG,
+                ).show()
+            }
+        }
+        WazeIntent.NoneAvailable -> {
+            Toast.makeText(
+                context,
+                context.getString(R.string.no_browser_for_navigation),
+                Toast.LENGTH_LONG,
+            ).show()
+        }
+    }
 }
 
 private fun openGenericMap(context: Context, lat: Double, lng: Double, label: String) {

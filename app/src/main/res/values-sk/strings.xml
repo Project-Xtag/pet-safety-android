@@ -926,6 +926,7 @@
     <string name="waze">Waze</string>
     <string name="other_maps_app">Iná mapová aplikácia</string>
     <string name="open_with">Otvoriť pomocou\u2026</string>
+    <string name="no_browser_for_navigation">Nie je k dispozícii žiadna aplikácia na otvorenie mapy. Nainštalujte Waze alebo prehliadač.</string>
     <string name="map_label_pet_location">Poloha zvieraťa</string>
     <string name="map_label_tag_scanned">Známka zvieraťa naskenovaný</string>
     <string name="map_label_sighting">Pozorovanie zvieraťa</string>
