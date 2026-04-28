@@ -1419,4 +1419,10 @@
     <string name="shelter_promo_color_label">Szín</string>
     <string name="shelter_promo_sex_label">Nem</string>
     <string name="shelter_promo_register_and_claim_button">Regisztráció és címke aktiválása</string>
+    <string name="shelter_promo_claimed_title">Címke aktiválva!</string>
+    <string name="shelter_promo_pet_label_format">Kedvenc: %1$s</string>
+    <string name="shelter_promo_tag_label_format">Címke: %1$s</string>
+    <string name="shelter_promo_free_plan_format">Ingyenes Standard csomag %1$d hónapig</string>
+    <string name="shelter_promo_welcome_format">Üdv tőlünk: %1$s!</string>
+    <string name="shelter_promo_register_subtitle_format">Regisztráld a kedvencedet, és %1$d hónap ingyenes Standard csomagot kapsz.</string>
 </resources>

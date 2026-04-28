@@ -85,7 +85,7 @@ fun ShelterPromoClaimScreen(
                     )
                     Spacer(modifier = Modifier.height(16.dp))
                     Text(
-                        "Tag Claimed!",
+                        stringResource(R.string.shelter_promo_claimed_title),
                         style = MaterialTheme.typography.headlineMedium,
                         fontWeight = FontWeight.Bold
                     )
@@ -102,10 +102,16 @@ fun ShelterPromoClaimScreen(
                             colors = CardDefaults.cardColors(containerColor = Color(0xFFE8F5E9))
                         ) {
                             Column(modifier = Modifier.padding(16.dp)) {
-                                Text("Pet: ${state.response.pet?.name ?: ""}", fontWeight = FontWeight.Medium)
-                                Text("Tag: ${state.response.tag?.qrCode ?: ""}", style = MaterialTheme.typography.bodySmall)
                                 Text(
-                                    "Free Standard plan for ${details.promoDurationMonths} months",
+                                    stringResource(R.string.shelter_promo_pet_label_format, state.response.pet?.name ?: ""),
+                                    fontWeight = FontWeight.Medium
+                                )
+                                Text(
+                                    stringResource(R.string.shelter_promo_tag_label_format, state.response.tag?.qrCode ?: ""),
+                                    style = MaterialTheme.typography.bodySmall
+                                )
+                                Text(
+                                    stringResource(R.string.shelter_promo_free_plan_format, details.promoDurationMonths),
                                     style = MaterialTheme.typography.bodySmall,
                                     color = BrandOrange
                                 )
@@ -143,12 +149,12 @@ fun ShelterPromoClaimScreen(
                             Spacer(modifier = Modifier.width(12.dp))
                             Column {
                                 Text(
-                                    "Welcome from $shelterName!",
+                                    stringResource(R.string.shelter_promo_welcome_format, shelterName),
                                     style = MaterialTheme.typography.titleMedium,
                                     fontWeight = FontWeight.Bold
                                 )
                                 Text(
-                                    "Register your pet to get $promoDurationMonths months free Standard plan.",
+                                    stringResource(R.string.shelter_promo_register_subtitle_format, promoDurationMonths),
                                     style = MaterialTheme.typography.bodySmall,
                                     color = MaterialTheme.colorScheme.onSurfaceVariant
                                 )
