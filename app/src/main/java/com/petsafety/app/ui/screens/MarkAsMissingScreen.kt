@@ -35,6 +35,7 @@ import com.google.android.gms.location.LocationServices
 import com.google.android.gms.location.Priority
 import com.google.android.gms.tasks.CancellationTokenSource
 import com.petsafety.app.R
+import com.petsafety.app.ui.a11y.markAsHeading
 import com.petsafety.app.util.InputValidators
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.ui.text.input.KeyboardType
@@ -345,7 +346,7 @@ fun MarkAsMissingScreen(
                         }
                         Spacer(modifier = Modifier.width(12.dp))
                         Column {
-                            Text(pet.name, style = MaterialTheme.typography.headlineSmall, fontWeight = FontWeight.Bold)
+                            Text(pet.name, style = MaterialTheme.typography.headlineSmall, fontWeight = FontWeight.Bold, modifier = Modifier.markAsHeading())
                             Text(
                                 PetLocalizer.localizeSpecies(context, pet.species),
                                 style = MaterialTheme.typography.bodyMedium,

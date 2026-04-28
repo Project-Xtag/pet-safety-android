@@ -79,6 +79,8 @@ import androidx.core.content.ContextCompat
 import coil.compose.AsyncImage
 import com.google.android.gms.location.LocationServices
 import com.petsafety.app.R
+import com.petsafety.app.ui.a11y.markAsButton
+import com.petsafety.app.ui.a11y.markAsHeading
 import com.petsafety.app.data.model.LocationCoordinate
 import com.petsafety.app.data.model.Pet
 import com.petsafety.app.data.model.User
@@ -207,7 +209,7 @@ fun PetDetailScreen(
                 ),
                 color = MaterialTheme.colorScheme.onSurface,
                 textAlign = TextAlign.Center,
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier.fillMaxWidth().markAsHeading()
             )
 
             Spacer(modifier = Modifier.height(16.dp))
@@ -726,7 +728,7 @@ private fun HealthInfoSection(
                     text = stringResource(R.string.add_health_info),
                     style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.Medium),
                     color = BrandOrange,
-                    modifier = Modifier.clickable { onEditPet() }
+                    modifier = Modifier.clickable { onEditPet() }.markAsButton()
                 )
             }
 
@@ -827,7 +829,7 @@ private fun AdditionalInfoSection(
                     text = stringResource(R.string.add_additional_info),
                     style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.Medium),
                     color = BrandOrange,
-                    modifier = Modifier.clickable { onEditPet() }
+                    modifier = Modifier.clickable { onEditPet() }.markAsButton()
                 )
             }
 
