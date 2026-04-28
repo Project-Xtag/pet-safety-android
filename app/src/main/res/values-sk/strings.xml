@@ -1416,4 +1416,17 @@
 
 
     <string name="welcome_back_no_name">Vitajte späť!</string>
+
+    <!-- Shelter promo claim screen -->
+    <string name="shelter_promo_claim_tag_title">Claim Tag</string>
+    <string name="shelter_promo_done">Done</string>
+    <string name="shelter_promo_new_pet">New Pet</string>
+    <string name="shelter_promo_existing_pet">Existing Pet</string>
+    <string name="shelter_promo_claim_tag_button">Claim Tag</string>
+    <string name="shelter_promo_pet_name_label">Name *</string>
+    <string name="shelter_promo_species_label">Species *</string>
+    <string name="shelter_promo_breed_label">Breed</string>
+    <string name="shelter_promo_color_label">Color</string>
+    <string name="shelter_promo_sex_label">Sex</string>
+    <string name="shelter_promo_register_and_claim_button">Register Pet &amp; Claim Tag</string>
 </resources>

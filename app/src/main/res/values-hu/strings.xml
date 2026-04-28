@@ -1406,4 +1406,17 @@
     <string name="help_faq_a28">Állatklinikák és menhelyek a senra.pet/register-vet-shelter oldalon regisztrálhatnak. Töltsd ki a rendelő vagy szervezet adatait, és mi küldünk nekik egy ellenőrző e-mailt. A megerősítés után automatikusan értesítéseket küldünk nekik is, amikor kedvencek tűnnek el a környékeden — ezzel is segítve az elveszett kedvencek mielőbbi hazajuttatását. A regisztrációnak nincs költsége és nem szükséges hozzá bejelentkezés.</string>
 
     <string name="welcome_back_no_name">Üdv újra!</string>
+
+    <!-- Shelter promo claim screen -->
+    <string name="shelter_promo_claim_tag_title">Címke aktiválása</string>
+    <string name="shelter_promo_done">Kész</string>
+    <string name="shelter_promo_new_pet">Új kedvenc</string>
+    <string name="shelter_promo_existing_pet">Meglévő kedvenc</string>
+    <string name="shelter_promo_claim_tag_button">Címke aktiválása</string>
+    <string name="shelter_promo_pet_name_label">Név *</string>
+    <string name="shelter_promo_species_label">Faj *</string>
+    <string name="shelter_promo_breed_label">Fajta</string>
+    <string name="shelter_promo_color_label">Szín</string>
+    <string name="shelter_promo_sex_label">Nem</string>
+    <string name="shelter_promo_register_and_claim_button">Regisztráció és címke aktiválása</string>
 </resources>
