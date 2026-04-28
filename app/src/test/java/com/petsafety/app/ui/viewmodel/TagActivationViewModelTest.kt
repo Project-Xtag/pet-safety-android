@@ -1,11 +1,13 @@
 package com.petsafety.app.ui.viewmodel
 
+import com.petsafety.app.R
 import com.petsafety.app.data.model.Pet
 import com.petsafety.app.data.model.QrTag
 import com.petsafety.app.data.model.UnactivatedOrderItem
 import com.petsafety.app.data.repository.OrdersRepository
 import com.petsafety.app.data.repository.PetsRepository
 import com.petsafety.app.data.repository.QrRepository
+import com.petsafety.app.util.StringProvider
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk
@@ -62,13 +64,21 @@ class TagActivationViewModelTest {
         createdAt = "2026-01-01T00:00:00Z"
     )
 
+    private val stringProvider = object : StringProvider {
+        override fun getString(id: Int, vararg args: Any): String = when (id) {
+            R.string.error_select_pet_first -> "Please select a pet first"
+            R.string.error_activate_tag_failed -> "Failed to activate tag"
+            else -> ""
+        }
+    }
+
     @Before
     fun setup() {
         Dispatchers.setMain(testDispatcher)
         petsRepository = mockk(relaxed = true)
         qrRepository = mockk(relaxed = true)
         ordersRepository = mockk(relaxed = true)
-        viewModel = TagActivationViewModel(petsRepository, qrRepository, ordersRepository)
+        viewModel = TagActivationViewModel(petsRepository, qrRepository, ordersRepository, stringProvider)
     }
 
     @After

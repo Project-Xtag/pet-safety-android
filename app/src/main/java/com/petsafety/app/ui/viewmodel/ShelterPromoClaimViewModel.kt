@@ -2,11 +2,13 @@ package com.petsafety.app.ui.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.petsafety.app.R
 import com.petsafety.app.data.model.ClaimPromoTagResponse
 import com.petsafety.app.data.model.Pet
 import com.petsafety.app.data.network.model.CreatePetRequest
 import com.petsafety.app.data.repository.PetsRepository
 import com.petsafety.app.data.repository.QrRepository
+import com.petsafety.app.util.StringProvider
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -18,7 +20,8 @@ import javax.inject.Inject
 @HiltViewModel
 class ShelterPromoClaimViewModel @Inject constructor(
     private val qrRepository: QrRepository,
-    private val petsRepository: PetsRepository
+    private val petsRepository: PetsRepository,
+    private val stringProvider: StringProvider
 ) : ViewModel() {
 
     sealed class ClaimState {
@@ -56,7 +59,9 @@ class ShelterPromoClaimViewModel @Inject constructor(
                 val response = qrRepository.claimPromoTag(qrCode, pet = petData)
                 _claimState.value = ClaimState.Success(response)
             } catch (e: Exception) {
-                _claimState.value = ClaimState.Error(e.message ?: "Failed to claim tag")
+                _claimState.value = ClaimState.Error(
+                    e.message ?: stringProvider.getString(R.string.error_claim_tag_failed)
+                )
             }
         }
     }
@@ -68,7 +73,9 @@ class ShelterPromoClaimViewModel @Inject constructor(
                 val response = qrRepository.claimPromoTag(qrCode, petId = petId)
                 _claimState.value = ClaimState.Success(response)
             } catch (e: Exception) {
-                _claimState.value = ClaimState.Error(e.message ?: "Failed to claim tag")
+                _claimState.value = ClaimState.Error(
+                    e.message ?: stringProvider.getString(R.string.error_claim_tag_failed)
+                )
             }
         }
     }

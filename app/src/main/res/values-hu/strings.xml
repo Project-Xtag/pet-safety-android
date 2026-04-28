@@ -1425,4 +1425,9 @@
     <string name="shelter_promo_free_plan_format">Ingyenes Standard csomag %1$d hónapig</string>
     <string name="shelter_promo_welcome_format">Üdv tőlünk: %1$s!</string>
     <string name="shelter_promo_register_subtitle_format">Regisztráld a kedvencedet, és %1$d hónap ingyenes Standard csomagot kapsz.</string>
+
+    <!-- Tag activation / promo claim error fallbacks -->
+    <string name="error_claim_tag_failed">Címke aktiválása sikertelen</string>
+    <string name="error_select_pet_first">Kérjük, válassz egy kedvencet először</string>
+    <string name="error_activate_tag_failed">Címke aktiválása sikertelen</string>
 </resources>

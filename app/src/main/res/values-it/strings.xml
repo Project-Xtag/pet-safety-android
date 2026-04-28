@@ -1422,4 +1422,9 @@
     <string name="shelter_promo_free_plan_format">Free Standard plan for %1$d months</string>
     <string name="shelter_promo_welcome_format">Welcome from %1$s!</string>
     <string name="shelter_promo_register_subtitle_format">Register your pet to get %1$d months free Standard plan.</string>
+
+    <!-- Tag activation / promo claim error fallbacks -->
+    <string name="error_claim_tag_failed">Failed to claim tag</string>
+    <string name="error_select_pet_first">Please select a pet first</string>
+    <string name="error_activate_tag_failed">Failed to activate tag</string>
 </resources>
