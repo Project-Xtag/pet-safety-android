@@ -24,7 +24,32 @@
     <domain-config cleartextTrafficPermitted="false">
         <domain includeSubdomains="false">api.senra.pet</domain>
 
-        <!-- Certificate pinning for api.senra.pet (Amazon CA pins — stable for years) -->
+        <!--
+            Certificate pinning for api.senra.pet — Amazon CA pins.
+
+            Pin rotation plan (audit #169):
+              * Pins below expire 2028-03-12 (Amazon Root CA 1 lifetime).
+              * 6 months before expiry (≈ 2027-09-12), build a release that
+                ADDS new pins alongside the old ones — both old + new in the
+                pin-set. Ship to ≥ 95 % of installs before the cut-over.
+              * 1 month before expiry, drop the old pins from a follow-up
+                release. Old installs that never updated will fall back to
+                the OkHttp pin in `ApiClient.kt` (defense-in-depth) until
+                the user updates.
+              * The OkHttp pinner in `data/network/ApiClient.kt` carries the
+                same pins — keep both files in sync when rotating.
+              * Source new pins from
+                https://www.amazontrust.com/repository/ — pull the SHA-256
+                of the SubjectPublicKeyInfo for the active intermediate +
+                root with `openssl x509 -in cert.pem -pubkey -noout |
+                openssl pkey -pubin -outform der | openssl dgst -sha256
+                -binary | openssl enc -base64`.
+              * Bump the `expiration=` attribute to the new earliest expiry
+                so this comment surfaces again before the next rotation.
+
+            DO NOT remove pins without shipping the additive release first —
+            users on the current version would lose API connectivity entirely.
+        -->
         <pin-set expiration="2028-03-12">
             <!-- Amazon RSA 2048 M01 (Intermediate CA) -->
             <pin digest="SHA-256">DxH4tt40L+eduF6szpY6TONlxhZhBd+pJ9wbHlQ2fuw=</pin>

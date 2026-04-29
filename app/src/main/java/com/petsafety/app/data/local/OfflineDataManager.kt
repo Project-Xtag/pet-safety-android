@@ -187,6 +187,33 @@ class OfflineDataManager(private val database: AppDatabase) {
             )
         }
 
+    /**
+     * Action queue cleanup policy (audit #183):
+     *
+     *  * `completeAction(id)` — drops the row outright. Successful syncs leave
+     *    no audit trail; the matching server state IS the record.
+     *
+     *  * `failAction(id, error)` — increments retryCount. After 5 failures
+     *    the row is dropped (we treat 5 retries × server-side enforced
+     *    backoff as "permanent failure"; further retries would just spam
+     *    the server with bad payloads). Until then it stays at status='failed'
+     *    and is picked up on the next sync window.
+     *
+     *  * `clearAll()` — wipes every queued action; called on logout +
+     *    account deletion so pending offline edits don't follow a logged-out
+     *    user back into a different account.
+     *
+     *  * No time-based expiration. Actions queued offline (a sighting
+     *    reported on a hike, a pet-found toggle in airplane mode) stay
+     *    queued until the device next syncs successfully or fails 5x.
+     *    A multi-week stale entry is preserved on purpose — that user's
+     *    intent shouldn't expire just because their phone was off.
+     *
+     * If you change this policy, also update the comment in
+     * `data/local/dao/ActionQueueDao.kt` and check that
+     * `data/sync/SyncManager` still treats status='failed' rows as
+     * eligible for the next sync attempt.
+     */
     suspend fun queueAction(type: String, data: Map<String, Any?>): String {
         val id = UUID.randomUUID().toString()
         val jsonData = JsonObject(data.mapValues { toJsonElement(it.value) }).toString()
