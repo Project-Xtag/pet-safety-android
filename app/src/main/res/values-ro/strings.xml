@@ -1433,4 +1433,5 @@
     <string name="error_claim_tag_failed">Failed to claim tag</string>
     <string name="error_select_pet_first">Please select a pet first</string>
     <string name="error_activate_tag_failed">Failed to activate tag</string>
+        <string name="waze_not_available">Waze nu este instalat și niciun browser nu este disponibil</string>
 </resources>
