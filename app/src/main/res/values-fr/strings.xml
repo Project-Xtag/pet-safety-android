@@ -125,7 +125,7 @@
     <string name="empty_pets_title">Pas encore d\'animal</string>
     <string name="empty_pets_message">Ajoute ton premier animal pour commencer à utiliser SENRA</string>
     <string name="missing_badge">DISPARU</string>
-    <string name="tag_pending_badge">EN ROUTE</string>
+    <string name="tag_pending_badge">MÉDAILLE CONNECTÉE EN ROUTE</string>
     <string name="add_pet">Ajouter un animal</string>
     <string name="pet_name">Nom de l\'animal</string>
     <string name="failed_load_pets">Impossible de charger les animaux</string>
@@ -430,7 +430,7 @@
     <string name="your_email">Ton e-mail</string>
     <string name="address_or_description">Adresse ou description</string>
     <string name="where_did_you_see">Où as-tu vu l\'animal\u00a0?</string>
-    <string name="sighting_notes_placeholder">Décris ce que tu as vu, l\'état de l\'animal, sa direction de déplacement\u2026</string>
+    <string name="sighting_notes_placeholder">Décris ce que tu as vu et dans quelle direction il est parti…</string>
     <string name="submit_sighting_report">Soumettre le signalement</string>
     <string name="sighting_reported_owner_notified">Observation signalée\u00a0! Le propriétaire a été notifié.</string>
     <string name="sighting_queued_offline">Signalement mis en file d\'attente — sera soumis dès que tu seras en ligne.</string>
@@ -1402,27 +1402,27 @@
     <string name="welcome_back_no_name">Bon retour !</string>
 
     <!-- Shelter promo claim screen -->
-    <string name="shelter_promo_claim_tag_title">Claim Tag</string>
+    <string name="shelter_promo_claim_tag_title">Activer la médaille connectée</string>
     <string name="shelter_promo_done">Done</string>
     <string name="shelter_promo_new_pet">New Pet</string>
     <string name="shelter_promo_existing_pet">Existing Pet</string>
-    <string name="shelter_promo_claim_tag_button">Claim Tag</string>
+    <string name="shelter_promo_claim_tag_button">Activer la médaille connectée</string>
     <string name="shelter_promo_pet_name_label">Name *</string>
     <string name="shelter_promo_species_label">Species *</string>
     <string name="shelter_promo_breed_label">Breed</string>
     <string name="shelter_promo_color_label">Color</string>
     <string name="shelter_promo_sex_label">Sex</string>
-    <string name="shelter_promo_register_and_claim_button">Register Pet &amp; Claim Tag</string>
-    <string name="shelter_promo_claimed_title">Tag Claimed!</string>
+    <string name="shelter_promo_register_and_claim_button">S\'inscrire et activer la médaille connectée</string>
+    <string name="shelter_promo_claimed_title">Médaille connectée activée !</string>
     <string name="shelter_promo_pet_label_format">Pet: %1$s</string>
-    <string name="shelter_promo_tag_label_format">Tag: %1$s</string>
+    <string name="shelter_promo_tag_label_format">Médaille connectée : %1$s</string>
     <string name="shelter_promo_free_plan_format">Free Standard plan for %1$d months</string>
     <string name="shelter_promo_welcome_format">Welcome from %1$s!</string>
-    <string name="shelter_promo_register_subtitle_format">Register your pet to get %1$d months free Standard plan.</string>
+    <string name="shelter_promo_register_subtitle_format">Enregistre ton animal de compagnie et utilise le forfait Standard gratuitement pendant %1$d mois.</string>
 
     <!-- Tag activation / promo claim error fallbacks -->
-    <string name="error_claim_tag_failed">Failed to claim tag</string>
+    <string name="error_claim_tag_failed">Impossible d\'activer la médaille connectée</string>
     <string name="error_select_pet_first">Please select a pet first</string>
-    <string name="error_activate_tag_failed">Failed to activate tag</string>
+    <string name="error_activate_tag_failed">Impossible d\'activer la médaille connectée</string>
         <string name="waze_not_available">Waze n\'est pas installé et aucun navigateur n\'est disponible</string>
 </resources>

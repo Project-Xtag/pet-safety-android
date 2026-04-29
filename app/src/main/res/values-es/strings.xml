@@ -128,7 +128,7 @@
     <string name="empty_pets_title">Aún no hay mascotas</string>
     <string name="empty_pets_message">Añade tu primera mascota para empezar con SENRA</string>
     <string name="missing_badge">PERDIDA</string>
-    <string name="tag_pending_badge">EN CAMINO</string>
+    <string name="tag_pending_badge">CHAPA INTELIGENTE EN CAMINO</string>
     <string name="add_pet">Añadir mascota</string>
     <string name="pet_name">Nombre de la mascota</string>
     <string name="failed_load_pets">No se pudieron cargar las mascotas</string>
@@ -415,7 +415,7 @@
     <string name="your_email">Tu correo</string>
     <string name="address_or_description">Dirección o descripción</string>
     <string name="where_did_you_see">¿Dónde viste a la mascota?</string>
-    <string name="sighting_notes_placeholder">Describe lo que viste, el estado de la mascota, dirección de movimiento\u2026</string>
+    <string name="sighting_notes_placeholder">Describe lo que viste y hacia dónde se fue…</string>
     <string name="submit_sighting_report">Enviar reporte de avistamiento</string>
     <string name="sighting_reported_owner_notified">¡Avistamiento reportado! Se notificó al tutor.</string>
     <string name="sighting_queued_offline">Avistamiento en cola: se enviará cuando estés en línea.</string>
@@ -1410,27 +1410,27 @@
     <string name="welcome_back_no_name">¡Bienvenido/a de nuevo!</string>
 
     <!-- Shelter promo claim screen -->
-    <string name="shelter_promo_claim_tag_title">Claim Tag</string>
+    <string name="shelter_promo_claim_tag_title">Activar chapa inteligente</string>
     <string name="shelter_promo_done">Done</string>
     <string name="shelter_promo_new_pet">New Pet</string>
     <string name="shelter_promo_existing_pet">Existing Pet</string>
-    <string name="shelter_promo_claim_tag_button">Claim Tag</string>
+    <string name="shelter_promo_claim_tag_button">Activar chapa inteligente</string>
     <string name="shelter_promo_pet_name_label">Name *</string>
     <string name="shelter_promo_species_label">Species *</string>
     <string name="shelter_promo_breed_label">Breed</string>
     <string name="shelter_promo_color_label">Color</string>
     <string name="shelter_promo_sex_label">Sex</string>
-    <string name="shelter_promo_register_and_claim_button">Register Pet &amp; Claim Tag</string>
-    <string name="shelter_promo_claimed_title">Tag Claimed!</string>
+    <string name="shelter_promo_register_and_claim_button">Registrarse y activar la chapa inteligente</string>
+    <string name="shelter_promo_claimed_title">¡Chapa inteligente activada!</string>
     <string name="shelter_promo_pet_label_format">Pet: %1$s</string>
-    <string name="shelter_promo_tag_label_format">Tag: %1$s</string>
+    <string name="shelter_promo_tag_label_format">Chapa inteligente: %1$s</string>
     <string name="shelter_promo_free_plan_format">Free Standard plan for %1$d months</string>
     <string name="shelter_promo_welcome_format">Welcome from %1$s!</string>
-    <string name="shelter_promo_register_subtitle_format">Register your pet to get %1$d months free Standard plan.</string>
+    <string name="shelter_promo_register_subtitle_format">Registra a tu mascota y usa el plan Standard gratis durante %1$d meses.</string>
 
     <!-- Tag activation / promo claim error fallbacks -->
-    <string name="error_claim_tag_failed">Failed to claim tag</string>
+    <string name="error_claim_tag_failed">No se pudo activar la chapa inteligente</string>
     <string name="error_select_pet_first">Please select a pet first</string>
-    <string name="error_activate_tag_failed">Failed to activate tag</string>
+    <string name="error_activate_tag_failed">No se pudo activar la chapa inteligente</string>
         <string name="waze_not_available">Waze no está instalado y no hay un navegador disponible</string>
 </resources>

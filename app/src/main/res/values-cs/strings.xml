@@ -128,7 +128,7 @@
     <string name="empty_pets_title">Zatím žádní mazlíčci</string>
     <string name="empty_pets_message">Přidej prvního mazlíčka a začněte s SENRA</string>
     <string name="missing_badge">ZTRACENÝ</string>
-    <string name="tag_pending_badge">NA CESTĚ</string>
+    <string name="tag_pending_badge">PSÍ ZNÁMKA JE NA CESTĚ</string>
     <string name="add_pet">Přidat mazlíčka</string>
     <string name="pet_name">Jméno mazlíčka</string>
     <string name="failed_load_pets">Nepodařilo se načíst mazlíčky</string>
@@ -416,7 +416,7 @@
     <string name="your_email">Tvůj e-mail</string>
     <string name="address_or_description">Adresa nebo popis</string>
     <string name="where_did_you_see">Kde jsi mazlíčka viděli?</string>
-    <string name="sighting_notes_placeholder">Popište, co jsi viděli, stav mazlíčka, směr pohybu\u2026</string>
+    <string name="sighting_notes_placeholder">Popiš, co jsi viděl a kterým směrem šel…</string>
     <string name="submit_sighting_report">Odeslat hlášení o pozorování</string>
     <string name="sighting_reported_owner_notified">Pozorování nahlášeno! Páníček byl informován.</string>
     <string name="sighting_queued_offline">Pozorování ve frontě - odešle se po připojení.</string>
@@ -1419,27 +1419,27 @@
     <string name="welcome_back_no_name">Vítejte zpět!</string>
 
     <!-- Shelter promo claim screen -->
-    <string name="shelter_promo_claim_tag_title">Claim Tag</string>
+    <string name="shelter_promo_claim_tag_title">Aktivovat psí známku</string>
     <string name="shelter_promo_done">Done</string>
     <string name="shelter_promo_new_pet">New Pet</string>
     <string name="shelter_promo_existing_pet">Existing Pet</string>
-    <string name="shelter_promo_claim_tag_button">Claim Tag</string>
+    <string name="shelter_promo_claim_tag_button">Aktivovat psí známku</string>
     <string name="shelter_promo_pet_name_label">Name *</string>
     <string name="shelter_promo_species_label">Species *</string>
     <string name="shelter_promo_breed_label">Breed</string>
     <string name="shelter_promo_color_label">Color</string>
     <string name="shelter_promo_sex_label">Sex</string>
-    <string name="shelter_promo_register_and_claim_button">Register Pet &amp; Claim Tag</string>
-    <string name="shelter_promo_claimed_title">Tag Claimed!</string>
+    <string name="shelter_promo_register_and_claim_button">Registrovat a aktivovat psí známku</string>
+    <string name="shelter_promo_claimed_title">Psí známka aktivována!</string>
     <string name="shelter_promo_pet_label_format">Pet: %1$s</string>
-    <string name="shelter_promo_tag_label_format">Tag: %1$s</string>
+    <string name="shelter_promo_tag_label_format">Psí známka: %1$s</string>
     <string name="shelter_promo_free_plan_format">Free Standard plan for %1$d months</string>
     <string name="shelter_promo_welcome_format">Welcome from %1$s!</string>
-    <string name="shelter_promo_register_subtitle_format">Register your pet to get %1$d months free Standard plan.</string>
+    <string name="shelter_promo_register_subtitle_format">Zaregistruj svého mazlíčka a používej předplatné Standard %1$d měsíců zdarma.</string>
 
     <!-- Tag activation / promo claim error fallbacks -->
-    <string name="error_claim_tag_failed">Failed to claim tag</string>
+    <string name="error_claim_tag_failed">Aktivace psí známky selhala</string>
     <string name="error_select_pet_first">Please select a pet first</string>
-    <string name="error_activate_tag_failed">Failed to activate tag</string>
+    <string name="error_activate_tag_failed">Aktivace psí známky selhala</string>
         <string name="waze_not_available">Waze není nainstalován a není k dispozici žádný prohlížeč</string>
 </resources>

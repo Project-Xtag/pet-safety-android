@@ -113,7 +113,7 @@
     <string name="empty_pets_title">Još nema registriranih kućnih ljubimaca</string>
     <string name="empty_pets_message">Dodaj svog prvog kućnog ljubimca za početak korištenja SENRA zajedničkog privjeska</string>
     <string name="missing_badge">NESTAO</string>
-    <string name="tag_pending_badge">NA PUTU</string>
+    <string name="tag_pending_badge">PRIVJESAK JE NA PUTU</string>
     <string name="add_pet">Dodaj kućnog ljubimca</string>
     <string name="pet_name">Ime kućnog ljubimca</string>
     <string name="failed_load_pets">Učitavanje kućnih ljubimaca nije uspjelo</string>
@@ -400,7 +400,7 @@
     <string name="your_email">Tvoj e-mail</string>
     <string name="address_or_description">Adresa ili opis</string>
     <string name="where_did_you_see">Gdje si vidio kućnog ljubimca?</string>
-    <string name="sighting_notes_placeholder">Opiši što si vidio, stanje kućnog ljubimca, smjer kretanja…</string>
+    <string name="sighting_notes_placeholder">Opiši što si vidio i u kojem smjeru je otišao…</string>
     <string name="submit_sighting_report">Pošalji prijavu viđenja</string>
     <string name="sighting_reported_owner_notified">Viđenje prijavljeno! Vlasnik je obaviješten.</string>
     <string name="sighting_queued_offline">Prijava viđenja na čekanju — bit će poslana kad budeš online.</string>
@@ -1405,27 +1405,27 @@
     <string name="welcome_back_no_name">Dobrodošli natrag!</string>
 
     <!-- Shelter promo claim screen -->
-    <string name="shelter_promo_claim_tag_title">Claim Tag</string>
+    <string name="shelter_promo_claim_tag_title">Aktiviraj privjesak</string>
     <string name="shelter_promo_done">Done</string>
     <string name="shelter_promo_new_pet">New Pet</string>
     <string name="shelter_promo_existing_pet">Existing Pet</string>
-    <string name="shelter_promo_claim_tag_button">Claim Tag</string>
+    <string name="shelter_promo_claim_tag_button">Aktiviraj privjesak</string>
     <string name="shelter_promo_pet_name_label">Name *</string>
     <string name="shelter_promo_species_label">Species *</string>
     <string name="shelter_promo_breed_label">Breed</string>
     <string name="shelter_promo_color_label">Color</string>
     <string name="shelter_promo_sex_label">Sex</string>
-    <string name="shelter_promo_register_and_claim_button">Register Pet &amp; Claim Tag</string>
-    <string name="shelter_promo_claimed_title">Tag Claimed!</string>
+    <string name="shelter_promo_register_and_claim_button">Registriraj i aktiviraj privjesak</string>
+    <string name="shelter_promo_claimed_title">Privjesak aktiviran!</string>
     <string name="shelter_promo_pet_label_format">Pet: %1$s</string>
-    <string name="shelter_promo_tag_label_format">Tag: %1$s</string>
+    <string name="shelter_promo_tag_label_format">Privjesak: %1$s</string>
     <string name="shelter_promo_free_plan_format">Free Standard plan for %1$d months</string>
     <string name="shelter_promo_welcome_format">Welcome from %1$s!</string>
-    <string name="shelter_promo_register_subtitle_format">Register your pet to get %1$d months free Standard plan.</string>
+    <string name="shelter_promo_register_subtitle_format">Registriraj svog kućnog ljubimca i %1$d mjeseci besplatno koristi plan Standard.</string>
 
     <!-- Tag activation / promo claim error fallbacks -->
-    <string name="error_claim_tag_failed">Failed to claim tag</string>
+    <string name="error_claim_tag_failed">Aktivacija privjeska nije uspjela</string>
     <string name="error_select_pet_first">Please select a pet first</string>
-    <string name="error_activate_tag_failed">Failed to activate tag</string>
+    <string name="error_activate_tag_failed">Aktivacija privjeska nije uspjela</string>
         <string name="waze_not_available">Waze nije instaliran i nije dostupan preglednik</string>
 </resources>

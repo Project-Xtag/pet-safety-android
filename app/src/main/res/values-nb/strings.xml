@@ -124,7 +124,7 @@
     <string name="empty_pets_title">Ingen dyr ennå</string>
     <string name="empty_pets_message">Legg til ditt første dyr for å komme i gang med SENRA</string>
     <string name="missing_badge">SAVNET</string>
-    <string name="tag_pending_badge">PÅ VEI</string>
+    <string name="tag_pending_badge">QR-BRIKKEN ER PÅ VEI</string>
     <string name="add_pet">Legg til dyr</string>
     <string name="pet_name">Dyrets navn</string>
     <string name="failed_load_pets">Kunne ikke laste inn dyrene</string>
@@ -429,7 +429,7 @@
     <string name="your_email">E-postadressen din</string>
     <string name="address_or_description">Adresse eller beskrivelse</string>
     <string name="where_did_you_see">Hvor så du dyret?</string>
-    <string name="sighting_notes_placeholder">Beskriv hva du så, dyrets tilstand, bevegelsesretning\u2026</string>
+    <string name="sighting_notes_placeholder">Beskriv hva du så og hvilken vei den gikk…</string>
     <string name="submit_sighting_report">Send inn observasjonsrapport</string>
     <string name="sighting_reported_owner_notified">Observasjon rapportert! Eieren er varslet.</string>
     <string name="sighting_queued_offline">Observasjon satt i kø – sendes inn når du er online igjen.</string>
@@ -1403,27 +1403,27 @@
     <string name="welcome_back_no_name">Velkommen tilbake!</string>
 
     <!-- Shelter promo claim screen -->
-    <string name="shelter_promo_claim_tag_title">Claim Tag</string>
+    <string name="shelter_promo_claim_tag_title">Aktiver QR-brikke</string>
     <string name="shelter_promo_done">Done</string>
     <string name="shelter_promo_new_pet">New Pet</string>
     <string name="shelter_promo_existing_pet">Existing Pet</string>
-    <string name="shelter_promo_claim_tag_button">Claim Tag</string>
+    <string name="shelter_promo_claim_tag_button">Aktiver QR-brikke</string>
     <string name="shelter_promo_pet_name_label">Name *</string>
     <string name="shelter_promo_species_label">Species *</string>
     <string name="shelter_promo_breed_label">Breed</string>
     <string name="shelter_promo_color_label">Color</string>
     <string name="shelter_promo_sex_label">Sex</string>
-    <string name="shelter_promo_register_and_claim_button">Register Pet &amp; Claim Tag</string>
-    <string name="shelter_promo_claimed_title">Tag Claimed!</string>
+    <string name="shelter_promo_register_and_claim_button">Registrer og aktiver QR-brikke</string>
+    <string name="shelter_promo_claimed_title">QR-brikke aktivert!</string>
     <string name="shelter_promo_pet_label_format">Pet: %1$s</string>
-    <string name="shelter_promo_tag_label_format">Tag: %1$s</string>
+    <string name="shelter_promo_tag_label_format">QR-brikke: %1$s</string>
     <string name="shelter_promo_free_plan_format">Free Standard plan for %1$d months</string>
     <string name="shelter_promo_welcome_format">Welcome from %1$s!</string>
-    <string name="shelter_promo_register_subtitle_format">Register your pet to get %1$d months free Standard plan.</string>
+    <string name="shelter_promo_register_subtitle_format">Registrer kjæledyret ditt og bruk Standard-abonnementet gratis i %1$d måneder.</string>
 
     <!-- Tag activation / promo claim error fallbacks -->
-    <string name="error_claim_tag_failed">Failed to claim tag</string>
+    <string name="error_claim_tag_failed">Klarte ikke å aktivere QR-brikken</string>
     <string name="error_select_pet_first">Please select a pet first</string>
-    <string name="error_activate_tag_failed">Failed to activate tag</string>
+    <string name="error_activate_tag_failed">Klarte ikke å aktivere QR-brikken</string>
         <string name="waze_not_available">Waze er ikke installert og ingen nettleser er tilgjengelig</string>
 </resources>

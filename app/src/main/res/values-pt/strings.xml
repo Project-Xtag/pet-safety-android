@@ -128,7 +128,7 @@
     <string name="empty_pets_title">Ainda sem animais de estimação</string>
     <string name="empty_pets_message">Adicione o seu primeiro animal de estimação para começar com o SENRA</string>
     <string name="missing_badge">DESAPARECIDO</string>
-    <string name="tag_pending_badge">A CAMINHO</string>
+    <string name="tag_pending_badge">PLAQUINHA INTELIGENTE A CAMINHO</string>
     <string name="add_pet">Adicionar animal de estimação</string>
     <string name="pet_name">Nome do animal de estimação</string>
     <string name="failed_load_pets">Falha ao carregar animais de estimação</string>
@@ -415,7 +415,7 @@
     <string name="your_email">O seu e-mail</string>
     <string name="address_or_description">Morada ou descrição</string>
     <string name="where_did_you_see">Onde viu o animal de estimação?</string>
-    <string name="sighting_notes_placeholder">Descreva o que viu, a condição do animal de estimação, a direção\u2026</string>
+    <string name="sighting_notes_placeholder">Descreve o que viste e por onde foi…</string>
     <string name="submit_sighting_report">Enviar relatório de avistamento</string>
     <string name="sighting_reported_owner_notified">Avistamento reportado! O tutor foi notificado.</string>
     <string name="sighting_queued_offline">Avistamento em fila - será enviado quando estiver online.</string>
@@ -1410,27 +1410,27 @@
     <string name="welcome_back_no_name">Bem-vindo/a de volta!</string>
 
     <!-- Shelter promo claim screen -->
-    <string name="shelter_promo_claim_tag_title">Claim Tag</string>
+    <string name="shelter_promo_claim_tag_title">Ativar plaquinha inteligente</string>
     <string name="shelter_promo_done">Done</string>
     <string name="shelter_promo_new_pet">New Pet</string>
     <string name="shelter_promo_existing_pet">Existing Pet</string>
-    <string name="shelter_promo_claim_tag_button">Claim Tag</string>
+    <string name="shelter_promo_claim_tag_button">Ativar plaquinha inteligente</string>
     <string name="shelter_promo_pet_name_label">Name *</string>
     <string name="shelter_promo_species_label">Species *</string>
     <string name="shelter_promo_breed_label">Breed</string>
     <string name="shelter_promo_color_label">Color</string>
     <string name="shelter_promo_sex_label">Sex</string>
-    <string name="shelter_promo_register_and_claim_button">Register Pet &amp; Claim Tag</string>
-    <string name="shelter_promo_claimed_title">Tag Claimed!</string>
+    <string name="shelter_promo_register_and_claim_button">Registar e ativar plaquinha inteligente</string>
+    <string name="shelter_promo_claimed_title">Plaquinha inteligente ativada!</string>
     <string name="shelter_promo_pet_label_format">Pet: %1$s</string>
-    <string name="shelter_promo_tag_label_format">Tag: %1$s</string>
+    <string name="shelter_promo_tag_label_format">Plaquinha inteligente: %1$s</string>
     <string name="shelter_promo_free_plan_format">Free Standard plan for %1$d months</string>
     <string name="shelter_promo_welcome_format">Welcome from %1$s!</string>
-    <string name="shelter_promo_register_subtitle_format">Register your pet to get %1$d months free Standard plan.</string>
+    <string name="shelter_promo_register_subtitle_format">Regista o teu animal de estimação e usa o plano Standard de graça durante %1$d meses.</string>
 
     <!-- Tag activation / promo claim error fallbacks -->
-    <string name="error_claim_tag_failed">Failed to claim tag</string>
+    <string name="error_claim_tag_failed">Não foi possível ativar a plaquinha inteligente</string>
     <string name="error_select_pet_first">Please select a pet first</string>
-    <string name="error_activate_tag_failed">Failed to activate tag</string>
+    <string name="error_activate_tag_failed">Não foi possível ativar a plaquinha inteligente</string>
         <string name="waze_not_available">O Waze não está instalado e nenhum navegador está disponível</string>
 </resources>

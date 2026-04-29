@@ -128,7 +128,7 @@
     <string name="empty_pets_title">Noch keine Haustiere</string>
     <string name="empty_pets_message">Füge dein erstes Haustier hinzu, um mit SENRA zu starten</string>
     <string name="missing_badge">VERMISST</string>
-    <string name="tag_pending_badge">TAG UNTERWEGS</string>
+    <string name="tag_pending_badge">HAUSTIERMARKE UNTERWEGS</string>
     <string name="add_pet">Haustier hinzufügen</string>
     <string name="pet_name">Name des Haustiers</string>
     <string name="failed_load_pets">Haustiere konnten nicht geladen werden</string>
@@ -415,7 +415,7 @@
     <string name="your_email">deine E-Mail</string>
     <string name="address_or_description">Adresse oder Beschreibung</string>
     <string name="where_did_you_see">Wo haben du das Haustier gesehen?</string>
-    <string name="sighting_notes_placeholder">Beschreiben du, was du gesehen haben, den Zustand des Haustiers, die Richtung\u2026</string>
+    <string name="sighting_notes_placeholder">Beschreibe, was du gesehen hast und in welche Richtung es ging…</string>
     <string name="submit_sighting_report">Sichtungsbericht senden</string>
     <string name="sighting_reported_owner_notified">Sichtung gemeldet! Der Halter wurde informiert.</string>
     <string name="sighting_queued_offline">Sichtung in Warteschlange - wird gesendet, sobald online.</string>
@@ -1411,27 +1411,27 @@
     <string name="welcome_back_no_name">Willkommen zurück!</string>
 
     <!-- Shelter promo claim screen -->
-    <string name="shelter_promo_claim_tag_title">Claim Tag</string>
+    <string name="shelter_promo_claim_tag_title">Haustiermarke aktivieren</string>
     <string name="shelter_promo_done">Done</string>
     <string name="shelter_promo_new_pet">New Pet</string>
     <string name="shelter_promo_existing_pet">Existing Pet</string>
-    <string name="shelter_promo_claim_tag_button">Claim Tag</string>
+    <string name="shelter_promo_claim_tag_button">Haustiermarke aktivieren</string>
     <string name="shelter_promo_pet_name_label">Name *</string>
     <string name="shelter_promo_species_label">Species *</string>
     <string name="shelter_promo_breed_label">Breed</string>
     <string name="shelter_promo_color_label">Color</string>
     <string name="shelter_promo_sex_label">Sex</string>
-    <string name="shelter_promo_register_and_claim_button">Register Pet &amp; Claim Tag</string>
-    <string name="shelter_promo_claimed_title">Tag Claimed!</string>
+    <string name="shelter_promo_register_and_claim_button">Registrieren &amp; Haustiermarke aktivieren</string>
+    <string name="shelter_promo_claimed_title">Haustiermarke aktiviert!</string>
     <string name="shelter_promo_pet_label_format">Pet: %1$s</string>
-    <string name="shelter_promo_tag_label_format">Tag: %1$s</string>
+    <string name="shelter_promo_tag_label_format">Haustiermarke: %1$s</string>
     <string name="shelter_promo_free_plan_format">Free Standard plan for %1$d months</string>
     <string name="shelter_promo_welcome_format">Welcome from %1$s!</string>
-    <string name="shelter_promo_register_subtitle_format">Register your pet to get %1$d months free Standard plan.</string>
+    <string name="shelter_promo_register_subtitle_format">Registriere dein Haustier und nutze den Standard-Tarif %1$d Monate lang kostenlos.</string>
 
     <!-- Tag activation / promo claim error fallbacks -->
-    <string name="error_claim_tag_failed">Failed to claim tag</string>
+    <string name="error_claim_tag_failed">Aktivierung der Haustiermarke fehlgeschlagen</string>
     <string name="error_select_pet_first">Please select a pet first</string>
-    <string name="error_activate_tag_failed">Failed to activate tag</string>
+    <string name="error_activate_tag_failed">Aktivierung der Haustiermarke fehlgeschlagen</string>
         <string name="waze_not_available">Waze ist nicht installiert und kein Browser ist verfügbar</string>
 </resources>

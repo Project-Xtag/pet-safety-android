@@ -120,7 +120,7 @@
     <string name="empty_pets_title">Încă nu ai animale de companie</string>
     <string name="empty_pets_message">Adaugă primul animal de companie pentru a începe cu SENRA</string>
     <string name="missing_badge">DISPĂRUT</string>
-    <string name="tag_pending_badge">PE DRUM</string>
+    <string name="tag_pending_badge">PLĂCUȚA INTELIGENTĂ ESTE PE DRUM</string>
     <string name="add_pet">Adaugă animal de companie</string>
     <string name="pet_name">Numele animalului de companie</string>
     <string name="failed_load_pets">Nu s-au putut încărca animalele de companie</string>
@@ -408,7 +408,7 @@
     <string name="your_email">E-mailul tău</string>
     <string name="address_or_description">Adresă sau descriere</string>
     <string name="where_did_you_see">Unde ai văzut animalul de companie?</string>
-    <string name="sighting_notes_placeholder">Descrie ce ai văzut, starea animalului de companie, direcția de deplasare\u2026</string>
+    <string name="sighting_notes_placeholder">Descrie ce ai văzut și încotro a luat-o…</string>
     <string name="submit_sighting_report">Trimite raportul de observație</string>
     <string name="sighting_reported_owner_notified">Observație raportată! Stăpânul a fost notificat.</string>
     <string name="sighting_queued_offline">Observație în coadă - va fi trimisă când ești online.</string>
@@ -1411,27 +1411,27 @@
     <string name="welcome_back_no_name">Bine ai revenit!</string>
 
     <!-- Shelter promo claim screen -->
-    <string name="shelter_promo_claim_tag_title">Claim Tag</string>
+    <string name="shelter_promo_claim_tag_title">Activează plăcuța inteligentă</string>
     <string name="shelter_promo_done">Done</string>
     <string name="shelter_promo_new_pet">New Pet</string>
     <string name="shelter_promo_existing_pet">Existing Pet</string>
-    <string name="shelter_promo_claim_tag_button">Claim Tag</string>
+    <string name="shelter_promo_claim_tag_button">Activează plăcuța inteligentă</string>
     <string name="shelter_promo_pet_name_label">Name *</string>
     <string name="shelter_promo_species_label">Species *</string>
     <string name="shelter_promo_breed_label">Breed</string>
     <string name="shelter_promo_color_label">Color</string>
     <string name="shelter_promo_sex_label">Sex</string>
-    <string name="shelter_promo_register_and_claim_button">Register Pet &amp; Claim Tag</string>
-    <string name="shelter_promo_claimed_title">Tag Claimed!</string>
+    <string name="shelter_promo_register_and_claim_button">Înregistrează-te și activează plăcuța inteligentă</string>
+    <string name="shelter_promo_claimed_title">Plăcuță inteligentă activată!</string>
     <string name="shelter_promo_pet_label_format">Pet: %1$s</string>
-    <string name="shelter_promo_tag_label_format">Tag: %1$s</string>
+    <string name="shelter_promo_tag_label_format">Plăcuță inteligentă: %1$s</string>
     <string name="shelter_promo_free_plan_format">Free Standard plan for %1$d months</string>
     <string name="shelter_promo_welcome_format">Welcome from %1$s!</string>
-    <string name="shelter_promo_register_subtitle_format">Register your pet to get %1$d months free Standard plan.</string>
+    <string name="shelter_promo_register_subtitle_format">Înregistrează-ți animalul de companie și folosește planul Standard gratuit timp de %1$d luni.</string>
 
     <!-- Tag activation / promo claim error fallbacks -->
-    <string name="error_claim_tag_failed">Failed to claim tag</string>
+    <string name="error_claim_tag_failed">Activarea plăcuței inteligente a eșuat</string>
     <string name="error_select_pet_first">Please select a pet first</string>
-    <string name="error_activate_tag_failed">Failed to activate tag</string>
+    <string name="error_activate_tag_failed">Activarea plăcuței inteligente a eșuat</string>
         <string name="waze_not_available">Waze nu este instalat și niciun browser nu este disponibil</string>
 </resources>
