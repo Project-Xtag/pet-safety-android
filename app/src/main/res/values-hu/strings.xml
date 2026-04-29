@@ -1430,4 +1430,5 @@
     <string name="error_claim_tag_failed">Címke aktiválása sikertelen</string>
     <string name="error_select_pet_first">Kérjük, válassz egy kedvencet először</string>
     <string name="error_activate_tag_failed">Címke aktiválása sikertelen</string>
+        <string name="waze_not_available">A Waze nincs telepítve, és nem érhető el böngésző</string>
 </resources>

@@ -1384,4 +1384,5 @@
 
 
     <string name="welcome_back_no_name">Welcome back!</string>
+    <string name="waze_not_available">Waze is not installed and no browser is available</string>
 </resources>
