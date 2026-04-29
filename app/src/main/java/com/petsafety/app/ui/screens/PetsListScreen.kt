@@ -35,6 +35,7 @@ import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Clear
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.filled.LocalShipping
 import androidx.compose.material.icons.filled.Pets
 import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material.icons.filled.Search
@@ -519,7 +520,8 @@ private fun PetCardView(pet: Pet, onClick: () -> Unit) {
                     }
                 }
 
-                // Missing Badge
+                // Missing Badge OR "Tag on its way" badge — pet was auto-registered
+                // from a paid order, physical tag hasn't been activated yet.
                 if (pet.isMissing) {
                     Row(
                         modifier = Modifier
@@ -538,6 +540,31 @@ private fun PetCardView(pet: Pet, onClick: () -> Unit) {
                         Spacer(modifier = Modifier.width(4.dp))
                         Text(
                             text = stringResource(R.string.missing_badge),
+                            style = MaterialTheme.typography.labelSmall.copy(
+                                fontSize = AdaptiveLayout.scaledSp(10),
+                                fontWeight = FontWeight.Bold
+                            ),
+                            color = Color.White
+                        )
+                    }
+                } else if (pet.hasActiveTag == false) {
+                    Row(
+                        modifier = Modifier
+                            .align(Alignment.TopEnd)
+                            .padding(8.dp)
+                            .background(Color(0xFFF59E0B), RoundedCornerShape(8.dp))
+                            .padding(horizontal = 8.dp, vertical = 4.dp),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.LocalShipping,
+                            contentDescription = stringResource(R.string.tag_pending_badge),
+                            modifier = Modifier.size(10.dp),
+                            tint = Color.White
+                        )
+                        Spacer(modifier = Modifier.width(4.dp))
+                        Text(
+                            text = stringResource(R.string.tag_pending_badge),
                             style = MaterialTheme.typography.labelSmall.copy(
                                 fontSize = AdaptiveLayout.scaledSp(10),
                                 fontWeight = FontWeight.Bold

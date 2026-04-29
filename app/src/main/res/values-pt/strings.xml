@@ -128,6 +128,7 @@
     <string name="empty_pets_title">Ainda sem animais de estimação</string>
     <string name="empty_pets_message">Adicione o seu primeiro animal de estimação para começar com o SENRA</string>
     <string name="missing_badge">DESAPARECIDO</string>
+    <string name="tag_pending_badge">A CAMINHO</string>
     <string name="add_pet">Adicionar animal de estimação</string>
     <string name="pet_name">Nome do animal de estimação</string>
     <string name="failed_load_pets">Falha ao carregar animais de estimação</string>
@@ -450,8 +451,9 @@
     <string name="mark_lost_shelters">Abrigos de animais de estimação próximos</string>
     <string name="mark_lost_report">Reportar desaparecido</string>
     <string name="mark_lost_title">Marcar %1$s como desaparecido</string>
-    <string name="mark_lost_starter_notice">Atualize para enviar alertas comunitários</string>
-    <string name="mark_lost_upgrade_prompt">Com o plano Starter o seu animal de estimação será marcado como desaparecido, mas as notificações a utilizadores, veterinários e abrigos requerem uma subscrição Standard ou Maximum.</string>
+    <string name="mark_lost_starter_notice">Faz upgrade para marcar um animal como desaparecido</string>
+    <string name="mark_lost_starter_upgrade_cta">Ver planos</string>
+    <string name="mark_lost_upgrade_prompt">Marcar um animal como desaparecido e alertar a comunidade está incluído nos planos Standard e Maximum. Faz upgrade para um plano superior para usar esta função.</string>
     <string name="mark_lost_success_with_alerts">%1$s foi reportado como desaparecido. Alertas estão sendo enviados a utilizadores próximos.</string>
     <string name="mark_lost_success_no_location">%1$s foi marcado como desaparecido. Adicione localização para enviar alertas comunitários.</string>
     <string name="mark_lost_address_required">Por favor, forneça um endereço ou ative os serviços de localização.</string>
@@ -922,6 +924,7 @@
     <string name="waze">Waze</string>
     <string name="other_maps_app">Outra app de mapas</string>
     <string name="open_with">Abrir com\u2026</string>
+    <string name="no_browser_for_navigation">Nenhuma aplicação disponível para abrir o mapa. Instale o Waze ou um navegador.</string>
     <string name="map_label_pet_location">Localização do animal de estimação</string>
     <string name="map_label_tag_scanned">Plaquinha inteligente do animal de estimação lida</string>
     <string name="map_label_sighting">Avistamento do animal de estimação</string>
@@ -1405,4 +1408,28 @@
 
 
     <string name="welcome_back_no_name">Bem-vindo/a de volta!</string>
+
+    <!-- Shelter promo claim screen -->
+    <string name="shelter_promo_claim_tag_title">Claim Tag</string>
+    <string name="shelter_promo_done">Done</string>
+    <string name="shelter_promo_new_pet">New Pet</string>
+    <string name="shelter_promo_existing_pet">Existing Pet</string>
+    <string name="shelter_promo_claim_tag_button">Claim Tag</string>
+    <string name="shelter_promo_pet_name_label">Name *</string>
+    <string name="shelter_promo_species_label">Species *</string>
+    <string name="shelter_promo_breed_label">Breed</string>
+    <string name="shelter_promo_color_label">Color</string>
+    <string name="shelter_promo_sex_label">Sex</string>
+    <string name="shelter_promo_register_and_claim_button">Register Pet &amp; Claim Tag</string>
+    <string name="shelter_promo_claimed_title">Tag Claimed!</string>
+    <string name="shelter_promo_pet_label_format">Pet: %1$s</string>
+    <string name="shelter_promo_tag_label_format">Tag: %1$s</string>
+    <string name="shelter_promo_free_plan_format">Free Standard plan for %1$d months</string>
+    <string name="shelter_promo_welcome_format">Welcome from %1$s!</string>
+    <string name="shelter_promo_register_subtitle_format">Register your pet to get %1$d months free Standard plan.</string>
+
+    <!-- Tag activation / promo claim error fallbacks -->
+    <string name="error_claim_tag_failed">Failed to claim tag</string>
+    <string name="error_select_pet_first">Please select a pet first</string>
+    <string name="error_activate_tag_failed">Failed to activate tag</string>
 </resources>

@@ -57,10 +57,10 @@ fun ShelterPromoClaimScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Claim Tag") },
+                title = { Text(stringResource(R.string.shelter_promo_claim_tag_title)) },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
+                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = stringResource(R.string.back))
                     }
                 }
             )
@@ -85,7 +85,7 @@ fun ShelterPromoClaimScreen(
                     )
                     Spacer(modifier = Modifier.height(16.dp))
                     Text(
-                        "Tag Claimed!",
+                        stringResource(R.string.shelter_promo_claimed_title),
                         style = MaterialTheme.typography.headlineMedium,
                         fontWeight = FontWeight.Bold
                     )
@@ -102,10 +102,16 @@ fun ShelterPromoClaimScreen(
                             colors = CardDefaults.cardColors(containerColor = Color(0xFFE8F5E9))
                         ) {
                             Column(modifier = Modifier.padding(16.dp)) {
-                                Text("Pet: ${state.response.pet?.name ?: ""}", fontWeight = FontWeight.Medium)
-                                Text("Tag: ${state.response.tag?.qrCode ?: ""}", style = MaterialTheme.typography.bodySmall)
                                 Text(
-                                    "Free Standard plan for ${details.promoDurationMonths} months",
+                                    stringResource(R.string.shelter_promo_pet_label_format, state.response.pet?.name ?: ""),
+                                    fontWeight = FontWeight.Medium
+                                )
+                                Text(
+                                    stringResource(R.string.shelter_promo_tag_label_format, state.response.tag?.qrCode ?: ""),
+                                    style = MaterialTheme.typography.bodySmall
+                                )
+                                Text(
+                                    stringResource(R.string.shelter_promo_free_plan_format, details.promoDurationMonths),
                                     style = MaterialTheme.typography.bodySmall,
                                     color = BrandOrange
                                 )
@@ -118,7 +124,7 @@ fun ShelterPromoClaimScreen(
                         modifier = Modifier.fillMaxWidth(),
                         colors = ButtonDefaults.buttonColors(containerColor = BrandOrange)
                     ) {
-                        Text("Done")
+                        Text(stringResource(R.string.shelter_promo_done))
                     }
                 }
             }
@@ -143,12 +149,12 @@ fun ShelterPromoClaimScreen(
                             Spacer(modifier = Modifier.width(12.dp))
                             Column {
                                 Text(
-                                    "Welcome from $shelterName!",
+                                    stringResource(R.string.shelter_promo_welcome_format, shelterName),
                                     style = MaterialTheme.typography.titleMedium,
                                     fontWeight = FontWeight.Bold
                                 )
                                 Text(
-                                    "Register your pet to get $promoDurationMonths months free Standard plan.",
+                                    stringResource(R.string.shelter_promo_register_subtitle_format, promoDurationMonths),
                                     style = MaterialTheme.typography.bodySmall,
                                     color = MaterialTheme.colorScheme.onSurfaceVariant
                                 )
@@ -164,13 +170,13 @@ fun ShelterPromoClaimScreen(
                             FilterChip(
                                 selected = !useExistingPet,
                                 onClick = { useExistingPet = false },
-                                label = { Text("New Pet") },
+                                label = { Text(stringResource(R.string.shelter_promo_new_pet)) },
                                 modifier = Modifier.weight(1f).padding(end = 4.dp)
                             )
                             FilterChip(
                                 selected = useExistingPet,
                                 onClick = { useExistingPet = true },
-                                label = { Text("Existing Pet") },
+                                label = { Text(stringResource(R.string.shelter_promo_existing_pet)) },
                                 modifier = Modifier.weight(1f).padding(start = 4.dp)
                             )
                         }
@@ -219,14 +225,14 @@ fun ShelterPromoClaimScreen(
                                 CircularProgressIndicator(modifier = Modifier.size(20.dp), color = Color.White, strokeWidth = 2.dp)
                                 Spacer(modifier = Modifier.width(8.dp))
                             }
-                            Text("Claim Tag")
+                            Text(stringResource(R.string.shelter_promo_claim_tag_button))
                         }
                     } else {
                         // New pet form
                         OutlinedTextField(
                             value = petName,
                             onValueChange = { petName = it },
-                            label = { Text("Name *") },
+                            label = { Text(stringResource(R.string.shelter_promo_pet_name_label)) },
                             modifier = Modifier.fillMaxWidth()
                         )
                         Spacer(modifier = Modifier.height(8.dp))
@@ -237,11 +243,24 @@ fun ShelterPromoClaimScreen(
                             expanded = speciesExpanded,
                             onExpandedChange = { speciesExpanded = !speciesExpanded }
                         ) {
+                            val speciesDogLabel = stringResource(R.string.species_dog)
+                            val speciesCatLabel = stringResource(R.string.species_cat)
+                            val speciesBirdLabel = stringResource(R.string.species_bird)
+                            val speciesRabbitLabel = stringResource(R.string.species_rabbit)
+                            val speciesOtherLabel = stringResource(R.string.species_other)
+                            val speciesDisplay = when (species) {
+                                "dog" -> speciesDogLabel
+                                "cat" -> speciesCatLabel
+                                "bird" -> speciesBirdLabel
+                                "rabbit" -> speciesRabbitLabel
+                                "other" -> speciesOtherLabel
+                                else -> ""
+                            }
                             OutlinedTextField(
-                                value = species.replaceFirstChar { it.uppercase() },
+                                value = speciesDisplay,
                                 onValueChange = {},
                                 readOnly = true,
-                                label = { Text("Species *") },
+                                label = { Text(stringResource(R.string.shelter_promo_species_label)) },
                                 trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = speciesExpanded) },
                                 modifier = Modifier.menuAnchor().fillMaxWidth()
                             )
@@ -249,7 +268,13 @@ fun ShelterPromoClaimScreen(
                                 expanded = speciesExpanded,
                                 onDismissRequest = { speciesExpanded = false }
                             ) {
-                                listOf("dog" to "Dog", "cat" to "Cat", "bird" to "Bird", "rabbit" to "Rabbit", "other" to "Other").forEach { (value, label) ->
+                                listOf(
+                                    "dog" to speciesDogLabel,
+                                    "cat" to speciesCatLabel,
+                                    "bird" to speciesBirdLabel,
+                                    "rabbit" to speciesRabbitLabel,
+                                    "other" to speciesOtherLabel
+                                ).forEach { (value, label) ->
                                     DropdownMenuItem(
                                         text = { Text(label) },
                                         onClick = { species = value; speciesExpanded = false }
@@ -262,7 +287,7 @@ fun ShelterPromoClaimScreen(
                         OutlinedTextField(
                             value = breed,
                             onValueChange = { breed = it },
-                            label = { Text("Breed") },
+                            label = { Text(stringResource(R.string.shelter_promo_breed_label)) },
                             modifier = Modifier.fillMaxWidth()
                         )
                         Spacer(modifier = Modifier.height(8.dp))
@@ -270,7 +295,7 @@ fun ShelterPromoClaimScreen(
                         OutlinedTextField(
                             value = color,
                             onValueChange = { color = it },
-                            label = { Text("Color") },
+                            label = { Text(stringResource(R.string.shelter_promo_color_label)) },
                             modifier = Modifier.fillMaxWidth()
                         )
                         Spacer(modifier = Modifier.height(8.dp))
@@ -281,11 +306,18 @@ fun ShelterPromoClaimScreen(
                             expanded = sexExpanded,
                             onExpandedChange = { sexExpanded = !sexExpanded }
                         ) {
+                            val sexMaleLabel = stringResource(R.string.sex_male)
+                            val sexFemaleLabel = stringResource(R.string.sex_female)
+                            val sexDisplay = when (sex) {
+                                "male" -> sexMaleLabel
+                                "female" -> sexFemaleLabel
+                                else -> ""
+                            }
                             OutlinedTextField(
-                                value = sex.replaceFirstChar { it.uppercase() },
+                                value = sexDisplay,
                                 onValueChange = {},
                                 readOnly = true,
-                                label = { Text("Sex") },
+                                label = { Text(stringResource(R.string.shelter_promo_sex_label)) },
                                 trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = sexExpanded) },
                                 modifier = Modifier.menuAnchor().fillMaxWidth()
                             )
@@ -293,7 +325,10 @@ fun ShelterPromoClaimScreen(
                                 expanded = sexExpanded,
                                 onDismissRequest = { sexExpanded = false }
                             ) {
-                                listOf("male" to "Male", "female" to "Female").forEach { (value, label) ->
+                                listOf(
+                                    "male" to sexMaleLabel,
+                                    "female" to sexFemaleLabel
+                                ).forEach { (value, label) ->
                                     DropdownMenuItem(
                                         text = { Text(label) },
                                         onClick = { sex = value; sexExpanded = false }
@@ -337,7 +372,7 @@ fun ShelterPromoClaimScreen(
                             }
                             Icon(Icons.Default.Pets, contentDescription = null)
                             Spacer(modifier = Modifier.width(8.dp))
-                            Text("Register Pet & Claim Tag")
+                            Text(stringResource(R.string.shelter_promo_register_and_claim_button))
                         }
                     }
                 }

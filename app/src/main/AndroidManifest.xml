@@ -13,6 +13,31 @@
         android:name="android.hardware.camera"
         android:required="false" />
 
+    <!--
+        Package-visibility queries for Android 11+ (API 30+). Without these,
+        Intent.resolveActivity() returns null even when the target app is
+        installed, which breaks the Waze deep-link / browser-fallback path
+        in MapAppPickerDialog (audit H46) and the Google Maps deep-link.
+    -->
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <data android:scheme="waze" />
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <data android:scheme="geo" />
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <data android:scheme="https" />
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <data android:scheme="http" />
+        </intent>
+    </queries>
+
     <application
         android:name=".PetSafetyApplication"
         android:allowBackup="false"

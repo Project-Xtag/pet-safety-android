@@ -2,12 +2,14 @@ package com.petsafety.app.ui.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.petsafety.app.R
 import com.petsafety.app.data.model.Pet
 import com.petsafety.app.data.model.QrTag
 import com.petsafety.app.data.model.UnactivatedOrderItem
 import com.petsafety.app.data.repository.OrdersRepository
 import com.petsafety.app.data.repository.PetsRepository
 import com.petsafety.app.data.repository.QrRepository
+import com.petsafety.app.util.StringProvider
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -28,7 +30,8 @@ sealed class ActivationState {
 class TagActivationViewModel @Inject constructor(
     private val petsRepository: PetsRepository,
     private val qrRepository: QrRepository,
-    private val ordersRepository: OrdersRepository
+    private val ordersRepository: OrdersRepository,
+    private val stringProvider: StringProvider
 ) : ViewModel() {
     private val _pets = MutableStateFlow<List<Pet>>(emptyList())
     val pets: StateFlow<List<Pet>> = _pets.asStateFlow()
@@ -91,7 +94,9 @@ class TagActivationViewModel @Inject constructor(
 
     fun activateTag(qrCode: String) {
         val petId = _selectedPetId.value ?: run {
-            _activationState.value = ActivationState.Error("Please select a pet first")
+            _activationState.value = ActivationState.Error(
+                stringProvider.getString(R.string.error_select_pet_first)
+            )
             return
         }
         val petName = _pets.value.firstOrNull { it.id == petId }?.name ?: ""
@@ -102,7 +107,7 @@ class TagActivationViewModel @Inject constructor(
                 _activationState.value = ActivationState.Success(tag, petName)
             } catch (ex: Exception) {
                 _activationState.value = ActivationState.Error(
-                    ex.localizedMessage ?: "Failed to activate tag"
+                    ex.localizedMessage ?: stringProvider.getString(R.string.error_activate_tag_failed)
                 )
             }
         }
@@ -144,7 +149,7 @@ class TagActivationViewModel @Inject constructor(
                         _activationState.value = ActivationState.Success(tag, newPet.name)
                     } catch (ex: Exception) {
                         _activationState.value = ActivationState.Error(
-                            ex.localizedMessage ?: "Failed to activate tag"
+                            ex.localizedMessage ?: stringProvider.getString(R.string.error_activate_tag_failed)
                         )
                     }
                 }

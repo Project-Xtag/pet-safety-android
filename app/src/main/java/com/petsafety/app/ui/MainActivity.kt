@@ -1,7 +1,6 @@
 package com.petsafety.app.ui
 
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import timber.log.Timber
 import androidx.activity.compose.setContent
@@ -14,7 +13,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import com.petsafety.app.data.notifications.NotificationHelper
 import com.petsafety.app.ui.theme.PetSafetyTheme
-import com.petsafety.app.util.WebUrlHelper
+import com.petsafety.app.util.QrCodeParser
 import dagger.hilt.android.AndroidEntryPoint
 
 /**
@@ -119,11 +118,17 @@ class MainActivity : FragmentActivity() {
 
     private fun extractQrCode(intent: Intent?): String? {
         val data = intent?.data ?: return null
-        return when (data.scheme) {
-            "senra" -> data.lastPathSegment
-            "https" -> extractQrFromHttps(data)
-            else -> null
-        }
+        // Only attempt extraction if this is a tag-bearing URL shape.
+        // The checkout custom-scheme (senra://checkout/...) is handled
+        // separately by extractCheckoutResult and must not be confused
+        // for a tag.
+        if (data.scheme == "senra" && data.host != "tag") return null
+        if (data.scheme != "senra" && data.scheme != "https") return null
+
+        val extracted = QrCodeParser.extractTagCode(data.toString())
+        // If extraction just returned the input unchanged, it wasn't a
+        // recognized URL shape — we have no tag code.
+        return if (QrCodeParser.isValidTagCode(extracted)) extracted else null
     }
 
     private fun extractCheckoutResult(intent: Intent?): Pair<String, String?>? {
@@ -132,19 +137,6 @@ class MainActivity : FragmentActivity() {
             val result = data.lastPathSegment ?: return null // "success" or "cancelled"
             val type = data.getQueryParameter("type") // "subscription", "qr_tag_order", "replacement_shipping"
             return Pair(result, type)
-        }
-        return null
-    }
-
-    private fun extractQrFromHttps(uri: Uri): String? {
-        val host = uri.host?.lowercase()
-        if (host != "senra.pet" && host != "www.senra.pet") return null
-        val path = uri.path ?: return null
-        val strippedPath = WebUrlHelper.stripCountryPrefix(path)
-        val strippedSegments = strippedPath.trimStart('/').split("/")
-        val prefix = strippedSegments.getOrNull(0)?.lowercase()
-        if (strippedSegments.size >= 2 && (prefix == "qr" || prefix == "t")) {
-            return strippedSegments[1]
         }
         return null
     }

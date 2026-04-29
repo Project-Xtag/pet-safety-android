@@ -128,6 +128,7 @@
     <string name="empty_pets_title">Még nincs regisztrált kedvenc</string>
     <string name="empty_pets_message">Add hozzá az első kedvenced és kezdd el a SENRA Közösségi Biléta használatát</string>
     <string name="missing_badge">ELTŰNT</string>
+    <string name="tag_pending_badge">BILÉTA ÚTON</string>
     <string name="add_pet">Kedvenc hozzáadása</string>
     <string name="pet_name">Kedvenc neve</string>
     <string name="failed_load_pets">Nem sikerült betölteni a kedvenceket</string>
@@ -450,8 +451,9 @@
     <string name="mark_lost_shelters">Közeli állatmenhelyek</string>
     <string name="mark_lost_report">Eltűnés jelentése</string>
     <string name="mark_lost_title">%1$s elveszettként jelölése</string>
-    <string name="mark_lost_starter_notice">Válts magasabb csomagra a közösségi riasztások küldéséhez!</string>
-    <string name="mark_lost_upgrade_prompt">A Starter csomaggal a kedvenced eltűntként lesz jelölve, de az értesítések küldéséhez a közeli felhasználóknak, állatorvosoknak és menhelyeknek Standard vagy Maximum előfizetés szükséges.</string>
+    <string name="mark_lost_starter_notice">Fizess elő, hogy eltűntként jelölhesd a kedvenced</string>
+    <string name="mark_lost_starter_upgrade_cta">Csomagok megtekintése</string>
+    <string name="mark_lost_upgrade_prompt">A kedvenc eltűntként való megjelölése és a közösség értesítése a Standard és Maximum csomagok része. Fizess elő egy magasabb csomagra, hogy használhasd ezt a funkciót.</string>
     <string name="mark_lost_success_with_alerts">%1$s eltűntként lett jelentve. Az értesítések küldése folyamatban van a közeli felhasználóknak, állatorvosoknak és menhelyeknek.</string>
     <string name="mark_lost_success_no_location">%1$s eltűntként lett jelölve. Adj meg egy helyet a közösségi riasztások küldéséhez!</string>
     <string name="mark_lost_address_required">Kérjük, adj meg egy címet, vagy engedélyezd a helymeghatározást!</string>
@@ -922,6 +924,7 @@
     <string name="waze">Waze</string>
     <string name="other_maps_app">Más térkép alkalmazás</string>
     <string name="open_with">Megnyitás ezzel\u2026</string>
+    <string name="no_browser_for_navigation">Nincs alkalmazás, amely megnyitná a térképet. Telepítsd a Waze-t vagy egy böngészőt.</string>
     <string name="map_label_pet_location">Kedvenc helye</string>
     <string name="map_label_tag_scanned">Kedvenc biléta beolvasva</string>
     <string name="map_label_sighting">Kedvenc észlelés</string>
@@ -1403,4 +1406,28 @@
     <string name="help_faq_a28">Állatklinikák és menhelyek a senra.pet/register-vet-shelter oldalon regisztrálhatnak. Töltsd ki a rendelő vagy szervezet adatait, és mi küldünk nekik egy ellenőrző e-mailt. A megerősítés után automatikusan értesítéseket küldünk nekik is, amikor kedvencek tűnnek el a környékeden — ezzel is segítve az elveszett kedvencek mielőbbi hazajuttatását. A regisztrációnak nincs költsége és nem szükséges hozzá bejelentkezés.</string>
 
     <string name="welcome_back_no_name">Üdv újra!</string>
+
+    <!-- Shelter promo claim screen -->
+    <string name="shelter_promo_claim_tag_title">Címke aktiválása</string>
+    <string name="shelter_promo_done">Kész</string>
+    <string name="shelter_promo_new_pet">Új kedvenc</string>
+    <string name="shelter_promo_existing_pet">Meglévő kedvenc</string>
+    <string name="shelter_promo_claim_tag_button">Címke aktiválása</string>
+    <string name="shelter_promo_pet_name_label">Név *</string>
+    <string name="shelter_promo_species_label">Faj *</string>
+    <string name="shelter_promo_breed_label">Fajta</string>
+    <string name="shelter_promo_color_label">Szín</string>
+    <string name="shelter_promo_sex_label">Nem</string>
+    <string name="shelter_promo_register_and_claim_button">Regisztráció és címke aktiválása</string>
+    <string name="shelter_promo_claimed_title">Címke aktiválva!</string>
+    <string name="shelter_promo_pet_label_format">Kedvenc: %1$s</string>
+    <string name="shelter_promo_tag_label_format">Címke: %1$s</string>
+    <string name="shelter_promo_free_plan_format">Ingyenes Standard csomag %1$d hónapig</string>
+    <string name="shelter_promo_welcome_format">Üdv tőlünk: %1$s!</string>
+    <string name="shelter_promo_register_subtitle_format">Regisztráld a kedvencedet, és %1$d hónap ingyenes Standard csomagot kapsz.</string>
+
+    <!-- Tag activation / promo claim error fallbacks -->
+    <string name="error_claim_tag_failed">Címke aktiválása sikertelen</string>
+    <string name="error_select_pet_first">Kérjük, válassz egy kedvencet először</string>
+    <string name="error_activate_tag_failed">Címke aktiválása sikertelen</string>
 </resources>

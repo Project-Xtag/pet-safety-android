@@ -127,6 +127,7 @@
     <string name="empty_pets_title">Zatiaľ žiadne zvieratá</string>
     <string name="empty_pets_message">Pridaj prvé zviera a začnite s SENRA</string>
     <string name="missing_badge">STRATENÉ</string>
+    <string name="tag_pending_badge">NA CESTE</string>
     <string name="add_pet">Pridať zviera</string>
     <string name="pet_name">Meno zvieraťa</string>
     <string name="failed_load_pets">Načítanie zvierat zlyhalo</string>
@@ -450,8 +451,9 @@
     <string name="mark_lost_shelters">Útulkom v okolí</string>
     <string name="mark_lost_report">Nahlásiť stratené</string>
     <string name="mark_lost_title">Označiť %1$s ako stratené</string>
-    <string name="mark_lost_starter_notice">Vylepšite pre komunitné upozornenia</string>
-    <string name="mark_lost_upgrade_prompt">V pláne Starter bude tvoje zviera označené ako stratené, ale upozornenia pre používateľov, veterinárov a útulky vyžadujú predplatné Standard alebo Maximum.</string>
+    <string name="mark_lost_starter_notice">Aktivuj predplatné, aby si mohol označiť maznáčika ako nezvestného</string>
+    <string name="mark_lost_starter_upgrade_cta">Zobraziť plány</string>
+    <string name="mark_lost_upgrade_prompt">Označenie maznáčika ako nezvestného a upozornenie komunity je súčasťou plánov Standard a Maximum. Aktivuj si vyšší plán, aby si mohol použiť túto funkciu.</string>
     <string name="mark_lost_success_with_alerts">%1$s bol nahlásený ako stratený. Upozornenia sa posielajú blízkym používateľom.</string>
     <string name="mark_lost_success_no_location">%1$s bol označený ako stratený. Pridaj polohu na odoslanie upozornení.</string>
     <string name="mark_lost_address_required">Zadaj adresu alebo povoľte služby určovania polohy.</string>
@@ -924,6 +926,7 @@
     <string name="waze">Waze</string>
     <string name="other_maps_app">Iná mapová aplikácia</string>
     <string name="open_with">Otvoriť pomocou\u2026</string>
+    <string name="no_browser_for_navigation">Nie je k dispozícii žiadna aplikácia na otvorenie mapy. Nainštalujte Waze alebo prehliadač.</string>
     <string name="map_label_pet_location">Poloha zvieraťa</string>
     <string name="map_label_tag_scanned">Známka zvieraťa naskenovaný</string>
     <string name="map_label_sighting">Pozorovanie zvieraťa</string>
@@ -1413,4 +1416,28 @@
 
 
     <string name="welcome_back_no_name">Vitajte späť!</string>
+
+    <!-- Shelter promo claim screen -->
+    <string name="shelter_promo_claim_tag_title">Claim Tag</string>
+    <string name="shelter_promo_done">Done</string>
+    <string name="shelter_promo_new_pet">New Pet</string>
+    <string name="shelter_promo_existing_pet">Existing Pet</string>
+    <string name="shelter_promo_claim_tag_button">Claim Tag</string>
+    <string name="shelter_promo_pet_name_label">Name *</string>
+    <string name="shelter_promo_species_label">Species *</string>
+    <string name="shelter_promo_breed_label">Breed</string>
+    <string name="shelter_promo_color_label">Color</string>
+    <string name="shelter_promo_sex_label">Sex</string>
+    <string name="shelter_promo_register_and_claim_button">Register Pet &amp; Claim Tag</string>
+    <string name="shelter_promo_claimed_title">Tag Claimed!</string>
+    <string name="shelter_promo_pet_label_format">Pet: %1$s</string>
+    <string name="shelter_promo_tag_label_format">Tag: %1$s</string>
+    <string name="shelter_promo_free_plan_format">Free Standard plan for %1$d months</string>
+    <string name="shelter_promo_welcome_format">Welcome from %1$s!</string>
+    <string name="shelter_promo_register_subtitle_format">Register your pet to get %1$d months free Standard plan.</string>
+
+    <!-- Tag activation / promo claim error fallbacks -->
+    <string name="error_claim_tag_failed">Failed to claim tag</string>
+    <string name="error_select_pet_first">Please select a pet first</string>
+    <string name="error_activate_tag_failed">Failed to activate tag</string>
 </resources>

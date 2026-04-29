@@ -149,8 +149,10 @@ class SubscriptionViewModelTest {
         viewModel.selectPlan(standardPlan, "monthly")
         testDispatcher.scheduler.advanceUntilIdle()
 
-        // Paid plans redirect to web app instead of calling createCheckoutSession
-        assertEquals("https://senra.pet/choose-plan", viewModel.checkoutUrl.value)
+        // Paid plans redirect to web app instead of calling createCheckoutSession.
+        // URL must be country-prefixed so the SPA router mounts the right page.
+        val url = viewModel.checkoutUrl.value!!
+        assertTrue("url=$url", Regex("^https://senra\\.pet/[a-z]{2}/choose-plan$").matches(url))
         coVerify(exactly = 0) { repository.createCheckoutSession(any(), any(), any()) }
     }
 
@@ -173,7 +175,7 @@ class SubscriptionViewModelTest {
         // Paid plan sets web redirect URL
         viewModel.selectPlan(standardPlan)
         testDispatcher.scheduler.advanceUntilIdle()
-        assertEquals("https://senra.pet/choose-plan", viewModel.checkoutUrl.value)
+        assertTrue(viewModel.checkoutUrl.value!!.matches(Regex("^https://senra\\.pet/[a-z]{2}/choose-plan$")))
 
         viewModel.handleCheckoutComplete()
         testDispatcher.scheduler.advanceUntilIdle()
@@ -272,7 +274,8 @@ class SubscriptionViewModelTest {
         testDispatcher.scheduler.advanceUntilIdle()
 
         // All paid plans redirect to web app
-        assertEquals("https://senra.pet/choose-plan", viewModel.checkoutUrl.value)
+        val url = viewModel.checkoutUrl.value!!
+        assertTrue("url=$url", Regex("^https://senra\\.pet/[a-z]{2}/choose-plan$").matches(url))
         coVerify(exactly = 0) { repository.createCheckoutSession(any(), any(), any()) }
     }
 
@@ -282,17 +285,18 @@ class SubscriptionViewModelTest {
         testDispatcher.scheduler.advanceUntilIdle()
 
         // Billing period doesn't matter — all paid plans go to web
-        assertEquals("https://senra.pet/choose-plan", viewModel.checkoutUrl.value)
+        val url = viewModel.checkoutUrl.value!!
+        assertTrue("url=$url", Regex("^https://senra\\.pet/[a-z]{2}/choose-plan$").matches(url))
         coVerify(exactly = 0) { repository.createCheckoutSession(any(), any(), any()) }
     }
 
     @Test
-    fun `selectPlan - paid plan with country code - still redirects to web`() = runTest {
+    fun `selectPlan - paid plan with country code - uses country in URL path`() = runTest {
         viewModel.selectPlan(standardPlan, "monthly", "HU")
         testDispatcher.scheduler.advanceUntilIdle()
 
-        // Country code is appended to help the web display correct currency
-        assertEquals("https://senra.pet/choose-plan?country=HU", viewModel.checkoutUrl.value)
+        // Country code is a path segment so the SPA router mounts the right ChoosePlan page.
+        assertEquals("https://senra.pet/hu/choose-plan", viewModel.checkoutUrl.value)
         coVerify(exactly = 0) { repository.createCheckoutSession(any(), any(), any()) }
     }
 
@@ -345,7 +349,7 @@ class SubscriptionViewModelTest {
     fun `handleCheckoutCancelled - clears checkout URL`() = runTest {
         viewModel.selectPlan(standardPlan)
         testDispatcher.scheduler.advanceUntilIdle()
-        assertEquals("https://senra.pet/choose-plan", viewModel.checkoutUrl.value)
+        assertTrue(viewModel.checkoutUrl.value!!.matches(Regex("^https://senra\\.pet/[a-z]{2}/choose-plan$")))
 
         viewModel.handleCheckoutCancelled()
 

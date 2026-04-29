@@ -128,6 +128,7 @@
     <string name="empty_pets_title">Nie masz jeszcze pupili</string>
     <string name="empty_pets_message">Dodaj swojego pierwszego pupila, aby zacząć korzystać z SENRA</string>
     <string name="missing_badge">ZAGINIONE</string>
+    <string name="tag_pending_badge">W DRODZE</string>
     <string name="add_pet">Dodaj pupila</string>
     <string name="pet_name">Imię pupila</string>
     <string name="failed_load_pets">Nie udało się wczytać pupili</string>
@@ -472,8 +473,9 @@
     <string name="mark_lost_shelters">Pobliskich schronisk dla pupili</string>
     <string name="mark_lost_report">Zgłoś zaginięcie</string>
     <string name="mark_lost_title">Oznacz %1$s jako zaginione</string>
-    <string name="mark_lost_starter_notice">Ulepsz plan, aby wysyłać alerty</string>
-    <string name="mark_lost_upgrade_prompt">W planie Starter twoje pupila zostanie oznaczone jako zagubione, ale powiadomienia do użytkowników, weterynarzy i schronisk wymagają subskrypcji Standard lub Maximum.</string>
+    <string name="mark_lost_starter_notice">Wykup płatny plan, aby oznaczyć pupila jako zaginionego</string>
+    <string name="mark_lost_starter_upgrade_cta">Zobacz plany</string>
+    <string name="mark_lost_upgrade_prompt">Oznaczenie pupila jako zaginionego i powiadomienie społeczności jest dostępne w planach Standard i Maximum. Wykup wyższy plan, aby korzystać z tej funkcji.</string>
     <string name="mark_lost_success_with_alerts">%1$s został zgłoszony jako zaginiony. Powiadomienia są wysyłane do użytkowników w pobliżu.</string>
     <string name="mark_lost_success_no_location">%1$s został oznaczony jako zaginiony. Dodaj lokalizację, aby wysłać alerty społecznościowe.</string>
     <string name="mark_lost_address_required">Podaj adres lub włącz usługi lokalizacji.</string>
@@ -971,6 +973,7 @@
     <string name="waze">Waze</string>
     <string name="other_maps_app">Inna aplikacja z mapami</string>
     <string name="open_with">Otwórz za pomocą\u2026</string>
+    <string name="no_browser_for_navigation">Brak aplikacji do otwarcia mapy. Zainstaluj Waze lub przeglądarkę.</string>
     <string name="map_label_pet_location">Lokalizacja pupila</string>
     <string name="map_label_tag_scanned">Zeskanowano nieśką pupila</string>
     <string name="map_label_sighting">Obserwacja pupila</string>
@@ -1425,4 +1428,28 @@
 
 
     <string name="welcome_back_no_name">Witaj ponownie!</string>
+
+    <!-- Shelter promo claim screen -->
+    <string name="shelter_promo_claim_tag_title">Claim Tag</string>
+    <string name="shelter_promo_done">Done</string>
+    <string name="shelter_promo_new_pet">New Pet</string>
+    <string name="shelter_promo_existing_pet">Existing Pet</string>
+    <string name="shelter_promo_claim_tag_button">Claim Tag</string>
+    <string name="shelter_promo_pet_name_label">Name *</string>
+    <string name="shelter_promo_species_label">Species *</string>
+    <string name="shelter_promo_breed_label">Breed</string>
+    <string name="shelter_promo_color_label">Color</string>
+    <string name="shelter_promo_sex_label">Sex</string>
+    <string name="shelter_promo_register_and_claim_button">Register Pet &amp; Claim Tag</string>
+    <string name="shelter_promo_claimed_title">Tag Claimed!</string>
+    <string name="shelter_promo_pet_label_format">Pet: %1$s</string>
+    <string name="shelter_promo_tag_label_format">Tag: %1$s</string>
+    <string name="shelter_promo_free_plan_format">Free Standard plan for %1$d months</string>
+    <string name="shelter_promo_welcome_format">Welcome from %1$s!</string>
+    <string name="shelter_promo_register_subtitle_format">Register your pet to get %1$d months free Standard plan.</string>
+
+    <!-- Tag activation / promo claim error fallbacks -->
+    <string name="error_claim_tag_failed">Failed to claim tag</string>
+    <string name="error_select_pet_first">Please select a pet first</string>
+    <string name="error_activate_tag_failed">Failed to activate tag</string>
 </resources>

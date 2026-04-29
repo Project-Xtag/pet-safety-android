@@ -87,11 +87,36 @@ class ConfigurationManager @Inject constructor(
     val isConfigured: StateFlow<Boolean> = _isConfigured.asStateFlow()
 
     // Default values for offline/fallback scenarios
-    private val defaults = mapOf(
+    private val defaults = mapOf<String, Any>(
         "sentry_dsn_android" to "",
         "api_base_url" to BuildConfig.API_BASE_URL,
-        "sse_base_url" to BuildConfig.SSE_BASE_URL
+        "sse_base_url" to BuildConfig.SSE_BASE_URL,
+        // Default false: keep the legacy fail-open posture until backend
+        // App Check enforcement (WS8.7) ships. Flipping to true in Remote
+        // Config will then make AppCheckInterceptor fail-closed without an
+        // app release (audit H47).
+        "app_check_enforce_client" to false,
     )
+
+    /**
+     * Whether AppCheckInterceptor should refuse requests when the App Check
+     * token is unavailable. Read from Remote Config so we can flip it on
+     * once the backend validates the X-Firebase-AppCheck header.
+     *
+     * Synchronous because OkHttp interceptors run on a worker thread and
+     * can't suspend. The underlying RemoteConfig.getBoolean is in-memory
+     * after the first successful fetch.
+     */
+    fun shouldEnforceAppCheckClient(): Boolean {
+        return try {
+            remoteConfig.getBoolean("app_check_enforce_client")
+        } catch (e: Exception) {
+            // If RemoteConfig isn't ready yet (e.g. very first launch before
+            // fetch completes), default to fail-open — better availability
+            // than user-visible 503s on a cold start.
+            false
+        }
+    }
 
     /**
      * Fetch configuration from Firebase Remote Config
@@ -131,11 +156,11 @@ class ConfigurationManager @Inject constructor(
 
         // API Base URL (use default if empty)
         val apiUrl = remoteConfig.getString("api_base_url")
-        _apiBaseUrl.value = apiUrl.ifEmpty { defaults["api_base_url"]!! }
+        _apiBaseUrl.value = apiUrl.ifEmpty { defaults["api_base_url"] as String }
 
         // SSE Base URL (use default if empty)
         val sseUrl = remoteConfig.getString("sse_base_url")
-        _sseBaseUrl.value = sseUrl.ifEmpty { defaults["sse_base_url"]!! }
+        _sseBaseUrl.value = sseUrl.ifEmpty { defaults["sse_base_url"] as String }
 
         Timber.d("Config values updated: sentryDSN=%s", if (dsn.isEmpty()) "not configured" else "configured")
     }
