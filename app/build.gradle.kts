@@ -201,6 +201,13 @@ dependencies {
     testImplementation("org.robolectric:robolectric:4.14.1")
     testImplementation("androidx.work:work-testing:2.9.1")
     testImplementation(libs.androidx.test.core)
+    // Compose UI tests via Robolectric (jvm) — `createComposeRule()` + semantic
+    // tree assertions for the H65 a11y suite. The ui-test-manifest activity
+    // declaration must be on debugImplementation so the merged debug APK
+    // (which Robolectric reads) carries it.
+    testImplementation(platform(libs.androidx.compose.bom))
+    testImplementation("androidx.compose.ui:ui-test-junit4")
+    debugImplementation("androidx.compose.ui:ui-test-manifest")
     androidTestImplementation(libs.androidx.test.core)
     androidTestImplementation(libs.androidx.test.runner)
     androidTestImplementation(libs.espresso.core)

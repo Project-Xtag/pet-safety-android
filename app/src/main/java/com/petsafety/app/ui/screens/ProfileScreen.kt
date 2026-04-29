@@ -3,6 +3,8 @@ package com.petsafety.app.ui.screens
 import android.content.Intent
 import android.net.Uri
 import androidx.compose.foundation.background
+import androidx.compose.foundation.selection.selectable
+import androidx.compose.ui.semantics.Role
 import com.petsafety.app.util.WebUrlHelper
 import androidx.compose.foundation.clickable
 import androidx.activity.compose.rememberLauncherForActivityResult
@@ -95,6 +97,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.petsafety.app.R
+import com.petsafety.app.ui.a11y.markAsHeading
 import com.petsafety.app.ui.theme.BrandOrange
 import com.petsafety.app.ui.theme.PeachBackground
 import com.petsafety.app.ui.theme.TealAccent
@@ -329,7 +332,8 @@ private fun ProfileMain(
                                 fontSize = AdaptiveLayout.scaledSp(24),
                                 fontWeight = FontWeight.Bold
                             ),
-                            color = MaterialTheme.colorScheme.onSurface
+                            color = MaterialTheme.colorScheme.onSurface,
+                            modifier = Modifier.markAsHeading()
                         )
                     }
 
@@ -2067,7 +2071,8 @@ private fun ContactSupportDialog(
         title = {
             Text(
                 text = stringResource(R.string.contact_support),
-                style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.Bold)
+                style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.Bold),
+                modifier = Modifier.markAsHeading()
             )
         },
         text = {
@@ -2388,12 +2393,16 @@ private fun AppearanceToggleRow() {
                     modifier = Modifier
                         .clip(RoundedCornerShape(6.dp))
                         .background(if (isSelected) BrandOrange else Color.Transparent)
-                        .clickable {
-                            selected = mode
-                            prefs.edit().putString("appearanceMode", mode).apply()
-                            // Recreate activity to apply theme change
-                            (context as? android.app.Activity)?.recreate()
-                        }
+                        .selectable(
+                            selected = isSelected,
+                            role = Role.RadioButton,
+                            onClick = {
+                                selected = mode
+                                prefs.edit().putString("appearanceMode", mode).apply()
+                                // Recreate activity to apply theme change
+                                (context as? android.app.Activity)?.recreate()
+                            }
+                        )
                         .padding(horizontal = 12.dp, vertical = 6.dp)
                 )
             }

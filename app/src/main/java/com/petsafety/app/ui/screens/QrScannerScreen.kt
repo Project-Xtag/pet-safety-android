@@ -91,6 +91,7 @@ import com.google.mlkit.vision.barcode.BarcodeScannerOptions
 import com.google.mlkit.vision.barcode.common.Barcode
 import com.google.mlkit.vision.common.InputImage
 import com.petsafety.app.R
+import com.petsafety.app.ui.a11y.markAsHeading
 import com.petsafety.app.data.model.TagLookupResponse
 import com.petsafety.app.data.repository.LocationConsent
 import com.petsafety.app.ui.theme.BrandOrange
@@ -244,7 +245,8 @@ fun QrScannerScreen(
                         fontSize = 22.sp,
                         fontWeight = FontWeight.Bold
                     ),
-                    color = Color.White
+                    color = Color.White,
+                    modifier = Modifier.markAsHeading()
                 )
 
                 Spacer(modifier = Modifier.height(8.dp))
@@ -288,7 +290,8 @@ fun QrScannerScreen(
                             fontSize = 22.sp,
                             fontWeight = FontWeight.Bold
                         ),
-                        color = MaterialTheme.colorScheme.onSurface
+                        color = MaterialTheme.colorScheme.onSurface,
+                        modifier = Modifier.markAsHeading()
                     )
 
                     Text(
@@ -523,7 +526,8 @@ private fun ScannedPetSheet(
                     fontWeight = FontWeight.Bold
                 ),
                 color = MaterialTheme.colorScheme.onSurface,
-                textAlign = TextAlign.Center
+                textAlign = TextAlign.Center,
+                modifier = Modifier.markAsHeading()
             )
 
             Spacer(modifier = Modifier.height(8.dp))
