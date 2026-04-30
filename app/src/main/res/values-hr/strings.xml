@@ -61,7 +61,7 @@
     <string name="verification_failed">Provjera neuspješna</string>
     <string name="invalid_email">Unesi ispravnu e-mail adresu</string>
     <string name="otp_placeholder" translatable="false">Unesi 6-znamenkasti kôd</string>
-    <string name="resend_code_cooldown">Ponovo pošalji kod za %1$d s</string>
+    <string name="resend_code_cooldown">Ponovo pošalji kod za %1$ds</string>
     <string name="resend_code_prompt">Nisi primio kod? Pošalji ponovo</string>
     <string name="dont_have_account">Nemaš račun?</string>
     <string name="start_here_order_free_tag">Započni ovdje i naruči besplatni privjesak</string>

@@ -72,7 +72,7 @@
     <string name="verification_failed">Verifica non riuscita</string>
     <string name="invalid_email">Inserisci un indirizzo email valido</string>
     <string name="otp_placeholder" translatable="false">000000</string>
-    <string name="resend_code_cooldown">Rinvia codice tra %1$d s</string>
+    <string name="resend_code_cooldown">Rinvia codice tra %1$ds</string>
     <string name="resend_code_prompt">Non hai ricevuto il codice? Rinvia</string>
     <string name="dont_have_account">Non hai ancora un account?</string>
     <string name="start_here_order_free_tag">Inizia qui &amp; ordina la tua medaglietta gratuita</string>
