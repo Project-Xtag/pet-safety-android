@@ -10,7 +10,7 @@
     <string name="pet_limit_reached_message">Il tuo piano %1$s consente %2$d animale di compagnia. Passa a %3$s per %4$s e aggiungi animali di compagnia illimitati.</string>
     <string name="upgrade_to_plan">Passa a %1$s</string>
     <string name="story_placeholder">Racconta la tua storia di ritrovamento…</string>
-    <string name="share_owner_notified">Il padrone è stato avvisato</string>
+    <string name="share_owner_notified">Il proprietario è stato avvisato</string>
     <plurals name="photos_uploaded">
         <item quantity="one">%d foto caricata</item>
         <item quantity="other">%d foto caricate</item>
@@ -72,7 +72,7 @@
     <string name="verification_failed">Verifica non riuscita</string>
     <string name="invalid_email">Inserisci un indirizzo email valido</string>
     <string name="otp_placeholder" translatable="false">000000</string>
-    <string name="resend_code_cooldown">Rinvia codice tra %1$d s</string>
+    <string name="resend_code_cooldown">Rinvia codice tra %1$ds</string>
     <string name="resend_code_prompt">Non hai ricevuto il codice? Rinvia</string>
     <string name="dont_have_account">Non hai ancora un account?</string>
     <string name="start_here_order_free_tag">Inizia qui &amp; ordina la tua medaglietta gratuita</string>
@@ -124,7 +124,7 @@
     <string name="empty_pets_title">Nessun animale di compagnia registrato</string>
     <string name="empty_pets_message">Aggiungi il tuo primo animale di compagnia per iniziare a usare SENRA</string>
     <string name="missing_badge">SCOMPARSO</string>
-    <string name="tag_pending_badge">IN ARRIVO</string>
+    <string name="tag_pending_badge">MEDAGLIETTA IN ARRIVO</string>
     <string name="add_pet">Aggiungi animale di compagnia</string>
     <string name="pet_name">Nome dell\'animale di compagnia</string>
     <string name="failed_load_pets">Impossibile caricare gli animali di compagnia</string>
@@ -279,21 +279,21 @@
     <string name="turn_on_flashlight">Accendi torcia</string>
     <string name="hello_pet_name">Ciao! Sono %1$s</string>
     <string name="scanned_tag_thanks">Hai appena scansionato la mia medaglietta. Grazie per avermi aiutato!</string>
-    <string name="share_location_with_owner">Condividi la tua posizione con il padrone</string>
-    <string name="owner_notified_message">Il padrone di %1$s riceverà una notifica con la tua posizione</string>
-    <string name="share_location_help">Aiuta il padrone di %1$s a trovarlo condividendo la tua posizione</string>
+    <string name="share_location_with_owner">Condividi la tua posizione con il proprietario</string>
+    <string name="owner_notified_message">Il proprietario di %1$s riceverà una notifica con la tua posizione</string>
+    <string name="share_location_help">Aiuta il proprietario di %1$s a trovarlo condividendo la tua posizione!</string>
     <string name="precise_location">Posizione precisa</string>
     <string name="precise_location_desc">Condividi le tue coordinate GPS esatte</string>
     <string name="approximate_location">Posizione approssimativa</string>
     <string name="approximate_location_desc">Condivisione posizione approssimativa (conforme al GDPR)</string>
     <string name="dont_share_location">Non condividere la posizione</string>
-    <string name="dont_share_location_desc">Avvisa solo il padrone che il suo animale di compagnia è stato trovato</string>
-    <string name="confirm_notify_owner">Conferma &amp; avvisa il padrone</string>
+    <string name="dont_share_location_desc">Avvisa solo il proprietario che il suo animale da compagnia è stato trovato!</string>
+    <string name="confirm_notify_owner">Conferma e avvisa il proprietario</string>
     <string name="share_exact_location_toggle">Condividi posizione esatta</string>
-    <string name="contact_owner">Contatta il padrone</string>
+    <string name="contact_owner">Contatta il proprietario</string>
     <string name="call_phone">Chiama: %1$s</string>
     <string name="email_contact">Email: %1$s</string>
-    <string name="privacy_notice">La tua privacy è importante. Condivideremo la tua posizione solo con il padrone di %1$s per aiutarli a riunirsi.</string>
+    <string name="privacy_notice">La tua privacy è importante. Condivideremo la tua posizione solo con il proprietario di %1$s per aiutarli a riunirsi.</string>
     <string name="found_pet_title">%1$s trovato</string>
     <string name="share_location">Condividi posizione</string>
     <string name="location_shared">Posizione condivisa</string>
@@ -421,17 +421,17 @@
     <string name="email_optional">Email (opzionale)</string>
     <string name="sighting_reported_success">Avvistamento segnalato con successo!</string>
     <string name="report_sighting_header">Segnala un avvistamento</string>
-    <string name="report_sighting_help">Aiuta un animale di compagnia scomparso a ritrovare il proprio padrone condividendo dove l\'hai visto.</string>
+    <string name="report_sighting_help">Aiuta un animale da compagnia smarrito a ritrovare il proprio proprietario condividendo dove l\'hai visto.</string>
     <string name="share_contact_info">Condividi i miei recapiti</string>
-    <string name="share_contact_info_desc">Consenti al padrone dell\'animale di compagnia di contattarti direttamente</string>
+    <string name="share_contact_info_desc">Consenti al proprietario dell\'animale da compagnia di contattarti direttamente</string>
     <string name="your_name">Il tuo nome</string>
     <string name="your_phone_number">Il tuo numero di telefono</string>
     <string name="your_email">La tua email</string>
     <string name="address_or_description">Indirizzo o descrizione</string>
     <string name="where_did_you_see">Dove hai visto l\'animale di compagnia?</string>
-    <string name="sighting_notes_placeholder">Descrivi cosa hai visto, le condizioni dell\'animale di compagnia, la direzione di marcia\u2026</string>
+    <string name="sighting_notes_placeholder">Descrivi cosa hai visto e in che direzione è andato…</string>
     <string name="submit_sighting_report">Invia segnalazione avvistamento</string>
-    <string name="sighting_reported_owner_notified">Avvistamento segnalato! Il padrone è stato avvisato.</string>
+    <string name="sighting_reported_owner_notified">Avvistamento segnalato! Il proprietario è stato avvisato.</string>
     <string name="sighting_queued_offline">Segnalazione in coda — verrà inviata quando sei online.</string>
 
     <!-- ============================================ -->
@@ -482,7 +482,7 @@
     <!-- MARK: Notifications -->
     <!-- ============================================ -->
     <string name="tag_scanned_message">La medaglietta di %1$s è stata scansionata: %2$s!</string>
-    <string name="unknown_location">in un luogo sconosciuto</string>
+    <string name="unknown_location">una posizione sconosciuta</string>
     <string name="sighting_message_with_location">%1$s è stato avvistato a: %2$s!</string>
     <string name="sighting_message_no_location">%1$s è stato avvistato!</string>
     <string name="pet_found_message">Buone notizie! %1$s è stato ritrovato!</string>
@@ -508,7 +508,7 @@
     <string name="notif_pet_found_body">Buone notizie! %1$s è stato ritrovato!</string>
     <string name="notif_sighting_title">Avvistamento segnalato</string>
     <string name="notif_sighting_body_location">%1$s è stato avvistato a %2$s!</string>
-    <string name="notif_sighting_body_no_location">%1$s è stato avvistato! Controlla il luogo dell\'avvistamento.</string>
+    <string name="notif_sighting_body_no_location">%1$s è stato avvistato! Controlla la posizione dell\'avvistamento.</string>
     <string name="notif_fallback_title">SENRA Animale di compagnia</string>
     <string name="notif_fallback_pet_name">Il tuo animale di compagnia</string>
     <string name="notif_fallback_a_pet">Un animale di compagnia</string>
@@ -559,7 +559,7 @@
     <string name="loading_success_stories">Caricamento storie di successo\u2026</string>
     <string name="no_success_stories">Nessuna storia di successo nelle vicinanze</string>
     <string name="no_success_stories_message">Sii il primo a condividere un lieto ritrovamento nella tua zona!</string>
-    <string name="found_and_reunited">Trovato &amp; riunito con il padrone</string>
+    <string name="found_and_reunited">Trovato &amp; riunito con il proprietario</string>
     <string name="distance_km">%.1f km di distanza</string>
     <string name="missing_since">Scomparso il: %1$s</string>
     <string name="found_on">%1$s trovato</string>
@@ -693,7 +693,7 @@
     <string name="contact_support_sending">Invio in corso\u2026</string>
     <string name="contact_support_success">Richiesta di supporto inviata! ID ticket: %1$s</string>
     <string name="contact_support_response">Ti risponderemo entro 24 ore.</string>
-    <string name="support_email">Supporto: hello@senra.animale di compagnia</string>
+    <string name="support_email">Supporto: hello@senra.pet</string>
     <string name="support_category_general">Generale</string>
     <string name="support_category_technical">Problema tecnico</string>
     <string name="support_category_account">Account</string>
@@ -705,13 +705,13 @@
     <!-- FAQ Items -->
     <!-- Guide Items -->
     <string name="help_guide_qr_tags_title">Medagliette QR per animali di compagnia</string>
-    <string name="help_guide_qr_tags_desc">Scopri le nostre medagliette per animali di compagnia con QR code e come funzionano.</string>
+    <string name="help_guide_qr_tags_desc">Ogni medaglietta SENRA presenta un QR code unico che si collega al profilo digitale del tuo animale da compagnia. Chiunque trovi il tuo animale da compagnia può scansionare il codice con la fotocamera del telefono — non serve scaricare un\'app. La scansione della medaglietta ti invia una notifica con la posizione di chi l\'ha trovato (se la condivide). Puoi attivare le medagliette tramite l\'app e richiedere una medaglietta sostitutiva in qualsiasi momento se perdi o danneggi quella originale.</string>
     <string name="help_guide_materials_title">Materiali e durata della medaglietta</string>
-    <string name="help_guide_materials_desc">Informazioni sui materiali che utilizziamo e sulla cura della medaglietta.</string>
+    <string name="help_guide_materials_desc">Le medagliette SENRA sono realizzate in metallo leggero e resistente con rivestimento epossidico per una protezione extra. Sono impermeabili e resistenti ai raggi UV, adatte a tutte le condizioni atmosferiche e non si usurano con l\'uso quotidiano. Le medagliette sono progettate per adattarsi comodamente alla maggior parte dei collari e delle pettorine.</string>
     <string name="help_guide_emergency_title">Contatti di emergenza e avvisi</string>
-    <string name="help_guide_emergency_desc">Come funziona il nostro sistema di contatti di emergenza per riportare rapidamente a casa il tuo animale di compagnia smarrito.</string>
+    <string name="help_guide_emergency_desc">Quando qualcuno scansiona la medaglietta del tuo animale da compagnia, ricevi immediatamente una notifica push e un\'email con la posizione di chi l\'ha trovato. I membri dei piani Standard e Maximum ricevono anche avvisi SMS per una risposta più rapida. Se contrassegni il tuo animale da compagnia come smarrito, viene inviato un avviso alla comunità a tutti gli utenti SENRA entro 10 km, e anche i veterinari e i rifugi registrati nella tua zona vengono avvisati. Chiunque nella comunità può segnalare avvistamenti con la posizione e le foto, aiutandoti a trovare il tuo animale da compagnia.</string>
     <string name="help_guide_profile_title">Gestione del profilo animale di compagnia</string>
-    <string name="help_guide_profile_desc">Gestione del profilo pubblico del tuo animale di compagnia e aggiornamento dei suoi dati.</string>
+    <string name="help_guide_profile_desc">Il profilo digitale del tuo animale da compagnia è il cuore di SENRA. Aggiungi i dettagli essenziali: specie, razza, età e una foto di buona qualità. Puoi anche includere informazioni mediche, allergie, farmaci e segni distintivi. Quando qualcuno scansiona la medaglietta del tuo animale da compagnia, vedrà questo profilo, quindi è importante mantenerlo aggiornato. Il tuo profilo aiuta chi cerca a riconoscere il tuo animale da compagnia e a sapere cosa fare se lo trova.</string>
     <string name="help_guide_missing_alerts_title">Avvisi di animale di compagnia scomparso e avvistamenti</string>
     <string name="help_guide_missing_alerts_desc">Se il tuo animale di compagnia si smarrisce, contrassegnalo come scomparso in \'I miei animali di compagnia\' per creare un avviso immediato alla community. La foto e i dati del tuo animale di compagnia appariranno sulla mappa e nella lista degli animali di compagnia scomparsi, visibile a tutti gli utenti SENRA nella tua zona. Tutti gli utenti registrati entro 10 km ricevono una notifica email e SMS. I membri della community possono segnalare avvistamenti con dati GPS, che ricevi come notifiche. Anche i veterinari e i rifugi registrati vengono avvisati. Quando il tuo animale di compagnia viene ritrovato, contrassegnalo come trovato! Se vuoi, condividi la storia del ritorno a casa per dare speranza agli altri.</string>
     <string name="help_guide_community_title">Community e animali di compagnia trovati</string>
@@ -844,7 +844,7 @@
     <string name="referral_copy">Copia</string>
     <string name="referral_share">Condividi</string>
     <string name="referral_pending">In sospeso</string>
-    <string name="referral_share_text">Usa il mio codice referral %1$s per ottenere 2 mesi gratis su SENRA! https://senra.animale di compagnia/choose-plan?referral=%2$s</string>
+    <string name="referral_share_text">Usa il mio codice referral %1$s per ottenere 2 mesi gratis su SENRA! https://senra.pet/choose-plan?referral=%2$s</string>
     <string name="referral_clipboard_label">Codice referral</string>
     <string name="referral_use_friend_code">Usa il codice di un amico</string>
     <string name="enter_friend_code">Inserisci codice referral</string>
@@ -879,9 +879,9 @@
     <string name="public_profile_preview">Anteprima profilo pubblico</string>
     <string name="failed_load_profile">Impossibile caricare il profilo</string>
     <string name="public_profile_subtitle">Ecco come gli altri vedono il profilo di %1$s</string>
-    <string name="owner_notified_sms_email">Il padrone di %1$s riceverà un SMS e una email con la tua posizione</string>
-    <string name="contact_owner_plea">Per favore, avvisa il mio padrone che mi hai trovato\u2026</string>
-    <string name="contact_owner_plea_full">Per favore, avvisa il mio padrone che mi hai trovato. Puoi contattarlo usando i dati di contatto qui sotto.</string>
+    <string name="owner_notified_sms_email">Il proprietario di %1$s riceverà un SMS e una email con la tua posizione</string>
+    <string name="contact_owner_plea">Per favore, avvisa il mio proprietario che mi hai trovato…!</string>
+    <string name="contact_owner_plea_full">Per favore, avvisa il mio proprietario che mi hai trovato! Puoi contattarlo usando i dati di contatto qui sotto.</string>
     <string name="contact_info_not_set">Recapiti non ancora configurati</string>
     <string name="contact_info_hidden">Recapiti nascosti</string>
     <string name="contact_info_hidden_hint">I tuoi recapiti sono impostati ma nascosti dalle impostazioni privacy. Aggiorna in Account \u2192 Modalità privacy.</string>
@@ -890,19 +890,19 @@
     <string name="unique_features">Caratteristiche uniche</string>
     <string name="behavior_notes">Note sul comportamento</string>
     <string name="how_it_works">Come funziona</string>
-    <string name="help_reunite_pet">Aiuta %1$s a tornare dal suo padrone in sicurezza</string>
+    <string name="help_reunite_pet">Aiuta %1$s a tornare dal suo proprietario in sicurezza!</string>
     <string name="step_share_location">Condividi la tua posizione</string>
-    <string name="step_share_location_desc">Tocca il pulsante qui sopra per condividere la tua posizione con il padrone</string>
-    <string name="step_owner_notified">Il padrone viene avvisato</string>
-    <string name="step_owner_notified_desc">Il padrone riceve un SMS e una email con la tua posizione</string>
+    <string name="step_share_location_desc">Tocca il pulsante qui sopra per condividere la tua posizione con il proprietario!</string>
+    <string name="step_owner_notified">Il proprietario ha ricevuto la notifica</string>
+    <string name="step_owner_notified_desc">Il proprietario riceve un SMS e un\'email con la tua posizione</string>
     <string name="step_quick_reunion">Ricongiungimento rapido</string>
-    <string name="step_quick_reunion_desc">Il padrone può navigare verso la tua posizione per recuperare il suo animale di compagnia</string>
+    <string name="step_quick_reunion_desc">Il proprietario può navigare verso la tua posizione per recuperare il suo animale da compagnia</string>
     <string name="step_share_location_desc_public">Clicca il pulsante qui sopra per condividere dove hai trovato %1$s</string>
-    <string name="step_owner_notified_desc_public">Il padrone riceve un SMS con la tua posizione su Google Maps</string>
-    <string name="step_quick_reunion_desc_public">Rimani vicino alla posizione in modo che il padrone possa trovare te e %1$s</string>
-    <string name="owner_phone_label">Telefono del padrone: %1$s</string>
-    <string name="owner_email_label">Email del padrone: %1$s</string>
-    <string name="your_privacy_notice">La tua privacy è importante. Condivideremo la tua posizione solo con il padrone di %1$s con il tuo esplicito consenso.</string>
+    <string name="step_owner_notified_desc_public">Il proprietario riceve un SMS con la tua posizione su Google Maps</string>
+    <string name="step_quick_reunion_desc_public">Rimani vicino alla posizione in modo che il proprietario possa trovare te e %1$s!</string>
+    <string name="owner_phone_label">Telefono del proprietario: %1$s</string>
+    <string name="owner_email_label">Email del proprietario: %1$s</string>
+    <string name="your_privacy_notice">La tua privacy è importante. Condivideremo la tua posizione solo con il proprietario di %1$s con il tuo esplicito consenso.</string>
 
     <!-- ============================================ -->
     <!-- MARK: Offline Mode -->
@@ -994,7 +994,7 @@
     <!-- ============================================ -->
     <string name="reunion_template">%1$s è tornato a casa. Dopo %2$s di smarrimento, %3$s è stato riunito con la sua famiglia. Grazie alla nostra straordinaria community per aver riportato a casa %4$s!</string>
     <string name="reunion_template_no_time">%1$s è stato riunito con la sua famiglia! Grazie alla nostra straordinaria community per aver riportato a casa %2$s!</string>
-    <string name="owners_story">La storia del padrone:</string>
+    <string name="owners_story">La storia del proprietario:</string>
     <string name="post_to_success_stories">Pubblica nelle storie di successo</string>
     <string name="remove_from_success_stories">Rimuovi dalle storie di successo</string>
     <string name="removed_from_success_stories">Rimosso dalle storie di successo</string>
@@ -1155,10 +1155,10 @@
     <string name="breed_dog_pembroke_welsh_corgi">Pembroke Welsh Corgi</string>
     <string name="breed_dog_maltese">Maltese</string>
     <string name="breed_dog_chihuahua">Chihuahua</string>
-    <string name="breed_dog_west_highland_white_terrier">West Highland White Terrier</string>
+    <string name="breed_dog_west_highland_white_terrier">West Highland white terrier</string>
     <string name="breed_dog_collie">Collie</string>
-    <string name="breed_dog_basset_hound">Basset Hound</string>
-    <string name="breed_dog_rhodesian_ridgeback">Rhodesian Ridgeback</string>
+    <string name="breed_dog_basset_hound">Basset hound</string>
+    <string name="breed_dog_rhodesian_ridgeback">Rhodesian ridgeback</string>
     <string name="breed_dog_newfoundland">Terranova</string>
     <string name="breed_dog_belgian_malinois">Malinois Belga</string>
     <string name="breed_dog_bichon_frise">Bichon Frisé</string>
@@ -1168,10 +1168,10 @@
     <string name="breed_dog_papillon">Papillon</string>
     <string name="breed_dog_bullmastiff">Bullmastiff</string>
     <string name="breed_dog_samoyed">Samoiedo</string>
-    <string name="breed_dog_scottish_terrier">Scottish Terrier</string>
-    <string name="breed_dog_soft_coated_wheaten_terrier">Soft Coated Wheaten Terrier</string>
-    <string name="breed_dog_airedale_terrier">Airedale Terrier</string>
-    <string name="breed_dog_jack_russell_terrier">Jack Russell Terrier</string>
+    <string name="breed_dog_scottish_terrier">Scottish terrier</string>
+    <string name="breed_dog_soft_coated_wheaten_terrier">Soft Coated Wheaten terrier</string>
+    <string name="breed_dog_airedale_terrier">Airedale terrier</string>
+    <string name="breed_dog_jack_russell_terrier">Jack Russell terrier</string>
     <string name="breed_cat_domestic_shorthair">Domestico a pelo corto</string>
     <string name="breed_cat_domestic_longhair">Domestico a pelo lungo</string>
     <string name="breed_cat_persian">Persiano</string>
@@ -1209,13 +1209,13 @@
     <string name="breed_cat_korat">Korat</string>
     <string name="breed_cat_singapura">Singapura</string>
     <string name="breed_cat_turkish_van">Van Turco</string>
-    <string name="breed_cat_havana_brown">Havana Brown</string>
+    <string name="breed_cat_havana_brown">Havana brown</string>
     <string name="breed_cat_japanese_bobtail">Bobtail Giapponese</string>
     <string name="breed_cat_laperm">LaPerm</string>
-    <string name="breed_cat_american_wirehair">American Wirehair</string>
+    <string name="breed_cat_american_wirehair">American Wirehair a pelo duro</string>
     <string name="breed_cat_european_burmese">Burmese Europeo</string>
     <string name="breed_cat_burmilla">Burmilla</string>
-    <string name="breed_cat_colorpoint_shorthair">Colorpoint Shorthair</string>
+    <string name="breed_cat_colorpoint_shorthair">Colorpoint a pelo corto</string>
     <string name="breed_cat_javanese">Giavanese</string>
     <string name="breed_cat_nebelung">Nebelung</string>
     <string name="breed_cat_pixie_bob">Pixie-Bob</string>
@@ -1259,10 +1259,10 @@
     <string name="share_location_title">Condividi posizione</string>
     <string name="share_location_exact">Condividi posizione esatta</string>
     <string name="share_location_approximate">Condividi posizione approssimativa (~100m)</string>
-    <string name="share_location_exact_note">Il padrone vedrà le tue coordinate GPS esatte</string>
-    <string name="share_location_approximate_note">Il padrone vedrà un\'area approssimativa</string>
+    <string name="share_location_exact_note">Il proprietario vedrà la tua posizione</string>
+    <string name="share_location_approximate_note">Il proprietario vedrà un\'area approssimativa</string>
     <string name="share_location_confirm">Condividi</string>
-    <string name="share_location_success">Posizione condivisa! Il padrone è stato avvisato.</string>
+    <string name="share_location_success">Posizione condivisa! Il proprietario è stato avvisato.</string>
     <string name="share_location_denied">È necessario il permesso di localizzazione per condividere la posizione</string>
     <string name="share_location_error">Impossibile condividere la posizione. Riprova.</string>
 
@@ -1333,8 +1333,8 @@
     <string name="show_name">Mostra il tuo nome</string>
     <string name="show_name_subtitle">Il tuo nome sarà visibile nel profilo pubblico del tuo animale di compagnia quando qualcuno scansiona la medaglietta</string>
     <!-- FAQ Questions and Answers -->
-    <string name="help_faq_q1">Come registro il mio animale domestico?</string>
-    <string name="help_faq_a1">Puoi registrare il tuo animale di compagnia nel menu \'I Miei Animali di compagnia\' toccando \'Aggiungi Nuovo Animale di compagnia\'. Compila le informazioni richieste e carica una o più foto.</string>
+    <string name="help_faq_q1">Come registro il mio animale da compagnia?</string>
+    <string name="help_faq_a1">Puoi registrare il tuo animale da compagnia nel menu \'I miei animali da compagnia\' toccando \'Aggiungi nuovo animale da compagnia\'. Compila le informazioni richieste e carica una o più foto.</string>
     <string name="help_faq_q2">Quali informazioni devo fornire nel profilo del mio animale di compagnia?</string>
     <string name="help_faq_a2">Hai già fornito il nome del tuo animale di compagnia quando hai ordinato la medaglietta, e apparirà nel profilo del tuo animale di compagnia una volta attivata. Inserisci la specie e la razza. Per prevenire abusi, questi dati possono essere inseriti solo una volta. Se commetti un errore, contattaci e ti aiuteremo. Qui puoi anche aggiungere peso, età, colore e qualsiasi caratteristica distintiva o comportamento tipico del tuo gatto/cane. Puoi anche caricare foto. Tu decidi quali informazioni sono visibili sul tuo animale di compagnia se si perde.</string>
     <string name="help_faq_q3">Come funziona la medaglietta con codice QR?</string>
@@ -1360,23 +1360,23 @@
     <string name="help_faq_q13">Posso avere più animali di compagnia su un account?</string>
     <string name="help_faq_a13">Sì. Col piano Starter (gratuito) puoi registrare fino a 10 animali di compagnia con funzionalità limitate. Il piano Standard è per un gatto o cane con tutte le funzionalità. Il piano Maximum include tutto con fino a 10 animali di compagnia.</string>
     <string name="help_faq_q14">Come segnalo un animale di compagnia trovato?</string>
-    <string name="help_faq_a14">Se l\'animale di compagnia ha una medaglietta SENRA, scansiona semplicemente il codice QR con la fotocamera — non serve l\'app. Puoi vedere il profilo dell\'animale di compagnia e condividere la tua posizione col padrone.</string>
+    <string name="help_faq_a14">Se l\'animale da compagnia ha una medaglietta SENRA, scansiona semplicemente il codice QR con la fotocamera — non serve l\'app. Puoi vedere il profilo dell\'animale da compagnia e condividere la tua posizione col proprietario.</string>
     <string name="help_faq_q15">I miei dati personali sono al sicuro?</string>
     <string name="help_faq_a15">Sì. Tu controlli esattamente quali dati sono visibili quando qualcuno scansiona la medaglietta. In \'Impostazioni\' &gt; \'Impostazioni Privacy\', puoi scegliere se mostrare telefono, email o indirizzo. Il tuo login è protetto da un codice di verifica unico ogni volta. Puoi eliminare account e dati in qualsiasi momento.</string>
     <string name="help_faq_q16">Abbiamo perso la medaglietta o si è danneggiata — cosa faccio?</string>
-    <string name="help_faq_a16">Non preoccuparti — il profilo digitale del tuo animale di compagnia è al sicuro e non è memorizzato sulla medaglietta. Vai alla pagina Account e tocca \'Ordina Sostituzione\'. Colleghiamo una nuova medaglietta con codice QR nuovo al tuo profilo esistente. Abbonati Standard e Maximum possono richiedere sostituzioni illimitate gratuite. La vecchia medaglietta viene disattivata immediatamente.</string>
+    <string name="help_faq_a16">Non preoccuparti — il profilo digitale del tuo animale da compagnia è al sicuro e non è memorizzato sulla medaglietta. Vai alla pagina Account e tocca \'Ordina Sostituzione\'. Colleghiamo una nuova medaglietta con codice QR nuovo al tuo profilo esistente dell\'animale da compagnia. Gli abbonati Standard e Maximum possono richiedere sostituzioni illimitate gratuite, mentre i membri Starter devono pagare le spese di spedizione per la medaglietta sostitutiva. La vecchia medaglietta viene disattivata immediatamente quando viene ordinata la sostituzione.</string>
     <string name="help_faq_q17">La mia medaglietta non si scansiona — cosa faccio?</string>
-    <string name="help_faq_a17">Prova: pulisci la superficie con un panno umido, assicura buona illuminazione, tieni la fotocamera stabile a circa 10-15 cm. Se il codice QR è graffiato o consumato, ordina una sostituzione gratuita da \'Home/Il Mio Account\'.</string>
+    <string name="help_faq_a17">Prova: pulisci la superficie della medaglietta con un panno umido, assicura buona illuminazione, tieni la fotocamera stabile a circa 10-15 cm dalla medaglietta e verifica che l\'app fotocamera o il lettore QR funzioni. Se il codice QR è graffiato o consumato, ordina una sostituzione gratuita da \'Home/Il Mio Account\' (la sostituzione gratuita è disponibile per gli abbonati Standard e Maximum — i membri Starter devono pagare le spese di spedizione per la medaglietta sostitutiva).</string>
     <string name="help_faq_q18">Ho trovato un animale di compagnia senza medaglietta SENRA — cosa posso fare?</string>
-    <string name="help_faq_a18">Controlla la mappa Animali di compagnia Smarriti sul sito SENRA (senra.animale di compagnia). Puoi vedere gli avvisi anche nell\'app. Porta l\'animale di compagnia dal veterinario più vicino per scansionare il microchip. Se ha medaglietta SENRA, scansiona il QR — appaiono i contatti del padrone. Avvisa sempre anche le autorità locali e i rifugi.</string>
+    <string name="help_faq_a18">Controlla la mappa Animali da Compagnia Smarriti sul sito SENRA (senra.pet) — l\'animale da compagnia potrebbe essere stato segnalato come smarrito nella tua zona. Puoi vedere gli avvisi di animali da compagnia smarriti anche nell\'app. Porta l\'animale da compagnia dal veterinario più vicino per scansionare il microchip. Se ha una medaglietta SENRA, scansiona il codice QR con la fotocamera del tuo telefono — appariranno i contatti del proprietario.</string>
     <string name="help_faq_q19">Posso cambiare il mio indirizzo email?</string>
-    <string name="help_faq_a19">Il tuo email principale serve come identificatore dell\'account e non può essere cambiato direttamente. Puoi aggiungere un email secondario in \'Impostazioni\' &gt; \'Dati di Contatto\'. Se hai assolutamente bisogno di cambiare l\'email principale, contattaci a hello@senra.animale di compagnia.</string>
+    <string name="help_faq_a19">Il tuo indirizzo email principale serve come identificatore dell\'account e non può essere cambiato direttamente. Se vuoi usare un altro email come contatto pubblico, puoi aggiungere un indirizzo email secondario in \'Impostazioni\' &gt; \'Dati di Contatto\' — questo può anche apparire sul profilo del tuo animale da compagnia se lo abiliti, così chi lo trova può vederlo subito e contattarti direttamente. Se hai assolutamente bisogno di cambiare l\'email principale, contattaci a hello@senra.pet e ti aiuteremo a migrare il tuo account.</string>
     <string name="help_faq_q20">Qual è la differenza tra un microchip e una medaglietta QR SENRA?</string>
     <string name="help_faq_a20">Un microchip è un piccolo impianto sotto la pelle dell\'animale di compagnia che memorizza un identificatore unico di 15 cifre — ma richiede un lettore speciale. La medaglietta QR SENRA può essere scansionata con qualsiasi fotocamera di smartphone, mostrando istantaneamente il profilo completo, foto e contatti approvati. Chi trova può anche condividere le coordinate GPS.</string>
     <string name="help_faq_q21">Cosa succede ai miei dati se annullo l\'abbonamento?</string>
     <string name="help_faq_a21">Se annulli, mantieni l\'accesso alle funzionalità a pagamento fino alla fine del periodo di fatturazione. Poi l\'account passa automaticamente al piano Starter gratuito. Profili, foto e medagliette QR restano attivi. I dati non vengono eliminati. Per eliminare tutto permanentemente, usa Elimina Account nelle Impostazioni.</string>
     <string name="help_faq_q22">Come posso registrare la mia clinica o rifugio con SENRA?</string>
-    <string name="help_faq_a22">Cliniche veterinarie e rifugi possono registrarsi su senra.animale di compagnia/register-vet-shelter. Compila i dati e inviamo un\'email di verifica. Dopo la conferma, inviamo automaticamente notifiche quando animali di compagnia si perdono nella zona. Senza costi e senza registrazione.</string>
+    <string name="help_faq_a22">Cliniche veterinarie e rifugi possono registrarsi su senra.pet/register-vet-shelter. Compila i dati della clinica o dell\'organizzazione e invieremo loro un\'email di verifica. Dopo la conferma, invieremo automaticamente notifiche quando animali da compagnia si perdono nella tua zona — aiutando gli animali da compagnia smarriti a tornare a casa. Senza costi e senza login.</string>
     <string name="help_faq_q23">Come posso condividere una storia di successo se il mio animale di compagnia è stato trovato?</string>
     <string name="help_faq_a23">Quando segni il tuo animale di compagnia come \'Trovato\', ti chiediamo se vuoi condividere la buona notizia. Puoi pubblicare una breve storia. Ti storie pubbliche appaiono sulla mappa \'Animali di compagnia Trovati\'.</string>
     <string name="help_faq_q24">Quali browser e dispositivi sono supportati?</string>
@@ -1388,7 +1388,7 @@
     <string name="help_faq_q27">Posso trasferire una medaglietta a un altro animale di compagnia?</string>
     <string name="help_faq_a27">No. Ogni medaglietta QR è collegata permanentemente al profilo di un animale di compagnia. Se un animale di compagnia muore o non hai più bisogno della medaglietta, diventa semplicemente inattiva. Ordina una nuova medaglietta per il nuovo animale di compagnia sul sito SENRA.</string>
     <string name="help_faq_q28">Come posso registrare la clinica veterinaria del mio animale di compagnia o il rifugio dove ho adottato il mio animale di compagnia nella rete SENRA?</string>
-    <string name="help_faq_a28">Cliniche veterinarie e rifugi possono registrarsi su senra.animale di compagnia/register-vet-shelter. Compila i dati e inviamo un\'email di verifica. Dopo la conferma, inviamo automaticamente notifiche — aiutando gli animali di compagnia smarriti a tornare a casa più velocemente. Senza costi e senza registrazione.</string>
+    <string name="help_faq_a28">Cliniche veterinarie e rifugi possono registrarsi su senra.pet/register-vet-shelter. Compila i dati della clinica o dell\'organizzazione e invieremo loro un\'email di verifica. Dopo la conferma, invieremo automaticamente notifiche quando animali da compagnia si perdono nella tua zona — aiutando gli animali da compagnia smarriti a tornare a casa più velocemente. Senza costi e senza login.</string>
 
 
     <!-- Medaglietta activation strings -->
@@ -1405,27 +1405,27 @@
     <string name="welcome_back_no_name">Bentornato/a!</string>
 
     <!-- Shelter promo claim screen -->
-    <string name="shelter_promo_claim_tag_title">Claim Tag</string>
+    <string name="shelter_promo_claim_tag_title">Attiva la medaglietta</string>
     <string name="shelter_promo_done">Done</string>
-    <string name="shelter_promo_new_pet">New Pet</string>
-    <string name="shelter_promo_existing_pet">Existing Pet</string>
-    <string name="shelter_promo_claim_tag_button">Claim Tag</string>
-    <string name="shelter_promo_pet_name_label">Name *</string>
-    <string name="shelter_promo_species_label">Species *</string>
+    <string name="shelter_promo_new_pet">Nuovo animale da compagnia</string>
+    <string name="shelter_promo_existing_pet">Animale da compagnia esistente</string>
+    <string name="shelter_promo_claim_tag_button">Attiva la medaglietta</string>
+    <string name="shelter_promo_pet_name_label">Nome *</string>
+    <string name="shelter_promo_species_label">Specie *</string>
     <string name="shelter_promo_breed_label">Breed</string>
     <string name="shelter_promo_color_label">Color</string>
     <string name="shelter_promo_sex_label">Sex</string>
-    <string name="shelter_promo_register_and_claim_button">Register Pet &amp; Claim Tag</string>
-    <string name="shelter_promo_claimed_title">Tag Claimed!</string>
-    <string name="shelter_promo_pet_label_format">Pet: %1$s</string>
-    <string name="shelter_promo_tag_label_format">Tag: %1$s</string>
-    <string name="shelter_promo_free_plan_format">Free Standard plan for %1$d months</string>
-    <string name="shelter_promo_welcome_format">Welcome from %1$s!</string>
-    <string name="shelter_promo_register_subtitle_format">Register your pet to get %1$d months free Standard plan.</string>
+    <string name="shelter_promo_register_and_claim_button">Registrati e attiva la medaglietta</string>
+    <string name="shelter_promo_claimed_title">Medaglietta attivata!</string>
+    <string name="shelter_promo_pet_label_format">Animale da compagnia: %1$s</string>
+    <string name="shelter_promo_tag_label_format">Medaglietta: %1$s</string>
+    <string name="shelter_promo_free_plan_format">Piano Standard gratuito per %1$d mesi</string>
+    <string name="shelter_promo_welcome_format">Benvenuto da %1$s!</string>
+    <string name="shelter_promo_register_subtitle_format">Registra il tuo animale da compagnia e usa il piano Standard gratis per %1$d mesi.</string>
 
     <!-- Tag activation / promo claim error fallbacks -->
-    <string name="error_claim_tag_failed">Failed to claim tag</string>
-    <string name="error_select_pet_first">Please select a pet first</string>
-    <string name="error_activate_tag_failed">Failed to activate tag</string>
+    <string name="error_claim_tag_failed">Impossibile attivare la medaglietta</string>
+    <string name="error_select_pet_first">Seleziona prima un animale da compagnia</string>
+    <string name="error_activate_tag_failed">Impossibile attivare la medaglietta</string>
         <string name="waze_not_available">Waze non è installato e nessun browser è disponibile</string>
 </resources>

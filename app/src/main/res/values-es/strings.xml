@@ -128,7 +128,7 @@
     <string name="empty_pets_title">Aún no hay mascotas</string>
     <string name="empty_pets_message">Añade tu primera mascota para empezar con SENRA</string>
     <string name="missing_badge">PERDIDA</string>
-    <string name="tag_pending_badge">EN CAMINO</string>
+    <string name="tag_pending_badge">CHAPA INTELIGENTE EN CAMINO</string>
     <string name="add_pet">Añadir mascota</string>
     <string name="pet_name">Nombre de la mascota</string>
     <string name="failed_load_pets">No se pudieron cargar las mascotas</string>
@@ -196,7 +196,7 @@
     <string name="delete_pet_dialog_title">¿Eliminar %1$s?</string>
     <string name="delete_pet_dialog_message">¿Seguro que quieres eliminar esta mascota? Esta acción no se puede deshacer.</string>
     <string name="delete_pet_warning_title">%1$s eliminar?</string>
-    <string name="delete_pet_warning_message">%1$s será eliminado permanentemente de tu cuenta. La chapa inteligente se desactivará inmediatamente y dejará de funcionar al escanearla. Si esta es tu última mascota, tu suscripción también será cancelada.</string>
+    <string name="delete_pet_warning_message">%1$s será eliminado permanentemente de tu cuenta. La chapa inteligente QR se desactivará inmediatamente y dejará de funcionar al escanearla. Si esta es tu última mascota, tu suscripción también será cancelada.</string>
     <string name="delete_pet_warning_confirm">Eliminar mascota</string>
     <string name="male">Macho</string>
     <string name="female">Hembra</string>
@@ -257,7 +257,7 @@
     <!-- MARK: QR Scanner -->
     <!-- ============================================ -->
     <string name="scan_qr_code">Escanear código QR</string>
-    <string name="scan_qr_subtitle">Apunta la cámara a la chapa inteligente de la mascota</string>
+    <string name="scan_qr_subtitle">Apunta la cámara al código QR de la chapa inteligente</string>
     <string name="camera_access_required">Se requiere acceso a la cámara</string>
     <string name="camera_access_message">Habilita el acceso a la cámara para escanear códigos QR</string>
     <string name="enable_camera">Habilitar cámara</string>
@@ -269,21 +269,21 @@
     <string name="turn_on_flashlight">Encender linterna</string>
     <string name="hello_pet_name">¡Hola! Soy %1$s</string>
     <string name="scanned_tag_thanks">Acabas de escanear mi chapa inteligente. ¡Gracias por ayudarme!</string>
-    <string name="share_location_with_owner">Compartir mi ubicación con el tutor</string>
-    <string name="owner_notified_message">El tutor de %1$s recibirá una notificación con tu ubicación</string>
-    <string name="share_location_help">Ayuda al tutor de %1$s a encontrarle compartiendo tu ubicación</string>
+    <string name="share_location_with_owner">Compartir mi ubicación con el dueño</string>
+    <string name="owner_notified_message">El dueño de %1$s recibirá una notificación con tu ubicación</string>
+    <string name="share_location_help">Ayuda al dueño de %1$s a encontrarle compartiendo tu ubicación</string>
     <string name="precise_location">Ubicación precisa</string>
     <string name="precise_location_desc">Comparte tus coordenadas GPS exactas</string>
     <string name="approximate_location">Ubicación aproximada</string>
     <string name="approximate_location_desc">Ubicación aproximada compartida (cumple GDPR)</string>
     <string name="dont_share_location">No compartir ubicación</string>
-    <string name="dont_share_location_desc">Solo notificar al tutor que se encontró su mascota</string>
-    <string name="confirm_notify_owner">Confirmar y notificar al tutor</string>
+    <string name="dont_share_location_desc">Solo notificar al dueño que se encontró su mascota</string>
+    <string name="confirm_notify_owner">Confirmar y notificar al dueño</string>
     <string name="share_exact_location_toggle">Compartir ubicación exacta</string>
-    <string name="contact_owner">Contactar al tutor</string>
+    <string name="contact_owner">Contactar al dueño</string>
     <string name="call_phone">Llamar: %1$s</string>
     <string name="email_contact">Correo: %1$s</string>
-    <string name="privacy_notice">Tu privacidad importa. Solo compartiremos tu ubicación con el tutor de %1$s para ayudar a reunirlos.</string>
+    <string name="privacy_notice">Tu privacidad importa. Solo compartiremos tu ubicación con el dueño de %1$s para ayudar a reunirlos.</string>
     <string name="found_pet_title">%1$s encontrado</string>
     <string name="share_location">Compartir ubicación</string>
     <string name="location_shared">Ubicación compartida</string>
@@ -407,17 +407,17 @@
     <string name="email_optional">Correo (opcional)</string>
     <string name="sighting_reported_success">¡Avistamiento reportado correctamente!</string>
     <string name="report_sighting_header">Reportar avistamiento</string>
-    <string name="report_sighting_help">Ayuda a reunir a esta mascota con su tutor compartiendo dónde la viste.</string>
+    <string name="report_sighting_help">Ayuda a reunir a esta mascota con su dueño compartiendo dónde la viste.</string>
     <string name="share_contact_info">Compartir mis datos de contacto</string>
-    <string name="share_contact_info_desc">Permite que el tutor pueda contactarte directamente</string>
+    <string name="share_contact_info_desc">Permite que el dueño pueda contactarte directamente</string>
     <string name="your_name">Tu nombre</string>
     <string name="your_phone_number">Tu teléfono</string>
     <string name="your_email">Tu correo</string>
     <string name="address_or_description">Dirección o descripción</string>
     <string name="where_did_you_see">¿Dónde viste a la mascota?</string>
-    <string name="sighting_notes_placeholder">Describe lo que viste, el estado de la mascota, dirección de movimiento\u2026</string>
+    <string name="sighting_notes_placeholder">Describe lo que viste y hacia dónde se fue…</string>
     <string name="submit_sighting_report">Enviar reporte de avistamiento</string>
-    <string name="sighting_reported_owner_notified">¡Avistamiento reportado! Se notificó al tutor.</string>
+    <string name="sighting_reported_owner_notified">¡Avistamiento reportado! Se notificó al dueño.</string>
     <string name="sighting_queued_offline">Avistamiento en cola: se enviará cuando estés en línea.</string>
 
     <!-- ============================================ -->
@@ -621,16 +621,16 @@
     <string name="secondary_email_optional">Correo secundario (opcional)</string>
     <string name="phone_numbers">Números de teléfono</string>
     <string name="primary_phone">Teléfono principal</string>
-    <string name="show_on_qr_tag">Mostrar en chapa inteligente</string>
+    <string name="show_on_qr_tag">Mostrar en chapa inteligente QR</string>
     <string name="secondary_phone_optional">Teléfono secundario (opcional)</string>
-    <string name="contacts_qr_tag_info">Los contactos marcados como visibles se mostrarán en la chapa inteligente de tu mascota cuando se escanee.</string>
+    <string name="contacts_qr_tag_info">Los contactos marcados como visibles se mostrarán en la chapa inteligente QR de tu mascota cuando se escanee.</string>
     <string name="contact_details">Datos de contacto</string>
 
     <!-- ============================================ -->
     <!-- MARK: Contact Visibility -->
     <!-- ============================================ -->
     <string name="contact_visibility">Visibilidad de contactos</string>
-    <string name="contact_visibility_desc">Controla qué información de contacto es visible cuando se escanea la chapa inteligente de tu mascota</string>
+    <string name="contact_visibility_desc">Controla qué información de contacto es visible cuando se escanea la chapa inteligente QR de tu mascota</string>
     <string name="show_phone_number">Mostrar número de teléfono</string>
     <string name="show_phone_subtitle">Tu número de teléfono será visible para quienes encuentren a tu mascota</string>
     <string name="show_email_address">Mostrar correo</string>
@@ -727,8 +727,8 @@
     <string name="order_date">Fecha del pedido</string>
     <string name="items">Artículos</string>
     <string name="quantity_label">Cantidad: %1$d</string>
-    <string name="qr_tag_pending">Chapa inteligente pendiente</string>
-    <string name="qr_tag_assigned">Chapa inteligente asignada</string>
+    <string name="qr_tag_pending">Chapa inteligente QR pendiente</string>
+    <string name="qr_tag_assigned">Chapa inteligente QR asignada</string>
     <plurals name="item_count">
         <item quantity="one">%d artículo</item>
         <item quantity="other">%d artículos</item>
@@ -843,9 +843,9 @@
     <string name="public_profile_preview">Vista previa del perfil público</string>
     <string name="failed_load_profile">No se pudo cargar el perfil</string>
     <string name="public_profile_subtitle">Así ven los demás el perfil de %1$s</string>
-    <string name="owner_notified_sms_email">El tutor de %1$s recibirá un SMS y un correo con tu ubicación</string>
-    <string name="contact_owner_plea">Por favor, avisa a mi tutor de que me has encontrado\u2026</string>
-    <string name="contact_owner_plea_full">Por favor, avisa a mi tutor de que me has encontrado. Puedes contactarle usando los datos de contacto que aparecen abajo.</string>
+    <string name="owner_notified_sms_email">El dueño de %1$s recibirá un SMS y un correo con tu ubicación</string>
+    <string name="contact_owner_plea">Por favor, avisa a mi dueño de que me has encontrado\u2026</string>
+    <string name="contact_owner_plea_full">Por favor, avisa a mi dueño de que me has encontrado. Puedes contactarle usando los datos de contacto que aparecen abajo.</string>
     <string name="contact_info_not_set">La información de contacto aún no está configurada</string>
     <string name="contact_info_hidden">La información de contacto está oculta</string>
     <string name="contact_info_hidden_hint">Tus datos de contacto están configurados pero ocultos por ajustes de privacidad. Actualiza en Cuenta \u2192 Modo de privacidad.</string>
@@ -854,19 +854,19 @@
     <string name="unique_features">Rasgos únicos</string>
     <string name="behavior_notes">Notas de comportamiento</string>
     <string name="how_it_works">Cómo funciona</string>
-    <string name="help_reunite_pet">Ayuda a reunir de forma segura a %1$s con su tutor</string>
+    <string name="help_reunite_pet">Ayuda a reunir de forma segura a %1$s con su dueño</string>
     <string name="step_share_location">Compartir tu ubicación</string>
-    <string name="step_share_location_desc">Toca el botón de arriba para compartir tu ubicación con el tutor</string>
-    <string name="step_owner_notified">Tutor notificado</string>
-    <string name="step_owner_notified_desc">El tutor recibe un SMS y un correo con tu ubicación</string>
+    <string name="step_share_location_desc">Toca el botón de arriba para compartir tu ubicación con el dueño</string>
+    <string name="step_owner_notified">Dueño notificado</string>
+    <string name="step_owner_notified_desc">El dueño recibe un SMS y un correo con tu ubicación</string>
     <string name="step_quick_reunion">Reunión rápida</string>
-    <string name="step_quick_reunion_desc">El tutor puede navegar hasta tu ubicación para recoger a su mascota</string>
+    <string name="step_quick_reunion_desc">El dueño puede navegar hasta tu ubicación para recoger a su mascota</string>
     <string name="step_share_location_desc_public">Haz clic arriba para compartir dónde encontraste a %1$s</string>
-    <string name="step_owner_notified_desc_public">El tutor recibe un SMS con tu ubicación en Google Maps</string>
-    <string name="step_quick_reunion_desc_public">Quédate cerca para que el tutor pueda encontrarte a ti y a %1$s</string>
-    <string name="owner_phone_label">Teléfono del tutor: %1$s</string>
-    <string name="owner_email_label">Correo del tutor: %1$s</string>
-    <string name="your_privacy_notice">Tu privacidad importa. Solo compartiremos tu ubicación con el tutor de %1$s con tu consentimiento explícito.</string>
+    <string name="step_owner_notified_desc_public">El dueño recibe un SMS con tu ubicación en Google Maps</string>
+    <string name="step_quick_reunion_desc_public">Quédate cerca para que el dueño pueda encontrarte a ti y a %1$s</string>
+    <string name="owner_phone_label">Teléfono del dueño: %1$s</string>
+    <string name="owner_email_label">Correo del dueño: %1$s</string>
+    <string name="your_privacy_notice">Tu privacidad importa. Solo compartiremos tu ubicación con el dueño de %1$s con tu consentimiento explícito.</string>
 
     <!-- ============================================ -->
     <!-- MARK: Offline Mode -->
@@ -956,7 +956,7 @@
     <!-- Historias de éxito reunión -->
     <string name="reunion_template">%1$s se ha reunido. Después de %2$s desaparecido, %3$s se reunió exitosamente con su familia. ¡Gracias a nuestra increíble comunidad por traer a %4$s a casa!</string>
     <string name="reunion_template_no_time">¡%1$s se reunió con su familia! ¡Gracias a nuestra increíble comunidad por traer a %2$s a casa!</string>
-    <string name="owners_story">Historia del tutor:</string>
+    <string name="owners_story">Historia del dueño:</string>
     <string name="post_to_success_stories">Publicar en historias de éxito</string>
     <string name="remove_from_success_stories">Eliminar de historias de éxito</string>
     <string name="removed_from_success_stories">Eliminado de historias de éxito</string>
@@ -1009,13 +1009,13 @@
     <string name="sse_subscription_cancelled">Tu suscripción %1$s ha sido cancelada.</string>
     <string name="sse_referral_used">¡%1$s usó tu código de referencia!</string>
     <string name="help_guide_qr_tags_title">Chapa inteligentes inteligentes QR para mascotas</string>
-    <string name="help_guide_qr_tags_desc">Conoce nuestras chapa inteligentes inteligentes QR inteligentes.</string>
+    <string name="help_guide_qr_tags_desc">Cada chapa inteligente SENRA tiene un código QR único que se vincula al perfil digital de tu mascota. Cualquiera que encuentre a tu mascota puede escanear el código con la cámara de su teléfono — no se requiere descargar ninguna aplicación. Escanear la chapa inteligente te envía una notificación con la ubicación del que la encontró (si la comparte). Puedes activar las chapas inteligentes a través de la aplicación y solicitar una de reemplazo en cualquier momento si pierdes o dañas la original.</string>
     <string name="help_guide_materials_title">Materiales y durabilidad</string>
-    <string name="help_guide_materials_desc">Información sobre materiales y cuidado.</string>
+    <string name="help_guide_materials_desc">Las chapas inteligentes SENRA están hechas de metal duradero y ligero con un revestimiento epoxi para mayor protección. Son resistentes al agua y a los rayos UV, aptas para todas las condiciones climáticas, y no se desgastan con el uso diario. Las chapas inteligentes están diseñadas para ajustarse cómodamente a la mayoría de collares y arneses.</string>
     <string name="help_guide_emergency_title">Funciones de contacto de emergencia</string>
-    <string name="help_guide_emergency_desc">Cómo funciona nuestro sistema de contacto.</string>
+    <string name="help_guide_emergency_desc">Cuando alguien escanea la chapa inteligente de tu mascota, recibes una notificación push instantánea y un correo electrónico con la ubicación del que la encontró. Los miembros de los planes Standard y Maximum también reciben alertas por SMS para una respuesta más rápida. Si marcas a tu mascota como perdida, se envía una alerta comunitaria a todos los usuarios de SENRA en un radio de 10 km, y los veterinarios y refugios registrados en tu zona también son notificados. Cualquier persona de la comunidad puede reportar avistamientos con ubicación y fotos, ayudándote a encontrar a tu mascota.</string>
     <string name="help_guide_profile_title">Gestión de perfil</string>
-    <string name="help_guide_profile_desc">Gestiona y actualiza el perfil de tu mascota.</string>
+    <string name="help_guide_profile_desc">El perfil digital de tu mascota es el corazón de SENRA. Añade los datos esenciales: especie, raza, edad y una foto de buena calidad. También puedes incluir información médica, alergias, medicamentos y rasgos distintivos. Cuando alguien escanee la chapa inteligente de tu mascota, verá este perfil, por lo que es importante mantenerlo actualizado. Tu perfil ayuda a quienes buscan a reconocer a tu mascota y saber qué hacer si la encuentran.</string>
     <string name="help_guide_missing_alerts_title">Alertas de mascotas perdidas y avistamientos</string>
     <string name="help_guide_missing_alerts_desc">Si tu mascota se pierde, márcala como perdida desde &quot;Mis mascotas&quot; para crear una alerta comunitaria instantánea. La foto y los detalles de tu mascota aparecen en el mapa de mascotas perdidas visible para todos los usuarios de SENRA en tu zona. Los miembros de la comunidad pueden reportar avistamientos con su ubicación GPS, que recibes como notificaciones. Los veterinarios y refugios registrados también son alertados. Cuando tu mascota sea encontrada, márcala como encontrada y opcionalmente comparte tu historia de reencuentro para inspirar a la comunidad.</string>
     <string name="help_guide_community_title">Comunidad y mascotas encontradas</string>
@@ -1054,7 +1054,7 @@
     <string name="cannot_delete_missing_pet_message">No puedes eliminar una mascota que está reportada como perdida. Márcala como encontrada primero.</string>
     <string name="edit_alert">Editar alerta</string>
     <string name="health_info_empty_hint">Sin información de salud</string>
-    <string name="notification_channel_info">Al menos un canal de notificación debe estar activo para que puedas ser notificado cuando escaneen la chapa inteligente de tu mascota.</string>
+    <string name="notification_channel_info">Al menos un canal de notificación debe estar activo para que puedas ser notificado cuando escaneen la chapa inteligente QR de tu mascota.</string>
     <string name="province">Provincia / Estado</string>
     <string name="reward_badge_text">Recompensa: %1$s</string>
     <string name="reward_placeholder">ej. €50, $100 o un regalo especial</string>
@@ -1063,7 +1063,7 @@
 
     <string name="pet_limit_reached">Límite de mascotas alcanzado</string>
     <string name="pet_limit_reached_message">Tu plan %1$s permite %2$d mascota. Cambia a %3$s por %4$s para añadir mascotas ilimitadas.</string>
-    <string name="share_owner_notified">El tutor ha sido notificado</string>
+    <string name="share_owner_notified">El dueño ha sido notificado</string>
     <string name="sse_connection_lost">Actualizaciones en tiempo real no disponibles. Desliza hacia abajo para actualizar.</string>
     <string name="story_placeholder">Cuenta tu historia de reunión…</string>
     <string name="upgrade_to_plan">Cambiar a %1$s</string>
@@ -1136,7 +1136,7 @@
     <string name="breed_dog_beagle">Beagle</string>
     <string name="breed_dog_rottweiler">Rottweiler</string>
     <string name="breed_dog_german_shorthaired_pointer">Braco Alemán de Pelo Corto</string>
-    <string name="breed_dog_yorkshire_terrier">Yorkshire Terrier</string>
+    <string name="breed_dog_yorkshire_terrier">Yorkshire terrier</string>
     <string name="breed_dog_boxer">Bóxer</string>
     <string name="breed_dog_dachshund">Teckel</string>
     <string name="breed_dog_siberian_husky">Husky Siberiano</string>
@@ -1144,26 +1144,26 @@
     <string name="breed_dog_doberman_pinscher">Dóberman</string>
     <string name="breed_dog_australian_shepherd">Pastor Australiano</string>
     <string name="breed_dog_miniature_schnauzer">Schnauzer Miniatura</string>
-    <string name="breed_dog_cavalier_king_charles_spaniel">Cavalier King Charles Spaniel</string>
+    <string name="breed_dog_cavalier_king_charles_spaniel">Cavalier King Charles spaniel</string>
     <string name="breed_dog_shih_tzu">Shih Tzu</string>
-    <string name="breed_dog_boston_terrier">Boston Terrier</string>
+    <string name="breed_dog_boston_terrier">Boston terrier</string>
     <string name="breed_dog_pomeranian">Pomerania</string>
     <string name="breed_dog_havanese">Bichón Habanero</string>
     <string name="breed_dog_shetland_sheepdog">Pastor de Shetland</string>
     <string name="breed_dog_brittany">Bretón</string>
     <string name="breed_dog_english_springer_spaniel">Springer Spaniel Inglés</string>
     <string name="breed_dog_bernese_mountain_dog">Boyero de Berna</string>
-    <string name="breed_dog_cocker_spaniel">Cocker Spaniel</string>
-    <string name="breed_dog_border_collie">Border Collie</string>
+    <string name="breed_dog_cocker_spaniel">Cocker spaniel</string>
+    <string name="breed_dog_border_collie">Border collie</string>
     <string name="breed_dog_vizsla">Vizsla</string>
     <string name="breed_dog_weimaraner">Weimaraner</string>
     <string name="breed_dog_pembroke_welsh_corgi">Corgi Galés de Pembroke</string>
     <string name="breed_dog_maltese">Maltés</string>
     <string name="breed_dog_chihuahua">Chihuahua</string>
-    <string name="breed_dog_west_highland_white_terrier">West Highland White Terrier</string>
+    <string name="breed_dog_west_highland_white_terrier">West Highland white terrier</string>
     <string name="breed_dog_collie">Collie</string>
-    <string name="breed_dog_basset_hound">Basset Hound</string>
-    <string name="breed_dog_rhodesian_ridgeback">Rhodesian Ridgeback</string>
+    <string name="breed_dog_basset_hound">Basset hound</string>
+    <string name="breed_dog_rhodesian_ridgeback">Rhodesian ridgeback</string>
     <string name="breed_dog_newfoundland">Terranova</string>
     <string name="breed_dog_belgian_malinois">Pastor Belga Malinois</string>
     <string name="breed_dog_bichon_frise">Bichón Frisé</string>
@@ -1173,40 +1173,40 @@
     <string name="breed_dog_papillon">Papillón</string>
     <string name="breed_dog_bullmastiff">Bullmastiff</string>
     <string name="breed_dog_samoyed">Samoyedo</string>
-    <string name="breed_dog_scottish_terrier">Scottish Terrier</string>
+    <string name="breed_dog_scottish_terrier">Terrier escocés</string>
     <string name="breed_dog_soft_coated_wheaten_terrier">Terrier Irlandés de Pelo Suave</string>
-    <string name="breed_dog_airedale_terrier">Airedale Terrier</string>
-    <string name="breed_dog_jack_russell_terrier">Jack Russell Terrier</string>
+    <string name="breed_dog_airedale_terrier">Airedale terrier</string>
+    <string name="breed_dog_jack_russell_terrier">Jack Russell terrier</string>
     <string name="breed_cat_domestic_shorthair">Doméstico de pelo corto</string>
     <string name="breed_cat_domestic_longhair">Doméstico de pelo largo</string>
     <string name="breed_cat_persian">Persa</string>
     <string name="breed_cat_maine_coon">Maine Coon</string>
     <string name="breed_cat_ragdoll">Ragdoll</string>
-    <string name="breed_cat_british_shorthair">British Shorthair</string>
-    <string name="breed_cat_exotic_shorthair">Exotic Shorthair</string>
+    <string name="breed_cat_british_shorthair">Británico de pelo corto</string>
+    <string name="breed_cat_exotic_shorthair">Exótico de pelo corto</string>
     <string name="breed_cat_abyssinian">Abisinio</string>
     <string name="breed_cat_scottish_fold">Scottish Fold</string>
     <string name="breed_cat_sphynx">Sphynx</string>
     <string name="breed_cat_siamese">Siamés</string>
-    <string name="breed_cat_devon_rex">Devon Rex</string>
+    <string name="breed_cat_devon_rex">Devon rex</string>
     <string name="breed_cat_oriental_shorthair">Oriental de pelo corto</string>
     <string name="breed_cat_burmese">Burmés</string>
-    <string name="breed_cat_american_shorthair">American Shorthair</string>
+    <string name="breed_cat_american_shorthair">Americano de pelo corto</string>
     <string name="breed_cat_bengal">Bengalí</string>
     <string name="breed_cat_russian_blue">Azul Ruso</string>
     <string name="breed_cat_norwegian_forest_cat">Bosque de Noruega</string>
     <string name="breed_cat_birman">Birmano</string>
     <string name="breed_cat_tonkinese">Tonkinés</string>
-    <string name="breed_cat_cornish_rex">Cornish Rex</string>
+    <string name="breed_cat_cornish_rex">Cornish rex</string>
     <string name="breed_cat_siberian">Siberiano</string>
     <string name="breed_cat_balinese">Balinés</string>
     <string name="breed_cat_somali">Somalí</string>
     <string name="breed_cat_turkish_angora">Angora Turco</string>
     <string name="breed_cat_himalayan">Himalayo</string>
     <string name="breed_cat_manx">Manx</string>
-    <string name="breed_cat_selkirk_rex">Selkirk Rex</string>
+    <string name="breed_cat_selkirk_rex">Selkirk rex</string>
     <string name="breed_cat_ragamuffin">RagaMuffin</string>
-    <string name="breed_cat_american_curl">American Curl</string>
+    <string name="breed_cat_american_curl">Curl Americano</string>
     <string name="breed_cat_chartreux">Chartreux</string>
     <string name="breed_cat_bombay">Bombay</string>
     <string name="breed_cat_egyptian_mau">Mau Egipcio</string>
@@ -1217,10 +1217,10 @@
     <string name="breed_cat_havana_brown">Habana Marrón</string>
     <string name="breed_cat_japanese_bobtail">Bobtail Japonés</string>
     <string name="breed_cat_laperm">LaPerm</string>
-    <string name="breed_cat_american_wirehair">American Wirehair</string>
+    <string name="breed_cat_american_wirehair">Americano de pelo áspero</string>
     <string name="breed_cat_european_burmese">Burmés Europeo</string>
     <string name="breed_cat_burmilla">Burmilla</string>
-    <string name="breed_cat_colorpoint_shorthair">Colorpoint Shorthair</string>
+    <string name="breed_cat_colorpoint_shorthair">Colorpoint de pelo corto</string>
     <string name="breed_cat_javanese">Javanés</string>
     <string name="breed_cat_nebelung">Nebelung</string>
     <string name="breed_cat_pixie_bob">Pixie-Bob</string>
@@ -1264,10 +1264,10 @@
     <string name="share_location_title">Compartir ubicación</string>
     <string name="share_location_exact">Compartir ubicación exacta</string>
     <string name="share_location_approximate">Compartir ubicación aproximada (~100m)</string>
-    <string name="share_location_exact_note">El tutor verá tus coordenadas GPS exactas</string>
-    <string name="share_location_approximate_note">El tutor verá un área aproximada</string>
+    <string name="share_location_exact_note">El dueño verá tu ubicación</string>
+    <string name="share_location_approximate_note">El dueño verá un área aproximada</string>
     <string name="share_location_confirm">Compartir</string>
-    <string name="share_location_success">¡Ubicación compartida! El tutor ha sido notificado.</string>
+    <string name="share_location_success">¡Ubicación compartida! El dueño ha sido notificado.</string>
     <string name="share_location_denied">Se necesita permiso de ubicación para compartir tu ubicación</string>
     <string name="share_location_error">No se pudo compartir la ubicación. Inténtalo de nuevo.</string>
 
@@ -1365,7 +1365,7 @@
     <string name="help_faq_q13">¿Puedo tener varias mascotas en una cuenta?</string>
     <string name="help_faq_a13">Sí. Con el plan Starter (gratuito), puedes registrar hasta 10 mascotas, pero las funciones disponibles son limitadas. El plan Standard está diseñado para un gato o perro, pero incluye todas las funciones. El plan Maximum incluye todas las funciones y puedes registrar hasta 10 mascotas. Puedes cambiar de plan en cualquier momento en \'Inicio/Mi Cuenta\'.</string>
     <string name="help_faq_q14">¿Cómo reporto una mascota encontrada?</string>
-    <string name="help_faq_a14">Si la mascota tiene una chapa inteligente SENRA, simplemente escanea el código QR con la cámara de tu teléfono — no necesitas ninguna aplicación. Puedes ver el perfil de la mascota y compartir tu ubicación con el tutor.</string>
+    <string name="help_faq_a14">Si la mascota tiene una chapa inteligente SENRA, simplemente escanea el código QR con la cámara de tu teléfono — no necesitas ninguna aplicación. Puedes ver el perfil de la mascota y compartir tu ubicación con el dueño.</string>
     <string name="help_faq_q15">¿Están seguros mis datos personales?</string>
     <string name="help_faq_a15">Sí. Tú controlas exactamente qué datos son visibles cuando alguien escanea la chapa inteligente de tu mascota. En \'Ajustes\' &gt; \'Ajustes de Privacidad\', puedes elegir si mostrar tu número de teléfono, correo electrónico o dirección. Tu inicio de sesión está protegido con un código de verificación de un solo uso cada vez — no hay contraseña que puedan robar. Puedes eliminar tu cuenta y todos tus datos en cualquier momento.</string>
     <string name="help_faq_q16">Perdimos la chapa inteligente o se dañó — ¿qué hago?</string>
@@ -1373,11 +1373,11 @@
     <string name="help_faq_q17">Mi chapa inteligente no se escanea — ¿qué hago?</string>
     <string name="help_faq_a17">Prueba lo siguiente: limpia la superficie de la chapa inteligente con un paño húmedo, asegura buena iluminación, mantén la cámara estable a unos 10-15 cm de la chapa inteligente, y comprueba que tu cámara o lector QR funciona. Si el código QR está rayado o desgastado, pide un repuesto gratuito en \'Inicio/Mi Cuenta\' (repuesto gratuito disponible para suscriptores Standard y Maximum — los miembros Starter deben pagar el envío).</string>
     <string name="help_faq_q18">Encontré una mascota sin chapa inteligente SENRA — ¿qué puedo hacer?</string>
-    <string name="help_faq_a18">Consulta el mapa de Mascotas Perdidas en la web de SENRA (senra.pet) — la mascota puede haber sido reportada como perdida en tu zona. También puedes ver las alertas en la aplicación. Lleva al animal a la clínica veterinaria más cercana para escanear su microchip. Si tiene chapa inteligente SENRA, escanea el código QR — aparecerán los datos de contacto del tutor. Siempre notifica también a las autoridades locales y refugios cercanos.</string>
+    <string name="help_faq_a18">Consulta el mapa de Mascotas Perdidas en la web de SENRA (senra.pet) — la mascota puede haber sido reportada como perdida en tu zona. También puedes ver las alertas de mascotas perdidas en la aplicación. Lleva a la mascota a la clínica veterinaria más cercana para que escaneen su microchip. Si tiene una chapa inteligente SENRA, escanea el código QR con la cámara de tu teléfono — aparecerán los datos de contacto del dueño.</string>
     <string name="help_faq_q19">¿Puedo cambiar mi dirección de correo electrónico?</string>
     <string name="help_faq_a19">Tu correo electrónico principal sirve como identificador de cuenta y no se puede cambiar directamente. Si quieres usar otro correo como contacto público, puedes añadir uno secundario en \'Ajustes\' &gt; \'Datos de Contacto\'. Si necesitas cambiar tu correo principal, contáctanos en hello@senra.pet y te ayudaremos.</string>
-    <string name="help_faq_q20">¿Cuál es la diferencia entre un microchip y una chapa inteligente SENRA?</string>
-    <string name="help_faq_a20">Un microchip es un pequeño implante bajo la piel de tu mascota que almacena un identificador único de 15 dígitos — pero requiere un lector especial (generalmente solo disponible en veterinarios y refugios). La chapa inteligente SENRA se puede escanear fácilmente con cualquier cámara de smartphone, mostrando instantáneamente el perfil completo de tu mascota, foto y datos de contacto aprobados. El que la encuentre también puede compartir las coordenadas GPS.</string>
+    <string name="help_faq_q20">¿Cuál es la diferencia entre un microchip y una chapa inteligente QR de SENRA?</string>
+    <string name="help_faq_a20">Un microchip es un pequeño implante bajo la piel de tu mascota que almacena un identificador único de 15 dígitos — pero requiere un lector especial (generalmente solo disponible en veterinarios y refugios). La chapa inteligente QR de SENRA se puede escanear fácilmente con cualquier cámara de smartphone, mostrando instantáneamente el perfil completo de tu mascota, foto y los datos de contacto que hayas aprobado. Quien la encuentre también puede compartir dónde encontró a tu mascota.</string>
     <string name="help_faq_q21">¿Qué pasa con mis datos si cancelo mi suscripción?</string>
     <string name="help_faq_a21">Si cancelas tu suscripción, mantienes acceso a las funciones de pago hasta el final del período de facturación actual. Después, tu cuenta cambia automáticamente al plan gratuito Starter. Los perfiles, fotos y chapa inteligentes inteligentes QR permanecen activos — solo pierdes acceso a funciones premium. Tus datos no se eliminan al cancelar. Para eliminar todo permanentemente, usa la opción Eliminar Cuenta en Ajustes.</string>
     <string name="help_faq_q22">¿Cómo puedo registrar mi clínica o refugio en SENRA?</string>
@@ -1385,13 +1385,13 @@
     <string name="help_faq_q23">¿Cómo puedo compartir una historia de éxito si encontraron a mi mascota?</string>
     <string name="help_faq_a23">Cuando marcas a tu mascota como \'Encontrada\', te preguntamos si quieres compartir la buena noticia. Puedes publicar una breve historia sobre cómo se encontró. Las historias públicas aparecen en el mapa de \'Mascotas Encontradas\'.</string>
     <string name="help_faq_q24">¿Qué navegadores y dispositivos son compatibles?</string>
-    <string name="help_faq_a24">SENRA funciona en todos los navegadores, incluyendo Chrome, Safari, Firefox y Edge, en dispositivos móviles y de escritorio. El escaneo de la chapa inteligente funciona con cualquier cámara de smartphone — quien la encuentre no necesita la aplicación SENRA ni una cuenta.</string>
+    <string name="help_faq_a24">SENRA funciona en todos los navegadores, incluyendo Chrome, Safari, Firefox y Edge, en dispositivos móviles y de escritorio. El escaneo de la chapa inteligente QR funciona con cualquier cámara de smartphone — quien la encuentre no necesita la aplicación SENRA ni una cuenta.</string>
     <string name="help_faq_q25">¿Puedo pedir varias chapa inteligentes inteligentes para mis mascotas a la vez?</string>
     <string name="help_faq_a25">Sí, puedes pedir chapa inteligentes inteligentes para todas tus mascotas al mismo tiempo. Después de que lleguen, escanea cada una para activarla y asignarla al perfil correcto.</string>
     <string name="help_faq_q26">¿Cómo llegan las alertas de mascotas perdidas a los veterinarios y refugios?</string>
     <string name="help_faq_a26">Cuando marcas a tu mascota como \'Perdida\', SENRA envía automáticamente alertas por correo a todos los veterinarios y refugios registrados en tu zona. Cuantos más veterinarios y refugios estén registrados, mejor funciona esta red.</string>
     <string name="help_faq_q27">¿Puedo transferir una chapa inteligente a otra mascota?</string>
-    <string name="help_faq_a27">No. Cada chapa inteligente está vinculada permanentemente al perfil de una mascota. Si una mascota fallece o ya no necesitas la chapa inteligente, simplemente se vuelve inactiva. Pide una nueva chapa inteligente para tu nueva mascota en la web de SENRA.</string>
+    <string name="help_faq_a27">No. Cada chapa inteligente QR está vinculada permanentemente al perfil de una mascota. Si una mascota fallece o ya no necesitas la chapa inteligente, simplemente se vuelve inactiva. Pide una nueva chapa inteligente para tu nueva mascota en la web de SENRA.</string>
     <string name="help_faq_q28">¿Cómo puedo registrar la clínica veterinaria de mi mascota o el refugio donde adopté a mi mascota en la red SENRA?</string>
     <string name="help_faq_a28">Las clínicas veterinarias y refugios pueden registrarse en senra.pet/register-vet-shelter. Completa los datos de la clínica u organización y les enviaremos un correo de verificación. Tras la confirmación, les enviaremos automáticamente notificaciones cuando se pierdan mascotas en la zona — ayudando a que las mascotas perdidas vuelvan a casa más pronto. Sin coste y sin necesidad de registro.</string>
 
@@ -1410,27 +1410,27 @@
     <string name="welcome_back_no_name">¡Bienvenido/a de nuevo!</string>
 
     <!-- Shelter promo claim screen -->
-    <string name="shelter_promo_claim_tag_title">Claim Tag</string>
+    <string name="shelter_promo_claim_tag_title">Activar chapa inteligente</string>
     <string name="shelter_promo_done">Done</string>
-    <string name="shelter_promo_new_pet">New Pet</string>
-    <string name="shelter_promo_existing_pet">Existing Pet</string>
-    <string name="shelter_promo_claim_tag_button">Claim Tag</string>
-    <string name="shelter_promo_pet_name_label">Name *</string>
-    <string name="shelter_promo_species_label">Species *</string>
+    <string name="shelter_promo_new_pet">Nueva mascota</string>
+    <string name="shelter_promo_existing_pet">Mascota existente</string>
+    <string name="shelter_promo_claim_tag_button">Activar chapa inteligente</string>
+    <string name="shelter_promo_pet_name_label">Nombre *</string>
+    <string name="shelter_promo_species_label">Especie *</string>
     <string name="shelter_promo_breed_label">Breed</string>
     <string name="shelter_promo_color_label">Color</string>
     <string name="shelter_promo_sex_label">Sex</string>
-    <string name="shelter_promo_register_and_claim_button">Register Pet &amp; Claim Tag</string>
-    <string name="shelter_promo_claimed_title">Tag Claimed!</string>
-    <string name="shelter_promo_pet_label_format">Pet: %1$s</string>
-    <string name="shelter_promo_tag_label_format">Tag: %1$s</string>
-    <string name="shelter_promo_free_plan_format">Free Standard plan for %1$d months</string>
-    <string name="shelter_promo_welcome_format">Welcome from %1$s!</string>
-    <string name="shelter_promo_register_subtitle_format">Register your pet to get %1$d months free Standard plan.</string>
+    <string name="shelter_promo_register_and_claim_button">Registrarse y activar la chapa inteligente</string>
+    <string name="shelter_promo_claimed_title">¡Chapa inteligente activada!</string>
+    <string name="shelter_promo_pet_label_format">Mascota: %1$s</string>
+    <string name="shelter_promo_tag_label_format">Chapa inteligente: %1$s</string>
+    <string name="shelter_promo_free_plan_format">Plan Standard gratis durante %1$d meses</string>
+    <string name="shelter_promo_welcome_format">¡Saludos de %1$s!</string>
+    <string name="shelter_promo_register_subtitle_format">Registra a tu mascota y usa el plan Standard gratis durante %1$d meses.</string>
 
     <!-- Tag activation / promo claim error fallbacks -->
-    <string name="error_claim_tag_failed">Failed to claim tag</string>
-    <string name="error_select_pet_first">Please select a pet first</string>
-    <string name="error_activate_tag_failed">Failed to activate tag</string>
+    <string name="error_claim_tag_failed">No se pudo activar la chapa inteligente</string>
+    <string name="error_select_pet_first">Por favor, selecciona una mascota primero</string>
+    <string name="error_activate_tag_failed">No se pudo activar la chapa inteligente</string>
         <string name="waze_not_available">Waze no está instalado y no hay un navegador disponible</string>
 </resources>

@@ -128,7 +128,7 @@
     <string name="empty_pets_title">Ainda sem animais de estimação</string>
     <string name="empty_pets_message">Adicione o seu primeiro animal de estimação para começar com o SENRA</string>
     <string name="missing_badge">DESAPARECIDO</string>
-    <string name="tag_pending_badge">A CAMINHO</string>
+    <string name="tag_pending_badge">PLAQUINHA INTELIGENTE A CAMINHO</string>
     <string name="add_pet">Adicionar animal de estimação</string>
     <string name="pet_name">Nome do animal de estimação</string>
     <string name="failed_load_pets">Falha ao carregar animais de estimação</string>
@@ -196,7 +196,7 @@
     <string name="delete_pet_dialog_title">Eliminar %1$s?</string>
     <string name="delete_pet_dialog_message">Tem a certeza que pretende eliminar este animal de estimação? Esta ação não pode ser desfeita.</string>
     <string name="delete_pet_warning_title">Eliminar %1$s?</string>
-    <string name="delete_pet_warning_message">%1$s será removido permanentemente da sua conta. A plaquinha inteligente será desativada imediatamente e deixará de funcionar ao ser digitalizada. Se este é o seu último animal de estimação, a sua subscrição também será cancelada.</string>
+    <string name="delete_pet_warning_message">%1$s será removido permanentemente da tua conta. A plaquinha inteligente QR será desativada imediatamente e deixará de funcionar ao ser lida. Se este é o teu último animal de estimação, a tua subscrição também será cancelada.</string>
     <string name="delete_pet_warning_confirm">Eliminar animal de estimação</string>
     <string name="male">Macho</string>
     <string name="female">Fêmea</string>
@@ -257,7 +257,7 @@
     <!-- MARK: QR Scanner -->
     <!-- ============================================ -->
     <string name="scan_qr_code">Ler código QR</string>
-    <string name="scan_qr_subtitle">Aponte a câmara para a plaquinha inteligente do animal de estimação</string>
+    <string name="scan_qr_subtitle">Aponta a câmara para o código QR na plaquinha inteligente!</string>
     <string name="camera_access_required">Acesso à câmara necessário</string>
     <string name="camera_access_message">Ative o acesso à câmara para ler códigos QR</string>
     <string name="enable_camera">Ativar câmara</string>
@@ -269,21 +269,21 @@
     <string name="turn_on_flashlight">Ligar lanterna</string>
     <string name="hello_pet_name">Olá! Eu sou %1$s</string>
     <string name="scanned_tag_thanks">Acabou de ler a minha plaquinha inteligente. Obrigado por me ajudar!</string>
-    <string name="share_location_with_owner">Partilhar a minha localização com o tutor</string>
-    <string name="owner_notified_message">O tutor de %1$s receberá uma notificação com a sua localização</string>
-    <string name="share_location_help">Ajude o tutor de %1$s a encontrá-lo partilhando a sua localização</string>
+    <string name="share_location_with_owner">Partilhar a minha localização com o dono</string>
+    <string name="owner_notified_message">O dono de %1$s receberá uma notificação com a tua localização</string>
+    <string name="share_location_help">Ajuda o dono de %1$s a encontrá-lo partilhando a tua localização!</string>
     <string name="precise_location">Localização precisa</string>
     <string name="precise_location_desc">Partilhe as suas coordenadas GPS exatas</string>
     <string name="approximate_location">Localização aproximada</string>
     <string name="approximate_location_desc">Partilha de localização aproximada (compatível com RGPD)</string>
     <string name="dont_share_location">Não partilhar localização</string>
-    <string name="dont_share_location_desc">Apenas notificar o tutor de que o animal de estimação foi encontrado</string>
-    <string name="confirm_notify_owner">Confirmar e notificar o tutor</string>
+    <string name="dont_share_location_desc">Apenas notificar o dono de que o animal de estimação foi encontrado!</string>
+    <string name="confirm_notify_owner">Confirmar e notificar o dono</string>
     <string name="share_exact_location_toggle">Partilhar localização exata</string>
-    <string name="contact_owner">Contactar o tutor</string>
+    <string name="contact_owner">Contactar o dono</string>
     <string name="call_phone">Ligar: %1$s</string>
     <string name="email_contact">E-mail: %1$s</string>
-    <string name="privacy_notice">A sua privacidade é importante. Só partilharemos a sua localização com o tutor de %1$s para ajudar a reuni-los.</string>
+    <string name="privacy_notice">A tua privacidade é importante. Só partilharemos a tua localização com o dono de %1$s para ajudar a reuni-los.</string>
     <string name="found_pet_title">%1$s encontrado</string>
     <string name="share_location">Partilhar localização</string>
     <string name="location_shared">Localização partilhada</string>
@@ -407,17 +407,17 @@
     <string name="email_optional">E-mail (opcional)</string>
     <string name="sighting_reported_success">Avistamento reportado com sucesso!</string>
     <string name="report_sighting_header">Reportar avistamento</string>
-    <string name="report_sighting_help">Ajude a reunir este animal de estimação com o tutor partilhando onde o viu.</string>
+    <string name="report_sighting_help">Ajuda a reunir este animal de estimação com o dono partilhando onde o viste!</string>
     <string name="share_contact_info">Partilhar os meus contactos</string>
-    <string name="share_contact_info_desc">Permita que o tutor o contacte diretamente</string>
+    <string name="share_contact_info_desc">Permite que o dono te contacte diretamente!</string>
     <string name="your_name">O seu nome</string>
     <string name="your_phone_number">O seu telefone</string>
     <string name="your_email">O seu e-mail</string>
     <string name="address_or_description">Morada ou descrição</string>
     <string name="where_did_you_see">Onde viu o animal de estimação?</string>
-    <string name="sighting_notes_placeholder">Descreva o que viu, a condição do animal de estimação, a direção\u2026</string>
+    <string name="sighting_notes_placeholder">Descreve o que viste e por onde foi…</string>
     <string name="submit_sighting_report">Enviar relatório de avistamento</string>
-    <string name="sighting_reported_owner_notified">Avistamento reportado! O tutor foi notificado.</string>
+    <string name="sighting_reported_owner_notified">Avistamento reportado! O dono foi notificado.</string>
     <string name="sighting_queued_offline">Avistamento em fila - será enviado quando estiver online.</string>
 
     <!-- ============================================ -->
@@ -621,16 +621,16 @@
     <string name="secondary_email_optional">E-mail secundário (opcional)</string>
     <string name="phone_numbers">Números de telefone</string>
     <string name="primary_phone">Telefone principal</string>
-    <string name="show_on_qr_tag">Mostrar na plaquinha inteligente</string>
+    <string name="show_on_qr_tag">Mostrar na plaquinha inteligente QR</string>
     <string name="secondary_phone_optional">Telefone secundário (opcional)</string>
-    <string name="contacts_qr_tag_info">Contactos marcados como visíveis serão apresentados na plaquinha inteligente do seu animal de estimação quando for lida.</string>
+    <string name="contacts_qr_tag_info">Os contactos marcados como visíveis serão apresentados na plaquinha inteligente QR do teu animal de estimação quando for lida por alguém que o encontre.</string>
     <string name="contact_details">Contactos</string>
 
     <!-- ============================================ -->
     <!-- MARK: Contact Visibility -->
     <!-- ============================================ -->
     <string name="contact_visibility">Visibilidade de contacto</string>
-    <string name="contact_visibility_desc">Controle quais informações de contacto são visíveis quando alguém lê a plaquinha inteligente do seu animal de estimação</string>
+    <string name="contact_visibility_desc">Controla quais informações de contacto são visíveis quando alguém lê a plaquinha inteligente QR do teu animal de estimação</string>
     <string name="show_phone_number">Mostrar número de telefone</string>
     <string name="show_phone_subtitle">O seu número de telefone será visível para quem encontrar o seu animal de estimação</string>
     <string name="show_email_address">Mostrar e-mail</string>
@@ -682,7 +682,7 @@
     <string name="contact_support_sending">A enviar\u2026</string>
     <string name="contact_support_success">Pedido de suporte enviado! ID do ticket: %1$s</string>
     <string name="contact_support_response">Responderemos em 24 horas.</string>
-    <string name="support_email">Suporte: hello@senra.animal de estimação</string>
+    <string name="support_email">Suporte: hello@senra.pet</string>
     <string name="support_category_general">Geral</string>
     <string name="support_category_technical">Problema técnico</string>
     <string name="support_category_account">Conta</string>
@@ -727,8 +727,8 @@
     <string name="order_date">Data da encomenda</string>
     <string name="items">Itens</string>
     <string name="quantity_label">Quantidade: %1$d</string>
-    <string name="qr_tag_pending">Plaquinha inteligente pendente</string>
-    <string name="qr_tag_assigned">Plaquinha inteligente atribuída</string>
+    <string name="qr_tag_pending">Plaquinha inteligente QR pendente</string>
+    <string name="qr_tag_assigned">Plaquinha inteligente QR atribuída</string>
     <plurals name="item_count">
         <item quantity="one">%d item</item>
         <item quantity="other">%d itens</item>
@@ -808,7 +808,7 @@
     <string name="referral_copy">Copiar</string>
     <string name="referral_share">Partilhar</string>
     <string name="referral_pending">Pendente</string>
-    <string name="referral_share_text">Use o meu código de indicação %1$s e obtenha 2 meses grátis no SENRA! https://senra.animal de estimação/choose-plan?referral=%2$s</string>
+    <string name="referral_share_text">Usa o meu código de indicação %1$s e obtém 2 meses grátis no SENRA! https://senra.pet/choose-plan?referral=%2$s</string>
     <string name="referral_clipboard_label">Código de indicação</string>
     <string name="referral_use_friend_code">Usar o código de um amigo</string>
     <string name="enter_friend_code">Insira o código de indicação</string>
@@ -843,9 +843,9 @@
     <string name="public_profile_preview">Pré-visualização do perfil público</string>
     <string name="failed_load_profile">Falha ao carregar perfil</string>
     <string name="public_profile_subtitle">É assim que os outros veem o perfil de %1$s</string>
-    <string name="owner_notified_sms_email">O tutor de %1$s receberá um SMS e um e-mail com a sua localização</string>
-    <string name="contact_owner_plea">Por favor, avise o meu tutor que me encontrou\u2026</string>
-    <string name="contact_owner_plea_full">Por favor, avise o meu tutor que me encontrou. Pode contactá-lo através dos dados de contacto abaixo.</string>
+    <string name="owner_notified_sms_email">O dono de %1$s receberá um SMS e um e-mail com a tua localização</string>
+    <string name="contact_owner_plea">Por favor, avisa o meu dono que me encontraste\u2026</string>
+    <string name="contact_owner_plea_full">Por favor, avisa o meu dono que me encontraste. Podes contactá-lo através dos dados de contacto abaixo.</string>
     <string name="contact_info_not_set">Informação de contacto ainda não definida</string>
     <string name="contact_info_hidden">Informação de contacto está oculta</string>
     <string name="contact_info_hidden_hint">Os seus contactos estão definidos mas ocultos devido às definições de privacidade. Atualize em Conta \u2192 Modo de privacidade.</string>
@@ -854,19 +854,19 @@
     <string name="unique_features">Características únicas</string>
     <string name="behavior_notes">Notas de comportamento</string>
     <string name="how_it_works">Como funciona</string>
-    <string name="help_reunite_pet">Ajude a reunir %1$s com o tutor em segurança</string>
+    <string name="help_reunite_pet">Ajuda a reunir %1$s com o dono em segurança</string>
     <string name="step_share_location">Partilhar a sua localização</string>
-    <string name="step_share_location_desc">Toque no botão acima para partilhar a sua localização com o tutor</string>
-    <string name="step_owner_notified">Tutor notificado</string>
-    <string name="step_owner_notified_desc">O tutor recebe um SMS e um e-mail com a sua localização</string>
+    <string name="step_share_location_desc">Toca no botão acima para partilhar a tua localização com o dono</string>
+    <string name="step_owner_notified">Dono notificado</string>
+    <string name="step_owner_notified_desc">O dono recebe um SMS e um e-mail com a tua localização</string>
     <string name="step_quick_reunion">Reunião rápida</string>
-    <string name="step_quick_reunion_desc">O tutor pode navegar até à sua localização para recolher o animal de estimação</string>
+    <string name="step_quick_reunion_desc">O dono pode navegar até à tua localização para recolher o animal de estimação</string>
     <string name="step_share_location_desc_public">Clique no botão acima para partilhar onde encontrou %1$s</string>
-    <string name="step_owner_notified_desc_public">O tutor recebe um SMS com a sua localização no Google Maps</string>
-    <string name="step_quick_reunion_desc_public">Fique por perto para o tutor o encontrar a si e a %1$s</string>
-    <string name="owner_phone_label">Telefone do tutor: %1$s</string>
-    <string name="owner_email_label">E-mail do tutor: %1$s</string>
-    <string name="your_privacy_notice">A sua privacidade é importante. Só partilharemos a sua localização com o tutor de %1$s com o seu consentimento explícito.</string>
+    <string name="step_owner_notified_desc_public">O dono recebe um SMS com a tua localização no Google Maps</string>
+    <string name="step_quick_reunion_desc_public">Fica por perto para o dono te encontrar a ti e a %1$s</string>
+    <string name="owner_phone_label">Telefone do dono: %1$s</string>
+    <string name="owner_email_label">E-mail do dono: %1$s</string>
+    <string name="your_privacy_notice">A tua privacidade é importante. Só partilharemos a tua localização com o dono de %1$s com o teu consentimento explícito.</string>
 
     <!-- ============================================ -->
     <!-- MARK: Offline Mode -->
@@ -956,7 +956,7 @@
     <!-- Histórias de sucesso reunião -->
     <string name="reunion_template">%1$s foi reunido. Após %2$s desaparecido, %3$s foi reunido com sucesso com sua família. Obrigado à nossa incrível comunidade por trazer %4$s para casa!</string>
     <string name="reunion_template_no_time">%1$s foi reunido com sua família! Obrigado à nossa incrível comunidade por trazer %2$s para casa!</string>
-    <string name="owners_story">História do tutor:</string>
+    <string name="owners_story">História do dono:</string>
     <string name="post_to_success_stories">Publicar nas histórias de sucesso</string>
     <string name="remove_from_success_stories">Remover das histórias de sucesso</string>
     <string name="removed_from_success_stories">Removido das histórias de sucesso</string>
@@ -1009,13 +1009,13 @@
     <string name="sse_subscription_cancelled">A sua subscrição %1$s foi cancelada.</string>
     <string name="sse_referral_used">%1$s usou o seu código de referência!</string>
     <string name="help_guide_qr_tags_title">Plaquinha inteligentes inteligentes QR para animais de estimação</string>
-    <string name="help_guide_qr_tags_desc">Conheça as nossas plaquinha inteligentes inteligentes QR inteligentes.</string>
+    <string name="help_guide_qr_tags_desc">Cada plaquinha inteligente SENRA tem um código QR único que liga ao perfil digital do teu animal de estimação. Qualquer pessoa que encontre o teu animal de estimação pode ler o código com a câmara do telemóvel — não é preciso instalar nenhuma aplicação. Ao ler a plaquinha inteligente, recebes uma notificação com a localização de quem encontrou (se partilhar). Podes ativar as plaquinhas inteligentes através da aplicação e pedir uma de substituição a qualquer momento, caso percas ou danifiques a original.</string>
     <string name="help_guide_materials_title">Materiais e durabilidade</string>
-    <string name="help_guide_materials_desc">Informação sobre materiais e cuidados.</string>
+    <string name="help_guide_materials_desc">As plaquinhas inteligentes SENRA são feitas de metal durável e leve, com revestimento epóxi para proteção extra. São à prova de água e resistentes aos raios UV, adequadas para todas as condições meteorológicas, e não se desgastam com o uso diário. As plaquinhas inteligentes foram desenhadas para se adaptarem confortavelmente à maioria das coleiras e peitorais.</string>
     <string name="help_guide_emergency_title">Funcionalidades de contacto de emergência</string>
-    <string name="help_guide_emergency_desc">Como funciona o nosso sistema de contacto.</string>
+    <string name="help_guide_emergency_desc">Quando alguém lê a plaquinha inteligente do teu animal de estimação, recebes instantaneamente uma notificação push e um e-mail com a localização de quem encontrou. Os membros dos planos Standard e Maximum também recebem alertas por SMS para uma resposta mais rápida. Se marcares o teu animal de estimação como desaparecido, é enviado um alerta comunitário a todos os utilizadores SENRA num raio de 10 km, e os veterinários e abrigos registados na tua área também são notificados. Qualquer pessoa da comunidade pode reportar avistamentos com localização e fotos, ajudando-te a encontrar o teu animal de estimação.</string>
     <string name="help_guide_profile_title">Gestão de perfil</string>
-    <string name="help_guide_profile_desc">Gerir e atualizar o perfil do animal de estimação.</string>
+    <string name="help_guide_profile_desc">O perfil digital do teu animal de estimação é o coração do SENRA. Adiciona detalhes essenciais como espécie, raça, idade e uma foto de boa qualidade. Também podes incluir informações de saúde, alergias, medicamentos e características especiais. Quando alguém lê a plaquinha inteligente do teu animal de estimação, verá este perfil, por isso é importante mantê-lo atualizado. O teu perfil ajuda quem procura a reconhecer o teu animal de estimação e a saber o que fazer se o encontrar.</string>
     <string name="help_guide_missing_alerts_title">Alertas de animais de estimação desaparecidos e avistamentos</string>
     <string name="help_guide_missing_alerts_desc">Se o seu animal de estimação desaparecer, marque-o como desaparecido em \'Os meus animais de estimação\' para criar um alerta comunitário instantâneo. A foto e detalhes do animal de estimação aparecem no mapa de Animais de estimação Desaparecidos visível a todos os utilizadores SENRA na sua área. Membros da comunidade podem reportar avistamentos com localização GPS, que recebe como notificações. Veterinários e abrigos registados também são alertados. Quando o animal de estimação for encontrado, marque-o como encontrado e partilhe opcionalmente a história do reencontro para inspirar a comunidade.</string>
     <string name="help_guide_community_title">Comunidade e animais de estimação encontrados</string>
@@ -1054,7 +1054,7 @@
     <string name="cannot_delete_missing_pet_message">Não pode eliminar um animal de estimação reportado como desaparecido. Marque-o como encontrado primeiro.</string>
     <string name="edit_alert">Editar alerta</string>
     <string name="health_info_empty_hint">Sem informação de saúde</string>
-    <string name="notification_channel_info">Pelo menos um canal de notificação deve estar ativo para que seja notificado quando a plaquinha inteligente do seu animal de estimação for lida.</string>
+    <string name="notification_channel_info">Pelo menos um canal de notificação deve estar ativo para que sejas notificado quando a plaquinha inteligente QR do teu animal de estimação for lida.</string>
     <string name="province">Distrito / Estado</string>
     <string name="reward_badge_text">Recompensa: %1$s</string>
     <string name="reward_placeholder">ex. €50, $100 ou um presente especial</string>
@@ -1063,7 +1063,7 @@
 
     <string name="pet_limit_reached">Limite de animais de estimação atingido</string>
     <string name="pet_limit_reached_message">O seu plano %1$s permite %2$d animal de estimação. Mude para %3$s por %4$s para adicionar animais de estimação ilimitados.</string>
-    <string name="share_owner_notified">O tutor foi notificado</string>
+    <string name="share_owner_notified">O dono foi notificado</string>
     <string name="sse_connection_lost">Atualizações em tempo real indisponíveis. Puxa para baixo para atualizar.</string>
     <string name="story_placeholder">Conte a sua história de reencontro…</string>
     <string name="upgrade_to_plan">Mudar para %1$s</string>
@@ -1173,26 +1173,26 @@
     <string name="breed_dog_papillon">Papillon</string>
     <string name="breed_dog_bullmastiff">Bullmastiff</string>
     <string name="breed_dog_samoyed">Samoieda</string>
-    <string name="breed_dog_scottish_terrier">Scottish Terrier</string>
+    <string name="breed_dog_scottish_terrier">Terrier escocês</string>
     <string name="breed_dog_soft_coated_wheaten_terrier">Wheaten Terrier de Pelo Macio</string>
-    <string name="breed_dog_airedale_terrier">Airedale Terrier</string>
-    <string name="breed_dog_jack_russell_terrier">Jack Russell Terrier</string>
+    <string name="breed_dog_airedale_terrier">Airedale terrier</string>
+    <string name="breed_dog_jack_russell_terrier">Jack Russell terrier</string>
     <string name="breed_cat_domestic_shorthair">Doméstico de pelo curto</string>
     <string name="breed_cat_domestic_longhair">Doméstico de pelo longo</string>
     <string name="breed_cat_persian">Persa</string>
     <string name="breed_cat_maine_coon">Maine Coon</string>
     <string name="breed_cat_ragdoll">Ragdoll</string>
-    <string name="breed_cat_british_shorthair">British Shorthair</string>
-    <string name="breed_cat_exotic_shorthair">Exotic Shorthair</string>
+    <string name="breed_cat_british_shorthair">Britânico de pelo curto</string>
+    <string name="breed_cat_exotic_shorthair">Exótico de pelo curto</string>
     <string name="breed_cat_abyssinian">Abissínio</string>
-    <string name="breed_cat_scottish_fold">Scottish Fold</string>
+    <string name="breed_cat_scottish_fold">Scottish fold</string>
     <string name="breed_cat_sphynx">Sphynx</string>
     <string name="breed_cat_siamese">Siamês</string>
-    <string name="breed_cat_devon_rex">Devon Rex</string>
+    <string name="breed_cat_devon_rex">Devon rex</string>
     <string name="breed_cat_oriental_shorthair">Oriental de pelo curto</string>
     <string name="breed_cat_burmese">Burmês</string>
-    <string name="breed_cat_american_shorthair">American Shorthair</string>
-    <string name="breed_cat_bengal">Bengal</string>
+    <string name="breed_cat_american_shorthair">Americano de pelo curto</string>
+    <string name="breed_cat_bengal">Bengala</string>
     <string name="breed_cat_russian_blue">Azul Russo</string>
     <string name="breed_cat_norwegian_forest_cat">Gato da Floresta Norueguesa</string>
     <string name="breed_cat_birman">Birmânia</string>
@@ -1206,7 +1206,7 @@
     <string name="breed_cat_manx">Manx</string>
     <string name="breed_cat_selkirk_rex">Selkirk Rex</string>
     <string name="breed_cat_ragamuffin">RagaMuffin</string>
-    <string name="breed_cat_american_curl">American Curl</string>
+    <string name="breed_cat_american_curl">Curl Americano</string>
     <string name="breed_cat_chartreux">Chartreux</string>
     <string name="breed_cat_bombay">Bombaim</string>
     <string name="breed_cat_egyptian_mau">Mau Egípcio</string>
@@ -1217,10 +1217,10 @@
     <string name="breed_cat_havana_brown">Havana Brown</string>
     <string name="breed_cat_japanese_bobtail">Bobtail Japonês</string>
     <string name="breed_cat_laperm">LaPerm</string>
-    <string name="breed_cat_american_wirehair">American Wirehair</string>
+    <string name="breed_cat_american_wirehair">Pêlo Duro Americano</string>
     <string name="breed_cat_european_burmese">Burmês Europeu</string>
     <string name="breed_cat_burmilla">Burmilla</string>
-    <string name="breed_cat_colorpoint_shorthair">Colorpoint Shorthair</string>
+    <string name="breed_cat_colorpoint_shorthair">Colorpoint de Pêlo Curto</string>
     <string name="breed_cat_javanese">Javanês</string>
     <string name="breed_cat_nebelung">Nebelung</string>
     <string name="breed_cat_pixie_bob">Pixie-Bob</string>
@@ -1264,10 +1264,10 @@
     <string name="share_location_title">Partilhar localização</string>
     <string name="share_location_exact">Partilhar localização exata</string>
     <string name="share_location_approximate">Partilhar localização aproximada (~100m)</string>
-    <string name="share_location_exact_note">O tutor verá as suas coordenadas GPS exatas</string>
-    <string name="share_location_approximate_note">O tutor verá uma área aproximada</string>
+    <string name="share_location_exact_note">O dono verá a tua localização</string>
+    <string name="share_location_approximate_note">O dono verá uma área aproximada</string>
     <string name="share_location_confirm">Partilhar</string>
-    <string name="share_location_success">Localização partilhada! O tutor foi notificado.</string>
+    <string name="share_location_success">Localização partilhada! O dono foi notificado.</string>
     <string name="share_location_denied">É necessária permissão de localização para partilhar a sua localização</string>
     <string name="share_location_error">Não foi possível partilhar a localização. Tente novamente.</string>
 
@@ -1359,41 +1359,41 @@
     <string name="help_faq_q10">Como peço uma plaquinha inteligente de substituição?</string>
     <string name="help_faq_a10">Vá à página \'Início/A Minha Conta\' e toca em \'Pedir Plaquinha inteligente de Substituição\'. Seleciona qual animal de estimação precisa de uma nova plaquinha inteligente. Os subscritores Maximum e Standard podem solicitar plaquinha inteligentes inteligentes de substituição gratuitas, enquanto os membros Starter podem pedir substituições pelo custo de envio.</string>
     <string name="help_faq_q11">O que é o programa de referência?</string>
-    <string name="help_faq_a11">No menu de Referências na sua página de Perfil, pode gerar um código de referência pessoal. Partilhe-o com amigos e família. Quando alguém usar o seu código e subscrever um plano pago (Standard ou Maximum), você e o seu amigo recebem 2 meses grátis.</string>
+    <string name="help_faq_a11">No menu de Referências na tua página de Perfil, podes gerar um código de referência pessoal. Partilha-o com amigos e família. Quando alguém usar o teu código e subscrever um plano pago (Standard ou Maximum), tu e o teu amigo recebem 2 meses grátis na subscrição. Podes acompanhar as tuas referências e o seu estado na página de Referências.</string>
     <string name="help_faq_q12">Para que países enviam?</string>
     <string name="help_faq_a12">Atualmente enviamos para Hungria, Eslováquia, República Checa, Áustria, Roménia, Croácia, Espanha, Itália, França, Alemanha, Noruega e Portugal. Envio nacional na Hungria: {{huPostapoint}} (PostaPont) ou {{huHome}} (entrega ao domicílio). Envio internacional: {{intlPrice}} por encomenda.</string>
     <string name="help_faq_q13">Posso ter vários animais de estimação numa conta?</string>
     <string name="help_faq_a13">Sim. Com o plano Starter (gratuito), pode registar até 10 animais de estimação, mas as funcionalidades são limitadas. O plano Standard é para um gato ou cão, com todas as funcionalidades. O plano Maximum inclui tudo e pode registar até 10 animais de estimação. Pode mudar de plano a qualquer momento.</string>
     <string name="help_faq_q14">Como reporto um animal de estimação encontrado?</string>
-    <string name="help_faq_a14">Se o animal de estimação tem uma plaquinha inteligente SENRA, simplesmente lê o código QR com a câmara do telemóvel — não é precisa aplicação. Pode ver o perfil do animal de estimação e partilhar a sua localização com o tutor.</string>
+    <string name="help_faq_a14">Se o animal de estimação tem uma plaquinha inteligente SENRA, simplesmente lê o código QR com a câmara do telemóvel — não é precisa aplicação. Podes ver o perfil do animal de estimação e partilhar a tua localização com o dono.</string>
     <string name="help_faq_q15">Os meus dados pessoais estão seguros?</string>
     <string name="help_faq_a15">Sim. Você controla exatamente que dados são visíveis quando alguém lê a plaquinha inteligente do seu animal de estimação. Em \'Definições\' &gt; \'Definições de Privacidade\', pode escolher se mostra o seu número de telefone, email ou morada. O seu login é protegido por um código de verificação único de cada vez. Pode apagar a sua conta e dados a qualquer momento.</string>
     <string name="help_faq_q16">Perdemos a plaquinha inteligente ou ficou danificada — o que faço?</string>
-    <string name="help_faq_a16">Não se preocupe — o perfil digital do seu animal de estimação está seguro e não está armazenado na plaquinha inteligente. Vá à página da Conta e toque em \'Pedir Substituição\'. Vinculamos uma nova plaquinha inteligente com um código QR novo ao seu perfil existente. Subscritores Standard e Maximum podem pedir substituições ilimitadas gratuitas. A plaquinha inteligente antiga é desativada imediatamente.</string>
+    <string name="help_faq_a16">Não te preocupes — o perfil digital do teu animal de estimação está seguro e não está armazenado na plaquinha inteligente. Vai à página da Conta e toca em \'Pedir Substituição\'. Vinculamos uma nova plaquinha inteligente com um código QR novo ao teu perfil existente. Subscritores Standard e Maximum podem pedir substituições ilimitadas gratuitas, enquanto membros Starter precisam de pagar o custo de envio para uma plaquinha inteligente de substituição. A plaquinha inteligente antiga é desativada imediatamente quando a substituição é pedida.</string>
     <string name="help_faq_q17">A minha plaquinha inteligente não lê — o que faço?</string>
-    <string name="help_faq_a17">Tenta o seguinte: limpa a superfície da plaquinha inteligente com um pano húmido, garante boa iluminação, mantém a câmara estável a cerca de 10-15 cm da plaquinha inteligente. Se o código QR está riscado ou gasto, pede uma substituição gratuita em \'Início/A Minha Conta\'.</string>
+    <string name="help_faq_a17">Tenta o seguinte: limpa a superfície da plaquinha inteligente com um pano húmido, garante boa iluminação, mantém a câmara do telemóvel estável a cerca de 10-15 cm da plaquinha inteligente, e verifica que a aplicação de câmara ou leitor QR está a funcionar. Se o código QR está riscado ou gasto, pede uma substituição gratuita em \'Início/A Minha Conta\' (a substituição gratuita está disponível para subscritores dos planos Standard e Maximum — membros Starter precisam de pagar o custo de envio para uma plaquinha inteligente de substituição).</string>
     <string name="help_faq_q18">Encontrei um animal de estimação sem plaquinha inteligente SENRA — o que posso fazer?</string>
-    <string name="help_faq_a18">Verifique o mapa de Animais de estimação Perdidos no site SENRA (senra.animal de estimação). Também pode ver os alertas na aplicação. Leve o animal de estimação ao veterinário mais próximo para ler o microchip. Se tem plaquinha inteligente SENRA, lê o código QR — aparecem os dados do tutor. Notifica sempre as autoridades locais e abrigos.</string>
+    <string name="help_faq_a18">Verifica o mapa de Animais de Estimação Perdidos no site SENRA (senra.pet) — o animal de estimação pode ter sido reportado como perdido na tua área. Também podes ver os alertas de animais de estimação perdidos na aplicação. Leva o animal de estimação ao veterinário mais próximo para ler o microchip. Se o animal de estimação tem uma plaquinha inteligente SENRA, lê o código QR com a câmara do telemóvel — aparecem os dados de contacto do dono.</string>
     <string name="help_faq_q19">Posso mudar o meu endereço de email?</string>
-    <string name="help_faq_a19">O seu email principal serve como identificador da conta e não pode ser mudado diretamente. Pode adicionar um email secundário em \'Definições\' &gt; \'Dados de Contacto\'. Se precisas mesmo de mudar o email principal, contacta-nos em hello@senra.animal de estimação.</string>
-    <string name="help_faq_q20">Qual é a diferença entre um microchip e uma plaquinha inteligente SENRA?</string>
-    <string name="help_faq_a20">Um microchip é um pequeno implante sob a pele do seu animal de estimação que armazena um identificador único de 15 dígitos — mas requer um leitor especial. A plaquinha inteligente SENRA pode ser lida com qualquer câmara de smartphone, mostrando instantaneamente o perfil completo, foto e dados de contacto aprovados. Quem encontrar também pode partilhar as coordenadas GPS.</string>
+    <string name="help_faq_a19">O teu email principal serve como identificador da conta e por isso não pode ser mudado diretamente. Se quiseres usar um email diferente como contacto público, podes adicionar um email secundário em \'Definições\' &gt; \'Dados de Contacto\' — este também pode aparecer no perfil do teu animal de estimação se o ativares, para que quem o encontrar o veja imediatamente e te contacte diretamente. Se precisas mesmo de mudar o email principal, contacta-nos em hello@senra.pet e ajudamos a migrar a tua conta.</string>
+    <string name="help_faq_q20">Qual é a diferença entre um microchip e uma plaquinha inteligente QR SENRA?</string>
+    <string name="help_faq_a20">Um microchip é um pequeno implante sob a pele do teu animal de estimação que armazena um identificador único de 15 dígitos — mas requer um leitor especial (geralmente só disponível em veterinários e abrigos). A plaquinha inteligente QR SENRA pode ser lida com qualquer câmara de smartphone, mostrando instantaneamente o perfil completo do teu animal de estimação, foto e os dados de contacto que aprovaste. Quem encontrar também pode partilhar onde encontrou o teu animal de estimação.</string>
     <string name="help_faq_q21">O que acontece aos meus dados se cancelar a subscrição?</string>
     <string name="help_faq_a21">Se cancelar a subscrição, mantém acesso às funcionalidades pagas até ao final do período de faturação atual. Depois, a conta mude automaticamente para o plano Starter gratuito. Perfis, fotos e plaquinha inteligentes inteligentes QR permanecem ativos. Os seus dados não são eliminados ao cancelar. Para eliminar tudo permanentemente, usa Eliminar Conta nas Definições.</string>
     <string name="help_faq_q22">Como posso registar a minha clínica ou abrigo na SENRA?</string>
-    <string name="help_faq_a22">Clínicas veterinárias e abrigos podem registar-se em senra.animal de estimação/register-vet-shelter. Preenche os dados e enviamos um email de verificação. Após confirmação, enviamos automaticamente notificações quando animais de estimação se perdem na zona. Sem custos e sem necessidade de login.</string>
+    <string name="help_faq_a22">Clínicas veterinárias e abrigos podem registar-se em senra.pet/register-vet-shelter. Preenche os dados da clínica ou organização e enviamos-lhes um email de verificação. Após confirmação, enviamos-lhes automaticamente notificações quando animais de estimação se perdem na tua zona — ajudando os animais de estimação perdidos a voltar para casa. Sem custos e sem necessidade de login.</string>
     <string name="help_faq_q23">Como posso partilhar uma história de sucesso se o meu animal de estimação foi encontrado?</string>
     <string name="help_faq_a23">Quando marca o seu animal de estimação como \'Encontrado\', perguntamos se quer partilhar a boa notícia. Pode publicar uma breve história. As histórias públicas aparecem no mapa \'Animais de estimação Encontrados\'.</string>
     <string name="help_faq_q24">Que navegadores e dispositivos são suportados?</string>
-    <string name="help_faq_a24">O SENRA funciona em todos os navegadores, incluindo Chrome, Safari, Firefox e Edge, em dispositivos móveis e desktop. A leitura da plaquinha inteligente funciona com qualquer câmara de smartphone — quem encontra não precisa da aplicação SENRA nem de conta.</string>
+    <string name="help_faq_a24">O SENRA funciona em todos os navegadores, incluindo Chrome, Safari, Firefox e Edge, em dispositivos móveis e desktop. A leitura da plaquinha inteligente QR funciona com qualquer câmara de smartphone — quem encontra não precisa da aplicação SENRA nem de conta.</string>
     <string name="help_faq_q25">Posso encomendar várias plaquinha inteligentes inteligentes para os meus animais de estimação de uma vez?</string>
     <string name="help_faq_a25">Sim, pode encomendar plaquinha inteligentes inteligentes para todos os seus animais de estimação ao mesmo tempo. Após chegarem, lê cada uma para ativar e atribuir ao perfil correto.</string>
     <string name="help_faq_q26">Como chegam os alertas de animais de estimação perdidos aos veterinários e abrigos?</string>
     <string name="help_faq_a26">Quando marca o seu animal de estimação como \'Perdido\', o SENRA envia automaticamente alertas por email a todos os veterinários e abrigos registados na sua zona. Quanto mais registados houver, melhor funciona a rede.</string>
     <string name="help_faq_q27">Posso transferir uma plaquinha inteligente para outro animal de estimação?</string>
-    <string name="help_faq_a27">Não. Cada plaquinha inteligente está permanentemente vinculada ao perfil de um animal de estimação. Se um animal de estimação falece ou já não precisas da plaquinha inteligente, ela torna-se inativa. Encomenda uma nova plaquinha inteligente para o novo animal de estimação no site SENRA.</string>
+    <string name="help_faq_a27">Não. Cada plaquinha inteligente QR está permanentemente vinculada ao perfil de um animal de estimação. Se um animal de estimação falece ou já não precisas da plaquinha inteligente, ela torna-se inativa. Encomenda uma nova plaquinha inteligente para o teu novo animal de estimação no site SENRA.</string>
     <string name="help_faq_q28">Como posso registar a clínica veterinária do meu animal de estimação ou o abrigo onde adotei o meu animal de estimação na rede SENRA?</string>
-    <string name="help_faq_a28">Clínicas veterinárias e abrigos podem registar-se em senra.animal de estimação/register-vet-shelter. Preenche os dados e enviamos um email de verificação. Após confirmação, enviamos notificações quando animais de estimação se perdem na zona — ajudando os animais de estimação perdidos a voltar para casa mais depressa. Sem custos e sem login.</string>
+    <string name="help_faq_a28">Clínicas veterinárias e abrigos podem registar-se em senra.pet/register-vet-shelter. Preenche os dados da clínica ou organização e enviamos-lhes um email de verificação. Após confirmação, enviamos-lhes automaticamente notificações quando animais de estimação se perdem na tua zona — ajudando os animais de estimação perdidos a voltar para casa mais depressa. Sem custos e sem necessidade de login.</string>
 
 
     <!-- Tag activation strings -->
@@ -1410,27 +1410,27 @@
     <string name="welcome_back_no_name">Bem-vindo/a de volta!</string>
 
     <!-- Shelter promo claim screen -->
-    <string name="shelter_promo_claim_tag_title">Claim Tag</string>
+    <string name="shelter_promo_claim_tag_title">Ativar plaquinha inteligente</string>
     <string name="shelter_promo_done">Done</string>
-    <string name="shelter_promo_new_pet">New Pet</string>
-    <string name="shelter_promo_existing_pet">Existing Pet</string>
-    <string name="shelter_promo_claim_tag_button">Claim Tag</string>
-    <string name="shelter_promo_pet_name_label">Name *</string>
-    <string name="shelter_promo_species_label">Species *</string>
+    <string name="shelter_promo_new_pet">Novo animal de estimação</string>
+    <string name="shelter_promo_existing_pet">Animal de estimação existente</string>
+    <string name="shelter_promo_claim_tag_button">Ativar plaquinha inteligente</string>
+    <string name="shelter_promo_pet_name_label">Nome *</string>
+    <string name="shelter_promo_species_label">Espécie *</string>
     <string name="shelter_promo_breed_label">Breed</string>
     <string name="shelter_promo_color_label">Color</string>
     <string name="shelter_promo_sex_label">Sex</string>
-    <string name="shelter_promo_register_and_claim_button">Register Pet &amp; Claim Tag</string>
-    <string name="shelter_promo_claimed_title">Tag Claimed!</string>
-    <string name="shelter_promo_pet_label_format">Pet: %1$s</string>
-    <string name="shelter_promo_tag_label_format">Tag: %1$s</string>
-    <string name="shelter_promo_free_plan_format">Free Standard plan for %1$d months</string>
-    <string name="shelter_promo_welcome_format">Welcome from %1$s!</string>
-    <string name="shelter_promo_register_subtitle_format">Register your pet to get %1$d months free Standard plan.</string>
+    <string name="shelter_promo_register_and_claim_button">Registar e ativar plaquinha inteligente</string>
+    <string name="shelter_promo_claimed_title">Plaquinha inteligente ativada!</string>
+    <string name="shelter_promo_pet_label_format">Animal de estimação: %1$s</string>
+    <string name="shelter_promo_tag_label_format">Plaquinha inteligente: %1$s</string>
+    <string name="shelter_promo_free_plan_format">Plano Standard gratuito durante %1$d meses</string>
+    <string name="shelter_promo_welcome_format">Bem-vindo da parte de %1$s!</string>
+    <string name="shelter_promo_register_subtitle_format">Regista o teu animal de estimação e usa o plano Standard de graça durante %1$d meses.</string>
 
     <!-- Tag activation / promo claim error fallbacks -->
-    <string name="error_claim_tag_failed">Failed to claim tag</string>
-    <string name="error_select_pet_first">Please select a pet first</string>
-    <string name="error_activate_tag_failed">Failed to activate tag</string>
+    <string name="error_claim_tag_failed">Não foi possível ativar a plaquinha inteligente</string>
+    <string name="error_select_pet_first">Por favor, seleciona primeiro um animal de estimação</string>
+    <string name="error_activate_tag_failed">Não foi possível ativar a plaquinha inteligente</string>
         <string name="waze_not_available">O Waze não está instalado e nenhum navegador está disponível</string>
 </resources>
