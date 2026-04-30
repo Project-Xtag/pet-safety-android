@@ -1428,4 +1428,19 @@
     <string name="error_select_pet_first">Molim te, najprije odaberi kućnog ljubimca</string>
     <string name="error_activate_tag_failed">Aktivacija privjeska nije uspjela</string>
         <string name="waze_not_available">Waze nije instaliran i nije dostupan preglednik</string>
+    <plurals name="photo_count">
+        <item quantity="one">%d fotografija</item>
+        <item quantity="few">%d fotografije</item>
+        <item quantity="other">%d fotografija</item>
+    </plurals>
+    <plurals name="photos_uploaded">
+        <item quantity="one">%d fotografija učitana</item>
+        <item quantity="few">%d fotografije učitane</item>
+        <item quantity="other">%d fotografija učitano</item>
+    </plurals>
+    <plurals name="photos_upload_failed">
+        <item quantity="one">%d fotografija nije učitana</item>
+        <item quantity="few">%d fotografije nisu učitane</item>
+        <item quantity="other">%d fotografija nije učitano</item>
+    </plurals>
 </resources>
