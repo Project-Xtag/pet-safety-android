@@ -823,7 +823,7 @@
     <!-- MARK: Push Notification Prompt -->
     <!-- ============================================ -->
     <string name="push_prompt_title">Zůstaňte v kontaktu</string>
-    <string name="push_prompt_subtitle">Povol oznámení, abyste nezmeškali důležité aktualizace:</string>
+    <string name="push_prompt_subtitle">Povol oznámení, abys nezmeškal/a důležité zprávy:</string>
     <string name="push_prompt_benefit_scan">Okamžitá upozornění, když je psí známka tvého mazlíčka naskenována</string>
     <string name="push_prompt_benefit_sighting">Hlášení pozorování od komunity</string>
     <string name="push_prompt_benefit_found">Okamžitě se dozvíte, když je mazlíček nalezen</string>
@@ -1018,13 +1018,13 @@
     <string name="sse_subscription_cancelled">Tvé předplatné %1$s bylo zrušeno.</string>
     <string name="sse_referral_used">%1$s použil tvůj doporučující kód!</string>
     <string name="help_guide_qr_tags_title">QR psí známky pro mazlíčky</string>
-    <string name="help_guide_qr_tags_desc">Zjistěte více o našich chytrých QR štítcích.</string>
+    <string name="help_guide_qr_tags_desc">Každá SENRA psí známka obsahuje jedinečný QR kód, který odkazuje na digitální profil tvého mazlíčka. Kdokoli, kdo najde tvého mazlíčka, může naskenovat kód kamerou telefonu — není potřeba žádná aplikace. Naskenování psí známky ti pošle upozornění s polohou nálezce (pokud ji sdílí). Psí známky můžeš aktivovat přes aplikaci a kdykoli si můžeš vyžádat náhradní, pokud tu původní ztratíš nebo se poškodí.</string>
     <string name="help_guide_materials_title">Materiály a odolnost</string>
-    <string name="help_guide_materials_desc">Informace o materiálech a péči.</string>
+    <string name="help_guide_materials_desc">SENRA psí známky jsou vyrobeny z odolného, lehkého kovu s epoxidovým povlakem pro extra ochranu. Jsou voděodolné a UV odolné, vhodné pro všechny povětrnostní podmínky, neopotřebují se při každodenním používání. Psí známky jsou navrženy tak, aby pohodlně seděly na většině obojků a postrojů.</string>
     <string name="help_guide_emergency_title">Funkce nouzového kontaktu</string>
-    <string name="help_guide_emergency_desc">Jak funguje náš systém nouzového kontaktu.</string>
+    <string name="help_guide_emergency_desc">Když někdo naskenuje psí známku tvého mazlíčka, okamžitě dostaneš push notifikaci a e-mail s polohou nálezce. Členové tarifu Standard a Maximum dostávají také SMS upozornění pro rychlejší reakci. Pokud označíš svého mazlíčka jako ztraceného, odešle se komunitní výstraha všem SENRA uživatelům do 10 km a budou upozorněni i registrovaní veterináři a útulky ve tvé oblasti. Kdokoli z komunity může nahlásit pozorování s polohou a fotografiemi, což ti pomůže najít tvého mazlíčka.</string>
     <string name="help_guide_profile_title">Správa profilu</string>
-    <string name="help_guide_profile_desc">Správa a aktualizace profilu mazlíčka.</string>
+    <string name="help_guide_profile_desc">Digitální profil tvého mazlíčka je srdcem SENRA. Zadej základní údaje: druh, plemeno, věk a kvalitní fotku. Můžeš přidat i zdravotní informace, alergie, léky a zvláštní poznávací znaky. Když někdo naskenuje psí známku tvého mazlíčka, uvidí tento profil, proto je důležité ho udržovat aktuální. Tvůj profil pomáhá nálezcům rozpoznat tvého mazlíčka a vědět, co dělat, když ho najdou.</string>
     <string name="help_guide_missing_alerts_title">Upozornění na ztracené mazlíčky a pozorování</string>
     <string name="help_guide_missing_alerts_desc">Pokud se tvůj mazlíček ztratí, označte ho jako ztraceného v \'Moji mazlíčci\' a vytvořte okamžité komunitní upozornění. Fotografie a údaje tvého mazlíčka se zobrazí na mapě ztracených mazlíčků viditelné pro všechny uživatele SENRA ve tvém okolí. Členové komunity mohou hlásit pozorování se svou GPS polohou, která obdržíte jako oznámení. Registrovaní veterináři a útulky jsou také upozorněni. Jakmile je tvůj mazlíček nalezen, označte ho jako nalezeného a volitelně sdílej svůj příběh shledání pro inspiraci komunity.</string>
     <string name="help_guide_community_title">Komunita a nalezení mazlíčci</string>
@@ -1195,7 +1195,7 @@
     <string name="breed_cat_exotic_shorthair">Exotická krátkosrstá</string>
     <string name="breed_cat_abyssinian">Habešská</string>
     <string name="breed_cat_scottish_fold">Skotská klapouchá</string>
-    <string name="breed_cat_sphynx">Sphynx</string>
+    <string name="breed_cat_sphynx">Sfinx</string>
     <string name="breed_cat_siamese">Siamská</string>
     <string name="breed_cat_devon_rex">Devon rex</string>
     <string name="breed_cat_oriental_shorthair">Orientální krátkosrstá</string>
@@ -1382,7 +1382,7 @@
     <string name="help_faq_q17">Moje psí známka se nedá naskenovat — co mám dělat?</string>
     <string name="help_faq_a17">Zkus následující: vyčisti povrch psí známky vlhkým hadříkem, zajisti dobré osvětlení, drž kameru telefonu stabilně asi 10-15 cm od psí známky a ověř, zda tvá kamera nebo QR čtečka funguje. Pokud je QR kód poškrábaný nebo opotřebovaný, objednej bezplatnou náhradu na stránce \'Domů/Můj účet\' (bezplatná náhrada je dostupná pro předplatitele Standard a Maximum — členové Starter musí zaplatit poštovné).</string>
     <string name="help_faq_q18">Našel jsem mazlíčka bez SENRA psí známky — co mohu udělat?</string>
-    <string name="help_faq_a18">Zkontroluj mapu Ztracených mazlíčků na webu SENRA (senra.pet) — mazlíček mohl být nahlášen jako ztracený ve tvém okolí. Upozornění na ztracené mazlíčky si můžeš prohlédnout i v aplikaci. Zaves zvířátko k nejbližšímu veterináři, aby naskenovali mikročip. Pokud má mazlíček SENRA psí známku, naskenuj QR kód kamerou telefonu — zobrazí se kontaktní údaje páníčka. Vždy informuj i místní úřady a blízké útulky.</string>
+    <string name="help_faq_a18">Zkontroluj mapu Ztracených mazlíčků na webu SENRA (senra.pet) — mazlíček mohl být nahlášen jako ztracený ve tvém okolí. Upozornění na ztracené mazlíčky si můžeš prohlédnout i v aplikaci. Zaves mazlíčka k nejbližšímu veterináři, aby naskenovali mikročip. Pokud má mazlíček SENRA psí známku, naskenuj QR kód kamerou telefonu — zobrazí se kontaktní údaje majitele.</string>
     <string name="help_faq_q19">Mohu změnit svou e-mailovou adresu?</string>
     <string name="help_faq_a19">Tvá primární e-mailová adresa slouží jako identifikátor účtu, a proto se nedá přímo změnit. Pokud chceš jako veřejný kontakt použít jiný e-mail, můžeš přidat sekundární e-mailovou adresu v \'Nastavení\' &gt; \'Kontaktní údaje\'. Pokud nevyhnutelně potřebuješ změnit primární e-mail, kontaktuj nás na hello@senra.pet a pomůžeme s migrací účtu.</string>
     <string name="help_faq_q20">Jaký je rozdíl mezi mikročipem a SENRA QR psí známkou?</string>
@@ -1421,25 +1421,25 @@
     <!-- Shelter promo claim screen -->
     <string name="shelter_promo_claim_tag_title">Aktivovat psí známku</string>
     <string name="shelter_promo_done">Done</string>
-    <string name="shelter_promo_new_pet">New Pet</string>
-    <string name="shelter_promo_existing_pet">Existing Pet</string>
+    <string name="shelter_promo_new_pet">Nový mazlíček</string>
+    <string name="shelter_promo_existing_pet">Stávající mazlíček</string>
     <string name="shelter_promo_claim_tag_button">Aktivovat psí známku</string>
-    <string name="shelter_promo_pet_name_label">Name *</string>
-    <string name="shelter_promo_species_label">Species *</string>
+    <string name="shelter_promo_pet_name_label">Jméno *</string>
+    <string name="shelter_promo_species_label">Druh *</string>
     <string name="shelter_promo_breed_label">Breed</string>
     <string name="shelter_promo_color_label">Color</string>
     <string name="shelter_promo_sex_label">Sex</string>
     <string name="shelter_promo_register_and_claim_button">Registrovat a aktivovat psí známku</string>
     <string name="shelter_promo_claimed_title">Psí známka aktivována!</string>
-    <string name="shelter_promo_pet_label_format">Pet: %1$s</string>
+    <string name="shelter_promo_pet_label_format">Mazlíček: %1$s</string>
     <string name="shelter_promo_tag_label_format">Psí známka: %1$s</string>
-    <string name="shelter_promo_free_plan_format">Free Standard plan for %1$d months</string>
-    <string name="shelter_promo_welcome_format">Welcome from %1$s!</string>
+    <string name="shelter_promo_free_plan_format">Zdarma Standard balíček na %1$d měsíců</string>
+    <string name="shelter_promo_welcome_format">Vítej od %1$s!</string>
     <string name="shelter_promo_register_subtitle_format">Zaregistruj svého mazlíčka a používej předplatné Standard %1$d měsíců zdarma.</string>
 
     <!-- Tag activation / promo claim error fallbacks -->
     <string name="error_claim_tag_failed">Aktivace psí známky selhala</string>
-    <string name="error_select_pet_first">Please select a pet first</string>
+    <string name="error_select_pet_first">Nejprve vyber mazlíčka</string>
     <string name="error_activate_tag_failed">Aktivace psí známky selhala</string>
         <string name="waze_not_available">Waze není nainstalován a není k dispozici žádný prohlížeč</string>
 </resources>

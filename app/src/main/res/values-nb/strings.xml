@@ -75,7 +75,7 @@
     <string name="resend_code_cooldown">Send kode på nytt om %1$ds</string>
     <string name="resend_code_prompt">Fikk du ikke koden? Send på nytt</string>
     <string name="dont_have_account">Har du ikke konto?</string>
-    <string name="start_here_order_free_tag">Start her &amp; bestill ditt gratis QR-brikke</string>
+    <string name="start_here_order_free_tag">Start her &amp; bestill din gratis QR-brikke!</string>
     <string name="create_account">Opprett konto</string>
     <string name="enter_details_subtitle">Oppgi opplysningene dine for å komme i gang.</string>
     <string name="register">Registrer</string>
@@ -156,12 +156,12 @@
     <string name="cannot_delete_missing_pet">Kan ikke slette savnet dyr</string>
     <string name="cannot_delete_missing_pet_message">Du kan ikke slette et dyr som for øyeblikket er meldt savnet. Merk dyret som funnet først.</string>
     <string name="cannot_delete_missing_message">%1$s er for øyeblikket QR-brikken som savnet. Merk dem som funnet før du sletter.</string>
-    <string name="mark_found_confirm_title">QR-brikke %1$s som funnet?</string>
+    <string name="mark_found_confirm_title">Merk %1$s som funnet?</string>
     <string name="mark_found_confirm_message">Dette vil lukke det savnede varselet for %1$s. Er du sikker?</string>
     <string name="marked_found_message">%1$s QR-brikken som funnet.</string>
     <string name="marked_missing_message">%1$s QR-brikken som savnet.</string>
-    <string name="mark_found_failed">Kunne ikke QR-brikke som funnet</string>
-    <string name="mark_missing_failed">Kunne ikke QR-brikke som savnet</string>
+    <string name="mark_found_failed">Kunne ikke merke som funnet</string>
+    <string name="mark_missing_failed">Kunne ikke merke som savnet</string>
     <string name="pet_deleted">%1$s er slettet</string>
     <string name="delete_pet_failed">Kunne ikke slette dyret</string>
 
@@ -209,7 +209,7 @@
     <string name="alert_updated">Varsel oppdatert</string>
     <string name="alert_update_failed">Kunne ikke oppdatere varsel</string>
     <string name="at_least_one_channel_required">Minst én varslingskanal må være aktiv</string>
-    <string name="notification_channel_info">Minst én varslingskanal må være aktiv slik at du kan bli varslet når dyrets QR-brikke skannes.</string>
+    <string name="notification_channel_info">Minst én varslingskanal må være aktiv slik at du kan bli varslet når kjæledyrets QR-brikke skannes.</string>
     <string name="default_species_dog">Hund</string>
     <string name="species_cat">Katt</string>
     <string name="search_breed">Søk etter rase\u2026</string>
@@ -267,7 +267,7 @@
     <!-- MARK: QR Scanner -->
     <!-- ============================================ -->
     <string name="scan_qr_code">Skann QR-kode</string>
-    <string name="scan_qr_subtitle">Pek kameraet mot dyrets QR-brikke</string>
+    <string name="scan_qr_subtitle">Pek kameraet mot kjæledyrets QR-brikke</string>
     <string name="camera_access_required">Kameratilgang kreves</string>
     <string name="camera_access_message">Aktiver kameratilgang for å skanne QR-koder</string>
     <string name="enable_camera">Aktiver kamera</string>
@@ -320,7 +320,7 @@
     <string name="tag_choose_plan_button">Fullfør kjæledyrprofil</string>
     <string name="tag_skip_for_now">Jeg gjør det senere</string>
     <string name="tag_no_pets">Ingen dyr ennå</string>
-    <string name="tag_no_pets_message">Legg til et dyr først før du aktiverer et QR-brikke</string>
+    <string name="tag_no_pets_message">Legg til et kjæledyr først før du aktiverer en QR-brikke</string>
     <string name="tag_code_label">Merkekode</string>
     <string name="tag_select_pet">Velg et dyr å knytte dette QR-brikken til</string>
     <string name="tag_activating">Aktiverer\u2026</string>
@@ -354,7 +354,7 @@
     <string name="anonymous">Anonym</string>
     <string name="contact_label">Kontakt: %1$s</string>
     <string name="pet_marked_found">%1$s er QR-brikken som funnet!</string>
-    <string name="mark_found_failed_message">Kunne ikke QR-brikke som funnet: %1$s</string>
+    <string name="mark_found_failed_message">Kunne ikke merke som funnet: %1$s</string>
     <plurals name="sighting_count">
         <item quantity="one">%d observasjon</item>
         <item quantity="other">%d observasjoner</item>
@@ -379,7 +379,7 @@
     <!-- MARK: Report Missing / Sighting -->
     <!-- ============================================ -->
     <string name="report_missing_title">Meld %1$s savnet</string>
-    <string name="last_seen_location">Sist sett-sted</string>
+    <string name="last_seen_location">Sist sett posisjon</string>
     <string name="additional_info">Tilleggsinformasjon</string>
     <string name="report">Rapporter</string>
     <string name="report_sighting">Rapporter observasjon</string>
@@ -437,7 +437,7 @@
     <!-- ============================================ -->
     <!-- MARK: Mark Lost/Found Sheet -->
     <!-- ============================================ -->
-    <string name="mark_pet_found_confirm">QR-brikke %1$s som funnet?</string>
+    <string name="mark_pet_found_confirm">Merk %1$s som funnet?</string>
     <string name="mark_found_confirm_alert">Dette vil lukke det savnede varselet for %1$s. Er du sikker?</string>
     <string name="notification_center">Varselsenter</string>
     <string name="alerts_radius_info">Varsler sendes innenfor 10 km av denne posisjonen</string>
@@ -456,7 +456,7 @@
     <string name="mark_lost_alerts_footer">Varsler sendes til brukere, veterinærer og dyrehjem innen 10 km.</string>
     <string name="mark_lost_getting_location">Henter posisjonen din…</string>
     <string name="mark_lost_no_address">Ingen registrert adresse. Gå til Profil for å legge til adressen din.</string>
-    <string name="mark_lost_address_placeholder">Skriv inn adresse eller sted</string>
+    <string name="mark_lost_address_placeholder">Skriv inn adressen!</string>
     <string name="mark_lost_additional_info">Tilleggsinformasjon</string>
     <string name="mark_lost_additional_placeholder">Detaljer som kan hjelpe med å finne kjæledyret ditt (halsbåndfarge, atferd, særkjennetegn…)</string>
     <string name="mark_lost_sends_to">Dette varselet sendes til:</string>
@@ -490,7 +490,7 @@
     <string name="notification_pet_found_title">Gode nyheter!</string>
     <string name="notification_channel_name">SENRA Pet-varsler</string>
     <string name="notification_channel_tag_scans">Merkeskanning</string>
-    <string name="notification_channel_tag_scans_desc">Varsler når dyrets QR-brikke skannes</string>
+    <string name="notification_channel_tag_scans_desc">Varsler når kjæledyrets QR-brikke skannes</string>
     <string name="notification_channel_alerts">Varsler om savnede dyr</string>
     <string name="notification_channel_alerts_desc">Varsler om savnede dyr i nærheten av deg</string>
     <string name="notification_channel_sightings">Observasjonsrapporter</string>
@@ -632,14 +632,14 @@
     <string name="primary_phone">Primært telefonnummer</string>
     <string name="show_on_qr_tag">Vis på QR-brikken</string>
     <string name="secondary_phone_optional">Sekundært telefonnummer (valgfritt)</string>
-    <string name="contacts_qr_tag_info">Kontaktdetaljer som er QR-brikken som synlige, vises på dyrets QR-brikke når noen skanner det.</string>
+    <string name="contacts_qr_tag_info">Kontaktdetaljer merket som synlige vises på kjæledyrets QR-brikke når noen skanner den.</string>
     <string name="contact_details">Kontaktdetaljer</string>
 
     <!-- ============================================ -->
     <!-- MARK: Contact Visibility -->
     <!-- ============================================ -->
     <string name="contact_visibility">Kontaktsynlighet</string>
-    <string name="contact_visibility_desc">Styr hvilken kontaktinformasjon som er synlig når noen skanner dyrets QR-brikke</string>
+    <string name="contact_visibility_desc">Styr hvilken kontaktinformasjon som er synlig når noen skanner kjæledyrets QR-brikke</string>
     <string name="show_phone_number">Vis telefonnummer</string>
     <string name="show_phone_subtitle">Telefonnummeret ditt vil være synlig for den som finner dyret</string>
     <string name="show_email_address">Vis e-postadresse</string>
@@ -703,11 +703,11 @@
     <!-- FAQ Items -->
     <!-- Guide Items -->
     <string name="help_guide_qr_tags_title">QR-kodemerkene for kjæledyr</string>
-    <string name="help_guide_qr_tags_desc">Hvert SENRA-QR-brikke har en unik QR-kode som kobler til dyrets digitale profil. Alle som finner dyret ditt, kan skanne koden med telefonkameraet — ingen app er nødvendig. Den som skanner, ser umiddelbart dyrets bilde, navn, medisinsk informasjon og kontaktdetaljene dine. De kan også dele GPS-posisjonen sin med deg slik at du vet nøyaktig hvor dyret er. Merkene fungerer med alle moderne smarttelefoner.</string>
+    <string name="help_guide_qr_tags_desc">Hver SENRA QR-brikke har en unik QR-kode som kobler til kjæledyrets digitale profil. Alle som finner kjæledyret ditt, kan skanne koden med telefonkameraet — ingen app er nødvendig. Den som skanner, ser umiddelbart kjæledyrets bilde, navn, medisinsk informasjon og kontaktdetaljene dine. De kan også dele GPS-posisjonen sin med deg slik at du vet nøyaktig hvor kjæledyret er. QR-brikkene fungerer med alle moderne smarttelefoner.</string>
     <string name="help_guide_materials_title">Merkets materialer og holdbarhet</string>
-    <string name="help_guide_materials_desc">SENRA-merkene er laget av holdbart, lett metall med epoksybelegg for ekstra beskyttelse. De er vanntette og UV-bestandige, egnet for alle værforhold. QR-koden er trykket med blekningsmotstandig blekk for å forbli skannbar over tid. Merkene festes trygt til dyrets halsbånd. Blir et QR-brikke skadet eller QR-koden kan ikke lenger skannes, kan du bestille et erstatningsmerke fra kontosiden — gratis for Standard- og Maximum-abonnenter.</string>
+    <string name="help_guide_materials_desc">SENRA QR-brikkene er laget av holdbart, lett metall med epoksybelegg for ekstra beskyttelse. De er vanntette og UV-bestandige, egnet for alle værforhold, og slites ikke ved daglig bruk. QR-brikkene er designet for å passe komfortabelt til de fleste halsbånd og seler.</string>
     <string name="help_guide_emergency_title">Nødkontakt og varsler</string>
-    <string name="help_guide_emergency_desc">Når noen skanner dyrets QR-brikke, mottar du umiddelbart en e-postvarsling med finnerens posisjon. Standard- og Maximum-abonnenter mottar også SMS-varsler for raskere respons. Kjæledyrmerker du dyret som savnet, sendes et fellesskapsvarsler til alle SENRA-brukere innen 10 km, og registrerte veterinærer og dyrehjem i ditt område varsles også. Hvem som helst i fellesskapet kan rapportere observasjoner med posisjonen sin, noe som skaper et spor for å hjelpe deg å finne dyret ditt.</string>
+    <string name="help_guide_emergency_desc">Når noen skanner kjæledyrets QR-brikke, mottar du umiddelbart en push-varsling og e-post med finnerens posisjon. Standard- og Maximum-abonnenter mottar også SMS-varsler for raskere respons. Merker du kjæledyret ditt som savnet, sendes et fellesskapsvarsel til alle SENRA-brukere innen 10 km, og registrerte veterinærer og dyrehjem i ditt område varsles også. Hvem som helst i fellesskapet kan rapportere observasjoner med posisjon og bilder, noe som hjelper deg å finne kjæledyret ditt.</string>
     <string name="help_guide_profile_title">Administrasjon av dyreprofil</string>
     <string name="help_guide_profile_desc">Dyrets digitale profil er hjertet i SENRA. Legg til viktige detaljer som navn, art, rase, alder og et tydelig bilde. Du kan også inkludere medisinsk informasjon (allergier, medisiner, tilstander), mikrochipnummer og særlige kjennetegn som hjelper med å identifisere dyret ditt. Last opp flere bilder til et galleri. All informasjon kan oppdateres når som helst fra \'Mine dyr\'-seksjonen. Du styrer hvilke av dine personopplysninger (telefon, e-post, adresse) som er synlige for folk som skanner QR-brikken.</string>
     <string name="help_guide_missing_alerts_title">Varsler om savnede dyr og observasjoner</string>
@@ -855,8 +855,8 @@
     <!-- MARK: Push Notification Prompt -->
     <!-- ============================================ -->
     <string name="push_prompt_title">Hold kontakten</string>
-    <string name="push_prompt_subtitle">Aktiver varsler for aldri å gå glipp av viktige oppdateringer om dyret ditt:</string>
-    <string name="push_prompt_benefit_scan">Øyeblikkelige varsler når dyrets QR-brikke skannes</string>
+    <string name="push_prompt_subtitle">Aktiver varsler så du ikke går glipp av viktige oppdateringer:</string>
+    <string name="push_prompt_benefit_scan">Øyeblikkelige varsler når kjæledyrets QR-brikke skannes</string>
     <string name="push_prompt_benefit_sighting">Observasjonsrapporter fra fellesskapet</string>
     <string name="push_prompt_benefit_found">Vet umiddelbart når dyret ditt er funnet</string>
     <string name="push_prompt_benefit_missing">Varsler om savnede dyr i ditt område</string>
@@ -960,7 +960,7 @@
     <string name="open_with">Åpne med\u2026</string>
     <string name="no_browser_for_navigation">Ingen app tilgjengelig for å åpne kartet. Installer Waze eller en nettleser.</string>
     <string name="map_label_pet_location">Dyrets posisjon</string>
-    <string name="map_label_tag_scanned">Dyremerke skannet</string>
+    <string name="map_label_tag_scanned">Kjæledyrets QR-brikke skannet</string>
     <string name="map_label_sighting">Dyreobservasjon</string>
     <string name="map_label_sighting_named">%1$s-observasjon</string>
 
@@ -1107,7 +1107,7 @@
     <string name="no_notifications_desc">Alt oppdatert! Varsler vil vises her når noen skanner QR-brikken til kjæledyret ditt.</string>
     <string name="mark_all_read">Merk alle som lest</string>
     <string name="create_profile_hint">Opprett først en kjæledyrprofil, og skann deretter QR-brikken på nytt for å aktivere.</string>
-    <string name="activation_error_qr_not_found">QR-koden ble ikke gjenkjent. Sørg for at du skanner et offisielt SENRA-QR-brikke.</string>
+    <string name="activation_error_qr_not_found">QR-koden ble ikke gjenkjent. Sørg for at du skanner en offisiell SENRA QR-brikke.</string>
     <string name="activation_error_already_activated">Dette QR-brikken er allerede knyttet til et annet kjæledyr. Kontakt support.</string>
     <string name="activation_error_not_linked">Dette QR-brikken er ennå ikke tilordnet bestillingen din. Vent på forsendelsesbekreftelse.</string>
     <string name="activation_error_not_shipped">Bestillingen din er ikke sendt ennå. Vent til du mottar QR-brikken.</string>
@@ -1129,34 +1129,34 @@
     <string name="breed_dog_beagle">Beagle</string>
     <string name="breed_dog_rottweiler">Rottweiler</string>
     <string name="breed_dog_german_shorthaired_pointer">Tysk Korthåret Hønsehund</string>
-    <string name="breed_dog_yorkshire_terrier">Yorkshire Terrier</string>
+    <string name="breed_dog_yorkshire_terrier">Yorkshire terrier</string>
     <string name="breed_dog_boxer">Boxer</string>
     <string name="breed_dog_dachshund">Dachs</string>
-    <string name="breed_dog_siberian_husky">Siberian Husky</string>
+    <string name="breed_dog_siberian_husky">Sibirsk husky</string>
     <string name="breed_dog_great_dane">Grand Danois</string>
     <string name="breed_dog_doberman_pinscher">Dobermann</string>
     <string name="breed_dog_australian_shepherd">Australsk Gjeterhund</string>
     <string name="breed_dog_miniature_schnauzer">Dvergschnauzer</string>
-    <string name="breed_dog_cavalier_king_charles_spaniel">Cavalier King Charles Spaniel</string>
+    <string name="breed_dog_cavalier_king_charles_spaniel">Cavalier King Charles spaniel</string>
     <string name="breed_dog_shih_tzu">Shih Tzu</string>
-    <string name="breed_dog_boston_terrier">Boston Terrier</string>
+    <string name="breed_dog_boston_terrier">Boston terrier</string>
     <string name="breed_dog_pomeranian">Pomeranian</string>
     <string name="breed_dog_havanese">Havanese</string>
-    <string name="breed_dog_shetland_sheepdog">Shetland Sheepdog</string>
+    <string name="breed_dog_shetland_sheepdog">Shetland sheepdog</string>
     <string name="breed_dog_brittany">Brittany</string>
     <string name="breed_dog_english_springer_spaniel">Engelsk Springer Spaniel</string>
     <string name="breed_dog_bernese_mountain_dog">Berner Sennenhund</string>
-    <string name="breed_dog_cocker_spaniel">Cocker Spaniel</string>
-    <string name="breed_dog_border_collie">Border Collie</string>
+    <string name="breed_dog_cocker_spaniel">Cocker spaniel</string>
+    <string name="breed_dog_border_collie">Border collie</string>
     <string name="breed_dog_vizsla">Vizsla</string>
     <string name="breed_dog_weimaraner">Weimaraner</string>
-    <string name="breed_dog_pembroke_welsh_corgi">Pembroke Welsh Corgi</string>
+    <string name="breed_dog_pembroke_welsh_corgi">Pembroke Welsh corgi</string>
     <string name="breed_dog_maltese">Malteser</string>
     <string name="breed_dog_chihuahua">Chihuahua</string>
-    <string name="breed_dog_west_highland_white_terrier">West Highland White Terrier</string>
+    <string name="breed_dog_west_highland_white_terrier">West Highland white terrier</string>
     <string name="breed_dog_collie">Collie</string>
-    <string name="breed_dog_basset_hound">Basset Hound</string>
-    <string name="breed_dog_rhodesian_ridgeback">Rhodesian Ridgeback</string>
+    <string name="breed_dog_basset_hound">Basset hound</string>
+    <string name="breed_dog_rhodesian_ridgeback">Rhodesian ridgeback</string>
     <string name="breed_dog_newfoundland">Newfoundlandshund</string>
     <string name="breed_dog_belgian_malinois">Belgisk Malinois</string>
     <string name="breed_dog_bichon_frise">Bichon Frisé</string>
@@ -1167,9 +1167,9 @@
     <string name="breed_dog_bullmastiff">Bullmastiff</string>
     <string name="breed_dog_samoyed">Samojedhund</string>
     <string name="breed_dog_scottish_terrier">Skotsk Terrier</string>
-    <string name="breed_dog_soft_coated_wheaten_terrier">Soft Coated Wheaten Terrier</string>
-    <string name="breed_dog_airedale_terrier">Airedale Terrier</string>
-    <string name="breed_dog_jack_russell_terrier">Jack Russell Terrier</string>
+    <string name="breed_dog_soft_coated_wheaten_terrier">Soft Coated Wheaten terrier</string>
+    <string name="breed_dog_airedale_terrier">Airedale terrier</string>
+    <string name="breed_dog_jack_russell_terrier">Jack Russell terrier</string>
     <string name="breed_cat_domestic_shorthair">Huskatt</string>
     <string name="breed_cat_domestic_longhair">Langhåret huskatt</string>
     <string name="breed_cat_persian">Perser</string>
@@ -1178,28 +1178,28 @@
     <string name="breed_cat_british_shorthair">Britisk Korthår</string>
     <string name="breed_cat_exotic_shorthair">Eksotisk Korthår</string>
     <string name="breed_cat_abyssinian">Abyssinier</string>
-    <string name="breed_cat_scottish_fold">Scottish Fold</string>
+    <string name="breed_cat_scottish_fold">Skotsk klapøre</string>
     <string name="breed_cat_sphynx">Sphynx</string>
     <string name="breed_cat_siamese">Siameser</string>
-    <string name="breed_cat_devon_rex">Devon Rex</string>
+    <string name="breed_cat_devon_rex">Devon rex</string>
     <string name="breed_cat_oriental_shorthair">Orientalsk Korthår</string>
-    <string name="breed_cat_burmese">Burmese</string>
+    <string name="breed_cat_burmese">Burmakatt</string>
     <string name="breed_cat_american_shorthair">Amerikansk Korthår</string>
-    <string name="breed_cat_bengal">Bengal</string>
+    <string name="breed_cat_bengal">Bengalkatt</string>
     <string name="breed_cat_russian_blue">Russisk Blå</string>
     <string name="breed_cat_norwegian_forest_cat">Norsk Skogkatt</string>
     <string name="breed_cat_birman">Birma</string>
     <string name="breed_cat_tonkinese">Tonkineser</string>
-    <string name="breed_cat_cornish_rex">Cornish Rex</string>
+    <string name="breed_cat_cornish_rex">Cornish rex</string>
     <string name="breed_cat_siberian">Sibirsk</string>
     <string name="breed_cat_balinese">Balineser</string>
-    <string name="breed_cat_somali">Somali</string>
+    <string name="breed_cat_somali">Somalikatt</string>
     <string name="breed_cat_turkish_angora">Tyrkisk Angora</string>
     <string name="breed_cat_himalayan">Himalaya</string>
     <string name="breed_cat_manx">Manx</string>
-    <string name="breed_cat_selkirk_rex">Selkirk Rex</string>
+    <string name="breed_cat_selkirk_rex">Selkirk rex</string>
     <string name="breed_cat_ragamuffin">RagaMuffin</string>
-    <string name="breed_cat_american_curl">American Curl</string>
+    <string name="breed_cat_american_curl">Amerikansk krøll</string>
     <string name="breed_cat_chartreux">Chartreux</string>
     <string name="breed_cat_bombay">Bombay</string>
     <string name="breed_cat_egyptian_mau">Egyptisk Mau</string>
@@ -1207,14 +1207,14 @@
     <string name="breed_cat_korat">Korat</string>
     <string name="breed_cat_singapura">Singapura</string>
     <string name="breed_cat_turkish_van">Tyrkisk Van</string>
-    <string name="breed_cat_havana_brown">Havana Brown</string>
+    <string name="breed_cat_havana_brown">Havana brown</string>
     <string name="breed_cat_japanese_bobtail">Japansk Bobtail</string>
     <string name="breed_cat_laperm">LaPerm</string>
     <string name="breed_cat_american_wirehair">Amerikansk Strihåret</string>
     <string name="breed_cat_european_burmese">Europeisk Burmese</string>
     <string name="breed_cat_burmilla">Burmilla</string>
     <string name="breed_cat_colorpoint_shorthair">Colorpoint Korthår</string>
-    <string name="breed_cat_javanese">Javanese</string>
+    <string name="breed_cat_javanese">Javaneser</string>
     <string name="breed_cat_nebelung">Nebelung</string>
     <string name="breed_cat_pixie_bob">Pixie-Bob</string>
     <string name="breed_cat_savannah">Savannah</string>
@@ -1362,9 +1362,9 @@
     <string name="help_faq_q15">Er mine personlige data trygge?</string>
     <string name="help_faq_a15">Ja. Du bestemmer nøyaktig hvilke data som er synlige når noen skanner merket. I \'Innstillinger\' &gt; \'Personverninnstillinger\' kan du velge om telefonnummer, e-post eller adresse vises. Innloggingen din er beskyttet med en engangskode hver gang. Du kan slette kontoen din når som helst.</string>
     <string name="help_faq_q16">Vi mistet merket eller det ble skadet — hva gjør jeg?</string>
-    <string name="help_faq_a16">Ikke bekymre deg — den digitale profilen er trygg og lagres ikke på merket. Gå til Konto-siden og trykk \'Bestill Erstatning\'. Vi knytter et nytt merke med ny QR-kode til den eksisterende profilen. Standard- og Maximum-abonnenter kan be om ubegrensede gratis erstatninger. Det gamle merket deaktiveres umiddelbart.</string>
+    <string name="help_faq_a16">Ikke bekymre deg — kjæledyrets digitale profil er trygg og lagres ikke på QR-brikken. Gå til Konto-siden og trykk \'Bestill erstatning\'. Vi knytter en ny QR-brikke med ny QR-kode til den eksisterende kjæledyrprofilen. Standard- og Maximum-abonnenter kan be om ubegrensede gratis erstatninger, mens Starter-medlemmer må betale fraktkostnaden for en erstatnings-QR-brikke. Den gamle QR-brikken deaktiveres umiddelbart når erstatningen bestilles.</string>
     <string name="help_faq_q17">Merket mitt skannes ikke — hva gjør jeg?</string>
-    <string name="help_faq_a17">Prøv: rengjør overflaten med en fuktig klut, sørg for godt lys, hold kameraet stabilt ca. 10-15 cm fra merket. Hvis QR-koden er ripet eller slitt, bestill gratis erstatning fra \'Hjem/Min Konto\'.</string>
+    <string name="help_faq_a17">Prøv følgende: rengjør QR-brikkeoverflaten med en fuktig klut, sørg for godt lys, hold telefonkameraet stabilt ca. 10-15 cm fra QR-brikken, og sjekk at kameraappen eller QR-leseren fungerer. Hvis QR-koden er ripet eller slitt, bestill gratis erstatning fra \'Hjem/Min side\'-siden (gratis erstatning er tilgjengelig for Standard- og Maximum-abonnenter — Starter-medlemmer må betale fraktkostnaden for en erstatnings-QR-brikke).</string>
     <string name="help_faq_q18">Jeg fant et kjæledyr uten SENRA-merke — hva kan jeg gjøre?</string>
     <string name="help_faq_a18">Sjekk kartet over Savnede Kjæledyr på SENRA-nettstedet (senra.pet). Du kan også se varsler i appen. Ta dyret til nærmeste veterinær for mikrochip-skanning. Hvis det har SENRA-merke, skann QR-koden — eierens kontaktinfo vises. Varsle alltid lokale myndigheter og nærliggende krisesentre.</string>
     <string name="help_faq_q19">Kan jeg endre e-postadressen min?</string>
@@ -1384,7 +1384,7 @@
     <string name="help_faq_q26">Hvordan når varsler om savnede kjæledyr veterinærer og krisesentre?</string>
     <string name="help_faq_a26">Når du merker kjæledyret som \'Savnet\', sender SENRA automatisk e-postvarsler til alle registrerte veterinærer og krisesentre i ditt område. Jo flere som er registrert, jo bedre fungerer nettverket.</string>
     <string name="help_faq_q27">Kan jeg overføre et merke til et annet kjæledyr?</string>
-    <string name="help_faq_a27">Nei. Hvert QR-brikke er permanent knyttet til én profil. Hvis et kjæledyr dør eller du ikke lenger trenger merket, blir det bare inaktivt. Bestill et nytt merke for det nye kjæledyret på SENRA-nettstedet.</string>
+    <string name="help_faq_a27">Nei. Hver QR-brikke er permanent knyttet til ett kjæledyrs profil. Hvis et kjæledyr dør eller du ikke lenger trenger QR-brikken, blir den gamle QR-brikken bare inaktiv. Bestill en ny QR-brikke for det nye kjæledyret ditt på SENRA-nettstedet.</string>
     <string name="help_faq_q28">Hvordan kan jeg registrere veterinærklinikken til kjæledyret mitt eller krisesenteret der jeg adopterte kjæledyret mitt i SENRA-nettverket?</string>
     <string name="help_faq_a28">Veterinærklinikker og krisesentre kan registrere seg på senra.pet/register-vet-shelter. Fyll ut opplysningene, og vi sender en bekreftelses-e-post. Etter bekreftelse sender vi automatisk varsler — og hjelper savnede kjæledyr å komme hjem raskere. Uten kostnader og uten innlogging.</string>
 
@@ -1405,25 +1405,25 @@
     <!-- Shelter promo claim screen -->
     <string name="shelter_promo_claim_tag_title">Aktiver QR-brikke</string>
     <string name="shelter_promo_done">Done</string>
-    <string name="shelter_promo_new_pet">New Pet</string>
-    <string name="shelter_promo_existing_pet">Existing Pet</string>
+    <string name="shelter_promo_new_pet">Nytt kjæledyr</string>
+    <string name="shelter_promo_existing_pet">Eksisterende kjæledyr</string>
     <string name="shelter_promo_claim_tag_button">Aktiver QR-brikke</string>
-    <string name="shelter_promo_pet_name_label">Name *</string>
-    <string name="shelter_promo_species_label">Species *</string>
+    <string name="shelter_promo_pet_name_label">Navn *</string>
+    <string name="shelter_promo_species_label">Art *</string>
     <string name="shelter_promo_breed_label">Breed</string>
     <string name="shelter_promo_color_label">Color</string>
     <string name="shelter_promo_sex_label">Sex</string>
     <string name="shelter_promo_register_and_claim_button">Registrer og aktiver QR-brikke</string>
     <string name="shelter_promo_claimed_title">QR-brikke aktivert!</string>
-    <string name="shelter_promo_pet_label_format">Pet: %1$s</string>
+    <string name="shelter_promo_pet_label_format">Kjæledyr: %1$s</string>
     <string name="shelter_promo_tag_label_format">QR-brikke: %1$s</string>
-    <string name="shelter_promo_free_plan_format">Free Standard plan for %1$d months</string>
-    <string name="shelter_promo_welcome_format">Welcome from %1$s!</string>
+    <string name="shelter_promo_free_plan_format">Gratis Standard-abonnement i %1$d måneder</string>
+    <string name="shelter_promo_welcome_format">Velkommen fra %1$s!</string>
     <string name="shelter_promo_register_subtitle_format">Registrer kjæledyret ditt og bruk Standard-abonnementet gratis i %1$d måneder.</string>
 
     <!-- Tag activation / promo claim error fallbacks -->
     <string name="error_claim_tag_failed">Klarte ikke å aktivere QR-brikken</string>
-    <string name="error_select_pet_first">Please select a pet first</string>
+    <string name="error_select_pet_first">Vennligst velg et kjæledyr først</string>
     <string name="error_activate_tag_failed">Klarte ikke å aktivere QR-brikken</string>
         <string name="waze_not_available">Waze er ikke installert og ingen nettleser er tilgjengelig</string>
 </resources>

@@ -124,7 +124,7 @@
     <string name="action_mark_found">ALS GEFUNDEN MARKIEREN</string>
     <string name="action_report_missing">ALS VERMISST MELDEN</string>
     <string name="action_order_tags">TAGS BESTELLEN</string>
-    <string name="action_replace_tag">TAG ERSETZEN</string>
+    <string name="action_replace_tag">HAUSTIERMARKE ERSETZEN</string>
     <string name="empty_pets_title">Noch keine Haustiere</string>
     <string name="empty_pets_message">Füge dein erstes Haustier hinzu, um mit SENRA zu starten</string>
     <string name="missing_badge">VERMISST</string>
@@ -269,21 +269,21 @@
     <string name="turn_on_flashlight">Taschenlampe einschalten</string>
     <string name="hello_pet_name">Hallo! Ich bin %1$s</string>
     <string name="scanned_tag_thanks">du haben gerade meine Haustiermarke gescannt. Danke, dass du mir helfen!</string>
-    <string name="share_location_with_owner">Meinen Standort mit dem Halter teilen</string>
-    <string name="owner_notified_message">Der Halter von %1$s erhält eine Benachrichtigung mit deinem Standort</string>
-    <string name="share_location_help">Helfen du dem Halter von %1$s, ihn zu finden, indem du deinen Standort teilen</string>
+    <string name="share_location_with_owner">Meinen Standort mit dem Besitzer teilen</string>
+    <string name="owner_notified_message">Der Besitzer von %1$s erhält eine Benachrichtigung mit deinem Standort</string>
+    <string name="share_location_help">Hilf dem Besitzer von %1$s, ihn zu finden, indem du deinen Standort teilst!</string>
     <string name="precise_location">Genauer Standort</string>
     <string name="precise_location_desc">Teile deine exakten GPS-Koordinaten</string>
     <string name="approximate_location">Ungefährer Standort</string>
     <string name="approximate_location_desc">Ungefähre Standortfreigabe (DSGVO-konform)</string>
     <string name="dont_share_location">Standort nicht teilen</string>
-    <string name="dont_share_location_desc">Den Halter nur informieren, dass das Haustier gefunden wurde</string>
-    <string name="confirm_notify_owner">Bestätigen &amp; Halter informieren</string>
+    <string name="dont_share_location_desc">Den Besitzer nur informieren, dass das Haustier gefunden wurde</string>
+    <string name="confirm_notify_owner">Bestätigen &amp; Besitzer informieren</string>
     <string name="share_exact_location_toggle">Genauen Standort teilen</string>
-    <string name="contact_owner">Halter kontaktieren</string>
+    <string name="contact_owner">Besitzer kontaktieren</string>
     <string name="call_phone">Anrufen: %1$s</string>
     <string name="email_contact">E-Mail: %1$s</string>
-    <string name="privacy_notice">deine Privatsphäre ist wichtig. Wir teilen deinen Standort nur mit dem Halter von %1$s, um die Wiedervereinigung zu erleichtern.</string>
+    <string name="privacy_notice">Deine Privatsphäre ist wichtig. Wir teilen deinen Standort nur mit dem Besitzer von %1$s, um die Wiedervereinigung zu erleichtern.</string>
     <string name="found_pet_title">%1$s gefunden</string>
     <string name="share_location">Standort teilen</string>
     <string name="location_shared">Standort geteilt</string>
@@ -397,7 +397,7 @@
     <string name="select_pet_header">Haustier auswählen</string>
     <string name="no_pets_available">Keine Haustiere verfügbar. Bitte fügen du zuerst ein Haustier hinzu.</string>
     <string name="pet_picker_label">Haustier</string>
-    <string name="last_seen_location_header">Zuletzt bekannter Ort</string>
+    <string name="last_seen_location_header">Zuletzt bekannter Standort</string>
     <string name="enter_location">Standort eingeben</string>
     <string name="additional_information_header">Zusätzliche Informationen</string>
     <string name="additional_details_placeholder">Gib weitere Details an, wann und wo du dein Haustier zuletzt gesehen haben\u2026</string>
@@ -407,9 +407,9 @@
     <string name="email_optional">E-Mail (optional)</string>
     <string name="sighting_reported_success">Sichtung erfolgreich gemeldet!</string>
     <string name="report_sighting_header">Sichtung melden</string>
-    <string name="report_sighting_help">Helfen du, das Haustier mit dem Halter zu vereinen, indem du den Sichtungsort teilen.</string>
+    <string name="report_sighting_help">Hilf, das Haustier mit dem Besitzer zu vereinen, indem du den Sichtungsort teilst!</string>
     <string name="share_contact_info">Meine Kontaktdaten teilen</string>
-    <string name="share_contact_info_desc">Erlaube dem Halter, du direkt zu kontaktieren</string>
+    <string name="share_contact_info_desc">Erlaube dem Besitzer, dich direkt zu kontaktieren</string>
     <string name="your_name">dein Name</string>
     <string name="your_phone_number">deine Telefonnummer</string>
     <string name="your_email">deine E-Mail</string>
@@ -417,7 +417,7 @@
     <string name="where_did_you_see">Wo haben du das Haustier gesehen?</string>
     <string name="sighting_notes_placeholder">Beschreibe, was du gesehen hast und in welche Richtung es ging…</string>
     <string name="submit_sighting_report">Sichtungsbericht senden</string>
-    <string name="sighting_reported_owner_notified">Sichtung gemeldet! Der Halter wurde informiert.</string>
+    <string name="sighting_reported_owner_notified">Sichtung gemeldet! Der Besitzer wurde informiert.</string>
     <string name="sighting_queued_offline">Sichtung in Warteschlange - wird gesendet, sobald online.</string>
 
     <!-- ============================================ -->
@@ -821,7 +821,7 @@
     <!-- MARK: Push Notification Prompt -->
     <!-- ============================================ -->
     <string name="push_prompt_title">Bleiben du verbunden</string>
-    <string name="push_prompt_subtitle">Aktiviere Benachrichtigungen, um keine wichtigen Updates zu verpassen:</string>
+    <string name="push_prompt_subtitle">Aktiviere Benachrichtigungen, um nichts zu verpassen:</string>
     <string name="push_prompt_benefit_scan">Sofortige Warnungen, wenn der Haustiermarke deines Haustiers gescannt wird</string>
     <string name="push_prompt_benefit_sighting">Sichtungsmeldungen aus der Community</string>
     <string name="push_prompt_benefit_found">Sofort wissen, wenn dein Haustier gefunden wird</string>
@@ -843,9 +843,9 @@
     <string name="public_profile_preview">Vorschau des öffentlichen Profils</string>
     <string name="failed_load_profile">Profil konnte nicht geladen werden</string>
     <string name="public_profile_subtitle">So sehen andere das Profil von %1$s</string>
-    <string name="owner_notified_sms_email">Der Halter von %1$s erhält eine SMS und eine E-Mail mit deinem Standort</string>
-    <string name="contact_owner_plea">Bitte informieren du meinen Halter, dass du mich gefunden haben\u2026</string>
-    <string name="contact_owner_plea_full">Bitte teilen du meinem Halter mit, dass du mich gefunden haben. du können ihn über die unten angegebenen Kontaktdaten erreichen.</string>
+    <string name="owner_notified_sms_email">Der Besitzer von %1$s erhält eine SMS und eine E-Mail mit deinem Standort</string>
+    <string name="contact_owner_plea">Bitte informiere meinen Besitzer, dass du mich gefunden hast\u2026</string>
+    <string name="contact_owner_plea_full">Bitte teile meinem Besitzer mit, dass du mich gefunden hast. Du kannst ihn über die unten angegebenen Kontaktdaten erreichen.</string>
     <string name="contact_info_not_set">Kontaktinfos noch nicht eingerichtet</string>
     <string name="contact_info_hidden">Kontaktinfos sind verborgen</string>
     <string name="contact_info_hidden_hint">deine Kontaktdaten sind eingestellt, aber aufgrund der Privatsphäre-Einstellungen verborgen. Aktualisiere in Benutzerkonto \u2192 Privatsphäre-Modus.</string>
@@ -854,19 +854,19 @@
     <string name="unique_features">Besondere Merkmale</string>
     <string name="behavior_notes">Verhaltensnotizen</string>
     <string name="how_it_works">So funktioniert es</string>
-    <string name="help_reunite_pet">Helfen du, %1$s sicher mit seinem Halter zu vereinen</string>
+    <string name="help_reunite_pet">Hilf dabei, %1$s sicher zu seinem Besitzer zurückzubringen!</string>
     <string name="step_share_location">Standort teilen</string>
-    <string name="step_share_location_desc">Tippe oben, um deinen Standort mit dem Halter zu teilen</string>
-    <string name="step_owner_notified">Halter wird informiert</string>
-    <string name="step_owner_notified_desc">Der Halter erhält eine SMS und E-Mail mit deinem Standort</string>
+    <string name="step_share_location_desc">Tippe oben, um deinen Standort mit dem Besitzer zu teilen</string>
+    <string name="step_owner_notified">Besitzer wird informiert</string>
+    <string name="step_owner_notified_desc">Der Besitzer erhält eine SMS und E-Mail mit deinem Standort</string>
     <string name="step_quick_reunion">Schnelle Wiedervereinigung</string>
-    <string name="step_quick_reunion_desc">Der Halter kann zu deinem Standort navigieren, um sein Haustier abzuholen</string>
+    <string name="step_quick_reunion_desc">Der Besitzer kann zu deinem Standort navigieren, um sein Haustier abzuholen</string>
     <string name="step_share_location_desc_public">Klicke oben, um zu teilen, wo du %1$s gefunden haben</string>
-    <string name="step_owner_notified_desc_public">Der Halter erhält eine SMS mit deinem Standort in Google Maps</string>
-    <string name="step_quick_reunion_desc_public">Bleiben du in der Nähe, damit der Halter du und %1$s findet</string>
+    <string name="step_owner_notified_desc_public">Der Besitzer erhält eine SMS mit deinem Standort in Google Maps</string>
+    <string name="step_quick_reunion_desc_public">Bleib in der Nähe, damit der Besitzer dich und %1$s finden kann</string>
     <string name="owner_phone_label">Telefon des Halters: %1$s</string>
     <string name="owner_email_label">E-Mail des Halters: %1$s</string>
-    <string name="your_privacy_notice">deine Privatsphäre ist wichtig. Wir teilen deinen Standort nur mit dem Halter von %1$s und nur mit deiner Zustimmung.</string>
+    <string name="your_privacy_notice">Deine Privatsphäre ist wichtig. Wir teilen deinen Standort nur mit dem Besitzer von %1$s und nur mit deiner Zustimmung.</string>
 
     <!-- ============================================ -->
     <!-- MARK: Offline Mode -->
@@ -1009,13 +1009,13 @@
     <string name="sse_subscription_cancelled">dein %1$s-Abonnement wurde gekündigt.</string>
     <string name="sse_referral_used">%1$s hat deinen Empfehlungscode verwendet!</string>
     <string name="help_guide_qr_tags_title">QR-Code Tier-Namensschilder</string>
-    <string name="help_guide_qr_tags_desc">Erfahre mehr über unsere smarten QR-Namensschilder.</string>
+    <string name="help_guide_qr_tags_desc">Jede SENRA Haustiermarke enthält einen einzigartigen QR-Code, der mit dem digitalen Profil deines Haustieres verknüpft ist. Jeder, der dein Haustier findet, kann den Code mit seiner Handykamera scannen — keine App erforderlich. Das Scannen der Haustiermarke sendet dir eine Benachrichtigung mit dem Standort des Finders (falls geteilt). Du kannst die Haustiermarken über die App aktivieren und jederzeit eine Ersatzmarke anfordern, falls die alte verloren geht oder beschädigt wird.</string>
     <string name="help_guide_materials_title">Materialien &amp; Haltbarkeit</string>
-    <string name="help_guide_materials_desc">Informationen über Materialien und Pflege.</string>
+    <string name="help_guide_materials_desc">SENRA Haustiermarken werden aus robustem, leichtem Metall mit einer Epoxidbeschichtung für zusätzlichen Schutz gefertigt. Sie sind wasserdicht und UV-beständig, geeignet für alle Wetterbedingungen und nutzen sich im täglichen Gebrauch nicht ab. Die Haustiermarken sind so gestaltet, dass sie bequem an die meisten Halsbänder und Geschirre passen.</string>
     <string name="help_guide_emergency_title">Notfallkontakt-Funktionen</string>
-    <string name="help_guide_emergency_desc">Wie unser Notfallkontakt-System funktioniert.</string>
+    <string name="help_guide_emergency_desc">Wenn jemand die Haustiermarke deines Haustieres scannt, erhältst du sofort eine Push-Benachrichtigung und E-Mail mit dem Standort des Finders. Standard- und Maximum-Mitglieder erhalten auch SMS-Benachrichtigungen für eine schnellere Reaktion. Wenn du dein Haustier als vermisst markierst, wird eine Gemeinschaftswarnung an alle SENRA-Nutzer im Umkreis von 10 km gesendet, und registrierte Tierärzte und Tierheime in deiner Nähe werden ebenfalls benachrichtigt. Jeder in der Community kann Sichtungen mit Standort und Fotos melden, um dir bei der Suche nach deinem Haustier zu helfen.</string>
     <string name="help_guide_profile_title">Profilverwaltung</string>
-    <string name="help_guide_profile_desc">Profil verwalten und Informationen aktualisieren.</string>
+    <string name="help_guide_profile_desc">Das digitale Profil deines Haustieres ist das Herzstück von SENRA. Gib die wichtigsten Daten an: Art, Rasse, Alter und ein gutes Foto. Du kannst auch Gesundheitsinformationen, Allergien, Medikamente und besondere Erkennungsmerkmale hinzufügen. Wenn jemand die Haustiermarke deines Haustieres scannt, sieht er dieses Profil, daher ist es wichtig, es aktuell zu halten. Dein Profil hilft Findern, dein Haustier zu erkennen und zu wissen, was zu tun ist.</string>
     <string name="help_guide_missing_alerts_title">Vermisstmeldungen &amp; Sichtungen</string>
     <string name="help_guide_missing_alerts_desc">Wenn dein Tier vermisst wird, markieren du es unter &quot;Meine Tiere&quot; als vermisst, um eine sofortige Community-Warnung zu erstellen. Das Foto und die Details deines Tieres erscheinen auf der Vermisste-Tiere-Karte, die für alle SENRA-Nutzer in deiner Gegend sichtbar ist. Community-Mitglieder können Sichtungen mit ihrem GPS-Standort melden, die du als Benachrichtigungen erhalten. Registrierte Tierärzte und Tierheime werden ebenfalls benachrichtigt. Wenn dein Tier gefunden wird, markieren du es als gefunden und teile optional deine Wiedervereinigungsgeschichte, um die Community zu inspirieren.</string>
     <string name="help_guide_community_title">Community &amp; Gefundene Tiere</string>
@@ -1063,7 +1063,7 @@
 
     <string name="pet_limit_reached">Haustierlimit erreicht</string>
     <string name="pet_limit_reached_message">dein %1$s-Abo erlaubt %2$d Haustier. Wechseln du zu %3$s für %4$s, um unbegrenzt Haustiere hinzuzufügen.</string>
-    <string name="share_owner_notified">Der Halter wurde benachrichtigt</string>
+    <string name="share_owner_notified">Der Besitzer wurde benachrichtigt</string>
     <string name="sse_connection_lost">Echtzeit-Updates nicht verfügbar. Zum Aktualisieren nach unten ziehen.</string>
     <string name="story_placeholder">Erzählen du deine Wiedervereinigungsgeschichte…</string>
     <string name="upgrade_to_plan">Auf %1$s upgraden</string>
@@ -1151,7 +1151,7 @@
     <string name="breed_dog_havanese">Havaneser</string>
     <string name="breed_dog_shetland_sheepdog">Shetland Schäferhund</string>
     <string name="breed_dog_brittany">Epagneul Breton</string>
-    <string name="breed_dog_english_springer_spaniel">English Springer Spaniel</string>
+    <string name="breed_dog_english_springer_spaniel">Englischer Springer Spaniel</string>
     <string name="breed_dog_bernese_mountain_dog">Berner Sennenhund</string>
     <string name="breed_dog_cocker_spaniel">Cocker Spaniel</string>
     <string name="breed_dog_border_collie">Border Collie</string>
@@ -1173,7 +1173,7 @@
     <string name="breed_dog_papillon">Papillon</string>
     <string name="breed_dog_bullmastiff">Bullmastiff</string>
     <string name="breed_dog_samoyed">Samojede</string>
-    <string name="breed_dog_scottish_terrier">Scottish Terrier</string>
+    <string name="breed_dog_scottish_terrier">Schottischer Terrier</string>
     <string name="breed_dog_soft_coated_wheaten_terrier">Soft Coated Wheaten Terrier</string>
     <string name="breed_dog_airedale_terrier">Airedale Terrier</string>
     <string name="breed_dog_jack_russell_terrier">Jack Russell Terrier</string>
@@ -1185,14 +1185,14 @@
     <string name="breed_cat_british_shorthair">Britisch Kurzhaar</string>
     <string name="breed_cat_exotic_shorthair">Exotisch Kurzhaar</string>
     <string name="breed_cat_abyssinian">Abessinier</string>
-    <string name="breed_cat_scottish_fold">Scottish Fold</string>
+    <string name="breed_cat_scottish_fold">Schottische Faltohrkatze</string>
     <string name="breed_cat_sphynx">Sphynx</string>
     <string name="breed_cat_siamese">Siamkatze</string>
     <string name="breed_cat_devon_rex">Devon Rex</string>
     <string name="breed_cat_oriental_shorthair">Orientalisch Kurzhaar</string>
     <string name="breed_cat_burmese">Burma</string>
     <string name="breed_cat_american_shorthair">Amerikanisch Kurzhaar</string>
-    <string name="breed_cat_bengal">Bengal</string>
+    <string name="breed_cat_bengal">Bengalkatze</string>
     <string name="breed_cat_russian_blue">Russisch Blau</string>
     <string name="breed_cat_norwegian_forest_cat">Norwegische Waldkatze</string>
     <string name="breed_cat_birman">Birma</string>
@@ -1221,7 +1221,7 @@
     <string name="breed_cat_european_burmese">Europäisch Burma</string>
     <string name="breed_cat_burmilla">Burmilla</string>
     <string name="breed_cat_colorpoint_shorthair">Colorpoint Kurzhaar</string>
-    <string name="breed_cat_javanese">Javanese</string>
+    <string name="breed_cat_javanese">Javanese-Katze</string>
     <string name="breed_cat_nebelung">Nebelung</string>
     <string name="breed_cat_pixie_bob">Pixie-Bob</string>
     <string name="breed_cat_savannah">Savannah</string>
@@ -1264,10 +1264,10 @@
     <string name="share_location_title">Standort teilen</string>
     <string name="share_location_exact">Genauen Standort teilen</string>
     <string name="share_location_approximate">Ungefähren Standort teilen (~100m)</string>
-    <string name="share_location_exact_note">Der Halter sieht deine genauen GPS-Koordinaten</string>
-    <string name="share_location_approximate_note">Der Halter sieht einen ungefähren Bereich</string>
+    <string name="share_location_exact_note">Der Besitzer sieht deinen genauen Standort</string>
+    <string name="share_location_approximate_note">Der Besitzer sieht einen ungefähren Bereich</string>
     <string name="share_location_confirm">Teilen</string>
-    <string name="share_location_success">Standort geteilt! Der Halter wurde benachrichtigt.</string>
+    <string name="share_location_success">Standort geteilt! Der Besitzer wurde benachrichtigt.</string>
     <string name="share_location_denied">Standortberechtigung ist erforderlich, um deinen Standort zu teilen</string>
     <string name="share_location_error">Standort konnte nicht geteilt werden. Bitte versuchen du es erneut.</string>
 
@@ -1366,7 +1366,7 @@
     <string name="help_faq_q13">Kann ich mehrere Haustiere in einem Benutzerkonto haben?</string>
     <string name="help_faq_a13">Ja. Mit dem Starter-Tarif (kostenlos) können du bis zu 10 Haustiere registrieren, aber die verfügbaren Funktionen sind begrenzt. Der Standard-Tarif ist für eine Katze oder einen Hund konzipiert, enthält aber alle Funktionen. Der Maximum-Tarif umfasst alle Funktionen und du können bis zu 10 Haustiere registrieren. du können jederzeit unter \'Startseite/Mein Benutzerkonto\' den Tarif wechseln.</string>
     <string name="help_faq_q14">Wie melde ich ein gefundenes Haustier?</string>
-    <string name="help_faq_a14">Wenn das Haustier eine SENRA-Haustiermarke hat, scannen du einfach den QR-Code mit der Kamera deines Handys — keine App nötig. du können das Profil des Haustieres einsehen und deinen Standort mit dem Halter teilen.</string>
+    <string name="help_faq_a14">Wenn das Haustier eine SENRA-Haustiermarke hat, scanne einfach den QR-Code mit der Kamera deines Handys — keine App nötig. Du kannst das Profil des Haustieres einsehen und deinen Standort mit dem Besitzer teilen.</string>
     <string name="help_faq_q15">Sind meine persönlichen Daten sicher?</string>
     <string name="help_faq_a15">Ja. du bestimmst genau, welche Daten sichtbar sind, wenn jemand die Haustiermarke deines Haustieres scannt. Unter \'Einstellungen\' &gt; \'Datenschutzeinstellungen\' können du wählen, ob deine Telefonnummer, E-Mail-Adresse oder Wohnanschrift angezeigt werden. dein Login wird jedes Mal durch einen Einmal-Verifizierungscode geschützt — es gibt kein Passwort, das gestohlen werden könnte. du können dein Benutzerkonto und alle Daten jederzeit löschen.</string>
     <string name="help_faq_q16">Wir haben die Haustiermarke verloren oder sie ist beschädigt — was soll ich tun?</string>
@@ -1413,25 +1413,25 @@
     <!-- Shelter promo claim screen -->
     <string name="shelter_promo_claim_tag_title">Haustiermarke aktivieren</string>
     <string name="shelter_promo_done">Done</string>
-    <string name="shelter_promo_new_pet">New Pet</string>
-    <string name="shelter_promo_existing_pet">Existing Pet</string>
+    <string name="shelter_promo_new_pet">Neues Haustier</string>
+    <string name="shelter_promo_existing_pet">Vorhandenes Haustier</string>
     <string name="shelter_promo_claim_tag_button">Haustiermarke aktivieren</string>
     <string name="shelter_promo_pet_name_label">Name *</string>
-    <string name="shelter_promo_species_label">Species *</string>
+    <string name="shelter_promo_species_label">Tierart *</string>
     <string name="shelter_promo_breed_label">Breed</string>
     <string name="shelter_promo_color_label">Color</string>
     <string name="shelter_promo_sex_label">Sex</string>
     <string name="shelter_promo_register_and_claim_button">Registrieren &amp; Haustiermarke aktivieren</string>
     <string name="shelter_promo_claimed_title">Haustiermarke aktiviert!</string>
-    <string name="shelter_promo_pet_label_format">Pet: %1$s</string>
+    <string name="shelter_promo_pet_label_format">Haustier: %1$s</string>
     <string name="shelter_promo_tag_label_format">Haustiermarke: %1$s</string>
-    <string name="shelter_promo_free_plan_format">Free Standard plan for %1$d months</string>
-    <string name="shelter_promo_welcome_format">Welcome from %1$s!</string>
+    <string name="shelter_promo_free_plan_format">Kostenloses Standard-Paket für %1$d Monate</string>
+    <string name="shelter_promo_welcome_format">Willkommen von %1$s!</string>
     <string name="shelter_promo_register_subtitle_format">Registriere dein Haustier und nutze den Standard-Tarif %1$d Monate lang kostenlos.</string>
 
     <!-- Tag activation / promo claim error fallbacks -->
     <string name="error_claim_tag_failed">Aktivierung der Haustiermarke fehlgeschlagen</string>
-    <string name="error_select_pet_first">Please select a pet first</string>
+    <string name="error_select_pet_first">Bitte wähle zuerst ein Haustier aus</string>
     <string name="error_activate_tag_failed">Aktivierung der Haustiermarke fehlgeschlagen</string>
         <string name="waze_not_available">Waze ist nicht installiert und kein Browser ist verfügbar</string>
 </resources>

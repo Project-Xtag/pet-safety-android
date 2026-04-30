@@ -10,7 +10,7 @@
     <string name="pet_limit_reached_message">Twój plan %1$s pozwala na %2$d pupila. Przejdź na %3$s za %4$s, aby dodawać nieograniczoną liczbę pupili.</string>
     <string name="upgrade_to_plan">Przejdź na %1$s</string>
     <string name="story_placeholder">Opowiedz historię waszego ponownego spotkania…</string>
-    <string name="share_owner_notified">Opiekun został powiadomiony</string>
+    <string name="share_owner_notified">Właściciel został powiadomiony</string>
     <plurals name="photos_uploaded">
         <item quantity="one">%d zdjęcie przesłane</item>
         <item quantity="few">%d zdjęcia przesłane</item>
@@ -284,7 +284,7 @@
     <string name="hello_pet_name">Cześć! Jestem %1$s</string>
     <string name="scanned_tag_thanks">Właśnie zeskanowałeś(-aś) moją nieśką. Dziękuję za pomoc!</string>
     <string name="share_location_with_owner">Udostępnij moją lokalizację opiekunowi</string>
-    <string name="owner_notified_message">Opiekun %1$s otrzyma powiadomienie z twoją lokalizacją</string>
+    <string name="owner_notified_message">Właściciel %1$s otrzyma powiadomienie z twoją lokalizacją</string>
     <string name="share_location_help">Pomóż opiekunowi %1$s go znaleźć, udostępniając swoją lokalizację</string>
     <string name="precise_location">Dokładna lokalizacja</string>
     <string name="precise_location_desc">Udostępnij dokładne współrzędne GPS</string>
@@ -439,7 +439,7 @@
     <string name="where_did_you_see">Gdzie widziałeś(-aś) pupila?</string>
     <string name="sighting_notes_placeholder">Opisz, co widziałeś i w którą stronę poszedł…</string>
     <string name="submit_sighting_report">Wyślij zgłoszenie obserwacji</string>
-    <string name="sighting_reported_owner_notified">Obserwacja zgłoszona! Opiekun został powiadomiony.</string>
+    <string name="sighting_reported_owner_notified">Obserwacja zgłoszona! Właściciel został powiadomiony.</string>
     <string name="sighting_queued_offline">Obserwacja w kolejce – zostanie wysłana po powrocie online.</string>
 
     <!-- ============================================ -->
@@ -714,13 +714,13 @@
     <!-- FAQ Items -->
     <!-- Guide Items -->
     <string name="help_guide_qr_tags_title">Nieśki QR dla pupili</string>
-    <string name="help_guide_qr_tags_desc">Poznaj nasze nieśki QR dla społeczności pupili i dowiedz się, jak działają.</string>
+    <string name="help_guide_qr_tags_desc">Każda zawieszka SENRA zawiera unikalny kod QR, który łączy się z cyfrowym profilem twojego pupila. Każdy, kto znajdzie twojego pupila, może zeskanować kod aparatem telefonu — nie trzeba pobierać aplikacji. Zeskanowanie zawieszki wysyła ci powiadomienie z lokalizacją znalazcy (jeśli ją udostępni). Zawieszki aktywujesz przez aplikację i w każdej chwili możesz zamówić zamienną zawieszkę, jeśli stara się zgubi lub uszkodzi.</string>
     <string name="help_guide_materials_title">Materiały i trwałość nieśki</string>
-    <string name="help_guide_materials_desc">Informacje o używanych przez nas materiałach oraz o pielęgnacji nieśki.</string>
+    <string name="help_guide_materials_desc">Zawieszki SENRA są wykonane z trwałego, lekkiego metalu z powłoką epoksydową dla dodatkowej ochrony. Są wodoodporne i odporne na promieniowanie UV, odpowiednie do wszystkich warunków pogodowych i nie zużywają się podczas codziennego użytkowania. Zawieszki zostały zaprojektowane tak, aby wygodnie pasowały do większości obroży i szelek.</string>
     <string name="help_guide_emergency_title">Kontakt i alerty awaryjne</string>
-    <string name="help_guide_emergency_desc">Jak działa nasz system kontaktu awaryjnego, który pomaga szybko odzyskać zaginionego pupila.</string>
+    <string name="help_guide_emergency_desc">Kiedy ktoś zeskanuje zawieszkę twojego pupila, natychmiast otrzymasz powiadomienie push i e-mail z lokalizacją znalazcy. Członkowie planów Standard i Maximum otrzymują również powiadomienia SMS dla szybszej reakcji. Jeśli oznaczysz pupila jako zaginionego, alert społecznościowy zostanie wysłany do wszystkich użytkowników SENRA w promieniu 10 km, a zarejestrowani weterynarze i schroniska w twojej okolicy również zostaną powiadomieni. Każdy w społeczności może zgłaszać obserwacje z lokalizacją i zdjęciami, pomagając w odnalezieniu twojego pupila.</string>
     <string name="help_guide_profile_title">Zarządzanie profilem pupila</string>
-    <string name="help_guide_profile_desc">Zarządzanie publicznym profilem pupila i aktualizacja jego danych.</string>
+    <string name="help_guide_profile_desc">Cyfrowy profil twojego pupila to serce SENRA. Dodaj podstawowe dane: gatunek, rasę, wiek i wyraźne zdjęcie. Możesz też dodać informacje medyczne, alergie, leki i unikalne cechy rozpoznawcze. Kiedy ktoś zeskanuje zawieszkę twojego pupila, zobaczy ten profil, dlatego ważne jest, aby był aktualny. Twój profil pomoże znalazcom rozpoznać pupila i wiedzieć, co robić, gdy go znajdą.</string>
     <string name="help_guide_missing_alerts_title">Alerty o zaginionych pupilach i obserwacje</string>
     <string name="help_guide_missing_alerts_desc">Jeśli twój pupil zaginie, oznacz go jako zaginionego w sekcji „Moje pupile", aby natychmiast uruchomić alert społecznościowy. Zdjęcie i dane pupila pojawią się na mapie Zaginionych pupili widocznej dla wszystkich użytkowników SENRA w twojej okolicy. Wszyscy zarejestrowani użytkownicy w promieniu 10 km otrzymują powiadomienia e-mail i SMS, a członkowie społeczności mogą zgłaszać obserwacje z lokalizacją GPS. Zarejestrowani weterynarze i schroniska również otrzymują alert. Gdy pupil wróci do domu, oznacz go jako odnalezionego! Jeśli chcesz, podziel się historią jego powrotu, aby dodać otuchy innym.</string>
     <string name="help_guide_community_title">Społeczność i odnalezione pupile</string>
@@ -868,7 +868,7 @@
     <!-- MARK: Push Notification Prompt -->
     <!-- ============================================ -->
     <string name="push_prompt_title">Bądź na bieżąco</string>
-    <string name="push_prompt_subtitle">Włącz powiadomienia, aby nie przegapić ważnych informacji o swoim pupilu:</string>
+    <string name="push_prompt_subtitle">Włącz powiadomienia, by nic nie przegapić:</string>
     <string name="push_prompt_benefit_scan">Natychmiastowe alerty po zeskanowaniu nieśki pupila</string>
     <string name="push_prompt_benefit_sighting">Zgłoszenia obserwacji od społeczności</string>
     <string name="push_prompt_benefit_found">Natychmiastowa informacja, gdy pupil zostanie odnaleziony</string>
@@ -890,7 +890,7 @@
     <string name="public_profile_preview">Podgląd profilu publicznego</string>
     <string name="failed_load_profile">Nie udało się załadować profilu</string>
     <string name="public_profile_subtitle">Tak inni widzą profil %1$s</string>
-    <string name="owner_notified_sms_email">Opiekun %1$s otrzyma SMS i e-mail z twoją lokalizacją</string>
+    <string name="owner_notified_sms_email">Właściciel %1$s otrzyma SMS i e-mail z twoją lokalizacją</string>
     <string name="contact_owner_plea">Proszę, daj znać mojemu opiekunowi, że mnie znalazłeś\u2026</string>
     <string name="contact_owner_plea_full">Proszę, poinformuj mojego opiekuna, że mnie znalazłeś. Możesz się z nim skontaktować korzystając z poniższych danych kontaktowych.</string>
     <string name="contact_info_not_set">Dane kontaktowe jeszcze nie zostały skonfigurowane</string>
@@ -904,13 +904,13 @@
     <string name="help_reunite_pet">Pomóż bezpiecznie połączyć %1$s z opiekunem</string>
     <string name="step_share_location">Udostępnij lokalizację</string>
     <string name="step_share_location_desc">Kliknij przycisk powyżej, aby udostępnić lokalizację opiekunowi</string>
-    <string name="step_owner_notified">Opiekun otrzymał powiadomienie</string>
-    <string name="step_owner_notified_desc">Opiekun otrzyma SMS i e-mail z twoją lokalizacją</string>
+    <string name="step_owner_notified">Właściciel otrzymał powiadomienie</string>
+    <string name="step_owner_notified_desc">Właściciel otrzyma SMS i e-mail z twoją lokalizacją</string>
     <string name="step_quick_reunion">Szybkie spotkanie</string>
-    <string name="step_quick_reunion_desc">Opiekun może dotrzeć do twojej lokalizacji, aby odebrać pupila</string>
+    <string name="step_quick_reunion_desc">Właściciel może dotrzeć do twojej lokalizacji, aby odebrać pupila</string>
     <string name="step_share_location_desc_public">Kliknij przycisk powyżej, aby udostępnić miejsce, gdzie znalazłeś %1$s</string>
-    <string name="step_owner_notified_desc_public">Opiekun otrzyma SMS z twoją lokalizacją w Google Maps</string>
-    <string name="step_quick_reunion_desc_public">Pozostań w pobliżu miejsca, aby opiekun mógł cię znaleźć i odebrać %1$s</string>
+    <string name="step_owner_notified_desc_public">Właściciel otrzyma SMS z twoją lokalizacją w Google Maps</string>
+    <string name="step_quick_reunion_desc_public">Pozostań w pobliżu miejsca, aby właściciel mógł cię znaleźć i odebrać %1$s</string>
     <string name="owner_phone_label">Telefon opiekuna: %1$s</string>
     <string name="owner_email_label">E-mail opiekuna: %1$s</string>
     <string name="your_privacy_notice">Twoja prywatność jest ważna. Twoją lokalizację udostępnimy opiekunowi %1$s wyłącznie za twoją wyraźną zgodą.</string>
@@ -1147,16 +1147,16 @@
     <string name="medications_hint">np. Insulina dwa razy dziennie, lek na serce</string>
 
     <!-- Breed Names -->
-    <string name="breed_dog_labrador_retriever">Labrador Retriever</string>
+    <string name="breed_dog_labrador_retriever">Labrador retriever</string>
     <string name="breed_dog_german_shepherd">Owczarek Niemiecki</string>
-    <string name="breed_dog_golden_retriever">Golden Retriever</string>
+    <string name="breed_dog_golden_retriever">Golden retriever</string>
     <string name="breed_dog_french_bulldog">Buldog Francuski</string>
     <string name="breed_dog_bulldog">Buldog Angielski</string>
     <string name="breed_dog_poodle">Pudel</string>
     <string name="breed_dog_beagle">Beagle</string>
     <string name="breed_dog_rottweiler">Rottweiler</string>
     <string name="breed_dog_german_shorthaired_pointer">Wyżeł Niemiecki Krótkowłosy</string>
-    <string name="breed_dog_yorkshire_terrier">Yorkshire Terrier</string>
+    <string name="breed_dog_yorkshire_terrier">Yorkshire terrier</string>
     <string name="breed_dog_boxer">Bokser</string>
     <string name="breed_dog_dachshund">Jamnik</string>
     <string name="breed_dog_siberian_husky">Husky Syberyjski</string>
@@ -1164,39 +1164,39 @@
     <string name="breed_dog_doberman_pinscher">Doberman</string>
     <string name="breed_dog_australian_shepherd">Owczarek Australijski</string>
     <string name="breed_dog_miniature_schnauzer">Sznaucer Miniaturowy</string>
-    <string name="breed_dog_cavalier_king_charles_spaniel">Cavalier King Charles Spaniel</string>
+    <string name="breed_dog_cavalier_king_charles_spaniel">Cavalier King Charles spaniel</string>
     <string name="breed_dog_shih_tzu">Shih Tzu</string>
-    <string name="breed_dog_boston_terrier">Boston Terrier</string>
+    <string name="breed_dog_boston_terrier">Boston terrier</string>
     <string name="breed_dog_pomeranian">Szpic Miniaturowy</string>
     <string name="breed_dog_havanese">Hawańczyk</string>
     <string name="breed_dog_shetland_sheepdog">Owczarek Szetlandzki</string>
     <string name="breed_dog_brittany">Bretończyk</string>
     <string name="breed_dog_english_springer_spaniel">Springer Spaniel Angielski</string>
     <string name="breed_dog_bernese_mountain_dog">Berneński Pies Pasterski</string>
-    <string name="breed_dog_cocker_spaniel">Cocker Spaniel</string>
-    <string name="breed_dog_border_collie">Border Collie</string>
+    <string name="breed_dog_cocker_spaniel">Cocker spaniel</string>
+    <string name="breed_dog_border_collie">Border collie</string>
     <string name="breed_dog_vizsla">Wyżeł Węgierski</string>
     <string name="breed_dog_weimaraner">Wyżeł Weimarski</string>
-    <string name="breed_dog_pembroke_welsh_corgi">Pembroke Welsh Corgi</string>
+    <string name="breed_dog_pembroke_welsh_corgi">Pembroke Welsh corgi</string>
     <string name="breed_dog_maltese">Maltańczyk</string>
     <string name="breed_dog_chihuahua">Chihuahua</string>
-    <string name="breed_dog_west_highland_white_terrier">West Highland White Terrier</string>
+    <string name="breed_dog_west_highland_white_terrier">West Highland white terrier</string>
     <string name="breed_dog_collie">Collie</string>
-    <string name="breed_dog_basset_hound">Basset Hound</string>
-    <string name="breed_dog_rhodesian_ridgeback">Rhodesian Ridgeback</string>
+    <string name="breed_dog_basset_hound">Basset hound</string>
+    <string name="breed_dog_rhodesian_ridgeback">Rhodesian ridgeback</string>
     <string name="breed_dog_newfoundland">Nowofundlandczyk</string>
     <string name="breed_dog_belgian_malinois">Owczarek Belgijski Malinois</string>
-    <string name="breed_dog_bichon_frise">Bichon Frise</string>
+    <string name="breed_dog_bichon_frise">Bichon frise</string>
     <string name="breed_dog_akita">Akita</string>
     <string name="breed_dog_st_bernard">Bernardyn</string>
     <string name="breed_dog_bloodhound">Bloodhound</string>
     <string name="breed_dog_papillon">Papillon</string>
     <string name="breed_dog_bullmastiff">Bullmastiff</string>
-    <string name="breed_dog_samoyed">Samoyed</string>
+    <string name="breed_dog_samoyed">Samojed</string>
     <string name="breed_dog_scottish_terrier">Terrier Szkocki</string>
-    <string name="breed_dog_soft_coated_wheaten_terrier">Soft Coated Wheaten Terrier</string>
-    <string name="breed_dog_airedale_terrier">Airedale Terrier</string>
-    <string name="breed_dog_jack_russell_terrier">Jack Russell Terrier</string>
+    <string name="breed_dog_soft_coated_wheaten_terrier">Soft Coated Wheaten terrier</string>
+    <string name="breed_dog_airedale_terrier">Airedale terrier</string>
+    <string name="breed_dog_jack_russell_terrier">Jack Russell terrier</string>
     <string name="breed_cat_domestic_shorthair">Kot domowy krótkowłosy</string>
     <string name="breed_cat_domestic_longhair">Kot domowy długowłosy</string>
     <string name="breed_cat_persian">Perski</string>
@@ -1208,7 +1208,7 @@
     <string name="breed_cat_scottish_fold">Szkocki Zwisłouchy</string>
     <string name="breed_cat_sphynx">Sfinks</string>
     <string name="breed_cat_siamese">Syjamski</string>
-    <string name="breed_cat_devon_rex">Devon Rex</string>
+    <string name="breed_cat_devon_rex">Devon rex</string>
     <string name="breed_cat_oriental_shorthair">Orientalny Krótkowłosy</string>
     <string name="breed_cat_burmese">Burmański</string>
     <string name="breed_cat_american_shorthair">Amerykański Krótkowłosy</string>
@@ -1217,16 +1217,16 @@
     <string name="breed_cat_norwegian_forest_cat">Kot Norweski Leśny</string>
     <string name="breed_cat_birman">Birmański</string>
     <string name="breed_cat_tonkinese">Tonkijski</string>
-    <string name="breed_cat_cornish_rex">Cornish Rex</string>
+    <string name="breed_cat_cornish_rex">Cornish rex</string>
     <string name="breed_cat_siberian">Syberyjski</string>
     <string name="breed_cat_balinese">Balinezyjski</string>
     <string name="breed_cat_somali">Somalijski</string>
     <string name="breed_cat_turkish_angora">Angora Turecka</string>
     <string name="breed_cat_himalayan">Himalajski</string>
     <string name="breed_cat_manx">Manx</string>
-    <string name="breed_cat_selkirk_rex">Selkirk Rex</string>
+    <string name="breed_cat_selkirk_rex">Selkirk rex</string>
     <string name="breed_cat_ragamuffin">RagaMuffin</string>
-    <string name="breed_cat_american_curl">American Curl</string>
+    <string name="breed_cat_american_curl">Amerykański curl</string>
     <string name="breed_cat_chartreux">Kartuski</string>
     <string name="breed_cat_bombay">Bombajski</string>
     <string name="breed_cat_egyptian_mau">Mau Egipski</string>
@@ -1234,7 +1234,7 @@
     <string name="breed_cat_korat">Korat</string>
     <string name="breed_cat_singapura">Singapura</string>
     <string name="breed_cat_turkish_van">Turecki Van</string>
-    <string name="breed_cat_havana_brown">Havana Brown</string>
+    <string name="breed_cat_havana_brown">Havana brown</string>
     <string name="breed_cat_japanese_bobtail">Bobtail Japoński</string>
     <string name="breed_cat_laperm">LaPerm</string>
     <string name="breed_cat_american_wirehair">Amerykański Szorstkowłosy</string>
@@ -1284,10 +1284,10 @@
     <string name="share_location_title">Udostępnij lokalizację</string>
     <string name="share_location_exact">Udostępnij dokładną lokalizację</string>
     <string name="share_location_approximate">Udostępnij przybliżoną lokalizację (~100m)</string>
-    <string name="share_location_exact_note">Opiekun zobaczy dokładne współrzędne GPS</string>
-    <string name="share_location_approximate_note">Opiekun zobaczy przybliżony obszar</string>
+    <string name="share_location_exact_note">Właściciel zobaczy twoją lokalizację</string>
+    <string name="share_location_approximate_note">Właściciel zobaczy przybliżony obszar</string>
     <string name="share_location_confirm">Udostępnij</string>
-    <string name="share_location_success">Lokalizacja udostępniona! Opiekun został powiadomiony.</string>
+    <string name="share_location_success">Lokalizacja udostępniona! Właściciel został powiadomiony.</string>
     <string name="share_location_denied">Wymagane uprawnienie do lokalizacji, aby udostępnić swoją lokalizację</string>
     <string name="share_location_error">Nie udało się udostępnić lokalizacji. Spróbuj ponownie.</string>
 
@@ -1307,7 +1307,7 @@
 
     <!-- Appearance -->
     <string name="appearance_title">Wygląd</string>
-    <string name="appearance_system">System</string>
+    <string name="appearance_system">Systemowy</string>
     <string name="appearance_light">Jasny</string>
     <string name="appearance_dark">Ciemny</string>
     <!-- Localization audit fixes -->
@@ -1389,9 +1389,9 @@
     <string name="help_faq_q15">Czy moje dane osobowe są bezpieczne?</string>
     <string name="help_faq_a15">Tak. Ty kontrolujesz, jakie dane są widoczne po zeskanowaniu adresówki. W \'Ustawienia\' &gt; \'Ustawienia Prywatności\' możesz wybrać, czy pokazywać telefon, email czy adres. Logowanie jest chronione jednorazowym kodem weryfikacyjnym. Możesz usunąć konto i dane w dowolnym momencie.</string>
     <string name="help_faq_q16">Zgubiliśmy adresówkę lub się uszkodziła — co robić?</string>
-    <string name="help_faq_a16">Nie martw się — profil cyfrowy jest bezpieczny i nie jest przechowywany na plakietce. Przejdź do strony Konto i kliknij \'Zamów Zamiennik\'. Połączymy nową adresówkę z nowym kodem QR z istniejącym profilem. Subskrybenci Standard i Maximum mogą żądać nieograniczonych bezpłatnych zamienników. Stara adresówka jest natychmiast dezaktywowana.</string>
+    <string name="help_faq_a16">Nie martw się — cyfrowy profil Twojego pupila jest bezpieczny i nie jest przechowywany na zawieszce. Przejdź do strony Konto i kliknij \'Zamów zamiennik\'. Połączymy nową zawieszkę z nowym kodem QR z istniejącym profilem pupila. Subskrybenci planów Standard i Maximum mogą zamawiać nieograniczoną liczbę bezpłatnych zamienników, a członkowie Starter muszą pokryć koszt wysyłki zawieszki zastępczej. Stara zawieszka jest natychmiast dezaktywowana po zamówieniu zamiennika.</string>
     <string name="help_faq_q17">Moja adresówka nie skanuje się — co robić?</string>
-    <string name="help_faq_a17">Spróbuj: wyczyść powierzchnię wilgotną ściereczką, zapewnij dobre oświetlenie, trzymaj aparat stabilnie w odległości 10-15 cm. Jeśli kod QR jest porysowany lub zużyty, zamów bezpłatny zamiennik z \'Strona Główna/Moje Konto\'.</string>
+    <string name="help_faq_a17">Spróbuj następujących kroków: wyczyść powierzchnię zawieszki wilgotną ściereczką, zapewnij dobre oświetlenie, trzymaj aparat telefonu stabilnie w odległości około 10-15 cm od zawieszki i sprawdź, czy aplikacja aparatu lub czytnik QR działa. Jeśli kod QR jest porysowany lub zużyty, zamów bezpłatny zamiennik ze strony \'Strona główna/Moje konto\' (bezpłatna wymiana jest dostępna dla subskrybentów planów Standard i Maximum — członkowie Starter muszą pokryć koszt wysyłki zawieszki zastępczej).</string>
     <string name="help_faq_q18">Znalazłem pupila bez adresówki SENRA — co mogę zrobić?</string>
     <string name="help_faq_a18">Sprawdź mapę Zaginionych Zwierząt na stronie SENRA (senra.pet). Możesz też zobaczyć alerty w aplikacji. Zanieś pupila do najbliższego weterynarza, aby zeskanować mikrochip. Jeśli ma adresówkę SENRA, zeskanuj kod QR — pojawią się dane kontaktowe opiekuna. Zawsze powiadom też lokalne władze i pobliskie schroniska.</string>
     <string name="help_faq_q19">Czy mogę zmienić swój adres email?</string>
@@ -1432,25 +1432,25 @@
     <!-- Shelter promo claim screen -->
     <string name="shelter_promo_claim_tag_title">Aktywuj zawieszkę</string>
     <string name="shelter_promo_done">Done</string>
-    <string name="shelter_promo_new_pet">New Pet</string>
-    <string name="shelter_promo_existing_pet">Existing Pet</string>
+    <string name="shelter_promo_new_pet">Nowy pupil</string>
+    <string name="shelter_promo_existing_pet">Istniejący pupil</string>
     <string name="shelter_promo_claim_tag_button">Aktywuj zawieszkę</string>
-    <string name="shelter_promo_pet_name_label">Name *</string>
-    <string name="shelter_promo_species_label">Species *</string>
+    <string name="shelter_promo_pet_name_label">Imię *</string>
+    <string name="shelter_promo_species_label">Gatunek *</string>
     <string name="shelter_promo_breed_label">Breed</string>
     <string name="shelter_promo_color_label">Color</string>
     <string name="shelter_promo_sex_label">Sex</string>
     <string name="shelter_promo_register_and_claim_button">Zarejestruj i aktywuj zawieszkę</string>
     <string name="shelter_promo_claimed_title">Zawieszka aktywowana!</string>
-    <string name="shelter_promo_pet_label_format">Pet: %1$s</string>
+    <string name="shelter_promo_pet_label_format">Pupil: %1$s</string>
     <string name="shelter_promo_tag_label_format">Zawieszka: %1$s</string>
-    <string name="shelter_promo_free_plan_format">Free Standard plan for %1$d months</string>
-    <string name="shelter_promo_welcome_format">Welcome from %1$s!</string>
+    <string name="shelter_promo_free_plan_format">Bezpłatny plan Standard na %1$d miesięcy</string>
+    <string name="shelter_promo_welcome_format">Witaj od %1$s!</string>
     <string name="shelter_promo_register_subtitle_format">Zarejestruj swojego pupila i korzystaj z planu Standard bezpłatnie przez %1$d miesięcy.</string>
 
     <!-- Tag activation / promo claim error fallbacks -->
     <string name="error_claim_tag_failed">Aktywacja zawieszki nie powiodła się</string>
-    <string name="error_select_pet_first">Please select a pet first</string>
+    <string name="error_select_pet_first">Najpierw wybierz pupila</string>
     <string name="error_activate_tag_failed">Aktywacja zawieszki nie powiodła się</string>
         <string name="waze_not_available">Waze nie jest zainstalowany i nie jest dostępna żadna przeglądarka</string>
 </resources>
