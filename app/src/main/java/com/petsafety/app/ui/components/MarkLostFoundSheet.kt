@@ -44,6 +44,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.hapticfeedback.HapticFeedbackType
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalHapticFeedback
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
@@ -61,6 +62,7 @@ import com.petsafety.app.data.model.Pet
 import com.petsafety.app.ui.theme.BrandOrange
 import com.petsafety.app.ui.theme.SuccessGreen
 import com.petsafety.app.ui.theme.TealAccent
+import com.petsafety.app.ui.util.PetLocalizer
 
 /**
  * Notification center source options
@@ -610,6 +612,7 @@ private fun PetSelectionRow(
     onClick: () -> Unit,
     showChangeButton: Boolean = false
 ) {
+    val context = LocalContext.current
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -659,13 +662,24 @@ private fun PetSelectionRow(
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis
             )
-            Text(
-                text = "${pet.species} ${pet.breed?.let { "- $it" } ?: ""}",
-                style = MaterialTheme.typography.bodySmall.copy(fontSize = 13.sp),
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                maxLines = 1,
-                overflow = TextOverflow.Ellipsis
-            )
+            val detailParts = buildList {
+                pet.breed?.takeIf { it.isNotBlank() }?.let {
+                    add(PetLocalizer.localizeBreed(context, it, pet.species))
+                }
+                (pet.localizedAge(context.resources) ?: pet.age)?.takeIf { it.isNotBlank() }?.let { add(it) }
+                pet.sex?.takeIf { it.isNotBlank() && it.lowercase() != "unknown" }?.let {
+                    add(PetLocalizer.localizeSex(context, it, pet.species))
+                }
+            }
+            if (detailParts.isNotEmpty()) {
+                Text(
+                    text = detailParts.joinToString(" · "),
+                    style = MaterialTheme.typography.bodySmall.copy(fontSize = 13.sp),
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis
+                )
+            }
         }
 
         if (showChangeButton) {

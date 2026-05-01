@@ -836,7 +836,7 @@ private fun PublicPetContent(
                 Spacer(modifier = Modifier.height(12.dp))
                 HowItWorksStep(
                     number = "2",
-                    title = stringResource(R.string.step_owner_notified),
+                    title = stringResource(R.string.step_owner_notified, pet.name),
                     description = stringResource(R.string.step_owner_notified_desc_public)
                 )
                 Spacer(modifier = Modifier.height(12.dp))

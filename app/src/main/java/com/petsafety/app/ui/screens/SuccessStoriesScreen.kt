@@ -87,18 +87,29 @@ fun SuccessStoriesScreen(
     viewModel: SuccessStoriesViewModel,
     appStateViewModel: AppStateViewModel,
     userLatitude: Double? = null,
-    userLongitude: Double? = null
+    userLongitude: Double? = null,
+    userCountryCode: String? = null,
 ) {
     val stories by viewModel.stories.collectAsState()
     val isRefreshing by viewModel.isRefreshing.collectAsState()
     val isLoading by viewModel.isLoading.collectAsState()
     var showMap by remember { mutableStateOf(false) }
 
-    // Fetch stories when screen loads
-    LaunchedEffect(userLatitude, userLongitude) {
-        val lat = userLatitude ?: 51.5074  // Default to London
-        val lng = userLongitude ?: -0.1278
-        viewModel.fetchStories(lat, lng, 50.0, 1, loadMore = false)
+    // Fetch stories around the best available point. Priority: GPS user
+    // location → user country center → no fetch (avoid loading London-area
+    // stories for a Hungarian user). Use a wider radius (200km) for the
+    // country-level fallback so we still cover regional reunions.
+    LaunchedEffect(userLatitude, userLongitude, userCountryCode) {
+        val gpsLat = userLatitude
+        val gpsLng = userLongitude
+        if (gpsLat != null && gpsLng != null) {
+            viewModel.fetchStories(gpsLat, gpsLng, 50.0, 1, loadMore = false)
+            return@LaunchedEffect
+        }
+        val countryCenter = com.petsafety.app.ui.util.CountryCenters.centerFor(userCountryCode)
+        if (countryCenter != null) {
+            viewModel.fetchStories(countryCenter.latitude, countryCenter.longitude, 200.0, 1, loadMore = false)
+        }
     }
 
     Box(
@@ -156,7 +167,7 @@ fun SuccessStoriesScreen(
                 stories.isEmpty() -> {
                     if (showMap) {
                         // Show map centered on user location even when no stories
-                        SuccessStoriesMap(emptyList(), userLatitude, userLongitude)
+                        SuccessStoriesMap(emptyList(), userLatitude, userLongitude, userCountryCode)
                     } else {
                         EmptySuccessStoriesState()
                     }
@@ -168,7 +179,7 @@ fun SuccessStoriesScreen(
                         modifier = Modifier.weight(1f)
                     ) {
                         if (showMap) {
-                            SuccessStoriesMap(stories, userLatitude, userLongitude)
+                            SuccessStoriesMap(stories, userLatitude, userLongitude, userCountryCode)
                         } else {
                             SuccessStoriesList(stories)
                         }
@@ -440,7 +451,8 @@ private fun SuccessStoryCard(story: SuccessStory) {
 private fun SuccessStoriesMap(
     stories: List<SuccessStory>,
     userLatitude: Double? = null,
-    userLongitude: Double? = null
+    userLongitude: Double? = null,
+    userCountryCode: String? = null,
 ) {
     val context = LocalContext.current
     val density = LocalDensity.current
@@ -458,15 +470,23 @@ private fun SuccessStoriesMap(
         }
     }
 
-    val cameraPositionState = rememberCameraPositionState {
-        position = CameraPosition.fromLatLngZoom(
-            LatLng(
-                userLatitude ?: 51.5074,
-                userLongitude ?: -0.1278
-            ),
-            10f // ~50 km radius
-        )
+    // Camera priority: first story pin → user GPS location → user country
+    // center → neutral world view. No hardcoded London.
+    val firstStory = stories.firstOrNull()
+    val pinLatLng = firstStory?.let { s ->
+        val lat = s.resolvedLatitude
+        val lng = s.resolvedLongitude
+        if (lat != null && lng != null) LatLng(lat, lng) else null
     }
+    val userLatLng = if (userLatitude != null && userLongitude != null) {
+        LatLng(userLatitude, userLongitude)
+    } else null
+    val cameraPositionState = com.petsafety.app.ui.util.rememberAdaptiveCamera(
+        pinLatLng = pinLatLng,
+        userLocation = userLatLng,
+        userCountryCode = userCountryCode,
+        userLocationZoom = 10f,
+    )
     var selectedStory by remember { mutableStateOf<SuccessStory?>(null) }
 
     Box(modifier = Modifier.fillMaxSize()) {

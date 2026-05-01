@@ -25,6 +25,7 @@ import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import com.petsafety.app.ui.util.AdaptiveLayout
+import com.petsafety.app.util.LocalizedLogo
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.shape.CircleShape
@@ -809,11 +810,12 @@ private fun WelcomeView(
     ) {
         Spacer(modifier = Modifier.height(20.dp))
 
-        // Hero logo
+        // Hero logo — wide aspect ratio (3:1), uses height instead of square box,
+        // and resolves locale-specific transparent variant via LocalizedLogo.
         Image(
-            painter = painterResource(R.drawable.logo),
+            painter = painterResource(LocalizedLogo.drawableRes),
             contentDescription = stringResource(R.string.app_name),
-            modifier = Modifier.size(120.dp)
+            modifier = Modifier.height(80.dp)
         )
 
         Spacer(modifier = Modifier.height(28.dp))

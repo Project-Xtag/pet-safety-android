@@ -282,7 +282,7 @@
     <string name="turn_off_flashlight">Wyłącz latarkę</string>
     <string name="turn_on_flashlight">Włącz latarkę</string>
     <string name="hello_pet_name">Cześć! Jestem %1$s</string>
-    <string name="scanned_tag_thanks">Właśnie zeskanowałeś(-aś) moją nieśką. Dziękuję za pomoc!</string>
+    <string name="scanned_tag_thanks">Właśnie zeskanowałeś(-aś) moją nieśką.\nDziękuję za pomoc!</string>
     <string name="share_location_with_owner">Udostępnij moją lokalizację opiekunowi</string>
     <string name="owner_notified_message">Właściciel %1$s otrzyma powiadomienie z twoją lokalizacją</string>
     <string name="share_location_help">Pomóż opiekunowi %1$s go znaleźć, udostępniając swoją lokalizację</string>
@@ -608,7 +608,7 @@
     <string name="delete_confirm_placeholder">DELETE</string>
     <string name="cancel_subscription_title">Anulować subskrypcję?</string>
     <string name="cancel_warning_a">Stracisz natychmiastowe powiadomienia e-mail, SMS i alerty społecznościowe</string>
-    <string name="cancel_warning_b">Bezpłatne wymiany znaczników nie będą już dostępne</string>
+    <string name="cancel_warning_b">Bezpłatne wymiany zawieszek nie będą już dostępne</string>
     <string name="cancel_warning_c">Stracisz dostęp do alertów weterynaryjnych i ze schronisk</string>
     <string name="cancel_warning_d">Twoje konto i rejestracje pupili pozostaną aktywne</string>
     <string name="cancel_access_until">Zachowasz dostęp do %1$s</string>
@@ -904,7 +904,7 @@
     <string name="help_reunite_pet">Pomóż bezpiecznie połączyć %1$s z opiekunem</string>
     <string name="step_share_location">Udostępnij lokalizację</string>
     <string name="step_share_location_desc">Kliknij przycisk powyżej, aby udostępnić lokalizację opiekunowi</string>
-    <string name="step_owner_notified">Właściciel otrzymał powiadomienie</string>
+    <string name="step_owner_notified">Właściciel %1$s został powiadomiony</string>
     <string name="step_owner_notified_desc">Właściciel otrzyma SMS i e-mail z twoją lokalizacją</string>
     <string name="step_quick_reunion">Szybkie spotkanie</string>
     <string name="step_quick_reunion_desc">Właściciel może dotrzeć do twojej lokalizacji, aby odebrać pupila</string>
@@ -1088,8 +1088,8 @@
 
     <!-- Gift order -->
     <string name="order_gift_toggle">Zamów jako prezent</string>
-    <string name="order_gift_description">Imiona pupili są opcjonalne w zamówieniach prezentowych. Odbiorca może je dodać podczas aktywacji znaczników.</string>
-    <string name="order_gift_quantity">Liczba znaczników</string>
+    <string name="order_gift_description">Imiona pupili są opcjonalne w zamówieniach prezentowych. Odbiorca może je dodać podczas aktywacji zawieszek.</string>
+    <string name="order_gift_quantity">Liczba zawieszek</string>
     <string name="order_gift_recipient_name">Imię odbiorcy (opcjonalnie)</string>
     <string name="order_gift_message">Wiadomość prezentowa (opcjonalnie)</string>
     <string name="order_gift_message_placeholder">Dodaj osobistą wiadomość…</string>
@@ -1356,7 +1356,7 @@
         <item quantity="other">%d miesięcy</item>
     </plurals>
     <string name="show_name">Wyświetlanie imienia</string>
-    <string name="show_name_subtitle">Twoje imię będzie widoczne na publicznym profilu pupila przy skanowaniu znacznika</string>
+    <string name="show_name_subtitle">Twoje imię będzie widoczne na publicznym profilu pupila przy skanowaniu zawieszki</string>
     <!-- FAQ Questions and Answers -->
     <string name="help_faq_q1">Jak zarejestrować mojego pupila?</string>
     <string name="help_faq_a1">Możesz zarejestrować swojego pupila w menu \'Moje Pupile\' klikając \'Dodaj Nowego Zwierzaka\'. Wypełnij wymagane informacje i prześlij jedno lub więcej zdjęć.</string>

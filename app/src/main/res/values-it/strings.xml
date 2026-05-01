@@ -278,7 +278,7 @@
     <string name="turn_off_flashlight">Spegni torcia</string>
     <string name="turn_on_flashlight">Accendi torcia</string>
     <string name="hello_pet_name">Ciao! Sono %1$s</string>
-    <string name="scanned_tag_thanks">Hai appena scansionato la mia medaglietta. Grazie per avermi aiutato!</string>
+    <string name="scanned_tag_thanks">Hai appena scansionato la mia medaglietta.\nGrazie per avermi aiutato!</string>
     <string name="share_location_with_owner">Condividi la tua posizione con il proprietario</string>
     <string name="owner_notified_message">Il proprietario di %1$s riceverà una notifica con la tua posizione</string>
     <string name="share_location_help">Aiuta il proprietario di %1$s a trovarlo condividendo la tua posizione!</string>
@@ -893,7 +893,7 @@
     <string name="help_reunite_pet">Aiuta %1$s a tornare dal suo proprietario in sicurezza!</string>
     <string name="step_share_location">Condividi la tua posizione</string>
     <string name="step_share_location_desc">Tocca il pulsante qui sopra per condividere la tua posizione con il proprietario!</string>
-    <string name="step_owner_notified">Il proprietario ha ricevuto la notifica</string>
+    <string name="step_owner_notified">Proprietario di %1$s notificato</string>
     <string name="step_owner_notified_desc">Il proprietario riceve un SMS e un\'email con la tua posizione</string>
     <string name="step_quick_reunion">Ricongiungimento rapido</string>
     <string name="step_quick_reunion_desc">Il proprietario può navigare verso la tua posizione per recuperare il suo animale da compagnia</string>

@@ -268,7 +268,7 @@
     <string name="turn_off_flashlight">Zseblámpa kikapcsolása</string>
     <string name="turn_on_flashlight">Zseblámpa bekapcsolása</string>
     <string name="hello_pet_name">Szia! %1$s vagyok</string>
-    <string name="scanned_tag_thanks">Épp most olvastad be a bilétámat. Köszönöm, hogy segítesz!</string>
+    <string name="scanned_tag_thanks">Épp most olvastad be a bilétámat.\nKöszönöm, hogy segítesz!</string>
     <string name="share_location_with_owner">A tartózkodási hely adatainak megosztása a gazdival</string>
     <string name="owner_notified_message">%1$s gazdija értesítést kap a tartózkodási helyedről</string>
     <string name="share_location_help">Segíts %1$s gazdijának megtalálni őt a tartózkodási helyed megosztásával!</string>
@@ -280,7 +280,7 @@
     <string name="dont_share_location_desc">Csak értesítsd a gazdit, hogy a kedvencét megtalálták!</string>
     <string name="confirm_notify_owner">Megerősítés &amp; gazdi értesítése</string>
     <string name="share_exact_location_toggle">Pontos hely megosztása</string>
-    <string name="contact_owner">Gazdi elérhetősége</string>
+    <string name="contact_owner">Gazdi elérhetőségei</string>
     <string name="call_phone">Hívás: %1$s</string>
     <string name="email_contact">Email: %1$s</string>
     <string name="privacy_notice">Fontos az adatvédelem. A tartózkodási helyed adatait csak %1$s gazdijával osztjuk meg, hogy segítsünk újra találkozniuk.</string>
@@ -446,7 +446,7 @@
     <string name="mark_lost_additional_info">További információk</string>
     <string name="mark_lost_additional_placeholder">Bármilyen részlet, ami segíthet megtalálni a kedvencedet (nyakörv színe, viselkedés, megkülönböztető jegyek…)</string>
     <string name="mark_lost_sends_to">Ez a riasztás a következőknek lesz elküldve:</string>
-    <string name="mark_lost_nearby_owners">Közeli kisállat-tulajdonosok</string>
+    <string name="mark_lost_nearby_owners">Közeli gazdik</string>
     <string name="mark_lost_vet_clinics">Állatorvosi rendelők a környéken</string>
     <string name="mark_lost_shelters">Közeli állatmenhelyek</string>
     <string name="mark_lost_report">Eltűnés jelentése</string>
@@ -703,8 +703,8 @@
     <string name="order_tags">Biléták rendelése</string>
     <string name="replace_tag">Biléta csere</string>
     <string name="add_pet_first_replacement">Először adj hozzá egy kedvencet, hogy bilétát cserélhess!</string>
-    <string name="order_more_tags_title">További biléták rendelése</string>
-    <string name="add_another_pet">Kedvenc hozzáadása</string>
+    <string name="order_more_tags_title">Új biléta rendelése</string>
+    <string name="add_another_pet">Újabb kedvenc</string>
     <string name="full_name">Teljes név</string>
     <string name="place_order">Rendelés leadása</string>
     <string name="order_created_payment_pending">Rendelés létrehozva. Fizetés folyamatban.</string>
@@ -735,7 +735,7 @@
     </plurals>
 
     <!-- Order More Tags -->
-    <string name="get_qr_tags_subtitle">Szerezz QR bilétákat a kedvenceidnek</string>
+    <string name="get_qr_tags_subtitle">Rendelj bilétát kedvenceidnek — a biléta ingyenes, csak a szállításért és csomagolásért kell fizetned</string>
     <string name="pet_names">Kedvencek nevei</string>
     <string name="shipping_address">Szállítási cím</string>
     <string name="shipping">Szállítás</string>
@@ -855,13 +855,13 @@
     <string name="behavior_notes">Viselkedési megjegyzések</string>
     <string name="how_it_works">Hogyan működik</string>
     <string name="help_reunite_pet">Segíts, hogy %1$s biztonságban visszajusson a gazdijához!</string>
-    <string name="step_share_location">Helyed megosztása</string>
+    <string name="step_share_location">Lépj kapcsolatba a gazdival vagy oszd meg a tartózkodási helyed</string>
     <string name="step_share_location_desc">Koppints a fenti gombra, hogy megoszd a helyed a gazdival!</string>
-    <string name="step_owner_notified">A gazdi megkapta az értesítést</string>
+    <string name="step_owner_notified">%1$s gazdija megkapta az értesítést</string>
     <string name="step_owner_notified_desc">A gazdi SMS-t és emailt is kap a helyedről</string>
     <string name="step_quick_reunion">Gyors hazajutás</string>
     <string name="step_quick_reunion_desc">A gazdi a megadott helyszínre mehet, hogy hazavigye a kedvencét</string>
-    <string name="step_share_location_desc_public">Kattints a fenti gombra, hogy megoszd, hol találtad meg %1$s-t!</string>
+    <string name="step_share_location_desc_public">Használd a gazdi elérhetőségeit vagy kattints a fenti gombra, hogy megoszd, hol találtad meg %1$s-t!</string>
     <string name="step_owner_notified_desc_public">A gazdi SMS-t kap a helyedről a Google Maps-en</string>
     <string name="step_quick_reunion_desc_public">Maradj a hely közelében, hogy a gazdi megtalálhasson téged és %1$s-t!</string>
     <string name="owner_phone_label">Gazdi telefonszáma: %1$s</string>
@@ -1006,7 +1006,7 @@
     <string name="redirecting_to_payment">Átirányítás a fizetéshez…</string>
 
     <!-- Tags coming soon -->
-    <string name="tags_coming_soon_title">Hamarosan elérhető a biléta</string>
+    <string name="tags_coming_soon_title">A bilétáink hamarosan elérhetőek</string>
     <string name="tags_coming_soon_body">Hamarosan kiszállítjuk az első tételt. Pár nap múlva nézz vissza.</string>
     <string name="checkout_failed">Nem sikerült elindítani a fizetést</string>
     <string name="sse_subscription_activated">A(z) %1$s csomagod most aktív!</string>
@@ -1074,8 +1074,8 @@
 
     <!-- Gift order -->
     <string name="order_gift_toggle">Rendelés ajándékként</string>
-    <string name="order_gift_description">Az ajándék rendeléseknél a kisállat neve nem kötelező. A címzett a címkék aktiválásakor adhatja meg.</string>
-    <string name="order_gift_quantity">Címkék száma</string>
+    <string name="order_gift_description">Az ajándék rendeléseknél a kisállat neve nem kötelező. A címzett a biléták aktiválásakor adhatja meg.</string>
+    <string name="order_gift_quantity">Biléták száma</string>
     <string name="order_gift_recipient_name">Címzett neve (nem kötelező)</string>
     <string name="order_gift_message">Ajándék üzenet (nem kötelező)</string>
     <string name="order_gift_message_placeholder">Adj hozzá személyes üzenetet…</string>
@@ -1087,7 +1087,7 @@
     <string name="delivery_method_label">Szállítási mód</string>
     <string name="delivery_home">Házhozszállítás</string>
     <string name="delivery_postapoint">PostaPont átvétel</string>
-    <string name="pending_registrations_title">Függőben lévő címkék</string>
+    <string name="pending_registrations_title">Függőben lévő biléták</string>
     <string name="ready_to_activate">Aktiválásra kész</string>
     <string name="still_processing">Feldolgozás alatt</string>
     <string name="scan_tag_now">Biléta beolvasása</string>
@@ -1117,7 +1117,7 @@
     <string name="no_notifications">Nincsenek értesítések</string>
     <string name="no_notifications_desc">Minden naprakész! Az értesítések itt jelennek meg, ha beolvassák a kedvenced bilétáját.</string>
     <string name="mark_all_read">Összes olvasottnak jelölése</string>
-    <string name="create_profile_hint">Először hozz létre egy kedvenc profilt, majd olvasd be újra a címkét az aktiváláshoz!</string>
+    <string name="create_profile_hint">Először hozz létre egy kedvenc profilt, majd olvasd be újra a bilétát az aktiváláshoz!</string>
     <string name="activation_error_qr_not_found">A QR kód nem felismerhető. Kérjük, győződj meg róla, hogy hivatalos SENRA bilétát olvasol be.</string>
     <string name="activation_error_already_activated">Ez a biléta már egy másik kedvenchez van rendelve. Kérjük, lépj kapcsolatba az ügyfélszolgálattal.</string>
     <string name="activation_error_not_linked">Ez a biléta még nincs hozzárendelve a rendelésedhez. Kérjük, várd meg a szállítási visszaigazolást!</string>
@@ -1268,10 +1268,10 @@
     <string name="share_location_title">Helyzeted megosztása</string>
     <string name="share_location_exact">Pontos helyzet megosztása</string>
     <string name="share_location_approximate">Hozzávetőleges helyzet megosztása (~100m)</string>
-    <string name="share_location_exact_note">A tulajdonos látni fogja a tartózkodási helyedet</string>
-    <string name="share_location_approximate_note">A tulajdonos egy hozzávetőleges területet fog látni</string>
+    <string name="share_location_exact_note">A gazdi látni fogja a tartózkodási helyedet</string>
+    <string name="share_location_approximate_note">A gazdi egy hozzávetőleges területet fog látni</string>
     <string name="share_location_confirm">Megosztás</string>
-    <string name="share_location_success">Helyzet megosztva! A tulajdonos értesítve lett.</string>
+    <string name="share_location_success">Helyzet megosztva! A gazdi értesítve lett.</string>
     <string name="share_location_denied">A helyzet megosztásához helymeghatározási engedély szükséges</string>
     <string name="share_location_error">Nem sikerült a helyzet megosztása. Próbáld újra!</string>
 
@@ -1310,21 +1310,21 @@
 
     <!-- Welcome Screen -->
     <string name="welcome_to_senra">Üdvözlünk a Senrában!</string>
-    <string name="welcome_subtitle">Kedvenced biztonsága itt kezdődik. Állítsd be az első címkédet.</string>
-    <string name="welcome_step_1">Olvasd be a QR-kódot a címkédről</string>
+    <string name="welcome_subtitle">Kedvenced biztonsága itt kezdődik. Állítsd be az első bilétádat.</string>
+    <string name="welcome_step_1">Olvasd be a QR-kódot a bilétádról</string>
     <string name="welcome_step_2">Hozd létre kedvenced profilját</string>
     <string name="welcome_step_3">Kedvenced védelem alatt áll!</string>
     <string name="welcome_scan_first_tag">Biléta beolvasása</string>
     <string name="welcome_explore_account">Fiók felfedezése</string>
-    <string name="setup_your_tags">Címkék beállítása</string>
-    <string name="setup_your_tags_subtitle">Ezekhez az kisállatokhoz rendeltél címkét:</string>
+    <string name="setup_your_tags">Biléták beállítása</string>
+    <string name="setup_your_tags_subtitle">Ezekhez a kisállatokhoz rendeltél bilétát:</string>
     <string name="ready_to_setup">Beállításra kész</string>
     <string name="already_activated">Már aktiválva</string>
     <string name="setting_up_tag_for">A biléta beállítása: %s</string>
-    <string name="tag_activated_for">%s címkéje aktiválva!</string>
+    <string name="tag_activated_for">%s bilétája aktiválva!</string>
     <string name="pet_now_protected">Kedvenced mostantól SENRA védelme alatt áll</string>
-    <string name="more_tags_to_setup">Még vannak beállítandó címkéid</string>
-    <string name="setup_pet_tag">%s címkéjének beállítása</string>
+    <string name="more_tags_to_setup">Még vannak beállítandó bilétáid</string>
+    <string name="setup_pet_tag">%s bilétájának beállítása</string>
     <string name="whats_next">Mi a következő lépés?</string>
     <string name="choose_subscription_plan">Válassz előfizetési csomagot</string>
     <string name="register_your_vet">Regisztráld az állatorvosodat!</string>

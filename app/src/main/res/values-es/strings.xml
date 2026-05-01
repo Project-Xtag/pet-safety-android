@@ -268,7 +268,7 @@
     <string name="turn_off_flashlight">Apagar linterna</string>
     <string name="turn_on_flashlight">Encender linterna</string>
     <string name="hello_pet_name">¡Hola! Soy %1$s</string>
-    <string name="scanned_tag_thanks">Acabas de escanear mi chapa inteligente. ¡Gracias por ayudarme!</string>
+    <string name="scanned_tag_thanks">Acabas de escanear mi chapa inteligente.\n¡Gracias por ayudarme!</string>
     <string name="share_location_with_owner">Compartir mi ubicación con el dueño</string>
     <string name="owner_notified_message">El dueño de %1$s recibirá una notificación con tu ubicación</string>
     <string name="share_location_help">Ayuda al dueño de %1$s a encontrarle compartiendo tu ubicación</string>
@@ -857,7 +857,7 @@
     <string name="help_reunite_pet">Ayuda a reunir de forma segura a %1$s con su dueño</string>
     <string name="step_share_location">Compartir tu ubicación</string>
     <string name="step_share_location_desc">Toca el botón de arriba para compartir tu ubicación con el dueño</string>
-    <string name="step_owner_notified">Dueño notificado</string>
+    <string name="step_owner_notified">Dueño de %1$s notificado</string>
     <string name="step_owner_notified_desc">El dueño recibe un SMS y un correo con tu ubicación</string>
     <string name="step_quick_reunion">Reunión rápida</string>
     <string name="step_quick_reunion_desc">El dueño puede navegar hasta tu ubicación para recoger a su mascota</string>
