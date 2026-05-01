@@ -268,7 +268,7 @@
     <string name="turn_off_flashlight">Desligar lanterna</string>
     <string name="turn_on_flashlight">Ligar lanterna</string>
     <string name="hello_pet_name">Olá! Eu sou %1$s</string>
-    <string name="scanned_tag_thanks">Acabou de ler a minha plaquinha inteligente. Obrigado por me ajudar!</string>
+    <string name="scanned_tag_thanks">Acabou de ler a minha plaquinha inteligente.\nObrigado por me ajudar!</string>
     <string name="share_location_with_owner">Partilhar a minha localização com o dono</string>
     <string name="owner_notified_message">O dono de %1$s receberá uma notificação com a tua localização</string>
     <string name="share_location_help">Ajuda o dono de %1$s a encontrá-lo partilhando a tua localização!</string>
@@ -857,7 +857,7 @@
     <string name="help_reunite_pet">Ajuda a reunir %1$s com o dono em segurança</string>
     <string name="step_share_location">Partilhar a sua localização</string>
     <string name="step_share_location_desc">Toca no botão acima para partilhar a tua localização com o dono</string>
-    <string name="step_owner_notified">Dono notificado</string>
+    <string name="step_owner_notified">Dono de %1$s notificado</string>
     <string name="step_owner_notified_desc">O dono recebe um SMS e um e-mail com a tua localização</string>
     <string name="step_quick_reunion">Reunião rápida</string>
     <string name="step_quick_reunion_desc">O dono pode navegar até à tua localização para recolher o animal de estimação</string>

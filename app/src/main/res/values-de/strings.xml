@@ -268,7 +268,7 @@
     <string name="turn_off_flashlight">Taschenlampe ausschalten</string>
     <string name="turn_on_flashlight">Taschenlampe einschalten</string>
     <string name="hello_pet_name">Hallo! Ich bin %1$s</string>
-    <string name="scanned_tag_thanks">du haben gerade meine Haustiermarke gescannt. Danke, dass du mir helfen!</string>
+    <string name="scanned_tag_thanks">du haben gerade meine Haustiermarke gescannt.\nDanke, dass du mir helfen!</string>
     <string name="share_location_with_owner">Meinen Standort mit dem Besitzer teilen</string>
     <string name="owner_notified_message">Der Besitzer von %1$s erhält eine Benachrichtigung mit deinem Standort</string>
     <string name="share_location_help">Hilf dem Besitzer von %1$s, ihn zu finden, indem du deinen Standort teilst!</string>
@@ -446,7 +446,7 @@
     <string name="mark_lost_additional_info">Zusätzliche Informationen</string>
     <string name="mark_lost_additional_placeholder">Details, die bei der Suche helfen könnten (Halsbandfarbe, Verhalten, besondere Merkmale…)</string>
     <string name="mark_lost_sends_to">Diese Warnung wird gesendet an:</string>
-    <string name="mark_lost_nearby_owners">Haustierbesitzer in der Nähe</string>
+    <string name="mark_lost_nearby_owners">Besitzer in der Nähe</string>
     <string name="mark_lost_vet_clinics">Tierarztpraxen in der Nähe</string>
     <string name="mark_lost_shelters">Tierheime in der Nähe</string>
     <string name="mark_lost_report">Vermisst melden</string>
@@ -559,7 +559,7 @@
     <string name="story_social_caption">%1$s ist wieder mit seiner Familie vereint! Danke an die SENRA Community, die geholfen hat, %1$s nach Hause zu bringen. senra.pet</string>
     <string name="story_generating_card">Teilen-Karte wird erstellt\u2026</string>
     <string name="story_pet_is_home_title">%1$s ist zu Hause!</string>
-    <string name="story_inspire_others_message">Inspirieren du andere Tierbesitzer, indem du teilen, wie %1$s wiedervereint wurde.</string>
+    <string name="story_inspire_others_message">Inspirieren du andere Besitzer, indem du teilen, wie %1$s wiedervereint wurde.</string>
     <string name="sighting_reports_desc">Sichtungsmeldungen</string>
 
     <!-- Success Story Time -->
@@ -857,7 +857,7 @@
     <string name="help_reunite_pet">Hilf dabei, %1$s sicher zu seinem Besitzer zurückzubringen!</string>
     <string name="step_share_location">Standort teilen</string>
     <string name="step_share_location_desc">Tippe oben, um deinen Standort mit dem Besitzer zu teilen</string>
-    <string name="step_owner_notified">Besitzer wird informiert</string>
+    <string name="step_owner_notified">Besitzer von %1$s benachrichtigt</string>
     <string name="step_owner_notified_desc">Der Besitzer erhält eine SMS und E-Mail mit deinem Standort</string>
     <string name="step_quick_reunion">Schnelle Wiedervereinigung</string>
     <string name="step_quick_reunion_desc">Der Besitzer kann zu deinem Standort navigieren, um sein Haustier abzuholen</string>
@@ -1019,7 +1019,7 @@
     <string name="help_guide_missing_alerts_title">Vermisstmeldungen &amp; Sichtungen</string>
     <string name="help_guide_missing_alerts_desc">Wenn dein Tier vermisst wird, markieren du es unter &quot;Meine Tiere&quot; als vermisst, um eine sofortige Community-Warnung zu erstellen. Das Foto und die Details deines Tieres erscheinen auf der Vermisste-Tiere-Karte, die für alle SENRA-Nutzer in deiner Gegend sichtbar ist. Community-Mitglieder können Sichtungen mit ihrem GPS-Standort melden, die du als Benachrichtigungen erhalten. Registrierte Tierärzte und Tierheime werden ebenfalls benachrichtigt. Wenn dein Tier gefunden wird, markieren du es als gefunden und teile optional deine Wiedervereinigungsgeschichte, um die Community zu inspirieren.</string>
     <string name="help_guide_community_title">Community &amp; Gefundene Tiere</string>
-    <string name="help_guide_community_desc">Die Stärke von SENRA ist die Community. Die Vermisste-Tiere-Karte zeigt aktive Meldungen in deiner Nähe — prüfe sie, um zu sehen, ob Tiere in deiner Gegend als vermisst gemeldet wurden. Die Gefundene-Tiere-Seite feiert erfolgreiche Wiedervereinigungen mit Geschichten von Tierbesitzern. du können deinen Tierarzt oder dein Tierheim bei SENRA registrieren, damit sie automatisch Vermisstmeldungen erhalten und so ein stärkeres Sicherheitsnetzwerk für alle Tiere in deiner Gegend entsteht.</string>
+    <string name="help_guide_community_desc">Die Stärke von SENRA ist die Community. Die Vermisste-Tiere-Karte zeigt aktive Meldungen in deiner Nähe — prüfe sie, um zu sehen, ob Tiere in deiner Gegend als vermisst gemeldet wurden. Die Gefundene-Tiere-Seite feiert erfolgreiche Wiedervereinigungen mit Geschichten von Besitzern. du können deinen Tierarzt oder dein Tierheim bei SENRA registrieren, damit sie automatisch Vermisstmeldungen erhalten und so ein stärkeres Sicherheitsnetzwerk für alle Tiere in deiner Gegend entsteht.</string>
     <string name="help_faq_group_getting_started">Erste Schritte</string>
     <string name="help_faq_group_tags_scanning">Namensschilder &amp; Scannen</string>
     <string name="help_faq_group_missing_pets">Vermisste Tiere &amp; Alerts</string>
@@ -1352,7 +1352,7 @@
     <string name="help_faq_q6">Wie aktiviere ich meine Haustiermarke nach der Lieferung?</string>
     <string name="help_faq_a6">Lade die SENRA-App aus dem Google Play Store oder App Store herunter! Öffne sie und gehen du zum Menü \'Aktivierung\', richten du die Kamera deines Handys auf den QR-Code auf der Haustiermarke! Das Scannen des QR-Codes verknüpft die Haustiermarke mit deinem Benutzerkonto. Dann müssen du dein bestehendes Haustier auswählen oder ein neues Profil erstellen. Nach Abschluss der Aktivierung können du dein Abonnement wählen.</string>
     <string name="help_faq_q7">Kann ich eine SENRA-Haustiermarke verschenken?</string>
-    <string name="help_faq_a7">Ja! SENRA-Haustiermarken sind tolle Geschenke für Haustierbesitzer. Bestellen du die Haustiermarke einfach über dein eigenes Benutzerkonto — wenn der Beschenkte sie erhält, kann er den QR-Code scannen, ein eigenes Benutzerkonto erstellen und die Haustiermarke für sein Haustier aktivieren. Der Beschenkte muss sich nicht im Voraus registrieren — das Scannen der Haustiermarke führt ihn durch die Kontoerstellung und die Verknüpfung der Haustiermarke mit seinem Haustier.</string>
+    <string name="help_faq_a7">Ja! SENRA-Haustiermarken sind tolle Geschenke für Besitzer. Bestellen du die Haustiermarke einfach über dein eigenes Benutzerkonto — wenn der Beschenkte sie erhält, kann er den QR-Code scannen, ein eigenes Benutzerkonto erstellen und die Haustiermarke für sein Haustier aktivieren. Der Beschenkte muss sich nicht im Voraus registrieren — das Scannen der Haustiermarke führt ihn durch die Kontoerstellung und die Verknüpfung der Haustiermarke mit seinem Haustier.</string>
     <string name="help_faq_q8">Was soll ich tun, wenn mein Haustier verschwindet?</string>
     <string name="help_faq_a8">Gehe zu \'Meine Haustiere\', tippen du auf das Menü auf der Karte deines Haustieres und wählen du \'Als vermisst markieren\'. Dies erstellt eine \'Vermisst-Meldung\', die an alle SENRA-Community-Mitglieder im Umkreis von 10 km gesendet wird. Auch Tierärzte und Tierheime werden benachrichtigt. Personen in deiner Nähe sehen die Meldung und können du informieren, wenn sie dein Haustier gesehen oder gefunden haben (direkt oder über unser Online-System). du erhalten sofort eine Benachrichtigung bei jeder Sichtung.</string>
     <string name="help_faq_q9">Wie funktionieren Vermisst-Meldungen?</string>

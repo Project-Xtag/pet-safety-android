@@ -253,7 +253,7 @@
     <string name="turn_off_flashlight">Isključi svjetiljku</string>
     <string name="turn_on_flashlight">Uključi svjetiljku</string>
     <string name="hello_pet_name">Bok! Ja sam %1$s</string>
-    <string name="scanned_tag_thanks">Upravo si skenirao moj privjesak. Hvala ti što mi pomažeš!</string>
+    <string name="scanned_tag_thanks">Upravo si skenirao moj privjesak.\nHvala ti što mi pomažeš!</string>
     <string name="share_location_with_owner">Podijeli lokaciju s vlasnikom</string>
     <string name="owner_notified_message">Vlasnik kućnog ljubimca %1$s primit će obavijest s tvojom lokacijom</string>
     <string name="share_location_help">Pomozi vlasniku kućnog ljubimca %1$s pronaći ga dijeljenjem svoje lokacije</string>
@@ -847,7 +847,7 @@
     <string name="help_reunite_pet">Pomozi sigurno spojiti %1$s s vlasnikom</string>
     <string name="step_share_location">Podijeli svoju lokaciju</string>
     <string name="step_share_location_desc">Klikni gumb iznad da podijeliš svoju lokaciju s vlasnikom</string>
-    <string name="step_owner_notified">Vlasnik prima obavijest</string>
+    <string name="step_owner_notified">Vlasnik %1$s je obaviješten</string>
     <string name="step_owner_notified_desc">Vlasnik prima SMS i e-mail s tvojom lokacijom</string>
     <string name="step_quick_reunion">Brzo spajanje</string>
     <string name="step_quick_reunion_desc">Vlasnik može navigirati do tvoje lokacije da pokupi svog kućnog ljubimca</string>

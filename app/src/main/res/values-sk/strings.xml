@@ -267,7 +267,7 @@
     <string name="turn_off_flashlight">Vypnúť baterku</string>
     <string name="turn_on_flashlight">Zapnúť baterku</string>
     <string name="hello_pet_name">Ahoj! Som %1$s</string>
-    <string name="scanned_tag_thanks">Práve si naskenovali môj známku. Ďakujem, že mi pomáhate!</string>
+    <string name="scanned_tag_thanks">Práve si naskenovali môj známku.\nĎakujem, že mi pomáhate!</string>
     <string name="share_location_with_owner">Zdieľať moju polohu s páníčkom</string>
     <string name="owner_notified_message">Majiteľ %1$s dostane oznámenie s tvojou polohou</string>
     <string name="share_location_help">Pomôžte páníčkovi %1$s nájsť ho zdieľaním tvojej polohy</string>
@@ -858,7 +858,7 @@
     <string name="help_reunite_pet">Pomôžte bezpečne znovuzjednotiť %1$s s páníčkom</string>
     <string name="step_share_location">Zdieľaj polohu</string>
     <string name="step_share_location_desc">Ťuknite na tlačidlo vyššie a zdieľaj polohu s páníčkom</string>
-    <string name="step_owner_notified">Majiteľ dostane upozornenie</string>
+    <string name="step_owner_notified">Majiteľ %1$s je informovaný</string>
     <string name="step_owner_notified_desc">Majiteľ dostane SMS a e-mail s tvojou polohou</string>
     <string name="step_quick_reunion">Rýchle znovuzjednotenie</string>
     <string name="step_quick_reunion_desc">Majiteľ môže navigovať k tvojej polohe a vyzdvihnúť svojho domáceho miláčika</string>

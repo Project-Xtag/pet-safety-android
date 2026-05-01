@@ -279,7 +279,7 @@
     <string name="turn_off_flashlight">Éteindre la lampe de poche</string>
     <string name="turn_on_flashlight">Allumer la lampe de poche</string>
     <string name="hello_pet_name">Bonjour\u00a0! Je suis %1$s</string>
-    <string name="scanned_tag_thanks">Tu viens de scanner ma médaille connectée. Merci de m\'aider\u00a0!</string>
+    <string name="scanned_tag_thanks">Tu viens de scanner ma médaille connectée.\nMerci de m\'aider\u00a0!</string>
     <string name="share_location_with_owner">Partager ma localisation avec le propriétaire</string>
     <string name="owner_notified_message">Le propriétaire de %1$s recevra une notification avec ta localisation</string>
     <string name="share_location_help">Aide le propriétaire de %1$s à le retrouver en partageant ta localisation !</string>
@@ -599,7 +599,7 @@
     <string name="delete_confirm_placeholder">DELETE</string>
     <string name="cancel_subscription_title">Annuler l\'abonnement ?</string>
     <string name="cancel_warning_a">Tu perdras les notifications instantanées par e-mail, SMS et les alertes communautaires</string>
-    <string name="cancel_warning_b">Les remplacements gratuits d\'étiquettes ne seront plus disponibles</string>
+    <string name="cancel_warning_b">Les remplacements gratuits de médailles connectées ne seront plus disponibles</string>
     <string name="cancel_warning_c">Tu perdras l\'accès aux alertes vétérinaires et des refuges</string>
     <string name="cancel_warning_d">Ton compte et les enregistrements de tes animaux resteront actifs</string>
     <string name="cancel_access_until">Tu conserveras l\'accès jusqu\'au %1$s</string>
@@ -893,7 +893,7 @@
     <string name="help_reunite_pet">Aide %1$s à retrouver son propriétaire en toute sécurité</string>
     <string name="step_share_location">Partager ta position</string>
     <string name="step_share_location_desc">Appuie sur le bouton ci-dessus pour partager ta position avec le propriétaire</string>
-    <string name="step_owner_notified">Le propriétaire est notifié</string>
+    <string name="step_owner_notified">Propriétaire de %1$s notifié</string>
     <string name="step_owner_notified_desc">Le propriétaire reçoit un SMS et un e-mail avec ta position</string>
     <string name="step_quick_reunion">Retrouvailles rapides</string>
     <string name="step_quick_reunion_desc">Le propriétaire peut se rendre à ta position pour récupérer son animal</string>
@@ -1063,8 +1063,8 @@
 
     <!-- Gift order -->
     <string name="order_gift_toggle">Commander comme cadeau</string>
-    <string name="order_gift_description">Les noms des animaux sont facultatifs pour les commandes cadeaux. Le destinataire peut les ajouter lors de l\'activation des étiquettes.</string>
-    <string name="order_gift_quantity">Nombre d\'étiquettes</string>
+    <string name="order_gift_description">Les noms des animaux sont facultatifs pour les commandes cadeaux. Le destinataire peut les ajouter lors de l\'activation des médailles connectées.</string>
+    <string name="order_gift_quantity">Nombre de médailles connectées</string>
     <string name="order_gift_recipient_name">Nom du destinataire (facultatif)</string>
     <string name="order_gift_message">Message cadeau (facultatif)</string>
     <string name="order_gift_message_placeholder">Ajoutez un message personnel…</string>

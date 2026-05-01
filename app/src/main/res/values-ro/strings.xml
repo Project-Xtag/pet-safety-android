@@ -260,7 +260,7 @@
     <string name="turn_off_flashlight">Oprește lanterna</string>
     <string name="turn_on_flashlight">Pornește lanterna</string>
     <string name="hello_pet_name">Salut! Sunt %1$s</string>
-    <string name="scanned_tag_thanks">Tocmai ai scanat medalonul mea. Mulțumesc că mă ajuți!</string>
+    <string name="scanned_tag_thanks">Tocmai ai scanat medalonul mea.\nMulțumesc că mă ajuți!</string>
     <string name="share_location_with_owner">Partajează locația mea cu stăpânul</string>
     <string name="owner_notified_message">Stăpânul lui %1$s va primi o notificare cu locația ta</string>
     <string name="share_location_help">Ajută stăpânul lui %1$s să-l găsească partajând locația ta</string>
@@ -851,7 +851,7 @@
     <string name="help_reunite_pet">Ajută la reunirea în siguranță a lui %1$s cu stăpânul</string>
     <string name="step_share_location">Partajează locația</string>
     <string name="step_share_location_desc">Apasă butonul de mai sus pentru a partaja locația cu stăpânul</string>
-    <string name="step_owner_notified">Stăpânul este notificat</string>
+    <string name="step_owner_notified">Stăpânul lui %1$s este notificat</string>
     <string name="step_owner_notified_desc">Stăpânul primește SMS și e-mail cu locația ta</string>
     <string name="step_quick_reunion">Reunire rapidă</string>
     <string name="step_quick_reunion_desc">Stăpânul poate naviga către locația ta pentru a-și recupera animalul de companie</string>
