@@ -44,8 +44,11 @@ class AuthRepository(
     val isAuthenticated: Flow<Boolean> = tokenStore.authToken.map { !it.isNullOrBlank() }
 
     suspend fun login(email: String) {
+        // Canonical lowercased email — matches backend lookup so iOS/web
+        // and Android all resolve to the same user row.
+        val normalizedEmail = com.petsafety.app.util.EmailNormalizer.normalize(email)
         val locale = java.util.Locale.getDefault().language
-        val response = apiService.login(LoginRequest(email, locale))
+        val response = apiService.login(LoginRequest(normalizedEmail, locale))
         if (!response.success) {
             throw Exception(response.error ?: "Failed to send OTP")
         }
@@ -57,9 +60,10 @@ class AuthRepository(
         firstName: String? = null,
         lastName: String? = null
     ): VerifyResult {
+        val normalizedEmail = com.petsafety.app.util.EmailNormalizer.normalize(email)
         val response = apiService.verifyOtp(
             VerifyOtpRequest(
-                email = email,
+                email = normalizedEmail,
                 otp = code,
                 firstName = firstName?.takeIf { it.isNotBlank() },
                 lastName = lastName?.takeIf { it.isNotBlank() }

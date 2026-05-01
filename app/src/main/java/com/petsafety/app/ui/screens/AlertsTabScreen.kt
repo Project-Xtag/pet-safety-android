@@ -187,7 +187,8 @@ fun AlertsTabScreen(
                 viewModel = successStoriesViewModel,
                 appStateViewModel = appStateViewModel,
                 userLatitude = userLocation?.latitude,
-                userLongitude = userLocation?.longitude
+                userLongitude = userLocation?.longitude,
+                userCountryCode = currentUser?.country,
             )
         }
     }

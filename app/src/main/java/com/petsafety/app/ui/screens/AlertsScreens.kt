@@ -104,6 +104,7 @@ import com.petsafety.app.ui.components.ErrorRetryState
 import com.petsafety.app.ui.theme.BrandOrange
 import com.petsafety.app.ui.theme.SuccessGreen
 import com.petsafety.app.ui.theme.TealAccent
+import com.petsafety.app.ui.util.rememberAdaptiveCamera
 import com.petsafety.app.ui.viewmodel.AlertsViewModel
 import com.petsafety.app.ui.viewmodel.AppStateViewModel
 import com.petsafety.app.ui.viewmodel.AuthViewModel
@@ -133,6 +134,7 @@ fun MissingAlertsScreen(
     val isLoading by viewModel.isLoading.collectAsState()
     val error by viewModel.errorMessage.collectAsState()
     val currentUser by authViewModel.currentUser.collectAsState()
+    val userCountryCode = currentUser?.country
     var showMap by remember { mutableStateOf(false) }
     var selectedAlert by remember { mutableStateOf<MissingPetAlert?>(null) }
 
@@ -203,7 +205,7 @@ fun MissingAlertsScreen(
                 }
                 alerts.isEmpty() -> {
                     if (showMap) {
-                        AlertsMap(alerts = emptyList(), userLocation = userLocation, onAlertSelected = {})
+                        AlertsMap(alerts = emptyList(), userLocation = userLocation, userCountryCode = userCountryCode, onAlertSelected = {})
                     } else {
                         EmptyAlertsState(
                             title = stringResource(R.string.no_active_alerts),
@@ -308,7 +310,7 @@ fun FoundAlertsScreen(
                         modifier = Modifier.weight(1f)
                     ) {
                         if (showMap) {
-                            AlertsMap(alerts = alerts, userLocation = userLocation, onAlertSelected = { selectedAlert = it })
+                            AlertsMap(alerts = alerts, userLocation = userLocation, userCountryCode = null, onAlertSelected = { selectedAlert = it })
                         } else {
                             AlertsList(alerts) { selectedAlert = it }
                         }
@@ -1044,6 +1046,7 @@ private fun ReportSightingDialog(
 private fun AlertsMap(
     alerts: List<MissingPetAlert>,
     userLocation: LatLng? = null,
+    userCountryCode: String? = null,
     onAlertSelected: (MissingPetAlert) -> Unit = {}
 ) {
     val context = LocalContext.current
@@ -1063,13 +1066,19 @@ private fun AlertsMap(
         }
     }
 
-    val first = alerts.firstOrNull()
-    // Center on first alert, fallback to user location, fallback to London
-    val centerLat = first?.resolvedLatitude ?: userLocation?.latitude ?: 51.5074
-    val centerLng = first?.resolvedLongitude ?: userLocation?.longitude ?: -0.1278
-    val cameraPositionState = rememberCameraPositionState {
-        position = CameraPosition.fromLatLngZoom(LatLng(centerLat, centerLng), 11f)
+    // Camera priority: first alert pin → user location → user country center →
+    // neutral world view. Recenters smoothly when any input arrives async.
+    val firstAlert = alerts.firstOrNull()
+    val pinLatLng = firstAlert?.let { a ->
+        val lat = a.resolvedLatitude
+        val lng = a.resolvedLongitude
+        if (lat != null && lng != null) LatLng(lat, lng) else null
     }
+    val cameraPositionState = rememberAdaptiveCamera(
+        pinLatLng = pinLatLng,
+        userLocation = userLocation,
+        userCountryCode = userCountryCode,
+    )
 
     Box(modifier = Modifier.fillMaxSize()) {
         GoogleMap(
