@@ -113,7 +113,6 @@ import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
 import androidx.compose.material3.Switch
 import androidx.compose.material3.SwitchDefaults
-import com.petsafety.app.data.repository.LocationConsent
 import com.petsafety.app.ui.viewmodel.QrScannerViewModel
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -1682,7 +1681,11 @@ private fun ReportFoundDialog(
     val context = LocalContext.current
     val locationProvider = remember { LocationServices.getFusedLocationProviderClient(context) }
 
-    var shareExactLocation by remember { mutableStateOf(true) }
+    // 2026-05-02 missing-pet flow overhaul: precision toggle gone, share
+    // is always precise. Backend rejects the legacy is_approximate /
+    // consent_type / share_exact_location fields. The "no GPS available"
+    // fallback now routes to the manual-address dialog rather than
+    // sending an empty consent payload.
     var isSubmitting by remember { mutableStateOf(false) }
     var hasLocationPermission by remember {
         mutableStateOf(
@@ -1693,6 +1696,8 @@ private fun ReportFoundDialog(
         )
     }
     var currentLocation by remember { mutableStateOf<android.location.Location?>(null) }
+    var manualAddressInput by remember { mutableStateOf("") }
+    var showManualAddressFallback by remember { mutableStateOf(false) }
 
     val permissionLauncher = rememberLauncherForActivityResult(
         ActivityResultContracts.RequestPermission()
@@ -1702,10 +1707,12 @@ private fun ReportFoundDialog(
             locationProvider.lastLocation.addOnSuccessListener { location ->
                 currentLocation = location
             }
+        } else {
+            // Permission denied → escape hatch is the manual address.
+            showManualAddressFallback = true
         }
     }
 
-    // Request location permission and fetch location on open
     LaunchedEffect(Unit) {
         if (hasLocationPermission) {
             locationProvider.lastLocation.addOnSuccessListener { location ->
@@ -1735,56 +1742,19 @@ private fun ReportFoundDialog(
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
 
-                // Exact location toggle
-                Card(
-                    modifier = Modifier.fillMaxWidth(),
-                    shape = RoundedCornerShape(14.dp),
-                    colors = CardDefaults.cardColors(
-                        containerColor = MaterialTheme.colorScheme.surfaceContainerHigh
+                if (showManualAddressFallback) {
+                    OutlinedTextField(
+                        value = manualAddressInput,
+                        onValueChange = { manualAddressInput = it },
+                        label = { Text(stringResource(R.string.share_manual_address_label)) },
+                        placeholder = { Text(stringResource(R.string.share_manual_address_placeholder)) },
+                        modifier = Modifier.fillMaxWidth(),
+                        minLines = 2,
+                        maxLines = 4
                     )
-                ) {
-                    Row(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(horizontal = 16.dp, vertical = 12.dp),
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        Icon(
-                            imageVector = Icons.Default.LocationOn,
-                            contentDescription = null,
-                            modifier = Modifier.size(24.dp),
-                            tint = if (shareExactLocation) TealAccent else MaterialTheme.colorScheme.onSurfaceVariant
-                        )
-                        Spacer(modifier = Modifier.width(12.dp))
-                        Column(modifier = Modifier.weight(1f)) {
-                            Text(
-                                text = stringResource(R.string.share_exact_location_toggle),
-                                style = MaterialTheme.typography.bodyLarge.copy(
-                                    fontWeight = FontWeight.SemiBold,
-                                    fontSize = 14.sp
-                                ),
-                                color = MaterialTheme.colorScheme.onSurface
-                            )
-                            Spacer(modifier = Modifier.height(2.dp))
-                            Text(
-                                text = if (shareExactLocation)
-                                    stringResource(R.string.precise_location_desc)
-                                else
-                                    stringResource(R.string.approximate_location_desc),
-                                style = MaterialTheme.typography.bodySmall.copy(fontSize = 11.sp),
-                                color = MaterialTheme.colorScheme.onSurfaceVariant
-                            )
-                        }
-                        Switch(
-                            checked = shareExactLocation,
-                            onCheckedChange = { shareExactLocation = it },
-                            colors = SwitchDefaults.colors(
-                                checkedThumbColor = Color.White,
-                                checkedTrackColor = TealAccent,
-                                uncheckedThumbColor = Color.White,
-                                uncheckedTrackColor = MaterialTheme.colorScheme.outline
-                            )
-                        )
+                } else {
+                    TextButton(onClick = { showManualAddressFallback = true }) {
+                        Text(stringResource(R.string.share_address_instead))
                     }
                 }
             }
@@ -1793,48 +1763,45 @@ private fun ReportFoundDialog(
             Button(
                 onClick = {
                     isSubmitting = true
-                    val consent = if (shareExactLocation)
-                        LocationConsent.PRECISE
-                    else
-                        LocationConsent.APPROXIMATE
+
+                    if (showManualAddressFallback) {
+                        val trimmed = manualAddressInput.trim()
+                        if (trimmed.isNotEmpty()) {
+                            qrScannerViewModel.shareManualAddress(qrCode, trimmed) { success, message ->
+                                if (success) onSuccess() else onError(message)
+                            }
+                        } else {
+                            isSubmitting = false
+                        }
+                        return@Button
+                    }
 
                     val loc = currentLocation
                     if (loc != null) {
                         qrScannerViewModel.shareLocation(
-                            qrCode, consent,
+                            qrCode,
                             loc.latitude, loc.longitude, loc.accuracy.toDouble(),
                             onResult = { success, message ->
                                 if (success) onSuccess() else onError(message)
                             }
                         )
                     } else {
-                        // Try to fetch location one more time
                         locationProvider.lastLocation.addOnSuccessListener { location ->
                             if (location != null) {
                                 qrScannerViewModel.shareLocation(
-                                    qrCode, consent,
+                                    qrCode,
                                     location.latitude, location.longitude, location.accuracy.toDouble(),
                                     onResult = { success, message ->
                                         if (success) onSuccess() else onError(message)
                                     }
                                 )
                             } else {
-                                // Send with chosen consent but no coordinates
-                                // — backend will handle gracefully
-                                qrScannerViewModel.shareLocation(
-                                    qrCode, consent,
-                                    onResult = { success, message ->
-                                        if (success) onSuccess() else onError(message)
-                                    }
-                                )
+                                isSubmitting = false
+                                showManualAddressFallback = true
                             }
                         }.addOnFailureListener {
-                            qrScannerViewModel.shareLocation(
-                                qrCode, consent,
-                                onResult = { success, message ->
-                                    if (success) onSuccess() else onError(message)
-                                }
-                            )
+                            isSubmitting = false
+                            showManualAddressFallback = true
                         }
                     }
                 },

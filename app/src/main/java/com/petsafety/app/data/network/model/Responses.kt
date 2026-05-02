@@ -137,13 +137,22 @@ data class PhotoReorderResponse(
     val photos: List<PetPhoto>? = null
 )
 
+/**
+ * Response from /qr-tags/share-location.
+ * 2026-05-02 missing-pet flow overhaul: backend now returns
+ * `manual_address_recorded` + `geocoding_status` so clients can branch on
+ * whether the geocoder fell back to text-only. The legacy sent_fcm /
+ * sent_email / sent_sse flags moved to the notification_logs table and
+ * are no longer surfaced to clients.
+ */
 @Serializable
 data class ShareLocationResponse(
-    val message: String,
+    val message: String? = null,
     @SerialName("scan_id") val scanId: String? = null,
-    @SerialName("sent_fcm") val sentFcm: Boolean? = null,
-    @SerialName("sent_email") val sentEmail: Boolean? = null,
-    @SerialName("sent_sse") val sentSse: Boolean? = null
+    @SerialName("owner_notified") val ownerNotified: Boolean? = null,
+    @SerialName("location_shared") val locationShared: Boolean? = null,
+    @SerialName("manual_address_recorded") val manualAddressRecorded: Boolean? = null,
+    @SerialName("geocoding_status") val geocodingStatus: String? = null
 )
 
 /**

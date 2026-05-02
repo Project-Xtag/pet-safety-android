@@ -7,7 +7,6 @@ import com.petsafety.app.data.network.ApiService
 import com.petsafety.app.data.network.model.ActivateTagRequest
 import com.petsafety.app.data.network.model.ActivateTagResponse
 import com.petsafety.app.data.network.model.ApiEnvelope
-import com.petsafety.app.data.network.model.LocationConsentType
 import com.petsafety.app.data.network.model.ShareLocationRequest
 import com.petsafety.app.data.network.model.ShareLocationResponse
 import io.mockk.coEvery
@@ -53,10 +52,7 @@ class QrRepositoryTest {
 
     private val testShareLocationResponse = ShareLocationResponse(
         message = "Location shared successfully",
-        scanId = "scan-1",
-        sentFcm = true,
-        sentEmail = true,
-        sentSse = false
+        scanId = "scan-1"
     )
 
     @Before
@@ -65,113 +61,60 @@ class QrRepositoryTest {
         repository = QrRepository(apiService)
     }
 
-    // ==================== shareLocation - PRECISE consent tests ====================
+    // ==================== shareLocation - precise GPS path ====================
+    //
+    // 2026-05-02 missing-pet flow overhaul: precision toggle gone, share
+    // is always precise. The legacy is_approximate / consent_type /
+    // share_exact_location fields are no longer emitted.
 
     @Test
-    fun `shareLocation - PRECISE consent - sends exact coordinates and shareExactLocation true`() = runTest {
+    fun `shareLocation - sends precise coordinates wrapped in location object`() = runTest {
         val requestSlot = slot<ShareLocationRequest>()
         coEvery { apiService.shareLocation(capture(requestSlot)) } returns ApiEnvelope(
             success = true,
             data = testShareLocationResponse
         )
 
-        repository.shareLocation("ABC123", LocationConsent.PRECISE, 51.507422, -0.127800, 10.0)
-
-        val captured = requestSlot.captured
-        assertEquals(51.507422, captured.latitude!!, 0.0)
-        assertEquals(-0.127800, captured.longitude!!, 0.0)
-        assertTrue(captured.shareExactLocation!!)
-    }
-
-    @Test
-    fun `shareLocation - PRECISE consent - sends consentType PRECISE`() = runTest {
-        val requestSlot = slot<ShareLocationRequest>()
-        coEvery { apiService.shareLocation(capture(requestSlot)) } returns ApiEnvelope(
-            success = true,
-            data = testShareLocationResponse
-        )
-
-        repository.shareLocation("ABC123", LocationConsent.PRECISE, 51.507422, -0.127800, 10.0)
-
-        assertEquals(LocationConsentType.PRECISE, requestSlot.captured.consentType)
-    }
-
-    // ==================== shareLocation - APPROXIMATE consent tests ====================
-
-    @Test
-    fun `shareLocation - APPROXIMATE consent - rounds coordinates to 3 decimals`() = runTest {
-        val requestSlot = slot<ShareLocationRequest>()
-        coEvery { apiService.shareLocation(capture(requestSlot)) } returns ApiEnvelope(
-            success = true,
-            data = testShareLocationResponse
-        )
-
-        repository.shareLocation("ABC123", LocationConsent.APPROXIMATE, 51.507422, -0.127800, 10.0)
-
-        val captured = requestSlot.captured
-        assertEquals(51.507, captured.latitude!!, 0.0001)
-        assertEquals(-0.128, captured.longitude!!, 0.0001)
-    }
-
-    @Test
-    fun `shareLocation - APPROXIMATE consent - sends shareExactLocation false`() = runTest {
-        val requestSlot = slot<ShareLocationRequest>()
-        coEvery { apiService.shareLocation(capture(requestSlot)) } returns ApiEnvelope(
-            success = true,
-            data = testShareLocationResponse
-        )
-
-        repository.shareLocation("ABC123", LocationConsent.APPROXIMATE, 51.507422, -0.127800, 10.0)
-
-        assertFalse(requestSlot.captured.shareExactLocation!!)
-    }
-
-    @Test
-    fun `shareLocation - APPROXIMATE consent - sends consentType APPROXIMATE`() = runTest {
-        val requestSlot = slot<ShareLocationRequest>()
-        coEvery { apiService.shareLocation(capture(requestSlot)) } returns ApiEnvelope(
-            success = true,
-            data = testShareLocationResponse
-        )
-
-        repository.shareLocation("ABC123", LocationConsent.APPROXIMATE, 51.507422, -0.127800, 10.0)
-
-        assertEquals(LocationConsentType.APPROXIMATE, requestSlot.captured.consentType)
-    }
-
-    // ==================== shareLocation - null coordinates tests ====================
-
-    @Test
-    fun `shareLocation - null coordinates - still sends consent preference`() = runTest {
-        val requestSlot = slot<ShareLocationRequest>()
-        coEvery { apiService.shareLocation(capture(requestSlot)) } returns ApiEnvelope(
-            success = true,
-            data = testShareLocationResponse
-        )
-
-        repository.shareLocation("ABC123", LocationConsent.PRECISE, null, null, null)
+        repository.shareLocation("ABC123", 51.507422, -0.127800, 10.0)
 
         val captured = requestSlot.captured
         assertEquals("ABC123", captured.qrCode)
-        assertNull(captured.latitude)
-        assertNull(captured.longitude)
-        assertTrue(captured.shareExactLocation!!)
+        assertNotNull(captured.location)
+        assertEquals(51.507422, captured.location!!.latitude, 0.0)
+        assertEquals(-0.127800, captured.location!!.longitude, 0.0)
+        assertEquals(10.0, captured.location!!.accuracyMeters, 0.0)
+        assertNull(captured.manualAddress)
     }
 
     @Test
-    fun `shareLocation - null coordinates with APPROXIMATE consent - sends shareExactLocation false`() = runTest {
+    fun `shareLocation - defaults accuracy to 0 when not provided`() = runTest {
         val requestSlot = slot<ShareLocationRequest>()
         coEvery { apiService.shareLocation(capture(requestSlot)) } returns ApiEnvelope(
             success = true,
             data = testShareLocationResponse
         )
 
-        repository.shareLocation("ABC123", LocationConsent.APPROXIMATE, null, null, null)
+        repository.shareLocation("ABC123", 51.507422, -0.127800, null)
+
+        assertEquals(0.0, requestSlot.captured.location!!.accuracyMeters, 0.0)
+    }
+
+    // ==================== shareLocation - manual-address path ====================
+
+    @Test
+    fun `shareManualAddress - sends free-text without location`() = runTest {
+        val requestSlot = slot<ShareLocationRequest>()
+        coEvery { apiService.shareLocation(capture(requestSlot)) } returns ApiEnvelope(
+            success = true,
+            data = testShareLocationResponse
+        )
+
+        repository.shareManualAddress("ABC123", "123 Pine St, Budapest")
 
         val captured = requestSlot.captured
-        assertNull(captured.latitude)
-        assertNull(captured.longitude)
-        assertFalse(captured.shareExactLocation!!)
+        assertEquals("ABC123", captured.qrCode)
+        assertNull(captured.location)
+        assertEquals("123 Pine St, Budapest", captured.manualAddress)
     }
 
     // ==================== scanQrCode tests ====================

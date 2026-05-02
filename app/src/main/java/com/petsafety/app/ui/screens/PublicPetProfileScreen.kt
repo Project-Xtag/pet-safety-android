@@ -52,6 +52,7 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -83,7 +84,6 @@ import com.google.android.gms.location.Priority
 import com.petsafety.app.R
 import com.petsafety.app.data.model.Pet
 import com.petsafety.app.data.model.User
-import com.petsafety.app.data.repository.LocationConsent
 import com.petsafety.app.ui.theme.BrandOrange
 import com.petsafety.app.ui.theme.TealAccent
 import com.petsafety.app.ui.theme.MedicalRed
@@ -201,7 +201,8 @@ private fun PublicPetContent(
     val shareError by viewModel.shareError.collectAsState()
 
     var showConsentDialog by remember { mutableStateOf(false) }
-    var shareExactLocation by remember { mutableStateOf(true) }
+    var showManualAddressDialog by remember { mutableStateOf(false) }
+    var manualAddressInput by remember { mutableStateOf("") }
     var currentLatitude by remember { mutableStateOf<Double?>(null) }
     var currentLongitude by remember { mutableStateOf<Double?>(null) }
     var currentAccuracy by remember { mutableStateOf<Double?>(null) }
@@ -409,110 +410,161 @@ private fun PublicPetContent(
 
         Spacer(modifier = Modifier.height(24.dp))
 
-        // Share Location Button
-        Button(
-            onClick = {
-                val permissionStatus = ContextCompat.checkSelfPermission(
-                    context, Manifest.permission.ACCESS_FINE_LOCATION
-                )
-                if (permissionStatus == PackageManager.PERMISSION_GRANTED) {
-                    isGettingLocation = true
-                    fetchCurrentLocation(locationProvider, context) { lat, lng, acc ->
-                        currentLatitude = lat
-                        currentLongitude = lng
-                        currentAccuracy = acc
-                        isGettingLocation = false
-                        showConsentDialog = true
+        // Share Location section. Hidden when the backend reports the
+        // owner can't receive notifications (Starter tier — no FCM/email/
+        // SMS would fire, surfacing the button would silently store an
+        // unactionable scan). Direct-contact rows below stay live.
+        if (pet.ownerCanReceiveNotifications != false && !isOwnPet) {
+            Button(
+                onClick = {
+                    val permissionStatus = ContextCompat.checkSelfPermission(
+                        context, Manifest.permission.ACCESS_FINE_LOCATION
+                    )
+                    if (permissionStatus == PackageManager.PERMISSION_GRANTED) {
+                        isGettingLocation = true
+                        fetchCurrentLocation(locationProvider, context) { lat, lng, acc ->
+                            currentLatitude = lat
+                            currentLongitude = lng
+                            currentAccuracy = acc
+                            isGettingLocation = false
+                            showConsentDialog = true
+                        }
+                    } else {
+                        permissionLauncher.launch(Manifest.permission.ACCESS_FINE_LOCATION)
                     }
+                },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 24.dp)
+                    .heightIn(min = 52.dp),
+                shape = RoundedCornerShape(14.dp),
+                contentPadding = PaddingValues(horizontal = 16.dp, vertical = 12.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = TealAccent),
+                enabled = !isGettingLocation && !isSharing
+            ) {
+                if (isGettingLocation || isSharing) {
+                    CircularProgressIndicator(
+                        modifier = Modifier.size(20.dp),
+                        color = Color.White,
+                        strokeWidth = 2.dp
+                    )
                 } else {
-                    permissionLauncher.launch(Manifest.permission.ACCESS_FINE_LOCATION)
+                    Icon(
+                        imageVector = Icons.Default.LocationOn,
+                        contentDescription = null,
+                        modifier = Modifier.size(20.dp)
+                    )
                 }
-            },
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 24.dp)
-                .heightIn(min = 52.dp),
-            shape = RoundedCornerShape(14.dp),
-            contentPadding = PaddingValues(horizontal = 16.dp, vertical = 12.dp),
-            colors = ButtonDefaults.buttonColors(containerColor = TealAccent),
-            enabled = !isGettingLocation && !isSharing
-        ) {
-            if (isGettingLocation || isSharing) {
-                CircularProgressIndicator(
-                    modifier = Modifier.size(20.dp),
-                    color = Color.White,
-                    strokeWidth = 2.dp
-                )
-            } else {
-                Icon(
-                    imageVector = Icons.Default.LocationOn,
-                    contentDescription = null,
-                    modifier = Modifier.size(20.dp)
+                Spacer(modifier = Modifier.width(8.dp))
+                Text(
+                    text = stringResource(R.string.share_location_with_owner),
+                    style = MaterialTheme.typography.labelLarge.copy(
+                        fontSize = 16.sp,
+                        fontWeight = FontWeight.SemiBold
+                    ),
+                    textAlign = TextAlign.Center
                 )
             }
-            Spacer(modifier = Modifier.width(8.dp))
-            Text(
-                text = stringResource(R.string.share_location_with_owner),
-                style = MaterialTheme.typography.labelLarge.copy(
-                    fontSize = 16.sp,
-                    fontWeight = FontWeight.SemiBold
-                ),
-                textAlign = TextAlign.Center
-            )
+
+            // Manual-address fallback — always available, not just on
+            // GPS denial. Stressed finders without GPS coverage still
+            // have a one-click path forward.
+            TextButton(
+                onClick = { showManualAddressDialog = true },
+                enabled = !isGettingLocation && !isSharing,
+                modifier = Modifier.padding(top = 4.dp)
+            ) {
+                Text(stringResource(R.string.share_address_instead))
+            }
         }
 
-        // Location Sharing Consent Dialog
+        // Single-screen consent (no precision toggle as of 2026-05-02
+        // overhaul). The dialog stays as a deliberate two-tap gesture so a
+        // mis-tap on the primary button doesn't fire the share.
         if (showConsentDialog) {
             AlertDialog(
                 onDismissRequest = { showConsentDialog = false },
                 title = { Text(stringResource(R.string.share_location_title)) },
                 text = {
-                    Column {
-                        Row(
-                            modifier = Modifier.fillMaxWidth(),
-                            horizontalArrangement = Arrangement.SpaceBetween,
-                            verticalAlignment = Alignment.CenterVertically
-                        ) {
-                            Text(
-                                text = if (shareExactLocation) stringResource(R.string.share_location_exact)
-                                       else stringResource(R.string.share_location_approximate),
-                                style = MaterialTheme.typography.bodyMedium
-                            )
-                            Switch(
-                                checked = shareExactLocation,
-                                onCheckedChange = { shareExactLocation = it }
-                            )
-                        }
-                        Spacer(modifier = Modifier.height(8.dp))
-                        Text(
-                            text = if (shareExactLocation) stringResource(R.string.share_location_exact_note)
-                                   else stringResource(R.string.share_location_approximate_note),
-                            style = MaterialTheme.typography.bodySmall,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant
-                        )
-                    }
+                    Text(
+                        text = stringResource(R.string.share_location_exact_note),
+                        style = MaterialTheme.typography.bodyMedium
+                    )
                 },
                 confirmButton = {
                     Button(
                         onClick = {
-                            showConsentDialog = false
-                            viewModel.shareLocation(
-                                qrCode = qrCode,
-                                consent = if (shareExactLocation) LocationConsent.PRECISE else LocationConsent.APPROXIMATE,
-                                latitude = currentLatitude,
-                                longitude = currentLongitude,
-                                accuracyMeters = currentAccuracy
-                            )
+                            val lat = currentLatitude
+                            val lng = currentLongitude
+                            if (lat != null && lng != null) {
+                                showConsentDialog = false
+                                viewModel.shareLocation(
+                                    qrCode = qrCode,
+                                    latitude = lat,
+                                    longitude = lng,
+                                    accuracyMeters = currentAccuracy
+                                )
+                            }
                         },
                         colors = ButtonDefaults.buttonColors(containerColor = BrandOrange)
-                    ) {
-                        Text(stringResource(R.string.share_location_confirm))
-                    }
+                    ) { Text(stringResource(R.string.share_location_confirm)) }
                 },
                 dismissButton = {
                     TextButton(onClick = { showConsentDialog = false }) {
                         Text(stringResource(R.string.cancel))
                     }
+                }
+            )
+        }
+
+        // Manual-address fallback dialog. Server geocodes server-side; on
+        // failure the owner gets the typed text with a "no map coordinates"
+        // note (transparent to the finder).
+        if (showManualAddressDialog) {
+            AlertDialog(
+                onDismissRequest = {
+                    showManualAddressDialog = false
+                    manualAddressInput = ""
+                },
+                title = { Text(stringResource(R.string.share_manual_address_title)) },
+                text = {
+                    Column {
+                        Text(
+                            text = stringResource(R.string.share_manual_address_desc, pet.name),
+                            style = MaterialTheme.typography.bodyMedium,
+                            modifier = Modifier.padding(bottom = 12.dp)
+                        )
+                        OutlinedTextField(
+                            value = manualAddressInput,
+                            onValueChange = { manualAddressInput = it },
+                            label = { Text(stringResource(R.string.share_manual_address_label)) },
+                            placeholder = {
+                                Text(stringResource(R.string.share_manual_address_placeholder))
+                            },
+                            modifier = Modifier.fillMaxWidth(),
+                            minLines = 2,
+                            maxLines = 4
+                        )
+                    }
+                },
+                confirmButton = {
+                    TextButton(
+                        onClick = {
+                            val trimmed = manualAddressInput.trim()
+                            if (trimmed.isNotEmpty()) {
+                                showManualAddressDialog = false
+                                viewModel.shareManualAddress(qrCode, trimmed)
+                                manualAddressInput = ""
+                            }
+                        },
+                        enabled = manualAddressInput.trim().isNotEmpty()
+                    ) { Text(stringResource(R.string.share_location_confirm)) }
+                },
+                dismissButton = {
+                    TextButton(onClick = {
+                        showManualAddressDialog = false
+                        manualAddressInput = ""
+                    }) { Text(stringResource(R.string.cancel)) }
                 }
             )
         }

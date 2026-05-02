@@ -86,18 +86,23 @@ class PetSafetyFirebaseMessagingService : FirebaseMessagingService() {
     }
 
     private fun handleTagScannedNotification(data: Map<String, String>) {
+        // 2026-05-02 missing-pet flow overhaul: backend dropped the
+        // `location_type` discriminator. The payload now optionally
+        // includes lat/lng (precise GPS or geocoded manual address) plus
+        // an optional `manual_address` text the finder typed verbatim.
+        // Always treat coords as precise when present.
         val petName = data["pet_name"] ?: getString(R.string.notif_fallback_pet_name)
         val scanId = data["scan_id"]
         val petId = data["pet_id"]
-        val locationType = data["location_type"] ?: "none"
         val coords = parseValidCoords(data["latitude"], data["longitude"])
         val latitude = coords?.first
         val longitude = coords?.second
-        val address = data["address"]
+        val manualAddress = data["manual_address"]
 
-        val locationInfo = when (locationType) {
-            "precise" -> address ?: getString(R.string.notif_location_shared)
-            "approximate" -> getString(R.string.notif_location_approximate)
+        val locationInfo = when {
+            latitude != null && longitude != null && !manualAddress.isNullOrBlank() -> manualAddress
+            latitude != null && longitude != null -> getString(R.string.notif_location_shared)
+            !manualAddress.isNullOrBlank() -> manualAddress
             else -> null
         }
 
@@ -111,8 +116,8 @@ class PetSafetyFirebaseMessagingService : FirebaseMessagingService() {
             NotificationLocation(
                 latitude = latitude,
                 longitude = longitude,
-                isApproximate = locationType == "approximate",
-                address = address
+                isApproximate = false,
+                address = manualAddress
             )
         } else null
 

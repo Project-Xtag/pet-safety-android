@@ -46,7 +46,11 @@ data class Pet(
     @SerialName("owner_address_line_2") val ownerAddressLine2: String? = null,
     @SerialName("owner_city") val ownerCity: String? = null,
     @SerialName("owner_postal_code") val ownerPostalCode: String? = null,
-    @SerialName("owner_country") val ownerCountry: String? = null
+    @SerialName("owner_country") val ownerCountry: String? = null,
+    /** Server-resolved tier flag: false on Starter (no notifications) so the
+     *  finder UI can hide the share-location button entirely. Null when the
+     *  field isn't sent (auth'd / non-public-profile contexts). */
+    @SerialName("owner_can_receive_notifications") val ownerCanReceiveNotifications: Boolean? = null
 ) {
     // Use whichever field is set (API may return either profile_image or photo_url)
     val profileImage: String?

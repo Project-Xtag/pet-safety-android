@@ -5,7 +5,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.petsafety.app.R
 import com.petsafety.app.data.model.Pet
-import com.petsafety.app.data.repository.LocationConsent
 import com.petsafety.app.data.repository.QrRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -62,16 +61,30 @@ class PublicPetProfileViewModel @Inject constructor(
 
     fun shareLocation(
         qrCode: String,
-        consent: LocationConsent,
-        latitude: Double?,
-        longitude: Double?,
+        latitude: Double,
+        longitude: Double,
         accuracyMeters: Double? = null
     ) {
         viewModelScope.launch {
             _isSharing.value = true
             _shareError.value = null
             try {
-                val response = qrRepository.shareLocation(qrCode, consent, latitude, longitude, accuracyMeters)
+                qrRepository.shareLocation(qrCode, latitude, longitude, accuracyMeters)
+                _shareSuccess.value = true
+            } catch (e: Exception) {
+                _shareError.value = e.localizedMessage ?: application.getString(R.string.share_location_error)
+            } finally {
+                _isSharing.value = false
+            }
+        }
+    }
+
+    fun shareManualAddress(qrCode: String, manualAddress: String) {
+        viewModelScope.launch {
+            _isSharing.value = true
+            _shareError.value = null
+            try {
+                qrRepository.shareManualAddress(qrCode, manualAddress)
                 _shareSuccess.value = true
             } catch (e: Exception) {
                 _shareError.value = e.localizedMessage ?: application.getString(R.string.share_location_error)

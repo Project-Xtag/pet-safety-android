@@ -51,9 +51,11 @@ import androidx.compose.material3.MaterialTheme
 import com.petsafety.app.ui.components.SecureScreen
 import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Switch
 import androidx.compose.material3.SwitchDefaults
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -93,7 +95,6 @@ import com.google.mlkit.vision.common.InputImage
 import com.petsafety.app.R
 import com.petsafety.app.ui.a11y.markAsHeading
 import com.petsafety.app.data.model.TagLookupResponse
-import com.petsafety.app.data.repository.LocationConsent
 import com.petsafety.app.ui.theme.BrandOrange
 import com.petsafety.app.ui.theme.TealAccent
 import com.petsafety.app.ui.viewmodel.AppStateViewModel
@@ -331,14 +332,23 @@ fun QrScannerScreen(
         ScannedPetSheet(
             scanResult = result,
             onDismiss = { viewModel.reset() },
-            onShareLocation = { qrCode, consent, lat, lng, accuracy ->
+            onShareGpsLocation = { qrCode, lat, lng, accuracy ->
                 viewModel.shareLocation(
                     qrCode = qrCode,
-                    consent = consent,
                     latitude = lat,
                     longitude = lng,
                     accuracyMeters = accuracy
                 ) { success, message ->
+                    if (success) {
+                        appStateViewModel.showSuccess(locationSharedMessage)
+                        viewModel.reset()
+                    } else {
+                        appStateViewModel.showError(message ?: shareLocationFailedMessage)
+                    }
+                }
+            },
+            onShareManualAddress = { qrCode, address ->
+                viewModel.shareManualAddress(qrCode = qrCode, manualAddress = address) { success, message ->
                     if (success) {
                         appStateViewModel.showSuccess(locationSharedMessage)
                         viewModel.reset()
@@ -436,17 +446,18 @@ private fun CameraPreview(
 private fun ScannedPetSheet(
     scanResult: TagLookupResponse,
     onDismiss: () -> Unit,
-    onShareLocation: (String, LocationConsent, Double?, Double?, Double?) -> Unit
+    onShareGpsLocation: (qrCode: String, lat: Double, lng: Double, accuracyMeters: Double?) -> Unit,
+    onShareManualAddress: (qrCode: String, address: String) -> Unit
 ) {
     val context = LocalContext.current
     val locationProvider = LocationServices.getFusedLocationProviderClient(context)
     val pet = scanResult.pet ?: return
 
-    // State for 2-tier location consent toggle (ON = precise, OFF = approximate)
-    var shareExactLocation by remember { mutableStateOf(true) }
     var currentLocation by remember { mutableStateOf<android.location.Location?>(null) }
     var isSubmitting by remember { mutableStateOf(false) }
     var isCapturingLocation by remember { mutableStateOf(false) }
+    var showManualAddressDialog by remember { mutableStateOf(false) }
+    var manualAddressInput by remember { mutableStateOf("") }
 
     // Location permission
     var hasLocationPermission by remember { mutableStateOf(false) }
@@ -569,8 +580,15 @@ private fun ScannedPetSheet(
 
             Spacer(modifier = Modifier.height(24.dp))
 
-            // Location Sharing Section with 2-tier toggle
-            if (pet.qrCode != null) {
+            // Location Sharing Section.
+            //
+            // Tier-gated: hidden when the backend reports the owner can't
+            // receive notifications (Starter tier — surfacing the button
+            // would silently store an unactionable scan). Direct-contact
+            // rows below stay live regardless. The precise/approximate
+            // toggle and the 3-decimal client-side rounding are gone as
+            // of the 2026-05-02 missing-pet flow overhaul.
+            if (pet.qrCode != null && pet.ownerCanReceiveNotifications != false) {
                 Text(
                     text = stringResource(R.string.step_share_location),
                     style = MaterialTheme.typography.titleMedium.copy(
@@ -589,68 +607,12 @@ private fun ScannedPetSheet(
                     textAlign = TextAlign.Center
                 )
 
-                Spacer(modifier = Modifier.height(16.dp))
-
-                // Exact location toggle
-                Card(
-                    modifier = Modifier.fillMaxWidth(),
-                    shape = RoundedCornerShape(14.dp),
-                    colors = CardDefaults.cardColors(
-                        containerColor = MaterialTheme.colorScheme.surfaceContainerHigh
-                    )
-                ) {
-                    Row(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(horizontal = 16.dp, vertical = 12.dp),
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        Icon(
-                            imageVector = Icons.Default.LocationOn,
-                            contentDescription = null,
-                            modifier = Modifier.size(24.dp),
-                            tint = if (shareExactLocation) BrandOrange else MaterialTheme.colorScheme.onSurfaceVariant
-                        )
-                        Spacer(modifier = Modifier.width(12.dp))
-                        Column(modifier = Modifier.weight(1f)) {
-                            Text(
-                                text = stringResource(R.string.share_exact_location_toggle),
-                                style = MaterialTheme.typography.bodyLarge.copy(
-                                    fontWeight = FontWeight.SemiBold,
-                                    fontSize = 15.sp
-                                ),
-                                color = MaterialTheme.colorScheme.onSurface
-                            )
-                            Spacer(modifier = Modifier.height(2.dp))
-                            Text(
-                                text = if (shareExactLocation)
-                                    stringResource(R.string.precise_location_desc)
-                                else
-                                    stringResource(R.string.approximate_location_desc),
-                                style = MaterialTheme.typography.bodySmall.copy(fontSize = 12.sp),
-                                color = MaterialTheme.colorScheme.onSurfaceVariant
-                            )
-                        }
-                        Switch(
-                            checked = shareExactLocation,
-                            onCheckedChange = { shareExactLocation = it },
-                            colors = SwitchDefaults.colors(
-                                checkedThumbColor = Color.White,
-                                checkedTrackColor = BrandOrange,
-                                uncheckedThumbColor = Color.White,
-                                uncheckedTrackColor = MaterialTheme.colorScheme.outline
-                            )
-                        )
-                    }
-                }
-
                 Spacer(modifier = Modifier.height(20.dp))
 
-                // Share Location button (always enabled)
+                // Primary GPS share button.
                 Button(
                     onClick = {
                         if (!isSubmitting) {
-                            // Request location permission if not granted
                             if (!hasLocationPermission) {
                                 locationPermissionLauncher.launch(
                                     arrayOf(
@@ -661,42 +623,37 @@ private fun ScannedPetSheet(
                                 return@Button
                             }
 
-                            isSubmitting = true
-                            val consent = if (shareExactLocation)
-                                LocationConsent.PRECISE
-                            else
-                                LocationConsent.APPROXIMATE
                             val qrCode = pet.qrCode
 
                             if (currentLocation != null) {
-                                onShareLocation(
+                                isSubmitting = true
+                                onShareGpsLocation(
                                     qrCode,
-                                    consent,
                                     currentLocation!!.latitude,
                                     currentLocation!!.longitude,
                                     currentLocation!!.accuracy.toDouble()
                                 )
                             } else {
-                                // Try to get location
                                 isCapturingLocation = true
                                 locationProvider.lastLocation.addOnSuccessListener { location ->
                                     isCapturingLocation = false
                                     if (location != null) {
-                                        onShareLocation(
+                                        isSubmitting = true
+                                        onShareGpsLocation(
                                             qrCode,
-                                            consent,
                                             location.latitude,
                                             location.longitude,
                                             location.accuracy.toDouble()
                                         )
-                                    } else {
-                                        // Still send with approximate consent and no coordinates
-                                        // — backend will handle gracefully
-                                        onShareLocation(qrCode, consent, null, null, null)
+                                    }
+                                    // No location available: surface the manual-address
+                                    // dialog so the finder still has a path forward.
+                                    else {
+                                        showManualAddressDialog = true
                                     }
                                 }.addOnFailureListener {
                                     isCapturingLocation = false
-                                    onShareLocation(qrCode, consent, null, null, null)
+                                    showManualAddressDialog = true
                                 }
                             }
                         }
@@ -736,13 +693,100 @@ private fun ScannedPetSheet(
                     }
                 }
 
-                Spacer(modifier = Modifier.height(8.dp))
+                Spacer(modifier = Modifier.height(4.dp))
+
+                // Manual-address fallback — always available, not just on
+                // GPS denial. Stressed finders without GPS or with denied
+                // permission have a one-click escape hatch.
+                TextButton(
+                    onClick = { showManualAddressDialog = true },
+                    enabled = !isSubmitting
+                ) {
+                    Text(
+                        text = stringResource(R.string.share_address_instead),
+                        style = MaterialTheme.typography.labelMedium
+                    )
+                }
+
+                Spacer(modifier = Modifier.height(4.dp))
 
                 Text(
                     text = stringResource(R.string.owner_notified_message, pet.name),
                     style = MaterialTheme.typography.bodySmall.copy(fontSize = 12.sp),
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                     textAlign = TextAlign.Center
+                )
+            }
+
+            // Starter-tier no-contact fallback. Owner can't be reached via
+            // any channel — surface an empathetic empty-state rather than
+            // a dead-end blank section.
+            if (pet.ownerCanReceiveNotifications == false
+                && pet.ownerPhone == null && pet.ownerEmail == null
+                && pet.ownerSecondaryPhone == null && pet.ownerSecondaryEmail == null
+            ) {
+                Spacer(modifier = Modifier.height(8.dp))
+                Text(
+                    text = stringResource(R.string.owner_communication_disabled),
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier.padding(horizontal = 16.dp, vertical = 16.dp)
+                )
+            }
+
+            // Manual-address input dialog. Server geocodes server-side; on
+            // failure the owner gets the typed text with a "no map
+            // coordinates" note (transparent to the finder — same toast).
+            if (showManualAddressDialog) {
+                AlertDialog(
+                    onDismissRequest = {
+                        showManualAddressDialog = false
+                        manualAddressInput = ""
+                    },
+                    title = {
+                        Text(stringResource(R.string.share_manual_address_title))
+                    },
+                    text = {
+                        Column {
+                            Text(
+                                text = stringResource(R.string.share_manual_address_desc, pet.name),
+                                style = MaterialTheme.typography.bodyMedium,
+                                modifier = Modifier.padding(bottom = 12.dp)
+                            )
+                            OutlinedTextField(
+                                value = manualAddressInput,
+                                onValueChange = { manualAddressInput = it },
+                                label = { Text(stringResource(R.string.share_manual_address_label)) },
+                                placeholder = {
+                                    Text(stringResource(R.string.share_manual_address_placeholder))
+                                },
+                                modifier = Modifier.fillMaxWidth(),
+                                minLines = 2,
+                                maxLines = 4
+                            )
+                        }
+                    },
+                    confirmButton = {
+                        TextButton(
+                            onClick = {
+                                val trimmed = manualAddressInput.trim()
+                                if (trimmed.isNotEmpty() && pet.qrCode != null) {
+                                    showManualAddressDialog = false
+                                    isSubmitting = true
+                                    onShareManualAddress(pet.qrCode, trimmed)
+                                    manualAddressInput = ""
+                                }
+                            },
+                            enabled = manualAddressInput.trim().isNotEmpty()
+                        ) { Text(stringResource(R.string.share_location)) }
+                    },
+                    dismissButton = {
+                        TextButton(onClick = {
+                            showManualAddressDialog = false
+                            manualAddressInput = ""
+                        }) { Text(stringResource(R.string.cancel)) }
+                    }
                 )
             }
 

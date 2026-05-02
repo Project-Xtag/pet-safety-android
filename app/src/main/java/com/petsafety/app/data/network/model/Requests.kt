@@ -110,28 +110,31 @@ data class LocationData(
 )
 
 /**
- * Location consent type for 2-tier GDPR compliance
+ * Precise GPS coordinates supplied with the share-location request.
+ * 2026-05-02 missing-pet flow overhaul: backend rejects any payload that
+ * still carries the legacy is_approximate / consent_type / share_exact_location
+ * fields, so we no longer emit them.
  */
 @Serializable
-enum class LocationConsentType {
-    @SerialName("approximate") APPROXIMATE,
-    @SerialName("precise") PRECISE
-}
+data class LocationPayload(
+    val latitude: Double,
+    val longitude: Double,
+    @SerialName("accuracy_meters") val accuracyMeters: Double = 0.0
+)
 
 /**
- * Share location request with 2-tier consent (toggle)
- * - Toggle ON (default): consent_type = "precise", exact GPS coordinates
- * - Toggle OFF: consent_type = "approximate", coordinates rounded to 3 decimals
+ * Share-location request. Either `location` (GPS) or `manualAddress`
+ * (free-text the server geocodes) must be supplied — backend refines for
+ * this. Both can coexist when the finder shares GPS plus a "near the
+ * playground" hint. Field name uses camelCase to match the backend zod
+ * schema (`{ qrCode: ... }`); the previous @SerialName("qr_code") alias
+ * mismatched and is gone.
  */
 @Serializable
 data class ShareLocationRequest(
-    @SerialName("qr_code") val qrCode: String,
-    val latitude: Double? = null,
-    val longitude: Double? = null,
-    @SerialName("accuracy_meters") val accuracyMeters: Double? = null,
-    @SerialName("is_approximate") val isApproximate: Boolean? = null,
-    @SerialName("consent_type") val consentType: LocationConsentType? = null,
-    @SerialName("share_exact_location") val shareExactLocation: Boolean? = null
+    val qrCode: String,
+    val location: LocationPayload? = null,
+    @SerialName("manual_address") val manualAddress: String? = null
 )
 
 /**
