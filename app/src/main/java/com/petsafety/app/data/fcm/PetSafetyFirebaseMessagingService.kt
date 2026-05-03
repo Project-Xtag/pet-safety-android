@@ -6,6 +6,8 @@ import com.google.firebase.messaging.RemoteMessage
 import com.petsafety.app.R
 import com.petsafety.app.data.notifications.NotificationHelper
 import dagger.hilt.android.AndroidEntryPoint
+import io.sentry.Sentry
+import io.sentry.SentryLevel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -57,6 +59,24 @@ class PetSafetyFirebaseMessagingService : FirebaseMessagingService() {
 
         Timber.d("Notification type: $notificationType, data: $data")
 
+        // Pre-fix the per-type handlers below trusted the FCM payload to
+        // contain alert_id/pet_id/etc. unchecked. A backend regression
+        // shipping a malformed push silently produced a notification that
+        // deep-linked nowhere — and ops had no signal anything was wrong.
+        // Validate up front, capture missing required fields to Sentry,
+        // and drop the notification (matching iOS NotificationHandler).
+        if (notificationType != null) {
+            val missingField = validatePayload(notificationType, data)
+            if (missingField != null) {
+                captureMalformedPayload(
+                    reason = "missing_$missingField",
+                    type = notificationType,
+                    data = data
+                )
+                return
+            }
+        }
+
         when (notificationType) {
             "PET_SCANNED", "TAG_INITIAL_SCAN" -> handleTagScannedNotification(data)
             "TAG_ACTIVATED" -> {
@@ -80,6 +100,32 @@ class PetSafetyFirebaseMessagingService : FirebaseMessagingService() {
                         body = notification.body ?: ""
                     )
                 }
+            }
+        }
+    }
+
+    /**
+     * Telemetry helper: report a malformed FCM payload to Sentry.
+     * Logs the keys but not the values (some keys carry PII like
+     * pet_name or addresses).
+     */
+    private fun captureMalformedPayload(
+        reason: String,
+        type: String,
+        data: Map<String, String>
+    ) {
+        Timber.w("Malformed FCM payload — type=$type reason=$reason keys=${data.keys}")
+        if (Sentry.isEnabled()) {
+            Sentry.captureMessage("Malformed FCM payload: $type ($reason)") { scope ->
+                scope.level = SentryLevel.WARNING
+                scope.setTag("operation", "fcm_malformed_payload")
+                scope.setTag("notification_type", type)
+                scope.setTag("malformed_reason", reason)
+                scope.setContexts("notification", mapOf(
+                    "type" to type,
+                    "reason" to reason,
+                    "keys" to data.keys.toList()
+                ))
             }
         }
     }
@@ -243,7 +289,34 @@ class PetSafetyFirebaseMessagingService : FirebaseMessagingService() {
         return lat to lng
     }
 
-    companion object
+    companion object {
+        /**
+         * Required field map per known notification type. Mirrors the
+         * iOS NotificationHandler validation guards. Types absent from
+         * this map (e.g. PROMO_EXPIRING which doesn't deep-link to an
+         * alert) are not validated here.
+         */
+        private val REQUIRED_FIELDS_BY_TYPE: Map<String, List<String>> = mapOf(
+            "PET_SCANNED" to listOf("pet_id"),
+            "TAG_INITIAL_SCAN" to listOf("pet_id"),
+            "MISSING_PET_ALERT" to listOf("alert_id"),
+            "PET_FOUND" to listOf("alert_id"),
+            "SIGHTING_REPORTED" to listOf("alert_id"),
+            NotificationHelper.TYPE_ALERT_CONFIRMATION to listOf("alert_id"),
+            NotificationHelper.TYPE_MULTIPLE_SIGHTINGS to listOf("alert_id"),
+        )
+
+        /**
+         * Returns the name of the first required field that is missing
+         * or blank for [type], or null if the payload is acceptable.
+         * Pure function for unit-testability — the FCM service can't be
+         * easily exercised end-to-end in a JVM unit test.
+         */
+        fun validatePayload(type: String, data: Map<String, String>): String? {
+            val required = REQUIRED_FIELDS_BY_TYPE[type] ?: return null
+            return required.firstOrNull { data[it].isNullOrBlank() }
+        }
+    }
 }
 
 /**

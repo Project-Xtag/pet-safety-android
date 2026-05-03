@@ -7,6 +7,8 @@ import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
 import kotlinx.coroutines.test.runTest
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNull
 import org.junit.Before
 import org.junit.Test
 
@@ -427,5 +429,73 @@ class PetSafetyFirebaseMessagingServiceTest {
 
         val petName = data["pet_name"]?.ifEmpty { "Your pet" } ?: "Your pet"
         assert(petName == "Your pet")
+    }
+
+    // M8 — payload validation guards. The actual Sentry capture is exercised
+    // via the integration of validatePayload + onMessageReceived; the pure
+    // function validatePayload is what we pin here to keep the unit tests
+    // JVM-only.
+
+    @Test
+    fun `validatePayload — passes when required fields present`() {
+        assertNull(
+            PetSafetyFirebaseMessagingService.validatePayload(
+                "MISSING_PET_ALERT",
+                mapOf("alert_id" to "alert-1", "pet_name" to "Buddy")
+            )
+        )
+        assertNull(
+            PetSafetyFirebaseMessagingService.validatePayload(
+                "PET_SCANNED",
+                mapOf("pet_id" to "pet-1", "scan_id" to "scan-1")
+            )
+        )
+    }
+
+    @Test
+    fun `validatePayload — flags missing alert_id on alert-bound types`() {
+        listOf(
+            "MISSING_PET_ALERT",
+            "PET_FOUND",
+            "SIGHTING_REPORTED",
+            NotificationHelper.TYPE_ALERT_CONFIRMATION,
+            NotificationHelper.TYPE_MULTIPLE_SIGHTINGS,
+        ).forEach { type ->
+            assertEquals(
+                "type=$type with no alert_id should flag alert_id",
+                "alert_id",
+                PetSafetyFirebaseMessagingService.validatePayload(type, mapOf("pet_name" to "Buddy"))
+            )
+            assertEquals(
+                "type=$type with blank alert_id should flag alert_id",
+                "alert_id",
+                PetSafetyFirebaseMessagingService.validatePayload(type, mapOf("alert_id" to "  "))
+            )
+        }
+    }
+
+    @Test
+    fun `validatePayload — flags missing pet_id on scan types`() {
+        assertEquals(
+            "pet_id",
+            PetSafetyFirebaseMessagingService.validatePayload("PET_SCANNED", mapOf("scan_id" to "s-1"))
+        )
+        assertEquals(
+            "pet_id",
+            PetSafetyFirebaseMessagingService.validatePayload("TAG_INITIAL_SCAN", emptyMap())
+        )
+    }
+
+    @Test
+    fun `validatePayload — unknown types pass through (no required-field map)`() {
+        assertNull(
+            PetSafetyFirebaseMessagingService.validatePayload("PROMO_EXPIRING", emptyMap())
+        )
+        assertNull(
+            PetSafetyFirebaseMessagingService.validatePayload("TAG_ACTIVATED", emptyMap())
+        )
+        assertNull(
+            PetSafetyFirebaseMessagingService.validatePayload("FUTURE_TYPE_X", emptyMap())
+        )
     }
 }
