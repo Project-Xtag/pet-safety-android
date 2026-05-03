@@ -1,5 +1,9 @@
 package com.petsafety.app.ui.screens
 
+import androidx.hilt.navigation.compose.hiltViewModel
+import com.petsafety.app.data.network.model.CreateSuccessStoryRequest
+import com.petsafety.app.ui.components.SuccessStoryDialog
+import com.petsafety.app.ui.viewmodel.SuccessStoriesViewModel
 import com.petsafety.app.util.InputValidators
 import android.Manifest
 import android.annotation.SuppressLint
@@ -805,6 +809,8 @@ private fun ReportSightingDialog(
     val locationProvider = remember { LocationServices.getFusedLocationProviderClient(context) }
     val addressNotFoundMessage = stringResource(R.string.sighting_address_not_found)
     val locationRequiredMessage = stringResource(R.string.sighting_location_required)
+    val invalidPhoneMessage = stringResource(R.string.invalid_phone)
+    val invalidLocationCoordsMessage = stringResource(R.string.invalid_location_coords)
 
     var locationText by remember { mutableStateOf("") }
     var notes by remember { mutableStateOf("") }
@@ -982,9 +988,26 @@ private fun ReportSightingDialog(
                 onClick = {
                     errorText = null
                     val trimmed = locationText.trim()
-                    // If we already have GPS coords, submit immediately
+
+                    // Phone validation — only enforced when user opted to share
+                    // contact info AND filled the field. Empty phone with
+                    // shareContact=true is allowed (user might share name only).
+                    // Mirrors iOS ReportSightingView InputValidators.isValidPhone
+                    // guard so backend never sees malformed phone numbers.
+                    if (shareContact && reporterPhone.isNotBlank() &&
+                        !InputValidators.isValidPhone(reporterPhone)
+                    ) {
+                        errorText = invalidPhoneMessage
+                        return@Button
+                    }
+
+                    // If we already have GPS coords, validate then submit
                     val existingCoord = capturedCoordinate
                     if (existingCoord != null) {
+                        if (!InputValidators.isValidCoordinate(existingCoord.lat, existingCoord.lng)) {
+                            errorText = invalidLocationCoordsMessage
+                            return@Button
+                        }
                         onSubmit(
                             existingCoord,
                             trimmed.ifBlank { null },
@@ -1006,6 +1029,11 @@ private fun ReportSightingDialog(
                         isGeocoding = false
                         if (coord == null) {
                             errorText = addressNotFoundMessage
+                        } else if (!InputValidators.isValidCoordinate(coord.lat, coord.lng)) {
+                            // Geocoder occasionally returns (0,0) or out-of-range
+                            // for malformed input — guard against null-island
+                            // sightings polluting the alert map.
+                            errorText = invalidLocationCoordsMessage
                         } else {
                             onSubmit(
                                 coord,
@@ -1155,7 +1183,9 @@ private fun AlertDetailScreen(
     var showReportSighting by remember { mutableStateOf(false) }
     var showReportFound by remember { mutableStateOf(false) }
     var showMarkFoundConfirmation by remember { mutableStateOf(false) }
+    var showSuccessStoryDialog by remember { mutableStateOf(false) }
     var reverseGeocodedAddress by remember { mutableStateOf<String?>(null) }
+    val successStoriesViewModel: SuccessStoriesViewModel = hiltViewModel()
 
     // Reverse-geocode the pin coordinates to get the actual address
     LaunchedEffect(alert.resolvedLatitude, alert.resolvedLongitude) {
@@ -1191,6 +1221,8 @@ private fun AlertDetailScreen(
     val shareLocationFailedMessage = stringResource(R.string.share_location_failed)
     val alertUpdatedMessage = stringResource(R.string.alert_updated)
     val alertUpdateFailedMessage = stringResource(R.string.alert_update_failed)
+    val storySharedMessage = stringResource(R.string.story_shared)
+    val storyShareFailedMessage = stringResource(R.string.story_share_failed)
     val petName = alert.resolvedPetName ?: stringResource(R.string.unknown_pet)
     val resolvedQrCode = alert.qrCode ?: alert.pet?.qrCode
 
@@ -1565,7 +1597,15 @@ private fun AlertDetailScreen(
                             if (success) {
                                 appStateViewModel.showSuccess(markedFoundMessage)
                                 viewModel.refresh()
-                                onBack()
+                                // Mirror iOS AlertDetailView — open the Success
+                                // Story prompt instead of dismissing immediately.
+                                // Owner-only: a non-owner can't author the
+                                // reunion story; they'd return to the list.
+                                if (isOwner && alert.pet != null) {
+                                    showSuccessStoryDialog = true
+                                } else {
+                                    onBack()
+                                }
                             } else {
                                 appStateViewModel.showError(message ?: reportFailedMessage)
                             }
@@ -1583,6 +1623,44 @@ private fun AlertDetailScreen(
                 }
             }
         )
+    }
+
+    if (showSuccessStoryDialog) {
+        val pet = alert.pet
+        if (pet != null) {
+            SuccessStoryDialog(
+                pet = pet,
+                alertId = alert.id,
+                onDismiss = {
+                    showSuccessStoryDialog = false
+                    onBack()
+                },
+                onSubmit = { storyText, city, location ->
+                    successStoriesViewModel.createStory(
+                        CreateSuccessStoryRequest(
+                            petId = pet.id,
+                            storyText = storyText,
+                            reunionCity = city,
+                            reunionLatitude = location?.lat,
+                            reunionLongitude = location?.lng,
+                            autoConfirm = true
+                        )
+                    ) { success, message ->
+                        if (success) {
+                            appStateViewModel.showSuccess(storySharedMessage)
+                        } else {
+                            appStateViewModel.showError(message ?: storyShareFailedMessage)
+                        }
+                        showSuccessStoryDialog = false
+                        onBack()
+                    }
+                },
+                onSkip = {
+                    showSuccessStoryDialog = false
+                    onBack()
+                }
+            )
+        }
     }
 
     if (showEditAlertDialog) {

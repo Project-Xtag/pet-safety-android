@@ -243,6 +243,18 @@ fun MarkAsMissingScreen(
                 }
             }
 
+            // Geocoder occasionally returns (0,0) or out-of-range coords for
+            // malformed/ambiguous input. A bad coordinate on a missing-pet
+            // alert pollutes the alert map and ships notifications to a
+            // wildly wrong neighborhood. Drop the coord but keep the address
+            // — the alert can still go out without precise location, and
+            // the success message branch already handles that case.
+            coordinate?.let { c ->
+                if (!InputValidators.isValidCoordinate(c.lat, c.lng)) {
+                    coordinate = null
+                }
+            }
+
             isGeocoding = false
 
             if (addressText.isNullOrBlank()) {
