@@ -146,6 +146,21 @@ class AuthRepositoryTest {
     }
 
     @Test
+    fun `logout disables biometric so the next user does not see a stale prompt`() = runTest {
+        // Mirror iOS AuthViewModel.logout — clearing the biometric-enabled
+        // flag avoids the confusing case where the next user on this device
+        // sees a Touch/Face ID prompt for the previous account.
+        authRepository.logout(LogoutReason.USER_INITIATED)
+        coVerify { tokenStore.setBiometricEnabled(false) }
+    }
+
+    @Test
+    fun `logout TOKEN_EXPIRED also disables biometric (no auto-prompt for dead account)`() = runTest {
+        authRepository.logout(LogoutReason.TOKEN_EXPIRED)
+        coVerify { tokenStore.setBiometricEnabled(false) }
+    }
+
+    @Test
     fun `logout defaults to USER_INITIATED for backwards compatibility`() = runTest {
         authRepository.logout()
 
