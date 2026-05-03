@@ -1187,22 +1187,35 @@ private fun AlertDetailScreen(
     var reverseGeocodedAddress by remember { mutableStateOf<String?>(null) }
     val successStoriesViewModel: SuccessStoriesViewModel = hiltViewModel()
 
-    // Reverse-geocode the pin coordinates to get the actual address
+    // Reverse-geocode the pin coordinates to get the actual address.
+    // Uses the API-33+ callback variant (no main-thread blocking) and
+    // falls back to the deprecated synchronous call on older devices,
+    // mirroring the pattern in MarkAsMissingScreen.reverseGeocode.
     LaunchedEffect(alert.resolvedLatitude, alert.resolvedLongitude) {
         val lat = alert.resolvedLatitude
         val lng = alert.resolvedLongitude
         if (lat != null && lng != null) {
-            @Suppress("DEPRECATION")
             try {
                 val geocoder = android.location.Geocoder(context)
-                val results = geocoder.getFromLocation(lat, lng, 1)
-                results?.firstOrNull()?.let { addr ->
+                val addr = withContext(kotlinx.coroutines.Dispatchers.IO) {
+                    if (android.os.Build.VERSION.SDK_INT >= 33) {
+                        suspendCancellableCoroutine<android.location.Address?> { cont ->
+                            geocoder.getFromLocation(lat, lng, 1) { addresses ->
+                                cont.resume(addresses.firstOrNull())
+                            }
+                        }
+                    } else {
+                        @Suppress("DEPRECATION")
+                        geocoder.getFromLocation(lat, lng, 1)?.firstOrNull()
+                    }
+                }
+                addr?.let {
                     val parts = listOfNotNull(
-                        addr.thoroughfare,
-                        addr.locality,
-                        addr.adminArea,
-                        addr.countryName
-                    ).filter { it.isNotBlank() }
+                        it.thoroughfare,
+                        it.locality,
+                        it.adminArea,
+                        it.countryName
+                    ).filter { p -> p.isNotBlank() }
                     if (parts.isNotEmpty()) {
                         reverseGeocodedAddress = parts.joinToString(", ")
                     }
