@@ -85,9 +85,9 @@
     <string name="register">Registrieren</string>
     <string name="already_have_account">du haben bereits ein Benutzerkonto?</string>
     <string name="log_in">Einloggen</string>
-    <string name="terms_login_prefix">Mit dem Einloggen stimmen du unseren </string>
-    <string name="terms_register_prefix">Mit der Registrierung stimmen du unseren </string>
-    <string name="terms_and"> und </string>
+    <string name="terms_login_prefix">Mit dem Einloggen stimmen du unseren</string>
+    <string name="terms_register_prefix">Mit der Registrierung stimmen du unseren</string>
+    <string name="terms_and"> und</string>
     <string name="terms_of_service">Nutzungsbedingungen</string>
     <string name="privacy_policy">Datenschutzrichtlinie</string>
     <string name="first_name">Vorname</string>
@@ -821,7 +821,7 @@
     <!-- MARK: Push Notification Prompt -->
     <!-- ============================================ -->
     <string name="push_prompt_title">Bleiben du verbunden</string>
-    <string name="push_prompt_subtitle">Aktiviere Benachrichtigungen, um nichts zu verpassen:</string>
+    <string name="push_prompt_subtitle">Aktiviere Benachrichtigungen, um keine wichtigen Updates zu deinem Haustier zu verpassen:</string>
     <string name="push_prompt_benefit_scan">Sofortige Warnungen, wenn der Haustiermarke deines Haustiers gescannt wird</string>
     <string name="push_prompt_benefit_sighting">Sichtungsmeldungen aus der Community</string>
     <string name="push_prompt_benefit_found">Sofort wissen, wenn dein Haustier gefunden wird</string>
@@ -843,7 +843,7 @@
     <string name="public_profile_preview">Vorschau des öffentlichen Profils</string>
     <string name="failed_load_profile">Profil konnte nicht geladen werden</string>
     <string name="public_profile_subtitle">So sehen andere das Profil von %1$s</string>
-    <string name="owner_notified_sms_email">Der Besitzer von %1$s erhält eine SMS und eine E-Mail mit deinem Standort</string>
+    <string name="owner_notified_sms_email">%1$s\'s Besitzer erhält eine SMS und E-Mail mit deinem Standort</string>
     <string name="contact_owner_plea">Bitte informiere meinen Besitzer, dass du mich gefunden hast\u2026</string>
     <string name="contact_owner_plea_full">Bitte teile meinem Besitzer mit, dass du mich gefunden hast. Du kannst ihn über die unten angegebenen Kontaktdaten erreichen.</string>
     <string name="contact_info_not_set">Kontaktinfos noch nicht eingerichtet</string>
@@ -934,7 +934,7 @@
     <!-- MARK: App Info -->
     <!-- ============================================ -->
     <string name="app_name_label">SENRA</string>
-    <string name="app_version">Version 1.0.0</string>
+    <string name="app_version">Verzió 1.0.0</string>
 
     <!-- ============================================ -->
     <!-- MARK: Relative Time -->
@@ -1287,7 +1287,7 @@
 
     <!-- Appearance -->
     <string name="appearance_title">Erscheinungsbild</string>
-    <string name="appearance_system">System</string>
+    <string name="appearance_system">Rendszer</string>
     <string name="appearance_light">Hell</string>
     <string name="appearance_dark">Dunkel</string>
     <!-- Localization audit fixes -->

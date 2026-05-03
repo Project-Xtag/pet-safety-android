@@ -85,9 +85,9 @@
     <string name="register">Registrarse</string>
     <string name="already_have_account">¿Ya tienes cuenta?</string>
     <string name="log_in">Iniciar sesión</string>
-    <string name="terms_login_prefix">Al iniciar sesión, aceptas nuestros </string>
-    <string name="terms_register_prefix">Al registrarte, aceptas nuestros </string>
-    <string name="terms_and"> y </string>
+    <string name="terms_login_prefix">Al iniciar sesión, aceptas nuestros</string>
+    <string name="terms_register_prefix">Al registrarte, aceptas nuestros</string>
+    <string name="terms_and"> y</string>
     <string name="terms_of_service">Términos de servicio</string>
     <string name="privacy_policy">Política de privacidad</string>
     <string name="first_name">Nombre</string>
@@ -821,7 +821,7 @@
     <!-- MARK: Push Notification Prompt -->
     <!-- ============================================ -->
     <string name="push_prompt_title">Mantente conectado</string>
-    <string name="push_prompt_subtitle">Habilita las notificaciones para no perderte actualizaciones importantes:</string>
+    <string name="push_prompt_subtitle">Activa las notificaciones para no perderte novedades importantes:</string>
     <string name="push_prompt_benefit_scan">Alertas instantáneas cuando se escanea la chapa inteligente de tu mascota</string>
     <string name="push_prompt_benefit_sighting">Reportes de avistamientos de la comunidad</string>
     <string name="push_prompt_benefit_found">Saber de inmediato cuando tu mascota es encontrada</string>
@@ -1185,8 +1185,8 @@
     <string name="breed_cat_british_shorthair">Británico de pelo corto</string>
     <string name="breed_cat_exotic_shorthair">Exótico de pelo corto</string>
     <string name="breed_cat_abyssinian">Abisinio</string>
-    <string name="breed_cat_scottish_fold">Scottish Fold</string>
-    <string name="breed_cat_sphynx">Sphynx</string>
+    <string name="breed_cat_scottish_fold">Skót lógófülű</string>
+    <string name="breed_cat_sphynx">Esfinge</string>
     <string name="breed_cat_siamese">Siamés</string>
     <string name="breed_cat_devon_rex">Devon rex</string>
     <string name="breed_cat_oriental_shorthair">Oriental de pelo corto</string>

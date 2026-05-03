@@ -81,9 +81,9 @@
     <string name="register">Registrer</string>
     <string name="already_have_account">Har du allerede konto?</string>
     <string name="log_in">Logg inn</string>
-    <string name="terms_login_prefix">Ved å logge inn godtar du </string>
-    <string name="terms_register_prefix">Ved å registrere deg godtar du </string>
-    <string name="terms_and"> og </string>
+    <string name="terms_login_prefix">Ved å logge inn godtar du</string>
+    <string name="terms_register_prefix">Ved å registrere deg godtar du</string>
+    <string name="terms_and"> og</string>
     <string name="terms_of_service">Vilkårene for bruk</string>
     <string name="privacy_policy">Personvernreglene</string>
     <string name="first_name">Fornavn</string>
@@ -267,7 +267,7 @@
     <!-- MARK: QR Scanner -->
     <!-- ============================================ -->
     <string name="scan_qr_code">Skann QR-kode</string>
-    <string name="scan_qr_subtitle">Pek kameraet mot kjæledyrets QR-brikke</string>
+    <string name="scan_qr_subtitle">Pek kameraet mot QR-koden på brikken</string>
     <string name="camera_access_required">Kameratilgang kreves</string>
     <string name="camera_access_message">Aktiver kameratilgang for å skanne QR-koder</string>
     <string name="enable_camera">Aktiver kamera</string>
@@ -411,8 +411,8 @@
     <string name="select_pet_header">Velg dyr</string>
     <string name="no_pets_available">Ingen dyr tilgjengelig. Legg til et dyr først.</string>
     <string name="pet_picker_label">Dyr</string>
-    <string name="last_seen_location_header">Sist kjente sted</string>
-    <string name="enter_location">Oppgi sted</string>
+    <string name="last_seen_location_header">Sist kjente posisjon</string>
+    <string name="enter_location">Oppgi posisjon</string>
     <string name="additional_information_header">Tilleggsinformasjon</string>
     <string name="additional_details_placeholder">Oppgi ytterligere detaljer om når og hvor du sist så dyret ditt\u2026</string>
     <string name="your_contact_information">Kontaktinformasjonen din</string>
@@ -452,7 +452,7 @@
 
         <!-- Mark Lost Flow (matching iOS MarkAsLostView) -->
     <string name="mark_lost_pet_info">Kjæledyrinformasjon</string>
-    <string name="mark_lost_last_seen">Sist sett sted</string>
+    <string name="mark_lost_last_seen">Sist sett posisjon</string>
     <string name="mark_lost_alerts_footer">Varsler sendes til brukere, veterinærer og dyrehjem innen 10 km.</string>
     <string name="mark_lost_getting_location">Henter posisjonen din…</string>
     <string name="mark_lost_no_address">Ingen registrert adresse. Gå til Profil for å legge til adressen din.</string>
@@ -468,7 +468,7 @@
     <string name="mark_lost_starter_notice">Oppgrader for fellesskapsvarsler</string>
     <string name="mark_lost_upgrade_prompt">Med Starter-planen merkes kjæledyret ditt som savnet, men varsler til brukere, veterinærer og dyrehjem krever Standard- eller Maximum-abonnement.</string>
     <string name="mark_lost_success_with_alerts">%1$s er rapportert som savnet. Varsler sendes til brukere i nærheten.</string>
-    <string name="mark_lost_success_no_location">%1$s er merket som savnet. Legg til sted for å sende fellesskapsvarsler.</string>
+    <string name="mark_lost_success_no_location">%1$s er merket som savnet. Legg til posisjon for å sende fellesskapsvarsler.</string>
     <string name="mark_lost_address_required">Oppgi en adresse eller aktiver posisjonstjenester.</string>
     <string name="quick_lost_select_pet">Velg et kjæledyr å rapportere som savnet</string>
     <string name="quick_lost_all_missing">Alle kjæledyrene dine er allerede merket som savnet.</string>
@@ -481,7 +481,7 @@
     <!-- MARK: Notifications -->
     <!-- ============================================ -->
     <string name="tag_scanned_message">%1$s sitt QR-brikke ble skannet kl. %2$s!</string>
-    <string name="unknown_location">et ukjent sted</string>
+    <string name="unknown_location">en ukjent posisjon</string>
     <string name="sighting_message_with_location">%1$s er blitt observert på %2$s!</string>
     <string name="sighting_message_no_location">%1$s er blitt observert!</string>
     <string name="pet_found_message">Gode nyheter! %1$s er funnet!</string>
@@ -703,7 +703,7 @@
     <!-- FAQ Items -->
     <!-- Guide Items -->
     <string name="help_guide_qr_tags_title">QR-brikkene for kjæledyr</string>
-    <string name="help_guide_qr_tags_desc">Hver SENRA QR-brikke har en unik QR-kode som kobler til kjæledyrets digitale profil. Alle som finner kjæledyret ditt, kan skanne koden med telefonkameraet — ingen app er nødvendig. Den som skanner, ser umiddelbart kjæledyrets bilde, navn, medisinsk informasjon og kontaktdetaljene dine. De kan også dele GPS-posisjonen sin med deg slik at du vet nøyaktig hvor kjæledyret er. QR-brikkene fungerer med alle moderne smarttelefoner.</string>
+    <string name="help_guide_qr_tags_desc">Hver SENRA QR-brikke har en unik QR-kode som kobler til kjæledyrets digitale profil. Alle som finner kjæledyret ditt, kan skanne koden med telefonkameraet — ingen app er nødvendig. Når QR-brikken skannes, mottar du et varsel med finnerens posisjon (hvis de deler den). Du kan aktivere QR-brikkene via appen, og du kan når som helst be om en erstatnings-QR-brikke hvis du mister eller skader den gamle.</string>
     <string name="help_guide_materials_title">Merkets materialer og holdbarhet</string>
     <string name="help_guide_materials_desc">SENRA QR-brikkene er laget av holdbart, lett metall med epoksybelegg for ekstra beskyttelse. De er vanntette og UV-bestandige, egnet for alle værforhold, og slites ikke ved daglig bruk. QR-brikkene er designet for å passe komfortabelt til de fleste halsbånd og seler.</string>
     <string name="help_guide_emergency_title">Nødkontakt og varsler</string>
@@ -722,7 +722,7 @@
     <string name="order_total">Totalt: %1$s</string>
     <string name="order_tags">Bestill QR-brikker</string>
     <string name="replace_tag">Bytt QR-brikke</string>
-    <string name="add_pet_first_replacement">Legg til et dyr først for å bestille en erstatnings-QR-brikke.</string>
+    <string name="add_pet_first_replacement">Legg til et kjæledyr først for å bestille en erstatnings-QR-brikke.</string>
     <string name="order_more_tags_title">Bestill flere QR-brikker</string>
     <string name="add_another_pet">Legg til et dyr</string>
     <string name="full_name">Fullt navn</string>
@@ -855,7 +855,7 @@
     <!-- MARK: Push Notification Prompt -->
     <!-- ============================================ -->
     <string name="push_prompt_title">Hold kontakten</string>
-    <string name="push_prompt_subtitle">Aktiver varsler så du ikke går glipp av viktige oppdateringer:</string>
+    <string name="push_prompt_subtitle">Aktiver varsler så du ikke går glipp av viktige oppdateringer om kjæledyret ditt:</string>
     <string name="push_prompt_benefit_scan">Øyeblikkelige varsler når kjæledyrets QR-brikke skannes</string>
     <string name="push_prompt_benefit_sighting">Observasjonsrapporter fra fellesskapet</string>
     <string name="push_prompt_benefit_found">Vet umiddelbart når dyret ditt er funnet</string>
@@ -1179,7 +1179,7 @@
     <string name="breed_cat_exotic_shorthair">Eksotisk Korthår</string>
     <string name="breed_cat_abyssinian">Abyssinier</string>
     <string name="breed_cat_scottish_fold">Skotsk klapøre</string>
-    <string name="breed_cat_sphynx">Sphynx</string>
+    <string name="breed_cat_sphynx">Sfinks</string>
     <string name="breed_cat_siamese">Siameser</string>
     <string name="breed_cat_devon_rex">Devon rex</string>
     <string name="breed_cat_oriental_shorthair">Orientalsk Korthår</string>
@@ -1350,7 +1350,7 @@
     <string name="help_faq_q9">Hvordan fungerer varsler om savnede kjæledyr?</string>
     <string name="help_faq_a9">Når du merker katten eller hunden som savnet, opprettes et varsel med bilde og opplysninger. SENRA-brukere innen 10 km varsles umiddelbart og kjæledyret ditt vises på kartet \'Savnede Kjæledyr\'. Veterinærer og krisesentre registrert i SENRA-systemet i ditt område mottar også varselet.</string>
     <string name="help_faq_q10">Hvordan bestiller jeg en erstatnings-QR-brikke?</string>
-    <string name="help_faq_a10">Gå til \'Hjem/Min Konto\' og trykk \'Bestill erstatnings-QR-brikke\'. Maximum- og Standard-abonnenter kan be om gratis erstatning, Starter-medlemmer betaler fraktkostnaden.</string>
+    <string name="help_faq_a10">Gå til \'Hjem/Min side\' og trykk \'Bestill erstatnings-QR-brikke\'. Velg hvilket kjæledyr som trenger en ny QR-brikke. Maximum- og Standard-abonnenter kan be om gratis erstatnings-QR-brikker, mens Starter-medlemmer kan bestille erstatning for fraktkostnaden.</string>
     <string name="help_faq_q11">Hva er henvisningsprogrammet?</string>
     <string name="help_faq_a11">I Henvisning-menyen på profilsiden din kan du generere en personlig henvisningskode. Del den med venner og familie. Når noen bruker koden din og abonnerer på en betalt plan (Standard eller Maximum), får du og vennen din 2 måneder gratis.</string>
     <string name="help_faq_q12">Hvilke land sender dere til?</string>
@@ -1362,14 +1362,14 @@
     <string name="help_faq_q15">Er mine personlige data trygge?</string>
     <string name="help_faq_a15">Ja. Du bestemmer nøyaktig hvilke data som er synlige når noen skanner QR-brikken. I \'Innstillinger\' &gt; \'Personverninnstillinger\' kan du velge om telefonnummer, e-post eller adresse vises. Innloggingen din er beskyttet med en engangskode hver gang. Du kan slette kontoen din når som helst.</string>
     <string name="help_faq_q16">Vi mistet QR-brikken eller den ble skadet — hva gjør jeg?</string>
-    <string name="help_faq_a16">Ikke bekymre deg — kjæledyrets digitale profil er trygg og lagres ikke på QR-brikken. Gå til Konto-siden og trykk \'Bestill erstatning\'. Vi knytter en ny QR-brikke med ny QR-kode til den eksisterende kjæledyrprofilen. Standard- og Maximum-abonnenter kan be om ubegrensede gratis erstatninger, mens Starter-medlemmer må betale fraktkostnaden for en erstatnings-QR-brikke. Den gamle QR-brikken deaktiveres umiddelbart når erstatningen bestilles.</string>
+    <string name="help_faq_a16">Ikke bekymre deg — kjæledyrets digitale profil er trygg og lagres ikke på QR-brikken. Gå til Min side og trykk \'Bestill erstatning\'. Vi knytter en ny QR-brikke med ny QR-kode til den eksisterende kjæledyrprofilen. Standard- og Maximum-abonnenter kan be om ubegrensede gratis erstatninger, mens Starter-medlemmer må betale fraktkostnaden for en erstatnings-QR-brikke. Den gamle QR-brikken deaktiveres umiddelbart når erstatningen bestilles.</string>
     <string name="help_faq_q17">Merket mitt skannes ikke — hva gjør jeg?</string>
     <string name="help_faq_a17">Prøv følgende: rengjør QR-brikkeoverflaten med en fuktig klut, sørg for godt lys, hold telefonkameraet stabilt ca. 10-15 cm fra QR-brikken, og sjekk at kameraappen eller QR-leseren fungerer. Hvis QR-koden er ripet eller slitt, bestill gratis erstatning fra \'Hjem/Min side\'-siden (gratis erstatning er tilgjengelig for Standard- og Maximum-abonnenter — Starter-medlemmer må betale fraktkostnaden for en erstatnings-QR-brikke).</string>
     <string name="help_faq_q18">Jeg fant et kjæledyr uten SENRA-QR-brikke — hva kan jeg gjøre?</string>
-    <string name="help_faq_a18">Sjekk kartet over Savnede Kjæledyr på SENRA-nettstedet (senra.pet). Du kan også se varsler i appen. Ta dyret til nærmeste veterinær for mikrochip-skanning. Hvis det har en SENRA-QR-brikke, skann QR-koden — eierens kontaktinfo vises. Varsle alltid lokale myndigheter og nærliggende krisesentre.</string>
+    <string name="help_faq_a18">Sjekk kartet over savnede kjæledyr på SENRA-nettstedet (senra.pet) — kjæledyret kan ha blitt meldt savnet i nærheten din. Du kan også se varsler om savnede kjæledyr i appen. Ta kjæledyret til nærmeste veterinær for mikrochip-skanning. Hvis det har en SENRA QR-brikke, skann QR-koden med telefonkameraet — eierens kontaktinfo vises.</string>
     <string name="help_faq_q19">Kan jeg endre e-postadressen min?</string>
     <string name="help_faq_a19">Din primære e-postadresse fungerer som kontoidentifikator og kan ikke endres direkte. Du kan legge til en sekundær e-post i \'Innstillinger\' &gt; \'Kontaktopplysninger\'. Hvis du absolutt må endre primær e-post, kontakt oss på hello@senra.pet.</string>
-    <string name="help_faq_q20">Hva er forskjellen mellom en mikrochip og et SENRA QR-brikke?</string>
+    <string name="help_faq_q20">Hva er forskjellen mellom en mikrochip og en SENRA QR-brikke?</string>
     <string name="help_faq_a20">En mikrochip er et lite implantat under kjæledyrets hud som lagrer en unik 15-sifret identifikator — men krever en spesialleser. SENRA QR-brikken kan enkelt skannes med et hvilket som helst smarttelefonkamera, og viser umiddelbart fullstendig profil, bilde og godkjente kontaktopplysninger. Finneren kan også dele GPS-koordinatene.</string>
     <string name="help_faq_q21">Hva skjer med dataene mine hvis jeg avslutter abonnementet?</string>
     <string name="help_faq_a21">Hvis du avslutter, beholder du tilgang til betalte funksjoner til slutten av gjeldende faktureringsperiode. Deretter byttes kontoen automatisk til gratis Starter-plan. Profiler, bilder og QR-brikker forblir aktive. Dataene slettes ikke. For permanent sletting, bruk Slett Konto i Innstillinger.</string>
@@ -1380,7 +1380,7 @@
     <string name="help_faq_q24">Hvilke nettlesere og enheter støttes?</string>
     <string name="help_faq_a24">SENRA fungerer på alle nettlesere, inkludert Chrome, Safari, Firefox og Edge, på mobile og stasjonære enheter. QR-skanning fungerer med et hvilket som helst smarttelefonkamera — finneren trenger ikke SENRA-appen eller en konto.</string>
     <string name="help_faq_q25">Kan jeg bestille flere QR-brikker til kjæledyrene mine samtidig?</string>
-    <string name="help_faq_a25">Ja, du kan bestille QR-brikker til alle kjæledyrene dine samtidig. Etter levering, skann hver QR-brikke for aktivering og tilordning til riktig profil.</string>
+    <string name="help_faq_a25">Ja, du kan bestille QR-brikker til alle kjæledyrene dine samtidig. Etter at QR-brikkene er levert, skann hver enkelt for å aktivere den og knytte den til riktig kjæledyrprofil. Du kan også legge inn flere bestillinger når som helst hvis du vil registrere flere kjæledyr senere.</string>
     <string name="help_faq_q26">Hvordan når varsler om savnede kjæledyr veterinærer og krisesentre?</string>
     <string name="help_faq_a26">Når du merker kjæledyret som \'Savnet\', sender SENRA automatisk e-postvarsler til alle registrerte veterinærer og krisesentre i ditt område. Jo flere som er registrert, jo bedre fungerer nettverket.</string>
     <string name="help_faq_q27">Kan jeg overføre en QR-brikke til et annet kjæledyr?</string>
