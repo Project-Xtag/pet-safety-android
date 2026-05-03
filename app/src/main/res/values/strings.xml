@@ -73,6 +73,7 @@
     <string name="invalid_email">Please enter a valid email address</string>
     <string name="invalid_phone">Please enter a valid phone number</string>
     <string name="invalid_location_coords">Couldn\'t pinpoint that location. Try a more specific address.</string>
+    <string name="address_geocode_failed_warning">Couldn\'t pinpoint that address — your alert will go out without a precise location. Try \"current location\" for better results.</string>
     <string name="otp_placeholder" translatable="false">000000</string>
     <string name="resend_code_cooldown">Resend code in %1$ds</string>
     <string name="resend_code_prompt">Didn\'t receive the code? Resend</string>

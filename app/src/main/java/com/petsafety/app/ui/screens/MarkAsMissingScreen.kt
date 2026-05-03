@@ -263,6 +263,20 @@ fun MarkAsMissingScreen(
                 return@launch
             }
 
+            // M19 — non-blocking visibility into silent geocode failures.
+            // Pre-fix the alert would ship without coordinates and the user
+            // only learned about it from a subtly different success message.
+            // Surface a warning when they typed an address that didn't
+            // resolve, so they understand why their map pin will be missing
+            // and can opt to retry with current location instead.
+            if (coordinate == null &&
+                (locationSource == LocationSource.REGISTERED || locationSource == LocationSource.CUSTOM)
+            ) {
+                appStateViewModel.showError(
+                    context.getString(R.string.address_geocode_failed_warning)
+                )
+            }
+
             viewModel.markPetMissing(
                 petId = pet.id,
                 location = coordinate,
