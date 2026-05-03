@@ -71,7 +71,6 @@ class PetSafetyFirebaseMessagingService : FirebaseMessagingService() {
             "SIGHTING_REPORTED" -> handleSightingNotification(data)
             NotificationHelper.TYPE_ALERT_CONFIRMATION -> handleAlertConfirmation(data)
             NotificationHelper.TYPE_PROMO_EXPIRING -> handlePromoExpiring(data)
-            NotificationHelper.TYPE_ALERT_REMINDER -> handleAlertReminder(data)
             NotificationHelper.TYPE_MULTIPLE_SIGHTINGS -> handleMultipleSightings(data)
             else -> {
                 // Handle generic notification (fallback to title/body)
@@ -213,18 +212,6 @@ class PetSafetyFirebaseMessagingService : FirebaseMessagingService() {
             body = data["body"] ?: getString(R.string.notif_promo_expiring_body),
             planName = planName,
             daysLeft = daysLeft
-        )
-    }
-
-    private fun handleAlertReminder(data: Map<String, String>) {
-        val alertId = data["alert_id"]
-        val petName = data["pet_name"] ?: getString(R.string.notif_fallback_pet_name)
-
-        notificationHelper.showAlertReminderNotification(
-            title = data["title"] ?: getString(R.string.notif_alert_reminder_title),
-            body = data["body"] ?: getString(R.string.notif_alert_reminder_body),
-            alertId = alertId,
-            petName = petName
         )
     }
 
