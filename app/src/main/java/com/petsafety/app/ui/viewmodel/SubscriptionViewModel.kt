@@ -19,6 +19,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import java.util.concurrent.atomic.AtomicLong
 import javax.inject.Inject
 
 @HiltViewModel
@@ -97,25 +98,40 @@ class SubscriptionViewModel @Inject constructor(
         viewModelScope.launch {
             try {
                 _subscription.value = repository.getMySubscription()
-                lastRefreshTime = System.currentTimeMillis()
+                lastRefreshTime.set(System.currentTimeMillis())
             } catch (e: Exception) {
                 _error.value = e.message
             }
         }
     }
 
-    private var lastRefreshTime: Long = 0L
+    /**
+     * Last successful subscription refresh, in epoch millis. AtomicLong
+     * because [refreshIfStale] is invoked from the UI lifecycle (foreground
+     * resume) and SSE event handlers on different dispatchers; the previous
+     * `var lastRefreshTime: Long` allowed two callers within the same
+     * millisecond to both pass the staleness check and double-fetch.
+     * Bootstrapped to 0L so the first call always refreshes.
+     */
+    private val lastRefreshTime = AtomicLong(0L)
 
     /**
      * Refresh subscription if stale (>60s since last load).
      * Called on app foreground resume for cross-platform sync.
+     *
+     * Uses compareAndSet to claim the refresh slot before launching the
+     * coroutine so a burst of concurrent calls produces exactly one
+     * network round-trip.
      */
     fun refreshIfStale() {
         val now = System.currentTimeMillis()
-        if (now - lastRefreshTime > 60_000) {
-            loadSubscription()
-            loadFeatures()
-        }
+        val previous = lastRefreshTime.get()
+        if (now - previous <= 60_000) return
+        // CAS — only the thread that flips the timestamp gets to fetch.
+        // Failed CAS means another caller is already refreshing.
+        if (!lastRefreshTime.compareAndSet(previous, now)) return
+        loadSubscription()
+        loadFeatures()
     }
 
     fun loadFeatures() {
