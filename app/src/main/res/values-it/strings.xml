@@ -81,9 +81,9 @@
     <string name="register">Registrati</string>
     <string name="already_have_account">Hai già un account?</string>
     <string name="log_in">Accedi</string>
-    <string name="terms_login_prefix">Accedendo, accetti i nostri </string>
-    <string name="terms_register_prefix">Registrandoti, accetti i nostri </string>
-    <string name="terms_and"> e </string>
+    <string name="terms_login_prefix">Accedendo, accetti i nostri</string>
+    <string name="terms_register_prefix">Registrandoti, accetti i nostri</string>
+    <string name="terms_and"> e</string>
     <string name="terms_of_service">Termini di servizio</string>
     <string name="privacy_policy">Informativa sulla privacy</string>
     <string name="first_name">Nome</string>
@@ -379,7 +379,7 @@
     <!-- MARK: Report Missing / Sighting -->
     <!-- ============================================ -->
     <string name="report_missing_title">Segnala la scomparsa di %1$s</string>
-    <string name="last_seen_location">Ultimo luogo visto</string>
+    <string name="last_seen_location">Ultima posizione vista</string>
     <string name="additional_info">Informazioni aggiuntive</string>
     <string name="report">Segnala</string>
     <string name="report_sighting">Segnala avvistamento</string>
@@ -389,7 +389,7 @@
     <string name="sighting_address_not_found">Non abbiamo trovato questo indirizzo. Controlla l\'ortografia o prova un punto di riferimento vicino.</string>
     <string name="sighting_location_required">Condividi la tua posizione attuale o inserisci un indirizzo.</string>
     <string name="report_failed">Segnalazione non riuscita</string>
-    <string name="sighting_location">Luogo dell\'avvistamento</string>
+    <string name="sighting_location">Posizione dell\'avvistamento</string>
     <string name="use_current_location">Usa posizione attuale</string>
     <string name="location_captured">Posizione acquisita dal GPS</string>
     <string name="getting_location">Acquisizione posizione in corso\u2026</string>
@@ -398,7 +398,7 @@
     <string name="report_missing_pet">Segnala animale di compagnia scomparso</string>
     <string name="select_pet_to_report">Seleziona un animale di compagnia</string>
     <string name="add_missing_details">Aggiungi dettagli sulla scomparsa</string>
-    <string name="enter_address_or_location">Inserisci l\'indirizzo o la descrizione del luogo</string>
+    <string name="enter_address_or_location">Inserisci l\'indirizzo o la descrizione della posizione</string>
     <string name="additional_details">Ulteriori dettagli</string>
     <string name="describe_circumstances">Descrivi le circostanze, le caratteristiche distintive, ecc.</string>
     <string name="reward_amount_label">Ricompensa (facoltativo)</string>
@@ -411,7 +411,7 @@
     <string name="select_pet_header">Seleziona animale di compagnia</string>
     <string name="no_pets_available">Nessun animale di compagnia disponibile. Aggiungi prima un animale di compagnia.</string>
     <string name="pet_picker_label">Animale di compagnia</string>
-    <string name="last_seen_location_header">Ultimo luogo conosciuto</string>
+    <string name="last_seen_location_header">Ultima posizione conosciuta</string>
     <string name="enter_location">Inserisci posizione</string>
     <string name="additional_information_header">Informazioni aggiuntive</string>
     <string name="additional_details_placeholder">Fornisci ulteriori dettagli su quando e dove hai visto il tuo animale di compagnia per l\'ultima volta\u2026</string>
@@ -857,7 +857,7 @@
     <!-- MARK: Push Notification Prompt -->
     <!-- ============================================ -->
     <string name="push_prompt_title">Resta connesso</string>
-    <string name="push_prompt_subtitle">Attiva le notifiche per non perdere aggiornamenti importanti sul tuo animale di compagnia:</string>
+    <string name="push_prompt_subtitle">Attiva le notifiche per non perdere aggiornamenti importanti sul tuo animale da compagnia:</string>
     <string name="push_prompt_benefit_scan">Avvisi immediati quando viene scansionata la medaglietta del tuo animale di compagnia</string>
     <string name="push_prompt_benefit_sighting">Segnalazioni di avvistamento dalla community</string>
     <string name="push_prompt_benefit_found">Sappi subito quando il tuo animale di compagnia viene ritrovato</string>
@@ -879,7 +879,7 @@
     <string name="public_profile_preview">Anteprima profilo pubblico</string>
     <string name="failed_load_profile">Impossibile caricare il profilo</string>
     <string name="public_profile_subtitle">Ecco come gli altri vedono il profilo di %1$s</string>
-    <string name="owner_notified_sms_email">Il proprietario di %1$s riceverà un SMS e una email con la tua posizione</string>
+    <string name="owner_notified_sms_email">Il proprietario di %1$s riceverà un SMS e un\'email con la tua posizione</string>
     <string name="contact_owner_plea">Per favore, avvisa il mio proprietario che mi hai trovato…!</string>
     <string name="contact_owner_plea_full">Per favore, avvisa il mio proprietario che mi hai trovato! Puoi contattarlo usando i dati di contatto qui sotto.</string>
     <string name="contact_info_not_set">Recapiti non ancora configurati</string>
@@ -1181,11 +1181,11 @@
     <string name="breed_cat_exotic_shorthair">Exotic Shorthair</string>
     <string name="breed_cat_abyssinian">Abissino</string>
     <string name="breed_cat_scottish_fold">Scottish Fold</string>
-    <string name="breed_cat_sphynx">Sphynx</string>
+    <string name="breed_cat_sphynx">Sfinge</string>
     <string name="breed_cat_siamese">Siamese</string>
     <string name="breed_cat_devon_rex">Devon Rex</string>
     <string name="breed_cat_oriental_shorthair">Oriental Shorthair</string>
-    <string name="breed_cat_burmese">Burmese</string>
+    <string name="breed_cat_burmese">Birmano</string>
     <string name="breed_cat_american_shorthair">American Shorthair</string>
     <string name="breed_cat_bengal">Bengala</string>
     <string name="breed_cat_russian_blue">Blu di Russia</string>
