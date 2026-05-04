@@ -32,6 +32,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import com.petsafety.app.ui.components.SecureScreen
 import androidx.compose.runtime.mutableIntStateOf
@@ -57,7 +58,9 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.material3.AlertDialog
 import com.petsafety.app.R
+import com.petsafety.app.data.local.BiometricHelper
 import com.petsafety.app.util.LocalizedLogo
 import com.petsafety.app.ui.components.BrandButton
 import com.petsafety.app.ui.theme.BrandOrange
@@ -94,12 +97,16 @@ fun RegisterScreen(
     val isValidEmail = trimmedEmail.isNotEmpty() && Patterns.EMAIL_ADDRESS.matcher(trimmedEmail).matches()
 
     val context = LocalContext.current
+    val biometricHelper = remember { BiometricHelper(context) }
+    val biometricEnabled by authViewModel.biometricEnabled.collectAsState()
+    var showBiometricEnableDialog by remember { mutableStateOf(false) }
 
     // Extract string resources outside lambdas
     val codeSentMessage = stringResource(R.string.code_sent_to_email, email)
     val loginFailedMessage = stringResource(R.string.login_failed)
     val verificationFailedMessage = stringResource(R.string.verification_failed)
     val welcomeNewUserMessage = stringResource(R.string.welcome_new_user)
+    val biometricEnabledMessage = stringResource(R.string.biometric_enabled)
 
     Box(
         modifier = Modifier
@@ -431,6 +438,15 @@ fun RegisterScreen(
                                 lastName = lastName.trim().ifBlank { null },
                                 onSuccess = {
                                     appStateViewModel.showSuccess(welcomeNewUserMessage)
+                                    // Mirror AuthScreen + iOS RegistrationView:
+                                    // offer biometric enrollment immediately
+                                    // post-registration so users can opt in
+                                    // before they ever leave the auth flow.
+                                    // Push permission is requested separately
+                                    // when MainTabScaffold mounts.
+                                    if (biometricHelper.canUseBiometric() && !biometricEnabled) {
+                                        showBiometricEnableDialog = true
+                                    }
                                 },
                                 onFailure = { message ->
                                     appStateViewModel.showError(message ?: verificationFailedMessage)
@@ -570,5 +586,29 @@ fun RegisterScreen(
                 }
             }
         }
+    }
+
+    if (showBiometricEnableDialog) {
+        AlertDialog(
+            onDismissRequest = { showBiometricEnableDialog = false },
+            title = { Text(stringResource(R.string.enable_biometric_title)) },
+            text = { Text(stringResource(R.string.enable_biometric_message)) },
+            confirmButton = {
+                BrandButton(
+                    text = stringResource(R.string.enable),
+                    onClick = {
+                        authViewModel.setBiometricEnabled(true)
+                        showBiometricEnableDialog = false
+                        appStateViewModel.showSuccess(biometricEnabledMessage)
+                    },
+                    modifier = Modifier.padding(horizontal = 8.dp)
+                )
+            },
+            dismissButton = {
+                TextButton(onClick = { showBiometricEnableDialog = false }) {
+                    Text(stringResource(R.string.skip))
+                }
+            }
+        )
     }
 }
