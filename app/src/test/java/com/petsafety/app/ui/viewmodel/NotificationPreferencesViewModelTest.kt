@@ -168,8 +168,11 @@ class NotificationPreferencesViewModelTest {
         // Make changes
         viewModel.updatePreferences(customPreferences)
 
-        // Save
-        coEvery { repository.updatePreferences(customPreferences) } returns customPreferences
+        // Save — viewModel now calls repository.updatePreferences(next, original)
+        // so the mock has to accept both positional args.
+        coEvery {
+            repository.updatePreferences(next = customPreferences, original = defaultPreferences)
+        } returns customPreferences
         viewModel.savePreferences()
         testDispatcher.scheduler.advanceUntilIdle()
 
@@ -189,7 +192,7 @@ class NotificationPreferencesViewModelTest {
 
         // Save fails
         val errorMsg = "Save failed"
-        coEvery { repository.updatePreferences(any()) } throws RuntimeException(errorMsg)
+        coEvery { repository.updatePreferences(any(), any()) } throws RuntimeException(errorMsg)
         viewModel.savePreferences()
         testDispatcher.scheduler.advanceUntilIdle()
 
@@ -211,7 +214,7 @@ class NotificationPreferencesViewModelTest {
         testDispatcher.scheduler.advanceUntilIdle()
 
         assertEquals("At least one notification method is required", viewModel.errorMessage.value)
-        coVerify(exactly = 0) { repository.updatePreferences(any()) }
+        coVerify(exactly = 0) { repository.updatePreferences(any(), any()) }
     }
 
     @Test
@@ -221,7 +224,9 @@ class NotificationPreferencesViewModelTest {
         testDispatcher.scheduler.advanceUntilIdle()
 
         viewModel.updatePreferences(customPreferences)
-        coEvery { repository.updatePreferences(customPreferences) } returns customPreferences
+        coEvery {
+            repository.updatePreferences(next = customPreferences, original = defaultPreferences)
+        } returns customPreferences
 
         viewModel.isSaving.test {
             assertEquals(false, awaitItem())
@@ -258,7 +263,7 @@ class NotificationPreferencesViewModelTest {
         viewModel.loadPreferences()
         testDispatcher.scheduler.advanceUntilIdle()
 
-        coEvery { repository.updatePreferences(any()) } returns defaultPreferences
+        coEvery { repository.updatePreferences(any(), any()) } returns defaultPreferences
         viewModel.savePreferences()
         testDispatcher.scheduler.advanceUntilIdle()
         assertTrue(viewModel.showSuccess.value)

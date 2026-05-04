@@ -40,9 +40,18 @@ interface ApiService {
     @GET("users/me/notification-preferences")
     suspend fun getNotificationPreferences(): ApiEnvelope<NotificationPreferencesResponse>
 
+    /**
+     * 2026-05-05 fix: typed as `JsonObject` so the repository can send a
+     * PARTIAL update with only the channels the user actually changed.
+     * Pre-fix this took the full `NotificationPreferences` data class —
+     * meaning every save sent all three channel booleans, and a stale
+     * local copy clobbered changes made from another device (iOS, web).
+     * Backend already supports `if (notifyByX !== undefined)` per-channel
+     * branching, so the fix is on the client.
+     */
     @PUT("users/me/notification-preferences")
     suspend fun updateNotificationPreferences(
-        @Body request: com.petsafety.app.data.model.NotificationPreferences
+        @Body request: kotlinx.serialization.json.JsonObject
     ): ApiEnvelope<NotificationPreferencesResponse>
 
     @GET("users/me/can-delete")
