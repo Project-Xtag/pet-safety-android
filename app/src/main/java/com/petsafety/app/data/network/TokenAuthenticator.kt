@@ -45,7 +45,14 @@ import java.util.concurrent.atomic.AtomicBoolean
  */
 class TokenAuthenticator(
     private val tokenStore: AuthTokenStore,
-    private val refreshUrl: String = "${BuildConfig.API_BASE_URL}auth/refresh"
+    /**
+     * Refresh URL is read fresh on every authenticate() call so a Remote
+     * Config-driven base-URL switch (M3) takes effect on the next 401
+     * without rebuilding the OkHttp client. Default keeps the legacy
+     * static URL for code paths that construct TokenAuthenticator
+     * directly (e.g. tests).
+     */
+    private val refreshUrlProvider: () -> String = { "${BuildConfig.API_BASE_URL}auth/refresh" }
 ) : Authenticator {
 
     companion object {
@@ -164,7 +171,7 @@ class TokenAuthenticator(
             .toRequestBody("application/json".toMediaType())
 
         val request = Request.Builder()
-            .url(refreshUrl)
+            .url(refreshUrlProvider())
             .post(requestBody)
             .build()
 

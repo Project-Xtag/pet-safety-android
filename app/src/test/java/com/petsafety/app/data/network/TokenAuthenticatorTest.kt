@@ -47,7 +47,8 @@ class TokenAuthenticatorTest {
         tokenStore = mockk(relaxed = true)
         every { tokenStore.authToken } returns authTokenFlow as StateFlow<String?>
         every { tokenStore.refreshToken } returns refreshTokenFlow as StateFlow<String?>
-        authenticator = TokenAuthenticator(tokenStore, mockServer.url("/auth/refresh").toString())
+        val refreshUrl = mockServer.url("/auth/refresh").toString()
+        authenticator = TokenAuthenticator(tokenStore, refreshUrlProvider = { refreshUrl })
         // Every test starts from a fresh expiry-guard state
         TokenAuthenticator.resetExpiryGuard()
     }

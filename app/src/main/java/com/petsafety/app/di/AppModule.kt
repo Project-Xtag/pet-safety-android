@@ -11,6 +11,7 @@ import com.petsafety.app.data.local.DatabaseKeyManager
 import net.zetetic.database.sqlcipher.SupportOpenHelperFactory
 import com.petsafety.app.data.local.OfflineDataManager
 import com.petsafety.app.data.fcm.FCMRepository
+import com.petsafety.app.data.network.ApiBaseUrlInterceptor
 import com.petsafety.app.data.network.ApiClient
 import com.petsafety.app.data.network.ApiService
 import com.petsafety.app.data.network.AppCheckInterceptor
@@ -83,15 +84,43 @@ object AppModule {
     fun provideAppCheckInterceptor(configManager: ConfigurationManager): AppCheckInterceptor =
         AppCheckInterceptor(configManager)
 
+    /**
+     * Interceptor that rewrites every API request's host to the URL
+     * advertised by Remote Config (M3). Reading via the `.value` getter
+     * on each call means a runtime config flip takes effect on the next
+     * request without rebuilding Retrofit.
+     */
     @Provides
     @Singleton
-    fun provideApiService(tokenStore: AuthTokenStore, appCheckInterceptor: AppCheckInterceptor): ApiService =
-        ApiClient.create(tokenStore, appCheckInterceptor)
+    fun provideApiBaseUrlInterceptor(configManager: ConfigurationManager): ApiBaseUrlInterceptor =
+        ApiBaseUrlInterceptor { configManager.apiBaseUrl.value }
 
     @Provides
     @Singleton
-    fun provideSseService(tokenStore: AuthTokenStore): SseService =
-        SseService(tokenStore)
+    fun provideApiService(
+        tokenStore: AuthTokenStore,
+        appCheckInterceptor: AppCheckInterceptor,
+        baseUrlInterceptor: ApiBaseUrlInterceptor,
+        configManager: ConfigurationManager,
+    ): ApiService =
+        ApiClient.create(
+            tokenStore = tokenStore,
+            appCheckInterceptor = appCheckInterceptor,
+            baseUrlInterceptor = baseUrlInterceptor,
+            refreshUrlProvider = { "${configManager.apiBaseUrl.value}auth/refresh" },
+        )
+
+    @Provides
+    @Singleton
+    fun provideSseService(
+        tokenStore: AuthTokenStore,
+        configManager: ConfigurationManager,
+    ): SseService =
+        SseService(
+            tokenStore = tokenStore,
+            sseBaseUrlProvider = { configManager.sseBaseUrl.value },
+            apiBaseUrlProvider = { configManager.apiBaseUrl.value },
+        )
 
     @Provides
     @Singleton

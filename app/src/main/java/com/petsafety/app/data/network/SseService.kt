@@ -26,8 +26,20 @@ import org.json.JSONObject
 import timber.log.Timber
 import java.util.concurrent.TimeUnit
 
-class SseService(private val tokenStore: AuthTokenStore) {
-    private val baseUrl = BuildConfig.SSE_BASE_URL
+class SseService(
+    private val tokenStore: AuthTokenStore,
+    /**
+     * Lambda returning the SSE event-source URL. Read at every connect()
+     * call so a Remote Config-driven host swap (M3) takes effect on the
+     * next reconnect without restarting the client.
+     */
+    private val sseBaseUrlProvider: () -> String = { BuildConfig.SSE_BASE_URL },
+    /**
+     * Lambda returning the API base URL used to build the auth/refresh
+     * endpoint when the SSE connection 401s. Same lazy-evaluation reason.
+     */
+    private val apiBaseUrlProvider: () -> String = { BuildConfig.API_BASE_URL },
+) {
     private val json = Json { ignoreUnknownKeys = true }
 
     companion object {
@@ -45,10 +57,15 @@ class SseService(private val tokenStore: AuthTokenStore) {
         writeTimeout(30, TimeUnit.SECONDS)
         readTimeout(0, TimeUnit.SECONDS) // SSE connections are long-lived
         if (!BuildConfig.DEBUG) {
+            // Pin api.senra.pet (bootstrap) AND *.senra.pet so that any
+            // Remote Config-driven host swap to a sibling subdomain still
+            // validates against the same Amazon ACM intermediate.
             certificatePinner(
                 CertificatePinner.Builder()
                     .add("api.senra.pet", "sha256/DxH4tt40L+eduF6szpY6TONlxhZhBd+pJ9wbHlQ2fuw=")
                     .add("api.senra.pet", "sha256/++MBgDH5WGvL9Bcn5Be30cRcL0f5O+NyoXuWtQdX1aI=")
+                    .add("*.senra.pet", "sha256/DxH4tt40L+eduF6szpY6TONlxhZhBd+pJ9wbHlQ2fuw=")
+                    .add("*.senra.pet", "sha256/++MBgDH5WGvL9Bcn5Be30cRcL0f5O+NyoXuWtQdX1aI=")
                     .build()
             )
         }
@@ -93,7 +110,7 @@ class SseService(private val tokenStore: AuthTokenStore) {
         shouldReconnect = true
 
         val request = Request.Builder()
-            .url(baseUrl)
+            .url(sseBaseUrlProvider())
             .addHeader("Authorization", "Bearer $token")
             .addHeader("Accept", "text/event-stream")
             .build()
@@ -223,7 +240,7 @@ class SseService(private val tokenStore: AuthTokenStore) {
                     .toRequestBody("application/json".toMediaType())
 
                 val request = Request.Builder()
-                    .url("${BuildConfig.API_BASE_URL}auth/refresh")
+                    .url("${apiBaseUrlProvider()}auth/refresh")
                     .post(body)
                     .build()
 
