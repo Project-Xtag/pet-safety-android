@@ -4,6 +4,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
@@ -17,12 +18,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.petsafety.app.R
 import com.petsafety.app.data.network.model.CreatePetRequest
 import com.petsafety.app.ui.viewmodel.ShelterPromoClaimViewModel
+import com.petsafety.app.util.InputValidators
 
 private val BrandOrange = Color(0xFFFF914D)
 
@@ -43,12 +46,28 @@ fun ShelterPromoClaimScreen(
     var useExistingPet by remember { mutableStateOf(false) }
     var selectedPetId by remember { mutableStateOf<String?>(null) }
 
-    // Form fields
+    // Form fields. Pre-fix this screen only collected name/species/breed/
+    // color/sex; the iOS PetFormView and the standard Android PetFormScreen
+    // both capture the full pet model on creation, so a shelter user
+    // claiming via QR was forced into a create-then-immediately-edit flow
+    // to capture microchip / weight / DOB / medical / behavioural fields.
+    // M1 — bring this screen to the same field set the backend's
+    // claimPromoSchema accepts.
     var petName by remember { mutableStateOf("") }
     var species by remember { mutableStateOf("") }
     var breed by remember { mutableStateOf("") }
     var color by remember { mutableStateOf("") }
     var sex by remember { mutableStateOf("") }
+    var dateOfBirth by remember { mutableStateOf("") }
+    var dobIsApproximate by remember { mutableStateOf(false) }
+    var weight by remember { mutableStateOf("") }
+    var microchipNumber by remember { mutableStateOf("") }
+    var isNeutered by remember { mutableStateOf(false) }
+    var medicalNotes by remember { mutableStateOf("") }
+    var allergies by remember { mutableStateOf("") }
+    var medications by remember { mutableStateOf("") }
+    var uniqueFeatures by remember { mutableStateOf("") }
+    var notes by remember { mutableStateOf("") }
 
     LaunchedEffect(Unit) {
         viewModel.loadPets()
@@ -337,6 +356,104 @@ fun ShelterPromoClaimScreen(
                             }
                         }
 
+                        Spacer(modifier = Modifier.height(8.dp))
+
+                        // Date of birth — text input (YYYY-MM-DD). The
+                        // standard PetFormScreen uses a DatePickerDialog;
+                        // keeping this lighter here so the shelter-claim
+                        // path stays low-friction. Backend accepts both.
+                        OutlinedTextField(
+                            value = dateOfBirth,
+                            onValueChange = { dateOfBirth = it.take(10) },
+                            label = { Text(stringResource(R.string.date_of_birth)) },
+                            placeholder = { Text("YYYY-MM-DD") },
+                            modifier = Modifier.fillMaxWidth()
+                        )
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Checkbox(
+                                checked = dobIsApproximate,
+                                onCheckedChange = { dobIsApproximate = it }
+                            )
+                            Text(stringResource(R.string.dob_approximate))
+                        }
+                        Spacer(modifier = Modifier.height(8.dp))
+
+                        OutlinedTextField(
+                            value = weight,
+                            onValueChange = { new -> weight = new.filter { it.isDigit() || it == '.' || it == ',' } },
+                            label = { Text(stringResource(R.string.weight)) },
+                            placeholder = { Text(stringResource(R.string.weight_optional)) },
+                            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal),
+                            singleLine = true,
+                            modifier = Modifier.fillMaxWidth()
+                        )
+                        Spacer(modifier = Modifier.height(8.dp))
+
+                        OutlinedTextField(
+                            value = microchipNumber,
+                            onValueChange = { microchipNumber = it.take(InputValidators.MAX_MICROCHIP) },
+                            label = { Text(stringResource(R.string.microchip)) },
+                            placeholder = { Text(stringResource(R.string.microchip_optional)) },
+                            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+                            singleLine = true,
+                            modifier = Modifier.fillMaxWidth()
+                        )
+                        Spacer(modifier = Modifier.height(8.dp))
+
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Checkbox(
+                                checked = isNeutered,
+                                onCheckedChange = { isNeutered = it }
+                            )
+                            Text(stringResource(R.string.neutered_spayed))
+                        }
+                        Spacer(modifier = Modifier.height(16.dp))
+
+                        // Health information
+                        OutlinedTextField(
+                            value = medicalNotes,
+                            onValueChange = { medicalNotes = it.take(InputValidators.MAX_MEDICAL_NOTES) },
+                            label = { Text(stringResource(R.string.medical_notes)) },
+                            placeholder = { Text(stringResource(R.string.medical_notes_hint)) },
+                            modifier = Modifier.fillMaxWidth().heightIn(min = 80.dp)
+                        )
+                        Spacer(modifier = Modifier.height(8.dp))
+
+                        OutlinedTextField(
+                            value = allergies,
+                            onValueChange = { allergies = it.take(InputValidators.MAX_ALLERGIES) },
+                            label = { Text(stringResource(R.string.allergies)) },
+                            placeholder = { Text(stringResource(R.string.allergies_hint)) },
+                            modifier = Modifier.fillMaxWidth().heightIn(min = 80.dp)
+                        )
+                        Spacer(modifier = Modifier.height(8.dp))
+
+                        OutlinedTextField(
+                            value = medications,
+                            onValueChange = { medications = it.take(InputValidators.MAX_MEDICATIONS) },
+                            label = { Text(stringResource(R.string.medications)) },
+                            placeholder = { Text(stringResource(R.string.medications_hint)) },
+                            modifier = Modifier.fillMaxWidth().heightIn(min = 80.dp)
+                        )
+                        Spacer(modifier = Modifier.height(8.dp))
+
+                        OutlinedTextField(
+                            value = uniqueFeatures,
+                            onValueChange = { uniqueFeatures = it.take(InputValidators.MAX_UNIQUE_FEATURES) },
+                            label = { Text(stringResource(R.string.unique_features)) },
+                            placeholder = { Text(stringResource(R.string.unique_features_hint)) },
+                            modifier = Modifier.fillMaxWidth().heightIn(min = 80.dp)
+                        )
+                        Spacer(modifier = Modifier.height(8.dp))
+
+                        OutlinedTextField(
+                            value = notes,
+                            onValueChange = { notes = it.take(InputValidators.MAX_NOTES) },
+                            label = { Text(stringResource(R.string.behavior_notes)) },
+                            placeholder = { Text(stringResource(R.string.behavior_notes_hint)) },
+                            modifier = Modifier.fillMaxWidth().heightIn(min = 80.dp)
+                        )
+
                         Spacer(modifier = Modifier.height(16.dp))
 
                         // Error
@@ -351,6 +468,7 @@ fun ShelterPromoClaimScreen(
 
                         Button(
                             onClick = {
+                                val parsedWeight = weight.replace(',', '.').toDoubleOrNull()
                                 viewModel.claimWithNewPet(
                                     qrCode,
                                     CreatePetRequest(
@@ -358,7 +476,17 @@ fun ShelterPromoClaimScreen(
                                         species = species,
                                         breed = breed.ifBlank { null },
                                         color = color.ifBlank { null },
-                                        sex = sex.ifBlank { null }
+                                        weight = parsedWeight,
+                                        microchipNumber = microchipNumber.ifBlank { null },
+                                        sex = sex.ifBlank { null },
+                                        isNeutered = if (isNeutered) true else null,
+                                        medicalNotes = medicalNotes.ifBlank { null },
+                                        allergies = allergies.ifBlank { null },
+                                        medications = medications.ifBlank { null },
+                                        uniqueFeatures = uniqueFeatures.ifBlank { null },
+                                        notes = notes.ifBlank { null },
+                                        dateOfBirth = dateOfBirth.ifBlank { null },
+                                        dobIsApproximate = if (dateOfBirth.isNotBlank() && dobIsApproximate) true else null
                                     )
                                 )
                             },
