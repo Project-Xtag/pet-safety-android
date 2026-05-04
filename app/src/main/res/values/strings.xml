@@ -6,9 +6,9 @@
     <!-- MARK: Common -->
     <!-- ============================================ -->
     <string name="cancel">Cancel</string>
-    <string name="pet_limit_reached">Pet Limit Reached</string>
-    <string name="pet_limit_reached_message">Your %1$s plan allows %2$d pet. Upgrade to %3$s for %4$s to add unlimited pets.</string>
-    <string name="upgrade_to_plan">Upgrade to %1$s</string>
+    <string name="pet_limit_reached">Pet limit reached</string>
+    <string name="pet_limit_reached_message">Your %1$s plan allows %2$d pet. Switch to %3$s (%4$s) for unlimited pets.</string>
+    <string name="upgrade_to_plan">Switch to %1$s</string>
     <string name="story_placeholder">Tell your reunion story…</string>
     <string name="share_owner_notified">The owner has been notified</string>
     <plurals name="photos_uploaded">
@@ -44,11 +44,11 @@
     <!-- ============================================ -->
     <!-- MARK: Tab Bar -->
     <!-- ============================================ -->
-    <string name="my_pets">My Pets</string>
-    <string name="scan_qr">Scan QR</string>
+    <string name="my_pets">My pets</string>
+    <string name="scan_qr">Scan QR code</string>
     <string name="alerts">Alerts</string>
     <string name="profile">Profile</string>
-    <string name="tab_my_pets">My Pets</string>
+    <string name="tab_my_pets">My pets</string>
     <string name="tab_scan_qr">Scan QR</string>
     <string name="tab_alerts">Alerts</string>
     <string name="tab_profile">Profile</string>
@@ -59,15 +59,15 @@
     <!-- ============================================ -->
     <!-- MARK: Auth -->
     <!-- ============================================ -->
-    <string name="welcome_back">Welcome Back!</string>
+    <string name="welcome_back">Welcome back!</string>
     <string name="welcome_new_user">Welcome to SENRA!</string>
-    <string name="enter_email_subtitle">Enter your email to receive a login code.</string>
-    <string name="email_address">Email Address</string>
+    <string name="enter_email_subtitle">Enter your email address to receive a login code.</string>
+    <string name="email_address">Email address</string>
     <string name="send_login_code">Send Login Code</string>
     <string name="verify_code">Verify Code</string>
-    <string name="use_different_email">Use different email</string>
+    <string name="use_different_email">Use a different email address</string>
     <string name="code_sent_to_email">Code sent to %1$s</string>
-    <string name="otp_sent_to">Enter 6-digit code sent to</string>
+    <string name="otp_sent_to">Enter the 6-digit code sent to</string>
     <string name="login_failed">Login failed</string>
     <string name="verification_failed">Verification failed</string>
     <string name="invalid_email">Please enter a valid email address</string>
@@ -99,33 +99,33 @@
     <!-- ============================================ -->
     <string name="biometric_login_title">Biometric Login</string>
     <string name="biometric_login_subtitle">Use your fingerprint or face to log in</string>
-    <string name="use_password">Use Email</string>
+    <string name="use_password">Use email</string>
     <string name="login_with_biometric">Log in with Biometrics</string>
-    <string name="enable_biometric_title">Enable Biometric Login?</string>
-    <string name="enable_biometric_message">Use your fingerprint or face to quickly log in next time.</string>
+    <string name="enable_biometric_title">Enable biometric login?</string>
+    <string name="enable_biometric_message">Use your fingerprint or face to quickly log in next time!</string>
     <string name="biometric_enabled">Biometric login enabled</string>
 
     <!-- ============================================ -->
     <!-- MARK: Session -->
     <!-- ============================================ -->
-    <string name="session_expired_title">Session Expired</string>
+    <string name="session_expired_title">Session expired</string>
     <string name="session_expired_message">Your session has expired. Please log in again.</string>
-    <string name="session_expired_log_in">Log In</string>
+    <string name="session_expired_log_in">Log in</string>
 
     <!-- ============================================ -->
     <!-- MARK: Home / Pets List -->
     <!-- ============================================ -->
     <string name="welcome_back_greeting">Welcome back,</string>
-    <string name="view_all">View All</string>
+    <string name="view_all">View all</string>
     <string name="search_pets_hint">Search by name, breed, species\u2026</string>
-    <string name="quick_actions">Quick Actions</string>
+    <string name="quick_actions">Quick actions</string>
     <string name="action_add_pet">ADD PET</string>
-    <string name="action_mark_found">MARK FOUND</string>
-    <string name="action_report_missing">REPORT MISSING</string>
+    <string name="action_mark_found">MARK AS FOUND</string>
+    <string name="action_report_missing">REPORT AS MISSING</string>
     <string name="action_order_tags">ORDER TAGS</string>
     <string name="action_replace_tag">REPLACE TAG</string>
-    <string name="empty_pets_title">No Pets Yet</string>
-    <string name="empty_pets_message">Add your first pet to get started with SENRA</string>
+    <string name="empty_pets_title">No pets registered yet</string>
+    <string name="empty_pets_message">Add your first pet and start using the SENRA Community Tag</string>
     <string name="missing_badge">MISSING</string>
     <string name="tag_pending_badge">TAG ON ITS WAY</string>
     <string name="add_pet">Add Pet</string>
@@ -134,10 +134,10 @@
     <string name="clear_search">Clear search</string>
     <string name="pet_photo">Pet photo</string>
     <string name="pet_photo_placeholder">Pet photo placeholder</string>
-    <string name="no_pets">No pets</string>
+    <string name="no_pets">No registered pets</string>
     <string name="success_stories">Success Stories</string>
     <string name="found_pets">Found Pets</string>
-    <string name="success_stories_subtitle">See happy reunions near you</string>
+    <string name="success_stories_subtitle">Pets that made it home near you</string>
 
     <!-- ============================================ -->
     <!-- MARK: Pet Detail -->
@@ -147,19 +147,19 @@
     <string name="age_label">Age: %1$s</string>
     <string name="medical_information">Medical Information</string>
     <string name="additional_information">Additional Information</string>
-    <string name="edit_pet">Edit Pet</string>
+    <string name="edit_pet">Edit</string>
     <string name="view_pet_photos">View %1$s\'s Photos</string>
-    <string name="mark_as_found">Mark as Found</string>
-    <string name="mark_as_lost">Mark as Lost</string>
+    <string name="mark_as_found">Mark as found</string>
+    <string name="mark_as_lost">Mark as lost</string>
     <string name="age">Age</string>
     <string name="view_public_profile">View %1$s\'s Public Profile</string>
     <string name="edit_pet_profile">Edit %1$s\'s Profile</string>
     <string name="delete_pet_confirm_title">Delete %1$s?</string>
     <string name="delete_pet_confirm_message">This action cannot be undone. All data for %1$s will be permanently deleted.</string>
-    <string name="cannot_delete_missing_pet">Cannot Delete Missing Pet</string>
+    <string name="cannot_delete_missing_pet">Cannot delete missing pet</string>
     <string name="cannot_delete_missing_pet_message">You cannot delete a pet that is currently reported as missing. Please mark the pet as found first.</string>
     <string name="cannot_delete_missing_message">%1$s is currently marked as missing. Please mark them as found before deleting.</string>
-    <string name="mark_found_confirm_title">Mark %1$s as Found?</string>
+    <string name="mark_found_confirm_title">Mark %1$s as found?</string>
     <string name="mark_found_confirm_message">This will close the missing alert for %1$s. Are you sure?</string>
     <string name="marked_found_message">%1$s marked as found.</string>
     <string name="marked_missing_message">%1$s marked as missing.</string>
@@ -176,7 +176,7 @@
     <string name="breed">Breed</string>
     <string name="color">Color</string>
     <string name="microchip">Microchip</string>
-    <string name="medical_notes">Medical Notes</string>
+    <string name="medical_notes">Medical notes</string>
     <string name="photo">Photo</string>
     <string name="edit_photo">Edit Photo</string>
     <string name="photo_selected_hint">Photo selected</string>
@@ -186,18 +186,18 @@
     <string name="colour_optional">Colour (optional)</string>
     <string name="microchip_optional">Microchip Number (optional)</string>
     <string name="sex">Sex</string>
-    <string name="sex_optional">Optional</string>
+    <string name="sex_optional">Sex (optional)</string>
     <string name="neutered_spayed">Neutered/Spayed</string>
     <string name="neutered">Neutered</string>
     <string name="health_information">Health Information</string>
     <string name="medical_notes_hint">Medical notes (conditions, surgeries, etc.)</string>
-    <string name="behavior_notes_hint">Behavior notes (temperament, training, etc.)</string>
-    <string name="save_changes">Save Changes</string>
+    <string name="behavior_notes_hint">Behavior notes (temperament, etc.)</string>
+    <string name="save_changes">Save changes</string>
     <string name="delete_pet_button">Delete Pet</string>
     <string name="delete_pet_dialog_title">Delete %1$s?</string>
     <string name="delete_pet_dialog_message">Are you sure you want to delete this pet? This action cannot be undone.</string>
     <string name="delete_pet_warning_title">Delete %1$s?</string>
-    <string name="delete_pet_warning_message">This will permanently remove %1$s from your account. The QR tag will be deactivated immediately and will no longer work when scanned. If this is your last pet, your subscription will also be cancelled.</string>
+    <string name="delete_pet_warning_message">%1$s will be permanently removed from your account. The QR tag will be deactivated immediately and will no longer work when scanned. If this is your last pet, your subscription will also be cancelled.</string>
     <string name="delete_pet_warning_confirm">Delete Pet</string>
     <string name="male">Male</string>
     <string name="female">Female</string>
@@ -208,7 +208,7 @@
     <string name="add_health_info">Add health information</string>
     <string name="additional_info_empty_hint">No additional information added</string>
     <string name="add_additional_info">Add additional information</string>
-    <string name="edit_alert">Edit Alert</string>
+    <string name="edit_alert">Edit alert</string>
     <string name="alert_updated">Alert updated successfully</string>
     <string name="alert_update_failed">Failed to update alert</string>
     <string name="at_least_one_channel_required">At least one notification channel must remain active</string>
@@ -216,12 +216,12 @@
     <string name="default_species_dog">Dog</string>
     <string name="species_cat">Cat</string>
     <string name="search_breed">Search breed\u2026</string>
-    <string name="select_photo">Select Photo</string>
+    <string name="select_photo">Select photo</string>
     <string name="weight">Weight</string>
     <string name="weight_optional">Weight in kg (optional)</string>
     <string name="pet_form_age_label">Age</string>
     <string name="pet_form_age_placeholder">e.g. 3 years</string>
-    <string name="unique_features_hint">Unique features (markings, scars, distinctive traits\u2026)</string>
+    <string name="unique_features_hint">Unique features (markings, scars, etc.)</string>
     <string name="pet_created">Pet created</string>
     <string name="pet_create_failed">Failed to create pet</string>
     <string name="pet_updated">Pet updated</string>
@@ -242,25 +242,25 @@
     <string name="choose_photo_source">Choose Photo Source</string>
     <string name="camera">Camera</string>
     <string name="library">Library</string>
-    <string name="delete_photo">Delete Photo</string>
+    <string name="delete_photo">Delete photo</string>
     <string name="delete_photo_confirm">Are you sure you want to delete this photo? This action cannot be undone.</string>
-    <string name="photo_tip">Tip: Long press a photo to set as primary or delete</string>
+    <string name="photo_tip">Tip: Long-press a photo to set it as primary or delete it</string>
     <string name="photo_uploaded">Photo uploaded</string>
     <string name="upload_failed">Upload failed</string>
     <string name="primary_updated">Primary photo updated</string>
-    <string name="primary_failed">Failed to set primary</string>
+    <string name="primary_failed">Failed to set as primary</string>
     <string name="photo_deleted">Photo deleted</string>
     <string name="delete_photo_failed">Failed to delete photo</string>
-    <string name="move_up">Move Up</string>
-    <string name="move_down">Move Down</string>
+    <string name="move_up">Move up</string>
+    <string name="move_down">Move down</string>
     <string name="photos_reordered">Photos reordered</string>
     <string name="photos_reorder_failed">Failed to reorder photos</string>
     <string name="upload_photo_failed">Failed to upload photo</string>
-    <string name="add_photo">Add Photo</string>
-    <string name="use_camera">Open device camera</string>
-    <string name="choose_from_gallery">Choose from Gallery</string>
+    <string name="add_photo">Add photo</string>
+    <string name="use_camera">Open camera</string>
+    <string name="choose_from_gallery">Choose from gallery</string>
     <string name="select_existing_photo">Select an existing photo</string>
-    <string name="take_photo">Take Photo</string>
+    <string name="take_photo">Take photo</string>
     <string name="pet_photo_fullscreen">Pet photo fullscreen view</string>
     <string name="view_photo">View photo</string>
     <string name="primary_photo">Primary photo</string>
@@ -269,8 +269,8 @@
     <!-- ============================================ -->
     <!-- MARK: QR Scanner -->
     <!-- ============================================ -->
-    <string name="scan_qr_code">Scan QR Code</string>
-    <string name="scan_qr_subtitle">Point your camera at a pet\'s QR tag</string>
+    <string name="scan_qr_code">Scan QR code</string>
+    <string name="scan_qr_subtitle">Point your camera at the QR tag on the pet\'s tag</string>
     <string name="camera_access_required">Camera Access Required</string>
     <string name="camera_access_message">Please enable camera access to scan QR codes</string>
     <string name="enable_camera">Enable Camera</string>
@@ -280,20 +280,20 @@
     <string name="invalid_qr_code">Enter a valid code</string>
     <string name="turn_off_flashlight">Turn off flashlight</string>
     <string name="turn_on_flashlight">Turn on flashlight</string>
-    <string name="hello_pet_name">Hello! I\'m %1$s</string>
-    <string name="scanned_tag_thanks">You\'ve just scanned my tag.\nThank you for helping me!</string>
-    <string name="share_location_with_owner">Share My Location with Owner</string>
+    <string name="hello_pet_name">Hi! I\'m %1$s</string>
+    <string name="scanned_tag_thanks">You just scanned my tag.\nThank you for helping me!</string>
+    <string name="share_location_with_owner">Share my location with the owner</string>
     <string name="owner_notified_message">%1$s\'s owner will receive a notification with your location</string>
-    <string name="share_location_help">Help %1$s\'s owner find them by sharing your location</string>
+    <string name="share_location_help">Help %1$s\'s owner find them by sharing your location!</string>
     <string name="precise_location">Precise Location</string>
-    <string name="precise_location_desc">Share your location</string>
-    <string name="approximate_location">Approximate Location</string>
+    <string name="precise_location_desc">Share your location!</string>
+    <string name="approximate_location">Approximate location</string>
     <string name="approximate_location_desc">Approximate location sharing (GDPR compliant)</string>
-    <string name="dont_share_location">Don\'t Share Location</string>
-    <string name="dont_share_location_desc">Just notify the owner that their pet was found</string>
-    <string name="confirm_notify_owner">Confirm &amp; Notify Owner</string>
+    <string name="dont_share_location">Don\'t share location</string>
+    <string name="dont_share_location_desc">Just notify the owner that their pet has been found</string>
+    <string name="confirm_notify_owner">Confirm &amp; notify owner</string>
     <string name="share_exact_location_toggle">Share exact location</string>
-    <string name="contact_owner">Contact Owner</string>
+    <string name="contact_owner">Owner contact details</string>
     <string name="call_phone">Call: %1$s</string>
     <string name="email_contact">Email: %1$s</string>
     <string name="privacy_notice">Your privacy matters. We\'ll only share your location with %1$s\'s owner to help reunite them.</string>
@@ -315,20 +315,20 @@
     <!-- ============================================ -->
     <!-- MARK: Tag Activation -->
     <!-- ============================================ -->
-    <string name="tag_activate_title">Activate Tag</string>
+    <string name="tag_activate_title">Activate tag</string>
     <string name="tag_loading_pets">Loading your pets\u2026</string>
-    <string name="tag_activated">Tag Activated!</string>
+    <string name="tag_activated">Tag activated!</string>
     <string name="tag_activated_message">This tag is now linked to %1$s</string>
-    <string name="tag_choose_plan">Complete your pet\'s profile to help find them if they go missing</string>
+    <string name="tag_choose_plan">Complete your pet\'s profile to make it easier to find them if they go missing!</string>
     <string name="tag_choose_plan_button">Complete Pet Profile</string>
-    <string name="tag_skip_for_now">I\'ll do this later</string>
-    <string name="tag_no_pets">No Pets Yet</string>
+    <string name="tag_skip_for_now">Maybe later</string>
+    <string name="tag_no_pets">No pets registered yet</string>
     <string name="tag_no_pets_message"></string>
     <string name="tag_code_label">Tag Code</string>
-    <string name="tag_select_pet">Select a pet to link with this tag</string>
+    <string name="tag_select_pet">Select a pet to activate this tag!</string>
     <string name="tag_activating">Activating\u2026</string>
     <string name="tag_activate_button">Activate Tag</string>
-    <string name="tag_link_message">This tag will be linked to the selected pet</string>
+    <string name="tag_link_message">This tag will be registered to the selected pet</string>
 
     <!-- ============================================ -->
     <!-- MARK: Plan Selection -->
@@ -347,16 +347,16 @@
     <string name="no_active_alerts">No Active Alerts</string>
     <string name="no_active_alerts_message">You don\'t have any missing pet alerts at the moment</string>
     <string name="no_found_alerts">No Found Alerts</string>
-    <string name="no_found_alerts_message">No pets have been found recently in your area</string>
-    <string name="missing_pet_alerts_title">Missing Pets</string>
+    <string name="no_found_alerts_message">No pets have been found nearby recently</string>
+    <string name="missing_pet_alerts_title">Missing pets</string>
     <string name="sighting_count_singular">1 sighting</string>
-    <string name="unknown_breed">Unknown Breed</string>
-    <string name="last_seen_label">Last Seen</string>
+    <string name="unknown_breed">Unknown breed</string>
+    <string name="last_seen_label">Last seen</string>
     <string name="reported_sightings_count">Reported Sightings (%1$d)</string>
     <string name="report_a_sighting">Report a Sighting</string>
     <string name="anonymous">Anonymous</string>
     <string name="contact_label">Contact: %1$s</string>
-    <string name="pet_marked_found">%1$s has been marked as found!</string>
+    <string name="pet_marked_found">%1$s has been marked as found</string>
     <string name="mark_found_failed_message">Failed to mark as found: %1$s</string>
     <plurals name="sighting_count">
         <item quantity="one">%d sighting</item>
@@ -373,7 +373,7 @@
     <string name="alert_status_missing">Missing</string>
     <string name="alert_missing_since">Missing since %1$s</string>
     <string name="alert_missing_for">Missing for %1$s</string>
-    <string name="report_found">Report Found</string>
+    <string name="report_found">Mark as found</string>
 
     <!-- Map Annotations -->
     <string name="time_less_than_hour">Less than an hour</string>
@@ -381,33 +381,33 @@
     <!-- ============================================ -->
     <!-- MARK: Report Missing / Sighting -->
     <!-- ============================================ -->
-    <string name="report_missing_title">Report %1$s Missing</string>
+    <string name="report_missing_title">Report %1$s as missing</string>
     <string name="last_seen_location">Last seen location</string>
     <string name="additional_info">Additional info</string>
     <string name="report">Report</string>
-    <string name="report_sighting">Report Sighting</string>
-    <string name="report_sighting_prompt">Share any details about where you saw %1$s.</string>
+    <string name="report_sighting">Report sighting</string>
+    <string name="report_sighting_prompt">Share details about where you saw %1$s.</string>
     <string name="notes">Notes</string>
     <string name="sighting_reported">Sighting reported</string>
     <string name="sighting_address_not_found">We couldn\'t find that address. Please check the spelling or try a nearby landmark.</string>
-    <string name="sighting_location_required">Please share your current location or enter an address.</string>
+    <string name="sighting_location_required">Share your current location or enter an address.</string>
     <string name="report_failed">Failed to report</string>
     <string name="sighting_location">Sighting location</string>
-    <string name="use_current_location">Use Current Location</string>
-    <string name="location_captured">Location captured from GPS</string>
+    <string name="use_current_location">Use current location</string>
+    <string name="location_captured">Location captured</string>
     <string name="getting_location">Getting your location\u2026</string>
     <string name="update_alert_failed">Failed to update alert</string>
     <string name="report_sighting_failed">Failed to report sighting</string>
-    <string name="report_missing_pet">Report Missing Pet</string>
-    <string name="select_pet_to_report">Select a pet</string>
-    <string name="add_missing_details">Add missing details</string>
-    <string name="enter_address_or_location">Enter address or location description</string>
-    <string name="additional_details">Additional Details</string>
+    <string name="report_missing_pet">Report missing pet</string>
+    <string name="select_pet_to_report">Select a pet to report</string>
+    <string name="add_missing_details">Add details about the disappearance</string>
+    <string name="enter_address_or_location">Enter an address or location description</string>
+    <string name="additional_details">Additional details</string>
     <string name="describe_circumstances">Describe circumstances, distinguishing features, etc.</string>
     <string name="reward_amount_label">Reward (optional)</string>
     <string name="reward_amount_placeholder">e.g. €50</string>
     <string name="report_missing">Report Missing</string>
-    <string name="no_pets_to_report_message">Add a pet first to report them missing</string>
+    <string name="no_pets_to_report_message">Add a pet first to report them as missing</string>
     <string name="mark_pet_found">Mark Pet Found</string>
     <string name="select_pet_to_mark_found">Select the pet that has been found</string>
     <string name="no_missing_pets_message">You have no pets marked as missing</string>
@@ -417,14 +417,14 @@
     <string name="last_seen_location_header">Last known location</string>
     <string name="enter_location">Enter location</string>
     <string name="additional_information_header">Additional Information</string>
-    <string name="additional_details_placeholder">Provide any additional details about when and where your pet was last seen\u2026</string>
+    <string name="additional_details_placeholder">Provide any additional details about when and where your pet was last seen…</string>
     <string name="your_contact_information">Your Contact Information</string>
     <string name="name_optional">Name (optional)</string>
     <string name="phone_optional">Phone (optional)</string>
     <string name="email_optional">Email (optional)</string>
     <string name="sighting_reported_success">Sighting reported successfully!</string>
     <string name="report_sighting_header">Report a Sighting</string>
-    <string name="report_sighting_help">Help reunite this pet with their owner by sharing where you saw them.</string>
+    <string name="report_sighting_help">Help a lost pet find their way back to their owner by sharing where you saw them.</string>
     <string name="share_contact_info">Share My Contact Info</string>
     <string name="share_contact_info_desc">Allow the pet owner to contact you directly</string>
     <string name="your_name">Your name</string>
@@ -433,9 +433,9 @@
     <string name="address_or_description">Address or Description</string>
     <string name="where_did_you_see">Where did you see the pet?</string>
     <string name="sighting_notes_placeholder">Describe what you saw and which way they went…</string>
-    <string name="submit_sighting_report">Submit Sighting Report</string>
-    <string name="sighting_reported_owner_notified">Sighting reported! The owner has been notified.</string>
-    <string name="sighting_queued_offline">Sighting queued - will submit when online.</string>
+    <string name="submit_sighting_report">Submit sighting report</string>
+    <string name="sighting_reported_owner_notified">Sighting reported. The owner has been notified.</string>
+    <string name="sighting_queued_offline">Sighting queued — will submit when you\'re back online.</string>
 
     <!-- ============================================ -->
     <!-- MARK: Mark Lost/Found Sheet -->
@@ -443,41 +443,41 @@
     <string name="mark_pet_found_confirm">Mark %1$s as Found?</string>
     <string name="mark_found_confirm_alert">This will close the missing alert for %1$s. Are you sure?</string>
     <string name="notification_center">Notification Center</string>
-    <string name="alerts_radius_info">Alerts will be sent within 10km of this location</string>
+    <string name="alerts_radius_info">Alerts will be sent to people within 10 km of this location</string>
     <string name="current_location">Current location</string>
     <string name="tap_get_location">Tap to get current location\u2026</string>
     <string name="using_registered_address">Using your registered address</string>
-    <string name="enter_address_notifications">Enter address for notifications</string>
-    <string name="notification_source_current_location">Current whereabouts address</string>
+    <string name="enter_address_notifications">Enter an address for notifications</string>
+    <string name="notification_source_current_location">Current location address</string>
     <string name="notification_source_my_address">Registered address</string>
     <string name="notification_source_custom">Other address</string>
     <string name="no_registered_address">No registered address found. Please update your profile.</string>
 
     <!-- Mark Lost Flow (matching iOS MarkAsLostView) -->
-    <string name="mark_lost_pet_info">Pet Information</string>
-    <string name="mark_lost_last_seen">Last Seen Location</string>
-    <string name="mark_lost_alerts_footer">Alerts will be sent to nearby users, vets, and shelters within 10km.</string>
+    <string name="mark_lost_pet_info">Your pet\'s details</string>
+    <string name="mark_lost_last_seen">Last known location</string>
+    <string name="mark_lost_alerts_footer">Notifications will be sent to nearby users, vets, and shelters within 10 km.</string>
     <string name="mark_lost_getting_location">Getting your location…</string>
-    <string name="mark_lost_no_address">No address registered. Go to Profile to add your address.</string>
-    <string name="mark_lost_address_placeholder">Enter address or location</string>
+    <string name="mark_lost_no_address">No registered address found. Go to your profile to add an address.</string>
+    <string name="mark_lost_address_placeholder">Enter address</string>
     <string name="mark_lost_additional_info">Additional Information</string>
     <string name="mark_lost_additional_placeholder">Any detail that could help find your pet (collar color, behavior, distinguishing features…)</string>
     <string name="mark_lost_sends_to">This alert will be sent to:</string>
     <string name="mark_lost_nearby_owners">Nearby pet owners</string>
     <string name="mark_lost_vet_clinics">Vet clinics in the area</string>
     <string name="mark_lost_shelters">Animal shelters nearby</string>
-    <string name="mark_lost_report">Report Missing</string>
-    <string name="mark_lost_title">Mark %1$s as Missing</string>
-    <string name="mark_lost_starter_notice">Upgrade to mark a pet as missing</string>
-    <string name="mark_lost_starter_upgrade_cta">See plans</string>
-    <string name="mark_lost_upgrade_prompt">Marking a pet as missing and alerting the community is included with Standard and Maximum. Upgrade your subscription to use this feature.</string>
+    <string name="mark_lost_report">Report missing</string>
+    <string name="mark_lost_title">Mark %1$s as missing</string>
+    <string name="mark_lost_starter_notice">Subscribe to mark a pet as missing</string>
+    <string name="mark_lost_starter_upgrade_cta">View plans</string>
+    <string name="mark_lost_upgrade_prompt">Marking a pet as missing and alerting the community is included in the Standard and Maximum plans. Subscribe to a higher plan to use this feature.</string>
     <string name="mark_lost_success_with_alerts">%1$s has been reported as missing. Alerts are being sent to nearby users, vets, and shelters.</string>
-    <string name="mark_lost_success_no_location">%1$s has been marked as missing. Add a location to send community alerts.</string>
-    <string name="mark_lost_address_required">Please provide an address or enable location services.</string>
-    <string name="quick_lost_select_pet">Select a pet to report as missing</string>
+    <string name="mark_lost_success_no_location">%1$s has been marked as missing. Add a location to send community alerts!</string>
+    <string name="mark_lost_address_required">Please provide an address or enable location services!</string>
+    <string name="quick_lost_select_pet">Select your pet to report as missing</string>
     <string name="quick_lost_all_missing">All your pets are already marked as missing.</string>
     <string name="quick_lost_title">Report Missing</string>
-    <string name="location_current">Current whereabouts address</string>
+    <string name="location_current">Current location address</string>
     <string name="location_my_address">Registered address</string>
     <string name="location_custom">Other address</string>
 
@@ -489,27 +489,27 @@
     <string name="sighting_message_with_location">%1$s has been sighted at %2$s!</string>
     <string name="sighting_message_no_location">%1$s has been sighted!</string>
     <string name="pet_found_message">Great news! %1$s has been found!</string>
-    <string name="notification_tag_scanned_title">%1$s Found!</string>
-    <string name="notification_sighting_title">%1$s Sighted!</string>
-    <string name="notification_pet_found_title">Great News!</string>
+    <string name="notification_tag_scanned_title">%1$s found</string>
+    <string name="notification_sighting_title">%1$s sighted</string>
+    <string name="notification_pet_found_title">Good news</string>
     <string name="notification_channel_name">SENRA Alerts</string>
-    <string name="notification_channel_tag_scans">Tag Scans</string>
+    <string name="notification_channel_tag_scans">Tag scans</string>
     <string name="notification_channel_tag_scans_desc">Notifications when your pet\'s tag is scanned</string>
-    <string name="notification_channel_alerts">Missing Pet Alerts</string>
-    <string name="notification_channel_alerts_desc">Notifications for missing pets in your area</string>
-    <string name="notification_channel_sightings">Sighting Reports</string>
+    <string name="notification_channel_alerts">Missing pet alerts</string>
+    <string name="notification_channel_alerts_desc">Notifications about missing pets in your area</string>
+    <string name="notification_channel_sightings">Sighting reports</string>
     <string name="notification_channel_sightings_desc">Notifications when your missing pet is sighted</string>
     <string name="notification_method_required">At least one notification method must be enabled</string>
 
     <!-- FCM Notification Strings -->
-    <string name="notif_tag_scanned_title">Tag Scanned</string>
+    <string name="notif_tag_scanned_title">Tag scanned</string>
     <string name="notif_tag_scanned_body">%1$s\'s tag was scanned!</string>
     <string name="notif_tag_scanned_body_location">%1$s\'s tag was scanned! %2$s</string>
-    <string name="notif_missing_pet_title">Missing Pet Nearby</string>
+    <string name="notif_missing_pet_title">Missing pet nearby</string>
     <string name="notif_missing_pet_body">%1$s is missing in %2$s. Keep an eye out!</string>
-    <string name="notif_pet_found_title">Pet Found!</string>
-    <string name="notif_pet_found_body">Great news! %1$s has been found!</string>
-    <string name="notif_sighting_title">Sighting Reported</string>
+    <string name="notif_pet_found_title">Pet found!</string>
+    <string name="notif_pet_found_body">Good news! %1$s has been found!</string>
+    <string name="notif_sighting_title">Sighting reported</string>
     <string name="notif_sighting_body_location">%1$s was spotted at %2$s!</string>
     <string name="notif_sighting_body_no_location">%1$s was spotted! Check the sighting location.</string>
     <string name="notif_fallback_title">SENRA</string>
@@ -540,41 +540,41 @@
     <string name="missing_pet_alerts">Missing Pet Alerts</string>
     <string name="missing_pet_alerts_subtitle">Get notified about missing pets in your area</string>
     <string name="nearby_alerts_10km">Nearby Alerts (10km)</string>
-    <string name="nearby_alerts_subtitle">Alerts for pets within 10km of your location</string>
+    <string name="nearby_alerts_subtitle">Alerts for pets within 10 km of your location</string>
     <string name="account_and_orders">Account &amp; Orders</string>
     <string name="order_updates">Order Updates</string>
     <string name="order_updates_subtitle">Shipping and delivery notifications</string>
     <string name="account_activity">Account Activity</string>
     <string name="account_activity_subtitle">Login and security notifications</string>
-    <string name="critical_alerts_note">Note: Critical alerts about your pets will always be sent regardless of these settings.</string>
+    <string name="critical_alerts_note">Note: critical alerts about your pets will always be sent regardless of these settings.</string>
 
     <!-- Notification Preferences -->
 
     <!-- ============================================ -->
     <!-- MARK: Success Stories -->
     <!-- ============================================ -->
-    <string name="share_your_story">Share Your Story</string>
+    <string name="share_your_story">Share your story!</string>
     <string name="success_story_prompt">Great news! %1$s has been found! Would you like to share your reunion story to help inspire others?</string>
     <string name="your_story">Your Story</string>
     <string name="share_story">Share Story</string>
     <string name="story_shared">Story shared successfully</string>
     <string name="story_share_failed">Failed to share story</string>
     <string name="loading_success_stories">Loading success stories\u2026</string>
-    <string name="no_success_stories">No Success Stories Nearby</string>
+    <string name="no_success_stories">No success stories nearby</string>
     <string name="no_success_stories_message">Be the first to share a happy reunion in your area!</string>
-    <string name="found_and_reunited">Found &amp; Reunited</string>
+    <string name="found_and_reunited">Found &amp; reunited with their owner</string>
     <string name="distance_km">%.1f km away</string>
     <string name="missing_since">Missing since %1$s</string>
-    <string name="found_on">Found %1$s</string>
+    <string name="found_on">Found on %1$s</string>
     <string name="success_story_marker">Success Story</string>
-    <string name="load_more">Load More</string>
+    <string name="load_more">Load more</string>
     <string name="missing_for">Missing for %1$s</string>
-    <string name="pet_found_share">%1$s Found!</string>
+    <string name="pet_found_share">%1$s found!</string>
     <string name="reunited_in">Reunited in %1$s</string>
     <string name="shared_via_pet_safety">Shared via SENRA App</string>
-    <string name="story_share_good_news">Share the Good News</string>
+    <string name="story_share_good_news">Share the good news!</string>
     <string name="story_social_caption">%1$s has been reunited with their family! Thank you to the SENRA community for helping bring %1$s home. SENRA</string>
-    <string name="story_generating_card">Creating share card\u2026</string>
+    <string name="story_generating_card">Creating share card…</string>
     <string name="story_pet_is_home_title">%1$s is home!</string>
     <string name="story_inspire_others_message">Help inspire other pet owners by sharing how %1$s was reunited with you.</string>
     <string name="sighting_reports_desc">Sighting reports</string>
@@ -589,19 +589,19 @@
     <!-- MARK: Profile -->
     <!-- ============================================ -->
     <string name="account_title">Account</string>
-    <string name="log_out">Log Out</string>
-    <string name="personal_information">Personal Information</string>
+    <string name="log_out">Log out</string>
+    <string name="personal_information">Personal information</string>
     <string name="address">Address</string>
-    <string name="contacts">Contact Details</string>
-    <string name="privacy_mode">Privacy Mode</string>
+    <string name="contacts">Contact details</string>
+    <string name="privacy_mode">Privacy settings</string>
     <string name="help_support">Help &amp; Support</string>
     <string name="danger_zone">DANGER ZONE</string>
     <string name="deleting">Deleting\u2026</string>
     <string name="delete_account_permanent">This will permanently delete your account and all data</string>
     <string name="logout_confirm">Are you sure you want to log out?</string>
     <string name="delete_account_full_warning">This action cannot be undone. Your account will be permanently deleted, all personal data will be removed, and any active subscriptions will be cancelled.</string>
-    <string name="delete_premium_warning">You have an active %1$s subscription until %2$s. Deleting your account will permanently erase your profile and you will immediately lose access to your remaining paid time. If you just want to stop future payments, please Cancel Subscription instead.</string>
-    <string name="cancel_instead">Cancel Subscription Instead</string>
+    <string name="delete_premium_warning">You have an active %1$s subscription until %2$s. Deleting your account will permanently erase your profile and you will immediately lose access to your remaining paid time. If you just want to stop future payments, please use Cancel Subscription instead.</string>
+    <string name="cancel_instead">Cancel subscription instead</string>
     <string name="delete_confirm_checkbox">I understand that this action cannot be undone and all my data will be permanently deleted</string>
     <string name="delete_confirm_type_delete">Type DELETE to confirm</string>
     <string name="delete_confirm_placeholder">DELETE</string>
@@ -611,10 +611,10 @@
     <string name="cancel_warning_a">You\'ll lose instant email, SMS notifications and community alerts</string>
     <string name="cancel_warning_b">Free tag replacements will no longer be available</string>
     <string name="cancel_warning_c">You\'ll lose access to vet and shelter alerts</string>
-    <string name="cancel_warning_d">Your account and pet registrations remain active</string>
+    <string name="cancel_warning_d">Your account and pet registrations will remain active</string>
     <string name="cancel_access_until">You will retain access until %1$s</string>
-    <string name="cancel_confirm">Cancel Subscription</string>
-    <string name="keep_subscription">Keep Subscription</string>
+    <string name="cancel_confirm">Cancel subscription</string>
+    <string name="keep_subscription">Keep subscription</string>
     <string name="cancel_success">Subscription cancelled. You\'ll retain access until %1$s.</string>
 
     <!-- ============================================ -->
@@ -630,40 +630,40 @@
     <string name="post_code">Post Code</string>
     <string name="country">Country</string>
     <string name="street">Street</string>
-    <string name="street2">Apt / Suite / Floor (Optional)</string>
-    <string name="province">Province / State</string>
+    <string name="street2">Building / Floor / Door (Optional)</string>
+    <string name="province">County / Province</string>
     <string name="address_updated">Address updated</string>
 
     <!-- ============================================ -->
     <!-- MARK: Contacts -->
     <!-- ============================================ -->
-    <string name="email_addresses">Email Addresses</string>
-    <string name="primary_email">Primary Email</string>
-    <string name="secondary_email_optional">Secondary Email (Optional)</string>
+    <string name="email_addresses">Email addresses</string>
+    <string name="primary_email">Primary email</string>
+    <string name="secondary_email_optional">Secondary email (optional)</string>
     <string name="phone_numbers">Phone Numbers</string>
-    <string name="primary_phone">Primary Phone</string>
+    <string name="primary_phone">Primary phone number</string>
     <string name="show_on_qr_tag">Show on QR tag</string>
-    <string name="secondary_phone_optional">Secondary Phone (Optional)</string>
-    <string name="contacts_qr_tag_info">Contacts marked as visible will be displayed on your pet\'s QR tag when scanned by someone who finds your pet.</string>
+    <string name="secondary_phone_optional">Secondary phone number (optional)</string>
+    <string name="contacts_qr_tag_info">Contact details marked as visible will appear on your pet\'s QR tag when someone scans it.</string>
     <string name="contact_details">Contact Details</string>
 
     <!-- ============================================ -->
     <!-- MARK: Contact Visibility -->
     <!-- ============================================ -->
     <string name="contact_visibility">Contact Visibility</string>
-    <string name="contact_visibility_desc">Control what contact information is visible when someone scans your pet\'s QR tag</string>
-    <string name="show_name">Show Your Name</string>
+    <string name="contact_visibility_desc">Control which contact details are visible when someone scans your pet\'s QR tag</string>
+    <string name="show_name">Show your name</string>
     <string name="show_name_subtitle">Your name will be visible on your pet\'s public profile when someone scans their tag</string>
-    <string name="show_phone_number">Show Phone Number</string>
+    <string name="show_phone_number">Show phone number</string>
     <string name="show_phone_subtitle">Your phone number will be visible to finders</string>
-    <string name="show_email_address">Show Email Address</string>
-    <string name="show_email_subtitle">Your email will be visible to finders</string>
-    <string name="show_address">Show Address</string>
+    <string name="show_email_address">Show email address</string>
+    <string name="show_email_subtitle">Your email address will be visible to finders</string>
+    <string name="show_address">Show address</string>
     <string name="show_address_subtitle">Your address will be visible to finders</string>
-    <string name="show_secondary_phone">Show Secondary Phone</string>
-    <string name="show_secondary_phone_subtitle">Display your secondary phone on the pet profile</string>
-    <string name="show_secondary_email">Show Secondary Email</string>
-    <string name="show_secondary_email_subtitle">Display your secondary email on the pet profile</string>
+    <string name="show_secondary_phone">Show secondary phone number</string>
+    <string name="show_secondary_phone_subtitle">Your secondary phone number will be visible on your pet\'s public profile</string>
+    <string name="show_secondary_email">Show secondary email address</string>
+    <string name="show_secondary_email_subtitle">Your secondary email address will be visible on your pet\'s public profile</string>
 
     <!-- ============================================ -->
     <!-- MARK: Privacy Mode -->
@@ -677,7 +677,7 @@
     <!-- MARK: Delete Account -->
     <!-- ============================================ -->
     <string name="delete_account">Delete Account</string>
-    <string name="delete_account_warning">This action cannot be undone. All your data, including pets, alerts, and photos will be permanently deleted.</string>
+    <string name="delete_account_warning">This action cannot be undone. All your data, including pets, alerts, and photos, will be permanently deleted.</string>
     <string name="delete_account_confirm_prompt">To confirm, type DELETE below:</string>
     <string name="type_delete_to_confirm">Type DELETE</string>
     <string name="account_deleted">Account deleted</string>
@@ -690,12 +690,12 @@
     <!-- ============================================ -->
     <!-- MARK: Help & Support -->
     <!-- ============================================ -->
-    <string name="get_help">Get Help</string>
-    <string name="faq">Frequently Asked Questions</string>
-    <string name="user_guides">User Guides</string>
+    <string name="get_help">Get help</string>
+    <string name="faq">Frequently asked questions</string>
+    <string name="user_guides">User guides</string>
     <string name="legal">Legal</string>
-    <string name="support_response_time">Our support team typically responds within 24 hours.</string>
-    <string name="contact_support">Contact Support</string>
+    <string name="support_response_time">We typically respond to your query within 24 hours.</string>
+    <string name="contact_support">Contact support</string>
     <string name="contact_support_category">Category</string>
     <string name="contact_support_subject">Subject</string>
     <string name="contact_support_subject_hint">Brief description of your issue</string>
@@ -710,55 +710,55 @@
     <string name="support_category_technical">Technical Issue</string>
     <string name="support_category_account">Account</string>
     <string name="support_category_billing">Billing</string>
-    <string name="support_category_feature">Feature Request</string>
+    <string name="support_category_feature">Feature request</string>
     <string name="support_category_other">Other</string>
     <string name="char_count">%1$d/5000 characters</string>
 
     <!-- FAQ Items -->
     <!-- Guide Items -->
     <string name="help_guide_qr_tags_title">QR Code Pet Tags</string>
-    <string name="help_guide_qr_tags_desc">Each SENRA tag features a unique QR code that links to your pet\'s digital profile. Anyone who finds your pet can scan the code with their phone camera — no app download required. The scanner instantly sees your pet\'s photo, name, medical information, and your contact details. They can also share their GPS location with you so you know exactly where your pet is. Tags work with all modern smartphones.</string>
+    <string name="help_guide_qr_tags_desc">Every SENRA tag contains a unique QR code linked to your pet\'s digital profile. Anyone who finds your pet can scan the code with their phone camera — no app download required. Scanning the tag sends you a notification with the finder\'s location (if they choose to share it). Tags can be activated through the app, and you can request a replacement tag at any time if the original is lost or damaged.</string>
     <string name="help_guide_materials_title">Tag Materials &amp; Durability</string>
-    <string name="help_guide_materials_desc">SENRA tags are made from durable, lightweight metal with an epoxy coating for extra protection. They\'re waterproof and UV-resistant, suitable for all weather conditions. The QR code is printed with fade-resistant ink to remain scannable over time. Tags attach securely to your pet\'s collar. If a tag becomes damaged or the QR code is no longer scannable, you can order a replacement from your Account page — free for Standard and Maximum plan members.</string>
-    <string name="help_guide_emergency_title">Emergency Contact &amp; Alerts</string>
-    <string name="help_guide_emergency_desc">When someone scans your pet\'s tag, you receive an instant notification by email with the finder\'s location. Standard and Maximum plan members also receive SMS alerts for faster response. If you mark your pet as missing, a community alert is sent to all SENRA users within 10km, and registered vets and shelters in your area are also notified. Anyone in the community can report sightings with their location, building a trail to help you find your pet.</string>
-    <string name="help_guide_profile_title">Pet Profile Management</string>
-    <string name="help_guide_profile_desc">Your pet\'s digital profile is the heart of SENRA. Add essential details like species, breed, age, and a clear photo. You can also include medical information (allergies, medications, conditions), microchip number, and unique features that help identify your pet. Upload multiple photos to a gallery. All information can be updated at any time from the \'My Pets\' section. You control which of your personal details (phone, email, address) are visible to people who scan the tag.</string>
+    <string name="help_guide_materials_desc">SENRA tags are made from durable, lightweight metal with an epoxy coating for extra protection. They are waterproof and UV-resistant, suitable for all weather conditions, and do not wear down with everyday use. Tags are designed to fit comfortably on most collars and harnesses.</string>
+    <string name="help_guide_emergency_title">Emergency contact features</string>
+    <string name="help_guide_emergency_desc">When someone scans your pet\'s tag, you instantly receive a push notification and an email with the finder\'s location. Standard and Maximum plan members also receive SMS alerts for faster response. If you mark your pet as missing, a community alert is sent to all SENRA users within 10 km, and registered vets and shelters in your area are also notified. Anyone in the community can report sightings with their location and photos, helping you find your pet.</string>
+    <string name="help_guide_profile_title">Profile management</string>
+    <string name="help_guide_profile_desc">Your pet\'s digital profile is the heart of SENRA. Add the essential details: species, breed, age, and a good-quality photo. You can also include medical information, allergies, medications, and distinguishing features. When someone scans your pet\'s tag, this is the profile they will see — so it\'s important to keep it up to date. Your profile helps finders identify your pet and know what to do if they find them.</string>
     <string name="help_guide_missing_alerts_title">Missing Pet Alerts &amp; Sightings</string>
-    <string name="help_guide_missing_alerts_desc">If your pet goes missing, mark them as missing from \'My Pets\' to create an instant community alert. Your pet\'s photo and details appear on the Missing Pets map visible to all SENRA users in your area. Community members can report sightings with their GPS location, which you receive as notifications. Registered vets and shelters are also alerted. Once your pet is found, mark them as found and optionally share your reunion story to inspire the community.</string>
+    <string name="help_guide_missing_alerts_desc">If your pet goes missing, mark them as missing from \'My Pets\' to create an instant community alert. Your pet\'s photo and details appear on the Missing Pets map and list, visible to all SENRA users in your area. Additionally, all registered users within 10 km receive an email and SMS notification. Community members can report sightings with GPS location data, which you receive as notifications. Registered vets and shelters are also alerted. Once your pet is found, mark them as found — and if you\'d like, share their homecoming story to give others hope.</string>
     <string name="help_guide_community_title">Community &amp; Found Pets</string>
-    <string name="help_guide_community_desc">SENRA\'s strength is its community. The Missing Pets map shows active alerts near you — check it to see if any pets have been reported missing in your area. The Found Pets page celebrates successful reunions with stories from pet owners. You can register your local vet or animal shelter with SENRA so they receive missing pet alerts automatically, helping create a stronger safety network for all pets in your area.</string>
+    <string name="help_guide_community_desc">SENRA\'s strength is its community. The Missing Pets map shows active alerts near you — check it to see if any pets have been reported missing in your area. The Found Pets page is dedicated to happy reunions and success stories from pet owners. You can also register your local vet or animal shelter with SENRA so they receive missing pet alerts automatically, helping us look out for all the pets in your area.</string>
     <!-- ============================================ -->
     <!-- MARK: Orders -->
     <!-- ============================================ -->
     <string name="orders_title">Orders</string>
     <string name="order_number">Order #%1$s</string>
     <string name="order_total">Total: %1$s</string>
-    <string name="order_tags">Order Tags</string>
-    <string name="replace_tag">Replace Tag</string>
+    <string name="order_tags">Order tags</string>
+    <string name="replace_tag">Replace tag</string>
     <string name="add_pet_first_replacement">Add a pet first to order a replacement tag.</string>
-    <string name="order_more_tags_title">Order More Tags</string>
-    <string name="add_another_pet">Add Another Pet</string>
+    <string name="order_more_tags_title">Order a new tag</string>
+    <string name="add_another_pet">Add another pet</string>
     <string name="full_name">Full Name</string>
     <string name="place_order">Place Order</string>
     <string name="order_created_payment_pending">Order created. Payment pending.</string>
     <string name="payment_intent_failed">Payment intent failed</string>
     <string name="order_create_failed">Failed to create order</string>
     <string name="checkout_success_message">Payment successful! Your order is being processed.</string>
-    <string name="checkout_cancelled_message">Payment was cancelled. You can try again when ready.</string>
+    <string name="checkout_cancelled_message">Payment cancelled. You can try again when you\'re ready.</string>
     <string name="proceed_to_payment">Proceed to Payment</string>
     <string name="redirecting_to_payment">Redirecting to payment…</string>
 
     <!-- Tags coming soon (gates proceed-to-payment when TAGS_AVAILABLE=false) -->
-    <string name="tags_coming_soon_title">Physical tags are coming soon</string>
-    <string name="tags_coming_soon_body">We\'re shipping our first batch shortly. Check back in a few days.</string>
+    <string name="tags_coming_soon_title">Our tags are coming soon</string>
+    <string name="tags_coming_soon_body">We\'ll be shipping our first batch soon. Check back in a few days.</string>
     <string name="checkout_failed">Failed to start checkout</string>
-    <string name="sse_subscription_activated">Your %1$s plan is now active!</string>
+    <string name="sse_subscription_activated">Your %1$s plan is now active.</string>
     <string name="sse_subscription_cancelled">Your %1$s subscription has been cancelled.</string>
     <string name="sse_referral_used">%1$s used your referral code!</string>
-    <string name="sse_connection_lost">Real-time updates unavailable. Pull to refresh for latest data.</string>
-    <string name="order_replacement_title">Order Replacement Tag</string>
-    <string name="order_replacement_button">Order Replacement</string>
+    <string name="sse_connection_lost">Real-time updates unavailable. Pull down to refresh.</string>
+    <string name="order_replacement_title">Order replacement tag</string>
+    <string name="order_replacement_button">Order replacement</string>
     <string name="replacement_ordered">Replacement ordered</string>
     <string name="replacement_failed">Failed to order replacement</string>
     <string name="replacement_order_failed">Failed to create replacement order</string>
@@ -770,50 +770,50 @@
     <string name="order_information">Order Information</string>
     <string name="order_id_label">Order ID</string>
     <string name="status">Status</string>
-    <string name="total_amount">Total Amount</string>
+    <string name="total_amount">Total</string>
     <string name="order_date">Order Date</string>
     <string name="items">Items</string>
     <string name="quantity_label">Quantity: %1$d</string>
-    <string name="qr_tag_pending">QR Tag pending</string>
-    <string name="qr_tag_assigned">QR Tag assigned</string>
+    <string name="qr_tag_pending">QR tag pending</string>
+    <string name="qr_tag_assigned">QR tag assigned</string>
     <plurals name="item_count">
         <item quantity="one">%d item</item>
         <item quantity="other">%d items</item>
     </plurals>
 
     <!-- Order More Tags -->
-    <string name="get_qr_tags_subtitle">Get QR tags for your pets</string>
-    <string name="pet_names">Pet Names</string>
+    <string name="get_qr_tags_subtitle">Order QR tags for your pets — the tag is free, you only pay for shipping and packaging</string>
+    <string name="pet_names">Pet names</string>
     <string name="shipping_address">Shipping Address</string>
     <string name="shipping">Shipping</string>
     <string name="shipping_price">Calculated at checkout</string>
 
     <!-- Order Replacement Tag -->
     <string name="replacement_subtitle">Lost or damaged? We\'ll send you a new one</string>
-    <string name="free_replacement">Free Replacement</string>
+    <string name="free_replacement">Free replacement</string>
     <string name="replacement_shipping_info">Your replacement tag will be shipped within 2\u20133 business days\u2026</string>
-    <string name="replacement_shipping_required">Shipping Fee Required</string>
+    <string name="replacement_shipping_required">Shipping fee required</string>
     <string name="replacement_shipping_cost">A shipping fee of %1$s applies to your replacement tag order.</string>
 
     <!-- MARK: Delivery Method (PostaPont) -->
-    <string name="delivery_method_title">Delivery Method</string>
-    <string name="home_delivery_option">Home Delivery</string>
-    <string name="postapoint_delivery_option">PostaPont Pickup</string>
-    <string name="postapoint_zip_placeholder">Zip Code</string>
+    <string name="delivery_method_title">Delivery method</string>
+    <string name="home_delivery_option">Home delivery</string>
+    <string name="postapoint_delivery_option">PostaPont pickup</string>
+    <string name="postapoint_zip_placeholder">ZIP code</string>
     <string name="postapoint_search">Search</string>
-    <string name="postapoint_no_results">No PostaPont locations found for this zip code</string>
-    <string name="postapoint_search_failed">Failed to search delivery points</string>
+    <string name="postapoint_no_results">No PostaPont locations found near this ZIP code</string>
+    <string name="postapoint_search_failed">Failed to find a PostaPont</string>
 
     <!-- ============================================ -->
     <!-- MARK: Subscription / Pricing -->
     <!-- ============================================ -->
     <string name="subscription_title">Subscription</string>
-    <string name="subscription_choose_plan">Choose Plan</string>
+    <string name="subscription_choose_plan">Choose a plan</string>
     <string name="subscription_monthly">Monthly</string>
     <string name="subscription_yearly">Yearly</string>
     <string name="subscription_popular">Popular</string>
-    <string name="subscription_current_plan">Current Plan</string>
-    <string name="subscription_select">Select Plan</string>
+    <string name="subscription_current_plan">Current plan</string>
+    <string name="subscription_select">Choose a plan</string>
     <string name="subscription_max_pets">Max pets: %1$s</string>
     <string name="subscription_vet_alerts">Vet &amp; rescue alerts</string>
     <string name="subscription_sms">SMS notifications</string>
@@ -823,14 +823,14 @@
     <!-- ============================================ -->
     <!-- MARK: Billing -->
     <!-- ============================================ -->
-    <string name="billing_title">Billing &amp; Invoices</string>
+    <string name="billing_title">Billing</string>
     <string name="billing_manage_subscription">Manage Subscription</string>
     <string name="billing_manage_description">Change plan, update payment method, or cancel</string>
-    <string name="billing_current_plan">Current Plan</string>
+    <string name="billing_current_plan">Current plan</string>
     <string name="billing_plan_label">Plan</string>
     <string name="billing_status_label">Status</string>
-    <string name="plan_renews">Renews on</string>
-    <string name="plan_cancels_on">Cancels on</string>
+    <string name="plan_renews">Renewal date</string>
+    <string name="plan_cancels_on">Cancellation date</string>
     <string name="billing_invoices">Invoices</string>
     <string name="billing_no_invoices">No invoices yet</string>
     <string name="billing_subscription">Subscription</string>
@@ -840,19 +840,19 @@
     <string name="billing_unknown">Unknown</string>
     <string name="billing_past_due_title">Payment Past Due</string>
     <string name="billing_past_due_message">Your last payment failed. Please update your payment method to avoid service interruption.</string>
-    <string name="billing_update_payment">Update Payment Method</string>
+    <string name="billing_update_payment">Update payment method</string>
 
     <!-- ============================================ -->
     <!-- MARK: Referral -->
     <!-- ============================================ -->
-    <string name="referral_title">Refer a Friend</string>
+    <string name="referral_title">Refer a friend!</string>
     <string name="referral_loading">Loading\u2026</string>
     <string name="referral_your_code">Your Referral Code</string>
     <string name="referral_share_footer">Share your code with friends. When they subscribe, you both get rewarded!</string>
-    <string name="referral_how_it_works">How It Works</string>
+    <string name="referral_how_it_works">How it works</string>
     <string name="referral_step_1">Share your unique code with friends</string>
     <string name="referral_step_2">They use it when subscribing to a paid plan</string>
-    <string name="referral_step_3">You both enjoy 2 months free</string>
+    <string name="referral_step_3">You both get 2 months free</string>
     <string name="referral_history">Referral History</string>
     <string name="referral_no_referrals">No referrals yet. Share your code to get started!</string>
     <string name="referral_generate">Generate Referral Code</string>
@@ -860,20 +860,20 @@
     <string name="referral_copy">Copy</string>
     <string name="referral_share">Share</string>
     <string name="referral_pending">Pending</string>
-    <string name="referral_share_text">Use my referral code %1$s to get 2 months free on SENRA! https://senra.pet/choose-plan?referral=%2$s</string>
+    <string name="referral_share_text">Use my referral code %1$s and get 2 months free on SENRA! https://senra.pet/choose-plan?referral=%2$s</string>
     <string name="referral_clipboard_label">Referral Code</string>
     <string name="referral_use_friend_code">Use a Friend\'s Code</string>
     <string name="enter_friend_code">Enter referral code</string>
     <string name="apply_code">Apply</string>
     <string name="referral_code_applied">Referral code applied! You\'ll get 2 months free.</string>
     <string name="referral_code_invalid">Invalid or expired referral code</string>
-    <string name="referral_use_friend_footer">Enter a friend\'s referral code to get 2 months free when you subscribe.</string>
+    <string name="referral_use_friend_footer">Enter a friend\'s referral code to get 2 months free when you subscribe!</string>
 
     <!-- ============================================ -->
     <!-- MARK: Push Notification Prompt -->
     <!-- ============================================ -->
-    <string name="push_prompt_title">Stay Connected</string>
-    <string name="push_prompt_subtitle">Enable notifications to never miss an important update about your pet:</string>
+    <string name="push_prompt_title">Stay connected!</string>
+    <string name="push_prompt_subtitle">Enable notifications so you never miss an important update about your pet:</string>
     <string name="push_prompt_benefit_scan">Instant alerts when your pet\'s tag is scanned</string>
     <string name="push_prompt_benefit_sighting">Sighting reports from the community</string>
     <string name="push_prompt_benefit_found">Know immediately when your pet is found</string>
@@ -896,29 +896,29 @@
     <string name="failed_load_profile">Failed to load profile</string>
     <string name="public_profile_subtitle">This is how others see %1$s\'s profile</string>
     <string name="owner_notified_sms_email">%1$s\'s owner will receive an SMS and email with your location</string>
-    <string name="contact_owner_plea">Please let my owner know that you have found me\u2026</string>
-    <string name="contact_owner_plea_full">Please let my owner know that you have found me. You can reach them using the contact details below.</string>
+    <string name="contact_owner_plea">Please let my owner know that you have found me\u2026!</string>
+    <string name="contact_owner_plea_full">Please let my owner know that you have found me! You can reach them using the contact details below.</string>
     <string name="contact_info_not_set">Contact info not set up yet</string>
     <string name="contact_info_hidden">Contact info is hidden</string>
-    <string name="contact_info_hidden_hint">Your contact details are set but hidden due to privacy settings. Update in Account \u2192 Privacy Mode.</string>
+    <string name="contact_info_hidden_hint">Your contact details are set but hidden due to your privacy settings. Update in Account &gt; Privacy Mode.</string>
     <string name="allergies">Allergies</string>
     <string name="medications">Medications</string>
-    <string name="unique_features">Unique Features</string>
-    <string name="behavior_notes">Behavior Notes</string>
-    <string name="how_it_works">How It Works</string>
-    <string name="help_reunite_pet">Help reunite %1$s with their owner safely</string>
-    <string name="step_share_location">Share Your Location</string>
-    <string name="step_share_location_desc">Tap the button above to share your location with the owner</string>
+    <string name="unique_features">Unique features</string>
+    <string name="behavior_notes">Behavior notes</string>
+    <string name="how_it_works">How it works</string>
+    <string name="help_reunite_pet">Help reunite %1$s with their owner safely!</string>
+    <string name="step_share_location">Contact the owner or share your location</string>
+    <string name="step_share_location_desc">Tap the button above to share your location with the owner!</string>
     <string name="step_owner_notified">%1$s\'s owner notified</string>
     <string name="step_owner_notified_desc">The owner receives an SMS and email with your location</string>
     <string name="step_quick_reunion">Quick Reunion</string>
     <string name="step_quick_reunion_desc">The owner can navigate to your location to collect their pet</string>
-    <string name="step_share_location_desc_public">Click the button above to share where you found %1$s</string>
+    <string name="step_share_location_desc_public">Use the owner\'s contact details or click the button above to share where you found %1$s!</string>
     <string name="step_owner_notified_desc_public">The owner receives an SMS with your location on Google Maps</string>
-    <string name="step_quick_reunion_desc_public">Stay near the location so the owner can find you and %1$s</string>
-    <string name="owner_phone_label">Owner Phone: %1$s</string>
-    <string name="owner_email_label">Owner Email: %1$s</string>
-    <string name="your_privacy_notice">Your privacy matters. We\'ll only share your location with %1$s\'s owner with your explicit consent.</string>
+    <string name="step_quick_reunion_desc_public">Stay near the location so the owner can find you and %1$s!</string>
+    <string name="owner_phone_label">Owner\'s phone: %1$s</string>
+    <string name="owner_email_label">Owner\'s email: %1$s</string>
+    <string name="your_privacy_notice">Your privacy matters. We will only share your location with %1$s\'s owner with your explicit consent.</string>
 
     <!-- ============================================ -->
     <!-- MARK: Offline Mode -->
@@ -928,12 +928,12 @@
     <string name="sync_completed">Sync completed</string>
     <string name="sync_failed">Sync failed: %1$s</string>
     <string name="sync_no_connection">Cannot sync: No internet connection</string>
-    <string name="pending_changes">Pending Changes</string>
+    <string name="pending_changes">Pending changes</string>
     <string name="online">Online</string>
     <string name="offline_changes_sync">Changes will sync when online</string>
     <string name="tap_view_queued_actions">Tap to view queued actions</string>
     <string name="connected">Connected</string>
-    <string name="sync_now">Sync Now</string>
+    <string name="sync_now">Sync now</string>
     <string name="changes_sync_restored">Changes will be synced automatically when connection is restored.</string>
     <plurals name="queued_actions">
         <item quantity="one">%d action queued</item>
@@ -943,8 +943,8 @@
     <!-- Sync Error Banner -->
     <string name="sync_actions_failed">%1$d action(s) failed to sync</string>
     <string name="sync_tried_count">Tried %1$d time(s)</string>
-    <string name="sync_retry_all">Retry All</string>
-    <string name="sync_dismiss_all">Dismiss All</string>
+    <string name="sync_retry_all">Retry all</string>
+    <string name="sync_dismiss_all">Dismiss all</string>
     <string name="sync_syncing">Syncing\u2026</string>
     <string name="sync_count_failed">%1$d failed</string>
     <string name="sync_count_pending">%1$d pending</string>
@@ -954,7 +954,7 @@
     <!-- ============================================ -->
     <string name="error_something_wrong">Something went wrong</string>
     <string name="something_went_wrong">Something went wrong</string>
-    <string name="try_again">Try Again</string>
+    <string name="try_again">Try again</string>
     <string name="error_session_expired_message">Your session has expired. Please log in again.</string>
     <string name="error_login_failed">Login failed</string>
     <string name="error_verification_failed">Verification failed</string>
@@ -983,8 +983,8 @@
     <string name="open_with">Open with\u2026</string>
     <string name="no_browser_for_navigation">No app available to open the map. Install Waze or a browser.</string>
     <string name="map_label_pet_location">Pet Location</string>
-    <string name="map_label_tag_scanned">Pet Tag Scanned</string>
-    <string name="map_label_sighting">Pet Sighting</string>
+    <string name="map_label_tag_scanned">Pet tag scanned</string>
+    <string name="map_label_sighting">Pet sighting</string>
     <string name="map_label_sighting_named">%1$s sighting</string>
 
     <!-- ============================================ -->
@@ -1064,16 +1064,16 @@
     <string name="faq_title">Frequently Asked Questions</string>
     <string name="guides_title">User Guides</string>
     <string name="help_faq_group_getting_started">Getting Started</string>
-    <string name="help_faq_group_tags_scanning">Tags &amp; Scanning</string>
-    <string name="help_faq_group_missing_pets">Missing Pets &amp; Alerts</string>
-    <string name="help_faq_group_billing_plans">Billing &amp; Plans</string>
+    <string name="help_faq_group_tags_scanning">Tags &amp; scanning</string>
+    <string name="help_faq_group_missing_pets">Missing pets &amp; alerts</string>
+    <string name="help_faq_group_billing_plans">Billing &amp; plans</string>
     <string name="help_faq_group_privacy_account">Privacy &amp; Account</string>
     <string name="help_faq_group_troubleshooting">Troubleshooting</string>
 
     <!-- Checkout & Order Status -->
     <string name="checkout_subscription_success">Your subscription is now active!</string>
     <string name="checkout_tag_order_success">Payment successful! Your tag order is being processed.</string>
-    <string name="checkout_replacement_success">Payment successful! Your replacement tag is on the way.</string>
+    <string name="checkout_replacement_success">Payment successful! Your replacement tag is on its way.</string>
     <string name="order_status_completed">Completed</string>
     <string name="order_status_pending">Pending</string>
     <string name="order_status_failed">Failed</string>
@@ -1096,14 +1096,14 @@
     <string name="delivery_method_label">Delivery Method</string>
     <string name="delivery_home">Home Delivery</string>
     <string name="delivery_postapoint">PostaPont Pickup</string>
-    <string name="pending_registrations_title">Pending Tags</string>
+    <string name="pending_registrations_title">Pending tags</string>
     <string name="ready_to_activate">Ready to Activate</string>
     <string name="still_processing">Still Processing</string>
-    <string name="scan_tag_now">Scan Tag</string>
-    <string name="create_profile_first">Create Profile</string>
-    <string name="create_profile_while_waiting">Create Profile While Waiting</string>
+    <string name="scan_tag_now">Scan tag</string>
+    <string name="create_profile_first">Create profile</string>
+    <string name="create_profile_while_waiting">Create profile while waiting</string>
     <string name="all_caught_up">All Caught Up!</string>
-    <string name="all_caught_up_description">You don\'t have any pending tag registrations.</string>
+    <string name="all_caught_up_description">You have no pending tag registrations.</string>
     <string name="status_shipped">Shipped</string>
     <string name="status_delivered">Delivered</string>
     <string name="status_processing">Processing</string>
@@ -1111,27 +1111,27 @@
     <string name="activation_help_title">How to activate your tag</string>
     <string name="activation_help_step1">Wait for your tag to arrive</string>
     <string name="activation_help_step2">Scan the QR code on the tag</string>
-    <string name="activation_help_step3">Select the pet to link it to</string>
-    <string name="activation_help_step4">Choose your subscription plan</string>
-    <string name="pets_from_order">Pets from Your Order</string>
+    <string name="activation_help_step3">Select your pet</string>
+    <string name="activation_help_step4">Choose a subscription plan</string>
+    <string name="pets_from_order">Pets from your order</string>
     <string name="from_your_order">From your order</string>
     <string name="needs_profile">Needs profile</string>
-    <string name="create_profile_for">Create Profile for %1$s</string>
-    <string name="other_pets">Other Pets</string>
+    <string name="create_profile_for">Create profile for %1$s</string>
+    <string name="other_pets">Other pets</string>
     <string name="link_to_pet">Link to %1$s</string>
-    <string name="no_pets_yet">No Pets Yet</string>
+    <string name="no_pets_yet">No pets yet</string>
     <string name="create_first_pet">Create your first pet profile to activate this tag.</string>
-    <string name="create_new_pet">Create New Pet</string>
+    <string name="create_new_pet">Create new pet</string>
     <string name="notifications_title">Notifications</string>
-    <string name="no_notifications">No Notifications</string>
+    <string name="no_notifications">No notifications</string>
     <string name="no_notifications_desc">You\'re all caught up! Notifications will appear here when your pet\'s tag is scanned.</string>
-    <string name="mark_all_read">Mark All Read</string>
+    <string name="mark_all_read">Mark all as read</string>
     <string name="create_profile_hint">Create a pet profile first, then scan the tag again to activate.</string>
-    <string name="activation_error_qr_not_found">QR code not recognized. Please ensure you are scanning an official SENRA tag.</string>
-    <string name="activation_error_already_activated">This tag is already linked to another pet. Contact support if you believe this is your tag.</string>
-    <string name="activation_error_not_linked">This tag hasn\'t been assigned to your order yet. Please wait for shipping confirmation.</string>
-    <string name="activation_error_not_shipped">Your order hasn\'t shipped yet. Please wait until you receive your tag.</string>
-    <string name="activation_error_not_owner">You don\'t own this pet. Please select one of your own pets.</string>
+    <string name="activation_error_qr_not_found">QR code not recognized. Please make sure you are scanning an official SENRA tag.</string>
+    <string name="activation_error_already_activated">This tag is already linked to another pet. Please contact support if you believe this is your tag.</string>
+    <string name="activation_error_not_linked">This tag hasn\'t been assigned to your order yet. Please wait for your shipping confirmation.</string>
+    <string name="activation_error_not_shipped">Your order hasn\'t shipped yet. Please wait until your tag arrives.</string>
+    <string name="activation_error_not_owner">This pet doesn\'t belong to you. Please select one of your own pets.</string>
 
     <!-- Allergies & Medications -->
     <string name="allergies_label">Allergies</string>
@@ -1247,13 +1247,13 @@
     <string name="breed_cat_toyger">Toyger</string>
     <string name="breed_cat_chausie">Chausie</string>
     <string name="reunion_city_label">City (optional)</string>
-    <string name="reunion_city_placeholder">Where was your pet found?</string>
+    <string name="reunion_city_placeholder">Where did you find the pet?</string>
 
     <!-- Pet form warnings -->
-    <string name="profile_incomplete_warning">Complete your pet\'s profile</string>
-    <string name="profile_incomplete_desc">Missing details make it harder to reunite your pet if they go missing. Please fill in weight, color, and medical information.</string>
+    <string name="profile_incomplete_warning">Complete your pet\'s profile!</string>
+    <string name="profile_incomplete_desc">Missing details make it harder to find your pet if they go missing. Please add their weight, color, and medical information.</string>
     <string name="identity_locked_title">Name, species, and breed are locked</string>
-    <string name="identity_locked_desc">These fields cannot be changed after tag activation to prevent misuse. Contact support if you need to make changes.</string>
+    <string name="identity_locked_desc">These fields cannot be changed after tag activation. Please contact support if you need to make changes.</string>
 
     <!-- Shelter Adoption -->
     <string name="trial_ends_on">Trial ends on</string>
@@ -1273,24 +1273,24 @@
     <string name="notif_promo_expiring_title">Trial Ending Soon</string>
     <string name="notif_promo_expiring_body">Subscribe now to keep your premium features.</string>
     <string name="notif_alert_reminder_title">Missing Pet Reminder</string>
-    <string name="notif_alert_reminder_body">Your pet is still missing. Keep the alert active.</string>
+    <string name="notif_alert_reminder_body">Your pet is still missing.</string>
     <string name="notif_multiple_sightings_title">Multiple Sightings!</string>
     <string name="notif_multiple_sightings_body">Several sightings reported in a nearby area.</string>
     <string name="notif_channel_lifecycle">Subscription &amp; Reminders</string>
     <string name="notif_channel_lifecycle_desc">Updates about your subscription, plans, and reminders.</string>
 
     <!-- Location Sharing Consent -->
-    <string name="share_location_title">Share Your Location</string>
-    <string name="share_location_exact_note">Your precise GPS location will be shared with the owner so they can come find their pet.</string>
+    <string name="share_location_title">Share your location</string>
+    <string name="share_location_exact_note">The owner will be able to see your location.</string>
     <string name="share_location_confirm">Share</string>
     <string name="share_location_success">Location shared! The owner has been notified.</string>
     <string name="share_location_denied">Location permission is needed to share your location</string>
     <string name="share_location_error">Failed to share location. Please try again.</string>
-    <string name="share_address_instead">Or type the address instead</string>
-    <string name="share_manual_address_title">Type the Address</string>
+    <string name="share_address_instead">Or enter the address manually</string>
+    <string name="share_manual_address_title">Enter the address</string>
     <string name="share_manual_address_desc">If you can\'t share GPS, type the address or a description of where you found %1$s. You can also share your phone number here if you want the owner to be able to call you back.</string>
     <string name="share_manual_address_label">Address</string>
-    <string name="share_manual_address_placeholder">e.g. 123 Pine St, Budapest — near the playground. You can leave your phone number too if you want the owner to call you.</string>
+    <string name="share_manual_address_placeholder">e.g. 123 Pine St, Budapest — near the playground. You can leave your phone number too if you\'d like the owner to call you back.</string>
     <string name="owner_communication_disabled">This pet\'s owner has not enabled finder communication.</string>
 
     <!-- Pet Localization (species, breed, sex) -->
@@ -1315,43 +1315,43 @@
     <!-- Localization audit fixes -->
     <string name="accessibility_refresh">Refresh</string>
     <!-- Account menu restructuring -->
-    <string name="notification_settings">Notification Settings</string>
-    <string name="orders_and_invoices">Orders &amp; Invoices</string>
-    <string name="contact_us">Contact Us</string>
+    <string name="notification_settings">Notification settings</string>
+    <string name="orders_and_invoices">Orders &amp; invoices</string>
+    <string name="contact_us">Contact us</string>
     <string name="identity_will_lock_title">Name, species, and breed will be locked</string>
     <string name="identity_will_lock_desc">These fields cannot be changed after registration. Please make sure they are correct before saving.</string>
-    <string name="date_of_birth">Date of Birth</string>
+    <string name="date_of_birth">Date of birth</string>
     <string name="dob_set_date">Set date of birth</string>
     <string name="dob_approximate">Approximate date</string>
     <string name="dob_select_date">Select date</string>
     <string name="weight_helper">Weight in kg (e.g. 4.5)</string>
 
     <!-- Welcome Screen -->
-    <string name="welcome_to_senra">Welcome to SENRA!</string>
-    <string name="welcome_subtitle">Your pet\'s safety starts here. Let\'s set up your first tag.</string>
+    <string name="welcome_to_senra">Welcome to Senra!</string>
+    <string name="welcome_subtitle">Your pet\'s safety starts here. Set up your first tag.</string>
     <string name="welcome_step_1">Scan the QR code on your tag</string>
     <string name="welcome_step_2">Create your pet\'s profile</string>
     <string name="welcome_step_3">Your pet is protected!</string>
-    <string name="welcome_scan_first_tag">Scan Your First Tag</string>
-    <string name="welcome_explore_account">Explore Your Account</string>
+    <string name="welcome_scan_first_tag">Scan your first tag</string>
+    <string name="welcome_explore_account">Explore your account</string>
 
     <!-- Tag Activation Flow -->
-    <string name="setup_your_tags">Set Up Your Tags</string>
+    <string name="setup_your_tags">Set up your tags</string>
     <string name="setup_your_tags_subtitle">You ordered tags for these pets:</string>
     <string name="ready_to_setup">Ready to set up</string>
     <string name="already_activated">Already activated</string>
     <string name="setting_up_tag_for">Setting up tag for %s</string>
     <string name="tag_activated_for">Tag activated for %s!</string>
-    <string name="pet_now_protected">Your pet is now protected with SENRA</string>
+    <string name="pet_now_protected">Your pet is now protected by SENRA</string>
     <string name="more_tags_to_setup">You still have tags to set up</string>
     <string name="setup_pet_tag">Set up %s\'s tag</string>
     <string name="whats_next">What\'s next?</string>
     <string name="choose_subscription_plan">Choose your subscription plan</string>
-    <string name="register_your_vet">Register your vet</string>
-    <string name="update_contact_details">Update your contact details &amp; privacy</string>
-    <string name="go_to_home">Go to Home</string>
-    <string name="thank_you_senra">Thank you for using SENRA!</string>
-    <string name="tap_pet_name_hint">Just tap on your pet\'s name to set up their tag</string>
+    <string name="register_your_vet">Register your vet!</string>
+    <string name="update_contact_details">Update your contact details and privacy settings!</string>
+    <string name="go_to_home">Go to home</string>
+    <string name="thank_you_senra">Thank you for choosing SENRA!</string>
+    <string name="tap_pet_name_hint">Just tap on your pet\'s name to set up their tag!</string>
 
     <!-- Age Plurals -->
     <plurals name="age_years">
@@ -1364,49 +1364,49 @@
     </plurals>
     <!-- FAQ Questions and Answers -->
     <string name="help_faq_q1">How do I register my pet?</string>
-    <string name="help_faq_a1">You can register your pet in the \'My Pets\' menu by tapping \'Add New Pet\'. Fill in the required information and upload one or more photos.</string>
+    <string name="help_faq_a1">You can register your pet in the \'My Pets\' menu by tapping \'Add new pet\'. Fill in the required information and upload one or more photos.</string>
     <string name="help_faq_q2">What information should I provide in my pet\'s profile?</string>
-    <string name="help_faq_a2">You already provided your pet\'s name when ordering the tag, and it will appear in your pet\'s profile once the tag is activated. Enter your pet\'s species and breed. To prevent misuse, these details can only be entered once. If you make a mistake or a typo, contact us and we\'ll help. Here you can also add your cat/dog\'s weight, age, colour, and any distinctive features or typical behaviour. You can upload photos too. These can help with quick identification and safe return of your pet. You decide what information is visible about your pet if they go missing.</string>
+    <string name="help_faq_a2">You provided your pet\'s name when ordering the tag, and it will appear in your pet\'s profile once the tag is activated. Enter your pet\'s species and breed — to prevent misuse, these details can only be entered once. If you make a mistake or typo, contact us and we\'ll help. Here you can also add your cat/dog\'s weight, age, colour, and any distinctive features or typical behaviour. You can upload photos too. These can help with quick identification and safe return of your pet. You decide what information is visible about your pet if they go missing.</string>
     <string name="help_faq_q3">How does the QR code tag work?</string>
-    <string name="help_faq_a3">Every pet receives a unique QR code tag. This code is linked to your pet\'s profile. When someone scans the QR code with their phone, they can instantly view your pet\'s profile and the contact details you\'ve marked as public.</string>
+    <string name="help_faq_a3">Every pet receives a unique QR code tag. This code is linked to your pet\'s profile. When someone scans the QR code with their smartphone, they can instantly view your pet\'s profile and the contact details you\'ve marked as public.</string>
     <string name="help_faq_q4">Can I update my pet\'s details later?</string>
-    <string name="help_faq_a4">Yes! You can update your pet\'s details anytime in the \'My Pets\' section by selecting your pet and tapping \'Edit Profile\'. You can update any field except name, species, and breed, including photos. Changes are saved immediately.</string>
+    <string name="help_faq_a4">Yes! You can update your pet\'s details at any time in the \'My Pets\' section by selecting your pet and tapping \'Edit profile\'. You can update any field except name, species, and breed, including photos. Changes are saved immediately.</string>
     <string name="help_faq_q5">How do I order a replacement tag?</string>
     <string name="help_faq_a5">Go to the \'Home/My Account\' page and tap \'Order Replacement Tag\'. Select which pet needs a new tag. Maximum and Standard plan subscribers can request free replacement tags, while Starter plan members can order replacements for the shipping cost.</string>
     <string name="help_faq_q6">How do I activate my tag after it arrives?</string>
-    <string name="help_faq_a6">Download the SENRA mobile app from the Google Play Store or App Store! Open it and go to the \'Activate\' menu, point your phone\'s camera at the QR code on the tag! Scanning the QR code links the tag to your account. Then create a new pet profile. After completing activation, you can choose your subscription plan.</string>
+    <string name="help_faq_a6">Download the SENRA mobile app from the Google Play Store or the App Store. Open it and go to the \'Activate\' menu, then point your phone\'s camera at the QR code on the tag. Scanning the QR code links the tag to your account. Next, create a new pet profile. Once activation is complete, you can select your subscription plan.</string>
     <string name="help_faq_q7">Can I give a SENRA tag as a gift?</string>
-    <string name="help_faq_a7">Yes! SENRA tags make great gifts for pet owners. Simply order the tag from your own account — when the recipient receives it, they can scan the QR code, create their own account, and activate the tag for their pet. The recipient doesn\'t need to register in advance — scanning the tag guides them through account creation and linking the tag to their pet.</string>
+    <string name="help_faq_a7">Yes! SENRA tags make great gifts for pet owners. Simply order the tag from your own account — when the recipient receives it, they can scan the QR code, create their own account, and activate the tag for their pet. The recipient does not need to register in advance — scanning the tag guides them through account creation and linking the tag to their pet.</string>
     <string name="help_faq_q8">What should I do if my pet goes missing?</string>
-    <string name="help_faq_a8">Go to \'My Pets\', tap the menu on your pet\'s card, and select \'Mark as Missing\'. This creates a \'missing pet alert\' that is sent to all SENRA community members registered within 10 km of your address. Vets and shelters are also notified. People nearby can see the alert and notify you if they\'ve seen or found your pet (directly or through our online system). You\'ll receive an instant notification for every sighting.</string>
+    <string name="help_faq_a8">Go to \'My Pets\', tap the menu on your pet\'s card, and select \'Mark as Missing\'. This creates a missing pet alert that is sent to all SENRA community members registered within 10 km of your address. Vets and shelters are also notified. People nearby can see the alert and notify you if they have seen or found your pet — directly or through our online system. You will receive an instant notification for every sighting.</string>
     <string name="help_faq_q9">How do missing pet alerts work?</string>
-    <string name="help_faq_a9">When you mark your cat or dog as missing, an alert is created with your pet\'s photo and details. SENRA users within 10 km are immediately notified about your missing pet, and your pet also appears on the \'Missing Pets\' map. Vets and shelters registered in the SENRA system in your area also receive the alert. Anyone who scans your pet\'s tag can send you the location where they found them and their own contact details. They can also contact you directly if you\'ve made your contact information public in your profile.</string>
+    <string name="help_faq_a9">When you mark your cat or dog as missing, an alert is created with your pet\'s photo and details. SENRA users within 10 km are immediately notified about your missing pet, and your pet also appears on the \'Missing Pets\' map. Vets and shelters registered in the SENRA system in your area also receive the alert. Anyone who scans your pet\'s tag can send you the location where they found them along with their own contact details. They can also contact you directly if you have made your contact information public in your profile.</string>
     <string name="help_faq_q10">How do I order a replacement tag?</string>
     <string name="help_faq_a10">Go to the \'Home/My Account\' page and tap \'Order Replacement Tag\'. Select which pet needs a new tag. Maximum and Standard plan subscribers can request free replacement tags, while Starter plan members can order replacements for the shipping cost.</string>
     <string name="help_faq_q11">What is the referral programme?</string>
-    <string name="help_faq_a11">In the Referral menu on your Profile page, you can generate a personal referral code. Share it with friends and family. When someone uses your code and subscribes to a paid plan (Standard or Maximum), both you and your friend get 2 months free on your subscription. You can track your referrals and their status on the Referral page.</string>
+    <string name="help_faq_a11">In the Referral menu on your Profile page, you can generate a personal referral code. Share it with your friends and family! When someone uses your code and subscribes to a paid plan (Standard or Maximum), both you and your friend get 2 months free on your subscription. You can track your referrals and their status on the Referral page.</string>
     <string name="help_faq_q12">Which countries do you ship to?</string>
     <string name="help_faq_a12">We currently ship to Hungary, Slovakia, Czech Republic, Austria, Romania, Croatia, Spain, Italy, France, Germany, Norway, and Portugal. Domestic shipping within Hungary: {{huPostapoint}} (PostaPont) or {{huHome}} (home delivery). International shipping: {{intlPrice}} per order.</string>
     <string name="help_faq_q13">Can I have multiple pets on one account?</string>
     <string name="help_faq_a13">Yes. With the Starter (free) plan, you can register up to 10 pets, but available features are limited. The Standard plan is designed for one cat or dog, but all features are included. The Maximum plan includes all features and you can register up to 10 pets. You can switch subscription plans anytime under \'Home/My Account\'.</string>
     <string name="help_faq_q14">How do I report a found pet?</string>
-    <string name="help_faq_a14">If the pet has a SENRA tag, simply scan the QR code with your phone\'s camera — no app needed. You can view the pet\'s profile and share your location with the owner.</string>
+    <string name="help_faq_a14">If the pet has a SENRA tag, simply scan the QR code with your smartphone\'s camera — no app needed. You can view the pet\'s profile and share your location with the owner.</string>
     <string name="help_faq_q15">Is my personal data safe?</string>
     <string name="help_faq_a15">Yes. You control exactly which data is visible when someone scans your pet\'s tag. In \'Settings\' &gt; \'Privacy Settings\', you can choose whether to show your phone number, email address, or home address. Your login is protected by a one-time verification code every time — there\'s no password that could be stolen. You can delete your account and all your data at any time.</string>
     <string name="help_faq_q16">We lost the tag or it got damaged — what should I do?</string>
     <string name="help_faq_a16">Don\'t worry — your pet\'s digital profile is safe and is not stored on the tag. Go to the Account page and tap \'Order Replacement\'. We\'ll link a new tag with a fresh QR code to your existing pet profile. Standard and Maximum plan subscribers can request unlimited free replacements, while Starter members need to pay the shipping cost for a replacement tag. The old tag is deactivated immediately when the replacement is ordered.</string>
     <string name="help_faq_q17">My tag won\'t scan — what should I do?</string>
-    <string name="help_faq_a17">Try the following: clean the tag surface with a damp cloth, ensure good lighting, hold your phone camera steadily about 10-15 cm from the tag, and check that your camera app or QR reader is working. If the QR code is scratched or worn, order a free replacement from the \'Home/My Account\' page (free replacement is available for Standard and Maximum plan subscribers — Starter members need to pay the shipping cost for a replacement tag).</string>
+    <string name="help_faq_a17">Try the following: clean the tag surface with a damp cloth, ensure good lighting, hold your phone camera steadily about 10–15 cm from the tag, and check that your camera app or QR reader is working. If the QR code is scratched or worn, order a free replacement from the \'Home/My Account\' page (free replacement is available for Standard and Maximum plan subscribers — Starter members need to pay the shipping cost for a replacement tag).</string>
     <string name="help_faq_q18">I found a pet without a SENRA tag — what can I do?</string>
     <string name="help_faq_a18">Check the Missing Pets map on the SENRA website (senra.pet) — the pet may have been reported missing in your area. You can also view missing pet alerts within the app. Take the pet to the nearest vet clinic to have its microchip scanned. If the pet has a SENRA tag, scan the QR code with your phone\'s camera — the owner\'s contact details will appear.</string>
     <string name="help_faq_q19">Can I change my email address?</string>
-    <string name="help_faq_a19">Your primary email address serves as your account identifier and therefore cannot be changed directly. If you\'d like to use a different email as your public contact, you can add a secondary email address in \'Settings\' &gt; \'Contact Details\' — this can also appear on your pet\'s profile if you enable it, so the finder can see it immediately and contact you directly. If you absolutely need to change your primary email, contact us at hello@senra.pet and we\'ll help migrate your account.</string>
+    <string name="help_faq_a19">Your primary email address serves as your account identifier and therefore cannot be changed directly. If you\'d like to use a different email address as your public contact, you can add a secondary email address under \'Settings\' &gt; \'Contact Details\' — this can also appear on your pet\'s profile if you enable it, so the finder can see it immediately and contact you directly. If you absolutely need to change your primary email address, contact us at hello@senra.pet and we\'ll help migrate your account.</string>
     <string name="help_faq_q20">What\'s the difference between a microchip and a SENRA QR tag?</string>
     <string name="help_faq_a20">A microchip is a tiny implant under your pet\'s skin that stores a unique 15-digit identifier — but it requires a special reader (usually only available at vets and shelters). The SENRA QR tag can be easily scanned with any smartphone camera, instantly displaying your pet\'s full profile, photo, and the contact details you\'ve approved. The finder can also share where they found your pet.</string>
     <string name="help_faq_q21">What happens to my data if I cancel my subscription?</string>
     <string name="help_faq_a21">If you cancel your subscription, you retain access to paid features until the end of the current billing period. After that, your account automatically switches to the free Starter plan. Pet profiles, photos, and QR tags remain active — you only lose access to premium features (SMS notifications, vet alerts, free tag replacement, etc.). Your data is not deleted upon cancellation. To permanently delete all data, use the Delete Account option in Settings.</string>
     <string name="help_faq_q22">How can I register my clinic or shelter with SENRA?</string>
-    <string name="help_faq_a22">Vet clinics and shelters can register at senra.pet/register-vet-shelter. Fill in the clinic or organisation details, and we\'ll send them a verification email. After confirmation, we\'ll automatically send them notifications when pets go missing in your area — helping lost pets get home. There\'s no cost and no login required.</string>
+    <string name="help_faq_a22">Vet clinics and shelters can register at senra.pet/register-vet-shelter. Fill in the clinic or organisation details, and we\'ll send them a verification email. After confirmation, we\'ll automatically send them notifications when pets go missing in your area — helping lost pets get home. There is no cost and no login required.</string>
     <string name="help_faq_q23">How can I share a success story if my pet was found?</string>
     <string name="help_faq_a23">When you mark your pet as \'Found\', we\'ll ask if you\'d like to share the good news with others. You can publish a short story about how your pet was found. Public stories appear on the \'Found Pets\' map. You can also publish or remove your pet\'s success story later by visiting their profile.</string>
     <string name="help_faq_q24">What browsers and devices are supported?</string>
