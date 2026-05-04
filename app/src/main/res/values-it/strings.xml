@@ -71,6 +71,9 @@
     <string name="login_failed">Accesso non riuscito</string>
     <string name="verification_failed">Verifica non riuscita</string>
     <string name="invalid_email">Inserisci un indirizzo email valido</string>
+    <string name="invalid_phone">Inserisci un numero di telefono valido</string>
+    <string name="invalid_location_coords">Non siamo riusciti a localizzare con precisione. Prova un indirizzo più specifico.</string>
+    <string name="address_geocode_failed_warning">Non siamo riusciti a localizzare con precisione quell\'indirizzo — l\'allerta verrà inviata senza posizione esatta. Prova \"posizione attuale\" per risultati migliori.</string>
     <string name="otp_placeholder" translatable="false">000000</string>
     <string name="resend_code_cooldown">Rinvia codice tra %1$ds</string>
     <string name="resend_code_prompt">Non hai ricevuto il codice? Rinvia</string>
