@@ -98,6 +98,12 @@ class AuthRepository(
         tokenStore.clearAuthToken()
         tokenStore.clearRefreshToken()
         tokenStore.clearUserInfo()
+        // Mirror iOS AuthViewModel.logout — clearing the biometric-enabled
+        // flag avoids the confusing case where the next user on this device
+        // sees a biometric prompt for the previous account. Token is gone
+        // so biometric login would just fail anyway, but the prompt itself
+        // leaks "this device used to belong to someone."
+        tokenStore.setBiometricEnabled(false)
 
         // GDPR: wipe local Room cache + queued offline actions. Previously
         // left pets / alerts / stories / pending edits on disk, so the

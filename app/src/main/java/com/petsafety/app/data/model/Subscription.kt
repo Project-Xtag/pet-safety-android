@@ -1,5 +1,9 @@
 package com.petsafety.app.data.model
 
+import com.petsafety.app.ui.util.LocaleFormatting
+import java.time.Duration
+import java.time.Instant
+import java.time.format.FormatStyle
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -92,6 +96,42 @@ data class UserSubscription(
             SubscriptionStatus.SUSPENDED -> "Suspended"
         }
     val isTrialing: Boolean get() = status == SubscriptionStatus.TRIALING
+
+    /**
+     * Trial end timestamp parsed to [Instant]. Tolerates both standard
+     * ISO-8601 ("2026-05-04T10:30:00Z") and the backend's occasional
+     * trailing-Z-omitted variant. Null when [trialEndsAt] is absent or
+     * unparseable.
+     */
+    val trialEndsAtInstant: Instant?
+        get() {
+            val raw = trialEndsAt ?: return null
+            return runCatching { Instant.parse(raw) }
+                .recoverCatching { Instant.parse(raw.take(19) + "Z") }
+                .getOrNull()
+        }
+
+    /**
+     * Locale-aware long-form date string for the trial end (e.g.
+     * "May 4, 2026" or "2026. május 4."). Mirrors iOS Subscription
+     * `trialEndFormatted`. Null when [trialEndsAt] is absent.
+     */
+    val trialEndFormatted: String?
+        get() {
+            val raw = trialEndsAt ?: return null
+            return LocaleFormatting.formatDate(raw, FormatStyle.LONG)
+        }
+
+    /**
+     * Whole days remaining until trial expiry, measured from now in the
+     * system clock. Negative if expired. Null when [trialEndsAt] is
+     * absent or unparseable. Mirrors iOS `trialDaysLeft`.
+     */
+    val trialDaysLeft: Int?
+        get() {
+            val end = trialEndsAtInstant ?: return null
+            return Duration.between(Instant.now(), end).toDays().toInt()
+        }
 }
 
 @Serializable

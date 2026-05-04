@@ -71,6 +71,9 @@
     <string name="login_failed">Login failed</string>
     <string name="verification_failed">Verification failed</string>
     <string name="invalid_email">Please enter a valid email address</string>
+    <string name="invalid_phone">Please enter a valid phone number</string>
+    <string name="invalid_location_coords">Couldn\'t pinpoint that location. Try a more specific address.</string>
+    <string name="address_geocode_failed_warning">Couldn\'t pinpoint that address — your alert will go out without a precise location. Try \"current location\" for better results.</string>
     <string name="otp_placeholder" translatable="false">000000</string>
     <string name="resend_code_cooldown">Resend code in %1$ds</string>
     <string name="resend_code_prompt">Didn\'t receive the code? Resend</string>
@@ -1278,14 +1281,17 @@
 
     <!-- Location Sharing Consent -->
     <string name="share_location_title">Share Your Location</string>
-    <string name="share_location_exact">Share exact location</string>
-    <string name="share_location_approximate">Share approximate location (~100m)</string>
-    <string name="share_location_exact_note">The owner will see your location</string>
-    <string name="share_location_approximate_note">The owner will see an approximate area</string>
+    <string name="share_location_exact_note">Your precise GPS location will be shared with the owner so they can come find their pet.</string>
     <string name="share_location_confirm">Share</string>
     <string name="share_location_success">Location shared! The owner has been notified.</string>
     <string name="share_location_denied">Location permission is needed to share your location</string>
     <string name="share_location_error">Failed to share location. Please try again.</string>
+    <string name="share_address_instead">Or type the address instead</string>
+    <string name="share_manual_address_title">Type the Address</string>
+    <string name="share_manual_address_desc">If you can\'t share GPS, type the address or a description of where you found %1$s. You can also share your phone number here if you want the owner to be able to call you back.</string>
+    <string name="share_manual_address_label">Address</string>
+    <string name="share_manual_address_placeholder">e.g. 123 Pine St, Budapest — near the playground. You can leave your phone number too if you want the owner to call you.</string>
+    <string name="owner_communication_disabled">This pet\'s owner has not enabled finder communication.</string>
 
     <!-- Pet Localization (species, breed, sex) -->
     <string name="species_dog">Dog</string>

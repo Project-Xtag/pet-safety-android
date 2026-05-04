@@ -97,8 +97,10 @@ fun SuccessStoriesScreen(
 
     // Fetch stories around the best available point. Priority: GPS user
     // location → user country center → no fetch (avoid loading London-area
-    // stories for a Hungarian user). Use a wider radius (200km) for the
-    // country-level fallback so we still cover regional reunions.
+    // stories for a Hungarian user). Standardised on 50 km to match iOS —
+    // user accepts that country-fallback may show "no stories" in sparse
+    // rural regions; the alternative (a wider Android-only radius) made
+    // the feed inconsistent across platforms.
     LaunchedEffect(userLatitude, userLongitude, userCountryCode) {
         val gpsLat = userLatitude
         val gpsLng = userLongitude
@@ -108,7 +110,7 @@ fun SuccessStoriesScreen(
         }
         val countryCenter = com.petsafety.app.ui.util.CountryCenters.centerFor(userCountryCode)
         if (countryCenter != null) {
-            viewModel.fetchStories(countryCenter.latitude, countryCenter.longitude, 200.0, 1, loadMore = false)
+            viewModel.fetchStories(countryCenter.latitude, countryCenter.longitude, 50.0, 1, loadMore = false)
         }
     }
 

@@ -5,7 +5,6 @@ import app.cash.turbine.test
 import com.petsafety.app.R
 import com.petsafety.app.data.model.Pet
 import com.petsafety.app.data.model.TagLookupResponse
-import com.petsafety.app.data.repository.LocationConsent
 import com.petsafety.app.data.repository.QrRepository
 import io.mockk.coEvery
 import io.mockk.coVerify
@@ -184,11 +183,14 @@ class QrScannerViewModelTest {
     }
 
     // ==================== shareLocation tests ====================
+    //
+    // 2026-05-02 missing-pet flow overhaul: precision toggle gone. Share is
+    // always precise; the manual-address path lives in shareManualAddress.
 
     @Test
-    fun `shareLocation - PRECISE consent - success`() = runTest {
+    fun `shareLocation - precise GPS - success`() = runTest {
         coEvery {
-            repository.shareLocation("ABC123", LocationConsent.PRECISE, 51.5074, -0.1278, 10.0)
+            repository.shareLocation("ABC123", 51.5074, -0.1278, 10.0)
         } returns mockk()
 
         var success = false
@@ -196,7 +198,6 @@ class QrScannerViewModelTest {
 
         viewModel.shareLocation(
             qrCode = "ABC123",
-            consent = LocationConsent.PRECISE,
             latitude = 51.5074,
             longitude = -0.1278,
             accuracyMeters = 10.0
@@ -211,31 +212,10 @@ class QrScannerViewModelTest {
     }
 
     @Test
-    fun `shareLocation - APPROXIMATE consent - success`() = runTest {
-        coEvery {
-            repository.shareLocation("ABC123", LocationConsent.APPROXIMATE, 51.5, -0.12, null)
-        } returns mockk()
-
-        var success = false
-
-        viewModel.shareLocation(
-            qrCode = "ABC123",
-            consent = LocationConsent.APPROXIMATE,
-            latitude = 51.5,
-            longitude = -0.12
-        ) { s, _ ->
-            success = s
-        }
-        testDispatcher.scheduler.advanceUntilIdle()
-
-        assertTrue(success)
-    }
-
-    @Test
     fun `shareLocation - failure - returns error`() = runTest {
         val errorMsg = "Location sharing failed"
         coEvery {
-            repository.shareLocation(any(), any(), any(), any(), any())
+            repository.shareLocation(any(), any(), any(), any())
         } throws RuntimeException(errorMsg)
 
         var success = false
@@ -243,7 +223,6 @@ class QrScannerViewModelTest {
 
         viewModel.shareLocation(
             qrCode = "ABC123",
-            consent = LocationConsent.PRECISE,
             latitude = 51.5074,
             longitude = -0.1278
         ) { s, e ->
@@ -254,6 +233,24 @@ class QrScannerViewModelTest {
 
         assertFalse(success)
         assertEquals(errorMsg, error)
+    }
+
+    @Test
+    fun `shareManualAddress - success - delegates to repository`() = runTest {
+        coEvery {
+            repository.shareManualAddress("ABC123", "123 Pine St")
+        } returns mockk()
+
+        var success = false
+        viewModel.shareManualAddress(
+            qrCode = "ABC123",
+            manualAddress = "123 Pine St"
+        ) { s, _ ->
+            success = s
+        }
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        assertTrue(success)
     }
 
     // ==================== reset tests ====================

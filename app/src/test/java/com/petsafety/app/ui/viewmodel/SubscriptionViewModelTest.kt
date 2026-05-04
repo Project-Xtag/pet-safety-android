@@ -436,4 +436,22 @@ class SubscriptionViewModelTest {
         // Should have been called exactly once (from loadSubscription, not from refreshIfStale)
         coVerify(exactly = 1) { repository.getMySubscription() }
     }
+
+    // M20 — refreshIfStale must not double-fetch when called from multiple
+    // entry points in a tight burst (foreground resume + SSE event +
+    // navigation listener can all fire within the same millisecond).
+    @Test
+    fun `refreshIfStale - burst of synchronous calls produces exactly one fetch`() = runTest {
+        coEvery { repository.getMySubscription() } returns testSubscription
+        coEvery { repository.getFeatures() } returns null
+
+        // Fire 10 calls back-to-back BEFORE advancing the dispatcher.
+        // The first wins the CAS slot and queues the coroutine; the
+        // others see a fresh timestamp and bail out synchronously.
+        repeat(10) { viewModel.refreshIfStale() }
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        coVerify(exactly = 1) { repository.getMySubscription() }
+        coVerify(exactly = 1) { repository.getFeatures() }
+    }
 }

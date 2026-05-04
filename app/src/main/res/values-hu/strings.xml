@@ -1430,5 +1430,11 @@
     <string name="error_claim_tag_failed">Biléta aktiválása sikertelen</string>
     <string name="error_select_pet_first">Kérjük, válassz egy kedvencet először</string>
     <string name="error_activate_tag_failed">Biléta aktiválása sikertelen</string>
-        <string name="waze_not_available">A Waze nincs telepítve, és nem érhető el böngésző</string>
+        <string name="waze_not_available">A Waze nincs telepítve, és nem érhető el böngésző</string>    <string name="share_address_instead">Vagy add meg a címet kézzel</string>    <string name="share_manual_address_title">Add meg a címet</string>    <string name="share_manual_address_desc">Ha nem tudod megosztani a GPS-t, írd be a címet vagy a helyszínt, ahol megtaláltad %1$s-t. Telefonszámodat is megadhatod itt, ha szeretnéd, hogy a gazdi vissza tudjon hívni.</string>    <string name="share_manual_address_label">Cím</string>    <string name="share_manual_address_placeholder">pl. Budapest, Pauler utca 123 — a játszótér mellett. Telefonszámod is megadhatod, ha szeretnéd, hogy a gazdi visszahívhasson.</string>    <string name="owner_communication_disabled">A kisállat gazdája nem engedélyezte a kommunikációt a megtalálóval.</string>
+
+
+
+
+
+
 </resources>

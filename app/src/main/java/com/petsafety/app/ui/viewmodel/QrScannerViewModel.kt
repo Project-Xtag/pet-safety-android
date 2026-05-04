@@ -6,7 +6,6 @@ import android.app.Application
 import com.petsafety.app.R
 import com.petsafety.app.data.model.ScanResponse
 import com.petsafety.app.data.model.TagLookupResponse
-import com.petsafety.app.data.repository.LocationConsent
 import com.petsafety.app.data.repository.QrRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -89,9 +88,8 @@ class QrScannerViewModel @Inject constructor(
 
     fun shareLocation(
         qrCode: String,
-        consent: LocationConsent,
-        latitude: Double? = null,
-        longitude: Double? = null,
+        latitude: Double,
+        longitude: Double,
         accuracyMeters: Double? = null,
         onResult: (Boolean, String?) -> Unit
     ) {
@@ -99,11 +97,26 @@ class QrScannerViewModel @Inject constructor(
             try {
                 repository.shareLocation(
                     qrCode = qrCode,
-                    consent = consent,
                     latitude = latitude,
                     longitude = longitude,
                     accuracyMeters = accuracyMeters
                 )
+                onResult(true, null)
+            } catch (ex: Exception) {
+                onResult(false, ex.localizedMessage)
+            }
+        }
+    }
+
+    /** Manual-address fallback for GPS-denied / no-coverage cases. */
+    fun shareManualAddress(
+        qrCode: String,
+        manualAddress: String,
+        onResult: (Boolean, String?) -> Unit
+    ) {
+        viewModelScope.launch {
+            try {
+                repository.shareManualAddress(qrCode, manualAddress)
                 onResult(true, null)
             } catch (ex: Exception) {
                 onResult(false, ex.localizedMessage)

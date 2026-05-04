@@ -151,13 +151,6 @@ fun PetSafetyApp(
                     appStateViewModel.navigateToSubscription()
                     onNotificationHandled()
                 }
-                NotificationHelper.TYPE_ALERT_REMINDER -> {
-                    // Navigate to the specific alert
-                    notification.alertId?.let { alertId ->
-                        appStateViewModel.navigateToAlert(alertId)
-                    }
-                    onNotificationHandled()
-                }
                 NotificationHelper.TYPE_MULTIPLE_SIGHTINGS -> {
                     // Navigate to the alert with sightings
                     notification.alertId?.let { alertId ->

@@ -243,12 +243,38 @@ fun MarkAsMissingScreen(
                 }
             }
 
+            // Geocoder occasionally returns (0,0) or out-of-range coords for
+            // malformed/ambiguous input. A bad coordinate on a missing-pet
+            // alert pollutes the alert map and ships notifications to a
+            // wildly wrong neighborhood. Drop the coord but keep the address
+            // — the alert can still go out without precise location, and
+            // the success message branch already handles that case.
+            coordinate?.let { c ->
+                if (!InputValidators.isValidCoordinate(c.lat, c.lng)) {
+                    coordinate = null
+                }
+            }
+
             isGeocoding = false
 
             if (addressText.isNullOrBlank()) {
                 appStateViewModel.showError(context.getString(R.string.mark_lost_address_required))
                 isSubmitting = false
                 return@launch
+            }
+
+            // M19 — non-blocking visibility into silent geocode failures.
+            // Pre-fix the alert would ship without coordinates and the user
+            // only learned about it from a subtly different success message.
+            // Surface a warning when they typed an address that didn't
+            // resolve, so they understand why their map pin will be missing
+            // and can opt to retry with current location instead.
+            if (coordinate == null &&
+                (locationSource == LocationSource.REGISTERED || locationSource == LocationSource.CUSTOM)
+            ) {
+                appStateViewModel.showError(
+                    context.getString(R.string.address_geocode_failed_warning)
+                )
             }
 
             viewModel.markPetMissing(

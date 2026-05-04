@@ -8,21 +8,9 @@ import com.petsafety.app.data.model.TagLookupResponse
 import com.petsafety.app.data.network.model.CreatePetRequest
 import com.petsafety.app.data.network.ApiService
 import com.petsafety.app.data.network.model.ActivateTagRequest
-import com.petsafety.app.data.network.model.LocationConsentType
+import com.petsafety.app.data.network.model.LocationPayload
 import com.petsafety.app.data.network.model.ShareLocationRequest
 import com.petsafety.app.data.network.model.ShareLocationResponse
-import kotlin.math.roundToInt
-
-/**
- * Location consent level for sharing location when scanning a tag.
- * 2-tier model: precise (toggle ON) or approximate (toggle OFF).
- */
-enum class LocationConsent {
-    /** Share approximate location — toggle OFF */
-    APPROXIMATE,
-    /** Share precise/exact location — toggle ON (default) */
-    PRECISE
-}
 
 class QrRepository(private val apiService: ApiService) {
     suspend fun lookupTag(code: String): TagLookupResponse =
@@ -46,63 +34,47 @@ class QrRepository(private val apiService: ApiService) {
             ?: error("Missing claim promo response")
 
     /**
-     * Share location with 2-tier consent (toggle ON = precise, toggle OFF = approximate).
+     * Share precise GPS location with the pet owner.
      *
-     * @param qrCode The scanned QR code
-     * @param consent The location consent level (PRECISE or APPROXIMATE)
-     * @param latitude Current latitude (required)
-     * @param longitude Current longitude (required)
-     * @param accuracyMeters GPS accuracy in meters (optional)
+     * 2026-05-02 missing-pet flow overhaul: precision toggle + 3-decimal
+     * rounding gone; share is always precise. The backend rejects payloads
+     * with the legacy is_approximate / consent_type / share_exact_location
+     * fields. Use [shareManualAddress] when the finder denies GPS or
+     * prefers to type the address.
      */
     suspend fun shareLocation(
         qrCode: String,
-        consent: LocationConsent,
-        latitude: Double? = null,
-        longitude: Double? = null,
+        latitude: Double,
+        longitude: Double,
         accuracyMeters: Double? = null
     ): ShareLocationResponse {
-        val shareExact = consent == LocationConsent.PRECISE
-
-        val request = if (latitude != null && longitude != null) {
-            when (consent) {
-                LocationConsent.APPROXIMATE -> {
-                    // Round to 3 decimal places (~111m precision)
-                    val roundedLat = (latitude * 1000).roundToInt() / 1000.0
-                    val roundedLng = (longitude * 1000).roundToInt() / 1000.0
-
-                    ShareLocationRequest(
-                        qrCode = qrCode,
-                        latitude = roundedLat,
-                        longitude = roundedLng,
-                        accuracyMeters = accuracyMeters,
-                        isApproximate = true,
-                        consentType = LocationConsentType.APPROXIMATE,
-                        shareExactLocation = false
-                    )
-                }
-                LocationConsent.PRECISE -> {
-                    ShareLocationRequest(
-                        qrCode = qrCode,
-                        latitude = latitude,
-                        longitude = longitude,
-                        accuracyMeters = accuracyMeters,
-                        isApproximate = false,
-                        consentType = LocationConsentType.PRECISE,
-                        shareExactLocation = true
-                    )
-                }
-            }
-        } else {
-            // No coordinates available — send consent preference without location data;
-            // backend will still record the scan event
-            ShareLocationRequest(
-                qrCode = qrCode,
-                shareExactLocation = shareExact
+        val request = ShareLocationRequest(
+            qrCode = qrCode,
+            location = LocationPayload(
+                latitude = latitude,
+                longitude = longitude,
+                accuracyMeters = accuracyMeters ?: 0.0
             )
-        }
-
+        )
         return apiService.shareLocation(request).data
             ?: error("Missing share location response")
     }
 
+    /**
+     * Share a manually-typed address as the GPS-denial / no-coverage
+     * fallback. The backend geocodes via Google Places → Nominatim;
+     * on geocoding failure the owner gets the typed text with a
+     * "no map coordinates" note rather than nothing.
+     */
+    suspend fun shareManualAddress(
+        qrCode: String,
+        manualAddress: String
+    ): ShareLocationResponse {
+        val request = ShareLocationRequest(
+            qrCode = qrCode,
+            manualAddress = manualAddress
+        )
+        return apiService.shareLocation(request).data
+            ?: error("Missing share location response")
+    }
 }

@@ -1424,5 +1424,11 @@
     <string name="error_claim_tag_failed">Impossible d\'activer la médaille connectée</string>
     <string name="error_select_pet_first">Sélectionne d\'abord un animal de compagnie</string>
     <string name="error_activate_tag_failed">Impossible d\'activer la médaille connectée</string>
-        <string name="waze_not_available">Waze n\'est pas installé et aucun navigateur n\'est disponible</string>
+        <string name="waze_not_available">Waze n\'est pas installé et aucun navigateur n\'est disponible</string>    <string name="share_address_instead">[NEEDS_TRANSLATION] Or type the address instead</string>    <string name="share_manual_address_title">[NEEDS_TRANSLATION] Type the Address</string>    <string name="share_manual_address_desc">[NEEDS_TRANSLATION] If you can\'t share GPS, type the address or a description of where you found %1$s. We\'ll send it to the owner.</string>    <string name="share_manual_address_label">[NEEDS_TRANSLATION] Address</string>    <string name="share_manual_address_placeholder">[NEEDS_TRANSLATION] e.g. 123 Pine St, Budapest — near the playground</string>    <string name="owner_communication_disabled">[NEEDS_TRANSLATION] This pet\'s owner has not enabled finder communication.</string>
+
+
+
+
+
+
 </resources>

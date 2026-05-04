@@ -813,7 +813,7 @@ private fun AddressScreen(
 
     fun resetFields() {
         address = user?.address ?: ""
-        addressLine2 = ""
+        addressLine2 = user?.addressLine2 ?: ""
         city = user?.city ?: ""
         postalCode = user?.postalCode ?: ""
         country = user?.country ?: ""
@@ -1421,8 +1421,6 @@ private fun NotificationPreferencesScreen(
     var emailEnabled by remember { mutableStateOf(preferences.notifyByEmail) }
     var smsEnabled by remember { mutableStateOf(preferences.notifyBySms) }
     var missingPetAlerts by remember { mutableStateOf(preferences.missingPetAlerts) }
-    var orderUpdates by remember { mutableStateOf(true) }
-    var accountActivity by remember { mutableStateOf(true) }
 
     val atLeastOneChannelMessage = stringResource(R.string.at_least_one_channel_required)
     val savedMessage = stringResource(R.string.updated)
@@ -1600,38 +1598,6 @@ private fun NotificationPreferencesScreen(
                 }
             }
 
-            Spacer(modifier = Modifier.height(24.dp))
-
-            // Account & Orders
-            Text(
-                text = stringResource(R.string.account_and_orders),
-                style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.SemiBold),
-                color = MaterialTheme.colorScheme.onSurface
-            )
-            Spacer(modifier = Modifier.height(12.dp))
-
-            Card(
-                modifier = Modifier.fillMaxWidth(),
-                shape = RoundedCornerShape(16.dp),
-                colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
-                elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
-            ) {
-                Column(modifier = Modifier.padding(16.dp)) {
-                    SettingsToggleRow(
-                        title = stringResource(R.string.order_updates),
-                        subtitle = stringResource(R.string.order_updates_subtitle),
-                        checked = orderUpdates,
-                        onCheckedChange = { orderUpdates = it }
-                    )
-                    HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
-                    SettingsToggleRow(
-                        title = stringResource(R.string.account_activity),
-                        subtitle = stringResource(R.string.account_activity_subtitle),
-                        checked = accountActivity,
-                        onCheckedChange = { accountActivity = it }
-                    )
-                }
-            }
         }
     }
 }
