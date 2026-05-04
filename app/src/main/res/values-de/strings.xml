@@ -76,6 +76,9 @@
     <string name="login_failed">Login fehlgeschlagen</string>
     <string name="verification_failed">Bestätigung fehlgeschlagen</string>
     <string name="invalid_email">Bitte geben du eine gültige E-Mail-Adresse ein</string>
+    <string name="invalid_phone">Bitte gib eine gültige Telefonnummer ein</string>
+    <string name="invalid_location_coords">Dieser Standort konnte nicht genau bestimmt werden. Versuche eine genauere Adresse.</string>
+    <string name="address_geocode_failed_warning">Diese Adresse konnten wir nicht genau finden — die Meldung wird ohne genauen Standort gesendet. Versuche \"aktueller Standort\" für bessere Ergebnisse.</string>
     <string name="resend_code_cooldown">Code erneut senden in %1$ds</string>
     <string name="resend_code_prompt">Keinen Code erhalten? Erneut senden</string>
     <string name="dont_have_account">Noch kein Benutzerkonto?</string>

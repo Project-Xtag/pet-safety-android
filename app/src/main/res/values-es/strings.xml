@@ -76,6 +76,9 @@
     <string name="login_failed">Error al iniciar sesión</string>
     <string name="verification_failed">La verificación falló</string>
     <string name="invalid_email">Introduce un correo válido</string>
+    <string name="invalid_phone">Introduce un número de teléfono válido</string>
+    <string name="invalid_location_coords">No pudimos localizar ese punto. Prueba con una dirección más específica.</string>
+    <string name="address_geocode_failed_warning">No pudimos localizar esa dirección con precisión — la alerta se enviará sin ubicación exacta. Prueba con \"ubicación actual\" para mejores resultados.</string>
     <string name="resend_code_cooldown">Reenviar código en %1$ds</string>
     <string name="resend_code_prompt">¿No recibiste el código? Reenviar</string>
     <string name="dont_have_account">¿No tienes cuenta?</string>

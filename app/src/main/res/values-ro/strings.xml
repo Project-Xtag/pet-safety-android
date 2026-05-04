@@ -68,6 +68,9 @@
     <string name="login_failed">Autentificare eșuată</string>
     <string name="verification_failed">Verificare eșuată</string>
     <string name="invalid_email">Introdu o adresă de e-mail validă</string>
+    <string name="invalid_phone">Te rugăm să introduci un număr de telefon valid</string>
+    <string name="invalid_location_coords">Nu am putut determina exact acea locație. Încearcă o adresă mai specifică.</string>
+    <string name="address_geocode_failed_warning">Nu am putut localiza acea adresă cu precizie — alerta va fi trimisă fără locație exactă. Încearcă \"locația curentă\" pentru rezultate mai bune.</string>
     <string name="resend_code_cooldown">Retrimite codul în %1$ds</string>
     <string name="resend_code_prompt">Nu ai primit codul? Retrimite</string>
     <string name="dont_have_account">Nu ai cont?</string>

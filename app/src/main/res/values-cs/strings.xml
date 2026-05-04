@@ -76,6 +76,9 @@
     <string name="login_failed">Přihlášení se nezdařilo</string>
     <string name="verification_failed">Ověření se nezdařilo</string>
     <string name="invalid_email">Zadej platnou e-mailovou adresu</string>
+    <string name="invalid_phone">Zadejte prosím platné telefonní číslo</string>
+    <string name="invalid_location_coords">Toto místo se nepodařilo přesně určit. Zkuste konkrétnější adresu.</string>
+    <string name="address_geocode_failed_warning">Tuto adresu se nám nepodařilo přesně najít — upozornění bude odesláno bez přesné polohy. Pro lepší výsledky zkuste \"aktuální polohu\".</string>
     <string name="resend_code_cooldown">Znovu odeslat kód za %1$ds</string>
     <string name="resend_code_prompt">Nedostali jsi kód? Odeslat znovu</string>
     <string name="dont_have_account">Nemáte účet?</string>

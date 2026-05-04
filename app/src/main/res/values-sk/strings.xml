@@ -75,6 +75,9 @@
     <string name="login_failed">Prihlásenie zlyhalo</string>
     <string name="verification_failed">Overenie zlyhalo</string>
     <string name="invalid_email">Zadaj platnú e-mailovú adresu</string>
+    <string name="invalid_phone">Zadajte prosím platné telefónne číslo</string>
+    <string name="invalid_location_coords">Toto miesto sa nepodarilo presne určiť. Skúste konkrétnejšiu adresu.</string>
+    <string name="address_geocode_failed_warning">Túto adresu sa nám nepodarilo presne nájsť — upozornenie sa odošle bez presnej polohy. Pre lepšie výsledky vyskúšajte \"aktuálnu polohu\".</string>
     <string name="resend_code_cooldown">Znova odoslať kód o %1$ds</string>
     <string name="resend_code_prompt">Nedostali si kód? Odoslať znova</string>
     <string name="dont_have_account">Nemáte účet?</string>

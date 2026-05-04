@@ -71,6 +71,9 @@
     <string name="login_failed">Innlogging mislyktes</string>
     <string name="verification_failed">Verifisering mislyktes</string>
     <string name="invalid_email">Oppgi en gyldig e-postadresse</string>
+    <string name="invalid_phone">Skriv inn et gyldig telefonnummer</string>
+    <string name="invalid_location_coords">Kunne ikke finne nøyaktig sted. Prøv en mer spesifikk adresse.</string>
+    <string name="address_geocode_failed_warning">Vi fant ikke den adressen nøyaktig — varselet sendes uten nøyaktig posisjon. Prøv "nåværende plassering" for bedre resultat.</string>
     <string name="otp_placeholder" translatable="false">000000</string>
     <string name="resend_code_cooldown">Send kode på nytt om %1$ds</string>
     <string name="resend_code_prompt">Fikk du ikke koden? Send på nytt</string>
