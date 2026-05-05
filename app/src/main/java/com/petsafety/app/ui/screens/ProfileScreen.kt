@@ -74,6 +74,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Switch
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
@@ -577,16 +578,15 @@ private fun PersonalInfoScreen(
                     onBack()
                 }
             },
-            trailingContent = if (!isEditing) {
+            trailingContent = if (isEditing) {
                 {
                     TextButton(onClick = {
                         resetFields()
-                        isEditing = true
+                        isEditing = false
                     }) {
                         Text(
-                            text = stringResource(R.string.edit),
-                            color = BrandOrange,
-                            fontWeight = FontWeight.SemiBold
+                            text = stringResource(R.string.cancel),
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
                         )
                     }
                 }
@@ -706,9 +706,9 @@ private fun PersonalInfoScreen(
                 }
             }
 
-            if (isEditing) {
-                Spacer(modifier = Modifier.height(24.dp))
+            Spacer(modifier = Modifier.height(24.dp))
 
+            if (isEditing) {
                 Button(
                     onClick = {
                         isSaving = true
@@ -754,24 +754,26 @@ private fun PersonalInfoScreen(
                         )
                     } else {
                         Text(
-                            text = stringResource(R.string.save),
+                            text = stringResource(R.string.save_changes),
                             style = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.SemiBold)
                         )
                     }
                 }
-
-                Spacer(modifier = Modifier.height(12.dp))
-
-                TextButton(
+            } else {
+                Button(
                     onClick = {
                         resetFields()
-                        isEditing = false
+                        isEditing = true
                     },
-                    modifier = Modifier.fillMaxWidth()
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(52.dp),
+                    shape = RoundedCornerShape(16.dp),
+                    colors = ButtonDefaults.buttonColors(containerColor = BrandOrange)
                 ) {
                     Text(
-                        text = stringResource(R.string.cancel),
-                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                        text = stringResource(R.string.edit),
+                        style = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.SemiBold)
                     )
                 }
             }
@@ -1319,33 +1321,39 @@ private fun ContactRow(
                 text = value,
                 style = MaterialTheme.typography.bodyLarge,
                 color = MaterialTheme.colorScheme.onSurface,
-                maxLines = 2
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
+                modifier = Modifier.fillMaxWidth()
             )
-            if (isPrimary) {
-                Spacer(modifier = Modifier.height(4.dp))
+            Spacer(modifier = Modifier.height(4.dp))
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                if (isPrimary) {
+                    Text(
+                        text = stringResource(R.string.contacts_primary_badge),
+                        style = MaterialTheme.typography.labelSmall.copy(
+                            fontSize = 9.sp,
+                            fontWeight = FontWeight.Bold
+                        ),
+                        color = Color.White,
+                        modifier = Modifier
+                            .background(BrandOrange, RoundedCornerShape(4.dp))
+                            .padding(horizontal = 6.dp, vertical = 2.dp)
+                    )
+                }
+                Spacer(modifier = Modifier.weight(1f))
                 Text(
-                    text = stringResource(R.string.contacts_primary_badge),
-                    style = MaterialTheme.typography.labelSmall.copy(
-                        fontSize = 9.sp,
-                        fontWeight = FontWeight.Bold
+                    text = stringResource(
+                        if (isVisible) R.string.contacts_visible_on_tag else R.string.contacts_hidden_badge
                     ),
-                    color = Color.White,
-                    modifier = Modifier
-                        .background(BrandOrange, RoundedCornerShape(4.dp))
-                        .padding(horizontal = 6.dp, vertical = 2.dp)
+                    style = MaterialTheme.typography.labelSmall.copy(fontSize = 11.sp),
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    textAlign = TextAlign.End
                 )
             }
         }
-        Spacer(modifier = Modifier.width(8.dp))
-        Text(
-            text = stringResource(
-                if (isVisible) R.string.contacts_visible_on_tag else R.string.contacts_hidden_badge
-            ),
-            style = MaterialTheme.typography.labelSmall.copy(fontSize = 11.sp),
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
-            textAlign = TextAlign.End,
-            modifier = Modifier.widthIn(max = 130.dp)
-        )
     }
 }
 
