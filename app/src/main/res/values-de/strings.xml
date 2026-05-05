@@ -1443,6 +1443,12 @@
     <string name="contacts_primary_badge">PRIMÄR</string>
     <string name="contacts_visible_on_tag">Sichtbar auf der Haustiermarke</string>
     <string name="contacts_hidden_badge">Ausgeblendet</string>    <string name="contacts_edit_title">Kontaktdaten bearbeiten</string>
+    <!-- Privacy Mode header (mirror iOS) -->
+    <string name="privacy_contact_visibility">Sichtbarkeit der Kontakte</string>
+    <string name="privacy_contact_footer">Steuern du, welche Kontaktdaten auf dem öffentlichen Profil deines Haustiers sichtbar sind. Diese Einstellungen gelten sowohl für deine primären als auch sekundären Kontaktdaten.</string>
+    <string name="app_version_with_value">Version %1$s</string>
+
+
 
 
 

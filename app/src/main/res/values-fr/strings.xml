@@ -1434,6 +1434,12 @@
     <string name="contacts_primary_badge">PRINCIPAL</string>
     <string name="contacts_visible_on_tag">Visible sur le profil public de ton animal de compagnie</string>
     <string name="contacts_hidden_badge">Masqué</string>    <string name="contacts_edit_title">Modifier les coordonnées</string>
+    <!-- Privacy Mode header (mirror iOS) -->
+    <string name="privacy_contact_visibility">Visibilité des coordonnées</string>
+    <string name="privacy_contact_footer">Contrôle quelles coordonnées sont visibles sur le profil public de ton animal de compagnie. Ces paramètres s\'appliquent aux coordonnées principales et secondaires.</string>
+    <string name="app_version_with_value">Version %1$s</string>
+
+
 
 
 

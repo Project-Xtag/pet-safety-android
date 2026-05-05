@@ -1452,6 +1452,12 @@
     <string name="contacts_primary_badge">PRIMARNI</string>
     <string name="contacts_visible_on_tag">Vidljivo na privjesku</string>
     <string name="contacts_hidden_badge">Skriven</string>    <string name="contacts_edit_title">Uredi kontakt podatke</string>
+    <!-- Privacy Mode header (mirror iOS) -->
+    <string name="privacy_contact_visibility">Vidljivost kontakta</string>
+    <string name="privacy_contact_footer">Kontroliraj koji su kontaktni podaci vidljivi na javnom profilu tvog kućnog ljubimca. Ove postavke primjenjuju se na primarne i sekundarne kontaktne podatke.</string>
+    <string name="app_version_with_value">Verzija %1$s</string>
+
+
 
 
 

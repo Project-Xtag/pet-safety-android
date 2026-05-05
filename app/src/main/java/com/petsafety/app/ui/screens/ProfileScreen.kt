@@ -1472,15 +1472,15 @@ private fun PrivacyModeScreen(
                 .padding(horizontal = 20.dp)
                 .padding(top = 20.dp, bottom = 100.dp)
         ) {
-            // Contact Visibility Section
+            // Contact Visibility Section (header text mirrored from iOS PrivacyModeView)
             Text(
-                text = stringResource(R.string.contact_visibility),
+                text = stringResource(R.string.privacy_contact_visibility),
                 style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.SemiBold),
                 color = MaterialTheme.colorScheme.onSurface
             )
             Spacer(modifier = Modifier.height(8.dp))
             Text(
-                text = stringResource(R.string.contact_visibility_desc),
+                text = stringResource(R.string.privacy_contact_footer),
                 style = MaterialTheme.typography.bodySmall.copy(fontSize = AdaptiveLayout.scaledSp(13)),
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )
@@ -1946,16 +1946,12 @@ private fun HelpSupportScreen(
                         color = MaterialTheme.colorScheme.onSurface
                     )
                     Text(
-                        text = stringResource(R.string.app_version),
+                        text = stringResource(
+                            R.string.app_version_with_value,
+                            com.petsafety.app.BuildConfig.VERSION_NAME
+                        ),
                         style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant
-                    )
-                    Spacer(modifier = Modifier.height(8.dp))
-                    Text(
-                        text = stringResource(R.string.support_response_time),
-                        style = MaterialTheme.typography.bodySmall.copy(fontSize = AdaptiveLayout.scaledSp(12)),
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        textAlign = TextAlign.Center
                     )
                 }
             }

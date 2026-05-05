@@ -1436,6 +1436,12 @@
     <string name="contacts_primary_badge">PRIMÆR</string>
     <string name="contacts_visible_on_tag">Synlig på kjæledyrets offentlige profil</string>
     <string name="contacts_hidden_badge">Skjult</string>    <string name="contacts_edit_title">Rediger kontaktdetaljer</string>
+    <!-- Privacy Mode header (mirror iOS) -->
+    <string name="privacy_contact_visibility">Kontaktsynlighet</string>
+    <string name="privacy_contact_footer">Kontroller hvilke kontaktdetaljer som er synlige på dyrets offentlige profil. Disse innstillingene gjelder for både primære og sekundære kontaktopplysninger.</string>
+    <string name="app_version_with_value">Versjon %1$s</string>
+
+
 
 
 

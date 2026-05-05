@@ -1394,6 +1394,12 @@
     <string name="contacts_primary_badge">PRIMARY</string>
     <string name="contacts_visible_on_tag">Visible on tag</string>
     <string name="contacts_hidden_badge">Hidden</string>    <string name="contacts_edit_title">Edit Contact Details</string>
+    <!-- Privacy Mode header (mirror iOS) -->
+    <string name="privacy_contact_visibility">Contact Visibility</string>
+    <string name="privacy_contact_footer">Control which contact details are visible on your pet\'s public profile. These settings apply to both your primary and secondary contact details.</string>
+    <string name="app_version_with_value">Version %1$s</string>
+
+
 
 
 

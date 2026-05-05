@@ -1437,6 +1437,12 @@
     <string name="contacts_primary_badge">PRINCIPALE</string>
     <string name="contacts_visible_on_tag">Visibile sulla medaglietta</string>
     <string name="contacts_hidden_badge">Nascosto</string>    <string name="contacts_edit_title">Modifica i dati di contatto</string>
+    <!-- Privacy Mode header (mirror iOS) -->
+    <string name="privacy_contact_visibility">Visibilità dei contatti</string>
+    <string name="privacy_contact_footer">Controlla quali dati di contatto sono visibili sul profilo pubblico del tuo animale di compagnia. Queste impostazioni si applicano sia ai tuoi recapiti principali che secondari.</string>
+    <string name="app_version_with_value">Versione %1$s</string>
+
+
 
 
 

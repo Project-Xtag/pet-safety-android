@@ -1462,6 +1462,12 @@
     <string name="contacts_primary_badge">GŁÓWNY</string>
     <string name="contacts_visible_on_tag">Widoczne na adresówce</string>
     <string name="contacts_hidden_badge">Ukryty</string>    <string name="contacts_edit_title">Edytuj dane kontaktowe</string>
+    <!-- Privacy Mode header (mirror iOS) -->
+    <string name="privacy_contact_visibility">Widoczność danych kontaktowych</string>
+    <string name="privacy_contact_footer">Kontroluj, które dane kontaktowe są widoczne na publicznym profilu twojego pupila. Te ustawienia dotyczą zarówno głównych, jak i zapasowych danych kontaktowych.</string>
+    <string name="app_version_with_value">Wersja %1$s</string>
+
+
 
 
 

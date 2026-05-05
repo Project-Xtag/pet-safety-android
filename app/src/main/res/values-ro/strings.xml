@@ -1443,6 +1443,12 @@
     <string name="contacts_primary_badge">PRINCIPAL</string>
     <string name="contacts_visible_on_tag">Vizibil pe plăcuță inteligentă</string>
     <string name="contacts_hidden_badge">Ascuns</string>    <string name="contacts_edit_title">Editează detaliile de contact</string>
+    <!-- Privacy Mode header (mirror iOS) -->
+    <string name="privacy_contact_visibility">Vizibilitatea contactelor</string>
+    <string name="privacy_contact_footer">Controlează ce contacte sunt vizibile pe profilul public al animalului de companie. Aceste setări se aplică atât datelor de contact principale, cât și secundare.</string>
+    <string name="app_version_with_value">Versiunea %1$s</string>
+
+
 
 
 

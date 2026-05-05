@@ -88,8 +88,8 @@
     <string name="terms_login_prefix">A bejelentkezéssel elfogadod a(z)</string>
     <string name="terms_register_prefix">Regisztrációval elfogadod a(z)</string>
     <string name="terms_and">és</string>
-    <string name="terms_of_service">Felhasználási feltételeket</string>
-    <string name="privacy_policy">Adatkezelési tájékoztatót</string>
+    <string name="terms_of_service">Felhasználási feltételek</string>
+    <string name="privacy_policy">Adatkezelési tájékoztató</string>
     <string name="first_name">Keresztnév</string>
     <string name="last_name">Vezetéknév</string>
     <string name="email">Email</string>
@@ -667,12 +667,12 @@
     <!-- ============================================ -->
     <!-- MARK: Help & Support -->
     <!-- ============================================ -->
-    <string name="get_help">Segítség kérése</string>
+    <string name="get_help">Segítség</string>
     <string name="faq">Gyakran Ismételt Kérdések</string>
     <string name="user_guides">Felhasználói útmutatók</string>
-    <string name="legal">Jogi</string>
+    <string name="legal">Jogi nyilatkozat</string>
     <string name="support_response_time">24 órán belül válaszolunk a kérdésedre.</string>
-    <string name="contact_support">Kapcsolat a támogatással</string>
+    <string name="contact_support">Kapcsolat</string>
     <string name="contact_support_category">Kategória</string>
     <string name="contact_support_subject">Tárgy</string>
     <string name="contact_support_subject_hint">Rövid leírás a problémáról</string>
@@ -1437,6 +1437,12 @@
     <string name="contacts_primary_badge">ELSŐDLEGES</string>
     <string name="contacts_visible_on_tag">Látható a kedvenced nyilvános profilján</string>
     <string name="contacts_hidden_badge">Rejtett</string>    <string name="contacts_edit_title">Elérhetőségek szerkesztése</string>
+    <!-- Privacy Mode header (mirror iOS) -->
+    <string name="privacy_contact_visibility">Elérhetőségeid láthatósága</string>
+    <string name="privacy_contact_footer">Beállíthatod, hogy mely elérhetőségeid legyenek láthatóak a kedvenced nyilvános profilján. Ezek a beállítások az elsődleges és másodlagos elérhetőségekre egyaránt vonatkoznak.</string>
+    <string name="app_version_with_value">Verzió %1$s</string>
+
+
 
 
 
