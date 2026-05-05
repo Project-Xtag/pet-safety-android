@@ -162,7 +162,7 @@
     <string name="mark_found_confirm_title">Mark %1$s as Found?</string>
     <string name="mark_found_confirm_message">This will close the missing alert for %1$s. Are you sure?</string>
     <string name="marked_found_message">%1$s marked as found.</string>
-    <string name="marked_missing_message">%1$s marked as missing.</string>
+    <string name="marked_missing_message">%1$s has been marked as missing.</string>
     <string name="mark_found_failed">Failed to mark found</string>
     <string name="mark_missing_failed">Failed to mark missing</string>
     <string name="pet_deleted">%1$s has been deleted</string>
@@ -196,7 +196,7 @@
     <string name="delete_pet_button">Delete Pet</string>
     <string name="delete_pet_dialog_title">Delete %1$s?</string>
     <string name="delete_pet_dialog_message">Are you sure you want to delete this pet? This action cannot be undone.</string>
-    <string name="delete_pet_warning_title">Delete %1$s?</string>
+    <string name="delete_pet_warning_title">Are you sure you want to delete %1$s\'s profile?</string>
     <string name="delete_pet_warning_message">This will permanently remove %1$s from your account. The QR tag will be deactivated immediately and will no longer work when scanned. If this is your last pet, your subscription will also be cancelled.</string>
     <string name="delete_pet_warning_confirm">Delete Pet</string>
     <string name="male">Male</string>
@@ -456,13 +456,13 @@
     <!-- Mark Lost Flow (matching iOS MarkAsLostView) -->
     <string name="mark_lost_pet_info">Pet Information</string>
     <string name="mark_lost_last_seen">Last Seen Location</string>
-    <string name="mark_lost_alerts_footer">Alerts will be sent to nearby users, vets, and shelters within 10km.</string>
+    <string name="mark_lost_alerts_footer"></string>
     <string name="mark_lost_getting_location">Getting your location…</string>
     <string name="mark_lost_no_address">No address registered. Go to Profile to add your address.</string>
     <string name="mark_lost_address_placeholder">Enter address or location</string>
     <string name="mark_lost_additional_info">Additional Information</string>
     <string name="mark_lost_additional_placeholder">Any detail that could help find your pet (collar color, behavior, distinguishing features…)</string>
-    <string name="mark_lost_sends_to">This alert will be sent to:</string>
+    <string name="mark_lost_sends_to">We\'ll send the alert to: SENRA users, vets, and shelters within 10 km, and we\'ll also post it on our Facebook, Instagram, and X pages.</string>
     <string name="mark_lost_nearby_owners">Nearby pet owners</string>
     <string name="mark_lost_vet_clinics">Vet clinics in the area</string>
     <string name="mark_lost_shelters">Animal shelters nearby</string>
@@ -654,10 +654,10 @@
     <string name="contact_visibility_desc">Control what contact information is visible when someone scans your pet\'s QR tag</string>
     <string name="show_name">Show Your Name</string>
     <string name="show_name_subtitle">Your name will be visible on your pet\'s public profile when someone scans their tag</string>
-    <string name="show_phone_number">Show Phone Number</string>
-    <string name="show_phone_subtitle">Your phone number will be visible to finders</string>
-    <string name="show_email_address">Show Email Address</string>
-    <string name="show_email_subtitle">Your email will be visible to finders</string>
+    <string name="show_phone_number">Show phone number</string>
+    <string name="show_phone_subtitle">Your primary phone number will be visible on your pet\'s public profile.</string>
+    <string name="show_email_address">Show email address</string>
+    <string name="show_email_subtitle">Your primary email address will be visible on your pet\'s public profile.</string>
     <string name="show_address">Show Address</string>
     <string name="show_address_subtitle">Your address will be visible to finders</string>
     <string name="show_secondary_phone">Show Secondary Phone</string>
@@ -701,7 +701,7 @@
     <string name="contact_support_subject_hint">Brief description of your issue</string>
     <string name="contact_support_message">Message</string>
     <string name="contact_support_message_hint">Describe your issue in detail\u2026</string>
-    <string name="contact_support_submit">Submit</string>
+    <string name="contact_support_submit">Send</string>
     <string name="contact_support_sending">Sending\u2026</string>
     <string name="contact_support_success">Support request submitted! Ticket ID: %1$s</string>
     <string name="contact_support_response">We\'ll get back to you within 24 hours.</string>
@@ -710,7 +710,7 @@
     <string name="support_category_technical">Technical Issue</string>
     <string name="support_category_account">Account</string>
     <string name="support_category_billing">Billing</string>
-    <string name="support_category_feature">Feature Request</string>
+    <string name="support_category_feature">Suggestions</string>
     <string name="support_category_other">Other</string>
     <string name="char_count">%1$d/5000 characters</string>
 

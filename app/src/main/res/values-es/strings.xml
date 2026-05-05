@@ -165,7 +165,7 @@
     <string name="mark_found_confirm_title">¿Marcar %1$s como encontrada?</string>
     <string name="mark_found_confirm_message">Esto cerrará la alerta de pérdida de %1$s. ¿Seguro?</string>
     <string name="marked_found_message">%1$s marcada como encontrada.</string>
-    <string name="marked_missing_message">%1$s marcada como perdida.</string>
+    <string name="marked_missing_message">Has marcado a %1$s como desaparecido/a.</string>
     <string name="mark_found_failed">No se pudo marcar como encontrada</string>
     <string name="mark_missing_failed">No se pudo marcar como perdida</string>
     <string name="pet_deleted">%1$s ha sido eliminada</string>
@@ -198,7 +198,7 @@
     <string name="delete_pet_button">Eliminar mascota</string>
     <string name="delete_pet_dialog_title">¿Eliminar %1$s?</string>
     <string name="delete_pet_dialog_message">¿Seguro que quieres eliminar esta mascota? Esta acción no se puede deshacer.</string>
-    <string name="delete_pet_warning_title">%1$s eliminar?</string>
+    <string name="delete_pet_warning_title">¿Seguro que quieres eliminar el perfil de %1$s?</string>
     <string name="delete_pet_warning_message">%1$s será eliminado permanentemente de tu cuenta. La chapa inteligente QR se desactivará inmediatamente y dejará de funcionar al escanearla. Si esta es tu última mascota, tu suscripción también será cancelada.</string>
     <string name="delete_pet_warning_confirm">Eliminar mascota</string>
     <string name="male">Macho</string>
@@ -442,13 +442,13 @@
         <!-- Mark Lost Flow (matching iOS MarkAsLostView) -->
     <string name="mark_lost_pet_info">Información de la mascota</string>
     <string name="mark_lost_last_seen">Última ubicación vista</string>
-    <string name="mark_lost_alerts_footer">Las alertas se enviarán a usuarios cercanos, veterinarios y refugios en un radio de 10 km.</string>
+    <string name="mark_lost_alerts_footer"></string>
     <string name="mark_lost_getting_location">Obteniendo tu ubicación…</string>
     <string name="mark_lost_no_address">No hay dirección registrada. Ve a Perfil para añadir tu dirección.</string>
     <string name="mark_lost_address_placeholder">Introduce dirección o ubicación</string>
     <string name="mark_lost_additional_info">Información adicional</string>
     <string name="mark_lost_additional_placeholder">Detalles que puedan ayudar a encontrar a tu mascota (color del collar, comportamiento, marcas…)</string>
-    <string name="mark_lost_sends_to">Esta alerta se enviará a:</string>
+    <string name="mark_lost_sends_to">Enviaremos la alerta a: usuarios de SENRA, veterinarios y refugios en un radio de 10 km, y la publicaremos en nuestras páginas de Facebook, Instagram y X.</string>
     <string name="mark_lost_nearby_owners">Tutores de mascotas cercanos</string>
     <string name="mark_lost_vet_clinics">Clínicas veterinarias de la zona</string>
     <string name="mark_lost_shelters">Refugios de animales cercanos</string>
@@ -635,9 +635,9 @@
     <string name="contact_visibility">Visibilidad de contactos</string>
     <string name="contact_visibility_desc">Controla qué información de contacto es visible cuando se escanea la chapa inteligente QR de tu mascota</string>
     <string name="show_phone_number">Mostrar número de teléfono</string>
-    <string name="show_phone_subtitle">Tu número de teléfono será visible para quienes encuentren a tu mascota</string>
-    <string name="show_email_address">Mostrar correo</string>
-    <string name="show_email_subtitle">Tu correo será visible para quienes encuentren a tu mascota</string>
+    <string name="show_phone_subtitle">Tu número de teléfono principal será visible en el perfil público de tu mascota.</string>
+    <string name="show_email_address">Mostrar dirección de correo electrónico</string>
+    <string name="show_email_subtitle">Tu dirección de correo electrónico principal será visible en el perfil público de tu mascota.</string>
     <string name="show_address">Mostrar dirección</string>
     <string name="show_address_subtitle">Tu dirección será visible para quienes encuentren a tu mascota</string>
     <string name="show_secondary_phone">Mostrar teléfono secundario</string>
@@ -690,7 +690,7 @@
     <string name="support_category_technical">Problema técnico</string>
     <string name="support_category_account">Cuenta</string>
     <string name="support_category_billing">Facturación</string>
-    <string name="support_category_feature">Sugerencia de función</string>
+    <string name="support_category_feature">Sugerencias</string>
     <string name="support_category_other">Otro</string>
     <string name="char_count">%1$d/5000 caracteres</string>
 

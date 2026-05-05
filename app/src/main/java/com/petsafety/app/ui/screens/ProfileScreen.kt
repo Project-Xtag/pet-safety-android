@@ -1302,6 +1302,10 @@ private fun PrivacyModeScreen(
                 elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
             ) {
                 Column(modifier = Modifier.padding(16.dp)) {
+                    // 2026-05-05 reorder: name, address, phone (primary
+                    // + secondary), email (primary + secondary). Groups
+                    // related contact methods together. Mirrors
+                    // PrivacyModeView.swift on iOS.
                     SettingsToggleRow(
                         title = stringResource(R.string.show_name),
                         subtitle = stringResource(R.string.show_name_subtitle),
@@ -1309,28 +1313,6 @@ private fun PrivacyModeScreen(
                         onCheckedChange = {
                             showNamePublicly = it
                             updatePrivacySetting("show_name_publicly", it)
-                        },
-                        enabled = !isLoading
-                    )
-                    HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
-                    SettingsToggleRow(
-                        title = stringResource(R.string.show_phone_number),
-                        subtitle = stringResource(R.string.show_phone_subtitle),
-                        checked = showPhonePublicly,
-                        onCheckedChange = {
-                            showPhonePublicly = it
-                            updatePrivacySetting("show_phone_publicly", it)
-                        },
-                        enabled = !isLoading
-                    )
-                    HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
-                    SettingsToggleRow(
-                        title = stringResource(R.string.show_email_address),
-                        subtitle = stringResource(R.string.show_email_subtitle),
-                        checked = showEmailPublicly,
-                        onCheckedChange = {
-                            showEmailPublicly = it
-                            updatePrivacySetting("show_email_publicly", it)
                         },
                         enabled = !isLoading
                     )
@@ -1345,8 +1327,17 @@ private fun PrivacyModeScreen(
                         },
                         enabled = !isLoading
                     )
-
-                    // Secondary contact toggles (only shown when secondary contacts exist)
+                    HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
+                    SettingsToggleRow(
+                        title = stringResource(R.string.show_phone_number),
+                        subtitle = stringResource(R.string.show_phone_subtitle),
+                        checked = showPhonePublicly,
+                        onCheckedChange = {
+                            showPhonePublicly = it
+                            updatePrivacySetting("show_phone_publicly", it)
+                        },
+                        enabled = !isLoading
+                    )
                     if (!currentUser?.secondaryPhone.isNullOrBlank()) {
                         HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
                         SettingsToggleRow(
@@ -1360,7 +1351,17 @@ private fun PrivacyModeScreen(
                             enabled = !isLoading
                         )
                     }
-
+                    HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
+                    SettingsToggleRow(
+                        title = stringResource(R.string.show_email_address),
+                        subtitle = stringResource(R.string.show_email_subtitle),
+                        checked = showEmailPublicly,
+                        onCheckedChange = {
+                            showEmailPublicly = it
+                            updatePrivacySetting("show_email_publicly", it)
+                        },
+                        enabled = !isLoading
+                    )
                     if (!currentUser?.secondaryEmail.isNullOrBlank()) {
                         HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
                         SettingsToggleRow(

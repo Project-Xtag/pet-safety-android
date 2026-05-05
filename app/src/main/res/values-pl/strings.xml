@@ -166,7 +166,7 @@
     <string name="mark_found_confirm_title">Oznaczyć %1$s jako znalezione?</string>
     <string name="mark_found_confirm_message">Spowoduje to zamknięcie alarmu zaginięcia dla %1$s. Czy na pewno?</string>
     <string name="marked_found_message">%1$s oznaczone jako znalezione.</string>
-    <string name="marked_missing_message">%1$s oznaczone jako zaginione.</string>
+    <string name="marked_missing_message">%1$s został/-a oznaczony/-a jako zaginiony/-a.</string>
     <string name="mark_found_failed">Nie udało się oznaczyć jako znalezione</string>
     <string name="mark_missing_failed">Nie udało się oznaczyć jako zaginione</string>
     <string name="pet_deleted">%1$s zostało usunięte</string>
@@ -200,7 +200,7 @@
     <string name="delete_pet_button">Usuń pupila</string>
     <string name="delete_pet_dialog_title">Usunąć %1$s?</string>
     <string name="delete_pet_dialog_message">Czy na pewno chcesz usunąć to pupila? Tej czynności nie można cofnąć.</string>
-    <string name="delete_pet_warning_title">Usunąć %1$s?</string>
+    <string name="delete_pet_warning_title">Czy na pewno chcesz usunąć profil %1$s?</string>
     <string name="delete_pet_warning_message">%1$s zostanie trwale usunięty z Twojego konta. Adresówka QR zostanie natychmiast dezaktywowany i nie będzie działał po zeskanowaniu. Jeśli to Twoje ostatnie pupila, Twoja subskrypcja również zostanie anulowana.</string>
     <string name="delete_pet_warning_confirm">Usuń pupila</string>
     <string name="male">Samiec</string>
@@ -464,13 +464,13 @@
         <!-- Mark Lost Flow (matching iOS MarkAsLostView) -->
     <string name="mark_lost_pet_info">Informacje o pupilowi</string>
     <string name="mark_lost_last_seen">Ostatnie znane miejsce</string>
-    <string name="mark_lost_alerts_footer">Alerty zostaną wysłane do użytkowników, weterynarzy i schronisk w promieniu 10km.</string>
+    <string name="mark_lost_alerts_footer"></string>
     <string name="mark_lost_getting_location">Pobieranie lokalizacji…</string>
     <string name="mark_lost_no_address">Brak zarejestrowanego adresu. Przejdź do Profilu, aby dodać adres.</string>
     <string name="mark_lost_address_placeholder">Podaj adres lub lokalizację</string>
     <string name="mark_lost_additional_info">Dodatkowe informacje</string>
     <string name="mark_lost_additional_placeholder">Wszelkie szczegóły, które mogą pomóc znaleźć pupila (kolor obroży, zachowanie, charakterystyczne cechy…)</string>
-    <string name="mark_lost_sends_to">Ten alert zostanie wysłany do:</string>
+    <string name="mark_lost_sends_to">Wyślemy alert do: użytkowników SENRA, weterynarzy i schronisk w promieniu 10 km, a także opublikujemy go na naszych stronach na Facebooku, Instagramie i X.</string>
     <string name="mark_lost_nearby_owners">Pobliskich opiekunów pupili</string>
     <string name="mark_lost_vet_clinics">Klinik weterynaryjnych w okolicy</string>
     <string name="mark_lost_shelters">Pobliskich schronisk dla pupili</string>
@@ -655,9 +655,9 @@
     <string name="contact_visibility">Widoczność danych kontaktowych</string>
     <string name="contact_visibility_desc">Kontroluj, jakie dane kontaktowe są widoczne po zeskanowaniu nieśki QR twojego pupila</string>
     <string name="show_phone_number">Pokaż numer telefonu</string>
-    <string name="show_phone_subtitle">Twój numer telefonu będzie widoczny dla znalazców</string>
+    <string name="show_phone_subtitle">Twój główny numer telefonu będzie widoczny w publicznym profilu twojego pupila.</string>
     <string name="show_email_address">Pokaż adres e-mail</string>
-    <string name="show_email_subtitle">Twój adres e-mail będzie widoczny dla znalazców</string>
+    <string name="show_email_subtitle">Twój główny adres e-mail będzie widoczny w publicznym profilu twojego pupila.</string>
     <string name="show_address">Pokaż adres</string>
     <string name="show_address_subtitle">Twój adres będzie widoczny dla znalazców</string>
     <string name="show_secondary_phone">Pokaż dodatkowy numer telefonu</string>
@@ -710,7 +710,7 @@
     <string name="support_category_technical">Problem techniczny</string>
     <string name="support_category_account">Konto</string>
     <string name="support_category_billing">Rozliczenia</string>
-    <string name="support_category_feature">Prośba o funkcję</string>
+    <string name="support_category_feature">Sugestie</string>
     <string name="support_category_other">Inne</string>
     <string name="char_count">%1$d/5000 znaków</string>
 

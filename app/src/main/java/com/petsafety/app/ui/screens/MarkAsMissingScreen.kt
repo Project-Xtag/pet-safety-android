@@ -485,12 +485,9 @@ fun MarkAsMissingScreen(
                         }
                     }
 
-                    // Footer
-                    Text(
-                        stringResource(R.string.mark_lost_alerts_footer),
-                        style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant
-                    )
+                    // Footer (mark_lost_alerts_footer) removed
+                    // 2026-05-05 — recipient explainer is now
+                    // consolidated into mark_lost_sends_to below.
                 }
             }
 
@@ -566,29 +563,17 @@ fun MarkAsMissingScreen(
                             color = MaterialTheme.colorScheme.onSurfaceVariant
                         )
                     } else {
+                        // 2026-05-05 copy update: dropped the icon-list
+                        // (nearby users / vets / shelters) in favour of
+                        // a single explanatory sentence that also
+                        // covers the social-media fan-out (Facebook /
+                        // Instagram / X). Matches the iOS update in
+                        // MarkAsLostView.swift.
                         Text(
                             stringResource(R.string.mark_lost_sends_to),
                             style = MaterialTheme.typography.bodySmall,
                             color = MaterialTheme.colorScheme.onSurfaceVariant
                         )
-                        Spacer(modifier = Modifier.height(8.dp))
-                        Row(verticalAlignment = Alignment.CenterVertically) {
-                            Icon(Icons.Default.People, contentDescription = null, modifier = Modifier.size(16.dp), tint = MaterialTheme.colorScheme.onSurfaceVariant)
-                            Spacer(modifier = Modifier.width(8.dp))
-                            Text(stringResource(R.string.mark_lost_nearby_owners), style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
-                        }
-                        Spacer(modifier = Modifier.height(4.dp))
-                        Row(verticalAlignment = Alignment.CenterVertically) {
-                            Icon(Icons.Default.LocalHospital, contentDescription = null, modifier = Modifier.size(16.dp), tint = MaterialTheme.colorScheme.onSurfaceVariant)
-                            Spacer(modifier = Modifier.width(8.dp))
-                            Text(stringResource(R.string.mark_lost_vet_clinics), style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
-                        }
-                        Spacer(modifier = Modifier.height(4.dp))
-                        Row(verticalAlignment = Alignment.CenterVertically) {
-                            Icon(Icons.Default.Home, contentDescription = null, modifier = Modifier.size(16.dp), tint = MaterialTheme.colorScheme.onSurfaceVariant)
-                            Spacer(modifier = Modifier.width(8.dp))
-                            Text(stringResource(R.string.mark_lost_shelters), style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
-                        }
                     }
                 }
             }
