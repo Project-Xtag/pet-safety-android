@@ -163,7 +163,7 @@
     <string name="mark_found_confirm_title">Marquer %1$s comme retrouvé\u00a0?</string>
     <string name="mark_found_confirm_message">Cela fermera l\'alerte de disparition de %1$s. Tu confirmes\u00a0?</string>
     <string name="marked_found_message">%1$s marqué comme retrouvé.</string>
-    <string name="marked_missing_message">%1$s marqué comme disparu.</string>
+    <string name="marked_missing_message">%1$s a été marqué·e comme perdu·e.</string>
     <string name="mark_found_failed">Impossible de marquer comme retrouvé</string>
     <string name="mark_missing_failed">Impossible de marquer comme disparu</string>
     <string name="pet_deleted">%1$s a été supprimé</string>
@@ -197,7 +197,7 @@
     <string name="delete_pet_button">Supprimer l\'animal</string>
     <string name="delete_pet_dialog_title">Supprimer %1$s\u00a0?</string>
     <string name="delete_pet_dialog_message">Tu veux vraiment supprimer cet animal\u00a0? Cette action est irréversible.</string>
-    <string name="delete_pet_warning_title">Supprimer %1$s\u00a0?</string>
+    <string name="delete_pet_warning_title">Es-tu sûr·e de vouloir supprimer le profil de %1$s ?</string>
     <string name="delete_pet_warning_message">%1$s sera définitivement supprimé de ton compte. La médaille connectée QR sera immédiatement désactivée et ne fonctionnera plus lors du scan. Si c\'est ton dernier animal de compagnie, ton abonnement sera également annulé.</string>
     <string name="delete_pet_warning_confirm">Supprimer l\'animal</string>
     <string name="male">Mâle</string>
@@ -457,13 +457,13 @@
         <!-- Mark Lost Flow (matching iOS MarkAsLostView) -->
     <string name="mark_lost_pet_info">Informations sur l\'animal</string>
     <string name="mark_lost_last_seen">Dernier lieu connu</string>
-    <string name="mark_lost_alerts_footer">Les alertes seront envoyées aux utilisateurs, vétérinaires et refuges dans un rayon de 10 km.</string>
+    <string name="mark_lost_alerts_footer"></string>
     <string name="mark_lost_getting_location">Récupération de ta localisation…</string>
     <string name="mark_lost_no_address">Aucune adresse enregistrée. Va dans Profil pour ajouter ton adresse.</string>
     <string name="mark_lost_address_placeholder">Saisis une adresse ou un lieu</string>
     <string name="mark_lost_additional_info">Informations supplémentaires</string>
     <string name="mark_lost_additional_placeholder">Tout détail pouvant aider à retrouver ton animal (couleur du collier, comportement, signes distinctifs…)</string>
-    <string name="mark_lost_sends_to">Cette alerte sera envoyée à :</string>
+    <string name="mark_lost_sends_to">Nous envoyons l\'alerte aux utilisateurs SENRA, vétérinaires et refuges dans un rayon de 10 km, et nous la publions aussi sur nos pages Facebook, Instagram et X.</string>
     <string name="mark_lost_nearby_owners">Propriétaires d\'animaux à proximité</string>
     <string name="mark_lost_vet_clinics">Cabinets vétérinaires de la zone</string>
     <string name="mark_lost_shelters">Refuges animaliers à proximité</string>
@@ -646,9 +646,9 @@
     <string name="contact_visibility">Visibilité des contacts</string>
     <string name="contact_visibility_desc">Contrôle quelles coordonnées sont visibles lorsque quelqu\'un scanne la médaille connectée QR de ton animal de compagnie</string>
     <string name="show_phone_number">Afficher le numéro de téléphone</string>
-    <string name="show_phone_subtitle">Ton numéro de téléphone sera visible pour ceux qui trouvent ton animal</string>
+    <string name="show_phone_subtitle">Ton numéro de téléphone principal sera visible sur le profil public de ton animal de compagnie.</string>
     <string name="show_email_address">Afficher l\'adresse e-mail</string>
-    <string name="show_email_subtitle">Ton e-mail sera visible pour ceux qui trouvent ton animal</string>
+    <string name="show_email_subtitle">Ton adresse e-mail principale sera visible sur le profil public de ton animal de compagnie.</string>
     <string name="show_address">Afficher l\'adresse</string>
     <string name="show_address_subtitle">Ton adresse sera visible pour ceux qui trouvent ton animal</string>
     <string name="show_secondary_phone">Afficher le téléphone secondaire</string>
@@ -701,7 +701,7 @@
     <string name="support_category_technical">Problème technique</string>
     <string name="support_category_account">Compte</string>
     <string name="support_category_billing">Facturation</string>
-    <string name="support_category_feature">Demande de fonctionnalité</string>
+    <string name="support_category_feature">Suggestions</string>
     <string name="support_category_other">Autre</string>
     <string name="char_count">%1$d/5000 caractères</string>
 

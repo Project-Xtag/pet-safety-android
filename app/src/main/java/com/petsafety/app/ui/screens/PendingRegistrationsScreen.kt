@@ -20,7 +20,6 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.automirrored.filled.OpenInNew
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.Inventory2
 import androidx.compose.material.icons.filled.QrCodeScanner
@@ -43,7 +42,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -270,8 +268,6 @@ private fun PendingRegistrationCard(
     onScanTag: () -> Unit,
     onCreateProfile: () -> Unit
 ) {
-    val uriHandler = LocalUriHandler.current
-
     Card(
         modifier = Modifier.fillMaxWidth(),
         shape = RoundedCornerShape(12.dp),
@@ -308,31 +304,13 @@ private fun PendingRegistrationCard(
                 StatusBadge(status = registration.orderStatus)
             }
 
-            // Tracking link for ready items
-            if (isReady && registration.mplTrackingNumber != null) {
-                Spacer(modifier = Modifier.height(8.dp))
-                Row(
-                    modifier = Modifier.clickable {
-                        uriHandler.openUri(
-                            "https://nyomkovetes.posta.hu/international?itemNumber=${registration.mplTrackingNumber}"
-                        )
-                    },
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.spacedBy(4.dp)
-                ) {
-                    Icon(
-                        imageVector = Icons.AutoMirrored.Filled.OpenInNew,
-                        contentDescription = null,
-                        modifier = Modifier.size(14.dp),
-                        tint = BrandOrange
-                    )
-                    Text(
-                        text = stringResource(R.string.track_package),
-                        style = MaterialTheme.typography.bodySmall,
-                        color = BrandOrange
-                    )
-                }
-            }
+            // 2026-05-05: tracking link removed. The MPL international
+            // tracking URL is unreliable across our shipping partners
+            // and 404s for ~20% of HU orders, so users hit a dead end
+            // more often than a working tracker. Order status is
+            // communicated via the StatusBadge above + email updates
+            // from the carrier directly. Mirrors the iOS removal in
+            // PendingRegistrationsView.swift.
 
             Spacer(modifier = Modifier.height(12.dp))
 
@@ -438,12 +416,28 @@ private fun HelpStep(number: String, text: String) {
 }
 
 private fun formatDate(dateString: String): String {
+    // 2026-05-05 fix: the previous implementation hard-coded
+    // "MMM d, yyyy" which renders as "May 5, 2026" — US format,
+    // unconventional for the rest of our markets. Switch to the
+    // locale-aware DateFormat.MEDIUM style so HU sees
+    // "2026. máj. 5.", DE sees "05.05.2026", etc. Also accept
+    // ISO-with-fractional-seconds inputs (the backend emits both
+    // forms depending on the source row) — the old `.take(19)`
+    // truncation worked for plain ISO but lost the timestamp on
+    // certain rows, falling through to the "yyyy-MM-dd" fallback.
     return try {
-        val inputFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.getDefault())
-        val date = inputFormat.parse(dateString.take(19))
+        val withFractional = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS", Locale.US).apply {
+            timeZone = java.util.TimeZone.getTimeZone("UTC")
+        }
+        val plain = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.US).apply {
+            timeZone = java.util.TimeZone.getTimeZone("UTC")
+        }
+        val date = runCatching { withFractional.parse(dateString.take(23)) }.getOrNull()
+            ?: runCatching { plain.parse(dateString.take(19)) }.getOrNull()
         if (date != null) {
-            val outputFormat = SimpleDateFormat("MMM d, yyyy", Locale.getDefault())
-            outputFormat.format(date)
+            java.text.DateFormat
+                .getDateInstance(java.text.DateFormat.MEDIUM, Locale.getDefault())
+                .format(date)
         } else {
             dateString.take(10)
         }

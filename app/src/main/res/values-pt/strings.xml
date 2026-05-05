@@ -165,7 +165,7 @@
     <string name="mark_found_confirm_title">Marcar %1$s como encontrado?</string>
     <string name="mark_found_confirm_message">Isto irá fechar o alerta de desaparecimento de %1$s. Tem a certeza?</string>
     <string name="marked_found_message">%1$s marcado como encontrado.</string>
-    <string name="marked_missing_message">%1$s marcado como desaparecido.</string>
+    <string name="marked_missing_message">Marcaste %1$s como desaparecido/a.</string>
     <string name="mark_found_failed">Falha ao marcar como encontrado</string>
     <string name="mark_missing_failed">Falha ao marcar como desaparecido</string>
     <string name="pet_deleted">%1$s foi eliminado</string>
@@ -198,7 +198,7 @@
     <string name="delete_pet_button">Eliminar animal de estimação</string>
     <string name="delete_pet_dialog_title">Eliminar %1$s?</string>
     <string name="delete_pet_dialog_message">Tem a certeza que pretende eliminar este animal de estimação? Esta ação não pode ser desfeita.</string>
-    <string name="delete_pet_warning_title">Eliminar %1$s?</string>
+    <string name="delete_pet_warning_title">Tens a certeza de que queres eliminar o perfil de %1$s?</string>
     <string name="delete_pet_warning_message">%1$s será removido permanentemente da tua conta. A plaquinha inteligente QR será desativada imediatamente e deixará de funcionar ao ser lida. Se este é o teu último animal de estimação, a tua subscrição também será cancelada.</string>
     <string name="delete_pet_warning_confirm">Eliminar animal de estimação</string>
     <string name="male">Macho</string>
@@ -442,13 +442,13 @@
         <!-- Mark Lost Flow (matching iOS MarkAsLostView) -->
     <string name="mark_lost_pet_info">Informação do animal de estimação</string>
     <string name="mark_lost_last_seen">Localização onde foi visto pela última vez</string>
-    <string name="mark_lost_alerts_footer">Alertas serão enviados a utilizadores próximos, veterinários e abrigos num raio de 10 km.</string>
+    <string name="mark_lost_alerts_footer"></string>
     <string name="mark_lost_getting_location">A obter a sua localização…</string>
     <string name="mark_lost_no_address">Sem morada registada. Vá a Perfil para adicionar a sua morada.</string>
     <string name="mark_lost_address_placeholder">Introduza a morada ou localização</string>
     <string name="mark_lost_additional_info">Informação adicional</string>
     <string name="mark_lost_additional_placeholder">Qualquer detalhe que possa ajudar a encontrar o seu animal de estimação (cor da coleira, comportamento, marcas distintivas…)</string>
-    <string name="mark_lost_sends_to">Este alerta será enviado para:</string>
+    <string name="mark_lost_sends_to">Enviamos o alerta a: utilizadores SENRA, veterinários e abrigos num raio de 10 km, e também publicamos nas nossas páginas de Facebook, Instagram e X.</string>
     <string name="mark_lost_nearby_owners">Tutores de animais de estimação próximos</string>
     <string name="mark_lost_vet_clinics">Clínicas veterinárias na área</string>
     <string name="mark_lost_shelters">Abrigos de animais de estimação próximos</string>
@@ -635,9 +635,9 @@
     <string name="contact_visibility">Visibilidade de contacto</string>
     <string name="contact_visibility_desc">Controla quais informações de contacto são visíveis quando alguém lê a plaquinha inteligente QR do teu animal de estimação</string>
     <string name="show_phone_number">Mostrar número de telefone</string>
-    <string name="show_phone_subtitle">O seu número de telefone será visível para quem encontrar o seu animal de estimação</string>
-    <string name="show_email_address">Mostrar e-mail</string>
-    <string name="show_email_subtitle">O seu e-mail será visível para quem encontrar o seu animal de estimação</string>
+    <string name="show_phone_subtitle">O teu número de telefone principal ficará visível no perfil público do teu animal de estimação.</string>
+    <string name="show_email_address">Mostrar endereço de e-mail</string>
+    <string name="show_email_subtitle">O teu endereço de e-mail principal ficará visível no perfil público do teu animal de estimação.</string>
     <string name="show_address">Mostrar morada</string>
     <string name="show_address_subtitle">A sua morada será visível para quem encontrar o seu animal de estimação</string>
     <string name="show_secondary_phone">Mostrar telefone secundário</string>
@@ -690,7 +690,7 @@
     <string name="support_category_technical">Problema técnico</string>
     <string name="support_category_account">Conta</string>
     <string name="support_category_billing">Faturação</string>
-    <string name="support_category_feature">Pedido de funcionalidade</string>
+    <string name="support_category_feature">Sugestões</string>
     <string name="support_category_other">Outro</string>
     <string name="char_count">%1$d/5000 caracteres</string>
 

@@ -164,7 +164,7 @@
     <string name="mark_found_confirm_title">Označiť %1$s ako nájdené?</string>
     <string name="mark_found_confirm_message">Týmto sa uzavrie upozornenie o strate pre %1$s. Si si istí?</string>
     <string name="marked_found_message">%1$s označené ako nájdené.</string>
-    <string name="marked_missing_message">%1$s označené ako stratené.</string>
+    <string name="marked_missing_message">Označil/-a si %1$s ako strateného.</string>
     <string name="mark_found_failed">Označenie nájdené zlyhalo</string>
     <string name="mark_missing_failed">Označenie stratené zlyhalo</string>
     <string name="pet_deleted">%1$s bolo odstránené</string>
@@ -197,7 +197,7 @@
     <string name="delete_pet_button">Odstrániť domáceho miláčika</string>
     <string name="delete_pet_dialog_title">Odstrániť %1$s?</string>
     <string name="delete_pet_dialog_message">Naozaj chceš odstrániť tohto domáceho miláčika? Túto akciu nie je možné vrátiť späť.</string>
-    <string name="delete_pet_warning_title">Odstrániť %1$s?</string>
+    <string name="delete_pet_warning_title">Naozaj chceš odstrániť profil %1$s?</string>
     <string name="delete_pet_warning_message">%1$s bude natrvalo odstránený z tvojho účtu. QR známka bude okamžite deaktivovaná a po naskenovaní prestane fungovať. Ak je toto tvoj posledný domáci miláčik, tvoje predplatné bude tiež zrušené.</string>
     <string name="delete_pet_warning_confirm">Odstrániť domáceho miláčika</string>
     <string name="male">Samec</string>
@@ -442,13 +442,13 @@
         <!-- Mark Lost Flow (matching iOS MarkAsLostView) -->
     <string name="mark_lost_pet_info">Informácie o zvierati</string>
     <string name="mark_lost_last_seen">Naposledy videné miesto</string>
-    <string name="mark_lost_alerts_footer">Upozornenia sa odošlú blízkym používateľom, veterinárom a útulkom v okruhu 10 km.</string>
+    <string name="mark_lost_alerts_footer"></string>
     <string name="mark_lost_getting_location">Získavam tvoju polohu…</string>
     <string name="mark_lost_no_address">Nie je registrovaná adresa. Prejdite na Profil a pridaj adresu.</string>
     <string name="mark_lost_address_placeholder">Zadaj adresu alebo miesto</string>
     <string name="mark_lost_additional_info">Ďalšie informácie</string>
     <string name="mark_lost_additional_placeholder">Akékoľvek detaily, ktoré by mohli pomôcť nájsť tvojho domáceho miláčika (farba obojka, správanie, výrazné znaky…)</string>
-    <string name="mark_lost_sends_to">Toto upozornenie bude odoslané:</string>
+    <string name="mark_lost_sends_to">Upozornenie pošleme: používateľom SENRA, veterinárom a útulkom v okruhu 10 km, a tiež ho zverejníme na našej stránke na Facebooku, Instagrame a X.</string>
     <string name="mark_lost_nearby_owners">Blízkym páníčkom zvierat</string>
     <string name="mark_lost_vet_clinics">Veterinárnym klinikám v okolí</string>
     <string name="mark_lost_shelters">Útulkom v okolí</string>
@@ -635,9 +635,9 @@
     <string name="contact_visibility">Viditeľnosť kontaktov</string>
     <string name="contact_visibility_desc">Ovládajte, ktoré kontaktné informácie sú viditeľné po naskenovaní QR známky</string>
     <string name="show_phone_number">Zobraziť telefónne číslo</string>
-    <string name="show_phone_subtitle">Tvoje telefónne číslo bude viditeľné pre nálezcov</string>
-    <string name="show_email_address">Zobraziť e-mail</string>
-    <string name="show_email_subtitle">Tvoj e-mail bude viditeľný pre nálezcov</string>
+    <string name="show_phone_subtitle">Tvoje hlavné telefónne číslo bude viditeľné na verejnom profile tvojho domáceho miláčika.</string>
+    <string name="show_email_address">Zobraziť e-mailovú adresu</string>
+    <string name="show_email_subtitle">Tvoja hlavná e-mailová adresa bude viditeľná na verejnom profile tvojho domáceho miláčika.</string>
     <string name="show_address">Zobraziť adresu</string>
     <string name="show_address_subtitle">Tvoja adresa bude viditeľná pre nálezcov</string>
     <string name="show_secondary_phone">Zobraziť sekundárny telefón</string>
@@ -690,7 +690,7 @@
     <string name="support_category_technical">Technický problém</string>
     <string name="support_category_account">Účet</string>
     <string name="support_category_billing">Fakturácia</string>
-    <string name="support_category_feature">Návrh funkcie</string>
+    <string name="support_category_feature">Návrhy</string>
     <string name="support_category_other">Iné</string>
     <string name="char_count">%1$d/5000 znakov</string>
 

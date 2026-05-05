@@ -53,8 +53,8 @@ private class FakeApiService : ApiService {
     override suspend fun updateUser(request: kotlinx.serialization.json.JsonObject) = getCurrentUser()
     override suspend fun getNotificationPreferences() =
         ApiEnvelope(true, NotificationPreferencesResponse(com.petsafety.app.data.model.NotificationPreferences.default))
-    override suspend fun updateNotificationPreferences(request: com.petsafety.app.data.model.NotificationPreferences) =
-        ApiEnvelope(true, NotificationPreferencesResponse(request))
+    override suspend fun updateNotificationPreferences(request: kotlinx.serialization.json.JsonObject) =
+        ApiEnvelope(true, NotificationPreferencesResponse(com.petsafety.app.data.model.NotificationPreferences.default))
 
     override suspend fun getPets() = ApiEnvelope(true, PetsResponse(emptyList()))
     override suspend fun getPet(id: String) = ApiEnvelope(true, PetResponse(fakePet(id)))

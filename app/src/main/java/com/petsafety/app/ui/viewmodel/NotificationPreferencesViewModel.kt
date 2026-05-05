@@ -66,7 +66,15 @@ class NotificationPreferencesViewModel @Inject constructor(
         viewModelScope.launch {
             _isSaving.value = true
             try {
-                val prefs = repository.updatePreferences(_preferences.value)
+                // Pass the loaded snapshot so the repository sends ONLY
+                // the channels the user actually changed. Pre-fix the
+                // PUT always carried all four booleans, which let stale
+                // local state on this device clobber a recent toggle on
+                // iOS / web for the same account.
+                val prefs = repository.updatePreferences(
+                    next = _preferences.value,
+                    original = _original.value,
+                )
                 _preferences.value = prefs
                 _original.value = prefs
                 _showSuccess.value = true
