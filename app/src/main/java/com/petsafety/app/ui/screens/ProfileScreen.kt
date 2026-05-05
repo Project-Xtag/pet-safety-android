@@ -144,6 +144,7 @@ fun ProfileScreen(
         ProfileSection.MAIN -> ProfileMain(
             authViewModel = authViewModel,
             appStateViewModel = appStateViewModel,
+            subscriptionViewModel = subscriptionViewModel,
             onNavigate = { section = it },
             onLogout = { authViewModel.logout() },
             modifier = modifier
@@ -183,13 +184,19 @@ fun ProfileScreen(
 private fun ProfileMain(
     authViewModel: AuthViewModel,
     appStateViewModel: AppStateViewModel,
+    subscriptionViewModel: SubscriptionViewModel,
     onNavigate: (ProfileSection) -> Unit,
     onLogout: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     val user by authViewModel.currentUser.collectAsState()
+    val subscription by subscriptionViewModel.subscription.collectAsState()
     val context = LocalContext.current
     var showLogoutDialog by remember { mutableStateOf(false) }
+
+    LaunchedEffect(Unit) {
+        subscriptionViewModel.loadSubscription()
+    }
 
     Box(
         modifier = modifier
@@ -268,8 +275,12 @@ private fun ProfileMain(
                             val part = okhttp3.MultipartBody.Part.createFormData("image", "profile.jpg", requestBody)
                             authViewModel.uploadProfileImage(part) { success, _ ->
                                 if (success) {
+                                    // Clear local URI once the server URL is on the user object —
+                                    // otherwise we'd keep showing the local file forever.
+                                    profileImageUri = null
                                     appStateViewModel.showSuccess(uploadContext.getString(R.string.updated))
                                 } else {
+                                    profileImageUri = null
                                     appStateViewModel.showError(uploadContext.getString(R.string.update_failed))
                                 }
                             }
@@ -288,11 +299,11 @@ private fun ProfileMain(
                             .background(TealAccent),
                         contentAlignment = Alignment.Center
                     ) {
-                        val imageToShow = profileImageUri ?: user?.let {
-                            // Show server-side profile image if available
-                            // User model would need profileImage field
-                            null
-                        }
+                        // Local URI wins while a fresh upload is in flight;
+                        // otherwise fall back to the saved server URL so
+                        // the picture survives navigation / restart and
+                        // syncs across devices.
+                        val imageToShow: Any? = profileImageUri ?: user?.profileImage
                         if (imageToShow != null) {
                             coil.compose.AsyncImage(
                                 model = imageToShow,
@@ -341,8 +352,10 @@ private fun ProfileMain(
                         )
                     }
 
+                    val planLabel = (subscription?.resolvedPlanName ?: "starter")
+                        .replaceFirstChar { it.uppercase() }
                     Text(
-                        text = currentUser.email,
+                        text = planLabel,
                         style = MaterialTheme.typography.bodyMedium.copy(fontSize = AdaptiveLayout.scaledSp(14)),
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
