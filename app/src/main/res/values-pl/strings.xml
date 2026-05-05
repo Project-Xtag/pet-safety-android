@@ -1456,6 +1456,14 @@
     <string name="error_select_pet_first">Najpierw wybierz pupila</string>
     <string name="error_activate_tag_failed">Aktywacja zawieszki nie powiodła się</string>
         <string name="waze_not_available">Waze nie jest zainstalowany i nie jest dostępna żadna przeglądarka</string>    <string name="share_address_instead">[NEEDS_TRANSLATION] Or type the address instead</string>    <string name="share_manual_address_title">[NEEDS_TRANSLATION] Type the Address</string>    <string name="share_manual_address_desc">[NEEDS_TRANSLATION] If you can\'t share GPS, type the address or a description of where you found %1$s. We\'ll send it to the owner.</string>    <string name="share_manual_address_label">[NEEDS_TRANSLATION] Address</string>    <string name="share_manual_address_placeholder">[NEEDS_TRANSLATION] e.g. 123 Pine St, Budapest — near the playground</string>    <string name="owner_communication_disabled">[NEEDS_TRANSLATION] This pet\'s owner has not enabled finder communication.</string>
+    <!-- Contact row badges (mirror iOS ContactsView) -->
+    <string name="contacts_settings">Ustawienia kontaktów</string>
+    <string name="contacts_info_full">Te dane kontaktowe będą wyświetlane, gdy ktoś zeskanuje adresówkę QR twojego pupila. Możesz dodać do dwóch adresów e-mail i numerów telefonów.</string>
+    <string name="contacts_primary_badge">GŁÓWNY</string>
+    <string name="contacts_visible_on_tag">Widoczne na adresówce</string>
+    <string name="contacts_hidden_badge">Ukryty</string>    <string name="contacts_edit_title">Edytuj dane kontaktowe</string>
+
+
 
 
 

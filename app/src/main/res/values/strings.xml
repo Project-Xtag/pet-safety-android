@@ -1446,4 +1446,12 @@
     <string name="error_select_pet_first">Please select a pet first</string>
     <string name="error_activate_tag_failed">Failed to activate tag</string>
         <string name="waze_not_available">Waze is not installed and no browser is available</string>
+    <!-- Contact row badges (mirror iOS ContactsView) -->
+    <string name="contacts_settings">Contact Settings</string>
+    <string name="contacts_info_full">These contact details will be shown when someone scans your pet\'s QR tag. You can add up to two email addresses and phone numbers.</string>
+    <string name="contacts_primary_badge">PRIMARY</string>
+    <string name="contacts_visible_on_tag">Visible on tag</string>
+    <string name="contacts_hidden_badge">Hidden</string>    <string name="contacts_edit_title">Edit Contact Details</string>
+
+
 </resources>
