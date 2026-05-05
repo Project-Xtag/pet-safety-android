@@ -76,19 +76,21 @@ object ShareCardGenerator {
             textAlign = Paint.Align.CENTER
             isAntiAlias = true
         }
-        canvas.drawText(context.getString(R.string.share_card_reunited), CARD_SIZE / 2f, 130f, reunitedPaint)
+        canvas.drawText(context.getString(R.string.share_card_reunited), CARD_SIZE / 2f, 110f, reunitedPaint)
 
         // Top divider
         val dividerPaint = Paint().apply {
             color = Color.argb(102, 255, 255, 255)
             strokeWidth = 2f
         }
-        canvas.drawLine(140f, 155f, (CARD_SIZE - 140).toFloat(), 155f, dividerPaint)
+        canvas.drawLine(140f, 140f, (CARD_SIZE - 140).toFloat(), 140f, dividerPaint)
 
-        // Pet photo — maximized
-        val photoRadius = 270f
+        // Pet photo — +25% radius (270 → 338) per 2026-05-05 ux ask.
+        // Center bumped down so the larger circle clears the header text
+        // and the divider above it; layout below shifted to match.
+        val photoRadius = 338f
         val photoCenterX = CARD_SIZE / 2f
-        val photoCenterY = 460f
+        val photoCenterY = 510f
 
         // White border
         val borderPaint = Paint().apply {
@@ -148,7 +150,7 @@ object ShareCardGenerator {
                 textAlign = Paint.Align.CENTER
                 isAntiAlias = true
             }
-            canvas.drawText("\uD83D\uDC3E", photoCenterX, photoCenterY + 50f, pawPaint)
+            canvas.drawText("\uD83D\uDC3E", photoCenterX, photoCenterY + 60f, pawPaint)
         }
 
         // Pet name + city
@@ -160,10 +162,10 @@ object ShareCardGenerator {
             textAlign = Paint.Align.CENTER
             isAntiAlias = true
         }
-        canvas.drawText(nameText, CARD_SIZE / 2f, 800f, namePaint)
+        canvas.drawText(nameText, CARD_SIZE / 2f, 920f, namePaint)
 
         // Bottom divider
-        canvas.drawLine(140f, 845f, (CARD_SIZE - 140).toFloat(), 845f, dividerPaint)
+        canvas.drawLine(140f, 965f, (CARD_SIZE - 140).toFloat(), 965f, dividerPaint)
 
         // Website
         val urlPaint = Paint().apply {
@@ -172,7 +174,7 @@ object ShareCardGenerator {
             textAlign = Paint.Align.CENTER
             isAntiAlias = true
         }
-        canvas.drawText("senra.pet", CARD_SIZE / 2f, 900f, urlPaint)
+        canvas.drawText("senra.pet", CARD_SIZE / 2f, 1020f, urlPaint)
 
         return bitmap
     }
