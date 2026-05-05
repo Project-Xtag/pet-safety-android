@@ -1456,6 +1456,10 @@
     <string name="privacy_contact_visibility">Contact Visibility</string>
     <string name="privacy_contact_footer">Control which contact details are visible on your pet\'s public profile. These settings apply to both your primary and secondary contact details.</string>
     <string name="app_version_with_value">Version %1$s</string>
+    <!-- Legal menu titles (nominative; standalone menu rows) -->
+    <string name="legal_terms_title">Terms of Service</string>
+    <string name="legal_privacy_title">Privacy Policy</string>
+
 
 
 

@@ -1438,6 +1438,10 @@
     <string name="privacy_contact_visibility">Visibilité des coordonnées</string>
     <string name="privacy_contact_footer">Contrôle quelles coordonnées sont visibles sur le profil public de ton animal de compagnie. Ces paramètres s\'appliquent aux coordonnées principales et secondaires.</string>
     <string name="app_version_with_value">Version %1$s</string>
+    <!-- Legal menu titles (nominative; standalone menu rows) -->
+    <string name="legal_terms_title">Conditions d\'utilisation</string>
+    <string name="legal_privacy_title">Politique de confidentialité</string>
+
 
 
 

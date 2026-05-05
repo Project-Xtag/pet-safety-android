@@ -1446,6 +1446,10 @@
     <string name="privacy_contact_visibility">Visibilidade de contacto</string>
     <string name="privacy_contact_footer">Controle quais contactos são visíveis no perfil público do seu animal de estimação. Estas definições aplicam-se aos dados de contacto principais e secundários.</string>
     <string name="app_version_with_value">Versão %1$s</string>
+    <!-- Legal menu titles (nominative; standalone menu rows) -->
+    <string name="legal_terms_title">Termos de Serviço</string>
+    <string name="legal_privacy_title">Política de Privacidade</string>
+
 
 
 

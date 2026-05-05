@@ -1466,6 +1466,10 @@
     <string name="privacy_contact_visibility">Widoczność danych kontaktowych</string>
     <string name="privacy_contact_footer">Kontroluj, które dane kontaktowe są widoczne na publicznym profilu twojego pupila. Te ustawienia dotyczą zarówno głównych, jak i zapasowych danych kontaktowych.</string>
     <string name="app_version_with_value">Wersja %1$s</string>
+    <!-- Legal menu titles (nominative; standalone menu rows) -->
+    <string name="legal_terms_title">Warunki korzystania z usługi</string>
+    <string name="legal_privacy_title">Polityka prywatności</string>
+
 
 
 

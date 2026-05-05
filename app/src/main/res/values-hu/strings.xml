@@ -88,8 +88,8 @@
     <string name="terms_login_prefix">A bejelentkezéssel elfogadod a(z)</string>
     <string name="terms_register_prefix">Regisztrációval elfogadod a(z)</string>
     <string name="terms_and">és</string>
-    <string name="terms_of_service">Felhasználási feltételek</string>
-    <string name="privacy_policy">Adatkezelési tájékoztató</string>
+    <string name="terms_of_service">Felhasználási feltételeket</string>
+    <string name="privacy_policy">Adatkezelési tájékoztatót</string>
     <string name="first_name">Keresztnév</string>
     <string name="last_name">Vezetéknév</string>
     <string name="email">Email</string>
@@ -1441,6 +1441,10 @@
     <string name="privacy_contact_visibility">Elérhetőségeid láthatósága</string>
     <string name="privacy_contact_footer">Beállíthatod, hogy mely elérhetőségeid legyenek láthatóak a kedvenced nyilvános profilján. Ezek a beállítások az elsődleges és másodlagos elérhetőségekre egyaránt vonatkoznak.</string>
     <string name="app_version_with_value">Verzió %1$s</string>
+    <!-- Legal menu titles (nominative; standalone menu rows) -->
+    <string name="legal_terms_title">Felhasználási feltételek</string>
+    <string name="legal_privacy_title">Adatkezelési tájékoztató</string>
+
 
 
 

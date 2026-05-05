@@ -1454,6 +1454,10 @@
     <string name="privacy_contact_visibility">Viditelnost kontaktov</string>
     <string name="privacy_contact_footer">Ovládaj, ktoré kontaktné údaje sú viditeľné na verejnom profile tvojho domáceho miláčika. Tieto nastavenia sa vzťahujú na primárne aj sekundárne kontaktné údaje.</string>
     <string name="app_version_with_value">Verzia %1$s</string>
+    <!-- Legal menu titles (nominative; standalone menu rows) -->
+    <string name="legal_terms_title">Podmienky používania</string>
+    <string name="legal_privacy_title">Zásady ochrany súkromia</string>
+
 
 
 

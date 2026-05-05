@@ -1906,7 +1906,7 @@ private fun HelpSupportScreen(
                 Column {
                     ProfileMenuRow(
                         icon = Icons.Default.Lock,
-                        title = stringResource(R.string.terms_of_service),
+                        title = stringResource(R.string.legal_terms_title),
                         onClick = {
                             context.startActivity(
                                 Intent(Intent.ACTION_VIEW, Uri.parse(WebUrlHelper.termsUrl))
@@ -1916,7 +1916,7 @@ private fun HelpSupportScreen(
                     HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
                     ProfileMenuRow(
                         icon = Icons.Default.Lock,
-                        title = stringResource(R.string.privacy_policy),
+                        title = stringResource(R.string.legal_privacy_title),
                         onClick = {
                             context.startActivity(
                                 Intent(Intent.ACTION_VIEW, Uri.parse(WebUrlHelper.privacyUrl))

@@ -1440,6 +1440,10 @@
     <string name="privacy_contact_visibility">Kontaktsynlighet</string>
     <string name="privacy_contact_footer">Kontroller hvilke kontaktdetaljer som er synlige på dyrets offentlige profil. Disse innstillingene gjelder for både primære og sekundære kontaktopplysninger.</string>
     <string name="app_version_with_value">Versjon %1$s</string>
+    <!-- Legal menu titles (nominative; standalone menu rows) -->
+    <string name="legal_terms_title">Vilkår for bruk</string>
+    <string name="legal_privacy_title">Personvernregler</string>
+
 
 
 

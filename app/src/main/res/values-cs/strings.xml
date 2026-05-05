@@ -1455,6 +1455,10 @@
     <string name="privacy_contact_visibility">Viditelnost kontaktů</string>
     <string name="privacy_contact_footer">Ovládej, které kontaktní údaje jsou viditelné na veřejném profilu tvého mazlíčka. Tato nastavení platí pro primární i sekundární kontaktní údaje.</string>
     <string name="app_version_with_value">Verze %1$s</string>
+    <!-- Legal menu titles (nominative; standalone menu rows) -->
+    <string name="legal_terms_title">Podmínky služby</string>
+    <string name="legal_privacy_title">Zásady ochrany soukromí</string>
+
 
 
 

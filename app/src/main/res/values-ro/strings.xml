@@ -1447,6 +1447,10 @@
     <string name="privacy_contact_visibility">Vizibilitatea contactelor</string>
     <string name="privacy_contact_footer">Controlează ce contacte sunt vizibile pe profilul public al animalului de companie. Aceste setări se aplică atât datelor de contact principale, cât și secundare.</string>
     <string name="app_version_with_value">Versiunea %1$s</string>
+    <!-- Legal menu titles (nominative; standalone menu rows) -->
+    <string name="legal_terms_title">Termenii de utilizare</string>
+    <string name="legal_privacy_title">Politica de confidențialitate</string>
+
 
 
 
