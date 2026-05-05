@@ -1342,15 +1342,14 @@ private fun ContactRow(
                             .background(BrandOrange, RoundedCornerShape(4.dp))
                             .padding(horizontal = 6.dp, vertical = 2.dp)
                     )
+                    Spacer(modifier = Modifier.width(8.dp))
                 }
-                Spacer(modifier = Modifier.weight(1f))
                 Text(
                     text = stringResource(
                         if (isVisible) R.string.contacts_visible_on_tag else R.string.contacts_hidden_badge
                     ),
                     style = MaterialTheme.typography.labelSmall.copy(fontSize = 11.sp),
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    textAlign = TextAlign.End
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
             }
         }
