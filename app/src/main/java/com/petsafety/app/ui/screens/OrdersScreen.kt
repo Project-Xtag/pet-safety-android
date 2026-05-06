@@ -448,36 +448,12 @@ private fun OrderDetailScreen(
                         value = order.mplTrackingNumber
                     )
 
-                    HorizontalDivider(
-                        color = MaterialTheme.colorScheme.outlineVariant,
-                        modifier = Modifier.padding(vertical = 12.dp)
-                    )
-
-                    val uriHandler = LocalUriHandler.current
-                    Row(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .clickable {
-                                uriHandler.openUri(
-                                    "https://nyomkovetes.posta.hu/international?itemNumber=${order.mplTrackingNumber}"
-                                )
-                            }
-                            .padding(vertical = 4.dp),
-                        horizontalArrangement = Arrangement.SpaceBetween,
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        Text(
-                            text = stringResource(R.string.track_package),
-                            style = MaterialTheme.typography.bodyMedium,
-                            color = BrandOrange
-                        )
-                        Icon(
-                            imageVector = Icons.AutoMirrored.Filled.OpenInNew,
-                            contentDescription = null,
-                            modifier = Modifier.size(18.dp),
-                            tint = BrandOrange
-                        )
-                    }
+                    // 2026-05-06: dropped the "Track package" deep link.
+                    // The MPL international tracking page often returned
+                    // a 404 for fresh tracking numbers and confused users
+                    // — we keep the tracking number visible so they can
+                    // search it on whichever carrier site is right for
+                    // their region.
 
                     if (order.deliveryMethod != null) {
                         HorizontalDivider(
@@ -638,7 +614,14 @@ private fun formatDateLong(dateString: String): String {
         val inputFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.getDefault())
         val date = inputFormat.parse(dateString.take(19))
         if (date != null) {
-            val outputFormat = SimpleDateFormat("MMMM d, yyyy 'at' h:mm a", Locale.getDefault())
+            // Locale-aware long date — drops the time + "at" (the
+            // hardcoded English "at" leaked through to every non-EN
+            // locale). DateFormat.LONG renders "May 6, 2026" in EN,
+            // "2026. május 6." in HU, etc.
+            val outputFormat = java.text.DateFormat.getDateInstance(
+                java.text.DateFormat.LONG,
+                Locale.getDefault()
+            )
             outputFormat.format(date)
         } else {
             dateString.take(10)
