@@ -1450,6 +1450,12 @@
     <!-- Legal menu titles (nominative; standalone menu rows) -->
     <string name="legal_terms_title">Nutzungsbedingungen</string>
     <string name="legal_privacy_title">Datenschutzrichtlinie</string>
+    <string name="share_success_title">Danke für deine Hilfe!</string>
+    <string name="share_success_subtitle">Wir haben %1$ss Familie benachrichtigt, dass du das Tier gefunden hast.</string>
+    <string name="share_success_what_next">So geht es weiter</string>
+    <string name="share_success_step_contact">Der Besitzer meldet sich so bald wie möglich mit den Kontaktdaten von der vorherigen Seite.</string>
+    <string name="share_success_step_safe">Bitte behüte das Tier, bis der Besitzer eintrifft.</string>
+
 
 
 

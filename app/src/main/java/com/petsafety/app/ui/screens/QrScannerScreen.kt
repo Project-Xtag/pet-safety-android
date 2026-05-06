@@ -30,6 +30,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Call
+import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.ChevronRight
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Info
@@ -96,6 +97,7 @@ import com.petsafety.app.R
 import com.petsafety.app.ui.a11y.markAsHeading
 import com.petsafety.app.data.model.TagLookupResponse
 import com.petsafety.app.ui.theme.BrandOrange
+import com.petsafety.app.ui.theme.SuccessGreen
 import com.petsafety.app.ui.theme.TealAccent
 import com.petsafety.app.ui.viewmodel.AppStateViewModel
 import com.petsafety.app.ui.viewmodel.QrScannerViewModel
@@ -128,8 +130,12 @@ fun QrScannerScreen(
     var cameraRef by remember { mutableStateOf<androidx.camera.core.Camera?>(null) }
 
     val qrScannedMessage = stringResource(R.string.qr_scanned)
-    val locationSharedMessage = stringResource(R.string.location_shared)
     val shareLocationFailedMessage = stringResource(R.string.share_location_failed)
+    // Share-success takeover screen — the bottom sheet swaps its
+    // content for a confirmation panel after a successful share so
+    // the finder gets clear acknowledgement and a "what's next"
+    // summary instead of a fleeting toast that auto-dismisses.
+    var shareSuccess by remember { mutableStateOf(false) }
 
     val permissionLauncher = rememberLauncherForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->
         hasPermission = granted
@@ -331,7 +337,11 @@ fun QrScannerScreen(
     scanResult?.let { result ->
         ScannedPetSheet(
             scanResult = result,
-            onDismiss = { viewModel.reset() },
+            shareSuccess = shareSuccess,
+            onDismiss = {
+                shareSuccess = false
+                viewModel.reset()
+            },
             onShareGpsLocation = { qrCode, lat, lng, accuracy ->
                 viewModel.shareLocation(
                     qrCode = qrCode,
@@ -340,8 +350,7 @@ fun QrScannerScreen(
                     accuracyMeters = accuracy
                 ) { success, message ->
                     if (success) {
-                        appStateViewModel.showSuccess(locationSharedMessage)
-                        viewModel.reset()
+                        shareSuccess = true
                     } else {
                         appStateViewModel.showError(message ?: shareLocationFailedMessage)
                     }
@@ -350,8 +359,7 @@ fun QrScannerScreen(
             onShareManualAddress = { qrCode, address ->
                 viewModel.shareManualAddress(qrCode = qrCode, manualAddress = address) { success, message ->
                     if (success) {
-                        appStateViewModel.showSuccess(locationSharedMessage)
-                        viewModel.reset()
+                        shareSuccess = true
                     } else {
                         appStateViewModel.showError(message ?: shareLocationFailedMessage)
                     }
@@ -445,6 +453,7 @@ private fun CameraPreview(
 @Composable
 private fun ScannedPetSheet(
     scanResult: TagLookupResponse,
+    shareSuccess: Boolean,
     onDismiss: () -> Unit,
     onShareGpsLocation: (qrCode: String, lat: Double, lng: Double, accuracyMeters: Double?) -> Unit,
     onShareManualAddress: (qrCode: String, address: String) -> Unit
@@ -493,6 +502,10 @@ private fun ScannedPetSheet(
         onDismissRequest = onDismiss,
         sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true)
     ) {
+        if (shareSuccess) {
+            ShareSuccessPanel(petName = pet.name, onDone = onDismiss)
+            return@ModalBottomSheet
+        }
         Column(
             modifier = Modifier
                 .fillMaxWidth()
@@ -887,6 +900,116 @@ private fun ScannedPetSheet(
 
             Spacer(modifier = Modifier.height(24.dp))
         }
+    }
+}
+
+@Composable
+private fun ShareSuccessPanel(
+    petName: String,
+    onDone: () -> Unit
+) {
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .verticalScroll(rememberScrollState())
+            .padding(horizontal = 24.dp)
+            .padding(top = 12.dp, bottom = 32.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Icon(
+            imageVector = Icons.Default.CheckCircle,
+            contentDescription = null,
+            tint = SuccessGreen,
+            modifier = Modifier.size(88.dp)
+        )
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        Text(
+            text = stringResource(R.string.share_success_title),
+            style = MaterialTheme.typography.headlineSmall.copy(
+                fontSize = 24.sp,
+                fontWeight = FontWeight.Bold
+            ),
+            color = MaterialTheme.colorScheme.onSurface,
+            textAlign = TextAlign.Center
+        )
+
+        Spacer(modifier = Modifier.height(8.dp))
+
+        Text(
+            text = stringResource(R.string.share_success_subtitle, petName),
+            style = MaterialTheme.typography.bodyMedium.copy(fontSize = 15.sp),
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            textAlign = TextAlign.Center,
+            modifier = Modifier.padding(horizontal = 8.dp)
+        )
+
+        Spacer(modifier = Modifier.height(24.dp))
+
+        Card(
+            modifier = Modifier.fillMaxWidth(),
+            shape = RoundedCornerShape(14.dp),
+            colors = CardDefaults.cardColors(
+                containerColor = MaterialTheme.colorScheme.surfaceContainerHigh
+            )
+        ) {
+            Column(modifier = Modifier.padding(16.dp)) {
+                Text(
+                    text = stringResource(R.string.share_success_what_next),
+                    style = MaterialTheme.typography.titleSmall.copy(fontWeight = FontWeight.SemiBold),
+                    color = MaterialTheme.colorScheme.onSurface
+                )
+                Spacer(modifier = Modifier.height(12.dp))
+                ShareSuccessBullet(text = stringResource(R.string.share_success_step_contact))
+                Spacer(modifier = Modifier.height(10.dp))
+                ShareSuccessBullet(text = stringResource(R.string.share_success_step_safe))
+            }
+        }
+
+        Spacer(modifier = Modifier.height(24.dp))
+
+        Button(
+            onClick = onDone,
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(52.dp)
+                .shadow(
+                    elevation = 8.dp,
+                    shape = RoundedCornerShape(16.dp),
+                    ambientColor = BrandOrange.copy(alpha = 0.3f),
+                    spotColor = BrandOrange.copy(alpha = 0.3f)
+                ),
+            shape = RoundedCornerShape(16.dp),
+            colors = ButtonDefaults.buttonColors(containerColor = BrandOrange)
+        ) {
+            Text(
+                text = stringResource(R.string.close),
+                style = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.SemiBold)
+            )
+        }
+    }
+}
+
+@Composable
+private fun ShareSuccessBullet(text: String) {
+    Row(
+        verticalAlignment = Alignment.Top,
+        horizontalArrangement = Arrangement.spacedBy(10.dp)
+    ) {
+        Icon(
+            imageVector = Icons.Default.CheckCircle,
+            contentDescription = null,
+            tint = TealAccent,
+            modifier = Modifier
+                .size(18.dp)
+                .padding(top = 2.dp)
+        )
+        Text(
+            text = text,
+            style = MaterialTheme.typography.bodyMedium.copy(fontSize = 14.sp),
+            color = MaterialTheme.colorScheme.onSurface
+        )
     }
 }
 

@@ -1469,6 +1469,12 @@
     <!-- Legal menu titles (nominative; standalone menu rows) -->
     <string name="legal_terms_title">Warunki korzystania z usługi</string>
     <string name="legal_privacy_title">Polityka prywatności</string>
+    <string name="share_success_title">Dziękujemy za pomoc!</string>
+    <string name="share_success_subtitle">Powiadomiliśmy rodzinę %1$s o tym, że go znalazłeś.</string>
+    <string name="share_success_what_next">Co dalej</string>
+    <string name="share_success_step_contact">Właściciel skontaktuje się z Tobą jak najszybciej, korzystając z danych kontaktowych z poprzedniego ekranu.</string>
+    <string name="share_success_step_safe">Prosimy, zaopiekuj się zwierzęciem do czasu przybycia właściciela.</string>
+
 
 
 

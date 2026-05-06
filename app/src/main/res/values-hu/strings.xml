@@ -1444,6 +1444,12 @@
     <!-- Legal menu titles (nominative; standalone menu rows) -->
     <string name="legal_terms_title">Felhasználási feltételek</string>
     <string name="legal_privacy_title">Adatkezelési tájékoztató</string>
+    <string name="share_success_title">Köszönjük a segítséget!</string>
+    <string name="share_success_subtitle">%1$s gazdiját értesítettük, hogy megtaláltad.</string>
+    <string name="share_success_what_next">Mi történik ezután</string>
+    <string name="share_success_step_contact">A gazdi az előző oldalon látható elérhetőségen veszi fel veled a kapcsolatot, amint tudja.</string>
+    <string name="share_success_step_safe">Kérjük, vigyázz rá, amíg a gazdi megérkezik.</string>
+
 
 
 
