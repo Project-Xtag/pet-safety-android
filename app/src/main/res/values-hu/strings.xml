@@ -1375,7 +1375,7 @@
     <string name="help_faq_q13">Lehet több kedvencem egy fiókon?</string>
     <string name="help_faq_a13">Igen. A Starter (ingyenes) csomagnál maximum 10 állatot regisztrálhatsz, de az elérhető szolgáltatások korlátozottak. A Standard csomag egy cicára vagy kutyára lett kitalálva, de az összes szolgáltatás elérhető a csomagban. A Maximum csomagban az összes szolgáltatás elérhető és legfeljebb 10 kisállatot tudsz regisztrálni. Előfizetési csomagot bármikor tudsz váltani a \'Kezdőlap/Fiókom\' menüpont alatt.</string>
     <string name="help_faq_q14">Hogyan jelenthetek egy megtalált kedvencet?</string>
-    <string name="help_faq_a14">Ha a kedvencnek van SENRA bilétája, egyszerűen olvasd be a QR-kódot a okostelefonod kamerájával — nincs szükség alkalmazásra. Megtekintheted a kedvenc profilját, és megoszthatod a helyed a gazdával.</string>
+    <string name="help_faq_a14">Ha a kedvencnek van SENRA bilétája, egyszerűen olvasd be a QR-kódot a okostelefonod kamerájával — nincs szükség alkalmazásra. Megtekintheted a kedvenc profilját, és megoszthatod a helyed a gazdival.</string>
     <string name="help_faq_q15">Biztonságban vannak a személyes adataim?</string>
     <string name="help_faq_a15">Igen. Te határozod meg, pontosan mely adatok láthatóak, amikor valaki beolvassa a kedvenced bilétáját. A \'Beállítások\' &gt; \'Adatvédelmi beállítások\' menüpontban kiválaszthatod, hogy megjelenjen-e a telefonszámod, e-mail címed vagy lakcímed. A bejelentkezésed minden alkalommal egyszeri ellenőrző kóddal védett — nincs jelszó, amit el lehetne lopni. A fiókodat és minden adatodat bármikor törölheted.</string>
     <string name="help_faq_q16">Elvesztettük a bilétát vagy megsérült — mit tegyek?</string>
@@ -1430,7 +1430,7 @@
     <string name="error_claim_tag_failed">Biléta aktiválása sikertelen</string>
     <string name="error_select_pet_first">Kérjük, válassz egy kedvencet először</string>
     <string name="error_activate_tag_failed">Biléta aktiválása sikertelen</string>
-        <string name="waze_not_available">A Waze nincs telepítve, és nem érhető el böngésző</string>    <string name="share_address_instead">Vagy add meg a címet kézzel</string>    <string name="share_manual_address_title">Add meg a címet</string>    <string name="share_manual_address_desc">Ha nem tudod megosztani a GPS-t, írd be a címet vagy a helyszínt, ahol megtaláltad %1$s-t. Telefonszámodat is megadhatod itt, ha szeretnéd, hogy a gazdi vissza tudjon hívni.</string>    <string name="share_manual_address_label">Cím</string>    <string name="share_manual_address_placeholder">pl. Budapest, Pauler utca 123 — a játszótér mellett. Telefonszámod is megadhatod, ha szeretnéd, hogy a gazdi visszahívhasson.</string>    <string name="owner_communication_disabled">A kisállat gazdája nem engedélyezte a kommunikációt a megtalálóval.</string>
+        <string name="waze_not_available">A Waze nincs telepítve, és nem érhető el böngésző</string>    <string name="share_address_instead">Vagy add meg a címet kézzel</string>    <string name="share_manual_address_title">Add meg a címet</string>    <string name="share_manual_address_desc">Ha nem tudod megosztani a GPS-t, írd be a címet vagy a helyszínt, ahol megtaláltad %1$s-t. Telefonszámodat is megadhatod itt, ha szeretnéd, hogy a gazdi vissza tudjon hívni.</string>    <string name="share_manual_address_label">Cím</string>    <string name="share_manual_address_placeholder">pl. Budapest, Pauler utca 123 — a játszótér mellett. Telefonszámod is megadhatod, ha szeretnéd, hogy a gazdi visszahívhasson.</string>    <string name="owner_communication_disabled">A kisállat gazdija nem engedélyezte a kommunikációt a megtalálóval.</string>
     <!-- Contact row badges (mirror iOS ContactsView) -->
     <string name="contacts_settings">Kapcsolat beállítások</string>
     <string name="contacts_info_full">Ezek az elérhetőségek megjelennek, amikor beolvassák a kedvenced QR bilétáját. Legfeljebb két email címet és telefonszámot adhatsz meg.</string>
@@ -1444,6 +1444,12 @@
     <!-- Legal menu titles (nominative; standalone menu rows) -->
     <string name="legal_terms_title">Felhasználási feltételek</string>
     <string name="legal_privacy_title">Adatkezelési tájékoztató</string>
+    <string name="share_success_title">Köszönjük a segítséget!</string>
+    <string name="share_success_subtitle">%1$s gazdiját értesítettük, hogy megtaláltad.</string>
+    <string name="share_success_what_next">Mi történik ezután</string>
+    <string name="share_success_step_contact">A gazdi az előző oldalon látható elérhetőségen veszi fel veled a kapcsolatot, amint tudja.</string>
+    <string name="share_success_step_safe">Kérjük, vigyázz rá, amíg a gazdi megérkezik.</string>
+
 
 
 

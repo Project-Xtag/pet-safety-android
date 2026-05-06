@@ -1458,6 +1458,12 @@
     <!-- Legal menu titles (nominative; standalone menu rows) -->
     <string name="legal_terms_title">Podmínky služby</string>
     <string name="legal_privacy_title">Zásady ochrany soukromí</string>
+    <string name="share_success_title">Děkujeme za pomoc!</string>
+    <string name="share_success_subtitle">Informovali jsme rodinu mazlíčka %1$s, že jsi ho našel.</string>
+    <string name="share_success_what_next">Co bude dál</string>
+    <string name="share_success_step_contact">Majitel se s tebou co nejdříve spojí pomocí kontaktů z předchozí obrazovky.</string>
+    <string name="share_success_step_safe">Prosíme, postarej se o mazlíčka, dokud majitel nedorazí.</string>
+
 
 
 

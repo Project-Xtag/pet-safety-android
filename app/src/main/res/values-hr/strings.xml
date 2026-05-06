@@ -1459,6 +1459,12 @@
     <!-- Legal menu titles (nominative; standalone menu rows) -->
     <string name="legal_terms_title">Uvjeti korištenja</string>
     <string name="legal_privacy_title">Pravila privatnosti</string>
+    <string name="share_success_title">Hvala na pomoći!</string>
+    <string name="share_success_subtitle">Obavijestili smo obitelj ljubimca %1$s da si ga pronašao.</string>
+    <string name="share_success_what_next">Što slijedi</string>
+    <string name="share_success_step_contact">Vlasnik će te kontaktirati što je prije moguće koristeći podatke s prethodnog zaslona.</string>
+    <string name="share_success_step_safe">Molimo pobrini se za ljubimca dok vlasnik ne dođe.</string>
+
 
 
 

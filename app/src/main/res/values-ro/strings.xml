@@ -1450,6 +1450,12 @@
     <!-- Legal menu titles (nominative; standalone menu rows) -->
     <string name="legal_terms_title">Termenii de utilizare</string>
     <string name="legal_privacy_title">Politica de confidențialitate</string>
+    <string name="share_success_title">Mulțumim pentru ajutor!</string>
+    <string name="share_success_subtitle">Familia lui %1$s a fost anunțată că l-ai găsit.</string>
+    <string name="share_success_what_next">Ce urmează</string>
+    <string name="share_success_step_contact">Proprietarul te va contacta cât mai curând posibil, folosind datele de contact din ecranul anterior.</string>
+    <string name="share_success_step_safe">Te rugăm să ai grijă de el până când ajunge proprietarul.</string>
+
 
 
 

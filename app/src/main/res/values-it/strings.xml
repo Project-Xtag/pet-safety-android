@@ -1444,6 +1444,12 @@
     <!-- Legal menu titles (nominative; standalone menu rows) -->
     <string name="legal_terms_title">Termini di servizio</string>
     <string name="legal_privacy_title">Informativa sulla privacy</string>
+    <string name="share_success_title">Grazie per il tuo aiuto!</string>
+    <string name="share_success_subtitle">Abbiamo avvisato la famiglia di %1$s che lo hai trovato.</string>
+    <string name="share_success_what_next">Cosa succede adesso</string>
+    <string name="share_success_step_contact">Il proprietario ti contatterà appena possibile usando i recapiti della schermata precedente.</string>
+    <string name="share_success_step_safe">Per favore, tieni l\'animale al sicuro fino all\'arrivo del proprietario.</string>
+
 
 
 

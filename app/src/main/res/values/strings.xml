@@ -1459,6 +1459,12 @@
     <!-- Legal menu titles (nominative; standalone menu rows) -->
     <string name="legal_terms_title">Terms of Service</string>
     <string name="legal_privacy_title">Privacy Policy</string>
+    <string name="share_success_title">Thank you for helping!</string>
+    <string name="share_success_subtitle">%1$s\'s family has been notified that you found them.</string>
+    <string name="share_success_what_next">What happens next</string>
+    <string name="share_success_step_contact">The owner will reach out using the contact details from the previous screen as soon as they can.</string>
+    <string name="share_success_step_safe">Please keep them safe and comfortable until the owner arrives.</string>
+
 
 
 

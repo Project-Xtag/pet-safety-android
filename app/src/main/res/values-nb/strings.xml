@@ -1443,6 +1443,12 @@
     <!-- Legal menu titles (nominative; standalone menu rows) -->
     <string name="legal_terms_title">Vilkår for bruk</string>
     <string name="legal_privacy_title">Personvernregler</string>
+    <string name="share_success_title">Takk for hjelpen!</string>
+    <string name="share_success_subtitle">Vi har varslet %1$ss familie om at du har funnet kjæledyret.</string>
+    <string name="share_success_what_next">Hva skjer nå</string>
+    <string name="share_success_step_contact">Eieren tar kontakt med deg så snart som mulig med kontaktinformasjonen fra forrige skjerm.</string>
+    <string name="share_success_step_safe">Vær snill og pass på kjæledyret til eieren kommer.</string>
+
 
 
 
