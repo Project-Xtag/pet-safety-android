@@ -429,6 +429,7 @@ private fun PetsSection(
         // Pet Cards Grid - 2 columns on all devices, square images
         val gridColumns = AdaptiveLayout.gridColumns()
         val displayPets = if (searchQuery.isNotBlank()) pets else pets.take(4)
+        val effectiveColumns = displayPets.size.coerceAtMost(gridColumns).coerceAtLeast(1)
         val rowCount = (displayPets.size + gridColumns - 1) / gridColumns
         val hPad = AdaptiveLayout.horizontalPadding()
         val configuration = LocalConfiguration.current
@@ -437,6 +438,11 @@ private fun PetsSection(
         val cardWidthDp = availableWidth / gridColumns
         val cardHeightDp = cardWidthDp + 40
         val gridHeight = (cardHeightDp * rowCount + 16 * (rowCount - 1).coerceAtLeast(0)).dp
+        // When fewer pets than columns, drop the column count and width-cap
+        // the grid so each card stays the same physical size as in the
+        // multi-pet layout. (Previously kept Fixed(gridColumns) and shrunk
+        // the grid via fillMaxWidth(n/cols), which halved the card too.)
+        val gridWidthDp = (cardWidthDp * effectiveColumns + 16 * (effectiveColumns - 1)).dp
         Box(
             modifier = Modifier
                 .fillMaxWidth()
@@ -444,11 +450,11 @@ private fun PetsSection(
             contentAlignment = Alignment.Center
         ) {
             LazyVerticalGrid(
-                columns = GridCells.Fixed(gridColumns),
+                columns = GridCells.Fixed(effectiveColumns),
                 modifier = Modifier
                     .then(
-                        if (displayPets.size < gridColumns) {
-                            Modifier.fillMaxWidth(displayPets.size.toFloat() / gridColumns)
+                        if (effectiveColumns < gridColumns) {
+                            Modifier.width(gridWidthDp)
                         } else {
                             Modifier.fillMaxWidth()
                         }

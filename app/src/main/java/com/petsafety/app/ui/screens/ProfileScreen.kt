@@ -39,6 +39,8 @@ import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.ExitToApp
 import androidx.compose.material.icons.filled.HelpOutline
+import androidx.compose.material.icons.filled.Info
+import androidx.compose.material.icons.filled.Phone
 import androidx.compose.material.icons.filled.LightMode
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Lock
@@ -71,6 +73,8 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Switch
+import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
@@ -140,6 +144,7 @@ fun ProfileScreen(
         ProfileSection.MAIN -> ProfileMain(
             authViewModel = authViewModel,
             appStateViewModel = appStateViewModel,
+            subscriptionViewModel = subscriptionViewModel,
             onNavigate = { section = it },
             onLogout = { authViewModel.logout() },
             modifier = modifier
@@ -179,13 +184,19 @@ fun ProfileScreen(
 private fun ProfileMain(
     authViewModel: AuthViewModel,
     appStateViewModel: AppStateViewModel,
+    subscriptionViewModel: SubscriptionViewModel,
     onNavigate: (ProfileSection) -> Unit,
     onLogout: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     val user by authViewModel.currentUser.collectAsState()
+    val subscription by subscriptionViewModel.subscription.collectAsState()
     val context = LocalContext.current
     var showLogoutDialog by remember { mutableStateOf(false) }
+
+    LaunchedEffect(Unit) {
+        subscriptionViewModel.loadSubscription()
+    }
 
     Box(
         modifier = modifier
@@ -264,8 +275,12 @@ private fun ProfileMain(
                             val part = okhttp3.MultipartBody.Part.createFormData("image", "profile.jpg", requestBody)
                             authViewModel.uploadProfileImage(part) { success, _ ->
                                 if (success) {
+                                    // Clear local URI once the server URL is on the user object —
+                                    // otherwise we'd keep showing the local file forever.
+                                    profileImageUri = null
                                     appStateViewModel.showSuccess(uploadContext.getString(R.string.updated))
                                 } else {
+                                    profileImageUri = null
                                     appStateViewModel.showError(uploadContext.getString(R.string.update_failed))
                                 }
                             }
@@ -284,11 +299,11 @@ private fun ProfileMain(
                             .background(TealAccent),
                         contentAlignment = Alignment.Center
                     ) {
-                        val imageToShow = profileImageUri ?: user?.let {
-                            // Show server-side profile image if available
-                            // User model would need profileImage field
-                            null
-                        }
+                        // Local URI wins while a fresh upload is in flight;
+                        // otherwise fall back to the saved server URL so
+                        // the picture survives navigation / restart and
+                        // syncs across devices.
+                        val imageToShow: Any? = profileImageUri ?: user?.profileImage
                         if (imageToShow != null) {
                             coil.compose.AsyncImage(
                                 model = imageToShow,
@@ -337,8 +352,10 @@ private fun ProfileMain(
                         )
                     }
 
+                    val planLabel = (subscription?.resolvedPlanName ?: "starter")
+                        .replaceFirstChar { it.uppercase() }
                     Text(
-                        text = currentUser.email,
+                        text = planLabel,
                         style = MaterialTheme.typography.bodyMedium.copy(fontSize = AdaptiveLayout.scaledSp(14)),
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
@@ -574,16 +591,15 @@ private fun PersonalInfoScreen(
                     onBack()
                 }
             },
-            trailingContent = if (!isEditing) {
+            trailingContent = if (isEditing) {
                 {
                     TextButton(onClick = {
                         resetFields()
-                        isEditing = true
+                        isEditing = false
                     }) {
                         Text(
-                            text = stringResource(R.string.edit),
-                            color = BrandOrange,
-                            fontWeight = FontWeight.SemiBold
+                            text = stringResource(R.string.cancel),
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
                         )
                     }
                 }
@@ -703,9 +719,9 @@ private fun PersonalInfoScreen(
                 }
             }
 
-            if (isEditing) {
-                Spacer(modifier = Modifier.height(24.dp))
+            Spacer(modifier = Modifier.height(24.dp))
 
+            if (isEditing) {
                 Button(
                     onClick = {
                         isSaving = true
@@ -751,24 +767,26 @@ private fun PersonalInfoScreen(
                         )
                     } else {
                         Text(
-                            text = stringResource(R.string.save),
+                            text = stringResource(R.string.save_changes),
                             style = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.SemiBold)
                         )
                     }
                 }
-
-                Spacer(modifier = Modifier.height(12.dp))
-
-                TextButton(
+            } else {
+                Button(
                     onClick = {
                         resetFields()
-                        isEditing = false
+                        isEditing = true
                     },
-                    modifier = Modifier.fillMaxWidth()
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(52.dp),
+                    shape = RoundedCornerShape(16.dp),
+                    colors = ButtonDefaults.buttonColors(containerColor = BrandOrange)
                 ) {
                     Text(
-                        text = stringResource(R.string.cancel),
-                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                        text = stringResource(R.string.edit),
+                        style = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.SemiBold)
                     )
                 }
             }
@@ -986,6 +1004,10 @@ private fun ContactsScreen(
     var secondaryEmail by remember { mutableStateOf("") }
     var primaryPhone by remember { mutableStateOf("") }
     var secondaryPhone by remember { mutableStateOf("") }
+    var showPrimaryEmail by remember { mutableStateOf(true) }
+    var showPrimaryPhone by remember { mutableStateOf(true) }
+    var showSecondaryEmail by remember { mutableStateOf(false) }
+    var showSecondaryPhone by remember { mutableStateOf(false) }
     var isSaving by remember { mutableStateOf(false) }
 
     // Sync fields when user data loads or changes
@@ -994,6 +1016,10 @@ private fun ContactsScreen(
             secondaryEmail = user?.secondaryEmail ?: ""
             primaryPhone = user?.phone ?: ""
             secondaryPhone = user?.secondaryPhone ?: ""
+            showPrimaryEmail = user?.showEmailPublicly ?: true
+            showPrimaryPhone = user?.showPhonePublicly ?: true
+            showSecondaryEmail = user?.showSecondaryEmailPublicly ?: false
+            showSecondaryPhone = user?.showSecondaryPhonePublicly ?: false
         }
     }
 
@@ -1009,6 +1035,10 @@ private fun ContactsScreen(
         secondaryEmail = user?.secondaryEmail ?: ""
         primaryPhone = user?.phone ?: ""
         secondaryPhone = user?.secondaryPhone ?: ""
+        showPrimaryEmail = user?.showEmailPublicly ?: true
+        showPrimaryPhone = user?.showPhonePublicly ?: true
+        showSecondaryEmail = user?.showSecondaryEmailPublicly ?: false
+        showSecondaryPhone = user?.showSecondaryPhonePublicly ?: false
     }
 
     Column(
@@ -1017,7 +1047,7 @@ private fun ContactsScreen(
             .background(MaterialTheme.colorScheme.background)
     ) {
         SubScreenHeader(
-            title = stringResource(R.string.contacts),
+            title = stringResource(R.string.contact_details),
             onBack = {
                 if (isEditing) {
                     resetFields()
@@ -1026,16 +1056,15 @@ private fun ContactsScreen(
                     onBack()
                 }
             },
-            trailingContent = if (!isEditing) {
+            trailingContent = if (isEditing) {
                 {
                     TextButton(onClick = {
                         resetFields()
-                        isEditing = true
+                        isEditing = false
                     }) {
                         Text(
-                            text = stringResource(R.string.edit),
-                            color = BrandOrange,
-                            fontWeight = FontWeight.SemiBold
+                            text = stringResource(R.string.cancel),
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
                         )
                     }
                 }
@@ -1049,18 +1078,38 @@ private fun ContactsScreen(
                 .padding(horizontal = 20.dp)
                 .padding(top = 20.dp, bottom = 100.dp)
         ) {
-            // Info Card (above contacts)
+            // Info banner — orange icon + bold title + caption (mirrors iOS ContactsView)
             Card(
                 modifier = Modifier.fillMaxWidth(),
                 shape = RoundedCornerShape(14.dp),
                 colors = CardDefaults.cardColors(containerColor = TealAccent.copy(alpha = 0.1f))
             ) {
-                Text(
-                    text = stringResource(R.string.contacts_qr_tag_info),
-                    style = MaterialTheme.typography.bodySmall.copy(fontSize = AdaptiveLayout.scaledSp(13)),
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    modifier = Modifier.padding(16.dp)
-                )
+                Column(modifier = Modifier.padding(16.dp)) {
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Icon(
+                            imageVector = Icons.Default.Info,
+                            contentDescription = null,
+                            tint = BrandOrange,
+                            modifier = Modifier.size(18.dp)
+                        )
+                        Spacer(modifier = Modifier.width(8.dp))
+                        Text(
+                            text = stringResource(R.string.contacts_settings),
+                            style = MaterialTheme.typography.titleSmall.copy(
+                                fontWeight = FontWeight.SemiBold
+                            ),
+                            color = BrandOrange
+                        )
+                    }
+                    Spacer(modifier = Modifier.height(8.dp))
+                    Text(
+                        text = stringResource(R.string.contacts_info_full),
+                        style = MaterialTheme.typography.bodySmall.copy(
+                            fontSize = AdaptiveLayout.scaledSp(12)
+                        ),
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                }
             }
 
             Spacer(modifier = Modifier.height(16.dp))
@@ -1081,22 +1130,46 @@ private fun ContactsScreen(
             ) {
                 Column(modifier = Modifier.padding(16.dp)) {
                     if (isEditing) {
-                        StyledOutlinedTextField(
+                        EditingFieldGroup(
+                            label = primaryEmailLabel,
                             value = user?.email ?: "",
                             onValueChange = {},
-                            label = primaryEmailLabel,
-                            enabled = false
+                            visibility = showPrimaryEmail,
+                            onVisibilityChange = { showPrimaryEmail = it },
+                            enabled = false,
+                            keyboardType = KeyboardType.Email
                         )
-                        Spacer(modifier = Modifier.height(12.dp))
-                        StyledOutlinedTextField(
+                        Spacer(modifier = Modifier.height(16.dp))
+                        EditingFieldGroup(
+                            label = secondaryEmailLabel,
                             value = secondaryEmail,
                             onValueChange = { secondaryEmail = it },
-                            label = secondaryEmailLabel
+                            visibility = showSecondaryEmail,
+                            onVisibilityChange = { showSecondaryEmail = it },
+                            showVisibilityToggle = secondaryEmail.isNotBlank(),
+                            keyboardType = KeyboardType.Email
                         )
                     } else {
-                        ReadOnlyField(label = primaryEmailLabel, value = user?.email ?: "")
-                        HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
-                        ReadOnlyField(label = secondaryEmailLabel, value = user?.secondaryEmail ?: "")
+                        val primaryEmail = user?.email ?: ""
+                        if (primaryEmail.isNotBlank()) {
+                            ContactRow(
+                                icon = Icons.Default.Email,
+                                value = primaryEmail,
+                                isPrimary = true,
+                                isVisible = showPrimaryEmail
+                            )
+                        }
+                        if (primaryEmail.isNotBlank() && secondaryEmail.isNotBlank()) {
+                            HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
+                        }
+                        if (secondaryEmail.isNotBlank()) {
+                            ContactRow(
+                                icon = Icons.Default.Email,
+                                value = secondaryEmail,
+                                isPrimary = false,
+                                isVisible = showSecondaryEmail
+                            )
+                        }
                     }
                 }
             }
@@ -1119,31 +1192,51 @@ private fun ContactsScreen(
             ) {
                 Column(modifier = Modifier.padding(16.dp)) {
                     if (isEditing) {
-                        StyledOutlinedTextField(
+                        EditingFieldGroup(
+                            label = primaryPhoneLabel,
                             value = primaryPhone,
                             onValueChange = { primaryPhone = it },
-                            label = primaryPhoneLabel
+                            visibility = showPrimaryPhone,
+                            onVisibilityChange = { showPrimaryPhone = it },
+                            keyboardType = KeyboardType.Phone
                         )
-                        HorizontalDivider(
-                            modifier = Modifier.padding(vertical = 12.dp),
-                            color = MaterialTheme.colorScheme.surfaceContainerHigh
-                        )
-                        StyledOutlinedTextField(
+                        Spacer(modifier = Modifier.height(16.dp))
+                        EditingFieldGroup(
+                            label = secondaryPhoneLabel,
                             value = secondaryPhone,
                             onValueChange = { secondaryPhone = it },
-                            label = secondaryPhoneLabel
+                            visibility = showSecondaryPhone,
+                            onVisibilityChange = { showSecondaryPhone = it },
+                            showVisibilityToggle = secondaryPhone.isNotBlank(),
+                            keyboardType = KeyboardType.Phone
                         )
                     } else {
-                        ReadOnlyField(label = primaryPhoneLabel, value = user?.phone ?: "")
-                        HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
-                        ReadOnlyField(label = secondaryPhoneLabel, value = user?.secondaryPhone ?: "")
+                        if (primaryPhone.isNotBlank()) {
+                            ContactRow(
+                                icon = Icons.Default.Phone,
+                                value = primaryPhone,
+                                isPrimary = true,
+                                isVisible = showPrimaryPhone
+                            )
+                        }
+                        if (primaryPhone.isNotBlank() && secondaryPhone.isNotBlank()) {
+                            HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
+                        }
+                        if (secondaryPhone.isNotBlank()) {
+                            ContactRow(
+                                icon = Icons.Default.Phone,
+                                value = secondaryPhone,
+                                isPrimary = false,
+                                isVisible = showSecondaryPhone
+                            )
+                        }
                     }
                 }
             }
 
-            if (isEditing) {
-                Spacer(modifier = Modifier.height(24.dp))
+            Spacer(modifier = Modifier.height(24.dp))
 
+            if (isEditing) {
                 Button(
                     onClick = {
                         isSaving = true
@@ -1151,7 +1244,11 @@ private fun ContactsScreen(
                             updates = mapOf(
                                 "phone" to primaryPhone.trim(),
                                 "secondary_phone" to secondaryPhone.trim(),
-                                "secondary_email" to secondaryEmail.trim()
+                                "secondary_email" to secondaryEmail.trim(),
+                                "show_email_publicly" to showPrimaryEmail,
+                                "show_phone_publicly" to showPrimaryPhone,
+                                "show_secondary_email_publicly" to showSecondaryEmail,
+                                "show_secondary_phone_publicly" to showSecondaryPhone
                             )
                         ) { success, message ->
                             isSaving = false
@@ -1184,26 +1281,133 @@ private fun ContactsScreen(
                         )
                     } else {
                         Text(
-                            text = stringResource(R.string.save),
+                            text = stringResource(R.string.save_changes),
                             style = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.SemiBold)
                         )
                     }
                 }
-
-                Spacer(modifier = Modifier.height(12.dp))
-
-                TextButton(
+            } else {
+                Button(
                     onClick = {
                         resetFields()
-                        isEditing = false
+                        isEditing = true
                     },
-                    modifier = Modifier.fillMaxWidth()
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(52.dp),
+                    shape = RoundedCornerShape(16.dp),
+                    colors = ButtonDefaults.buttonColors(containerColor = BrandOrange)
                 ) {
                     Text(
-                        text = stringResource(R.string.cancel),
-                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                        text = stringResource(R.string.contacts_edit_title),
+                        style = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.SemiBold)
                     )
                 }
+            }
+        }
+    }
+}
+
+@Composable
+private fun ContactRow(
+    icon: androidx.compose.ui.graphics.vector.ImageVector,
+    value: String,
+    isPrimary: Boolean,
+    isVisible: Boolean,
+    modifier: Modifier = Modifier
+) {
+    Row(
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(vertical = 8.dp),
+        verticalAlignment = Alignment.Top
+    ) {
+        Icon(
+            imageVector = icon,
+            contentDescription = null,
+            tint = TealAccent,
+            modifier = Modifier.size(24.dp)
+        )
+        Spacer(modifier = Modifier.width(12.dp))
+        Column(modifier = Modifier.weight(1f)) {
+            Text(
+                text = value,
+                style = MaterialTheme.typography.bodyLarge,
+                color = MaterialTheme.colorScheme.onSurface,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
+                modifier = Modifier.fillMaxWidth()
+            )
+            Spacer(modifier = Modifier.height(4.dp))
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                if (isPrimary) {
+                    Text(
+                        text = stringResource(R.string.contacts_primary_badge),
+                        style = MaterialTheme.typography.labelSmall.copy(
+                            fontSize = 9.sp,
+                            fontWeight = FontWeight.Bold
+                        ),
+                        color = Color.White,
+                        modifier = Modifier
+                            .background(BrandOrange, RoundedCornerShape(4.dp))
+                            .padding(horizontal = 6.dp, vertical = 2.dp)
+                    )
+                    Spacer(modifier = Modifier.width(8.dp))
+                }
+                Text(
+                    text = stringResource(
+                        if (isVisible) R.string.contacts_visible_on_tag else R.string.contacts_hidden_badge
+                    ),
+                    style = MaterialTheme.typography.labelSmall.copy(fontSize = 11.sp),
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun EditingFieldGroup(
+    label: String,
+    value: String,
+    onValueChange: (String) -> Unit,
+    visibility: Boolean,
+    onVisibilityChange: (Boolean) -> Unit,
+    showVisibilityToggle: Boolean = true,
+    enabled: Boolean = true,
+    keyboardType: KeyboardType = KeyboardType.Text
+) {
+    Column {
+        StyledOutlinedTextField(
+            value = value,
+            onValueChange = onValueChange,
+            label = label,
+            enabled = enabled,
+            keyboardType = keyboardType
+        )
+        if (showVisibilityToggle) {
+            Spacer(modifier = Modifier.height(8.dp))
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Text(
+                    text = stringResource(R.string.show_on_qr_tag),
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurface,
+                    modifier = Modifier.weight(1f)
+                )
+                Switch(
+                    checked = visibility,
+                    onCheckedChange = onVisibilityChange,
+                    colors = androidx.compose.material3.SwitchDefaults.colors(
+                        checkedThumbColor = Color.White,
+                        checkedTrackColor = BrandOrange
+                    )
+                )
             }
         }
     }
@@ -1281,15 +1485,15 @@ private fun PrivacyModeScreen(
                 .padding(horizontal = 20.dp)
                 .padding(top = 20.dp, bottom = 100.dp)
         ) {
-            // Contact Visibility Section
+            // Contact Visibility Section (header text mirrored from iOS PrivacyModeView)
             Text(
-                text = stringResource(R.string.contact_visibility),
+                text = stringResource(R.string.privacy_contact_visibility),
                 style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.SemiBold),
                 color = MaterialTheme.colorScheme.onSurface
             )
             Spacer(modifier = Modifier.height(8.dp))
             Text(
-                text = stringResource(R.string.contact_visibility_desc),
+                text = stringResource(R.string.privacy_contact_footer),
                 style = MaterialTheme.typography.bodySmall.copy(fontSize = AdaptiveLayout.scaledSp(13)),
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )
@@ -1715,7 +1919,7 @@ private fun HelpSupportScreen(
                 Column {
                     ProfileMenuRow(
                         icon = Icons.Default.Lock,
-                        title = stringResource(R.string.terms_of_service),
+                        title = stringResource(R.string.legal_terms_title),
                         onClick = {
                             context.startActivity(
                                 Intent(Intent.ACTION_VIEW, Uri.parse(WebUrlHelper.termsUrl))
@@ -1725,7 +1929,7 @@ private fun HelpSupportScreen(
                     HorizontalDivider(color = MaterialTheme.colorScheme.surfaceContainerHigh)
                     ProfileMenuRow(
                         icon = Icons.Default.Lock,
-                        title = stringResource(R.string.privacy_policy),
+                        title = stringResource(R.string.legal_privacy_title),
                         onClick = {
                             context.startActivity(
                                 Intent(Intent.ACTION_VIEW, Uri.parse(WebUrlHelper.privacyUrl))
@@ -1755,16 +1959,12 @@ private fun HelpSupportScreen(
                         color = MaterialTheme.colorScheme.onSurface
                     )
                     Text(
-                        text = stringResource(R.string.app_version),
+                        text = stringResource(
+                            R.string.app_version_with_value,
+                            com.petsafety.app.BuildConfig.VERSION_NAME
+                        ),
                         style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant
-                    )
-                    Spacer(modifier = Modifier.height(8.dp))
-                    Text(
-                        text = stringResource(R.string.support_response_time),
-                        style = MaterialTheme.typography.bodySmall.copy(fontSize = AdaptiveLayout.scaledSp(12)),
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        textAlign = TextAlign.Center
                     )
                 }
             }
@@ -2260,7 +2460,8 @@ private fun StyledOutlinedTextField(
     value: String,
     onValueChange: (String) -> Unit,
     label: String,
-    enabled: Boolean = true
+    enabled: Boolean = true,
+    keyboardType: KeyboardType = KeyboardType.Text
 ) {
     OutlinedTextField(
         value = value,
@@ -2269,7 +2470,8 @@ private fun StyledOutlinedTextField(
         modifier = Modifier.fillMaxWidth(),
         enabled = enabled,
         singleLine = true,
-        shape = RoundedCornerShape(14.dp)
+        shape = RoundedCornerShape(14.dp),
+        keyboardOptions = androidx.compose.foundation.text.KeyboardOptions(keyboardType = keyboardType)
     )
 }
 

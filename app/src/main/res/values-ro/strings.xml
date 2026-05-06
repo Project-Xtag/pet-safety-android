@@ -1437,6 +1437,24 @@
     <string name="error_select_pet_first">Te rugăm să selectezi mai întâi un animal de companie</string>
     <string name="error_activate_tag_failed">Activarea plăcuței inteligente a eșuat</string>
         <string name="waze_not_available">Waze nu este instalat și niciun browser nu este disponibil</string>    <string name="share_address_instead">[NEEDS_TRANSLATION] Or type the address instead</string>    <string name="share_manual_address_title">[NEEDS_TRANSLATION] Type the Address</string>    <string name="share_manual_address_desc">[NEEDS_TRANSLATION] If you can\'t share GPS, type the address or a description of where you found %1$s. We\'ll send it to the owner.</string>    <string name="share_manual_address_label">[NEEDS_TRANSLATION] Address</string>    <string name="share_manual_address_placeholder">[NEEDS_TRANSLATION] e.g. 123 Pine St, Budapest — near the playground</string>    <string name="owner_communication_disabled">[NEEDS_TRANSLATION] This pet\'s owner has not enabled finder communication.</string>
+    <!-- Contact row badges (mirror iOS ContactsView) -->
+    <string name="contacts_settings">Setări contacte</string>
+    <string name="contacts_info_full">Aceste detalii de contact vor fi afișate când cineva scanează medalonul QR a animalului de companie. Poți adăuga până la două adrese de e-mail și numere de telefon.</string>
+    <string name="contacts_primary_badge">PRINCIPAL</string>
+    <string name="contacts_visible_on_tag">Vizibil pe plăcuță inteligentă</string>
+    <string name="contacts_hidden_badge">Ascuns</string>    <string name="contacts_edit_title">Editează detaliile de contact</string>
+    <!-- Privacy Mode header (mirror iOS) -->
+    <string name="privacy_contact_visibility">Vizibilitatea contactelor</string>
+    <string name="privacy_contact_footer">Controlează ce contacte sunt vizibile pe profilul public al animalului de companie. Aceste setări se aplică atât datelor de contact principale, cât și secundare.</string>
+    <string name="app_version_with_value">Versiunea %1$s</string>
+    <!-- Legal menu titles (nominative; standalone menu rows) -->
+    <string name="legal_terms_title">Termenii de utilizare</string>
+    <string name="legal_privacy_title">Politica de confidențialitate</string>
+
+
+
+
+
 
 
 

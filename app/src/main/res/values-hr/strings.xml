@@ -1446,6 +1446,24 @@
         <item quantity="few">%d fotografije nisu učitane</item>
         <item quantity="other">%d fotografija nije učitano</item>
     </plurals>    <string name="share_address_instead">[NEEDS_TRANSLATION] Or type the address instead</string>    <string name="share_manual_address_title">[NEEDS_TRANSLATION] Type the Address</string>    <string name="share_manual_address_desc">[NEEDS_TRANSLATION] If you can\'t share GPS, type the address or a description of where you found %1$s. We\'ll send it to the owner.</string>    <string name="share_manual_address_label">[NEEDS_TRANSLATION] Address</string>    <string name="share_manual_address_placeholder">[NEEDS_TRANSLATION] e.g. 123 Pine St, Budapest — near the playground</string>    <string name="owner_communication_disabled">[NEEDS_TRANSLATION] This pet\'s owner has not enabled finder communication.</string>
+    <!-- Contact row badges (mirror iOS ContactsView) -->
+    <string name="contacts_settings">Postavke kontakta</string>
+    <string name="contacts_info_full">Ovi kontaktni podaci prikazuju se kada netko skenira QR privjesak tvog kućnog ljubimca. Možeš dodati do dvije e-mail adrese i telefonska broja.</string>
+    <string name="contacts_primary_badge">PRIMARNI</string>
+    <string name="contacts_visible_on_tag">Vidljivo na privjesku</string>
+    <string name="contacts_hidden_badge">Skriven</string>    <string name="contacts_edit_title">Uredi kontakt podatke</string>
+    <!-- Privacy Mode header (mirror iOS) -->
+    <string name="privacy_contact_visibility">Vidljivost kontakta</string>
+    <string name="privacy_contact_footer">Kontroliraj koji su kontaktni podaci vidljivi na javnom profilu tvog kućnog ljubimca. Ove postavke primjenjuju se na primarne i sekundarne kontaktne podatke.</string>
+    <string name="app_version_with_value">Verzija %1$s</string>
+    <!-- Legal menu titles (nominative; standalone menu rows) -->
+    <string name="legal_terms_title">Uvjeti korištenja</string>
+    <string name="legal_privacy_title">Pravila privatnosti</string>
+
+
+
+
+
 
 
 

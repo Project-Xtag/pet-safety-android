@@ -667,12 +667,12 @@
     <!-- ============================================ -->
     <!-- MARK: Help & Support -->
     <!-- ============================================ -->
-    <string name="get_help">Segítség kérése</string>
+    <string name="get_help">Segítség</string>
     <string name="faq">Gyakran Ismételt Kérdések</string>
     <string name="user_guides">Felhasználói útmutatók</string>
-    <string name="legal">Jogi</string>
+    <string name="legal">Jogi nyilatkozat</string>
     <string name="support_response_time">24 órán belül válaszolunk a kérdésedre.</string>
-    <string name="contact_support">Kapcsolat a támogatással</string>
+    <string name="contact_support">Kapcsolat</string>
     <string name="contact_support_category">Kategória</string>
     <string name="contact_support_subject">Tárgy</string>
     <string name="contact_support_subject_hint">Rövid leírás a problémáról</string>
@@ -1431,6 +1431,24 @@
     <string name="error_select_pet_first">Kérjük, válassz egy kedvencet először</string>
     <string name="error_activate_tag_failed">Biléta aktiválása sikertelen</string>
         <string name="waze_not_available">A Waze nincs telepítve, és nem érhető el böngésző</string>    <string name="share_address_instead">Vagy add meg a címet kézzel</string>    <string name="share_manual_address_title">Add meg a címet</string>    <string name="share_manual_address_desc">Ha nem tudod megosztani a GPS-t, írd be a címet vagy a helyszínt, ahol megtaláltad %1$s-t. Telefonszámodat is megadhatod itt, ha szeretnéd, hogy a gazdi vissza tudjon hívni.</string>    <string name="share_manual_address_label">Cím</string>    <string name="share_manual_address_placeholder">pl. Budapest, Pauler utca 123 — a játszótér mellett. Telefonszámod is megadhatod, ha szeretnéd, hogy a gazdi visszahívhasson.</string>    <string name="owner_communication_disabled">A kisállat gazdája nem engedélyezte a kommunikációt a megtalálóval.</string>
+    <!-- Contact row badges (mirror iOS ContactsView) -->
+    <string name="contacts_settings">Kapcsolat beállítások</string>
+    <string name="contacts_info_full">Ezek az elérhetőségek megjelennek, amikor beolvassák a kedvenced QR bilétáját. Legfeljebb két email címet és telefonszámot adhatsz meg.</string>
+    <string name="contacts_primary_badge">ELSŐDLEGES</string>
+    <string name="contacts_visible_on_tag">Látható a kedvenced nyilvános profilján</string>
+    <string name="contacts_hidden_badge">Rejtett</string>    <string name="contacts_edit_title">Elérhetőségek szerkesztése</string>
+    <!-- Privacy Mode header (mirror iOS) -->
+    <string name="privacy_contact_visibility">Elérhetőségeid láthatósága</string>
+    <string name="privacy_contact_footer">Beállíthatod, hogy mely elérhetőségeid legyenek láthatóak a kedvenced nyilvános profilján. Ezek a beállítások az elsődleges és másodlagos elérhetőségekre egyaránt vonatkoznak.</string>
+    <string name="app_version_with_value">Verzió %1$s</string>
+    <!-- Legal menu titles (nominative; standalone menu rows) -->
+    <string name="legal_terms_title">Felhasználási feltételek</string>
+    <string name="legal_privacy_title">Adatkezelési tájékoztató</string>
+
+
+
+
+
 
 
 

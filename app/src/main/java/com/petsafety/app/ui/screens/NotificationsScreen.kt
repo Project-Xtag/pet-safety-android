@@ -187,11 +187,18 @@ private fun NotificationCard(
     onClick: () -> Unit
 ) {
     val (icon, iconColor) = getNotificationIcon(notification.type)
+    // Tap toggles a per-row expansion so the user can read the full
+    // body — previously the row only ever showed the truncated 2-line
+    // preview, with no way to see the rest of the message.
+    var expanded by remember { mutableStateOf(false) }
 
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .clickable(onClick = onClick),
+            .clickable {
+                expanded = !expanded
+                onClick()
+            },
         shape = RoundedCornerShape(12.dp),
         colors = CardDefaults.cardColors(
             containerColor = if (!notification.isRead)
@@ -255,8 +262,8 @@ private fun NotificationCard(
                     text = notification.body,
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    maxLines = 2,
-                    overflow = TextOverflow.Ellipsis
+                    maxLines = if (expanded) Int.MAX_VALUE else 2,
+                    overflow = if (expanded) TextOverflow.Visible else TextOverflow.Ellipsis
                 )
                 Spacer(modifier = Modifier.height(4.dp))
                 Text(

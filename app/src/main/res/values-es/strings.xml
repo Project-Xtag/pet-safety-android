@@ -1436,6 +1436,24 @@
     <string name="error_select_pet_first">Por favor, selecciona una mascota primero</string>
     <string name="error_activate_tag_failed">No se pudo activar la chapa inteligente</string>
         <string name="waze_not_available">Waze no está instalado y no hay un navegador disponible</string>    <string name="share_address_instead">[NEEDS_TRANSLATION] Or type the address instead</string>    <string name="share_manual_address_title">[NEEDS_TRANSLATION] Type the Address</string>    <string name="share_manual_address_desc">[NEEDS_TRANSLATION] If you can\'t share GPS, type the address or a description of where you found %1$s. We\'ll send it to the owner.</string>    <string name="share_manual_address_label">[NEEDS_TRANSLATION] Address</string>    <string name="share_manual_address_placeholder">[NEEDS_TRANSLATION] e.g. 123 Pine St, Budapest — near the playground</string>    <string name="owner_communication_disabled">[NEEDS_TRANSLATION] This pet\'s owner has not enabled finder communication.</string>
+    <!-- Contact row badges (mirror iOS ContactsView) -->
+    <string name="contacts_settings">Ajustes de contacto</string>
+    <string name="contacts_info_full">Estos datos de contacto se mostrarán cuando se escanee la chapa inteligente QR de tu mascota. Puedes añadir hasta dos correos y números de teléfono.</string>
+    <string name="contacts_primary_badge">PRINCIPAL</string>
+    <string name="contacts_visible_on_tag">Visible en la chapa inteligente</string>
+    <string name="contacts_hidden_badge">Oculto</string>    <string name="contacts_edit_title">Editar datos de contacto</string>
+    <!-- Privacy Mode header (mirror iOS) -->
+    <string name="privacy_contact_visibility">Visibilidad de contactos</string>
+    <string name="privacy_contact_footer">Controla qué datos de contacto son visibles en el perfil público de tu mascota. Estos ajustes se aplican tanto a los datos de contacto principales como secundarios.</string>
+    <string name="app_version_with_value">Versión %1$s</string>
+    <!-- Legal menu titles (nominative; standalone menu rows) -->
+    <string name="legal_terms_title">Términos de servicio</string>
+    <string name="legal_privacy_title">Política de privacidad</string>
+
+
+
+
+
 
 
 

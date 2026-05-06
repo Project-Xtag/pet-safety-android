@@ -256,6 +256,11 @@ fun PetSafetyApp(
                 "order_tags" -> OrderMoreTagsScreen(
                     appStateViewModel = appStateViewModel,
                     authViewModel = authViewModel,
+                    // onBack defaulted to {} — the chevron in the title bar
+                    // looked tappable but did nothing. Send the user back to
+                    // the auth screen they came from (the only entry to
+                    // this screen pre-auth).
+                    onBack = { showOrderTagsScreen = false },
                     onDone = { showOrderTagsScreen = false }
                 )
                 "register" -> RegisterScreen(

@@ -31,7 +31,8 @@ data class User(
     @SerialName("show_email_publicly") val showEmailPublicly: Boolean? = null,
     @SerialName("show_address_publicly") val showAddressPublicly: Boolean? = null,
     @SerialName("show_secondary_phone_publicly") val showSecondaryPhonePublicly: Boolean? = null,
-    @SerialName("show_secondary_email_publicly") val showSecondaryEmailPublicly: Boolean? = null
+    @SerialName("show_secondary_email_publicly") val showSecondaryEmailPublicly: Boolean? = null,
+    @SerialName("profile_image") val profileImage: String? = null
 ) {
     val fullName: String
         get() = com.petsafety.app.util.InputValidators.formatDisplayName(firstName, lastName)
