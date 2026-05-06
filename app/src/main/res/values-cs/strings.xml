@@ -1328,7 +1328,7 @@
     <string name="ready_to_setup">Připraveno k nastavení</string>
     <string name="already_activated">Již aktivováno</string>
     <string name="setting_up_tag_for">Nastavení psí známky pro %s</string>
-    <string name="tag_activated_for">Psí psí známka pro %s aktivován!</string>
+    <string name="tag_activated_for">Psí známka pro %s aktivován!</string>
     <string name="pet_now_protected">Tvůj mazlíček je nyní chráněn se SENRA</string>
     <string name="more_tags_to_setup">Ještě máš psí známky k nastavení</string>
     <string name="setup_pet_tag">Nastavit psí známka pro %s</string>
@@ -1413,7 +1413,7 @@
     <string name="error_tag_not_activated">Tento psí známka ještě nebyl aktivován.</string>
     <string name="error_tag_not_found">Tento psí známka nebyl nalezen v systému.</string>
     <string name="notif_tag_activated_body">SENRA psí známka pro %s je nyní aktivní. Tvůj mazlíček je chráněn.</string>
-    <string name="notif_tag_activated_title">Psí psí známka aktivován!</string>
+    <string name="notif_tag_activated_title">Psí známka aktivován!</string>
     <!-- Tags coming soon -->
     <string name="tags_coming_soon_title">Fyzické psí známky brzy dorazí</string>
     <string name="tags_coming_soon_body">Brzy odešleme naši první sérii. Vrať se za pár dní.</string>

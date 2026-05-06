@@ -710,11 +710,16 @@ private fun QuickActionButton(
                 style = MaterialTheme.typography.labelSmall.copy(
                     fontSize = AdaptiveLayout.scaledSp(12),
                     fontWeight = FontWeight.Bold,
-                    letterSpacing = 0.3.sp
+                    // Letter-spacing dropped 0.3 → 0 — Inter's all-caps
+                    // is wide enough on its own; the extra tracking was
+                    // pushing DE labels ("ALS GEFUNDEN MARKIEREN",
+                    // "HAUSTIERMARKE ERSETZEN") past two-line wrap.
+                    letterSpacing = 0.sp
                 ),
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                 textAlign = TextAlign.Center,
-                maxLines = 2
+                maxLines = 3,
+                overflow = TextOverflow.Ellipsis
             )
         }
     }

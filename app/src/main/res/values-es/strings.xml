@@ -479,7 +479,7 @@
     <string name="notification_sighting_title">¡%1$s avistada!</string>
     <string name="notification_pet_found_title">¡Buenas noticias!</string>
     <string name="notification_channel_name">Alertas de SENRA</string>
-    <string name="notification_channel_tag_scans">Escaneos de chapa inteligentes inteligentes</string>
+    <string name="notification_channel_tag_scans">Escaneos de chapa inteligentes</string>
     <string name="notification_channel_tag_scans_desc">Notificaciones cuando se escanea la chapa inteligente de tu mascota</string>
     <string name="notification_channel_alerts">Alertas de mascotas perdidas</string>
     <string name="notification_channel_alerts_desc">Notificaciones de mascotas perdidas en tu zona</string>
@@ -593,7 +593,7 @@
     <string name="delete_confirm_placeholder">DELETE</string>
     <string name="cancel_subscription_title">¿Cancelar suscripción?</string>
     <string name="cancel_warning_a">Perderás las notificaciones instantáneas por email, SMS y las alertas comunitarias</string>
-    <string name="cancel_warning_b">Los reemplazos gratuitos de chapa inteligentes inteligentes ya no estarán disponibles</string>
+    <string name="cancel_warning_b">Los reemplazos gratuitos de chapa inteligentes ya no estarán disponibles</string>
     <string name="cancel_warning_c">Perderás el acceso a las alertas de veterinarios y refugios</string>
     <string name="cancel_warning_d">Tu cuenta y los registros de mascotas permanecerán activos</string>
     <string name="cancel_access_until">Mantendrás el acceso hasta %1$s</string>
@@ -703,10 +703,10 @@
     <string name="orders_title">Pedidos</string>
     <string name="order_number">Pedido #%1$s</string>
     <string name="order_total">Total: %1$s</string>
-    <string name="order_tags">Pedir chapa inteligentes inteligentes</string>
+    <string name="order_tags">Pedir chapa inteligentes</string>
     <string name="replace_tag">Reemplazar chapa inteligente</string>
     <string name="add_pet_first_replacement">Añade una mascota antes de pedir una chapa inteligente de reemplazo.</string>
-    <string name="order_more_tags_title">Pedir más chapa inteligentes inteligentes</string>
+    <string name="order_more_tags_title">Pedir más chapa inteligentes</string>
     <string name="add_another_pet">Añadir otra mascota</string>
     <string name="full_name">Nombre completo</string>
     <string name="place_order">Realizar pedido</string>
@@ -738,7 +738,7 @@
     </plurals>
 
     <!-- Order More Tags -->
-    <string name="get_qr_tags_subtitle">Consigue chapa inteligentes inteligentes QR para tus mascotas</string>
+    <string name="get_qr_tags_subtitle">Consigue chapa inteligentes QR para tus mascotas</string>
     <string name="pet_names">Nombres de mascotas</string>
     <string name="shipping_address">Dirección de envío</string>
     <string name="shipping">Envío</string>
@@ -1011,7 +1011,7 @@
     <string name="sse_subscription_activated">¡Tu plan %1$s ya está activo!</string>
     <string name="sse_subscription_cancelled">Tu suscripción %1$s ha sido cancelada.</string>
     <string name="sse_referral_used">¡%1$s usó tu código de referencia!</string>
-    <string name="help_guide_qr_tags_title">Chapa inteligentes inteligentes QR para mascotas</string>
+    <string name="help_guide_qr_tags_title">Chapa inteligentes QR para mascotas</string>
     <string name="help_guide_qr_tags_desc">Cada chapa inteligente SENRA tiene un código QR único que se vincula al perfil digital de tu mascota. Cualquiera que encuentre a tu mascota puede escanear el código con la cámara de su teléfono — no se requiere descargar ninguna aplicación. Escanear la chapa inteligente te envía una notificación con la ubicación del que la encontró (si la comparte). Puedes activar las chapas inteligentes a través de la aplicación y solicitar una de reemplazo en cualquier momento si pierdes o dañas la original.</string>
     <string name="help_guide_materials_title">Materiales y durabilidad</string>
     <string name="help_guide_materials_desc">Las chapas inteligentes SENRA están hechas de metal duradero y ligero con un revestimiento epoxi para mayor protección. Son resistentes al agua y a los rayos UV, aptas para todas las condiciones climáticas, y no se desgastan con el uso diario. Las chapas inteligentes están diseñadas para ajustarse cómodamente a la mayoría de collares y arneses.</string>
@@ -1024,7 +1024,7 @@
     <string name="help_guide_community_title">Comunidad y mascotas encontradas</string>
     <string name="help_guide_community_desc">La fortaleza de SENRA es su comunidad. El mapa de mascotas perdidas muestra alertas activas cerca de ti — revísalo para ver si alguna mascota ha sido reportada como perdida en tu zona. La página de mascotas encontradas celebra reencuentros exitosos con historias de tutores. Puedes registrar a tu veterinario o refugio en SENRA para que reciban alertas automáticas, ayudando a crear una red de seguridad más fuerte para todas las mascotas de tu zona.</string>
     <string name="help_faq_group_getting_started">Primeros pasos</string>
-    <string name="help_faq_group_tags_scanning">Chapa inteligentes inteligentes y escaneo</string>
+    <string name="help_faq_group_tags_scanning">Chapa inteligentes y escaneo</string>
     <string name="help_faq_group_missing_pets">Mascotas perdidas y alertas</string>
     <string name="help_faq_group_billing_plans">Facturación y planes</string>
     <string name="help_faq_group_privacy_account">Privacidad y cuenta</string>
@@ -1073,8 +1073,8 @@
 
     <!-- Gift order -->
     <string name="order_gift_toggle">Pedir como regalo</string>
-    <string name="order_gift_description">Los nombres de mascotas son opcionales en pedidos de regalo. El destinatario puede añadirlos al activar las chapa inteligentes inteligentes.</string>
-    <string name="order_gift_quantity">Número de chapa inteligentes inteligentes</string>
+    <string name="order_gift_description">Los nombres de mascotas son opcionales en pedidos de regalo. El destinatario puede añadirlos al activar las chapa inteligentes.</string>
+    <string name="order_gift_quantity">Número de chapa inteligentes</string>
     <string name="order_gift_recipient_name">Nombre del destinatario (opcional)</string>
     <string name="order_gift_message">Mensaje de regalo (opcional)</string>
     <string name="order_gift_message_placeholder">Añade un mensaje personal…</string>
@@ -1086,14 +1086,14 @@
     <string name="delivery_method_label">Método de envío</string>
     <string name="delivery_home">Envío a domicilio</string>
     <string name="delivery_postapoint">Recogida en PostaPont</string>
-    <string name="pending_registrations_title">Chapa inteligentes inteligentes pendientes</string>
+    <string name="pending_registrations_title">Chapa inteligentes pendientes</string>
     <string name="ready_to_activate">Listas para activar</string>
     <string name="still_processing">En proceso</string>
     <string name="scan_tag_now">Escanear chapa inteligente</string>
     <string name="create_profile_first">Crear perfil</string>
     <string name="create_profile_while_waiting">Crear perfil mientras esperas</string>
     <string name="all_caught_up">¡Todo al día!</string>
-    <string name="all_caught_up_description">No tienes registros de chapa inteligentes inteligentes pendientes.</string>
+    <string name="all_caught_up_description">No tienes registros de chapa inteligentes pendientes.</string>
     <string name="status_shipped">Enviado</string>
     <string name="status_delivered">Entregado</string>
     <string name="status_processing">En proceso</string>
@@ -1314,14 +1314,14 @@
     <string name="welcome_step_3">¡Tu mascota está protegida!</string>
     <string name="welcome_scan_first_tag">Escanear tu chapa</string>
     <string name="welcome_explore_account">Explorar tu cuenta</string>
-    <string name="setup_your_tags">Configura tus chapa inteligentes inteligentes</string>
-    <string name="setup_your_tags_subtitle">Pediste chapa inteligentes inteligentes para estas mascotas:</string>
+    <string name="setup_your_tags">Configura tus chapa inteligentes</string>
+    <string name="setup_your_tags_subtitle">Pediste chapa inteligentes para estas mascotas:</string>
     <string name="ready_to_setup">Listo para configurar</string>
     <string name="already_activated">Ya activada</string>
     <string name="setting_up_tag_for">Configurando chapa inteligente para %s</string>
     <string name="tag_activated_for">¡Chapa inteligente activada para %s!</string>
     <string name="pet_now_protected">Tu mascota ahora está protegida con SENRA</string>
-    <string name="more_tags_to_setup">Aún tienes chapa inteligentes inteligentes por configurar</string>
+    <string name="more_tags_to_setup">Aún tienes chapa inteligentes por configurar</string>
     <string name="setup_pet_tag">Configurar chapa inteligente de %s</string>
     <string name="whats_next">¿Qué sigue?</string>
     <string name="choose_subscription_plan">Elige tu plan de suscripción</string>
@@ -1350,17 +1350,17 @@
     <string name="help_faq_q4">¿Puedo actualizar los datos de mi mascota más tarde?</string>
     <string name="help_faq_a4">¡Sí! Puedes actualizar los datos de tu mascota en cualquier momento en la sección \'Mis Mascotas\' seleccionando tu mascota y tocando \'Editar Perfil\'. Puedes actualizar todos los campos excepto nombre, especie y raza, incluyendo fotos. Los cambios se guardan inmediatamente.</string>
     <string name="help_faq_q5">¿Cómo pido una chapa inteligente de repuesto?</string>
-    <string name="help_faq_a5">Ve a la página \'Inicio/Mi Cuenta\' y toca \'Pedir Chapa inteligente de Repuesto\'. Selecciona qué mascota necesita una nueva chapa inteligente. Los suscriptores Maximum y Standard pueden solicitar chapa inteligentes inteligentes de repuesto gratuitas, mientras que los miembros Starter pueden pedir repuestos por el coste del envío.</string>
+    <string name="help_faq_a5">Ve a la página \'Inicio/Mi Cuenta\' y toca \'Pedir Chapa inteligente de Repuesto\'. Selecciona qué mascota necesita una nueva chapa inteligente. Los suscriptores Maximum y Standard pueden solicitar chapa inteligentes de repuesto gratuitas, mientras que los miembros Starter pueden pedir repuestos por el coste del envío.</string>
     <string name="help_faq_q6">¿Cómo activo mi chapa inteligente después de recibirla?</string>
     <string name="help_faq_a6">¡Descarga la aplicación móvil SENRA de Google Play Store o App Store! Ábrela y ve al menú \'Activación\', apunta la cámara de tu teléfono al código QR de la chapa inteligente. El escaneo vincula la chapa inteligente a tu cuenta. Luego debes seleccionar tu mascota existente o crear un nuevo perfil. Después de completar la activación, puedes elegir tu plan de suscripción.</string>
     <string name="help_faq_q7">¿Puedo regalar una chapa inteligente SENRA?</string>
-    <string name="help_faq_a7">¡Sí! Las chapa inteligentes inteligentes SENRA son regalos geniales para tutores de mascotas. Simplemente pide la chapa inteligente desde tu propia cuenta — cuando el destinatario la reciba, puede escanear el código QR, crear su propia cuenta y activar la chapa inteligente para su mascota. El destinatario no necesita registrarse previamente — escanear la chapa inteligente le guía en la creación de cuenta y vinculación.</string>
+    <string name="help_faq_a7">¡Sí! Las chapa inteligentes SENRA son regalos geniales para tutores de mascotas. Simplemente pide la chapa inteligente desde tu propia cuenta — cuando el destinatario la reciba, puede escanear el código QR, crear su propia cuenta y activar la chapa inteligente para su mascota. El destinatario no necesita registrarse previamente — escanear la chapa inteligente le guía en la creación de cuenta y vinculación.</string>
     <string name="help_faq_q8">¿Qué debo hacer si mi mascota desaparece?</string>
     <string name="help_faq_a8">Ve a \'Mis Mascotas\', toca el menú en la tarjeta de tu mascota y selecciona \'Marcar como Perdida\'. Esto crea una \'alerta de mascota perdida\' que se envía a todos los miembros de la comunidad SENRA registrados en un radio de 10 km. También se notifica a veterinarios y refugios. Las personas cercanas pueden ver la alerta y avisarte si han visto o encontrado a tu mascota. Recibirás una notificación instantánea por cada avistamiento.</string>
     <string name="help_faq_q9">¿Cómo funcionan las alertas de mascotas perdidas?</string>
     <string name="help_faq_a9">Cuando marcas a tu gato o perro como perdido, se crea una alerta con la foto y datos de tu mascota. Los usuarios de SENRA en un radio de 10 km son notificados inmediatamente y tu mascota aparece en el mapa de \'Mascotas Perdidas\'. Los veterinarios y refugios registrados en el sistema SENRA en tu zona también reciben la alerta. Cualquiera que escanee la chapa inteligente de tu mascota puede enviarte la ubicación donde la encontró y sus datos de contacto.</string>
     <string name="help_faq_q10">¿Cómo pido una chapa inteligente de repuesto?</string>
-    <string name="help_faq_a10">Ve a la página \'Inicio/Mi Cuenta\' y toca \'Pedir Chapa inteligente de Repuesto\'. Selecciona qué mascota necesita una nueva chapa inteligente. Los suscriptores Maximum y Standard pueden solicitar chapa inteligentes inteligentes de repuesto gratuitas, mientras que los miembros Starter pueden pedir repuestos por el coste del envío.</string>
+    <string name="help_faq_a10">Ve a la página \'Inicio/Mi Cuenta\' y toca \'Pedir Chapa inteligente de Repuesto\'. Selecciona qué mascota necesita una nueva chapa inteligente. Los suscriptores Maximum y Standard pueden solicitar chapa inteligentes de repuesto gratuitas, mientras que los miembros Starter pueden pedir repuestos por el coste del envío.</string>
     <string name="help_faq_q11">¿Qué es el programa de referidos?</string>
     <string name="help_faq_a11">En el menú de Referidos en tu página de Perfil, puedes generar un código de referido personal. Compártelo con amigos y familia. Cuando alguien use tu código y se suscriba a un plan de pago (Standard o Maximum), tanto tú como tu amigo obtendréis 2 meses gratis. Puedes seguir tus referidos y su estado en la página de Referidos.</string>
     <string name="help_faq_q12">¿A qué países enviáis?</string>
@@ -1382,15 +1382,15 @@
     <string name="help_faq_q20">¿Cuál es la diferencia entre un microchip y una chapa inteligente QR de SENRA?</string>
     <string name="help_faq_a20">Un microchip es un pequeño implante bajo la piel de tu mascota que almacena un identificador único de 15 dígitos — pero requiere un lector especial (generalmente solo disponible en veterinarios y refugios). La chapa inteligente QR de SENRA se puede escanear fácilmente con cualquier cámara de smartphone, mostrando instantáneamente el perfil completo de tu mascota, foto y los datos de contacto que hayas aprobado. Quien la encuentre también puede compartir dónde encontró a tu mascota.</string>
     <string name="help_faq_q21">¿Qué pasa con mis datos si cancelo mi suscripción?</string>
-    <string name="help_faq_a21">Si cancelas tu suscripción, mantienes acceso a las funciones de pago hasta el final del período de facturación actual. Después, tu cuenta cambia automáticamente al plan gratuito Starter. Los perfiles, fotos y chapa inteligentes inteligentes QR permanecen activos — solo pierdes acceso a funciones premium. Tus datos no se eliminan al cancelar. Para eliminar todo permanentemente, usa la opción Eliminar Cuenta en Ajustes.</string>
+    <string name="help_faq_a21">Si cancelas tu suscripción, mantienes acceso a las funciones de pago hasta el final del período de facturación actual. Después, tu cuenta cambia automáticamente al plan gratuito Starter. Los perfiles, fotos y chapa inteligentes QR permanecen activos — solo pierdes acceso a funciones premium. Tus datos no se eliminan al cancelar. Para eliminar todo permanentemente, usa la opción Eliminar Cuenta en Ajustes.</string>
     <string name="help_faq_q22">¿Cómo puedo registrar mi clínica o refugio en SENRA?</string>
     <string name="help_faq_a22">Las clínicas veterinarias y refugios pueden registrarse en senra.pet/register-vet-shelter. Completa los datos de la clínica u organización y les enviaremos un correo de verificación. Tras la confirmación, les enviaremos automáticamente notificaciones cuando se pierdan mascotas en la zona. Sin coste y sin necesidad de registro.</string>
     <string name="help_faq_q23">¿Cómo puedo compartir una historia de éxito si encontraron a mi mascota?</string>
     <string name="help_faq_a23">Cuando marcas a tu mascota como \'Encontrada\', te preguntamos si quieres compartir la buena noticia. Puedes publicar una breve historia sobre cómo se encontró. Las historias públicas aparecen en el mapa de \'Mascotas Encontradas\'.</string>
     <string name="help_faq_q24">¿Qué navegadores y dispositivos son compatibles?</string>
     <string name="help_faq_a24">SENRA funciona en todos los navegadores, incluyendo Chrome, Safari, Firefox y Edge, en dispositivos móviles y de escritorio. El escaneo de la chapa inteligente QR funciona con cualquier cámara de smartphone — quien la encuentre no necesita la aplicación SENRA ni una cuenta.</string>
-    <string name="help_faq_q25">¿Puedo pedir varias chapa inteligentes inteligentes para mis mascotas a la vez?</string>
-    <string name="help_faq_a25">Sí, puedes pedir chapa inteligentes inteligentes para todas tus mascotas al mismo tiempo. Después de que lleguen, escanea cada una para activarla y asignarla al perfil correcto.</string>
+    <string name="help_faq_q25">¿Puedo pedir varias chapa inteligentes para mis mascotas a la vez?</string>
+    <string name="help_faq_a25">Sí, puedes pedir chapa inteligentes para todas tus mascotas al mismo tiempo. Después de que lleguen, escanea cada una para activarla y asignarla al perfil correcto.</string>
     <string name="help_faq_q26">¿Cómo llegan las alertas de mascotas perdidas a los veterinarios y refugios?</string>
     <string name="help_faq_a26">Cuando marcas a tu mascota como \'Perdida\', SENRA envía automáticamente alertas por correo a todos los veterinarios y refugios registrados en tu zona. Cuantos más veterinarios y refugios estén registrados, mejor funciona esta red.</string>
     <string name="help_faq_q27">¿Puedo transferir una chapa inteligente a otra mascota?</string>
@@ -1406,7 +1406,7 @@
     <string name="notif_tag_activated_body">La chapa inteligente SENRA de %s ya está activa. Tu mascota está protegida.</string>
     <string name="notif_tag_activated_title">¡Chapa inteligente activada!</string>
     <!-- Tags coming soon -->
-    <string name="tags_coming_soon_title">Las chapa inteligentes inteligentes físicas llegarán pronto</string>
+    <string name="tags_coming_soon_title">Las chapa inteligentes físicas llegarán pronto</string>
     <string name="tags_coming_soon_body">Pronto enviaremos nuestro primer lote. Vuelve en unos días.</string>
 
 
