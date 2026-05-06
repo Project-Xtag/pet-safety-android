@@ -116,16 +116,29 @@ fun OrdersScreen(onBack: () -> Unit) {
         }
 
         // Tab selector
-        androidx.compose.material3.TabRow(
+        // Switched from TabRow → ScrollableTabRow so each tab takes its
+        // natural width. TabRow split the row into thirds, which broke
+        // longer localised tab titles (DE "Ausstehende Namensschilder"
+        // wrapped mid-word with the trailing "r" on its own line).
+        // edgePadding=16dp keeps the leading tab from sitting flush
+        // against the screen edge.
+        androidx.compose.material3.ScrollableTabRow(
             selectedTabIndex = selectedTab,
             containerColor = MaterialTheme.colorScheme.background,
-            contentColor = BrandOrange
+            contentColor = BrandOrange,
+            edgePadding = 16.dp
         ) {
             tabTitles.forEachIndexed { index, title ->
                 androidx.compose.material3.Tab(
                     selected = selectedTab == index,
                     onClick = { selectedTab = index },
-                    text = { Text(title, fontWeight = if (selectedTab == index) FontWeight.SemiBold else FontWeight.Normal) }
+                    text = {
+                        Text(
+                            title,
+                            maxLines = 1,
+                            fontWeight = if (selectedTab == index) FontWeight.SemiBold else FontWeight.Normal,
+                        )
+                    }
                 )
             }
         }
