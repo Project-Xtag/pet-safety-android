@@ -593,7 +593,7 @@
     <string name="delete_confirm_placeholder">DELETE</string>
     <string name="cancel_subscription_title">Cancelar subscrição?</string>
     <string name="cancel_warning_a">Perderá as notificações instantâneas por email, SMS e os alertas comunitários</string>
-    <string name="cancel_warning_b">As substituições gratuitas de plaquinha inteligentes inteligentes deixarão de estar disponíveis</string>
+    <string name="cancel_warning_b">As substituições gratuitas de plaquinha inteligentes deixarão de estar disponíveis</string>
     <string name="cancel_warning_c">Perderá o acesso aos alertas de veterinários e abrigos</string>
     <string name="cancel_warning_d">A sua conta e os registos de animais de estimação permanecerão ativos</string>
     <string name="cancel_access_until">Manterá o acesso até %1$s</string>
@@ -703,10 +703,10 @@
     <string name="orders_title">Encomendas</string>
     <string name="order_number">Encomenda #%1$s</string>
     <string name="order_total">Total: %1$s</string>
-    <string name="order_tags">Encomendar plaquinha inteligentes inteligentes</string>
+    <string name="order_tags">Encomendar plaquinha inteligentes</string>
     <string name="replace_tag">Substituir plaquinha inteligente</string>
     <string name="add_pet_first_replacement">Adicione um animal de estimação antes de encomendar uma plaquinha inteligente de substituição.</string>
-    <string name="order_more_tags_title">Encomendar mais plaquinha inteligentes inteligentes</string>
+    <string name="order_more_tags_title">Encomendar mais plaquinha inteligentes</string>
     <string name="add_another_pet">Adicionar outro animal de estimação</string>
     <string name="full_name">Nome completo</string>
     <string name="place_order">Fazer encomenda</string>
@@ -738,7 +738,7 @@
     </plurals>
 
     <!-- Order More Tags -->
-    <string name="get_qr_tags_subtitle">Obtenha plaquinha inteligentes inteligentes QR para os seus animais de estimação</string>
+    <string name="get_qr_tags_subtitle">Obtenha plaquinha inteligentes QR para os seus animais de estimação</string>
     <string name="pet_names">Nomes dos animais de estimação</string>
     <string name="shipping_address">Morada de envio</string>
     <string name="shipping">Envio</string>
@@ -1011,7 +1011,7 @@
     <string name="sse_subscription_activated">O seu plano %1$s está agora ativo!</string>
     <string name="sse_subscription_cancelled">A sua subscrição %1$s foi cancelada.</string>
     <string name="sse_referral_used">%1$s usou o seu código de referência!</string>
-    <string name="help_guide_qr_tags_title">Plaquinha inteligentes inteligentes QR para animais de estimação</string>
+    <string name="help_guide_qr_tags_title">Plaquinha inteligentes QR para animais de estimação</string>
     <string name="help_guide_qr_tags_desc">Cada plaquinha inteligente SENRA tem um código QR único que liga ao perfil digital do teu animal de estimação. Qualquer pessoa que encontre o teu animal de estimação pode ler o código com a câmara do telemóvel — não é preciso instalar nenhuma aplicação. Ao ler a plaquinha inteligente, recebes uma notificação com a localização de quem encontrou (se partilhar). Podes ativar as plaquinhas inteligentes através da aplicação e pedir uma de substituição a qualquer momento, caso percas ou danifiques a original.</string>
     <string name="help_guide_materials_title">Materiais e durabilidade</string>
     <string name="help_guide_materials_desc">As plaquinhas inteligentes SENRA são feitas de metal durável e leve, com revestimento epóxi para proteção extra. São à prova de água e resistentes aos raios UV, adequadas para todas as condições meteorológicas, e não se desgastam com o uso diário. As plaquinhas inteligentes foram desenhadas para se adaptarem confortavelmente à maioria das coleiras e peitorais.</string>
@@ -1024,7 +1024,7 @@
     <string name="help_guide_community_title">Comunidade e animais de estimação encontrados</string>
     <string name="help_guide_community_desc">A força da SENRA é a sua comunidade. O mapa de Animais de estimação Desaparecidos mostra alertas ativos perto de si — verifique se algum animal de estimação foi reportado como desaparecido na sua área. A página de Animais de estimação Encontrados celebra reencontros bem-sucedidos com histórias de tutores. Pode registar o seu veterinário ou abrigo local na SENRA para que recebam alertas de animais de estimação desaparecidos automaticamente, ajudando a criar uma rede de segurança mais forte para todos os animais de estimação na sua área.</string>
     <string name="help_faq_group_getting_started">Primeiros passos</string>
-    <string name="help_faq_group_tags_scanning">Plaquinha inteligentes inteligentes e leitura</string>
+    <string name="help_faq_group_tags_scanning">Plaquinha inteligentes e leitura</string>
     <string name="help_faq_group_missing_pets">Animais de estimação desaparecidos e alertas</string>
     <string name="help_faq_group_billing_plans">Faturação e planos</string>
     <string name="help_faq_group_privacy_account">Privacidade e conta</string>
@@ -1073,8 +1073,8 @@
 
     <!-- Gift order -->
     <string name="order_gift_toggle">Encomendar como presente</string>
-    <string name="order_gift_description">Os nomes dos animais de estimação são opcionais em encomendas de presente. O destinatário pode adicioná-los ao ativar as plaquinha inteligentes inteligentes.</string>
-    <string name="order_gift_quantity">Número de plaquinha inteligentes inteligentes</string>
+    <string name="order_gift_description">Os nomes dos animais de estimação são opcionais em encomendas de presente. O destinatário pode adicioná-los ao ativar as plaquinha inteligentes.</string>
+    <string name="order_gift_quantity">Número de plaquinha inteligentes</string>
     <string name="order_gift_recipient_name">Nome do destinatário (opcional)</string>
     <string name="order_gift_message">Mensagem de presente (opcional)</string>
     <string name="order_gift_message_placeholder">Adiciona uma mensagem pessoal…</string>
@@ -1086,14 +1086,14 @@
     <string name="delivery_method_label">Método de envio</string>
     <string name="delivery_home">Entrega ao domicílio</string>
     <string name="delivery_postapoint">Levantamento PostaPont</string>
-    <string name="pending_registrations_title">Plaquinha inteligentes inteligentes pendentes</string>
+    <string name="pending_registrations_title">Plaquinha inteligentes pendentes</string>
     <string name="ready_to_activate">Prontas para ativar</string>
     <string name="still_processing">Em processamento</string>
     <string name="scan_tag_now">Escanear plaquinha inteligente</string>
     <string name="create_profile_first">Criar perfil</string>
     <string name="create_profile_while_waiting">Criar perfil enquanto espera</string>
     <string name="all_caught_up">Tudo em dia!</string>
-    <string name="all_caught_up_description">Não tem registos de plaquinha inteligentes inteligentes pendentes.</string>
+    <string name="all_caught_up_description">Não tem registos de plaquinha inteligentes pendentes.</string>
     <string name="status_shipped">Enviado</string>
     <string name="status_delivered">Entregue</string>
     <string name="status_processing">Em processamento</string>
@@ -1314,14 +1314,14 @@
     <string name="welcome_step_3">O seu animal de estimação está protegido!</string>
     <string name="welcome_scan_first_tag">Ler a tua plaquinha</string>
     <string name="welcome_explore_account">Explorar a sua conta</string>
-    <string name="setup_your_tags">Configurar plaquinha inteligentes inteligentes</string>
-    <string name="setup_your_tags_subtitle">Encomendou plaquinha inteligentes inteligentes para estes animais de estimação:</string>
+    <string name="setup_your_tags">Configurar plaquinha inteligentes</string>
+    <string name="setup_your_tags_subtitle">Encomendou plaquinha inteligentes para estes animais de estimação:</string>
     <string name="ready_to_setup">Pronto para configurar</string>
     <string name="already_activated">Já ativada</string>
     <string name="setting_up_tag_for">Configurando plaquinha inteligente para %s</string>
     <string name="tag_activated_for">Plaquinha inteligente ativada para %s!</string>
     <string name="pet_now_protected">O seu animal de estimação está agora protegido com a SENRA</string>
-    <string name="more_tags_to_setup">Ainda tem plaquinha inteligentes inteligentes por configurar</string>
+    <string name="more_tags_to_setup">Ainda tem plaquinha inteligentes por configurar</string>
     <string name="setup_pet_tag">Configurar plaquinha inteligente de %s</string>
     <string name="whats_next">O que vem a seguir?</string>
     <string name="choose_subscription_plan">Escolha o seu plano de subscrição</string>
@@ -1350,17 +1350,17 @@
     <string name="help_faq_q4">Posso atualizar os dados do meu animal de estimação mais tarde?</string>
     <string name="help_faq_a4">Sim! Pode atualizar os dados do seu animal de estimação a qualquer momento na secção \'Os Meus Animais de estimação\' selecionando o seu animal de estimação e tocando em \'Editar Perfil\'. Pode atualizar todos os campos exceto nome, espécie e raça, incluindo fotos. As alterações são guardadas imediatamente.</string>
     <string name="help_faq_q5">Como peço uma plaquinha inteligente de substituição?</string>
-    <string name="help_faq_a5">Vá à página \'Início/A Minha Conta\' e toca em \'Pedir Plaquinha inteligente de Substituição\'. Seleciona qual animal de estimação precisa de uma nova plaquinha inteligente. Os subscritores Maximum e Standard podem solicitar plaquinha inteligentes inteligentes de substituição gratuitas, enquanto os membros Starter podem pedir substituições pelo custo de envio.</string>
+    <string name="help_faq_a5">Vá à página \'Início/A Minha Conta\' e toca em \'Pedir Plaquinha inteligente de Substituição\'. Seleciona qual animal de estimação precisa de uma nova plaquinha inteligente. Os subscritores Maximum e Standard podem solicitar plaquinha inteligentes de substituição gratuitas, enquanto os membros Starter podem pedir substituições pelo custo de envio.</string>
     <string name="help_faq_q6">Como ativo a minha plaquinha inteligente depois de chegar?</string>
     <string name="help_faq_a6">Descarregue a aplicação móvel SENRA da Google Play Store ou App Store! Abra-a e vá ao menu \'Ativação\', aponte a câmara do telemóvel para o código QR na plaquinha inteligente! A leitura do QR vincula a plaquinha inteligente à sua conta. Depois selecione o seu animal de estimação existente ou cria um novo perfil. Após completar a ativação, pode escolher o seu plano de subscrição.</string>
     <string name="help_faq_q7">Posso oferecer uma plaquinha inteligente SENRA?</string>
-    <string name="help_faq_a7">Sim! As plaquinha inteligentes inteligentes SENRA são ótimos presentes para tutores de animais de estimação. Simplesmente encomende a plaquinha inteligente pela sua conta — quando o destinatário a receber, pode ler o código QR, criar a sua conta e ativar a plaquinha inteligente para o seu animal de estimação. O destinatário não precisa de se registar previamente.</string>
+    <string name="help_faq_a7">Sim! As plaquinha inteligentes SENRA são ótimos presentes para tutores de animais de estimação. Simplesmente encomende a plaquinha inteligente pela sua conta — quando o destinatário a receber, pode ler o código QR, criar a sua conta e ativar a plaquinha inteligente para o seu animal de estimação. O destinatário não precisa de se registar previamente.</string>
     <string name="help_faq_q8">O que devo fazer se o meu animal de estimação desaparecer?</string>
     <string name="help_faq_a8">Vá a \'Os Meus Animais de estimação\', toque no menu do cartão do seu animal de estimação e selecione \'Marcar como Perdido\'. Isto cria um \'alerta de animal de estimação perdido\' enviado a todos os membros da comunidade SENRA num raio de 10 km. Veterinários e abrigos também são notificados. Recebes uma notificação instantânea por cada avistamento.</string>
     <string name="help_faq_q9">Como funcionam os alertas de animais de estimação perdidos?</string>
     <string name="help_faq_a9">Quando marca o seu gato ou cão como perdido, é criado um alerta com a foto e dados do seu animal de estimação. Os utilizadores SENRA num raio de 10 km são imediatamente notificados e o seu animal de estimação aparece no mapa \'Animais de estimação Perdidos\'. Veterinários e abrigos registados no sistema SENRA na sua zona também recebem o alerta.</string>
     <string name="help_faq_q10">Como peço uma plaquinha inteligente de substituição?</string>
-    <string name="help_faq_a10">Vá à página \'Início/A Minha Conta\' e toca em \'Pedir Plaquinha inteligente de Substituição\'. Seleciona qual animal de estimação precisa de uma nova plaquinha inteligente. Os subscritores Maximum e Standard podem solicitar plaquinha inteligentes inteligentes de substituição gratuitas, enquanto os membros Starter podem pedir substituições pelo custo de envio.</string>
+    <string name="help_faq_a10">Vá à página \'Início/A Minha Conta\' e toca em \'Pedir Plaquinha inteligente de Substituição\'. Seleciona qual animal de estimação precisa de uma nova plaquinha inteligente. Os subscritores Maximum e Standard podem solicitar plaquinha inteligentes de substituição gratuitas, enquanto os membros Starter podem pedir substituições pelo custo de envio.</string>
     <string name="help_faq_q11">O que é o programa de referência?</string>
     <string name="help_faq_a11">No menu de Referências na tua página de Perfil, podes gerar um código de referência pessoal. Partilha-o com amigos e família. Quando alguém usar o teu código e subscrever um plano pago (Standard ou Maximum), tu e o teu amigo recebem 2 meses grátis na subscrição. Podes acompanhar as tuas referências e o seu estado na página de Referências.</string>
     <string name="help_faq_q12">Para que países enviam?</string>
@@ -1382,15 +1382,15 @@
     <string name="help_faq_q20">Qual é a diferença entre um microchip e uma plaquinha inteligente QR SENRA?</string>
     <string name="help_faq_a20">Um microchip é um pequeno implante sob a pele do teu animal de estimação que armazena um identificador único de 15 dígitos — mas requer um leitor especial (geralmente só disponível em veterinários e abrigos). A plaquinha inteligente QR SENRA pode ser lida com qualquer câmara de smartphone, mostrando instantaneamente o perfil completo do teu animal de estimação, foto e os dados de contacto que aprovaste. Quem encontrar também pode partilhar onde encontrou o teu animal de estimação.</string>
     <string name="help_faq_q21">O que acontece aos meus dados se cancelar a subscrição?</string>
-    <string name="help_faq_a21">Se cancelar a subscrição, mantém acesso às funcionalidades pagas até ao final do período de faturação atual. Depois, a conta mude automaticamente para o plano Starter gratuito. Perfis, fotos e plaquinha inteligentes inteligentes QR permanecem ativos. Os seus dados não são eliminados ao cancelar. Para eliminar tudo permanentemente, usa Eliminar Conta nas Definições.</string>
+    <string name="help_faq_a21">Se cancelar a subscrição, mantém acesso às funcionalidades pagas até ao final do período de faturação atual. Depois, a conta mude automaticamente para o plano Starter gratuito. Perfis, fotos e plaquinha inteligentes QR permanecem ativos. Os seus dados não são eliminados ao cancelar. Para eliminar tudo permanentemente, usa Eliminar Conta nas Definições.</string>
     <string name="help_faq_q22">Como posso registar a minha clínica ou abrigo na SENRA?</string>
     <string name="help_faq_a22">Clínicas veterinárias e abrigos podem registar-se em senra.pet/register-vet-shelter. Preenche os dados da clínica ou organização e enviamos-lhes um email de verificação. Após confirmação, enviamos-lhes automaticamente notificações quando animais de estimação se perdem na tua zona — ajudando os animais de estimação perdidos a voltar para casa. Sem custos e sem necessidade de login.</string>
     <string name="help_faq_q23">Como posso partilhar uma história de sucesso se o meu animal de estimação foi encontrado?</string>
     <string name="help_faq_a23">Quando marca o seu animal de estimação como \'Encontrado\', perguntamos se quer partilhar a boa notícia. Pode publicar uma breve história. As histórias públicas aparecem no mapa \'Animais de estimação Encontrados\'.</string>
     <string name="help_faq_q24">Que navegadores e dispositivos são suportados?</string>
     <string name="help_faq_a24">O SENRA funciona em todos os navegadores, incluindo Chrome, Safari, Firefox e Edge, em dispositivos móveis e desktop. A leitura da plaquinha inteligente QR funciona com qualquer câmara de smartphone — quem encontra não precisa da aplicação SENRA nem de conta.</string>
-    <string name="help_faq_q25">Posso encomendar várias plaquinha inteligentes inteligentes para os meus animais de estimação de uma vez?</string>
-    <string name="help_faq_a25">Sim, pode encomendar plaquinha inteligentes inteligentes para todos os seus animais de estimação ao mesmo tempo. Após chegarem, lê cada uma para ativar e atribuir ao perfil correto.</string>
+    <string name="help_faq_q25">Posso encomendar várias plaquinha inteligentes para os meus animais de estimação de uma vez?</string>
+    <string name="help_faq_a25">Sim, pode encomendar plaquinha inteligentes para todos os seus animais de estimação ao mesmo tempo. Após chegarem, lê cada uma para ativar e atribuir ao perfil correto.</string>
     <string name="help_faq_q26">Como chegam os alertas de animais de estimação perdidos aos veterinários e abrigos?</string>
     <string name="help_faq_a26">Quando marca o seu animal de estimação como \'Perdido\', o SENRA envia automaticamente alertas por email a todos os veterinários e abrigos registados na sua zona. Quanto mais registados houver, melhor funciona a rede.</string>
     <string name="help_faq_q27">Posso transferir uma plaquinha inteligente para outro animal de estimação?</string>
@@ -1406,7 +1406,7 @@
     <string name="notif_tag_activated_body">A plaquinha inteligente SENRA de %s está agora ativa. O seu animal de estimação está protegido.</string>
     <string name="notif_tag_activated_title">Plaquinha inteligente ativada!</string>
     <!-- Tags coming soon -->
-    <string name="tags_coming_soon_title">As plaquinha inteligentes inteligentes físicas estão a chegar</string>
+    <string name="tags_coming_soon_title">As plaquinha inteligentes físicas estão a chegar</string>
     <string name="tags_coming_soon_body">Em breve enviaremos o nosso primeiro lote. Volta dentro de alguns dias.</string>
 
 
