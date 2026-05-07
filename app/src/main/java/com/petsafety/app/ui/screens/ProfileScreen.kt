@@ -262,8 +262,11 @@ private fun ProfileMain(
                 // Avatar with edit button
                 var profileImageUri by remember { mutableStateOf<android.net.Uri?>(null) }
                 val uploadContext = LocalContext.current
+                // Photo Picker (no READ_MEDIA_IMAGES permission required).
+                // Replaces GetContent() which triggered Play Console rejection
+                // 2026-05-07 — apps with one-time media access must use this.
                 val photoPickerLauncher = rememberLauncherForActivityResult(
-                    contract = androidx.activity.result.contract.ActivityResultContracts.GetContent()
+                    contract = androidx.activity.result.contract.ActivityResultContracts.PickVisualMedia()
                 ) { uri ->
                     if (uri != null) {
                         profileImageUri = uri
@@ -323,7 +326,13 @@ private fun ProfileMain(
                     }
                     // Edit photo button
                     IconButton(
-                        onClick = { photoPickerLauncher.launch("image/*") },
+                        onClick = {
+                            photoPickerLauncher.launch(
+                                androidx.activity.result.PickVisualMediaRequest(
+                                    androidx.activity.result.contract.ActivityResultContracts.PickVisualMedia.ImageOnly
+                                )
+                            )
+                        },
                         modifier = Modifier
                             .size(28.dp)
                             .background(BrandOrange, CircleShape)
