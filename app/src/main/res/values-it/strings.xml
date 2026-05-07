@@ -1260,10 +1260,7 @@
 
     <!-- Location Sharing Consent -->
     <string name="share_location_title">Condividi posizione</string>
-    <string name="share_location_exact">Condividi posizione esatta</string>
-    <string name="share_location_approximate">Condividi posizione approssimativa (~100m)</string>
     <string name="share_location_exact_note">Il proprietario vedrà la tua posizione</string>
-    <string name="share_location_approximate_note">Il proprietario vedrà un\'area approssimativa</string>
     <string name="share_location_confirm">Condividi</string>
     <string name="share_location_success">Posizione condivisa! Il proprietario è stato avvisato.</string>
     <string name="share_location_denied">È necessario il permesso di localizzazione per condividere la posizione</string>

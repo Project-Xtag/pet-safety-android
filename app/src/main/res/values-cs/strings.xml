@@ -1274,10 +1274,7 @@
 
     <!-- Location Sharing Consent -->
     <string name="share_location_title">Sdílet polohu</string>
-    <string name="share_location_exact">Sdílet přesnou polohu</string>
-    <string name="share_location_approximate">Sdílet přibližnou polohu (~100m)</string>
     <string name="share_location_exact_note">Páníček uvidí tvé přesné GPS souřadnice</string>
-    <string name="share_location_approximate_note">Páníček uvidí přibližnou oblast</string>
     <string name="share_location_confirm">Sdílet</string>
     <string name="share_location_success">Poloha sdílena! Páníček byl upozorněn.</string>
     <string name="share_location_denied">Povolení polohy je potřebné ke sdílení tvé polohy</string>

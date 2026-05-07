@@ -1265,10 +1265,7 @@
 
     <!-- Location Sharing Consent -->
     <string name="share_location_title">Standort teilen</string>
-    <string name="share_location_exact">Genauen Standort teilen</string>
-    <string name="share_location_approximate">Ungefähren Standort teilen (~100m)</string>
     <string name="share_location_exact_note">Der Besitzer sieht deinen genauen Standort</string>
-    <string name="share_location_approximate_note">Der Besitzer sieht einen ungefähren Bereich</string>
     <string name="share_location_confirm">Teilen</string>
     <string name="share_location_success">Standort geteilt! Der Besitzer wurde benachrichtigt.</string>
     <string name="share_location_denied">Standortberechtigung ist erforderlich, um deinen Standort zu teilen</string>

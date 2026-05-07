@@ -1266,10 +1266,7 @@
 
     <!-- Location Sharing Consent -->
     <string name="share_location_title">Helyzeted megosztása</string>
-    <string name="share_location_exact">Pontos helyzet megosztása</string>
-    <string name="share_location_approximate">Hozzávetőleges helyzet megosztása (~100m)</string>
     <string name="share_location_exact_note">A gazdi látni fogja a tartózkodási helyedet</string>
-    <string name="share_location_approximate_note">A gazdi egy hozzávetőleges területet fog látni</string>
     <string name="share_location_confirm">Megosztás</string>
     <string name="share_location_success">Helyzet megosztva! A gazdi értesítve lett.</string>
     <string name="share_location_denied">A helyzet megosztásához helymeghatározási engedély szükséges</string>
