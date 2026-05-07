@@ -1257,10 +1257,7 @@
 
     <!-- Location Sharing Consent -->
     <string name="share_location_title">Partager ta localisation</string>
-    <string name="share_location_exact">Partager la localisation exacte</string>
-    <string name="share_location_approximate">Partager la localisation approximative (~100m)</string>
     <string name="share_location_exact_note">Le propriétaire verra tes coordonnées GPS exactes</string>
-    <string name="share_location_approximate_note">Le propriétaire verra une zone approximative</string>
     <string name="share_location_confirm">Partager</string>
     <string name="share_location_success">Localisation partagée ! Le propriétaire a été notifié.</string>
     <string name="share_location_denied">L\'autorisation de localisation est nécessaire pour partager ta localisation</string>

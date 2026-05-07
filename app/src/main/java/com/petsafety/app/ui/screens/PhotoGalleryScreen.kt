@@ -2,7 +2,9 @@ package com.petsafety.app.ui.screens
 
 import android.graphics.Bitmap
 import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.result.contract.ActivityResultContracts.PickVisualMedia
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -113,7 +115,11 @@ fun PhotoGalleryScreen(
     val photoDeletedMessage = stringResource(R.string.photo_deleted)
     val deletePhotoFailedMessage = stringResource(R.string.delete_photo_failed)
 
-    val pickImages = rememberLauncherForActivityResult(ActivityResultContracts.GetMultipleContents()) { uris ->
+    // Photo Picker — no READ_MEDIA_IMAGES permission needed (Play policy
+    // 2026-05-07: apps with one-time/infrequent media access must use this).
+    val pickImages = rememberLauncherForActivityResult(
+        ActivityResultContracts.PickMultipleVisualMedia(maxItems = 10)
+    ) { uris ->
         val bytes = uris.mapNotNull { uri ->
             context.contentResolver.openInputStream(uri)?.use { it.readBytes() }
         }
@@ -376,7 +382,9 @@ fun PhotoGalleryScreen(
                         label = stringResource(R.string.library),
                         onClick = {
                             showSourcePicker = false
-                            pickImages.launch("image/*")
+                            pickImages.launch(
+                                PickVisualMediaRequest(PickVisualMedia.ImageOnly)
+                            )
                         },
                         modifier = Modifier.weight(1f)
                     )

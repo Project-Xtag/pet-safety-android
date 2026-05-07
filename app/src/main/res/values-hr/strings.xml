@@ -1257,10 +1257,7 @@
 
     <!-- Location Sharing Consent -->
     <string name="share_location_title">Podijeli svoju lokaciju</string>
-    <string name="share_location_exact">Podijeli točnu lokaciju</string>
-    <string name="share_location_approximate">Podijeli približnu lokaciju (~100 m)</string>
     <string name="share_location_exact_note">Vlasnik će vidjeti tvoje točne GPS koordinate</string>
-    <string name="share_location_approximate_note">Vlasnik će vidjeti približno područje</string>
     <string name="share_location_confirm">Podijeli</string>
     <string name="share_location_success">Lokacija podijeljena! Vlasnik je obaviješten.</string>
     <string name="share_location_denied">Za dijeljenje lokacije potrebna je dozvola za pristup lokaciji</string>

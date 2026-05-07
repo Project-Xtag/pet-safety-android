@@ -1266,10 +1266,7 @@
 
     <!-- Location Sharing Consent -->
     <string name="share_location_title">Partajare locație</string>
-    <string name="share_location_exact">Partajare locație exactă</string>
-    <string name="share_location_approximate">Partajare locație aproximativă (~100m)</string>
     <string name="share_location_exact_note">Stăpânul va vedea coordonatele GPS exacte</string>
-    <string name="share_location_approximate_note">Stăpânul va vedea o zonă aproximativă</string>
     <string name="share_location_confirm">Partajare</string>
     <string name="share_location_success">Locație partajată! Stăpânul a fost notificat.</string>
     <string name="share_location_denied">Este necesară permisiunea de localizare pentru a partaja locația</string>
