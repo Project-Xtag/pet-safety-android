@@ -28,6 +28,7 @@ import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.LocalOffer
 import androidx.compose.material.icons.filled.LocalShipping
 import androidx.compose.material.icons.filled.CardGiftcard
 import androidx.compose.material.icons.filled.Person
@@ -137,6 +138,12 @@ fun OrderMoreTagsScreen(
     val deliveryMethod = remember { mutableStateOf("home_delivery") }
     val selectedPostaPoint = remember { mutableStateOf<PostaPointDetails?>(null) }
     val hasSearchedPoints = remember { mutableStateOf(false) }
+    // Welcome promo (free shipping at tag order). Backend matches the
+    // typed value against env.WELCOME_PROMO_CODE and swaps the shipping
+    // rate to a 0-amount inline rate when valid; empty/wrong values are
+    // silently ignored. Locked to the launch campaign string by the
+    // server, not the client.
+    val promoCode = remember { mutableStateOf("") }
     val isGift = remember { mutableStateOf(false) }
     val giftQuantity = remember { mutableIntStateOf(1) }
     val giftRecipientName = remember { mutableStateOf("") }
@@ -605,6 +612,34 @@ fun OrderMoreTagsScreen(
 
                 Spacer(modifier = Modifier.height(16.dp))
 
+                // Promo code (free shipping when valid). Server matches
+                // env.WELCOME_PROMO_CODE; empty/wrong values are silently
+                // ignored. No client-side validation — Stripe Checkout
+                // shows the original shipping cost if the typed code
+                // doesn't match.
+                SectionCard(
+                    title = stringResource(R.string.order_promo_code_title),
+                    icon = Icons.Default.LocalOffer
+                ) {
+                    OutlinedTextField(
+                        value = promoCode.value,
+                        onValueChange = { promoCode.value = it },
+                        label = { Text(stringResource(R.string.order_promo_code_label)) },
+                        placeholder = { Text(stringResource(R.string.order_promo_code_placeholder)) },
+                        modifier = Modifier.fillMaxWidth(),
+                        singleLine = true,
+                        shape = RoundedCornerShape(14.dp)
+                    )
+                    Spacer(modifier = Modifier.height(6.dp))
+                    Text(
+                        text = stringResource(R.string.order_promo_code_hint),
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                }
+
+                Spacer(modifier = Modifier.height(16.dp))
+
                 // Pricing Info
                 Card(
                     modifier = Modifier.fillMaxWidth(),
@@ -685,7 +720,8 @@ fun OrderMoreTagsScreen(
                                         quantity = giftQuantity.intValue,
                                         countryCode = selectedCountryCode.value.takeIf { it.isNotBlank() },
                                         deliveryMethod = if (isHungary) deliveryMethod.value else null,
-                                        postapointDetails = if (isHungary && deliveryMethod.value == "postapoint") selectedPostaPoint.value else null
+                                        postapointDetails = if (isHungary && deliveryMethod.value == "postapoint") selectedPostaPoint.value else null,
+                                        promoCode = promoCode.value.trim().takeIf { it.isNotBlank() }
                                     ) { errorMsg ->
                                         appStateViewModel.showError(errorMsg ?: checkoutFailedMessage)
                                     }
@@ -719,7 +755,8 @@ fun OrderMoreTagsScreen(
                                         quantity = validPetNames.size,
                                         countryCode = selectedCountryCode.value.takeIf { it.isNotBlank() },
                                         deliveryMethod = if (isHungary) deliveryMethod.value else null,
-                                        postapointDetails = if (isHungary && deliveryMethod.value == "postapoint") selectedPostaPoint.value else null
+                                        postapointDetails = if (isHungary && deliveryMethod.value == "postapoint") selectedPostaPoint.value else null,
+                                        promoCode = promoCode.value.trim().takeIf { it.isNotBlank() }
                                     ) { errorMsg ->
                                         appStateViewModel.showError(errorMsg ?: checkoutFailedMessage)
                                     }

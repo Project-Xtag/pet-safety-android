@@ -253,7 +253,8 @@ data class CreateTagCheckoutRequest(
     @SerialName("country_code") val countryCode: String? = null,
     val platform: String = "android",
     val deliveryMethod: String? = null,
-    val postapointDetails: PostaPointDetails? = null
+    val postapointDetails: PostaPointDetails? = null,
+    @SerialName("promo_code") val promoCode: String? = null
 )
 
 @Serializable

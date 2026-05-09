@@ -159,13 +159,14 @@ class OrdersViewModel @Inject constructor(
         countryCode: String? = null,
         deliveryMethod: String? = null,
         postapointDetails: PostaPointDetails? = null,
+        promoCode: String? = null,
         onError: (String?) -> Unit = {}
     ) {
         viewModelScope.launch {
             _isLoading.value = true
             try {
                 val url = repository.createTagCheckout(
-                    quantity, countryCode, deliveryMethod, postapointDetails
+                    quantity, countryCode, deliveryMethod, postapointDetails, promoCode
                 )
                 _checkoutUrl.value = url
             } catch (ex: Exception) {

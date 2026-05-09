@@ -1446,6 +1446,11 @@
     <string name="share_success_what_next">Cosa succede adesso</string>
     <string name="share_success_step_contact">Il proprietario ti contatterà appena possibile usando i recapiti della schermata precedente.</string>
     <string name="share_success_step_safe">Per favore, tieni l\'animale al sicuro fino all\'arrivo del proprietario.</string>
+    <string name="order_promo_code_title">Codice promozionale</string>
+    <string name="order_promo_code_label">Hai un codice promozionale?</string>
+    <string name="order_promo_code_placeholder">Inserisci il codice</string>
+    <string name="order_promo_code_hint">Se valido, lo sconto viene applicato al checkout.</string>
+
 
 
 

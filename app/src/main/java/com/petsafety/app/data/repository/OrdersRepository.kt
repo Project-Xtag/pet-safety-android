@@ -37,7 +37,8 @@ class OrdersRepository(private val apiService: ApiService) {
         quantity: Int,
         countryCode: String? = null,
         deliveryMethod: String? = null,
-        postapointDetails: PostaPointDetails? = null
+        postapointDetails: PostaPointDetails? = null,
+        promoCode: String? = null
     ): String {
         val response = apiService.createTagCheckout(
             CreateTagCheckoutRequest(
@@ -45,7 +46,8 @@ class OrdersRepository(private val apiService: ApiService) {
                 countryCode = countryCode,
                 platform = "android",
                 deliveryMethod = deliveryMethod,
-                postapointDetails = postapointDetails
+                postapointDetails = postapointDetails,
+                promoCode = promoCode
             )
         )
         return response.data?.checkout?.url ?: error("Missing checkout URL")

@@ -1459,6 +1459,11 @@
     <string name="share_success_what_next">Čo bude ďalej</string>
     <string name="share_success_step_contact">Majiteľ sa s tebou čo najskôr spojí pomocou kontaktov z predchádzajúcej obrazovky.</string>
     <string name="share_success_step_safe">Prosíme, postaraj sa o maznáčika, kým majiteľ nepríde.</string>
+    <string name="order_promo_code_title">Promo kód</string>
+    <string name="order_promo_code_label">Máš promo kód?</string>
+    <string name="order_promo_code_placeholder">Zadaj svoj kód</string>
+    <string name="order_promo_code_hint">Ak je platný, zľava sa uplatní pri platbe.</string>
+
 
 
 

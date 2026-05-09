@@ -778,7 +778,7 @@
     <string name="billing_invoices">Računi</string>
     <string name="billing_no_invoices">Još nema računa</string>
     <string name="billing_subscription">Pretplata</string>
-    <string name="billing_portal_footer">Upravljaj pretplatom, načinom plaćanja i detaljima naplate putem Stripea.</string>
+    <string name="billing_portal_footer">Upravljaj pretplatom, načinom plaćanja i detaljima naplate putem platforme Stripe.</string>
     <string name="billing_loading_invoices">Učitavanje računa…</string>
     <string name="billing_invoice">Račun</string>
     <string name="billing_unknown">Nepoznato</string>
@@ -1461,6 +1461,11 @@
     <string name="share_success_what_next">Što slijedi</string>
     <string name="share_success_step_contact">Vlasnik će te kontaktirati što je prije moguće koristeći podatke s prethodnog zaslona.</string>
     <string name="share_success_step_safe">Molimo pobrini se za ljubimca dok vlasnik ne dođe.</string>
+    <string name="order_promo_code_title">Promo kod</string>
+    <string name="order_promo_code_label">Imaš promo kod?</string>
+    <string name="order_promo_code_placeholder">Unesi svoj kod</string>
+    <string name="order_promo_code_hint">Ako je valjan, popust se primjenjuje na blagajni.</string>
+
 
 
 
