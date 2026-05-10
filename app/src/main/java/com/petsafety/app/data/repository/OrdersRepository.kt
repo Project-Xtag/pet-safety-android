@@ -13,6 +13,8 @@ import com.petsafety.app.data.network.model.DeliveryPoint
 import com.petsafety.app.data.network.model.PostaPointDetails
 import com.petsafety.app.data.network.model.ReplacementEligibilityResponse
 import com.petsafety.app.data.network.model.ShippingPricesResponse
+import com.petsafety.app.data.network.model.ValidatePromoData
+import com.petsafety.app.data.network.model.ValidatePromoRequest
 
 class OrdersRepository(private val apiService: ApiService) {
     suspend fun getOrders(): List<Order> =
@@ -33,11 +35,17 @@ class OrdersRepository(private val apiService: ApiService) {
     suspend fun createReplacementOrder(petId: String, request: CreateReplacementOrderRequest) =
         apiService.createReplacementOrder(petId, request).data ?: error("Missing replacement response")
 
+    suspend fun validateTagPromo(code: String): ValidatePromoData {
+        val response = apiService.validateTagPromo(ValidatePromoRequest(code = code))
+        return response.data ?: ValidatePromoData(valid = false)
+    }
+
     suspend fun createTagCheckout(
         quantity: Int,
         countryCode: String? = null,
         deliveryMethod: String? = null,
-        postapointDetails: PostaPointDetails? = null
+        postapointDetails: PostaPointDetails? = null,
+        promoCode: String? = null
     ): String {
         val response = apiService.createTagCheckout(
             CreateTagCheckoutRequest(
@@ -45,7 +53,8 @@ class OrdersRepository(private val apiService: ApiService) {
                 countryCode = countryCode,
                 platform = "android",
                 deliveryMethod = deliveryMethod,
-                postapointDetails = postapointDetails
+                postapointDetails = postapointDetails,
+                promoCode = promoCode
             )
         )
         return response.data?.checkout?.url ?: error("Missing checkout URL")

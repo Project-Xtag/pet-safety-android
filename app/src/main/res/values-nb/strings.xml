@@ -1445,6 +1445,17 @@
     <string name="share_success_what_next">Hva skjer nå</string>
     <string name="share_success_step_contact">Eieren tar kontakt med deg så snart som mulig med kontaktinformasjonen fra forrige skjerm.</string>
     <string name="share_success_step_safe">Vær snill og pass på kjæledyret til eieren kommer.</string>
+    <string name="order_promo_code_title">Kampanjekode</string>
+    <string name="order_promo_code_label">Har du en kampanjekode?</string>
+    <string name="order_promo_code_placeholder">Skriv inn koden</string>
+    <string name="order_promo_code_hint">Hvis koden er gyldig, brukes rabatten ved betaling.</string>
+    <string name="order_promo_code_apply">Bruk</string>
+    <string name="order_promo_code_validating">Sjekker…</string>
+    <string name="order_promo_code_remove">Fjern</string>
+    <string name="order_promo_code_applied_free_shipping">Rabatt aktivert — Gratis frakt</string>
+    <string name="order_promo_code_invalid">Denne kampanjekoden er ikke gyldig.</string>
+
+
 
 
 

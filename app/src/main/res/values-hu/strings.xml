@@ -1446,6 +1446,17 @@
     <string name="share_success_what_next">Mi történik ezután</string>
     <string name="share_success_step_contact">A gazdi az előző oldalon látható elérhetőségen veszi fel veled a kapcsolatot, amint tudja.</string>
     <string name="share_success_step_safe">Kérjük, vigyázz rá, amíg a gazdi megérkezik.</string>
+    <string name="order_promo_code_title">Kuponkód</string>
+    <string name="order_promo_code_label">Van kuponkódod?</string>
+    <string name="order_promo_code_placeholder">Add meg a kódot</string>
+    <string name="order_promo_code_hint">Ha érvényes, a kedvezmény a fizetésnél kerül levonásra.</string>
+    <string name="order_promo_code_apply">Alkalmaz</string>
+    <string name="order_promo_code_validating">Ellenőrzés…</string>
+    <string name="order_promo_code_remove">Eltávolítás</string>
+    <string name="order_promo_code_applied_free_shipping">Kedvezmény érvényesítve — Ingyenes szállítás</string>
+    <string name="order_promo_code_invalid">Ez a kuponkód nem érvényes.</string>
+
+
 
 
 

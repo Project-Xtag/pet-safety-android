@@ -1471,6 +1471,17 @@
     <string name="share_success_what_next">Co dalej</string>
     <string name="share_success_step_contact">Właściciel skontaktuje się z Tobą jak najszybciej, korzystając z danych kontaktowych z poprzedniego ekranu.</string>
     <string name="share_success_step_safe">Prosimy, zaopiekuj się zwierzęciem do czasu przybycia właściciela.</string>
+    <string name="order_promo_code_title">Kod promocyjny</string>
+    <string name="order_promo_code_label">Masz kod promocyjny?</string>
+    <string name="order_promo_code_placeholder">Wpisz swój kod</string>
+    <string name="order_promo_code_hint">Jeśli jest poprawny, zniżka zostanie naliczona przy płatności.</string>
+    <string name="order_promo_code_apply">Zastosuj</string>
+    <string name="order_promo_code_validating">Sprawdzanie…</string>
+    <string name="order_promo_code_remove">Usuń</string>
+    <string name="order_promo_code_applied_free_shipping">Zniżka aktywowana — Bezpłatna dostawa</string>
+    <string name="order_promo_code_invalid">Ten kod promocyjny jest nieprawidłowy.</string>
+
+
 
 
 
