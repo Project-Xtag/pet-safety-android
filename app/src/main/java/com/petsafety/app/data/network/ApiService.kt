@@ -203,6 +203,12 @@ interface ApiService {
     @POST("orders/create-checkout")
     suspend fun createTagCheckout(@Body request: CreateTagCheckoutRequest): ApiEnvelope<TagCheckoutResponse>
 
+    // Server-side promo code validation (free-shipping welcome code).
+    // Returns valid:false (200, not 4xx) on miss so the UI can render
+    // a "wrong code" line without surfacing a noisy network error.
+    @POST("orders/validate-promo")
+    suspend fun validateTagPromo(@Body request: ValidatePromoRequest): ApiEnvelope<ValidatePromoData>
+
     // Public runtime config — feature flags for client-side gating.
     // Currently exposes tagsAvailable (controls proceed-to-payment buttons).
     // No auth, server-cached for 60s.

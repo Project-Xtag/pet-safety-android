@@ -1456,6 +1456,12 @@
     <string name="order_promo_code_label">Hast du einen Promo-Code?</string>
     <string name="order_promo_code_placeholder">Code eingeben</string>
     <string name="order_promo_code_hint">Wenn er gültig ist, wird der Rabatt an der Kasse angewendet.</string>
+    <string name="order_promo_code_apply">Anwenden</string>
+    <string name="order_promo_code_validating">Wird geprüft…</string>
+    <string name="order_promo_code_remove">Entfernen</string>
+    <string name="order_promo_code_applied_free_shipping">Rabatt aktiviert — Kostenloser Versand</string>
+    <string name="order_promo_code_invalid">Dieser Promo-Code ist nicht gültig.</string>
+
 
 
 

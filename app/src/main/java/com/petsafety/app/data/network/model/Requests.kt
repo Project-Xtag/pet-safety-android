@@ -246,6 +246,23 @@ data class CreateCheckoutRequest(
     @SerialName("country_code") val countryCode: String? = null
 )
 
+// Welcome promo validation (free-shipping code). Decoupled from
+// CreateTagCheckoutRequest so the UI can show a "Discount applied"
+// preview before redirecting to Stripe. Server returns valid:false
+// (HTTP 200) on miss — not an error — so a typo doesn't surface as
+// a network failure.
+@Serializable
+data class ValidatePromoRequest(
+    val code: String
+)
+
+@Serializable
+data class ValidatePromoData(
+    val valid: Boolean,
+    @SerialName("discount_type") val discountType: String? = null,
+    val label: String? = null
+)
+
 // Tag order checkout request (Stripe Checkout redirect flow)
 @Serializable
 data class CreateTagCheckoutRequest(

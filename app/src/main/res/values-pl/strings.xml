@@ -1475,6 +1475,12 @@
     <string name="order_promo_code_label">Masz kod promocyjny?</string>
     <string name="order_promo_code_placeholder">Wpisz swój kod</string>
     <string name="order_promo_code_hint">Jeśli jest poprawny, zniżka zostanie naliczona przy płatności.</string>
+    <string name="order_promo_code_apply">Zastosuj</string>
+    <string name="order_promo_code_validating">Sprawdzanie…</string>
+    <string name="order_promo_code_remove">Usuń</string>
+    <string name="order_promo_code_applied_free_shipping">Zniżka aktywowana — Bezpłatna dostawa</string>
+    <string name="order_promo_code_invalid">Ten kod promocyjny jest nieprawidłowy.</string>
+
 
 
 

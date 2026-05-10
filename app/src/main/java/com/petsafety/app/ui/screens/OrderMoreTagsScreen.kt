@@ -28,6 +28,7 @@ import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.LocalOffer
 import androidx.compose.material.icons.filled.LocalShipping
 import androidx.compose.material.icons.filled.CardGiftcard
@@ -43,6 +44,7 @@ import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.ExposedDropdownMenuBox
 import androidx.compose.material3.ExposedDropdownMenuDefaults
 import androidx.compose.material3.DropdownMenuItem
@@ -62,6 +64,8 @@ import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
+import kotlinx.coroutines.launch
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
@@ -79,6 +83,7 @@ import com.petsafety.app.data.network.model.CreateTagOrderRequest
 import com.petsafety.app.data.network.model.PostaPointDetails
 import com.petsafety.app.ui.components.PostaPointPicker
 import com.petsafety.app.ui.theme.BrandOrange
+import com.petsafety.app.ui.theme.SuccessGreen
 import com.petsafety.app.ui.theme.TealAccent
 import com.petsafety.app.ui.util.AdaptiveLayout
 import com.petsafety.app.ui.viewmodel.AppStateViewModel
@@ -144,6 +149,14 @@ fun OrderMoreTagsScreen(
     // silently ignored. Locked to the launch campaign string by the
     // server, not the client.
     val promoCode = remember { mutableStateOf("") }
+    // Apply-button state: `promoApplied` flips after a successful
+    // /api/orders/validate-promo round-trip so the UI can show the
+    // discount preview before the user is sent to Stripe Checkout.
+    val promoApplied = remember { mutableStateOf(false) }
+    val promoValidating = remember { mutableStateOf(false) }
+    val promoError = remember { mutableStateOf<String?>(null) }
+    val invalidPromoMessage = stringResource(R.string.order_promo_code_invalid)
+    val promoScope = rememberCoroutineScope()
     val isGift = remember { mutableStateOf(false) }
     val giftQuantity = remember { mutableIntStateOf(1) }
     val giftRecipientName = remember { mutableStateOf("") }
@@ -612,30 +625,106 @@ fun OrderMoreTagsScreen(
 
                 Spacer(modifier = Modifier.height(16.dp))
 
-                // Promo code (free shipping when valid). Server matches
-                // env.WELCOME_PROMO_CODE; empty/wrong values are silently
-                // ignored. No client-side validation — Stripe Checkout
-                // shows the original shipping cost if the typed code
-                // doesn't match.
+                // Promo code (free shipping when valid). The Apply
+                // button hits POST /api/orders/validate-promo so the
+                // discount preview shows BEFORE Stripe Checkout. Server
+                // is still the only source of truth — the same string
+                // match runs again at /create-checkout time, so the
+                // promoApplied flag here is for UX, not trust.
                 SectionCard(
                     title = stringResource(R.string.order_promo_code_title),
                     icon = Icons.Default.LocalOffer
                 ) {
-                    OutlinedTextField(
-                        value = promoCode.value,
-                        onValueChange = { promoCode.value = it },
-                        label = { Text(stringResource(R.string.order_promo_code_label)) },
-                        placeholder = { Text(stringResource(R.string.order_promo_code_placeholder)) },
-                        modifier = Modifier.fillMaxWidth(),
-                        singleLine = true,
-                        shape = RoundedCornerShape(14.dp)
-                    )
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.spacedBy(8.dp)
+                    ) {
+                        OutlinedTextField(
+                            value = promoCode.value,
+                            onValueChange = {
+                                promoCode.value = it
+                                if (promoError.value != null) promoError.value = null
+                            },
+                            label = { Text(stringResource(R.string.order_promo_code_label)) },
+                            placeholder = { Text(stringResource(R.string.order_promo_code_placeholder)) },
+                            modifier = Modifier.weight(1f),
+                            singleLine = true,
+                            shape = RoundedCornerShape(14.dp),
+                            enabled = !promoApplied.value && !promoValidating.value
+                        )
+                        if (promoApplied.value) {
+                            OutlinedButton(
+                                onClick = {
+                                    promoApplied.value = false
+                                    promoCode.value = ""
+                                    promoError.value = null
+                                }
+                            ) {
+                                Text(stringResource(R.string.order_promo_code_remove))
+                            }
+                        } else {
+                            OutlinedButton(
+                                onClick = {
+                                    val trimmed = promoCode.value.trim()
+                                    if (trimmed.isEmpty() || promoValidating.value) return@OutlinedButton
+                                    promoValidating.value = true
+                                    promoError.value = null
+                                    promoScope.launch {
+                                        try {
+                                            val result = viewModel.validateTagPromo(trimmed)
+                                            if (result.valid) {
+                                                promoApplied.value = true
+                                                promoError.value = null
+                                            } else {
+                                                promoApplied.value = false
+                                                promoError.value = invalidPromoMessage
+                                            }
+                                        } catch (_: Exception) {
+                                            promoApplied.value = false
+                                            promoError.value = invalidPromoMessage
+                                        } finally {
+                                            promoValidating.value = false
+                                        }
+                                    }
+                                },
+                                enabled = !promoValidating.value && promoCode.value.trim().isNotEmpty()
+                            ) {
+                                Text(
+                                    if (promoValidating.value) stringResource(R.string.order_promo_code_validating)
+                                    else stringResource(R.string.order_promo_code_apply)
+                                )
+                            }
+                        }
+                    }
                     Spacer(modifier = Modifier.height(6.dp))
-                    Text(
-                        text = stringResource(R.string.order_promo_code_hint),
-                        style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant
-                    )
+                    when {
+                        promoApplied.value -> Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.spacedBy(6.dp)
+                        ) {
+                            Icon(
+                                imageVector = Icons.Default.CheckCircle,
+                                contentDescription = null,
+                                tint = SuccessGreen,
+                                modifier = Modifier.size(16.dp)
+                            )
+                            Text(
+                                text = stringResource(R.string.order_promo_code_applied_free_shipping),
+                                style = MaterialTheme.typography.bodySmall,
+                                color = SuccessGreen
+                            )
+                        }
+                        promoError.value != null -> Text(
+                            text = promoError.value!!,
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.error
+                        )
+                        else -> Text(
+                            text = stringResource(R.string.order_promo_code_hint),
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                        )
+                    }
                 }
 
                 Spacer(modifier = Modifier.height(16.dp))

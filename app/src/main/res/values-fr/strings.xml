@@ -1447,6 +1447,12 @@
     <string name="order_promo_code_label">Tu as un code promo ?</string>
     <string name="order_promo_code_placeholder">Saisis ton code</string>
     <string name="order_promo_code_hint">S\'il est valide, la remise s\'applique au paiement.</string>
+    <string name="order_promo_code_apply">Appliquer</string>
+    <string name="order_promo_code_validating">Vérification…</string>
+    <string name="order_promo_code_remove">Retirer</string>
+    <string name="order_promo_code_applied_free_shipping">Remise appliquée — Livraison gratuite</string>
+    <string name="order_promo_code_invalid">Ce code promo n\'est pas valide.</string>
+
 
 
 

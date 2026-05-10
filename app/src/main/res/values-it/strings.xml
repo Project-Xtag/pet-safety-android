@@ -1450,6 +1450,12 @@
     <string name="order_promo_code_label">Hai un codice promozionale?</string>
     <string name="order_promo_code_placeholder">Inserisci il codice</string>
     <string name="order_promo_code_hint">Se valido, lo sconto viene applicato al checkout.</string>
+    <string name="order_promo_code_apply">Applica</string>
+    <string name="order_promo_code_validating">Verifica…</string>
+    <string name="order_promo_code_remove">Rimuovi</string>
+    <string name="order_promo_code_applied_free_shipping">Sconto applicato — Spedizione gratuita</string>
+    <string name="order_promo_code_invalid">Questo codice promozionale non è valido.</string>
+
 
 
 

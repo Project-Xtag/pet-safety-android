@@ -1463,6 +1463,12 @@
     <string name="order_promo_code_label">Máš promo kód?</string>
     <string name="order_promo_code_placeholder">Zadaj svoj kód</string>
     <string name="order_promo_code_hint">Ak je platný, zľava sa uplatní pri platbe.</string>
+    <string name="order_promo_code_apply">Použiť</string>
+    <string name="order_promo_code_validating">Overujem…</string>
+    <string name="order_promo_code_remove">Odstrániť</string>
+    <string name="order_promo_code_applied_free_shipping">Zľava aktivovaná — Doprava zdarma</string>
+    <string name="order_promo_code_invalid">Tento promo kód nie je platný.</string>
+
 
 
 

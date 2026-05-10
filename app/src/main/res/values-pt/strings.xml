@@ -1455,6 +1455,12 @@
     <string name="order_promo_code_label">Tens um código promocional?</string>
     <string name="order_promo_code_placeholder">Introduz o teu código</string>
     <string name="order_promo_code_hint">Se for válido, o desconto é aplicado no pagamento.</string>
+    <string name="order_promo_code_apply">Aplicar</string>
+    <string name="order_promo_code_validating">A verificar…</string>
+    <string name="order_promo_code_remove">Remover</string>
+    <string name="order_promo_code_applied_free_shipping">Desconto aplicado — Envio grátis</string>
+    <string name="order_promo_code_invalid">Este código promocional não é válido.</string>
+
 
 
 

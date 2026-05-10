@@ -1465,6 +1465,12 @@
     <string name="order_promo_code_label">Imaš promo kod?</string>
     <string name="order_promo_code_placeholder">Unesi svoj kod</string>
     <string name="order_promo_code_hint">Ako je valjan, popust se primjenjuje na blagajni.</string>
+    <string name="order_promo_code_apply">Primijeni</string>
+    <string name="order_promo_code_validating">Provjera…</string>
+    <string name="order_promo_code_remove">Ukloni</string>
+    <string name="order_promo_code_applied_free_shipping">Popust primijenjen — Besplatna dostava</string>
+    <string name="order_promo_code_invalid">Ovaj promo kod nije valjan.</string>
+
 
 
 

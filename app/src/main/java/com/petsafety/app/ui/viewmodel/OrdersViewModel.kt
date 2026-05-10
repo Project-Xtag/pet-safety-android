@@ -154,6 +154,15 @@ class OrdersViewModel @Inject constructor(
     private val _isSearchingPoints = MutableStateFlow(false)
     val isSearchingPoints: StateFlow<Boolean> = _isSearchingPoints.asStateFlow()
 
+    /** Server-side promo code validation (free-shipping welcome).
+     *  Returns ValidatePromoData so the screen can update its UI
+     *  state in-place without a Stripe round-trip. The same matching
+     *  logic runs again at /create-checkout time on the server, so
+     *  the client-side `valid` flag is a UX hint, not a trust gate. */
+    suspend fun validateTagPromo(code: String): com.petsafety.app.data.network.model.ValidatePromoData {
+        return repository.validateTagPromo(code)
+    }
+
     fun createTagCheckout(
         quantity: Int,
         countryCode: String? = null,
