@@ -116,14 +116,26 @@ fun OrderMoreTagsScreen(
     val orderCreateFailedMessage = stringResource(R.string.order_create_failed)
     val checkoutFailedMessage = stringResource(R.string.checkout_failed)
     val searchFailedMessage = stringResource(R.string.postapoint_search_failed)
+    val orderTagSuccessMessage = stringResource(R.string.checkout_tag_order_success)
 
-    // Launch Chrome Custom Tab when checkout URL is available
+    // Launch Chrome Custom Tab when checkout URL is available — except
+    // for the welcome-promo bypass (0-total order completed server-side
+    // and the response carries a senra:// deep-link instead of a
+    // Stripe URL). For the bypass, skip the Custom Tab entirely and
+    // close the screen with a success toast — the order is already
+    // paid + processing in the DB by the time we get here.
     LaunchedEffect(checkoutUrl) {
         checkoutUrl?.let { url ->
-            val customTabsIntent = CustomTabsIntent.Builder().build()
-            customTabsIntent.launchUrl(context, Uri.parse(url))
-            viewModel.handleCheckoutCancelled() // Clear URL so it doesn't re-launch
-            onDone()
+            if (url.startsWith("senra://")) {
+                appStateViewModel.showSuccess(orderTagSuccessMessage)
+                viewModel.handleCheckoutCancelled()
+                onDone()
+            } else {
+                val customTabsIntent = CustomTabsIntent.Builder().build()
+                customTabsIntent.launchUrl(context, Uri.parse(url))
+                viewModel.handleCheckoutCancelled()
+                onDone()
+            }
         }
     }
 
