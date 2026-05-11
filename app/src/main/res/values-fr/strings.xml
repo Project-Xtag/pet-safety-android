@@ -74,7 +74,7 @@
     <string name="invalid_email">Saisis une adresse e-mail valide</string>
     <string name="invalid_phone">Saisis un numéro de téléphone valide</string>
     <string name="invalid_location_coords">Impossible de localiser cet endroit avec précision. Essaie une adresse plus précise.</string>
-    <string name="address_geocode_failed_warning">Impossible de localiser cette adresse avec précision — l\'alerte sera envoyée sans localisation précise. Essaie \"position actuelle\" pour de meilleurs résultats.</string>
+    <string name="address_geocode_failed_warning">Impossible de localiser cette adresse avec précision — l\'alerte sera envoyée sans localisation précise. Essaie "position actuelle" pour de meilleurs résultats.</string>
     <string name="otp_placeholder" translatable="false">000000</string>
     <string name="resend_code_cooldown">Renvoyer le code dans %1$ds</string>
     <string name="resend_code_prompt">Tu n\'as pas reçu le code\u00a0? Renvoyer</string>
@@ -85,9 +85,9 @@
     <string name="register">S\'inscrire</string>
     <string name="already_have_account">Tu as déjà un compte\u00a0?</string>
     <string name="log_in">Se connecter</string>
-    <string name="terms_login_prefix">En te connectant, tu acceptes nos </string>
-    <string name="terms_register_prefix">En t\'inscrivant, tu acceptes nos </string>
-    <string name="terms_and"> et notre </string>
+    <string name="terms_login_prefix">En te connectant, tu acceptes nos</string>
+    <string name="terms_register_prefix">En t\'inscrivant, tu acceptes nos</string>
+    <string name="terms_and"> et notre</string>
     <string name="terms_of_service">Conditions d\'utilisation</string>
     <string name="privacy_policy">Politique de confidentialité</string>
     <string name="first_name">Prénom</string>
@@ -391,12 +391,12 @@
     <string name="notes">Notes</string>
     <string name="sighting_reported">Observation signalée</string>
     <string name="sighting_address_not_found">Nous n\'avons pas trouvé cette adresse. Vérifie l\'orthographe ou essaie un repère à proximité.</string>
-    <string name="sighting_location_required">Partage ta position actuelle ou saisis une adresse.</string>
+    <string name="sighting_location_required">Partage ta localisation actuelle ou saisis une adresse.</string>
     <string name="report_failed">Échec du signalement</string>
     <string name="sighting_location">Lieu de l\'observation</string>
-    <string name="use_current_location">Utiliser la position actuelle</string>
-    <string name="location_captured">Position obtenue par GPS</string>
-    <string name="getting_location">Récupération de ta position\u2026</string>
+    <string name="use_current_location">Utiliser la localisation actuelle</string>
+    <string name="location_captured">Localisation obtenue</string>
+    <string name="getting_location">Récupération de ta localisation…</string>
     <string name="update_alert_failed">Impossible de mettre à jour l\'alerte</string>
     <string name="report_sighting_failed">Impossible de signaler l\'observation</string>
     <string name="report_missing_pet">Signaler un animal disparu</string>
@@ -882,7 +882,7 @@
     <string name="public_profile_preview">Aperçu du profil public</string>
     <string name="failed_load_profile">Impossible de charger le profil</string>
     <string name="public_profile_subtitle">Voilà comment les autres voient le profil de %1$s</string>
-    <string name="owner_notified_sms_email">Le propriétaire de %1$s recevra un SMS et un e-mail avec ta position</string>
+    <string name="owner_notified_sms_email">Le propriétaire de %1$s recevra un SMS et un e-mail avec ta localisation</string>
     <string name="contact_owner_plea">Merci de prévenir mon propriétaire que tu m\'as trouvé\u2026</string>
     <string name="contact_owner_plea_full">Veuillez informer mon propriétaire que tu m\'avez trouvé. Tu pouvez le contacter via les coordonnées ci-dessous.</string>
     <string name="contact_info_not_set">Coordonnées non encore configurées</string>
@@ -894,18 +894,18 @@
     <string name="behavior_notes">Notes de comportement</string>
     <string name="how_it_works">Comment ça marche</string>
     <string name="help_reunite_pet">Aide %1$s à retrouver son propriétaire en toute sécurité</string>
-    <string name="step_share_location">Partager ta position</string>
-    <string name="step_share_location_desc">Appuie sur le bouton ci-dessus pour partager ta position avec le propriétaire</string>
+    <string name="step_share_location">Contacte le propriétaire ou partage ta localisation</string>
+    <string name="step_share_location_desc">Appuie sur le bouton ci-dessus pour partager ta localisation avec le propriétaire</string>
     <string name="step_owner_notified">Propriétaire de %1$s notifié</string>
-    <string name="step_owner_notified_desc">Le propriétaire reçoit un SMS et un e-mail avec ta position</string>
+    <string name="step_owner_notified_desc">Le propriétaire reçoit un SMS et un e-mail avec ta localisation</string>
     <string name="step_quick_reunion">Retrouvailles rapides</string>
-    <string name="step_quick_reunion_desc">Le propriétaire peut se rendre à ta position pour récupérer son animal</string>
+    <string name="step_quick_reunion_desc">Le propriétaire peut se rendre à la localisation indiquée pour récupérer son animal de compagnie</string>
     <string name="step_share_location_desc_public">Clique sur le bouton ci-dessus pour partager où tu as trouvé %1$s</string>
-    <string name="step_owner_notified_desc_public">Le propriétaire reçoit un SMS avec ta position sur Google Maps</string>
+    <string name="step_owner_notified_desc_public">Le propriétaire reçoit un SMS avec ta localisation sur Google Maps</string>
     <string name="step_quick_reunion_desc_public">Reste près de l\'endroit pour que le propriétaire puisse te trouver, toi et %1$s</string>
     <string name="owner_phone_label">Téléphone du propriétaire : %1$s</string>
     <string name="owner_email_label">E-mail du propriétaire : %1$s</string>
-    <string name="your_privacy_notice">Ta vie privée nous importe. Nous ne partagerons ta position avec le propriétaire de %1$s qu\'avec ton consentement explicite.</string>
+    <string name="your_privacy_notice">Ta vie privée nous importe. Nous ne partagerons ta localisation avec le propriétaire de %1$s qu\'avec ton consentement explicite.</string>
 
     <!-- ============================================ -->
     <!-- MARK: Offline Mode -->
@@ -1106,7 +1106,7 @@
     <string name="create_new_pet">Créer un nouvel animal</string>
     <string name="notifications_title">Notifications</string>
     <string name="no_notifications">Aucune notification</string>
-    <string name="no_notifications_desc">Tout est à jour ! Les notifications apparaîtront ici quand la médaille connectée de ton animal sera scannée.</string>
+    <string name="no_notifications_desc">Tout est à jour ! Les notifications apparaîtront ici quand la médaille connectée de ton animal de compagnie sera scannée.</string>
     <string name="mark_all_read">Tout marquer comme lu</string>
     <string name="create_profile_hint">Crée d\'abord un profil d\'animal de compagnie, puis scanne à nouveau la médaille connectée pour l\'activer !</string>
     <string name="activation_error_qr_not_found">Code QR non reconnu. Assure-toi de scanner une médaille connectée SENRA officielle.</string>
@@ -1185,9 +1185,9 @@
     <string name="breed_cat_siamese">Siamois</string>
     <string name="breed_cat_devon_rex">Devon rex</string>
     <string name="breed_cat_oriental_shorthair">Oriental à poil court</string>
-    <string name="breed_cat_burmese">Burmese</string>
+    <string name="breed_cat_burmese">Birman</string>
     <string name="breed_cat_american_shorthair">American Shorthair</string>
-    <string name="breed_cat_bengal">Bengal</string>
+    <string name="breed_cat_bengal">Bengale</string>
     <string name="breed_cat_russian_blue">Bleu Russe</string>
     <string name="breed_cat_norwegian_forest_cat">Chat des Forêts Norvégiennes</string>
     <string name="breed_cat_birman">Sacré de Birmanie</string>
@@ -1341,7 +1341,7 @@
     <string name="help_faq_q5">Comment commander une médaille connectée de remplacement ?</string>
     <string name="help_faq_a5">Va à la page \'Accueil/Mon Compte\' et appuie sur \'Commander une médaille connectée de remplacement\'. Sélectionne quel animal de compagnie a besoin d\'une nouvelle médaille connectée. Les abonnés Maximum et Standard peuvent demander des médailles connectées de remplacement gratuites, tandis que les membres Starter peuvent commander des remplacements pour les frais d\'expédition.</string>
     <string name="help_faq_q6">Comment activer ma médaille connectée après réception ?</string>
-    <string name="help_faq_a6">Télécharge l\'application mobile SENRA depuis Google Play Store ou App Store ! Ouvre-la et va au menu \'Activation\', dirige la caméra de ton téléphone vers le code QR sur la médaille connectée ! Le scan du QR lie la médaille connectée à ton compte. Ensuite, sélectionne ton animal existant ou crée un nouveau profil. Après l\'activation, tu peux choisir ton plan d\'abonnement.</string>
+    <string name="help_faq_a6">Télécharge l\'application mobile SENRA depuis Google Play Store ou App Store ! Ouvre-la et va au menu \'Activation\', dirige la caméra de ton téléphone vers le code QR sur la médaille connectée ! Le scan du code QR lie la médaille connectée à ton compte. Ensuite, crée un nouveau profil d\'animal de compagnie. Après l\'activation, tu peux choisir ton plan d\'abonnement.</string>
     <string name="help_faq_q7">Puis-je offrir une médaille connectée SENRA ?</string>
     <string name="help_faq_a7">Oui ! Les médailles connectées SENRA sont d\'excellents cadeaux pour les propriétaires d\'animaux de compagnie. Commande simplement la médaille connectée depuis ton propre compte — quand le destinataire la reçoit, il peut scanner le code QR, créer son propre compte et activer la médaille connectée pour son animal de compagnie. Le destinataire n\'a pas besoin de s\'inscrire à l\'avance — scanner la médaille connectée le guide à travers la création de compte et l\'association de la médaille connectée à son animal de compagnie.</string>
     <string name="help_faq_q8">Que faire si mon animal disparaît ?</string>
@@ -1369,7 +1369,7 @@
     <string name="help_faq_q19">Puis-je changer mon adresse email ?</string>
     <string name="help_faq_a19">Ton email principal sert d\'identifiant de compte et ne peut pas être changé directement. Tu peux ajouter un email secondaire dans \'Paramètres\' &gt; \'Coordonnées\'. Si tu as absolument besoin de changer ton email principal, contacte-nous à hello@senra.pet.</string>
     <string name="help_faq_q20">Quelle est la différence entre une puce et une médaille connectée QR SENRA ?</string>
-    <string name="help_faq_a20">Une puce est un petit implant sous la peau de ton animal qui stocke un identifiant unique de 15 chiffres — mais nécessite un lecteur spécial. La médaille connectée QR SENRA peut être scannée avec n\'importe quelle caméra de smartphone, affichant instantanément le profil complet, la photo et les coordonnées approuvées. Le trouveur peut aussi partager les coordonnées GPS.</string>
+    <string name="help_faq_a20">Une puce est un petit implant sous la peau de ton animal de compagnie qui stocke un identifiant unique de 15 chiffres — mais nécessite un lecteur spécial (généralement disponible uniquement chez les vétérinaires et dans les refuges). La médaille connectée QR SENRA peut être scannée avec n\'importe quelle caméra de smartphone, affichant instantanément le profil complet de ton animal de compagnie, sa photo et les coordonnées que tu as approuvées. Le trouveur peut aussi partager l\'endroit où il a trouvé ton animal de compagnie.</string>
     <string name="help_faq_q21">Que se passe-t-il avec mes données si j\'annule mon abonnement ?</string>
     <string name="help_faq_a21">Si tu annules ton abonnement, tu gardes l\'accès aux fonctionnalités payantes jusqu\'à la fin de la période de facturation en cours. Ensuite, ton compte passe automatiquement au plan Starter gratuit. Les profils d\'animaux de compagnie, photos et médailles connectées QR restent actifs — tu perds uniquement l\'accès aux fonctionnalités premium (notifications SMS, alertes vétérinaires, remplacement gratuit de médaille connectée, etc.). Tes données ne sont pas supprimées lors de l\'annulation. Pour supprimer définitivement toutes tes données, utilise l\'option Supprimer le compte dans les Paramètres.</string>
     <string name="help_faq_q22">Comment enregistrer ma clinique ou mon refuge chez SENRA ?</string>
@@ -1439,9 +1439,9 @@
     <string name="legal_terms_title">Conditions d\'utilisation</string>
     <string name="legal_privacy_title">Politique de confidentialité</string>
     <string name="share_success_title">Merci de votre aide !</string>
-    <string name="share_success_subtitle">La famille de %1$s a été informée que vous l\'avez trouvé(e).</string>
+    <string name="share_success_subtitle">Le propriétaire de %1$s a été informé que tu l\'as trouvé(e).</string>
     <string name="share_success_what_next">Et maintenant ?</string>
-    <string name="share_success_step_contact">Le propriétaire vous contactera dès que possible avec les coordonnées de l\'écran précédent.</string>
+    <string name="share_success_step_contact">Le propriétaire te contactera dès que possible avec les coordonnées de l\'écran précédent.</string>
     <string name="share_success_step_safe">Veuillez garder l\'animal en sécurité jusqu\'à l\'arrivée du propriétaire.</string>
     <string name="order_promo_code_title">Code promo</string>
     <string name="order_promo_code_label">Tu as un code promo ?</string>

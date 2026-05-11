@@ -73,9 +73,9 @@
     <string name="register">Registracija</string>
     <string name="already_have_account">Već imaš račun?</string>
     <string name="log_in">Prijava</string>
-    <string name="terms_login_prefix">Prijavom prihvaćaš naše </string>
-    <string name="terms_register_prefix">Registracijom prihvaćaš naše </string>
-    <string name="terms_and"> i </string>
+    <string name="terms_login_prefix">Prijavom prihvaćaš naše</string>
+    <string name="terms_register_prefix">Registracijom prihvaćaš naše</string>
+    <string name="terms_and"> i</string>
     <string name="terms_of_service">Uvjete korištenja</string>
     <string name="privacy_policy">Pravila privatnosti</string>
     <string name="first_name">Ime</string>
@@ -717,7 +717,7 @@
     <string name="order_id_short">Narudžba #%1$s</string>
     <string name="order_information">Podaci o narudžbi</string>
     <string name="order_id_label">ID narudžbe</string>
-    <string name="status">Status</string>
+    <string name="status">Stanje</string>
     <string name="total_amount">Ukupni iznos</string>
     <string name="order_date">Datum narudžbe</string>
     <string name="items">Stavke</string>
@@ -774,7 +774,7 @@
     <string name="billing_manage_description">Promijeni paket, ažuriraj način plaćanja ili otkaži</string>
     <string name="billing_current_plan">Trenutni paket</string>
     <string name="billing_plan_label">Paket</string>
-    <string name="billing_status_label">Status</string>
+    <string name="billing_status_label">Stanje</string>
     <string name="billing_invoices">Računi</string>
     <string name="billing_no_invoices">Još nema računa</string>
     <string name="billing_subscription">Pretplata</string>
