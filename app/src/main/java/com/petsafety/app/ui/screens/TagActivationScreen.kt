@@ -111,6 +111,10 @@ fun TagActivationScreen(
             },
             onAllDone = {
                 showCreatePetForm = false
+                // Activate the tag for the pet that was just created. Without this,
+                // the tag stays at status='shipped' on the backend even though the
+                // post-save screen showed "Tag activated for X".
+                viewModel.refreshAndAutoActivate(qrCode, petIdsBeforeCreate)
                 viewModel.resetActivation()
                 onActivationComplete()
             },
