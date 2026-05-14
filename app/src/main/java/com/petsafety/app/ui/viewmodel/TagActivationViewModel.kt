@@ -139,6 +139,30 @@ class TagActivationViewModel @Inject constructor(
 
     fun hasOrderContext(): Boolean = _orderItems.value.isNotEmpty()
 
+    /**
+     * Activate a specific tag for a specific pet (typically right after pet
+     * creation). Suspends until the API responds and throws on failure so the
+     * caller (PetFormScreen) can keep the user on the form and surface the
+     * error rather than racing the post-save success screen against an
+     * unfinished activation.
+     */
+    suspend fun activateTagForPet(qrCode: String, petId: String): QrTag {
+        val petName = _pets.value.firstOrNull { it.id == petId }?.name ?: ""
+        _activationState.value = ActivationState.Loading
+        try {
+            val tag = qrRepository.activateTag(qrCode, petId)
+            _selectedPetId.value = petId
+            petsEventBus.requestRefresh()
+            _activationState.value = ActivationState.Success(tag, petName)
+            return tag
+        } catch (ex: Exception) {
+            _activationState.value = ActivationState.Error(
+                ex.localizedMessage ?: stringProvider.getString(R.string.error_activate_tag_failed)
+            )
+            throw ex
+        }
+    }
+
     /// Refresh pets after creation and auto-activate the tag for the newly created pet.
     fun refreshAndAutoActivate(qrCode: String, previousPetIds: Set<String>) {
         viewModelScope.launch {

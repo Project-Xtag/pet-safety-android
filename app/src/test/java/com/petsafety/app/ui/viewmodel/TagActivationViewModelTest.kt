@@ -14,6 +14,7 @@ import io.mockk.coVerify
 import io.mockk.mockk
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.test.StandardTestDispatcher
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runTest
@@ -528,6 +529,68 @@ class TagActivationViewModelTest {
         val state = viewModel.activationState.value
         assertTrue(state is ActivationState.Error)
         assertEquals("Tag already activated", (state as ActivationState.Error).message)
+    }
+
+    // MARK: - activateTagForPet (suspend, awaited by PetFormScreen)
+
+    @Test
+    fun `activateTagForPet - success - returns tag and sets Success state`() = runTest {
+        // Seed pets so the success state can resolve petName
+        coEvery { petsRepository.fetchPets() } returns (listOf(testPet1, testPet2) to null)
+        coEvery { qrRepository.activateTag("QR-TEST-001", "pet-2") } returns testTag.copy(petId = "pet-2")
+        viewModel.loadActivationData("QR-TEST-001")
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        val result = viewModel.activateTagForPet("QR-TEST-001", "pet-2")
+
+        assertEquals("pet-2", result.petId)
+        assertEquals("pet-2", viewModel.selectedPetId.value)
+        val state = viewModel.activationState.value
+        assertTrue("Expected Success but got $state", state is ActivationState.Success)
+        assertEquals("Luna", (state as ActivationState.Success).petName)
+    }
+
+    @Test(expected = RuntimeException::class)
+    fun `activateTagForPet - failure - rethrows so caller can react`() = runTest {
+        coEvery { qrRepository.activateTag("QR-TEST-001", "pet-2") } throws RuntimeException("network down")
+        viewModel.activateTagForPet("QR-TEST-001", "pet-2")
+    }
+
+    @Test
+    fun `activateTagForPet - failure - leaves activationState in Error so UI can read it`() = runTest {
+        coEvery { qrRepository.activateTag("QR-TEST-001", "pet-2") } throws RuntimeException("network down")
+
+        try {
+            viewModel.activateTagForPet("QR-TEST-001", "pet-2")
+        } catch (_: RuntimeException) {
+            // expected
+        }
+
+        val state = viewModel.activationState.value
+        assertTrue("Expected Error but got $state", state is ActivationState.Error)
+        assertEquals("network down", (state as ActivationState.Error).message)
+    }
+
+    @Test
+    fun `activateTagForPet - success - updates selectedPetId so subsequent activateTag re-call works`() = runTest {
+        coEvery { qrRepository.activateTag("QR-TEST-001", "pet-2") } returns testTag.copy(petId = "pet-2")
+
+        viewModel.activateTagForPet("QR-TEST-001", "pet-2")
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        assertEquals("pet-2", viewModel.selectedPetId.value)
+    }
+
+    @Test
+    fun `activateTagForPet - failure - does not update selectedPetId`() = runTest {
+        coEvery { qrRepository.activateTag("QR-TEST-001", "pet-2") } throws RuntimeException("boom")
+
+        try {
+            viewModel.activateTagForPet("QR-TEST-001", "pet-2")
+        } catch (_: RuntimeException) {}
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        assertNull(viewModel.selectedPetId.value)
     }
 
     @Test

@@ -198,6 +198,7 @@
     <string name="pet_form_age_placeholder">npr. 3 godine</string>
     <string name="unique_features_hint">Posebne značajke (privjeska, ožiljci itd.)</string>
     <string name="pet_created">Kućni ljubimac izrađen</string>
+    <string name="pet_created_tag_activation_failed">Ljubimac stvoren, ali aktivacija privjeska nije uspjela: %1$s</string>
     <string name="pet_create_failed">Izrada kućnog ljubimca nije uspjela</string>
     <string name="pet_updated">Kućni ljubimac ažuriran</string>
     <string name="pet_update_failed">Ažuriranje kućnog ljubimca nije uspjelo</string>

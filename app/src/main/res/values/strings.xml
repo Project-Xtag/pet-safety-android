@@ -223,6 +223,7 @@
     <string name="pet_form_age_placeholder">e.g. 3 years</string>
     <string name="unique_features_hint">Unique features (markings, scars, distinctive traits\u2026)</string>
     <string name="pet_created">Pet created</string>
+    <string name="pet_created_tag_activation_failed">Pet created, but tag activation failed: %1$s</string>
     <string name="pet_create_failed">Failed to create pet</string>
     <string name="pet_updated">Pet updated</string>
     <string name="pet_update_failed">Failed to update pet</string>

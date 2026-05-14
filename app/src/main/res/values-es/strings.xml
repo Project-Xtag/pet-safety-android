@@ -213,6 +213,7 @@
     <string name="pet_form_age_placeholder">ej. 3 años</string>
     <string name="unique_features_hint">Rasgos únicos (marcas, cicatrices, rasgos distintivos\u2026)</string>
     <string name="pet_created">Mascota creada</string>
+    <string name="pet_created_tag_activation_failed">Mascota creada, pero la activación de la chapa inteligente falló: %1$s</string>
     <string name="pet_create_failed">No se pudo crear la mascota</string>
     <string name="pet_updated">Mascota actualizada</string>
     <string name="pet_update_failed">No se pudo actualizar la mascota</string>

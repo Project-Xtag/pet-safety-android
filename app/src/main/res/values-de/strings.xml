@@ -213,6 +213,7 @@
     <string name="pet_form_age_placeholder">z.B. 3 Jahre</string>
     <string name="unique_features_hint">Besondere Merkmale (Zeichnungen, Narben, auffällige Merkmale\u2026)</string>
     <string name="pet_created">Haustier erstellt</string>
+    <string name="pet_created_tag_activation_failed">Haustier erstellt, aber Aktivierung der Haustiermarke fehlgeschlagen: %1$s</string>
     <string name="pet_create_failed">Haustier konnte nicht erstellt werden</string>
     <string name="pet_updated">Haustier aktualisiert</string>
     <string name="pet_update_failed">Haustier konnte nicht aktualisiert werden</string>

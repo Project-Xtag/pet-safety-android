@@ -210,6 +210,7 @@
     <string name="pet_form_age_placeholder">pl. 3 éves</string>
     <string name="unique_features_hint">Egyedi jegyek (mintázatok, hegek, stb.)</string>
     <string name="pet_created">Kedvenc létrehozva</string>
+    <string name="pet_created_tag_activation_failed">Kedvenc létrehozva, de a biléta aktiválása nem sikerült: %1$s</string>
     <string name="pet_create_failed">Nem sikerült létrehozni a kedvencet</string>
     <string name="pet_updated">Kedvenc frissítve</string>
     <string name="pet_update_failed">Nem sikerült frissíteni a kedvencet</string>

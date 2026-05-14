@@ -223,6 +223,7 @@
     <string name="pet_form_age_placeholder">es. 3 anni</string>
     <string name="unique_features_hint">Caratteristiche distintive (macchie, cicatrici, segni particolari\u2026)</string>
     <string name="pet_created">Animale di compagnia creato</string>
+    <string name="pet_created_tag_activation_failed">Animale creato, ma l\'attivazione del tag non è riuscita: %1$s</string>
     <string name="pet_create_failed">Impossibile creare l\'animale di compagnia</string>
     <string name="pet_updated">Animale di compagnia aggiornato</string>
     <string name="pet_update_failed">Impossibile aggiornare l\'animale di compagnia</string>

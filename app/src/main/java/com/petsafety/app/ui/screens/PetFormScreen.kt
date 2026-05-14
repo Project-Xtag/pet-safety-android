@@ -75,6 +75,7 @@ import androidx.compose.ui.platform.LocalContext
 import com.petsafety.app.R
 import com.petsafety.app.data.model.BreedData
 import com.petsafety.app.data.model.LocalBreed
+import com.petsafety.app.data.model.Pet
 import com.petsafety.app.data.network.model.CreatePetRequest
 import com.petsafety.app.data.network.model.UpdatePetRequest
 import com.petsafety.app.ui.components.PhotoCaptureSheet
@@ -89,6 +90,9 @@ import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.Warning
 import com.petsafety.app.ui.viewmodel.AppStateViewModel
 import com.petsafety.app.ui.viewmodel.PetsViewModel
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.material3.CircularProgressIndicator
+import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -100,6 +104,11 @@ fun PetFormScreen(
     remainingPetNames: List<String> = emptyList(),
     onRegisterNextPet: ((String) -> Unit)? = null,
     onAllDone: (() -> Unit)? = null,
+    /** Tag activation flow: invoked AFTER pet create succeeds. The post-save
+     *  screen with "Tag activated for X" only appears if this completes
+     *  without throwing. If it throws, the user is bounced back via onAllDone
+     *  with an error toast so they can re-scan to retry. */
+    onPetCreated: (suspend (Pet) -> Unit)? = null,
     onBack: () -> Unit = {},
     onDone: () -> Unit
 ) {
@@ -174,6 +183,11 @@ fun PetFormScreen(
 
     var showPostSaveScreen by remember { mutableStateOf(false) }
     var savedPetName by remember { mutableStateOf("") }
+    // Stays true while the post-create hook (tag activation) is running so
+    // the save button stays disabled and the user can't navigate away mid-flight.
+    var isRunningPostCreateHook by remember { mutableStateOf(false) }
+    val coroutineScope = rememberCoroutineScope()
+    val tagActivationFailedMessage = stringResource(R.string.pet_created_tag_activation_failed)
 
     if (showPostSaveScreen) {
         PostSaveScreen(
@@ -648,12 +662,46 @@ fun PetFormScreen(
                             if (pet != null) {
                                 uploadPhotoIfNeeded(viewModel, capturedPhotoBytes, pet.id)
                                 appStateViewModel.showSuccess(petCreatedMessage)
-                                // Show post-save screen in tag activation context, otherwise just dismiss
-                                if (onRegisterNextPet != null || onAllDone != null) {
-                                    savedPetName = name
-                                    showPostSaveScreen = true
+                                // Tag-activation context: run the post-create hook
+                                // (activate the QR tag) BEFORE the "Tag activated
+                                // for X" success screen renders. Without this gate
+                                // the success copy used to render even when
+                                // activation never happened.
+                                if (onPetCreated != null) {
+                                    isRunningPostCreateHook = true
+                                    coroutineScope.launch {
+                                        try {
+                                            onPetCreated(pet)
+                                            isRunningPostCreateHook = false
+                                            if (onRegisterNextPet != null || onAllDone != null) {
+                                                savedPetName = name
+                                                showPostSaveScreen = true
+                                            } else {
+                                                onDone()
+                                            }
+                                        } catch (e: Exception) {
+                                            isRunningPostCreateHook = false
+                                            // Pet created; tag activation failed. Tell
+                                            // user honestly and dismiss back — the new
+                                            // pet shows up with the "TAG ON ITS WAY"
+                                            // badge so they can re-scan to retry.
+                                            appStateViewModel.showError(
+                                                String.format(
+                                                    tagActivationFailedMessage,
+                                                    e.localizedMessage ?: e.message ?: ""
+                                                )
+                                            )
+                                            if (onAllDone != null) onAllDone() else onDone()
+                                        }
+                                    }
                                 } else {
-                                    onDone()
+                                    // Show post-save screen in tag activation context, otherwise just dismiss
+                                    if (onRegisterNextPet != null || onAllDone != null) {
+                                        savedPetName = name
+                                        showPostSaveScreen = true
+                                    } else {
+                                        onDone()
+                                    }
                                 }
                             } else if (message != null) {
                                 appStateViewModel.showError(message)
@@ -701,17 +749,25 @@ fun PetFormScreen(
                         ambientColor = BrandOrange.copy(alpha = 0.3f),
                         spotColor = BrandOrange.copy(alpha = 0.3f)
                     ),
-                enabled = name.isNotBlank(),
+                enabled = name.isNotBlank() && !isRunningPostCreateHook,
                 shape = RoundedCornerShape(16.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = BrandOrange)
             ) {
-                Text(
-                    text = stringResource(R.string.save_changes),
-                    style = MaterialTheme.typography.labelLarge.copy(
-                        fontSize = 16.sp,
-                        fontWeight = FontWeight.SemiBold
+                if (isRunningPostCreateHook) {
+                    CircularProgressIndicator(
+                        modifier = Modifier.size(20.dp),
+                        color = MaterialTheme.colorScheme.onPrimary,
+                        strokeWidth = 2.dp
                     )
-                )
+                } else {
+                    Text(
+                        text = stringResource(R.string.save_changes),
+                        style = MaterialTheme.typography.labelLarge.copy(
+                            fontSize = 16.sp,
+                            fontWeight = FontWeight.SemiBold
+                        )
+                    )
+                }
             }
 
             Spacer(modifier = Modifier.height(12.dp))
