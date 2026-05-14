@@ -2,6 +2,7 @@ package com.petsafety.app.ui.viewmodel
 
 import android.app.Application
 import app.cash.turbine.test
+import com.petsafety.app.data.events.PetsEventBus
 import com.petsafety.app.data.model.Breed
 import com.petsafety.app.data.model.LocationCoordinate
 import com.petsafety.app.data.model.Pet
@@ -65,7 +66,7 @@ class PetsViewModelTest {
         Dispatchers.setMain(testDispatcher)
         application = mockk(relaxed = true)
         repository = mockk(relaxed = true)
-        viewModel = PetsViewModel(application, repository)
+        viewModel = PetsViewModel(application, repository, PetsEventBus())
     }
 
     @After

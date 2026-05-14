@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.petsafety.app.R
 import com.petsafety.app.data.model.Breed
+import com.petsafety.app.data.events.PetsEventBus
 import com.petsafety.app.data.model.LocationCoordinate
 import com.petsafety.app.data.model.Pet
 import com.petsafety.app.data.network.model.CreatePetRequest
@@ -17,14 +18,25 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class PetsViewModel @Inject constructor(
     private val application: Application,
-    private val repository: PetsRepository
+    private val repository: PetsRepository,
+    private val petsEventBus: PetsEventBus
 ) : ViewModel() {
+    init {
+        // Refresh whenever a tag is activated (or any other path requests it)
+        // so the "TAG ON ITS WAY" badge drops without view-appear/pull-to-refresh.
+        petsEventBus.refreshEvents
+            .onEach { fetchPets() }
+            .launchIn(viewModelScope)
+    }
+
     private val _pets = MutableStateFlow<List<Pet>>(emptyList())
     val pets: StateFlow<List<Pet>> = _pets.asStateFlow()
 
