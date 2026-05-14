@@ -1,6 +1,7 @@
 package com.petsafety.app.ui.screens
 
 import android.app.Application
+import com.petsafety.app.data.events.PetsEventBus
 import com.petsafety.app.data.model.LocationCoordinate
 import com.petsafety.app.data.model.Pet
 import com.petsafety.app.data.model.User
@@ -74,7 +75,7 @@ class MarkAsMissingScreenTest {
         Dispatchers.setMain(testDispatcher)
         application = mockk(relaxed = true)
         repository = mockk(relaxed = true)
-        viewModel = PetsViewModel(application, repository)
+        viewModel = PetsViewModel(application, repository, PetsEventBus())
     }
 
     @After

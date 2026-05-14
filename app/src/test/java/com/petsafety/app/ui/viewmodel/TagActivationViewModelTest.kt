@@ -1,6 +1,7 @@
 package com.petsafety.app.ui.viewmodel
 
 import com.petsafety.app.R
+import com.petsafety.app.data.events.PetsEventBus
 import com.petsafety.app.data.model.Pet
 import com.petsafety.app.data.model.QrTag
 import com.petsafety.app.data.model.UnactivatedOrderItem
@@ -78,7 +79,7 @@ class TagActivationViewModelTest {
         petsRepository = mockk(relaxed = true)
         qrRepository = mockk(relaxed = true)
         ordersRepository = mockk(relaxed = true)
-        viewModel = TagActivationViewModel(petsRepository, qrRepository, ordersRepository, stringProvider)
+        viewModel = TagActivationViewModel(petsRepository, qrRepository, ordersRepository, stringProvider, PetsEventBus())
     }
 
     @After

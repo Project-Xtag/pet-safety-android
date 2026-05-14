@@ -6,6 +6,7 @@ import com.petsafety.app.R
 import com.petsafety.app.data.model.Pet
 import com.petsafety.app.data.model.QrTag
 import com.petsafety.app.data.model.UnactivatedOrderItem
+import com.petsafety.app.data.events.PetsEventBus
 import com.petsafety.app.data.repository.OrdersRepository
 import com.petsafety.app.data.repository.PetsRepository
 import com.petsafety.app.data.repository.QrRepository
@@ -31,7 +32,8 @@ class TagActivationViewModel @Inject constructor(
     private val petsRepository: PetsRepository,
     private val qrRepository: QrRepository,
     private val ordersRepository: OrdersRepository,
-    private val stringProvider: StringProvider
+    private val stringProvider: StringProvider,
+    private val petsEventBus: PetsEventBus
 ) : ViewModel() {
     private val _pets = MutableStateFlow<List<Pet>>(emptyList())
     val pets: StateFlow<List<Pet>> = _pets.asStateFlow()
@@ -104,6 +106,9 @@ class TagActivationViewModel @Inject constructor(
             _activationState.value = ActivationState.Loading
             try {
                 val tag = qrRepository.activateTag(qrCode, petId)
+                // Tell PetsViewModel to refresh so the "TAG ON ITS WAY" badge
+                // drops immediately rather than waiting for next view-appear.
+                petsEventBus.requestRefresh()
                 _activationState.value = ActivationState.Success(tag, petName)
             } catch (ex: Exception) {
                 _activationState.value = ActivationState.Error(
