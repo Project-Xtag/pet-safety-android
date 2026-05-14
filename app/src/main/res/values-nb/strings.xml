@@ -223,6 +223,7 @@
     <string name="pet_form_age_placeholder">f.eks. 3 år</string>
     <string name="unique_features_hint">Unike kjennetegn (QR-brikker, arr, særtrekk\u2026)</string>
     <string name="pet_created">Dyr opprettet</string>
+    <string name="pet_created_tag_activation_failed">Dyr opprettet, men aktivering av QR-brikke mislyktes: %1$s</string>
     <string name="pet_create_failed">Kunne ikke opprette dyret</string>
     <string name="pet_updated">Dyr oppdatert</string>
     <string name="pet_update_failed">Kunne ikke oppdatere dyret</string>

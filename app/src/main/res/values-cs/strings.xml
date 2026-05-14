@@ -213,6 +213,7 @@
     <string name="pet_form_age_placeholder">např. 3 roky</string>
     <string name="unique_features_hint">Jedinečné znaky (psí známky, jizvy, výrazné rysy\u2026)</string>
     <string name="pet_created">Mazlíček vytvořen</string>
+    <string name="pet_created_tag_activation_failed">Mazlíček vytvořen, ale aktivace psí známky selhala: %1$s</string>
     <string name="pet_create_failed">Mazlíčka se nepodařilo vytvořit</string>
     <string name="pet_updated">Mazlíček aktualizován</string>
     <string name="pet_update_failed">Mazlíčka se nepodařilo aktualizovat</string>

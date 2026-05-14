@@ -100,28 +100,30 @@ fun TagActivationScreen(
             appStateViewModel = appStateViewModel,
             initialPetName = selectedPetNameForCreate,
             remainingPetNames = otherNames,
+            // Hard precondition for the post-save "Tag activated" screen.
+            // PetFormScreen awaits this — only renders success if the activation
+            // call returns without throwing, otherwise it bounces back with an
+            // error toast so the user can re-scan to retry.
+            onPetCreated = { newPet ->
+                viewModel.activateTagForPet(qrCode, newPet.id)
+            },
             onRegisterNextPet = { nextName ->
                 showCreatePetForm = false
-                // Auto-activate the just-created pet's tag
-                viewModel.refreshAndAutoActivate(qrCode, petIdsBeforeCreate)
-                // Set up for next pet after a short delay
+                // Activation already completed inside onPetCreated above.
                 selectedPetNameForCreate = nextName
                 petIdsBeforeCreate = pets.map { it.id }.toSet()
                 showCreatePetForm = true
             },
             onAllDone = {
                 showCreatePetForm = false
-                // Activate the tag for the pet that was just created. Without this,
-                // the tag stays at status='shipped' on the backend even though the
-                // post-save screen showed "Tag activated for X".
-                viewModel.refreshAndAutoActivate(qrCode, petIdsBeforeCreate)
+                // Activation already completed inside onPetCreated.
                 viewModel.resetActivation()
                 onActivationComplete()
             },
             onBack = { showCreatePetForm = false },
             onDone = {
                 showCreatePetForm = false
-                viewModel.refreshAndAutoActivate(qrCode, petIdsBeforeCreate)
+                // Activation already completed inside onPetCreated.
             }
         )
         return

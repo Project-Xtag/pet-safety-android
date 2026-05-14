@@ -213,6 +213,7 @@
     <string name="pet_form_age_placeholder">ex. 3 anos</string>
     <string name="unique_features_hint">Características únicas (marca, cicatrizes, traços distintivos\u2026)</string>
     <string name="pet_created">Animal de estimação criado</string>
+    <string name="pet_created_tag_activation_failed">Animal criado, mas a ativação da plaquinha inteligente falhou: %1$s</string>
     <string name="pet_create_failed">Falha ao criar o animal de estimação</string>
     <string name="pet_updated">Animal de estimação atualizado</string>
     <string name="pet_update_failed">Falha ao atualizar o animal de estimação</string>

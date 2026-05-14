@@ -227,6 +227,7 @@
     <string name="pet_form_age_placeholder">np. 3 lata</string>
     <string name="unique_features_hint">Charakterystyczne cechy (umaszczenie, blizny, wyróżniki\u2026)</string>
     <string name="pet_created">Pupila dodane</string>
+    <string name="pet_created_tag_activation_failed">Pupil dodany, ale aktywacja adresówki nie powiodła się: %1$s</string>
     <string name="pet_create_failed">Nie udało się dodać pupila</string>
     <string name="pet_updated">Pupila zaktualizowane</string>
     <string name="pet_update_failed">Nie udało się zaktualizować pupila</string>
