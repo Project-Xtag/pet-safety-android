@@ -340,9 +340,9 @@ private fun TagInfoCard() {
             if (footnoteResId != 0) {
                 Text(
                     text = stringResource(footnoteResId),
-                    style = MaterialTheme.typography.bodySmall.copy(
+                    style = MaterialTheme.typography.bodyMedium.copy(
                         fontStyle = androidx.compose.ui.text.font.FontStyle.Italic,
-                        fontSize = 11.sp,
+                        fontSize = 13.sp,
                     ),
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                     modifier = Modifier.padding(top = 12.dp)
