@@ -826,6 +826,8 @@
     <string name="pricing_tag_card_price_subtitle">you only pay for shipping</string>
     <string name="pricing_tag_card_feature_1">Lightweight, steel tag</string>
     <string name="pricing_tag_card_feature_2">Durable, weather-resistant</string>
+    <string name="pricing_tag_card_feature_3">Readable with a smartphone, no app download required</string>
+    <string name="pricing_tag_card_feature_4">No battery inside</string>
 
     <!-- ============================================ -->
     <!-- MARK: Billing -->

@@ -323,6 +323,31 @@ private fun TagInfoCard() {
 
             FeatureRow(stringResource(R.string.pricing_tag_card_feature_1), true)
             FeatureRow(stringResource(R.string.pricing_tag_card_feature_2), true)
+            FeatureRow(stringResource(R.string.pricing_tag_card_feature_3), true)
+            FeatureRow(stringResource(R.string.pricing_tag_card_feature_4), true)
+
+            // HU-only footnote — resource exists only in values-hu/.
+            // stringResource throws on a missing key, so guard via
+            // resources.getIdentifier and resolve only when present.
+            val context = LocalContext.current
+            val footnoteResId = remember {
+                context.resources.getIdentifier(
+                    "pricing_tag_card_footnote",
+                    "string",
+                    context.packageName,
+                )
+            }
+            if (footnoteResId != 0) {
+                Text(
+                    text = stringResource(footnoteResId),
+                    style = MaterialTheme.typography.bodySmall.copy(
+                        fontStyle = androidx.compose.ui.text.font.FontStyle.Italic,
+                        fontSize = 11.sp,
+                    ),
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    modifier = Modifier.padding(top = 12.dp)
+                )
+            }
         }
     }
 }

@@ -774,9 +774,12 @@
     <string name="plan_standard_display_name">Kedvenc csomag</string>
     <string name="pricing_tag_card_title">A Biléta</string>
     <string name="pricing_tag_card_price">0 Ft</string>
-    <string name="pricing_tag_card_price_subtitle">csak a szállításért fizetsz</string>
+    <string name="pricing_tag_card_price_subtitle">csak a szállításért fizetsz*</string>
     <string name="pricing_tag_card_feature_1">Könnyű, acél biléta</string>
     <string name="pricing_tag_card_feature_2">Tartós, időjárásálló</string>
+    <string name="pricing_tag_card_feature_3">Okostelefonnal leolvasható, nem szükséges applikáció letöltése</string>
+    <string name="pricing_tag_card_feature_4">Nincs benne elem</string>
+    <string name="pricing_tag_card_footnote">*a biléta személyesen is átvehető, kövesd a közösségi médiában a helyszínekért és dátumokért vagy látogass vissza a honlapra</string>
 
     <!-- ============================================ -->
     <!-- MARK: Billing -->
