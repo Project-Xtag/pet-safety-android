@@ -470,7 +470,7 @@
     <string name="mark_lost_report">Rapporter savnet</string>
     <string name="mark_lost_title">Merk %1$s som savnet</string>
     <string name="mark_lost_starter_notice">Oppgrader for fellesskapsvarsler</string>
-    <string name="mark_lost_upgrade_prompt">Med Starter-planen merkes kjæledyret ditt som savnet, men varsler til brukere, veterinærer og dyrehjem krever Standard- eller Maximum-abonnement.</string>
+    <string name="mark_lost_upgrade_prompt">Med Starter-planen merkes kjæledyret ditt som savnet, men varsler til brukere, veterinærer og dyrehjem krever Kedvenc-abonnement.</string>
     <string name="mark_lost_success_with_alerts">%1$s er rapportert som savnet. Varsler sendes til brukere i nærheten.</string>
     <string name="mark_lost_success_no_location">%1$s er merket som savnet. Legg til sted for å sende fellesskapsvarsler.</string>
     <string name="mark_lost_address_required">Oppgi en adresse eller aktiver posisjonstjenester.</string>
@@ -711,7 +711,7 @@
     <string name="help_guide_materials_title">Merkets materialer og holdbarhet</string>
     <string name="help_guide_materials_desc">SENRA QR-brikkene er laget av holdbart, lett metall med epoksybelegg for ekstra beskyttelse. De er vanntette og UV-bestandige, egnet for alle værforhold, og slites ikke ved daglig bruk. QR-brikkene er designet for å passe komfortabelt til de fleste halsbånd og seler.</string>
     <string name="help_guide_emergency_title">Nødkontakt og varsler</string>
-    <string name="help_guide_emergency_desc">Når noen skanner kjæledyrets QR-brikke, mottar du umiddelbart en push-varsling og e-post med finnerens posisjon. Standard- og Maximum-abonnenter mottar også SMS-varsler for raskere respons. Merker du kjæledyret ditt som savnet, sendes et fellesskapsvarsel til alle SENRA-brukere innen 10 km, og registrerte veterinærer og dyrehjem i ditt område varsles også. Hvem som helst i fellesskapet kan rapportere observasjoner med posisjon og bilder, noe som hjelper deg å finne kjæledyret ditt.</string>
+    <string name="help_guide_emergency_desc">Når noen skanner kjæledyrets QR-brikke, mottar du umiddelbart en push-varsling og e-post med finnerens posisjon. Kedvenc-abonnenter mottar også SMS-varsler for raskere respons. Merker du kjæledyret ditt som savnet, sendes et fellesskapsvarsel til alle SENRA-brukere innen 10 km, og registrerte veterinærer og dyrehjem i ditt område varsles også. Hvem som helst i fellesskapet kan rapportere observasjoner med posisjon og bilder, noe som hjelper deg å finne kjæledyret ditt.</string>
     <string name="help_guide_profile_title">Administrasjon av dyreprofil</string>
     <string name="help_guide_profile_desc">Dyrets digitale profil er hjertet i SENRA. Legg til viktige detaljer som navn, art, rase, alder og et tydelig bilde. Du kan også inkludere medisinsk informasjon (allergier, medisiner, tilstander), mikrochipnummer og særlige kjennetegn som hjelper med å identifisere dyret ditt. Last opp flere bilder til et galleri. All informasjon kan oppdateres når som helst fra \'Mine dyr\'-seksjonen. Du styrer hvilke av dine personopplysninger (telefon, e-post, adresse) som er synlige for folk som skanner QR-brikken.</string>
     <string name="help_guide_missing_alerts_title">Varsler om savnede dyr og observasjoner</string>
@@ -1341,7 +1341,7 @@
     <string name="help_faq_q4">Kan jeg oppdatere opplysningene om kjæledyret mitt senere?</string>
     <string name="help_faq_a4">Ja! Du kan oppdatere opplysningene når som helst i seksjonen \'Mine Kjæledyr\' ved å velge kjæledyret og trykke \'Rediger Profil\'. Du kan oppdatere alle felt unntatt navn, art og rase, inkludert bilder. Endringer lagres umiddelbart.</string>
     <string name="help_faq_q5">Hvordan bestiller jeg en erstatnings-QR-brikke?</string>
-    <string name="help_faq_a5">Gå til \'Hjem/Min Konto\' og trykk \'Bestill erstatnings-QR-brikke\'. Velg hvilket kjæledyr som trenger en ny QR-brikke. Maximum- og Standard-abonnenter kan be om gratis erstatnings-QR-brikker, mens Starter-medlemmer kan bestille erstatning for fraktkostnaden.</string>
+    <string name="help_faq_a5">Gå til \'Hjem/Min Konto\' og trykk \'Bestill erstatnings-QR-brikke\'. Velg hvilket kjæledyr som trenger en ny QR-brikke. Kedvenc-abonnenter kan be om gratis erstatnings-QR-brikker, mens Starter-medlemmer kan bestille erstatning for fraktkostnaden.</string>
     <string name="help_faq_q6">Hvordan aktiverer jeg QR-brikken etter at den har kommet?</string>
     <string name="help_faq_a6">Last ned SENRA-appen fra Google Play Store eller App Store! Åpne den og gå til menyen \'Aktivering\', pek telefonkameraet mot QR-koden på QR-brikken! Skanningen knytter QR-brikken til kontoen din. Velg deretter eksisterende kjæledyr eller opprett en ny profil. Etter aktivering kan du velge abonnementsplan.</string>
     <string name="help_faq_q7">Kan jeg gi en SENRA-QR-brikke i gave?</string>
@@ -1351,9 +1351,9 @@
     <string name="help_faq_q9">Hvordan fungerer varsler om savnede kjæledyr?</string>
     <string name="help_faq_a9">Når du merker katten eller hunden som savnet, opprettes et varsel med bilde og opplysninger. SENRA-brukere innen 10 km varsles umiddelbart og kjæledyret ditt vises på kartet \'Savnede Kjæledyr\'. Veterinærer og krisesentre registrert i SENRA-systemet i ditt område mottar også varselet.</string>
     <string name="help_faq_q10">Hvordan bestiller jeg en erstatnings-QR-brikke?</string>
-    <string name="help_faq_a10">Gå til \'Hjem/Min Konto\' og trykk \'Bestill erstatnings-QR-brikke\'. Maximum- og Standard-abonnenter kan be om gratis erstatning, Starter-medlemmer betaler fraktkostnaden.</string>
+    <string name="help_faq_a10">Gå til \'Hjem/Min Konto\' og trykk \'Bestill erstatnings-QR-brikke\'. Kedvenc-abonnenter kan be om gratis erstatning, Starter-medlemmer betaler fraktkostnaden.</string>
     <string name="help_faq_q11">Hva er henvisningsprogrammet?</string>
-    <string name="help_faq_a11">I Henvisning-menyen på profilsiden din kan du generere en personlig henvisningskode. Del den med venner og familie. Når noen bruker koden din og abonnerer på en betalt plan (Standard eller Maximum), får du og vennen din 2 måneder gratis.</string>
+    <string name="help_faq_a11">I Henvisning-menyen på profilsiden din kan du generere en personlig henvisningskode. Del den med venner og familie. Når noen bruker koden din og abonnerer på en betalt plan (Kedvenc), får du og vennen din 2 måneder gratis.</string>
     <string name="help_faq_q12">Hvilke land sender dere til?</string>
     <string name="help_faq_a12">Vi sender for tiden til Ungarn, Slovakia, Tsjekkia, Østerrike, Romania, Kroatia, Spania, Italia, Frankrike, Tyskland, Norge og Portugal. Innenlands frakt i Ungarn: {{huPostapoint}} (PostaPont) eller {{huHome}} (hjemmelevering). Internasjonal frakt: {{intlPrice}} per bestilling.</string>
     <string name="help_faq_q13">Kan jeg ha flere kjæledyr på én konto?</string>
@@ -1363,9 +1363,9 @@
     <string name="help_faq_q15">Er mine personlige data trygge?</string>
     <string name="help_faq_a15">Ja. Du bestemmer nøyaktig hvilke data som er synlige når noen skanner QR-brikken. I \'Innstillinger\' &gt; \'Personverninnstillinger\' kan du velge om telefonnummer, e-post eller adresse vises. Innloggingen din er beskyttet med en engangskode hver gang. Du kan slette kontoen din når som helst.</string>
     <string name="help_faq_q16">Vi mistet QR-brikken eller den ble skadet — hva gjør jeg?</string>
-    <string name="help_faq_a16">Ikke bekymre deg — kjæledyrets digitale profil er trygg og lagres ikke på QR-brikken. Gå til Konto-siden og trykk \'Bestill erstatning\'. Vi knytter en ny QR-brikke med ny QR-kode til den eksisterende kjæledyrprofilen. Standard- og Maximum-abonnenter kan be om ubegrensede gratis erstatninger, mens Starter-medlemmer må betale fraktkostnaden for en erstatnings-QR-brikke. Den gamle QR-brikken deaktiveres umiddelbart når erstatningen bestilles.</string>
+    <string name="help_faq_a16">Ikke bekymre deg — kjæledyrets digitale profil er trygg og lagres ikke på QR-brikken. Gå til Konto-siden og trykk \'Bestill erstatning\'. Vi knytter en ny QR-brikke med ny QR-kode til den eksisterende kjæledyrprofilen. Kedvenc-abonnenter kan be om ubegrensede gratis erstatninger, mens Starter-medlemmer må betale fraktkostnaden for en erstatnings-QR-brikke. Den gamle QR-brikken deaktiveres umiddelbart når erstatningen bestilles.</string>
     <string name="help_faq_q17">Merket mitt skannes ikke — hva gjør jeg?</string>
-    <string name="help_faq_a17">Prøv følgende: rengjør QR-brikkeoverflaten med en fuktig klut, sørg for godt lys, hold telefonkameraet stabilt ca. 10-15 cm fra QR-brikken, og sjekk at kameraappen eller QR-leseren fungerer. Hvis QR-koden er ripet eller slitt, bestill gratis erstatning fra \'Hjem/Min side\'-siden (gratis erstatning er tilgjengelig for Standard- og Maximum-abonnenter — Starter-medlemmer må betale fraktkostnaden for en erstatnings-QR-brikke).</string>
+    <string name="help_faq_a17">Prøv følgende: rengjør QR-brikkeoverflaten med en fuktig klut, sørg for godt lys, hold telefonkameraet stabilt ca. 10-15 cm fra QR-brikken, og sjekk at kameraappen eller QR-leseren fungerer. Hvis QR-koden er ripet eller slitt, bestill gratis erstatning fra \'Hjem/Min side\'-siden (gratis erstatning er tilgjengelig for Kedvenc-abonnenter — Starter-medlemmer må betale fraktkostnaden for en erstatnings-QR-brikke).</string>
     <string name="help_faq_q18">Jeg fant et kjæledyr uten SENRA-QR-brikke — hva kan jeg gjøre?</string>
     <string name="help_faq_a18">Sjekk kartet over Savnede Kjæledyr på SENRA-nettstedet (senra.pet). Du kan også se varsler i appen. Ta dyret til nærmeste veterinær for mikrochip-skanning. Hvis det har en SENRA-QR-brikke, skann QR-koden — eierens kontaktinfo vises. Varsle alltid lokale myndigheter og nærliggende krisesentre.</string>
     <string name="help_faq_q19">Kan jeg endre e-postadressen min?</string>

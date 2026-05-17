@@ -362,8 +362,19 @@ private fun ProfileMain(
                         )
                     }
 
-                    val planLabel = (subscription?.resolvedPlanName ?: "starter")
-                        .replaceFirstChar { it.uppercase() }
+                    // 2026-05-17 plans restructure: show the localized brand
+                    // name ("Induló csomag" / "Kedvenc csomag" in HU) instead
+                    // of the raw slug uppercased ("STARTER" / "STANDARD").
+                    // Falls back to the slug for legacy/grandfathered plan
+                    // names (e.g. existing "maximum" subscribers) that don't
+                    // have a string resource — surfaces something rather
+                    // than nothing.
+                    val planSlug = subscription?.resolvedPlanName ?: "starter"
+                    val planLabel = when (planSlug.lowercase()) {
+                        "starter"  -> stringResource(R.string.plan_starter_display_name)
+                        "standard" -> stringResource(R.string.plan_standard_display_name)
+                        else       -> planSlug.replaceFirstChar { it.uppercase() }
+                    }
                     Text(
                         text = planLabel,
                         style = MaterialTheme.typography.bodyMedium.copy(fontSize = AdaptiveLayout.scaledSp(14)),
