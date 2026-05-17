@@ -74,7 +74,8 @@ fun PricingScreen(
     val error by viewModel.error.collectAsState()
     val context = LocalContext.current
 
-    var selectedBilling by remember { mutableStateOf("monthly") }
+    // 2026-05-17: yearly billing was retired — only monthly is offered.
+    val selectedBilling = "monthly"
 
     LaunchedEffect(Unit) { viewModel.loadAll() }
 
@@ -143,41 +144,26 @@ fun PricingScreen(
                     .verticalScroll(rememberScrollState())
                     .padding(horizontal = 20.dp, vertical = 16.dp)
             ) {
-                // Billing toggle
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.Center
-                ) {
-                    listOf("monthly" to stringResource(R.string.subscription_monthly), "yearly" to stringResource(R.string.subscription_yearly)).forEach { (key, label) ->
-                        val selected = selectedBilling == key
-                        Text(
-                            text = label,
-                            modifier = Modifier
-                                .clickable { selectedBilling = key }
-                                .background(
-                                    if (selected) BrandOrange else Color.Transparent,
-                                    RoundedCornerShape(20.dp)
-                                )
-                                .padding(horizontal = 20.dp, vertical = 8.dp),
-                            color = if (selected) Color.White else MaterialTheme.colorScheme.onSurfaceVariant,
-                            fontWeight = if (selected) FontWeight.SemiBold else FontWeight.Normal,
-                            fontSize = 14.sp
+                // Render order: A Biléta (static, top) → Induló (starter)
+                // → Kedvenc (standard, highlighted). Filter out the
+                // archived maximum tier (grandfathered subscribers see
+                // their plan on the Subscription tab, not here).
+                TagInfoCard()
+                Spacer(modifier = Modifier.height(12.dp))
+
+                val orderedPlanNames = listOf("starter", "standard")
+                orderedPlanNames
+                    .mapNotNull { name -> plans.find { it.name.equals(name, ignoreCase = true) } }
+                    .forEach { plan ->
+                        PlanCard(
+                            plan = plan,
+                            billingPeriod = selectedBilling,
+                            isCurrent = subscription?.resolvedPlanName?.lowercase() == plan.name.lowercase(),
+                            isProcessing = isProcessing,
+                            onSelect = { viewModel.selectPlan(plan, selectedBilling) }
                         )
+                        Spacer(modifier = Modifier.height(12.dp))
                     }
-                }
-
-                Spacer(modifier = Modifier.height(16.dp))
-
-                plans.forEach { plan ->
-                    PlanCard(
-                        plan = plan,
-                        billingPeriod = selectedBilling,
-                        isCurrent = subscription?.resolvedPlanName?.lowercase() == plan.name.lowercase(),
-                        isProcessing = isProcessing,
-                        onSelect = { viewModel.selectPlan(plan, selectedBilling) }
-                    )
-                    Spacer(modifier = Modifier.height(12.dp))
-                }
 
                 error?.let {
                     Text(
@@ -223,8 +209,13 @@ private fun PlanCard(
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
+                val titleRes = when (plan.name.lowercase()) {
+                    "starter" -> R.string.plan_starter_display_name
+                    "standard" -> R.string.plan_standard_display_name
+                    else -> null
+                }
                 Text(
-                    text = plan.displayName,
+                    text = titleRes?.let { stringResource(it) } ?: plan.displayName,
                     style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold)
                 )
                 if (isPopular) {
@@ -244,7 +235,7 @@ private fun PlanCard(
             Spacer(modifier = Modifier.height(8.dp))
 
             Text(
-                text = if (billingPeriod == "yearly") plan.formattedYearlyPrice else plan.formattedMonthlyPrice,
+                text = plan.formattedMonthlyPrice,
                 style = MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.Bold),
                 color = if (plan.isFree) MaterialTheme.colorScheme.onSurface else BrandOrange
             )
@@ -289,6 +280,49 @@ private fun PlanCard(
                     )
                 }
             }
+        }
+    }
+}
+
+/**
+ * Static A Biléta card — physical tag info, no CTA. Sits above the
+ * API-driven plan cards on the Pricing screen (2026-05-17 layout).
+ */
+@Composable
+private fun TagInfoCard() {
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .border(2.dp, MaterialTheme.colorScheme.surfaceContainerHigh, RoundedCornerShape(16.dp)),
+        shape = RoundedCornerShape(16.dp),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
+        elevation = CardDefaults.cardElevation(defaultElevation = 1.dp)
+    ) {
+        Column(modifier = Modifier.padding(16.dp)) {
+            Text(
+                text = stringResource(R.string.pricing_tag_card_title),
+                style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold)
+            )
+
+            Spacer(modifier = Modifier.height(8.dp))
+
+            Text(
+                text = stringResource(R.string.pricing_tag_card_price),
+                style = MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.Bold),
+                color = MaterialTheme.colorScheme.onSurface
+            )
+
+            Text(
+                text = stringResource(R.string.pricing_tag_card_price_subtitle),
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.padding(top = 4.dp)
+            )
+
+            Spacer(modifier = Modifier.height(12.dp))
+
+            FeatureRow(stringResource(R.string.pricing_tag_card_feature_1), true)
+            FeatureRow(stringResource(R.string.pricing_tag_card_feature_2), true)
         }
     }
 }

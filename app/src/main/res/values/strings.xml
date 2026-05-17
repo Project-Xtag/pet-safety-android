@@ -811,7 +811,6 @@
     <string name="subscription_title">Subscription</string>
     <string name="subscription_choose_plan">Choose Plan</string>
     <string name="subscription_monthly">Monthly</string>
-    <string name="subscription_yearly">Yearly</string>
     <string name="subscription_popular">Popular</string>
     <string name="subscription_current_plan">Current Plan</string>
     <string name="subscription_select">Select Plan</string>
@@ -820,6 +819,13 @@
     <string name="subscription_sms">SMS notifications</string>
     <string name="subscription_community_alerts">Community alerts</string>
     <string name="subscription_free_replacement">Free tag replacement</string>
+    <string name="plan_starter_display_name">Starter pack</string>
+    <string name="plan_standard_display_name">Pet pack</string>
+    <string name="pricing_tag_card_title">The Tag</string>
+    <string name="pricing_tag_card_price">€0</string>
+    <string name="pricing_tag_card_price_subtitle">you only pay for shipping</string>
+    <string name="pricing_tag_card_feature_1">Lightweight, steel tag</string>
+    <string name="pricing_tag_card_feature_2">Durable, weather-resistant</string>
 
     <!-- ============================================ -->
     <!-- MARK: Billing -->

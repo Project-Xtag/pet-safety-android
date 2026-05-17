@@ -762,7 +762,6 @@
     <string name="subscription_title">Előfizetés</string>
     <string name="subscription_choose_plan">Csomag kiválasztása</string>
     <string name="subscription_monthly">Havi</string>
-    <string name="subscription_yearly">Éves</string>
     <string name="subscription_popular">Népszerű</string>
     <string name="subscription_current_plan">Jelenlegi csomag</string>
     <string name="subscription_select">Csomag kiválasztása</string>
@@ -771,6 +770,13 @@
     <string name="subscription_sms">SMS értesítések</string>
     <string name="subscription_community_alerts">Közösségi riasztások</string>
     <string name="subscription_free_replacement">Ingyenes biléta csere</string>
+    <string name="plan_starter_display_name">Induló csomag</string>
+    <string name="plan_standard_display_name">Kedvenc csomag</string>
+    <string name="pricing_tag_card_title">A Biléta</string>
+    <string name="pricing_tag_card_price">0 Ft</string>
+    <string name="pricing_tag_card_price_subtitle">csak a szállításért fizetsz</string>
+    <string name="pricing_tag_card_feature_1">Könnyű, acél biléta</string>
+    <string name="pricing_tag_card_feature_2">Tartós, időjárásálló</string>
 
     <!-- ============================================ -->
     <!-- MARK: Billing -->
