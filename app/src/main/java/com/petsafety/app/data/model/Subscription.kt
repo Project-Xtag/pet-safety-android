@@ -14,18 +14,18 @@ data class SubscriptionPlan(
     @SerialName("display_name") val displayName: String,
     val description: String? = null,
     @Serializable(with = FlexibleDoubleSerializer::class) @SerialName("price_monthly") val priceMonthly: Double,
-    @Serializable(with = FlexibleDoubleSerializer::class) @SerialName("price_yearly") val priceYearly: Double,
     val currency: String,
     val features: PlanFeatures,
     @SerialName("is_popular") val isPopular: Boolean? = null
+    // price_yearly was dropped in the 2026-05-17 plans restructure
+    // (migration 20260517_01); backend now sends 0 for every row.
+    // `ignoreUnknownKeys = true` on the Retrofit Json config means the
+    // field can stay absent from the data class without breaking deser.
 ) {
     val isFree: Boolean get() = priceMonthly == 0.0
 
     val formattedMonthlyPrice: String
         get() = if (isFree) "Free" else "${currencySymbol}%.2f/mo".format(priceMonthly)
-
-    val formattedYearlyPrice: String
-        get() = if (isFree) "Free" else "${currencySymbol}%.2f/yr".format(priceYearly)
 
     private val currencySymbol: String
         get() = when (currency.uppercase()) {
