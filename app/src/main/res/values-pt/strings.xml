@@ -88,9 +88,9 @@
     <string name="register">Registar</string>
     <string name="already_have_account">Já tem conta?</string>
     <string name="log_in">Iniciar sessão</string>
-    <string name="terms_login_prefix">Ao iniciar sessão, aceita os nossos </string>
-    <string name="terms_register_prefix">Ao registar-se, aceita os nossos </string>
-    <string name="terms_and"> e </string>
+    <string name="terms_login_prefix">Ao iniciar sessão, aceita os nossos</string>
+    <string name="terms_register_prefix">Ao registar-se, aceita os nossos</string>
+    <string name="terms_and"> e</string>
     <string name="terms_of_service">Termos de Serviço</string>
     <string name="privacy_policy">Política de Privacidade</string>
     <string name="first_name">Nome</string>
@@ -1157,17 +1157,17 @@
     <string name="breed_dog_brittany">Bretão</string>
     <string name="breed_dog_english_springer_spaniel">Springer Spaniel Inglês</string>
     <string name="breed_dog_bernese_mountain_dog">Boiadeiro de Berna</string>
-    <string name="breed_dog_cocker_spaniel">Cocker Spaniel</string>
-    <string name="breed_dog_border_collie">Border Collie</string>
+    <string name="breed_dog_cocker_spaniel">Cocker spániel</string>
+    <string name="breed_dog_border_collie">Border collie</string>
     <string name="breed_dog_vizsla">Vizsla</string>
     <string name="breed_dog_weimaraner">Weimaraner</string>
     <string name="breed_dog_pembroke_welsh_corgi">Corgi Galês de Pembroke</string>
     <string name="breed_dog_maltese">Maltês</string>
     <string name="breed_dog_chihuahua">Chihuahua</string>
-    <string name="breed_dog_west_highland_white_terrier">West Highland White Terrier</string>
+    <string name="breed_dog_west_highland_white_terrier">West Highland white terrier</string>
     <string name="breed_dog_collie">Collie</string>
-    <string name="breed_dog_basset_hound">Basset Hound</string>
-    <string name="breed_dog_rhodesian_ridgeback">Rhodesian Ridgeback</string>
+    <string name="breed_dog_basset_hound">Basset hound</string>
+    <string name="breed_dog_rhodesian_ridgeback">Rhodesian ridgeback</string>
     <string name="breed_dog_newfoundland">Terra Nova</string>
     <string name="breed_dog_belgian_malinois">Pastor Belga Malinois</string>
     <string name="breed_dog_bichon_frise">Bichon Frisé</string>
@@ -1433,7 +1433,7 @@
     <string name="error_claim_tag_failed">Não foi possível ativar a plaquinha inteligente</string>
     <string name="error_select_pet_first">Por favor, seleciona primeiro um animal de estimação</string>
     <string name="error_activate_tag_failed">Não foi possível ativar a plaquinha inteligente</string>
-        <string name="waze_not_available">O Waze não está instalado e nenhum navegador está disponível</string>    <string name="share_address_instead">[NEEDS_TRANSLATION] Or type the address instead</string>    <string name="share_manual_address_title">[NEEDS_TRANSLATION] Type the Address</string>    <string name="share_manual_address_desc">[NEEDS_TRANSLATION] If you can\'t share GPS, type the address or a description of where you found %1$s. We\'ll send it to the owner.</string>    <string name="share_manual_address_label">[NEEDS_TRANSLATION] Address</string>    <string name="share_manual_address_placeholder">[NEEDS_TRANSLATION] e.g. 123 Pine St, Budapest — near the playground</string>    <string name="owner_communication_disabled">[NEEDS_TRANSLATION] This pet\'s owner has not enabled finder communication.</string>
+        <string name="waze_not_available">O Waze não está instalado e nenhum navegador está disponível</string>    <string name="share_address_instead">[NEEDS_TRANSLATION] Or type the address instead</string>    <string name="share_manual_address_title">[NEEDS_TRANSLATION] Type the Address</string>    <string name="share_manual_address_desc">[NEEDS_TRANSLATION] If you can\'t share GPS, type the address or a description of where you found %1$s. We\'ll send it to the owner.</string>    <string name="share_manual_address_label">[NEEDS_TRANSLATION] Address</string>    <string name="share_manual_address_placeholder">[NEEDS_TRANSLATION] e.g. 123 Pine St, Budapest — near the playground</string>    <string name="owner_communication_disabled">O dono deste animal de estimação não ativou a comunicação com quem o encontrou.</string>
     <!-- Contact row badges (mirror iOS ContactsView) -->
     <string name="contacts_settings">Definições de contacto</string>
     <string name="contacts_info_full">Estes contactos serão mostrados quando alguém ler a plaquinha inteligente QR do seu animal de estimação. Pode adicionar até dois e-mails e números de telefone.</string>
