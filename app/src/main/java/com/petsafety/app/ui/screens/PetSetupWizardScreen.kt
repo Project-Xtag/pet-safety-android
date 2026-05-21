@@ -83,6 +83,9 @@ private const val TOTAL_STEPS = 10
 /**
  * Guided, one-step-per-screen pet-onboarding wizard shown after a user
  * scans a new SENRA tag from their order.
+ *
+ * Copy is Hungarian (the canonical locale); other locales follow via
+ * the standard strings.xml extraction.
  */
 @Composable
 fun PetSetupWizardScreen(
@@ -117,7 +120,7 @@ fun PetSetupWizardScreen(
         // Top bar — cancel
         Row(modifier = Modifier.fillMaxWidth().padding(horizontal = 8.dp, vertical = 4.dp)) {
             Spacer(Modifier.weight(1f))
-            TextButton(onClick = onDone) { Text("Cancel") }
+            TextButton(onClick = onDone) { Text("Mégse") }
         }
 
         if (ui.loading) {
@@ -138,7 +141,7 @@ fun PetSetupWizardScreen(
             if (ui.step <= TOTAL_STEPS) {
                 Spacer(Modifier.height(4.dp))
                 Text(
-                    "Step ${ui.step} of $TOTAL_STEPS",
+                    "${ui.step}. lépés / $TOTAL_STEPS",
                     style = MaterialTheme.typography.labelMedium,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                     modifier = Modifier.fillMaxWidth(),
@@ -202,7 +205,7 @@ fun PetSetupWizardScreen(
                     modifier = Modifier.weight(1f),
                 ) {
                     Icon(Icons.Filled.KeyboardArrowLeft, contentDescription = null)
-                    Text("Back")
+                    Text("Vissza")
                 }
                 Button(
                     onClick = {
@@ -226,7 +229,7 @@ fun PetSetupWizardScreen(
                         )
                     }
                     Spacer(Modifier.width(4.dp))
-                    Text(if (ui.step == TOTAL_STEPS) "Finish" else "Next", fontWeight = FontWeight.Bold)
+                    Text(if (ui.step == TOTAL_STEPS) "Befejezés" else "Tovább", fontWeight = FontWeight.Bold)
                 }
             }
         }
@@ -255,34 +258,34 @@ private fun stepIcon(step: Int): ImageVector = when (step) {
 }
 
 private fun displayName(ui: PetSetupUiState): String =
-    ui.petName.ifBlank { "your pet" }
+    ui.petName.ifBlank { "a kedvenced" }
 
 private fun stepTitle(ui: PetSetupUiState): String = when (ui.step) {
-    1 -> "Which pet is this tag for?"
-    2 -> "Great to have ${displayName(ui)} on board!"
-    3 -> "Dog or cat?"
-    4 -> "What breed is ${displayName(ui)}?"
-    5 -> "Boy or girl?"
-    6 -> "How old is ${displayName(ui)}?"
-    7 -> "What colour is ${displayName(ui)}?"
-    8 -> "Add a photo"
-    9 -> "Allergies or medications?"
-    10 -> "Any unique features?"
-    11 -> "${displayName(ui)}'s tag is ready!"
-    else -> "Congratulations!"
+    1 -> "Melyik kedvenced ez?"
+    2 -> "Nagyszerű, hogy ${displayName(ui)} csatlakozott!"
+    3 -> "Kutya vagy macska?"
+    4 -> "Milyen fajta ${displayName(ui)}?"
+    5 -> "Fiú vagy lány?"
+    6 -> "Hány éves ${displayName(ui)}?"
+    7 -> "Milyen színű?"
+    8 -> "Tölts fel egy fotót"
+    9 -> "Allergia vagy gyógyszer?"
+    10 -> "Egyedi ismertetőjelek"
+    11 -> "${displayName(ui)} bilétája kész!"
+    else -> "Gratulálunk!"
 }
 
 private fun stepSubtitle(ui: PetSetupUiState): String = when (ui.step) {
-    1 -> "Pick which pet you're setting this tag up for."
-    2 -> "Set up your SENRA tag in a few quick steps. Let's go!"
-    4 -> "If it's a mix or you're not sure, leave it blank."
-    6 -> "A rough age is fine."
-    8 -> "Optional — you can skip this and add one later."
-    9 -> "Important health information for whoever finds your pet."
-    10 -> "Anything that helps someone recognise your pet."
-    11 -> if (ui.remainingAfterThis == 1) "There's 1 more tag left to set up."
-          else "There are ${ui.remainingAfterThis} more tags left to set up."
-    12 -> "${displayName(ui)} is now protected by the SENRA community."
+    1 -> "Válaszd ki, melyik kedvenced bilétáját állítjuk be most."
+    2 -> "Pár pillanat, és beállítjuk a SENRA bilétáját. Kezdjük is!"
+    4 -> "Ha keverék vagy nem tudod, hagyd üresen."
+    6 -> "Elég egy nagyjábóli érték is."
+    8 -> "Nem kötelező — ki is hagyhatod, és később pótolhatod."
+    9 -> "Fontos egészségügyi tudnivalók a megtaláló számára."
+    10 -> "Bármi, ami segít felismerni a kedvenced."
+    11 -> if (ui.remainingAfterThis == 1) "Még 1 biléta van hátra a rendelésből."
+          else "Még ${ui.remainingAfterThis} biléta van hátra a rendelésből."
+    12 -> "${displayName(ui)} mostantól védve van a SENRA közösségével."
     else -> ""
 }
 
@@ -299,7 +302,7 @@ private fun StepBody(
         1 -> {
             if (ui.orderItems.isEmpty()) {
                 Text(
-                    "There's no tag to set up for this code — it may already be activated, or it belongs to a different account.",
+                    "Ehhez a kódhoz nincs beállítható biléta — lehet, hogy már aktiváltad, vagy nem ehhez a fiókhoz tartozik.",
                     style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                     textAlign = TextAlign.Center,
@@ -310,7 +313,7 @@ private fun StepBody(
                     verticalArrangement = Arrangement.spacedBy(10.dp),
                 ) {
                     ui.orderItems.forEach { item ->
-                        val name = item.petName ?: "Pet"
+                        val name = item.petName ?: "Kedvenc"
                         val selected = !item.petName.isNullOrBlank() && ui.petName == item.petName
                         Row(
                             modifier = Modifier
@@ -336,7 +339,7 @@ private fun StepBody(
         }
         2 -> {
             Text(
-                "A few quick questions about your pet. You can go back any time — we'll activate the tag at the end.",
+                "Néhány gyors kérdés a kedvencedről. Bármikor visszaléphetsz — a végén aktiváljuk a bilétát.",
                 style = MaterialTheme.typography.bodyMedium,
                 textAlign = TextAlign.Center,
                 modifier = Modifier
@@ -347,40 +350,40 @@ private fun StepBody(
             )
         }
         3 -> Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-            WizardChoiceCard("Dog", Icons.Filled.Pets, ui.species == "dog", Modifier.weight(1f)) {
+            WizardChoiceCard("Kutya", Icons.Filled.Pets, ui.species == "dog", Modifier.weight(1f)) {
                 viewModel.edit { it.copy(species = "dog") }
             }
-            WizardChoiceCard("Cat", Icons.Filled.Pets, ui.species == "cat", Modifier.weight(1f)) {
+            WizardChoiceCard("Macska", Icons.Filled.Pets, ui.species == "cat", Modifier.weight(1f)) {
                 viewModel.edit { it.copy(species = "cat") }
             }
         }
-        4 -> WizardField("Breed", ui.breed, "e.g. Hungarian Vizsla, mixed") { v ->
+        4 -> WizardField("Fajta", ui.breed, "Pl. magyar vizsla, keverék") { v ->
             viewModel.edit { it.copy(breed = v) }
         }
         5 -> Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(10.dp)) {
-            WizardChoiceCard("Boy", null, ui.sex == "male", Modifier.weight(1f)) {
+            WizardChoiceCard("Fiú", null, ui.sex == "male", Modifier.weight(1f)) {
                 viewModel.edit { it.copy(sex = "male") }
             }
-            WizardChoiceCard("Girl", null, ui.sex == "female", Modifier.weight(1f)) {
+            WizardChoiceCard("Lány", null, ui.sex == "female", Modifier.weight(1f)) {
                 viewModel.edit { it.copy(sex = "female") }
             }
-            WizardChoiceCard("Not sure", null, ui.sex == "unknown", Modifier.weight(1f)) {
+            WizardChoiceCard("Nem tudom", null, ui.sex == "unknown", Modifier.weight(1f)) {
                 viewModel.edit { it.copy(sex = "unknown") }
             }
         }
         6 -> Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(12.dp)) {
             Box(Modifier.weight(1f)) {
-                WizardField("Years", ui.ageYears, "0", numeric = true) { v ->
+                WizardField("Év", ui.ageYears, "0", numeric = true) { v ->
                     viewModel.edit { it.copy(ageYears = v.filter { c -> c.isDigit() }) }
                 }
             }
             Box(Modifier.weight(1f)) {
-                WizardField("Months", ui.ageMonths, "0", numeric = true) { v ->
+                WizardField("Hónap", ui.ageMonths, "0", numeric = true) { v ->
                     viewModel.edit { it.copy(ageMonths = v.filter { c -> c.isDigit() }) }
                 }
             }
         }
-        7 -> WizardField("Colour", ui.color, "e.g. black and white") { v ->
+        7 -> WizardField("Szín", ui.color, "Pl. fekete-fehér") { v ->
             viewModel.edit { it.copy(color = v) }
         }
         8 -> {
@@ -395,7 +398,7 @@ private fun StepBody(
                     TextButton(onClick = onClearPhoto) {
                         Icon(Icons.Filled.Delete, contentDescription = null)
                         Spacer(Modifier.width(4.dp))
-                        Text("Remove photo")
+                        Text("Fotó eltávolítása")
                     }
                 }
             } else {
@@ -410,7 +413,7 @@ private fun StepBody(
                 ) {
                     Icon(Icons.Filled.PhotoCamera, contentDescription = null, tint = BrandOrange)
                     Spacer(Modifier.height(8.dp))
-                    Text("Choose a photo", fontWeight = FontWeight.SemiBold)
+                    Text("Fotó kiválasztása", fontWeight = FontWeight.SemiBold)
                 }
             }
         }
@@ -418,17 +421,17 @@ private fun StepBody(
             Modifier.fillMaxWidth(),
             verticalArrangement = Arrangement.spacedBy(14.dp),
         ) {
-            WizardField("Allergies", ui.allergies, "e.g. chicken, certain medication") { v ->
+            WizardField("Allergiák", ui.allergies, "Pl. csirke, bizonyos gyógyszerek") { v ->
                 viewModel.edit { it.copy(allergies = v) }
             }
-            WizardField("Medications", ui.medications, "Any regular medication") { v ->
+            WizardField("Gyógyszerek", ui.medications, "Rendszeresen szedett gyógyszerek") { v ->
                 viewModel.edit { it.copy(medications = v) }
             }
         }
         10 -> WizardField(
-            "Unique features",
+            "Egyedi ismertetőjelek",
             ui.uniqueFeatures,
-            "e.g. white chest patch, shy with strangers",
+            "Pl. fehér folt a mellkason, félénk idegenekkel",
             singleLine = false,
         ) { v -> viewModel.edit { it.copy(uniqueFeatures = v) } }
         11 -> Column(
@@ -443,16 +446,16 @@ private fun StepBody(
                     .padding(16.dp),
                 verticalArrangement = Arrangement.spacedBy(6.dp),
             ) {
-                Text("Next steps", fontWeight = FontWeight.Bold)
-                Text("1.  Point your camera at the QR code on the next tag")
-                Text("2.  Tap the link when it appears on screen")
-                Text("3.  Follow the steps to set up your next pet")
+                Text("Következő lépések", fontWeight = FontWeight.Bold)
+                Text("1.  Irányítsd a kamerát a következő biléta QR-kódjára")
+                Text("2.  Koppints a linkre, amikor megjelenik a képernyőn")
+                Text("3.  Kövesd a lépéseket a következő kedvenc beállításához")
             }
             Button(
                 onClick = onDone,
                 colors = ButtonDefaults.buttonColors(containerColor = BrandOrange),
                 modifier = Modifier.fillMaxWidth(),
-            ) { Text("Done for now", fontWeight = FontWeight.Bold) }
+            ) { Text("Később folytatom", fontWeight = FontWeight.Bold) }
         }
         else -> Column(
             Modifier.fillMaxWidth(),
@@ -460,7 +463,7 @@ private fun StepBody(
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             Text(
-                "Set up your contact details and privacy settings so the right information shows when someone finds your pet.",
+                "Állítsd be az elérhetőségeidet és az adatvédelmi beállításokat, hogy a megfelelő információk jelenjenek meg, ha valaki megtalálja a kedvenced.",
                 style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                 textAlign = TextAlign.Center,
@@ -469,7 +472,7 @@ private fun StepBody(
                 onClick = onDone,
                 colors = ButtonDefaults.buttonColors(containerColor = BrandOrange),
                 modifier = Modifier.fillMaxWidth(),
-            ) { Text("Go to my pets", fontWeight = FontWeight.Bold) }
+            ) { Text("Ugrás a kedvenceimhez", fontWeight = FontWeight.Bold) }
         }
     }
 }
