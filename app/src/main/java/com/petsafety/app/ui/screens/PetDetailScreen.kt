@@ -266,7 +266,7 @@ fun PetDetailScreen(
                         )
                     )
                 }
-            } else {
+            } else if (pet.hasActiveTag == true) {
                 Button(
                     onClick = onMarkMissing,
                     modifier = Modifier

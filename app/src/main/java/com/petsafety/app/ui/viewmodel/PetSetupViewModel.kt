@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.petsafety.app.data.events.PetsEventBus
 import com.petsafety.app.data.model.UnactivatedOrderItem
-import com.petsafety.app.data.network.model.CreatePetRequest
+import com.petsafety.app.data.network.model.UpdatePetRequest
 import com.petsafety.app.data.repository.OrdersRepository
 import com.petsafety.app.data.repository.PetsRepository
 import com.petsafety.app.data.repository.QrRepository
@@ -21,9 +21,10 @@ import java.util.Locale
 import javax.inject.Inject
 
 /**
- * Holds the draft for the step-by-step pet-onboarding wizard. The draft
- * is kept in memory and committed in one go after the last detail step
- * (create pet -> upload photo -> activate the scanned tag).
+ * Holds the draft for the step-by-step pet-onboarding wizard. The pet
+ * was auto-registered (name only) at order time; the draft is kept in
+ * memory and committed in one go after the last detail step (update the
+ * pet -> upload photo -> activate the scanned tag).
  */
 data class PetSetupUiState(
     val qrCode: String = "",
@@ -32,6 +33,7 @@ data class PetSetupUiState(
     val step: Int = 1,
     val committing: Boolean = false,
     val committedPetId: String? = null,
+    val selectedPetId: String? = null,
     val error: String? = null,
     val petName: String = "",
     val species: String = "",
@@ -71,12 +73,13 @@ class PetSetupViewModel @Inject constructor(
                 Timber.w(e, "getUnactivatedTagsForQRCode failed for %s", qrCode)
                 emptyList()
             }
-            val names = items.mapNotNull { it.petName }
             _ui.update {
                 it.copy(
                     loading = false,
                     orderItems = items,
-                    petName = if (names.size == 1) names.first() else it.petName,
+                    // Single-pet order — pre-select it so step 1 is a confirmation.
+                    selectedPetId = if (items.size == 1) items.first().petId else it.selectedPetId,
+                    petName = if (items.size == 1) items.first().petName else it.petName,
                 )
             }
         }
@@ -86,18 +89,20 @@ class PetSetupViewModel @Inject constructor(
 
     fun goToStep(step: Int) = _ui.update { it.copy(step = step, error = null) }
 
-    /** Create the pet, upload the optional photo, then activate the tag. */
+    /** Update the auto-registered pet, upload the optional photo, then activate the tag. */
     fun commit(photoBytes: ByteArray?) {
         viewModelScope.launch {
-            _ui.update { it.copy(committing = true, error = null) }
             val s = _ui.value
+            val petId = s.selectedPetId ?: return@launch
+            _ui.update { it.copy(committing = true, error = null) }
             try {
-                var petId = s.committedPetId
-                if (petId == null) {
+                // The pet already exists (auto-registered at order time) —
+                // fill in its details, then activate the scanned tag for it.
+                if (s.committedPetId != petId) {
                     val dob = computeDateOfBirth(s.ageYears, s.ageMonths)
-                    val request = CreatePetRequest(
+                    val request = UpdatePetRequest(
                         name = s.petName.trim(),
-                        species = s.species,
+                        species = s.species.ifBlank { null },
                         breed = s.breed.trim().ifBlank { null },
                         color = s.color.trim().ifBlank { null },
                         allergies = s.allergies.trim().ifBlank { null },
@@ -107,12 +112,11 @@ class PetSetupViewModel @Inject constructor(
                         dateOfBirth = dob,
                         dobIsApproximate = if (dob != null) true else null,
                     )
-                    val pet = petsRepository.createPet(request)
-                    petId = pet.id
-                    _ui.update { it.copy(committedPetId = pet.id) }
+                    petsRepository.updatePet(petId, request)
+                    _ui.update { it.copy(committedPetId = petId) }
                     if (photoBytes != null) {
                         try {
-                            petsRepository.uploadProfilePhoto(pet.id, photoBytes)
+                            petsRepository.uploadProfilePhoto(petId, photoBytes)
                         } catch (e: Exception) {
                             Timber.w(e, "pet photo upload failed (non-fatal)")
                         }

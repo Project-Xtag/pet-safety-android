@@ -237,7 +237,7 @@ fun PetSetupWizardScreen(
 }
 
 private fun canProceed(ui: PetSetupUiState): Boolean = when (ui.step) {
-    1 -> ui.petName.isNotBlank()
+    1 -> ui.selectedPetId != null
     3 -> ui.species.isNotBlank()
     else -> true
 }
@@ -313,8 +313,8 @@ private fun StepBody(
                     verticalArrangement = Arrangement.spacedBy(10.dp),
                 ) {
                     ui.orderItems.forEach { item ->
-                        val name = item.petName ?: "Kedvenc"
-                        val selected = !item.petName.isNullOrBlank() && ui.petName == item.petName
+                        val name = item.petName.ifBlank { "Kedvenc" }
+                        val selected = ui.selectedPetId == item.petId
                         Row(
                             modifier = Modifier
                                 .fillMaxWidth()
@@ -325,7 +325,7 @@ private fun StepBody(
                                     RoundedCornerShape(14.dp),
                                 )
                                 .background(if (selected) BrandOrange.copy(alpha = 0.08f) else Color.Transparent)
-                                .clickable { viewModel.edit { it.copy(petName = item.petName ?: "") } }
+                                .clickable { viewModel.edit { it.copy(selectedPetId = item.petId, petName = item.petName) } }
                                 .padding(16.dp),
                             verticalAlignment = Alignment.CenterVertically,
                             horizontalArrangement = Arrangement.spacedBy(12.dp),
