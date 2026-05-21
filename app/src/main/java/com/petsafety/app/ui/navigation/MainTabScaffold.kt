@@ -38,7 +38,7 @@ import com.petsafety.app.ui.screens.PetsScreen
 import com.petsafety.app.ui.screens.ProfileScreen
 import com.petsafety.app.ui.screens.QrScannerScreen
 import com.petsafety.app.ui.screens.ShelterPromoClaimScreen
-import com.petsafety.app.ui.screens.TagActivationScreen
+import com.petsafety.app.ui.screens.PetSetupWizardScreen
 import com.petsafety.app.ui.viewmodel.AppStateViewModel
 import com.petsafety.app.ui.viewmodel.AuthViewModel
 import androidx.compose.material.icons.Icons
@@ -142,13 +142,11 @@ fun MainTabScaffold(
         return
     }
 
-    // Show activation screen if QR code needs activation
+    // Show the guided pet-setup wizard if a QR code needs activation
     if (activationQrCode != null) {
-        TagActivationScreen(
+        PetSetupWizardScreen(
             qrCode = activationQrCode!!,
-            appStateViewModel = appStateViewModel,
-            onActivationComplete = { activationQrCode = null },
-            onBack = { activationQrCode = null }
+            onDone = { activationQrCode = null }
         )
         return
     }
