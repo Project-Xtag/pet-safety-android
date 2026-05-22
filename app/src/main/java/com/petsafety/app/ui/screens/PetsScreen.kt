@@ -179,14 +179,6 @@ fun PetsScreen(appStateViewModel: AppStateViewModel, authViewModel: AuthViewMode
                 onBack = { navController.popBackStack() }
             )
         }
-        composable("pet_form") {
-            PetFormScreen(
-                viewModel = viewModel,
-                appStateViewModel = appStateViewModel,
-                onBack = { navController.popBackStack() },
-                onDone = { navController.popBackStack() }
-            )
-        }
         composable(
             route = "pet_form/{petId}",
             arguments = listOf(navArgument("petId") { type = NavType.StringType })
