@@ -110,6 +110,7 @@ import com.petsafety.app.ui.util.AdaptiveLayout
 import com.petsafety.app.ui.viewmodel.AppStateViewModel
 import com.petsafety.app.ui.viewmodel.AuthViewModel
 import com.petsafety.app.ui.viewmodel.NotificationPreferencesViewModel
+import com.petsafety.app.ui.viewmodel.PetsViewModel
 import com.petsafety.app.ui.viewmodel.SubscriptionViewModel
 
 private enum class ProfileSection {
@@ -192,11 +193,14 @@ private fun ProfileMain(
 ) {
     val user by authViewModel.currentUser.collectAsState()
     val subscription by subscriptionViewModel.subscription.collectAsState()
+    val petsViewModel: PetsViewModel = hiltViewModel()
+    val pets by petsViewModel.pets.collectAsState()
     val context = LocalContext.current
     var showLogoutDialog by remember { mutableStateOf(false) }
 
     LaunchedEffect(Unit) {
         subscriptionViewModel.loadSubscription()
+        petsViewModel.fetchPets()
     }
 
     Box(
@@ -369,17 +373,21 @@ private fun ProfileMain(
                     // names (e.g. existing "maximum" subscribers) that don't
                     // have a string resource — surfaces something rather
                     // than nothing.
-                    val planSlug = subscription?.resolvedPlanName ?: "starter"
-                    val planLabel = when (planSlug.lowercase()) {
-                        "starter"  -> stringResource(R.string.plan_starter_display_name)
-                        "standard" -> stringResource(R.string.plan_standard_display_name)
-                        else       -> planSlug.replaceFirstChar { it.uppercase() }
+                    // The plan only means something once the user has a pet
+                    // on an activated tag — until then, show nothing.
+                    if (pets.any { it.hasActiveTag == true }) {
+                        val planSlug = subscription?.resolvedPlanName ?: "starter"
+                        val planLabel = when (planSlug.lowercase()) {
+                            "starter"  -> stringResource(R.string.plan_starter_display_name)
+                            "standard" -> stringResource(R.string.plan_standard_display_name)
+                            else       -> planSlug.replaceFirstChar { it.uppercase() }
+                        }
+                        Text(
+                            text = planLabel,
+                            style = MaterialTheme.typography.bodyMedium.copy(fontSize = AdaptiveLayout.scaledSp(14)),
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                        )
                     }
-                    Text(
-                        text = planLabel,
-                        style = MaterialTheme.typography.bodyMedium.copy(fontSize = AdaptiveLayout.scaledSp(14)),
-                        color = MaterialTheme.colorScheme.onSurfaceVariant
-                    )
 
                 }
             }
