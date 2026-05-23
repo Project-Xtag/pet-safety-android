@@ -92,6 +92,14 @@ fun PetSetupWizardScreen(
     qrCode: String,
     onDone: () -> Unit,
     viewModel: PetSetupViewModel = hiltViewModel(),
+    // Optional navigation hooks for step 11 / step 12 CTAs. Hosts that
+    // can route the user to the scanner / contact / privacy screens pass
+    // these; hosts that can't (e.g. a deep-link sheet on top of the
+    // splash) leave them null and the buttons collapse to onDone — same
+    // convention as the iOS wizard.
+    onScanNextTag: (() -> Unit)? = null,
+    onSetContactDetails: (() -> Unit)? = null,
+    onSetPrivacySettings: (() -> Unit)? = null,
 ) {
     val ui by viewModel.ui.collectAsState()
     val context = LocalContext.current
@@ -152,6 +160,30 @@ fun PetSetupWizardScreen(
                     modifier = Modifier.fillMaxWidth().height(6.dp),
                     color = BrandOrange,
                 )
+                // Standing notice (web parity): warns that pet identity
+                // fields (name/species/breed) are locked at registration.
+                Spacer(Modifier.height(10.dp))
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .clip(RoundedCornerShape(10.dp))
+                        .background(BrandOrange.copy(alpha = 0.10f))
+                        .padding(horizontal = 12.dp, vertical = 8.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(8.dp),
+                ) {
+                    Icon(
+                        Icons.Filled.Sell,
+                        contentDescription = null,
+                        tint = Color(0xFFA6500F),
+                        modifier = Modifier.size(14.dp),
+                    )
+                    Text(
+                        "A kedvenc neve, faja és fajtája a regisztráció után már nem módosítható — válaszd ki őket gondosan.",
+                        style = MaterialTheme.typography.labelMedium,
+                        color = Color(0xFFA6500F),
+                    )
+                }
             }
 
             Spacer(Modifier.height(24.dp))
@@ -175,14 +207,24 @@ fun PetSetupWizardScreen(
             }
 
             Spacer(Modifier.height(22.dp))
-            StepBody(ui, viewModel, photoUri, onPickPhoto = {
-                photoPicker.launch(
-                    PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly)
-                )
-            }, onClearPhoto = {
-                photoUri = null
-                photoBytes = null
-            }, onDone = onDone)
+            StepBody(
+                ui = ui,
+                viewModel = viewModel,
+                photoUri = photoUri,
+                onPickPhoto = {
+                    photoPicker.launch(
+                        PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly)
+                    )
+                },
+                onClearPhoto = {
+                    photoUri = null
+                    photoBytes = null
+                },
+                onDone = onDone,
+                onScanNextTag = onScanNextTag,
+                onSetContactDetails = onSetContactDetails,
+                onSetPrivacySettings = onSetPrivacySettings,
+            )
 
             ui.error?.let {
                 Spacer(Modifier.height(12.dp))
@@ -297,6 +339,9 @@ private fun StepBody(
     onPickPhoto: () -> Unit,
     onClearPhoto: () -> Unit,
     onDone: () -> Unit,
+    onScanNextTag: (() -> Unit)? = null,
+    onSetContactDetails: (() -> Unit)? = null,
+    onSetPrivacySettings: (() -> Unit)? = null,
 ) {
     when (ui.step) {
         1 -> {
@@ -451,11 +496,21 @@ private fun StepBody(
                 Text("2.  Koppints a linkre, amikor megjelenik a képernyőn")
                 Text("3.  Kövesd a lépéseket a következő kedvenc beállításához")
             }
+            // Primary CTA — open the scanner directly when the host
+            // provides a handler; falls back to dismiss so the user can
+            // navigate manually. Matches the iOS wizard's pattern.
             Button(
-                onClick = onDone,
+                onClick = { (onScanNextTag ?: onDone).invoke() },
                 colors = ButtonDefaults.buttonColors(containerColor = BrandOrange),
                 modifier = Modifier.fillMaxWidth(),
-            ) { Text("Később folytatom", fontWeight = FontWeight.Bold) }
+            ) {
+                Icon(Icons.Filled.QrCodeScanner, contentDescription = null)
+                Spacer(Modifier.width(8.dp))
+                Text("Következő biléta beolvasása", fontWeight = FontWeight.Bold)
+            }
+            TextButton(onClick = onDone, modifier = Modifier.fillMaxWidth()) {
+                Text("Később folytatom", color = MaterialTheme.colorScheme.onSurfaceVariant)
+            }
         }
         else -> Column(
             Modifier.fillMaxWidth(),
@@ -463,16 +518,28 @@ private fun StepBody(
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             Text(
-                "Állítsd be az elérhetőségeidet és az adatvédelmi beállításokat, hogy a megfelelő információk jelenjenek meg, ha valaki megtalálja a kedvenced.",
+                "${displayName(ui)} mostantól védve van a SENRA közösségével. Állítsd be az elérhetőségeidet és az adatvédelmi beállításokat, hogy a megfelelő információk jelenjenek meg, ha valaki megtalálja.",
                 style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                 textAlign = TextAlign.Center,
             )
+            // Primary: contact details.
             Button(
-                onClick = onDone,
+                onClick = { (onSetContactDetails ?: onDone).invoke() },
                 colors = ButtonDefaults.buttonColors(containerColor = BrandOrange),
                 modifier = Modifier.fillMaxWidth(),
-            ) { Text("Ugrás a kedvenceimhez", fontWeight = FontWeight.Bold) }
+            ) { Text("Elérhetőségek beállítása", fontWeight = FontWeight.Bold) }
+            // Secondary: privacy settings (outlined).
+            Button(
+                onClick = { (onSetPrivacySettings ?: onDone).invoke() },
+                colors = ButtonDefaults.outlinedButtonColors(contentColor = BrandOrange),
+                border = androidx.compose.foundation.BorderStroke(2.dp, BrandOrange),
+                modifier = Modifier.fillMaxWidth(),
+            ) { Text("Adatvédelmi beállítások", fontWeight = FontWeight.Bold) }
+            // Tertiary: skip to My Pets.
+            TextButton(onClick = onDone, modifier = Modifier.fillMaxWidth()) {
+                Text("Ugrás a kedvenceimhez", color = MaterialTheme.colorScheme.onSurfaceVariant)
+            }
         }
     }
 }
