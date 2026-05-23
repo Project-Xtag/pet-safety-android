@@ -92,6 +92,8 @@ fun PetSetupWizardScreen(
     qrCode: String,
     onDone: () -> Unit,
     viewModel: PetSetupViewModel = hiltViewModel(),
+    mode: com.petsafety.app.ui.viewmodel.PetSetupWizardMode =
+        com.petsafety.app.ui.viewmodel.PetSetupWizardMode.ORDERED,
     // Optional navigation hooks for step 11 / step 12 CTAs. Hosts that
     // can route the user to the scanner / contact / privacy screens pass
     // these; hosts that can't (e.g. a deep-link sheet on top of the
@@ -107,7 +109,7 @@ fun PetSetupWizardScreen(
     var photoUri by remember { mutableStateOf<Uri?>(null) }
     var photoBytes by remember { mutableStateOf<ByteArray?>(null) }
 
-    LaunchedEffect(qrCode) { viewModel.start(qrCode) }
+    LaunchedEffect(qrCode) { viewModel.start(qrCode, mode) }
 
     val photoPicker = rememberLauncherForActivityResult(
         ActivityResultContracts.PickVisualMedia()
@@ -279,7 +281,11 @@ fun PetSetupWizardScreen(
 }
 
 private fun canProceed(ui: PetSetupUiState): Boolean = when (ui.step) {
-    1 -> ui.selectedPetId != null
+    1 -> if (ui.mode == com.petsafety.app.ui.viewmodel.PetSetupWizardMode.PROMO) {
+        ui.petName.trim().isNotEmpty()
+    } else {
+        ui.selectedPetId != null
+    }
     3 -> ui.species.isNotBlank()
     else -> true
 }
@@ -303,7 +309,11 @@ private fun displayName(ui: PetSetupUiState): String =
     ui.petName.ifBlank { "a kedvenced" }
 
 private fun stepTitle(ui: PetSetupUiState): String = when (ui.step) {
-    1 -> "Melyik kedvenced ez?"
+    1 -> if (ui.mode == com.petsafety.app.ui.viewmodel.PetSetupWizardMode.PROMO) {
+        "Mi a kedvenced neve?"
+    } else {
+        "Melyik kedvenced ez?"
+    }
     2 -> "Nagyszerű, hogy ${displayName(ui)} csatlakozott!"
     3 -> "Kutya vagy macska?"
     4 -> "Milyen fajta ${displayName(ui)}?"
@@ -345,7 +355,18 @@ private fun StepBody(
 ) {
     when (ui.step) {
         1 -> {
-            if (ui.orderItems.isEmpty()) {
+            if (ui.mode == com.petsafety.app.ui.viewmodel.PetSetupWizardMode.PROMO) {
+                // Promo flow: single text input. No picker — the pet does
+                // not yet exist; we create it on commit via /claim-promo.
+                OutlinedTextField(
+                    value = ui.petName,
+                    onValueChange = { viewModel.edit { s -> s.copy(petName = it) } },
+                    label = { Text("A kedvenc neve") },
+                    placeholder = { Text("Pl. Bodri") },
+                    singleLine = true,
+                    modifier = Modifier.fillMaxWidth(),
+                )
+            } else if (ui.orderItems.isEmpty()) {
                 Text(
                     "Ehhez a kódhoz nincs beállítható biléta — lehet, hogy már aktiváltad, vagy nem ehhez a fiókhoz tartozik.",
                     style = MaterialTheme.typography.bodyMedium,

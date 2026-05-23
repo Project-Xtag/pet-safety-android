@@ -26,8 +26,21 @@ import javax.inject.Inject
  * memory and committed in one go after the last detail step (update the
  * pet -> upload photo -> activate the scanned tag).
  */
+/**
+ * Two branches the wizard can take. Ordered (default) is the flow after
+ * a tag the user paid for arrives — the pet was auto-registered at
+ * order time and we just fill in details + activate the tag. Promo is
+ * the flow after a shelter/event tag scan — there is no pre-registered
+ * pet, so step 1 collects a name and the final commit uses
+ * /qr-tags/claim-promo to create the pet, activate the tag, and grant
+ * any subscription trial atomically. Mirrors the web's PetSetup.tsx and
+ * iOS's PetSetupWizardMode.
+ */
+enum class PetSetupWizardMode { ORDERED, PROMO }
+
 data class PetSetupUiState(
     val qrCode: String = "",
+    val mode: PetSetupWizardMode = PetSetupWizardMode.ORDERED,
     val loading: Boolean = true,
     val orderItems: List<UnactivatedOrderItem> = emptyList(),
     val step: Int = 1,
@@ -46,7 +59,11 @@ data class PetSetupUiState(
     val medications: String = "",
     val uniqueFeatures: String = "",
 ) {
-    val remainingAfterThis: Int get() = (orderItems.size - 1).coerceAtLeast(0)
+    // Promo claims are always single-tag; the multi-tag scan-next step
+    // is only reachable from ordered orders with more than one pet.
+    val remainingAfterThis: Int get() =
+        if (mode == PetSetupWizardMode.PROMO) 0
+        else (orderItems.size - 1).coerceAtLeast(0)
 }
 
 @HiltViewModel
@@ -62,11 +79,18 @@ class PetSetupViewModel @Inject constructor(
 
     private var started = false
 
-    fun start(qrCode: String) {
+    fun start(qrCode: String, mode: PetSetupWizardMode = PetSetupWizardMode.ORDERED) {
         if (started) return
         started = true
-        _ui.update { it.copy(qrCode = qrCode) }
+        _ui.update { it.copy(qrCode = qrCode, mode = mode) }
         viewModelScope.launch {
+            if (mode == PetSetupWizardMode.PROMO) {
+                // Promo tags have no pre-registered order items — skip the
+                // /unactivated-for-qr fetch entirely. Step 1 collects the
+                // new pet's name; the final commit uses /claim-promo.
+                _ui.update { it.copy(loading = false, orderItems = emptyList()) }
+                return@launch
+            }
             val items = try {
                 ordersRepository.getUnactivatedTagsForQRCode(qrCode)
             } catch (e: Exception) {
@@ -77,9 +101,12 @@ class PetSetupViewModel @Inject constructor(
                 it.copy(
                     loading = false,
                     orderItems = items,
-                    // Single-pet order — pre-select it so step 1 is a confirmation.
+                    // Single-pet order — pre-select and skip step 1 entirely
+                    // so the user lands on the intro screen, matching the
+                    // web wizard's stepOffset=1 behaviour.
                     selectedPetId = if (items.size == 1) items.first().petId else it.selectedPetId,
                     petName = if (items.size == 1) items.first().petName else it.petName,
+                    step = if (items.size == 1) 2 else it.step,
                 )
             }
         }
@@ -89,48 +116,82 @@ class PetSetupViewModel @Inject constructor(
 
     fun goToStep(step: Int) = _ui.update { it.copy(step = step, error = null) }
 
-    /** Update the auto-registered pet, upload the optional photo, then activate the tag. */
     fun commit(photoBytes: ByteArray?) {
         viewModelScope.launch {
             val s = _ui.value
-            val petId = s.selectedPetId ?: return@launch
             _ui.update { it.copy(committing = true, error = null) }
             try {
-                // The pet already exists (auto-registered at order time) —
-                // fill in its details, then activate the scanned tag for it.
-                if (s.committedPetId != petId) {
-                    val dob = computeDateOfBirth(s.ageYears, s.ageMonths)
-                    val request = UpdatePetRequest(
-                        name = s.petName.trim(),
-                        species = s.species.ifBlank { null },
-                        breed = s.breed.trim().ifBlank { null },
-                        color = s.color.trim().ifBlank { null },
-                        allergies = s.allergies.trim().ifBlank { null },
-                        medications = s.medications.trim().ifBlank { null },
-                        uniqueFeatures = s.uniqueFeatures.trim().ifBlank { null },
-                        sex = s.sex.takeIf { it.isNotBlank() && it != "unknown" },
-                        dateOfBirth = dob,
-                        dobIsApproximate = if (dob != null) true else null,
-                    )
-                    petsRepository.updatePet(petId, request)
-                    _ui.update { it.copy(committedPetId = petId) }
-                    if (photoBytes != null) {
-                        try {
-                            petsRepository.uploadProfilePhoto(petId, photoBytes)
-                        } catch (e: Exception) {
-                            Timber.w(e, "pet photo upload failed (non-fatal)")
-                        }
-                    }
+                when (s.mode) {
+                    PetSetupWizardMode.ORDERED -> commitOrdered(s, photoBytes)
+                    PetSetupWizardMode.PROMO -> commitPromo(s, photoBytes)
                 }
-                qrRepository.activateTag(s.qrCode, petId)
                 petsEventBus.requestRefresh()
                 _ui.update {
-                    it.copy(committing = false, step = if (it.remainingAfterThis > 0) 11 else 12)
+                    it.copy(
+                        committing = false,
+                        step = if (it.remainingAfterThis > 0) 11 else 12,
+                    )
                 }
             } catch (e: Exception) {
-                Timber.w(e, "pet-setup commit failed")
+                Timber.w(e, "pet-setup commit failed (mode=%s)", s.mode)
                 _ui.update { it.copy(committing = false, error = e.localizedMessage) }
             }
+        }
+    }
+
+    /** Ordered: pet already exists. Update details, upload photo, activate tag. */
+    private suspend fun commitOrdered(s: PetSetupUiState, photoBytes: ByteArray?) {
+        val petId = s.selectedPetId ?: return
+        if (s.committedPetId != petId) {
+            val dob = computeDateOfBirth(s.ageYears, s.ageMonths)
+            val request = UpdatePetRequest(
+                name = s.petName.trim(),
+                species = s.species.ifBlank { null },
+                breed = s.breed.trim().ifBlank { null },
+                color = s.color.trim().ifBlank { null },
+                allergies = s.allergies.trim().ifBlank { null },
+                medications = s.medications.trim().ifBlank { null },
+                uniqueFeatures = s.uniqueFeatures.trim().ifBlank { null },
+                sex = s.sex.takeIf { it.isNotBlank() && it != "unknown" },
+                dateOfBirth = dob,
+                dobIsApproximate = if (dob != null) true else null,
+            )
+            petsRepository.updatePet(petId, request)
+            _ui.update { it.copy(committedPetId = petId) }
+            uploadPhotoNonFatal(petId, photoBytes)
+        }
+        qrRepository.activateTag(s.qrCode, petId)
+    }
+
+    /** Promo: pet does NOT exist. One atomic /claim-promo call creates it,
+     * activates the tag, and grants any subscription trial in the batch. */
+    private suspend fun commitPromo(s: PetSetupUiState, photoBytes: ByteArray?) {
+        if (s.committedPetId != null) return
+        val dob = computeDateOfBirth(s.ageYears, s.ageMonths)
+        val petData = com.petsafety.app.data.network.model.CreatePetRequest(
+            name = s.petName.trim(),
+            species = s.species.ifBlank { "dog" },
+            breed = s.breed.trim().ifBlank { null },
+            color = s.color.trim().ifBlank { null },
+            allergies = s.allergies.trim().ifBlank { null },
+            medications = s.medications.trim().ifBlank { null },
+            uniqueFeatures = s.uniqueFeatures.trim().ifBlank { null },
+            sex = s.sex.takeIf { it.isNotBlank() && it != "unknown" },
+            dateOfBirth = dob,
+            dobIsApproximate = if (dob != null) true else null,
+        )
+        val response = qrRepository.claimPromoTag(qrCode = s.qrCode, pet = petData)
+        val newPetId = response.pet?.id
+        _ui.update { it.copy(committedPetId = newPetId, selectedPetId = newPetId) }
+        if (newPetId != null) uploadPhotoNonFatal(newPetId, photoBytes)
+    }
+
+    private suspend fun uploadPhotoNonFatal(petId: String, photoBytes: ByteArray?) {
+        if (photoBytes == null) return
+        try {
+            petsRepository.uploadProfilePhoto(petId, photoBytes)
+        } catch (e: Exception) {
+            Timber.w(e, "pet photo upload failed (non-fatal)")
         }
     }
 

@@ -37,7 +37,6 @@ import com.petsafety.app.ui.screens.AlertsTabScreen
 import com.petsafety.app.ui.screens.PetsScreen
 import com.petsafety.app.ui.screens.ProfileScreen
 import com.petsafety.app.ui.screens.QrScannerScreen
-import com.petsafety.app.ui.screens.ShelterPromoClaimScreen
 import com.petsafety.app.ui.screens.PetSetupWizardScreen
 import com.petsafety.app.ui.viewmodel.AppStateViewModel
 import com.petsafety.app.ui.viewmodel.AuthViewModel
@@ -129,15 +128,15 @@ fun MainTabScaffold(
         }
     }
 
-    // Show promo claim screen if promo tag scanned
+    // Promo tags route into the SAME PetSetupWizardScreen the ordered
+    // flow uses, with mode=PROMO. Strict web parity (web's PetSetup.tsx).
+    // The legacy ShelterPromoClaimScreen + its VM have been deleted.
     if (promoClaimData != null) {
-        val (qrCode, shelterName, months) = promoClaimData!!
-        ShelterPromoClaimScreen(
+        val (qrCode, _, _) = promoClaimData!!
+        PetSetupWizardScreen(
             qrCode = qrCode,
-            shelterName = shelterName,
-            promoDurationMonths = months,
+            mode = com.petsafety.app.ui.viewmodel.PetSetupWizardMode.PROMO,
             onDone = { promoClaimData = null },
-            onBack = { promoClaimData = null }
         )
         return
     }
