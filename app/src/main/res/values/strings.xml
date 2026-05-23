@@ -404,6 +404,24 @@
     <string name="found_pet_form_phone_placeholder">Phone</string>
     <string name="found_pet_form_validation_location">Tap \"Use my location\" or type an address.</string>
     <string name="found_pet_form_validation_evidence">Add a photo or a short description so the owner can recognize the pet.</string>
+
+    <!-- Found-pet detail sheet -->
+    <string name="found_pet_detail_title">Found pet</string>
+    <string name="found_pet_detail_breed">Breed</string>
+    <string name="found_pet_detail_color">Color</string>
+    <string name="found_pet_detail_found_at">Found</string>
+    <string name="found_pet_detail_address">Location</string>
+    <string name="found_pet_detail_distance">Distance</string>
+    <string name="found_pet_detail_finder_contact">Finder contact</string>
+    <string name="found_pet_detail_finder_name">Name</string>
+    <string name="found_pet_detail_finder_email">Email</string>
+    <string name="found_pet_detail_finder_phone">Phone</string>
+    <string name="found_pet_detail_no_contact">The finder hasn\'t shared a contact yet.</string>
+    <string name="found_pet_detail_open_in_maps">Open in maps</string>
+    <string name="map_open_in">Open in</string>
+    <string name="map_google_maps">Google Maps</string>
+    <string name="map_waze">Waze</string>
+
     <string name="no_found_alerts">No Found Alerts</string>
     <string name="no_found_alerts_message">No pets have been found recently in your area</string>
     <string name="missing_pet_alerts_title">Missing Pets</string>

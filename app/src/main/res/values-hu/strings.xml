@@ -392,6 +392,23 @@
     <string name="found_pet_form_validation_location">Koppints a „Pillanatnyi helyzetem” gombra, vagy írj be egy címet.</string>
     <string name="found_pet_form_validation_evidence">Adj hozzá fotót vagy egy rövid leírást, hogy a gazdi felismerhesse a kedvencét.</string>
 
+    <!-- Talált kisállat részletek -->
+    <string name="found_pet_detail_title">Talált kisállat</string>
+    <string name="found_pet_detail_breed">Fajta</string>
+    <string name="found_pet_detail_color">Szín</string>
+    <string name="found_pet_detail_found_at">Megtalálva</string>
+    <string name="found_pet_detail_address">Helyszín</string>
+    <string name="found_pet_detail_distance">Távolság</string>
+    <string name="found_pet_detail_finder_contact">Megtaláló elérhetősége</string>
+    <string name="found_pet_detail_finder_name">Név</string>
+    <string name="found_pet_detail_finder_email">Email</string>
+    <string name="found_pet_detail_finder_phone">Telefon</string>
+    <string name="found_pet_detail_no_contact">A megtaláló még nem adott meg elérhetőséget.</string>
+    <string name="found_pet_detail_open_in_maps">Megnyitás térképen</string>
+    <string name="map_open_in">Megnyitás itt:</string>
+    <string name="map_google_maps">Google Maps</string>
+    <string name="map_waze">Waze</string>
+
     <string name="no_found_alerts">Nincsenek megtalált riasztások</string>
     <string name="no_found_alerts_message">Mostanában nem találtak kedvenceket a környékeden</string>
     <string name="missing_pet_alerts_title">Eltűnt kedvencek</string>

@@ -198,12 +198,18 @@ fun LostAndFoundScreen(
         }
     }
     selectedFoundReport?.let { report ->
-        PlaceholderSheet(
-            text = report.breed
-                ?: report.foundAddress
-                ?: stringResource(R.string.found_pet_unknown_breed),
-            onDismiss = { selectedFoundReport = null },
-        )
+        androidx.compose.ui.window.Dialog(
+            onDismissRequest = { selectedFoundReport = null },
+            properties = androidx.compose.ui.window.DialogProperties(
+                usePlatformDefaultWidth = false,
+                dismissOnClickOutside = false,
+            ),
+        ) {
+            FoundPetDetailScreen(
+                report = report,
+                onDismiss = { selectedFoundReport = null },
+            )
+        }
     }
 }
 
