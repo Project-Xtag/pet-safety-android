@@ -168,28 +168,13 @@ fun AlertsTabScreen(
         }
     }
 
-    Column(modifier = modifier.fillMaxWidth().padding(12.dp)) {
+    Column(modifier = modifier.fillMaxWidth()) {
         val isConnected by appStateViewModel.isConnected.collectAsState()
         OfflineIndicator(appStateViewModel.syncService, isConnected)
-
-        TabRow(selectedTabIndex = selectedTab) {
-            Tab(selected = selectedTab == 0, onClick = { selectedTab = 0 }) {
-                Text(stringResource(R.string.tab_missing), modifier = Modifier.padding(vertical = 12.dp))
-            }
-            Tab(selected = selectedTab == 1, onClick = { selectedTab = 1 }) {
-                Text(stringResource(R.string.tab_success), modifier = Modifier.padding(vertical = 12.dp))
-            }
-        }
-
-        when (selectedTab) {
-            0 -> MissingAlertsScreen(alertsViewModel, appStateViewModel, authViewModel, qrScannerViewModel, userLocation)
-            1 -> SuccessStoriesScreen(
-                viewModel = successStoriesViewModel,
-                appStateViewModel = appStateViewModel,
-                userLatitude = userLocation?.latitude,
-                userLongitude = userLocation?.longitude,
-                userCountryCode = currentUser?.country,
-            )
-        }
+        // Redesigned single Lost & Found board (web parity). Replaces the
+        // previous Missing | Success Stories tab split. SuccessStoriesScreen
+        // is no longer the default tab — it remains in the codebase for
+        // navigation from other surfaces if/when re-surfaced.
+        LostAndFoundScreen(userLocation = userLocation)
     }
 }

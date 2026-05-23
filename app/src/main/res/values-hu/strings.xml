@@ -334,6 +334,33 @@
     <string name="failed_load_alerts">Nem sikerült betölteni a riasztásokat</string>
     <string name="no_active_alerts">Nincsenek aktív riasztások</string>
     <string name="no_active_alerts_message">Jelenleg nincs eltűnt kedvenc riasztásod</string>
+
+    <!-- Elveszett és megtalált kisállatok tábla (web/iOS paritás) -->
+    <string name="lost_and_found_eyebrow">Riasztások</string>
+    <string name="lost_and_found_title">Riasztások</string>
+    <string name="lost_and_found_description">Az eltűnt és talált kisállatok a környékeden, és a saját eltűnési riasztásaid.</string>
+    <string name="lost_and_found_view_list">Lista</string>
+    <string name="lost_and_found_view_map">Térkép</string>
+    <string name="lost_and_found_search_placeholder">Keresés név, fajta vagy helyszín alapján…</string>
+    <string name="lost_and_found_filter_species_label">Faj</string>
+    <string name="lost_and_found_species_all">Mind</string>
+    <string name="lost_and_found_species_dog">Kutyák</string>
+    <string name="lost_and_found_species_cat">Macskák</string>
+    <string name="lost_and_found_species_dog_singular">Kutya</string>
+    <string name="lost_and_found_species_cat_singular">Macska</string>
+    <string name="lost_and_found_species_other_singular">Egyéb</string>
+    <string name="lost_and_found_filter_status_label">Állapot</string>
+    <string name="lost_and_found_status_all">Mind</string>
+    <string name="lost_and_found_status_missing">Eltűnt</string>
+    <string name="lost_and_found_status_community">Talált kisállat</string>
+    <string name="lost_and_found_cta_title">Találtál egy gazdátlan kisállatot?</string>
+    <string name="lost_and_found_cta_body">Tedd közzé itt, hogy mielőbb hazajuthasson.</string>
+    <string name="lost_and_found_legend_radius">%1$d km-es körzet</string>
+    <string name="lost_and_found_unknown_pet">Eltűnt kisállat</string>
+    <string name="found_pet_unknown_breed">Ismeretlen fajta</string>
+    <string name="found_pet_form_coming_soon">A talált kisállat bejelentő űrlap a következő frissítésben érkezik.</string>
+    <string name="common_done">Kész</string>
+
     <string name="no_found_alerts">Nincsenek megtalált riasztások</string>
     <string name="no_found_alerts_message">Mostanában nem találtak kedvenceket a környékeden</string>
     <string name="missing_pet_alerts_title">Eltűnt kedvencek</string>

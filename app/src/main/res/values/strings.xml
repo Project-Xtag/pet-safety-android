@@ -347,6 +347,32 @@
     <string name="failed_load_alerts">Failed to load alerts</string>
     <string name="no_active_alerts">No Active Alerts</string>
     <string name="no_active_alerts_message">You don\'t have any missing pet alerts at the moment</string>
+
+    <!-- Redesigned Lost & Found board (web/iOS parity) -->
+    <string name="lost_and_found_eyebrow">Alerts</string>
+    <string name="lost_and_found_title">Lost &amp; Found</string>
+    <string name="lost_and_found_description">Missing and found pets in your area, and your own missing-pet alerts.</string>
+    <string name="lost_and_found_view_list">List</string>
+    <string name="lost_and_found_view_map">Map</string>
+    <string name="lost_and_found_search_placeholder">Search by name, breed or location…</string>
+    <string name="lost_and_found_filter_species_label">Species</string>
+    <string name="lost_and_found_species_all">All</string>
+    <string name="lost_and_found_species_dog">Dogs</string>
+    <string name="lost_and_found_species_cat">Cats</string>
+    <string name="lost_and_found_species_dog_singular">Dog</string>
+    <string name="lost_and_found_species_cat_singular">Cat</string>
+    <string name="lost_and_found_species_other_singular">Other</string>
+    <string name="lost_and_found_filter_status_label">Status</string>
+    <string name="lost_and_found_status_all">All</string>
+    <string name="lost_and_found_status_missing">Missing</string>
+    <string name="lost_and_found_status_community">Found pet</string>
+    <string name="lost_and_found_cta_title">Found a stray pet?</string>
+    <string name="lost_and_found_cta_body">Post it here so it can find its way home sooner.</string>
+    <string name="lost_and_found_legend_radius">%1$d km radius</string>
+    <string name="lost_and_found_unknown_pet">Missing pet</string>
+    <string name="found_pet_unknown_breed">Unknown breed</string>
+    <string name="found_pet_form_coming_soon">The found-pet report form is coming in the next update.</string>
+    <string name="common_done">Done</string>
     <string name="no_found_alerts">No Found Alerts</string>
     <string name="no_found_alerts_message">No pets have been found recently in your area</string>
     <string name="missing_pet_alerts_title">Missing Pets</string>
