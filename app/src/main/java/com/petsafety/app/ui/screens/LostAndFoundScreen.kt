@@ -181,12 +181,21 @@ fun LostAndFoundScreen(
         }
     }
 
-    // Sheet hooks — real screens land in chunks 4 and 5; placeholders for now.
+    // Found-pet form sheet (replaces the chunk-3 placeholder). The
+    // detail sheet is wired in chunk 5.
     if (showFoundForm) {
-        PlaceholderSheet(
-            text = stringResource(R.string.found_pet_form_coming_soon),
-            onDismiss = { showFoundForm = false },
-        )
+        androidx.compose.ui.window.Dialog(
+            onDismissRequest = { showFoundForm = false },
+            properties = androidx.compose.ui.window.DialogProperties(
+                usePlatformDefaultWidth = false,
+                dismissOnClickOutside = false,
+            ),
+        ) {
+            FoundPetFormScreen(
+                onDismiss = { showFoundForm = false },
+                onSubmitted = { vm.prependLocalFoundReport(it) },
+            )
+        }
     }
     selectedFoundReport?.let { report ->
         PlaceholderSheet(

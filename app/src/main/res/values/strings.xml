@@ -373,6 +373,37 @@
     <string name="found_pet_unknown_breed">Unknown breed</string>
     <string name="found_pet_form_coming_soon">The found-pet report form is coming in the next update.</string>
     <string name="common_done">Done</string>
+    <string name="common_cancel">Cancel</string>
+
+    <!-- Found-pet report form -->
+    <string name="found_pet_form_title">Report a found pet</string>
+    <string name="found_pet_form_submit">Submit</string>
+    <string name="found_pet_form_species">Species</string>
+    <string name="found_pet_form_sex">Sex</string>
+    <string name="found_pet_form_sex_male">Male</string>
+    <string name="found_pet_form_sex_female">Female</string>
+    <string name="found_pet_form_sex_unknown">Don\'t know</string>
+    <string name="found_pet_form_details">Details</string>
+    <string name="found_pet_form_breed_placeholder">Breed (e.g. dachshund mix)</string>
+    <string name="found_pet_form_color_placeholder">Color (e.g. brown with white chest)</string>
+    <string name="found_pet_form_description_placeholder">Description</string>
+    <string name="found_pet_form_found_at">When did you find it?</string>
+    <string name="found_pet_form_location">Where did you find it?</string>
+    <string name="found_pet_form_use_gps">Use my location</string>
+    <string name="found_pet_form_address_placeholder">Or type the address</string>
+    <string name="found_pet_form_location_hint">Either GPS or an address is required.</string>
+    <string name="found_pet_form_photo">Photo (optional)</string>
+    <string name="found_pet_form_add_photo">Add photo</string>
+    <string name="found_pet_form_change_photo">Change photo</string>
+    <string name="found_pet_form_remove_photo">Remove photo</string>
+    <string name="found_pet_form_photo_hint">A photo makes it much easier for the owner to recognize their pet.</string>
+    <string name="found_pet_form_contact">Your contact (optional)</string>
+    <string name="found_pet_form_share_contact">Share my contact details</string>
+    <string name="found_pet_form_name_placeholder">Your name</string>
+    <string name="found_pet_form_email_placeholder">Email</string>
+    <string name="found_pet_form_phone_placeholder">Phone</string>
+    <string name="found_pet_form_validation_location">Tap \"Use my location\" or type an address.</string>
+    <string name="found_pet_form_validation_evidence">Add a photo or a short description so the owner can recognize the pet.</string>
     <string name="no_found_alerts">No Found Alerts</string>
     <string name="no_found_alerts_message">No pets have been found recently in your area</string>
     <string name="missing_pet_alerts_title">Missing Pets</string>
