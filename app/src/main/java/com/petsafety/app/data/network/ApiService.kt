@@ -2,6 +2,8 @@ package com.petsafety.app.data.network
 
 import com.petsafety.app.data.model.ClaimPromoTagRequest
 import com.petsafety.app.data.model.ClaimPromoTagResponse
+import com.petsafety.app.data.model.CreateFoundPetResponse
+import com.petsafety.app.data.model.NearbyFoundPetsResponse
 import com.petsafety.app.data.model.ScanResponse
 import com.petsafety.app.data.model.TagLookupResponse
 import com.petsafety.app.data.model.SuccessStory
@@ -157,6 +159,34 @@ interface ApiService {
         @Path("id") id: String,
         @Body request: ReportSightingRequest
     ): ApiEnvelope<SightingResponse>
+
+    // Community Found Pets — community-submitted "I found this stray" reports.
+    // Public endpoints; anonymous reporters get a single-use manage token.
+    @GET("community/found-pets/nearby")
+    suspend fun getNearbyFoundPets(
+        @Query("lat") latitude: Double,
+        @Query("lng") longitude: Double,
+        @Query("radius") radiusKm: Double,
+        @Query("species") species: String? = null,
+    ): ApiEnvelope<NearbyFoundPetsResponse>
+
+    @Multipart
+    @POST("community/found-pets")
+    suspend fun createFoundPet(
+        @retrofit2.http.Part("species") species: RequestBody,
+        @retrofit2.http.Part("sex") sex: RequestBody,
+        @retrofit2.http.Part("foundAt") foundAt: RequestBody,
+        @retrofit2.http.Part("lat") lat: RequestBody,
+        @retrofit2.http.Part("lng") lng: RequestBody,
+        @retrofit2.http.Part("breed") breed: RequestBody? = null,
+        @retrofit2.http.Part("color") color: RequestBody? = null,
+        @retrofit2.http.Part("description") description: RequestBody? = null,
+        @retrofit2.http.Part("foundAddress") foundAddress: RequestBody? = null,
+        @retrofit2.http.Part("reporterName") reporterName: RequestBody? = null,
+        @retrofit2.http.Part("reporterEmail") reporterEmail: RequestBody? = null,
+        @retrofit2.http.Part("reporterPhone") reporterPhone: RequestBody? = null,
+        @retrofit2.http.Part photo: MultipartBody.Part? = null,
+    ): ApiEnvelope<CreateFoundPetResponse>
 
     // QR Tags
     @GET("qr-tags/lookup/{code}")
