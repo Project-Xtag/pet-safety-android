@@ -37,6 +37,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.pulltorefresh.PullToRefreshBox
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -54,6 +55,9 @@ import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleEventObserver
+import androidx.lifecycle.compose.LocalLifecycleOwner
 import com.petsafety.app.R
 import com.petsafety.app.data.model.Order
 import com.petsafety.app.ui.components.ErrorRetryState
@@ -81,6 +85,20 @@ fun OrdersScreen(onBack: () -> Unit) {
     val tabTitles = listOf(stringResource(R.string.orders_title), stringResource(R.string.pending_registrations_title), stringResource(R.string.billing_invoices))
 
     LaunchedEffect(Unit) { viewModel.fetchOrders() }
+
+    // Re-fetch on foreground so a status flip (e.g. admin marked the
+    // order shipped while the app was backgrounded) shows up the
+    // next time the user looks — no need to pull-to-refresh.
+    val lifecycleOwner = LocalLifecycleOwner.current
+    DisposableEffect(lifecycleOwner) {
+        val observer = LifecycleEventObserver { _, event ->
+            if (event == Lifecycle.Event.ON_RESUME) {
+                viewModel.fetchOrders()
+            }
+        }
+        lifecycleOwner.lifecycle.addObserver(observer)
+        onDispose { lifecycleOwner.lifecycle.removeObserver(observer) }
+    }
 
     Column(
         modifier = Modifier
@@ -594,13 +612,16 @@ private fun formatCurrency(amount: Double, currencyCode: String = "eur"): String
     }
 }
 
+// Fixed yyyy.MM.dd. across every locale — unambiguous, sortable,
+// matches the HU convention the product uses everywhere else.
+// Both formatDate and formatDateLong fold into the same format so
+// the list and the detail screen render dates identically.
 private fun formatDate(dateString: String): String {
     return try {
-        val inputFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.getDefault())
+        val inputFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.US)
         val date = inputFormat.parse(dateString.take(19))
         if (date != null) {
-            val outputFormat = SimpleDateFormat("MMM d, yyyy", Locale.getDefault())
-            outputFormat.format(date)
+            SimpleDateFormat("yyyy.MM.dd.", Locale.US).format(date)
         } else {
             dateString.take(10)
         }
@@ -609,24 +630,4 @@ private fun formatDate(dateString: String): String {
     }
 }
 
-private fun formatDateLong(dateString: String): String {
-    return try {
-        val inputFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.getDefault())
-        val date = inputFormat.parse(dateString.take(19))
-        if (date != null) {
-            // Locale-aware long date — drops the time + "at" (the
-            // hardcoded English "at" leaked through to every non-EN
-            // locale). DateFormat.LONG renders "May 6, 2026" in EN,
-            // "2026. május 6." in HU, etc.
-            val outputFormat = java.text.DateFormat.getDateInstance(
-                java.text.DateFormat.LONG,
-                Locale.getDefault()
-            )
-            outputFormat.format(date)
-        } else {
-            dateString.take(10)
-        }
-    } catch (e: Exception) {
-        dateString.take(10)
-    }
-}
+private fun formatDateLong(dateString: String): String = formatDate(dateString)

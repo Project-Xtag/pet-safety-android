@@ -36,6 +36,7 @@ import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.material3.pulltorefresh.PullToRefreshBox
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -48,6 +49,9 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleEventObserver
+import androidx.lifecycle.compose.LocalLifecycleOwner
 import com.petsafety.app.R
 import com.petsafety.app.data.model.PendingRegistration
 import com.petsafety.app.ui.theme.BrandOrange
@@ -79,6 +83,22 @@ fun PendingRegistrationsScreen(
     }
 
     LaunchedEffect(Unit) { viewModel.fetchPendingRegistrations() }
+
+    // Re-fetch on foreground so a tag the admin marked shipped while
+    // the app was backgrounded shows up the next time the user looks
+    // at the screen — without forcing them to pull-to-refresh.
+    // (No order_shipped SSE event exists, so foreground is the
+    // cheapest signal for "world might have changed.")
+    val lifecycleOwner = LocalLifecycleOwner.current
+    DisposableEffect(lifecycleOwner) {
+        val observer = LifecycleEventObserver { _, event ->
+            if (event == Lifecycle.Event.ON_RESUME) {
+                viewModel.fetchPendingRegistrations()
+            }
+        }
+        lifecycleOwner.lifecycle.addObserver(observer)
+        onDispose { lifecycleOwner.lifecycle.removeObserver(observer) }
+    }
 
     Column(
         modifier = Modifier
@@ -416,15 +436,12 @@ private fun HelpStep(number: String, text: String) {
 }
 
 private fun formatDate(dateString: String): String {
-    // 2026-05-05 fix: the previous implementation hard-coded
-    // "MMM d, yyyy" which renders as "May 5, 2026" — US format,
-    // unconventional for the rest of our markets. Switch to the
-    // locale-aware DateFormat.MEDIUM style so HU sees
-    // "2026. máj. 5.", DE sees "05.05.2026", etc. Also accept
-    // ISO-with-fractional-seconds inputs (the backend emits both
-    // forms depending on the source row) — the old `.take(19)`
-    // truncation worked for plain ISO but lost the timestamp on
-    // certain rows, falling through to the "yyyy-MM-dd" fallback.
+    // Fixed yyyy.MM.dd. across every locale — unambiguous, sortable,
+    // matches the HU convention the product uses everywhere else.
+    // Backend emits ISO timestamps both with and without fractional
+    // seconds depending on the source row, so try the former first
+    // and fall back. Last-resort show the first 10 chars (the
+    // YYYY-MM-DD prefix) rather than a blank cell.
     return try {
         val withFractional = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS", Locale.US).apply {
             timeZone = java.util.TimeZone.getTimeZone("UTC")
@@ -435,9 +452,7 @@ private fun formatDate(dateString: String): String {
         val date = runCatching { withFractional.parse(dateString.take(23)) }.getOrNull()
             ?: runCatching { plain.parse(dateString.take(19)) }.getOrNull()
         if (date != null) {
-            java.text.DateFormat
-                .getDateInstance(java.text.DateFormat.MEDIUM, Locale.getDefault())
-                .format(date)
+            SimpleDateFormat("yyyy.MM.dd.", Locale.US).format(date)
         } else {
             dateString.take(10)
         }
