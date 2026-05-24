@@ -45,6 +45,10 @@ import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material.icons.filled.Warning
 import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.QrCodeScanner
+import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
+import androidx.compose.ui.res.pluralStringResource
+import androidx.hilt.navigation.compose.hiltViewModel
+import com.petsafety.app.ui.viewmodel.PendingRegistrationsViewModel
 import androidx.compose.material.icons.filled.VerifiedUser
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
 import androidx.compose.material3.TextButton
@@ -129,6 +133,16 @@ fun PetsListScreen(
     val isConnected by appStateViewModel.isConnected.collectAsState()
     val currentUser by authViewModel?.currentUser?.collectAsState() ?: remember { mutableStateOf(null) }
 
+    // Drives the "register your pending tag" CTA shown above the
+    // pet cards when the user has unscanned tags from a paid order.
+    // Fetches alongside the pet list so the CTA reflects current
+    // state without forcing a tab switch into Orders → Pending.
+    val pendingViewModel: PendingRegistrationsViewModel = hiltViewModel()
+    val pendingRegistrations by pendingViewModel.registrations.collectAsState()
+    val readyToActivateCount = pendingRegistrations.count {
+        it.orderStatus.lowercase() in setOf("shipped", "delivered")
+    }
+
     val haptic = LocalHapticFeedback.current
     val hasMissingPets = pets.any { it.isMissing }
     val missingPets = pets.filter { it.isMissing }
@@ -181,7 +195,10 @@ fun PetsListScreen(
     val noMissingPetsMessage = stringResource(R.string.no_missing_pets_message)
     val noPetsToReportMessage = stringResource(R.string.no_pets_to_report_message)
 
-    LaunchedEffect(Unit) { viewModel.fetchPets() }
+    LaunchedEffect(Unit) {
+        viewModel.fetchPets()
+        pendingViewModel.fetchPendingRegistrations()
+    }
 
     Box(
         modifier = Modifier
@@ -217,6 +234,19 @@ fun PetsListScreen(
                         HeaderSection(userName = (currentUser?.firstName ?: cachedName)?.takeIf { it.isNotBlank() }, onNotifications = onNotifications)
 
                         Spacer(modifier = Modifier.height(24.dp))
+
+                        // "Register pending tag" CTA — visible from
+                        // My Pets so the user doesn't have to dig
+                        // into the Orders tab to find the wizard
+                        // entry point. Disappears once every tag
+                        // they bought is activated.
+                        if (readyToActivateCount > 0) {
+                            PendingTagCta(
+                                count = readyToActivateCount,
+                                onClick = onScanTag,
+                            )
+                            Spacer(modifier = Modifier.height(16.dp))
+                        }
 
                         // My Pets Section
                         PetsSection(
@@ -704,6 +734,55 @@ private fun QuickActionButton(
                 overflow = TextOverflow.Ellipsis
             )
         }
+    }
+}
+
+@Composable
+private fun PendingTagCta(count: Int, onClick: () -> Unit) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 16.dp)
+            .clip(RoundedCornerShape(14.dp))
+            .background(BrandOrange)
+            .clickable { onClick() }
+            .padding(14.dp),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(12.dp),
+    ) {
+        Icon(
+            imageVector = Icons.Default.QrCodeScanner,
+            contentDescription = null,
+            tint = Color.White,
+            modifier = Modifier.size(20.dp),
+        )
+        Column(modifier = Modifier.weight(1f)) {
+            Text(
+                text = stringResource(R.string.my_pets_pending_tag_cta_title),
+                style = MaterialTheme.typography.titleSmall.copy(
+                    fontSize = AdaptiveLayout.scaledSp(15),
+                    fontWeight = FontWeight.Bold,
+                ),
+                color = Color.White,
+            )
+            Text(
+                text = pluralStringResource(
+                    R.plurals.my_pets_pending_tag_cta_subtitle,
+                    count,
+                    count,
+                ),
+                style = MaterialTheme.typography.bodySmall.copy(
+                    fontSize = AdaptiveLayout.scaledSp(12),
+                ),
+                color = Color.White.copy(alpha = 0.85f),
+            )
+        }
+        Icon(
+            imageVector = Icons.AutoMirrored.Filled.KeyboardArrowRight,
+            contentDescription = null,
+            tint = Color.White.copy(alpha = 0.85f),
+            modifier = Modifier.size(18.dp),
+        )
     }
 }
 

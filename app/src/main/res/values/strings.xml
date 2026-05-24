@@ -128,6 +128,16 @@
     <string name="empty_pets_message">Add your first pet to get started with SENRA</string>
     <string name="missing_badge">MISSING</string>
     <string name="tag_pending_badge">TAG ON ITS WAY</string>
+
+    <!-- My Pets pending-tag CTA — visible above the pet cards when
+         the user has unactivated tags from a paid order. Tapping
+         opens the scanner so they can finish registration without
+         digging into the Orders tab. -->
+    <string name="my_pets_pending_tag_cta_title">Register your tag</string>
+    <plurals name="my_pets_pending_tag_cta_subtitle">
+        <item quantity="one">%d tag ready to activate</item>
+        <item quantity="other">%d tags ready to activate</item>
+    </plurals>
     <string name="add_pet">Add Pet</string>
     <string name="pet_name">Pet Name</string>
     <string name="failed_load_pets">Failed to load pets</string>

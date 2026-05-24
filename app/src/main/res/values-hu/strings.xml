@@ -129,6 +129,16 @@
     <string name="empty_pets_message">Add hozzá az első kedvenced és kezdd el a SENRA Közösségi Biléta használatát</string>
     <string name="missing_badge">ELTŰNT</string>
     <string name="tag_pending_badge">A BILÉTA ÚTON VAN</string>
+
+    <!-- Kedvenceim függőben lévő biléta CTA — a kedvencek kártyái
+         fölött jelenik meg, ha a felhasználónak van olyan bilétája,
+         ami megérkezett, de még nincs beolvasva. Megérintve nyílik
+         a szkenner — nem kell átnavigálni a Rendelések fülre. -->
+    <string name="my_pets_pending_tag_cta_title">Aktiváld a bilétád</string>
+    <plurals name="my_pets_pending_tag_cta_subtitle">
+        <item quantity="one">%d biléta vár aktiválásra</item>
+        <item quantity="other">%d biléta vár aktiválásra</item>
+    </plurals>
     <string name="add_pet">Kedvenc hozzáadása</string>
     <string name="pet_name">Kedvenc neve</string>
     <string name="failed_load_pets">Nem sikerült betölteni a kedvenceket</string>
