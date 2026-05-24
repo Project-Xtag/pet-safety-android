@@ -89,6 +89,24 @@ class QrCodeParserTest {
         assertEquals("PS-12345678", QrCodeParser.extractTagCode("https://senra.pet/de/qr/PS-12345678"))
     }
 
+    // ---------- Staging hosts ----------
+    // Admin-generated staging QRs encode `staging-app.senra.pet/t/<code>`.
+    // Without the host on the whitelist the extractor fell through to
+    // the raw URL and every staging scan read as "no tag for this
+    // QR code." Mirrors backend + web whitelist.
+
+    @Test fun `extracts from staging-app host`() {
+        assertEquals("STG-cba4788abb27", QrCodeParser.extractTagCode("https://staging-app.senra.pet/t/STG-cba4788abb27"))
+    }
+
+    @Test fun `extracts from staging api host`() {
+        assertEquals("STG-cba4788abb27", QrCodeParser.extractTagCode("https://staging.senra.pet/t/STG-cba4788abb27"))
+    }
+
+    @Test fun `extracts from staging host with country prefix`() {
+        assertEquals("STG-cba4788abb27", QrCodeParser.extractTagCode("https://staging-app.senra.pet/hu/qr/STG-cba4788abb27"))
+    }
+
     // ---------- URL suffixes ----------
 
     @Test fun `ignores trailing slash`() {

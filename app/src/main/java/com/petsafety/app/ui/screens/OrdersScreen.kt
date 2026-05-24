@@ -191,15 +191,6 @@ fun OrdersScreen(onBack: () -> Unit) {
                     OrdersListSkeleton(itemCount = 3)
                 }
             }
-            error != null && orders.isEmpty() -> {
-                ErrorRetryState(
-                    message = error ?: stringResource(R.string.failed_load_orders),
-                    onRetry = { viewModel.refresh() }
-                )
-            }
-            orders.isEmpty() -> {
-                EmptyOrdersState()
-            }
             selectedOrder != null -> {
                 // Capture in local val for smart cast
                 val order = selectedOrder
@@ -211,24 +202,61 @@ fun OrdersScreen(onBack: () -> Unit) {
                 }
             }
             else -> {
+                // Wrap every non-loading branch in PullToRefreshBox so
+                // pull-to-refresh works from the error and empty
+                // states too — pre-fix it only worked once orders
+                // populated, so a transient fetch failure stranded
+                // the user with no manual recovery short of
+                // backgrounding the app.
                 PullToRefreshBox(
                     isRefreshing = isRefreshing,
                     onRefresh = { viewModel.refresh() },
                     modifier = Modifier.fillMaxSize()
                 ) {
-                    LazyColumn(
-                        modifier = Modifier.fillMaxSize(),
-                        contentPadding = PaddingValues(16.dp),
-                        verticalArrangement = Arrangement.spacedBy(12.dp)
-                    ) {
-                        items(orders) { order ->
-                            OrderCard(
-                                order = order,
-                                onClick = { selectedOrder = order }
-                            )
+                    when {
+                        error != null && orders.isEmpty() -> {
+                            // LazyColumn keeps the content scrollable
+                            // even when the only item is a single
+                            // error card, so the pull-down gesture
+                            // registers. fillParentMaxSize centers
+                            // the error vertically in the available
+                            // area.
+                            LazyColumn(modifier = Modifier.fillMaxSize()) {
+                                item {
+                                    Box(modifier = Modifier.fillParentMaxSize()) {
+                                        ErrorRetryState(
+                                            message = error ?: stringResource(R.string.failed_load_orders),
+                                            onRetry = { viewModel.refresh() }
+                                        )
+                                    }
+                                }
+                            }
                         }
-                        item {
-                            Spacer(modifier = Modifier.height(80.dp))
+                        orders.isEmpty() -> {
+                            LazyColumn(modifier = Modifier.fillMaxSize()) {
+                                item {
+                                    Box(modifier = Modifier.fillParentMaxSize()) {
+                                        EmptyOrdersState()
+                                    }
+                                }
+                            }
+                        }
+                        else -> {
+                            LazyColumn(
+                                modifier = Modifier.fillMaxSize(),
+                                contentPadding = PaddingValues(16.dp),
+                                verticalArrangement = Arrangement.spacedBy(12.dp)
+                            ) {
+                                items(orders) { order ->
+                                    OrderCard(
+                                        order = order,
+                                        onClick = { selectedOrder = order }
+                                    )
+                                }
+                                item {
+                                    Spacer(modifier = Modifier.height(80.dp))
+                                }
+                            }
                         }
                     }
                 }

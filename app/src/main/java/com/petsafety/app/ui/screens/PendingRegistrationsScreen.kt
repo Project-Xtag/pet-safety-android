@@ -74,6 +74,7 @@ fun PendingRegistrationsScreen(
     val registrations by viewModel.registrations.collectAsState()
     val isLoading by viewModel.isLoading.collectAsState()
     val isRefreshing by viewModel.isRefreshing.collectAsState()
+    val errorMessage by viewModel.errorMessage.collectAsState()
 
     val readyToActivate = registrations.filter {
         it.orderStatus.lowercase() in listOf("shipped", "delivered")
@@ -145,48 +146,85 @@ fun PendingRegistrationsScreen(
                         CircularProgressIndicator(color = BrandOrange)
                     }
                 }
-                registrations.isEmpty() && !isLoading -> {
-                    // Empty state
-                    Box(
-                        modifier = Modifier.fillMaxSize(),
-                        contentAlignment = Alignment.Center
+                errorMessage != null && registrations.isEmpty() -> {
+                    // Surface fetch errors with a retry button — the
+                    // previous code rendered the same "all caught up"
+                    // empty-state graphic for both legitimate empty
+                    // and silent fetch failure, leaving the user with
+                    // no way to recover short of backgrounding.
+                    PullToRefreshBox(
+                        isRefreshing = isRefreshing,
+                        onRefresh = { viewModel.refresh() },
+                        modifier = Modifier.fillMaxSize()
                     ) {
-                        Column(
-                            horizontalAlignment = Alignment.CenterHorizontally,
-                            verticalArrangement = Arrangement.spacedBy(16.dp)
-                        ) {
-                            Box(
-                                modifier = Modifier
-                                    .size(100.dp)
-                                    .background(MaterialTheme.colorScheme.surfaceContainerHigh, CircleShape),
-                                contentAlignment = Alignment.Center
-                            ) {
-                                Icon(
-                                    imageVector = Icons.Default.CheckCircle,
-                                    contentDescription = null,
-                                    modifier = Modifier.size(44.dp),
-                                    tint = SuccessGreen
-                                )
+                        LazyColumn(modifier = Modifier.fillMaxSize()) {
+                            item {
+                                Box(modifier = Modifier.fillParentMaxSize()) {
+                                    com.petsafety.app.ui.components.ErrorRetryState(
+                                        message = errorMessage ?: stringResource(R.string.failed_load_orders),
+                                        onRetry = { viewModel.refresh() }
+                                    )
+                                }
                             }
-                            Text(
-                                text = stringResource(R.string.all_caught_up),
-                                style = MaterialTheme.typography.titleLarge.copy(
-                                    fontSize = 20.sp,
-                                    fontWeight = FontWeight.Bold
-                                )
-                            )
-                            Text(
-                                text = stringResource(R.string.all_caught_up_description),
-                                style = MaterialTheme.typography.bodyMedium,
-                                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                                textAlign = TextAlign.Center,
-                                modifier = Modifier.padding(horizontal = 32.dp)
-                            )
-                            Button(
-                                onClick = onNavigateToOrderTags,
-                                colors = ButtonDefaults.buttonColors(containerColor = BrandOrange)
-                            ) {
-                                Text(stringResource(R.string.order_tags))
+                        }
+                    }
+                }
+                registrations.isEmpty() && !isLoading -> {
+                    // Empty state wrapped in PullToRefreshBox so the
+                    // pull-down gesture works here too — pre-fix it
+                    // only triggered when the list had items, so a
+                    // user who landed here right after a tag was
+                    // shipped had no manual way to re-check.
+                    PullToRefreshBox(
+                        isRefreshing = isRefreshing,
+                        onRefresh = { viewModel.refresh() },
+                        modifier = Modifier.fillMaxSize()
+                    ) {
+                        LazyColumn(modifier = Modifier.fillMaxSize()) {
+                            item {
+                                Box(
+                                    modifier = Modifier.fillParentMaxSize(),
+                                    contentAlignment = Alignment.Center
+                                ) {
+                                    Column(
+                                        horizontalAlignment = Alignment.CenterHorizontally,
+                                        verticalArrangement = Arrangement.spacedBy(16.dp)
+                                    ) {
+                                        Box(
+                                            modifier = Modifier
+                                                .size(100.dp)
+                                                .background(MaterialTheme.colorScheme.surfaceContainerHigh, CircleShape),
+                                            contentAlignment = Alignment.Center
+                                        ) {
+                                            Icon(
+                                                imageVector = Icons.Default.CheckCircle,
+                                                contentDescription = null,
+                                                modifier = Modifier.size(44.dp),
+                                                tint = SuccessGreen
+                                            )
+                                        }
+                                        Text(
+                                            text = stringResource(R.string.all_caught_up),
+                                            style = MaterialTheme.typography.titleLarge.copy(
+                                                fontSize = 20.sp,
+                                                fontWeight = FontWeight.Bold
+                                            )
+                                        )
+                                        Text(
+                                            text = stringResource(R.string.all_caught_up_description),
+                                            style = MaterialTheme.typography.bodyMedium,
+                                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                            textAlign = TextAlign.Center,
+                                            modifier = Modifier.padding(horizontal = 32.dp)
+                                        )
+                                        Button(
+                                            onClick = onNavigateToOrderTags,
+                                            colors = ButtonDefaults.buttonColors(containerColor = BrandOrange)
+                                        ) {
+                                            Text(stringResource(R.string.order_tags))
+                                        }
+                                    }
+                                }
                             }
                         }
                     }

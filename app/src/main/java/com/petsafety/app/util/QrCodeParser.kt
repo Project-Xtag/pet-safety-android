@@ -29,7 +29,18 @@ import android.net.Uri
 object QrCodeParser {
 
     private val TAG_CODE_REGEX = Regex("^[A-Za-z0-9_-]{6,32}$")
-    private val KNOWN_HOSTS = setOf("senra.pet", "www.senra.pet")
+    // Mirrors backend's qrCodeParser.ts KNOWN_HOSTS and web's
+    // lib/extractTagCode.ts. Staging hosts are intentional: admin-
+    // generated staging QRs encode `https://staging-app.senra.pet/t/<code>`
+    // and without them every staging scan falls through to the full
+    // URL and the backend qr_code lookup reads as "no tag for this
+    // QR code."
+    private val KNOWN_HOSTS = setOf(
+        "senra.pet",
+        "www.senra.pet",
+        "staging-app.senra.pet",
+        "staging.senra.pet",
+    )
     private val CODE_PATH_PREFIXES = setOf("t", "qr")
 
     /**
