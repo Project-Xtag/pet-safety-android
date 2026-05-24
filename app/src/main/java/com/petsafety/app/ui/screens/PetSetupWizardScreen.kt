@@ -281,11 +281,13 @@ fun PetSetupWizardScreen(
 }
 
 private fun canProceed(ui: PetSetupUiState): Boolean = when (ui.step) {
-    1 -> if (ui.mode == com.petsafety.app.ui.viewmodel.PetSetupWizardMode.PROMO) {
-        ui.petName.trim().isNotEmpty()
-    } else {
-        ui.selectedPetId != null
-    }
+    // Both modes gate on having a pet name in hand. Promo collects
+    // it by free-text input; ordered collects it by tapping a row
+    // in the multi-pet picker (which fills petName). Post the
+    // 2026-05-24 revert we can no longer key off selectedPetId for
+    // the ordered branch because order_items.pet_id is NULL for
+    // every unactivated row.
+    1 -> ui.petName.trim().isNotEmpty()
     3 -> ui.species.isNotBlank()
     else -> true
 }
@@ -380,7 +382,14 @@ private fun StepBody(
                 ) {
                     ui.orderItems.forEach { item ->
                         val name = item.petName.ifBlank { "Kedvenc" }
-                        val selected = ui.selectedPetId == item.petId
+                        // Selection key: petName, not petId. Post the
+                        // 2026-05-24 revert order_items.pet_id is NULL
+                        // for all unactivated rows so `selectedPetId
+                        // == item.petId` collapsed to null == null and
+                        // marked every row selected at once. pet_name
+                        // is deduped server-side (DISTINCT ON pet_name)
+                        // so it's a safe key here.
+                        val selected = ui.petName.isNotEmpty() && ui.petName == item.petName
                         Row(
                             modifier = Modifier
                                 .fillMaxWidth()

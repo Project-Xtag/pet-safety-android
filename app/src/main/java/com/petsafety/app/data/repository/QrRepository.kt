@@ -19,8 +19,17 @@ class QrRepository(private val apiService: ApiService) {
     suspend fun scanQr(code: String): ScanResponse =
         apiService.scanQrCode(code).data ?: error("Missing scan response")
 
+    /** Activate against an existing pet (replacement-tag or legacy
+     *  flow where the pet was auto-created at order). */
     suspend fun activateTag(qrCode: String, petId: String): QrTag =
-        apiService.activateTag(ActivateTagRequest(qrCode, petId)).data?.tag ?: error("Missing tag")
+        apiService.activateTag(ActivateTagRequest(qrCode = qrCode, petId = petId)).data?.tag
+            ?: error("Missing tag")
+
+    /** Post-2026-05-24 first-tag flow: create the pet AND activate
+     *  the tag in one round-trip. Mirrors [claimPromoTag]. */
+    suspend fun activateTagWithNewPet(qrCode: String, petData: CreatePetRequest): QrTag =
+        apiService.activateTag(ActivateTagRequest(qrCode = qrCode, petData = petData)).data?.tag
+            ?: error("Missing tag")
 
     suspend fun getActiveTag(petId: String): QrTag? =
         apiService.getActiveTag(petId).data?.tag

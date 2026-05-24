@@ -139,28 +139,63 @@ class PetSetupViewModel @Inject constructor(
         }
     }
 
-    /** Ordered: pet already exists. Update details, upload photo, activate tag. */
+    /** Ordered flow: post the 2026-05-24 auto-create revert, the pet
+     *  does NOT exist at order time — the wizard sends the full pet
+     *  payload to /qr-tags/activate, which atomically creates the
+     *  pet AND activates the tag in one round-trip (mirrors
+     *  commitPromo).
+     *
+     *  Backwards-compat for older orders whose order_item still has
+     *  a pet_id (pre-revert placeholder that survived the cleanup
+     *  migration's safety filter — e.g. user added a photo): if
+     *  selectedPetId is set, fall back to the update-then-activate
+     *  path so the existing pet record is preserved. */
     private suspend fun commitOrdered(s: PetSetupUiState, photoBytes: ByteArray?) {
-        val petId = s.selectedPetId ?: return
-        if (s.committedPetId != petId) {
-            val dob = computeDateOfBirth(s.ageYears, s.ageMonths)
-            val request = UpdatePetRequest(
-                name = s.petName.trim(),
-                species = s.species.ifBlank { null },
-                breed = s.breed.trim().ifBlank { null },
-                color = s.color.trim().ifBlank { null },
-                allergies = s.allergies.trim().ifBlank { null },
-                medications = s.medications.trim().ifBlank { null },
-                uniqueFeatures = s.uniqueFeatures.trim().ifBlank { null },
-                sex = s.sex.takeIf { it.isNotBlank() && it != "unknown" },
-                dateOfBirth = dob,
-                dobIsApproximate = if (dob != null) true else null,
-            )
-            petsRepository.updatePet(petId, request)
-            _ui.update { it.copy(committedPetId = petId) }
-            uploadPhotoNonFatal(petId, photoBytes)
+        val existingPetId = s.selectedPetId
+        val dob = computeDateOfBirth(s.ageYears, s.ageMonths)
+
+        if (existingPetId != null) {
+            // Legacy path: pet record survived the migration, update + activate.
+            if (s.committedPetId != existingPetId) {
+                val request = UpdatePetRequest(
+                    name = s.petName.trim(),
+                    species = s.species.ifBlank { null },
+                    breed = s.breed.trim().ifBlank { null },
+                    color = s.color.trim().ifBlank { null },
+                    allergies = s.allergies.trim().ifBlank { null },
+                    medications = s.medications.trim().ifBlank { null },
+                    uniqueFeatures = s.uniqueFeatures.trim().ifBlank { null },
+                    sex = s.sex.takeIf { it.isNotBlank() && it != "unknown" },
+                    dateOfBirth = dob,
+                    dobIsApproximate = if (dob != null) true else null,
+                )
+                petsRepository.updatePet(existingPetId, request)
+                _ui.update { it.copy(committedPetId = existingPetId) }
+                uploadPhotoNonFatal(existingPetId, photoBytes)
+            }
+            qrRepository.activateTag(s.qrCode, existingPetId)
+            return
         }
-        qrRepository.activateTag(s.qrCode, petId)
+
+        // Post-revert path: no pre-existing pet. Single atomic call
+        // creates the pet and activates the tag.
+        if (s.committedPetId != null) return
+        val petData = com.petsafety.app.data.network.model.CreatePetRequest(
+            name = s.petName.trim(),
+            species = s.species.ifBlank { "dog" },
+            breed = s.breed.trim().ifBlank { null },
+            color = s.color.trim().ifBlank { null },
+            allergies = s.allergies.trim().ifBlank { null },
+            medications = s.medications.trim().ifBlank { null },
+            uniqueFeatures = s.uniqueFeatures.trim().ifBlank { null },
+            sex = s.sex.takeIf { it.isNotBlank() && it != "unknown" },
+            dateOfBirth = dob,
+            dobIsApproximate = if (dob != null) true else null,
+        )
+        val tag = qrRepository.activateTagWithNewPet(s.qrCode, petData)
+        val newPetId = tag.petId
+        _ui.update { it.copy(committedPetId = newPetId, selectedPetId = newPetId) }
+        if (newPetId != null) uploadPhotoNonFatal(newPetId, photoBytes)
     }
 
     /** Promo: pet does NOT exist. One atomic /claim-promo call creates it,

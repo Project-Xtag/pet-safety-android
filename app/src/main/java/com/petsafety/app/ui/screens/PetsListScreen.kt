@@ -554,32 +554,14 @@ private fun PetCardView(pet: Pet, onClick: () -> Unit) {
                             color = Color.White
                         )
                     }
-                } else if (pet.hasActiveTag == false) {
-                    Row(
-                        modifier = Modifier
-                            .align(Alignment.TopEnd)
-                            .padding(8.dp)
-                            .background(Color(0xFFF59E0B), RoundedCornerShape(8.dp))
-                            .padding(horizontal = 8.dp, vertical = 4.dp),
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        Icon(
-                            imageVector = Icons.Default.LocalShipping,
-                            contentDescription = stringResource(R.string.tag_pending_badge),
-                            modifier = Modifier.size(10.dp),
-                            tint = Color.White
-                        )
-                        Spacer(modifier = Modifier.width(4.dp))
-                        Text(
-                            text = stringResource(R.string.tag_pending_badge),
-                            style = MaterialTheme.typography.labelSmall.copy(
-                                fontSize = AdaptiveLayout.scaledSp(10),
-                                fontWeight = FontWeight.Bold
-                            ),
-                            color = Color.White
-                        )
-                    }
                 }
+                // 2026-05-24: removed the "tag on its way" badge.
+                // Pets are no longer auto-created at order payment
+                // (backend revert), so a pet card on this screen
+                // always represents a fully-set-up pet with an
+                // active tag. Pending orders surface in the Orders
+                // tab → Pending Registrations and start the wizard
+                // from there.
             }
 
             // Pet Name

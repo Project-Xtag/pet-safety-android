@@ -97,10 +97,21 @@ data class ReportSightingRequest(
     val sightedAt: String? = null
 )
 
+/**
+ * Activate request body. Send EITHER:
+ *  - [petId] for an existing pet (replacement-tag flow, or older
+ *    placeholders that survived the 2026-05-24 cleanup migration), or
+ *  - [petData] for the post-2026-05-24 first-tag flow — backend
+ *    creates the pet AND activates the tag in one round-trip.
+ *
+ * Mirrors the shape ClaimPromoTagRequest has used since the promo
+ * flow shipped.
+ */
 @Serializable
 data class ActivateTagRequest(
     val qrCode: String,
-    val petId: String
+    val petId: String? = null,
+    val petData: CreatePetRequest? = null
 )
 
 @Serializable
