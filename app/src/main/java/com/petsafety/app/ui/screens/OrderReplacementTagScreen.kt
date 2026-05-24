@@ -508,8 +508,24 @@ fun OrderReplacementTagScreen(
                                     color = MaterialTheme.colorScheme.onSurfaceVariant
                                 )
                             } else {
-                                val cost = eligibility?.shippingCost ?: 0.0
-                                val currency = eligibility?.currency ?: "EUR"
+                                // 2026-05-25: prefer the method-aware lookup
+                                // in shippingPrices over the
+                                // eligibility-snapshot shippingCost. The
+                                // eligibility response gives the home
+                                // delivery price (resolved server-side
+                                // without knowing the user would later pick
+                                // PostaPoint); without this branch the cost
+                                // shown in the summary stayed on home
+                                // delivery even after the user picked a
+                                // pickup point. Backend re-resolves on order
+                                // creation (resolveShippingCost), so this
+                                // is a display-only fix.
+                                val hu = shippingPrices?.HU
+                                val resolved = if (isHungary && hu != null) {
+                                    if (deliveryMethod.value == "postapoint") hu.postapoint else hu.homeDelivery
+                                } else null
+                                val cost = resolved?.amount ?: eligibility?.shippingCost ?: 0.0
+                                val currency = resolved?.currency ?: eligibility?.currency ?: "EUR"
                                 val formattedCost = if (currency == "HUF") {
                                     "${cost.toInt()} Ft"
                                 } else {
