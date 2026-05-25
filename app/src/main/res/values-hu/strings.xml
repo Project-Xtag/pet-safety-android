@@ -1560,8 +1560,7 @@
 
 
 
-
-
-
-
+    <string name="invalid_phone">Adj meg egy érvényes telefonszámot</string>
+    <string name="invalid_location_coords">Nem sikerült pontosan beazonosítani a helyszínt. Próbálj meg egy pontosabb címet.</string>
+    <string name="address_geocode_failed_warning">Nem sikerült pontosan beazonosítani a címet — a riasztás pontos helyszín nélkül megy ki. Próbáld a „jelenlegi helyzet” gombot pontosabb eredményért.</string>
 </resources>
