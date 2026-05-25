@@ -100,11 +100,16 @@ import com.petsafety.app.ui.components.OfflineIndicator
 import com.petsafety.app.ui.components.PetsListSkeleton
 import com.petsafety.app.ui.components.ReportMissingSheet
 import com.petsafety.app.ui.components.TealButton
+import com.petsafety.app.ui.theme.AppRadius
 import com.petsafety.app.ui.theme.BrandOrange
+import com.petsafety.app.ui.theme.CreamSurface
 import com.petsafety.app.ui.theme.ErrorColor
+import com.petsafety.app.ui.theme.InkText
 import com.petsafety.app.ui.theme.PeachBackground
+import com.petsafety.app.ui.theme.SoftBorderColor
 import com.petsafety.app.ui.theme.SuccessColor
 import com.petsafety.app.ui.theme.TealAccent
+import com.petsafety.app.ui.theme.brandGradient
 import com.petsafety.app.ui.viewmodel.AppStateViewModel
 import com.petsafety.app.ui.viewmodel.AuthViewModel
 import com.petsafety.app.ui.viewmodel.PetsViewModel
@@ -335,11 +340,13 @@ fun PetsListScreen(
 
 @Composable
 private fun HeaderSection(userName: String?, onNotifications: () -> Unit = {}) {
+    // 2026-05-25 redesign7-aligned: cream wash, bigger tracking-aware
+    // title, circular bell button with soft warm shadow.
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .background(MaterialTheme.colorScheme.primaryContainer)
-            .padding(horizontal = 24.dp, vertical = 16.dp),
+            .background(CreamSurface)
+            .padding(horizontal = 24.dp, vertical = 20.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
         Column(modifier = Modifier.weight(1f)) {
@@ -347,37 +354,52 @@ private fun HeaderSection(userName: String?, onNotifications: () -> Unit = {}) {
                 Text(
                     text = stringResource(R.string.welcome_back_greeting),
                     style = MaterialTheme.typography.bodyMedium.copy(
-                        fontSize = AdaptiveLayout.scaledSp(14),
-                        fontWeight = FontWeight.Medium
+                        fontSize = AdaptiveLayout.scaledSp(13),
+                        fontWeight = FontWeight.Medium,
+                        letterSpacing = 1.2.sp
                     ),
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                    color = InkText.copy(alpha = 0.6f)
                 )
-                Spacer(modifier = Modifier.height(4.dp))
+                Spacer(modifier = Modifier.height(6.dp))
                 Text(
                     text = userName,
                     style = MaterialTheme.typography.headlineSmall.copy(
-                        fontSize = AdaptiveLayout.scaledSp(24),
+                        fontSize = AdaptiveLayout.scaledSp(26),
                         fontWeight = FontWeight.Bold
                     ),
-                    color = MaterialTheme.colorScheme.onSurface
+                    color = InkText
                 )
             } else {
                 Text(
                     text = stringResource(R.string.welcome_back_no_name),
                     style = MaterialTheme.typography.headlineSmall.copy(
-                        fontSize = AdaptiveLayout.scaledSp(24),
+                        fontSize = AdaptiveLayout.scaledSp(26),
                         fontWeight = FontWeight.Bold
                     ),
-                    color = MaterialTheme.colorScheme.onSurface
+                    color = InkText
                 )
             }
         }
-        IconButton(onClick = onNotifications) {
+        Box(
+            modifier = Modifier
+                .size(44.dp)
+                .shadow(
+                    elevation = 6.dp,
+                    shape = CircleShape,
+                    ambientColor = Color.Black.copy(alpha = 0.06f),
+                    spotColor = Color.Black.copy(alpha = 0.06f)
+                )
+                .clip(CircleShape)
+                .background(MaterialTheme.colorScheme.surface)
+                .border(1.dp, SoftBorderColor, CircleShape)
+                .clickable(onClick = onNotifications),
+            contentAlignment = Alignment.Center
+        ) {
             Icon(
                 imageVector = Icons.Default.Notifications,
                 contentDescription = stringResource(R.string.notifications_title),
                 tint = BrandOrange,
-                modifier = Modifier.size(24.dp)
+                modifier = Modifier.size(22.dp)
             )
         }
     }
@@ -739,16 +761,25 @@ private fun QuickActionButton(
 
 @Composable
 private fun PendingTagCta(count: Int, onClick: () -> Unit) {
+    // 2026-05-25 redesign7-aligned: gradient fill + warm glow, mirrors
+    // iOS PetsListView's pending-tag CTA.
+    val shape = RoundedCornerShape(AppRadius.lg)
     Row(
         modifier = Modifier
             .fillMaxWidth()
             .padding(horizontal = 16.dp)
-            .clip(RoundedCornerShape(14.dp))
-            .background(BrandOrange)
+            .shadow(
+                elevation = 12.dp,
+                shape = shape,
+                ambientColor = BrandOrange.copy(alpha = 0.3f),
+                spotColor = BrandOrange.copy(alpha = 0.3f)
+            )
+            .clip(shape)
+            .background(brandGradient())
             .clickable { onClick() }
-            .padding(14.dp),
+            .padding(horizontal = 18.dp, vertical = 16.dp),
         verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.spacedBy(12.dp),
+        horizontalArrangement = Arrangement.spacedBy(14.dp),
     ) {
         Icon(
             imageVector = Icons.Default.QrCodeScanner,

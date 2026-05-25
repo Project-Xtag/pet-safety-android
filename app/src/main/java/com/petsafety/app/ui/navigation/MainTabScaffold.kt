@@ -15,11 +15,16 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
+import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.material3.NavigationRail
 import androidx.compose.material3.NavigationRailItem
+import androidx.compose.material3.NavigationRailItemDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.VerticalDivider
+import com.petsafety.app.ui.theme.BrandOrange
+import com.petsafety.app.ui.theme.CreamSurface
+import com.petsafety.app.ui.theme.InkText
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -173,10 +178,32 @@ fun MainTabScaffold(
         )
     }
 
+    // 2026-05-25 redesign7-aligned tab bar: cream wash for the bar
+    // itself, brand-orange pill indicator under the selected tab,
+    // ink-toned label/icon for the selection. Mirrors iOS
+    // ContentView.CustomTabBar.
+    val railColors = NavigationRailItemDefaults.colors(
+        selectedIconColor = InkText,
+        selectedTextColor = InkText,
+        unselectedIconColor = InkText.copy(alpha = 0.6f),
+        unselectedTextColor = InkText.copy(alpha = 0.6f),
+        indicatorColor = BrandOrange.copy(alpha = 0.18f)
+    )
+    val barColors = NavigationBarItemDefaults.colors(
+        selectedIconColor = InkText,
+        selectedTextColor = InkText,
+        unselectedIconColor = InkText.copy(alpha = 0.6f),
+        unselectedTextColor = InkText.copy(alpha = 0.6f),
+        indicatorColor = BrandOrange.copy(alpha = 0.18f)
+    )
+
     if (showRail) {
         // Tablet: NavigationRail on the left + content on the right
         Row(modifier = Modifier.fillMaxSize()) {
-            NavigationRail(modifier = Modifier.fillMaxHeight()) {
+            NavigationRail(
+                modifier = Modifier.fillMaxHeight(),
+                containerColor = CreamSurface
+            ) {
                 tabs.forEach { tab ->
                     NavigationRailItem(
                         selected = tab == selectedTab,
@@ -189,7 +216,8 @@ fun MainTabScaffold(
                                 maxLines = 1,
                                 overflow = TextOverflow.Ellipsis
                             )
-                        }
+                        },
+                        colors = railColors
                     )
                 }
             }
@@ -200,7 +228,7 @@ fun MainTabScaffold(
         // Phone: bottom navigation bar (existing layout)
         Scaffold(
             bottomBar = {
-                NavigationBar {
+                NavigationBar(containerColor = CreamSurface) {
                     tabs.forEach { tab ->
                         NavigationBarItem(
                             selected = tab == selectedTab,
@@ -213,7 +241,8 @@ fun MainTabScaffold(
                                     maxLines = 1,
                                     overflow = TextOverflow.Ellipsis
                                 )
-                            }
+                            },
+                            colors = barColors
                         )
                     }
                 }

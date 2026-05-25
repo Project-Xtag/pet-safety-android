@@ -103,8 +103,11 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.petsafety.app.R
 import com.petsafety.app.ui.a11y.markAsHeading
+import com.petsafety.app.ui.theme.AppRadius
 import com.petsafety.app.ui.theme.BrandOrange
+import com.petsafety.app.ui.theme.InkText
 import com.petsafety.app.ui.theme.PeachBackground
+import com.petsafety.app.ui.theme.SoftBorderColor
 import com.petsafety.app.ui.theme.TealAccent
 import com.petsafety.app.ui.util.AdaptiveLayout
 import com.petsafety.app.ui.viewmodel.AppStateViewModel
@@ -516,34 +519,45 @@ private fun ProfileMenuRow(
     title: String,
     onClick: () -> Unit
 ) {
+    // 2026-05-25 redesign7-aligned: tinted icon square + ink title.
+    // Mirrors iOS ProfileView circular bordered menu row.
+    val tintBg = BrandOrange.copy(alpha = 0.12f)
     Row(
         modifier = Modifier
             .fillMaxWidth()
             .clickable(onClick = onClick)
-            .padding(horizontal = 16.dp, vertical = 16.dp),
+            .padding(horizontal = 16.dp, vertical = 14.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        Icon(
-            imageVector = icon,
-            contentDescription = null,
-            modifier = Modifier.size(18.dp),
-            tint = MaterialTheme.colorScheme.onSurfaceVariant
-        )
-        Spacer(modifier = Modifier.width(16.dp))
+        Box(
+            modifier = Modifier
+                .size(36.dp)
+                .clip(RoundedCornerShape(AppRadius.md))
+                .background(tintBg),
+            contentAlignment = Alignment.Center
+        ) {
+            Icon(
+                imageVector = icon,
+                contentDescription = null,
+                modifier = Modifier.size(18.dp),
+                tint = BrandOrange
+            )
+        }
+        Spacer(modifier = Modifier.width(14.dp))
         Text(
             text = title,
             style = MaterialTheme.typography.bodyMedium.copy(
                 fontSize = AdaptiveLayout.scaledSp(15),
-                fontWeight = FontWeight.Medium
+                fontWeight = FontWeight.SemiBold
             ),
-            color = MaterialTheme.colorScheme.onSurface,
+            color = InkText,
             modifier = Modifier.weight(1f)
         )
         Icon(
             imageVector = Icons.Default.ChevronRight,
             contentDescription = null,
-            modifier = Modifier.size(14.dp),
-            tint = Color(0xFFC7C7CC)
+            modifier = Modifier.size(16.dp),
+            tint = InkText.copy(alpha = 0.4f)
         )
     }
 }

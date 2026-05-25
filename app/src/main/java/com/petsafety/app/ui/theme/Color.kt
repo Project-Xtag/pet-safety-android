@@ -21,6 +21,25 @@ import androidx.compose.ui.graphics.Color
 val BrandOrange = Color(0xFFFF914D)
 val BrandOrangeDark = Color(0xFFF5975B) // Slightly adjusted for dark mode visibility
 
+// Deeper brand orange — gradient stop paired with BrandOrange for the
+// redesign7-aligned CTAs. Matches iOS Colors.xcassets BrandColorDeep.
+val BrandOrangeDeep = Color(0xFFE5662C)
+val BrandOrangeDeepDark = Color(0xFFD05A24)
+
+// Warm cream surface for soft cards and section washes (matches
+// redesign7's stone-50/amber-50 surfaces; iOS Cream colorset).
+val Cream = Color(0xFFFBF7F1)
+val CreamDark = Color(0xFF24201C)
+
+// Soft ink — near-black text that reads warmer than pure systemLabel.
+// iOS Ink colorset.
+val Ink = Color(0xFF1A1410)
+val InkDark = Color(0xFFEDE6DD)
+
+// Hairline border around soft cards / pills (matches iOS SoftBorder).
+val SoftBorder = Color(0x141A1410)        // ~8% Ink
+val SoftBorderDark = Color(0x33EDE6DD)    // ~20% InkDark
+
 // Secondary Accent (Teal) - for links, focus rings, nav
 val TealAccent = Color(0xFF4DB8C4)
 
