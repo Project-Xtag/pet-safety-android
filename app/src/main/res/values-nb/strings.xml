@@ -1469,4 +1469,90 @@
 
 
 
+
+    <!-- 2026-05-25 cross-locale parity backfill -->
+    <string name="common_cancel">Avbryt</string>
+    <string name="common_done">Ferdig</string>
+    <string name="found_pet_detail_address">Sted</string>
+    <string name="found_pet_detail_breed">Rase</string>
+    <string name="found_pet_detail_color">Farge</string>
+    <string name="found_pet_detail_distance">Avstand</string>
+    <string name="found_pet_detail_finder_contact">Kontaktinfo til finner</string>
+    <string name="found_pet_detail_finder_email">E-post</string>
+    <string name="found_pet_detail_finder_name">Navn</string>
+    <string name="found_pet_detail_finder_phone">Telefon</string>
+    <string name="found_pet_detail_found_at">Funnet</string>
+    <string name="found_pet_detail_no_contact">Finneren har ikke delt kontaktinfo ennå.</string>
+    <string name="found_pet_detail_open_in_maps">Åpne i kart</string>
+    <string name="found_pet_detail_title">Funnet kjæledyr</string>
+    <string name="found_pet_form_add_photo">Legg til bilde</string>
+    <string name="found_pet_form_address_placeholder">Eller skriv inn adressen</string>
+    <string name="found_pet_form_breed_placeholder">Rase (f.eks. dachshundblanding)</string>
+    <string name="found_pet_form_change_photo">Bytt bilde</string>
+    <string name="found_pet_form_color_placeholder">Farge (f.eks. brun med hvit bryst)</string>
+    <string name="found_pet_form_coming_soon">Skjemaet for å melde inn funnet kjæledyr kommer i neste oppdatering.</string>
+    <string name="found_pet_form_contact">Din kontaktinfo (valgfritt)</string>
+    <string name="found_pet_form_description_placeholder">Beskrivelse</string>
+    <string name="found_pet_form_details">Detaljer</string>
+    <string name="found_pet_form_email_placeholder">E-post</string>
+    <string name="found_pet_form_found_at">Når fant du det?</string>
+    <string name="found_pet_form_location">Hvor fant du det?</string>
+    <string name="found_pet_form_location_hint">GPS eller adresse er påkrevd.</string>
+    <string name="found_pet_form_name_placeholder">Navnet ditt</string>
+    <string name="found_pet_form_phone_placeholder">Telefon</string>
+    <string name="found_pet_form_photo">Bilde (valgfritt)</string>
+    <string name="found_pet_form_photo_hint">Et bilde gjør det mye lettere for eieren å kjenne igjen kjæledyret sitt.</string>
+    <string name="found_pet_form_remove_photo">Fjern bilde</string>
+    <string name="found_pet_form_sex">Kjønn</string>
+    <string name="found_pet_form_sex_female">Hunn</string>
+    <string name="found_pet_form_sex_male">Hann</string>
+    <string name="found_pet_form_sex_unknown">Vet ikke</string>
+    <string name="found_pet_form_share_contact">Del kontaktinfoen min</string>
+    <string name="found_pet_form_species">Art</string>
+    <string name="found_pet_form_submit">Send inn</string>
+    <string name="found_pet_form_title">Meld inn funnet kjæledyr</string>
+    <string name="found_pet_form_use_gps">Bruk min posisjon</string>
+    <string name="found_pet_form_validation_evidence">Legg til et bilde eller en kort beskrivelse, så eieren kan kjenne igjen kjæledyret.</string>
+    <string name="found_pet_form_validation_location">Trykk på \"Bruk min posisjon\", eller skriv inn en adresse.</string>
+    <string name="found_pet_unknown_breed">Ukjent rase</string>
+    <string name="lost_and_found_cta_body">Legg det ut her, så det kan komme seg hjem raskere.</string>
+    <string name="lost_and_found_cta_title">Funnet et herreløst kjæledyr?</string>
+    <string name="lost_and_found_description">Savnede og funnede kjæledyr i området ditt, og dine egne savnetvarsler.</string>
+    <string name="lost_and_found_eyebrow">Varsler</string>
+    <string name="lost_and_found_filter_species_label">Art</string>
+    <string name="lost_and_found_filter_status_label">Status</string>
+    <string name="lost_and_found_legend_radius">%1$d km radius</string>
+    <string name="lost_and_found_search_placeholder">Søk etter navn, rase eller sted…</string>
+    <string name="lost_and_found_species_all">Alle</string>
+    <string name="lost_and_found_species_cat">Katter</string>
+    <string name="lost_and_found_species_cat_singular">Katt</string>
+    <string name="lost_and_found_species_dog">Hunder</string>
+    <string name="lost_and_found_species_dog_singular">Hund</string>
+    <string name="lost_and_found_species_other_singular">Annet</string>
+    <string name="lost_and_found_status_all">Alle</string>
+    <string name="lost_and_found_status_community">Funnet kjæledyr</string>
+    <string name="lost_and_found_status_missing">Savnet</string>
+    <string name="lost_and_found_title">Varsler</string>
+    <string name="lost_and_found_unknown_pet">Savnet kjæledyr</string>
+    <string name="lost_and_found_view_list">Liste</string>
+    <string name="lost_and_found_view_map">Kart</string>
+    <string name="map_google_maps">Google Maps</string>
+    <string name="map_open_in">Åpne i:</string>
+    <string name="map_waze">Waze</string>
+    <string name="my_pets_pending_tag_cta_title">Aktiver merket ditt</string>
+    <string name="plan_standard_display_name">Kjæledyrpakke</string>
+    <string name="plan_starter_display_name">Startpakke</string>
+    <string name="pricing_tag_card_feature_1">Lett merke i stål</string>
+    <string name="pricing_tag_card_feature_2">Slitesterkt og værbestandig</string>
+    <string name="pricing_tag_card_feature_3">Leses med smarttelefon, ingen app-nedlasting nødvendig</string>
+    <string name="pricing_tag_card_feature_4">Inneholder ikke batteri</string>
+    <string name="pricing_tag_card_price">0 kr</string>
+    <string name="pricing_tag_card_price_subtitle">du betaler kun for frakt*</string>
+    <string name="pricing_tag_card_title">Merket</string>
+
+    <!-- 2026-05-25 plurals parity backfill -->
+    <plurals name="my_pets_pending_tag_cta_subtitle">
+        <item quantity="one">%d merke venter på aktivering</item>
+        <item quantity="other">%d merker venter på aktivering</item>
+    </plurals>
 </resources>

@@ -1476,4 +1476,90 @@
 
 
 
+
+    <!-- 2026-05-25 cross-locale parity backfill -->
+    <string name="common_cancel">Abbrechen</string>
+    <string name="common_done">Fertig</string>
+    <string name="found_pet_detail_address">Ort</string>
+    <string name="found_pet_detail_breed">Rasse</string>
+    <string name="found_pet_detail_color">Farbe</string>
+    <string name="found_pet_detail_distance">Entfernung</string>
+    <string name="found_pet_detail_finder_contact">Kontakt des Finders</string>
+    <string name="found_pet_detail_finder_email">E-Mail</string>
+    <string name="found_pet_detail_finder_name">Name</string>
+    <string name="found_pet_detail_finder_phone">Telefon</string>
+    <string name="found_pet_detail_found_at">Gefunden</string>
+    <string name="found_pet_detail_no_contact">Der Finder hat noch keine Kontaktdaten angegeben.</string>
+    <string name="found_pet_detail_open_in_maps">In Karten öffnen</string>
+    <string name="found_pet_detail_title">Gefundenes Haustier</string>
+    <string name="found_pet_form_add_photo">Foto hinzufügen</string>
+    <string name="found_pet_form_address_placeholder">Oder gib die Adresse ein</string>
+    <string name="found_pet_form_breed_placeholder">Rasse (z. B. Dackelmischling)</string>
+    <string name="found_pet_form_change_photo">Foto ändern</string>
+    <string name="found_pet_form_color_placeholder">Farbe (z. B. braun mit weißer Brust)</string>
+    <string name="found_pet_form_coming_soon">Das Meldeformular für gefundene Haustiere kommt im nächsten Update.</string>
+    <string name="found_pet_form_contact">Deine Kontaktdaten (optional)</string>
+    <string name="found_pet_form_description_placeholder">Beschreibung</string>
+    <string name="found_pet_form_details">Details</string>
+    <string name="found_pet_form_email_placeholder">E-Mail</string>
+    <string name="found_pet_form_found_at">Wann hast du es gefunden?</string>
+    <string name="found_pet_form_location">Wo hast du es gefunden?</string>
+    <string name="found_pet_form_location_hint">GPS oder eine Adresse ist erforderlich.</string>
+    <string name="found_pet_form_name_placeholder">Dein Name</string>
+    <string name="found_pet_form_phone_placeholder">Telefon</string>
+    <string name="found_pet_form_photo">Foto (optional)</string>
+    <string name="found_pet_form_photo_hint">Mit einem Foto kann der Besitzer sein Haustier viel leichter erkennen.</string>
+    <string name="found_pet_form_remove_photo">Foto entfernen</string>
+    <string name="found_pet_form_sex">Geschlecht</string>
+    <string name="found_pet_form_sex_female">Weiblich</string>
+    <string name="found_pet_form_sex_male">Männlich</string>
+    <string name="found_pet_form_sex_unknown">Weiß nicht</string>
+    <string name="found_pet_form_share_contact">Meine Kontaktdaten teilen</string>
+    <string name="found_pet_form_species">Tierart</string>
+    <string name="found_pet_form_submit">Absenden</string>
+    <string name="found_pet_form_title">Gefundenes Haustier melden</string>
+    <string name="found_pet_form_use_gps">Meinen Standort verwenden</string>
+    <string name="found_pet_form_validation_evidence">Füge ein Foto oder eine kurze Beschreibung hinzu, damit der Besitzer das Haustier erkennen kann.</string>
+    <string name="found_pet_form_validation_location">Tippe auf „Meinen Standort verwenden" oder gib eine Adresse ein.</string>
+    <string name="found_pet_unknown_breed">Unbekannte Rasse</string>
+    <string name="lost_and_found_cta_body">Melde es hier, damit es schneller nach Hause findet.</string>
+    <string name="lost_and_found_cta_title">Hast du ein streunendes Haustier gefunden?</string>
+    <string name="lost_and_found_description">Vermisste und gefundene Haustiere in deiner Umgebung und deine eigenen Vermisstmeldungen.</string>
+    <string name="lost_and_found_eyebrow">Meldungen</string>
+    <string name="lost_and_found_filter_species_label">Tierart</string>
+    <string name="lost_and_found_filter_status_label">Status</string>
+    <string name="lost_and_found_legend_radius">Umkreis von %1$d km</string>
+    <string name="lost_and_found_search_placeholder">Suche nach Name, Rasse oder Ort…</string>
+    <string name="lost_and_found_species_all">Alle</string>
+    <string name="lost_and_found_species_cat">Katzen</string>
+    <string name="lost_and_found_species_cat_singular">Katze</string>
+    <string name="lost_and_found_species_dog">Hunde</string>
+    <string name="lost_and_found_species_dog_singular">Hund</string>
+    <string name="lost_and_found_species_other_singular">Sonstige</string>
+    <string name="lost_and_found_status_all">Alle</string>
+    <string name="lost_and_found_status_community">Gefundenes Haustier</string>
+    <string name="lost_and_found_status_missing">Vermisst</string>
+    <string name="lost_and_found_title">Meldungen</string>
+    <string name="lost_and_found_unknown_pet">Vermisstes Haustier</string>
+    <string name="lost_and_found_view_list">Liste</string>
+    <string name="lost_and_found_view_map">Karte</string>
+    <string name="map_google_maps">Google Maps</string>
+    <string name="map_open_in">Öffnen mit:</string>
+    <string name="map_waze">Waze</string>
+    <string name="my_pets_pending_tag_cta_title">Aktiviere deine Marke</string>
+    <string name="plan_standard_display_name">Haustier-Paket</string>
+    <string name="plan_starter_display_name">Starter-Paket</string>
+    <string name="pricing_tag_card_feature_1">Leichte Marke aus Stahl</string>
+    <string name="pricing_tag_card_feature_2">Langlebig, wetterfest</string>
+    <string name="pricing_tag_card_feature_3">Mit dem Smartphone lesbar, kein App-Download nötig</string>
+    <string name="pricing_tag_card_feature_4">Keine Batterie enthalten</string>
+    <string name="pricing_tag_card_price">0 €</string>
+    <string name="pricing_tag_card_price_subtitle">du zahlst nur den Versand*</string>
+    <string name="pricing_tag_card_title">Die Marke</string>
+
+    <!-- 2026-05-25 plurals parity backfill -->
+    <plurals name="my_pets_pending_tag_cta_subtitle">
+        <item quantity="one">%d Marke wartet auf Aktivierung</item>
+        <item quantity="other">%d Marken warten auf Aktivierung</item>
+    </plurals>
 </resources>

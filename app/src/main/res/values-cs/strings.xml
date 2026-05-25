@@ -1484,4 +1484,90 @@
 
 
 
+
+    <!-- 2026-05-25 cross-locale parity backfill -->
+    <string name="common_cancel">Zrušit</string>
+    <string name="common_done">Hotovo</string>
+    <string name="found_pet_detail_address">Místo</string>
+    <string name="found_pet_detail_breed">Plemeno</string>
+    <string name="found_pet_detail_color">Barva</string>
+    <string name="found_pet_detail_distance">Vzdálenost</string>
+    <string name="found_pet_detail_finder_contact">Kontakt na nálezce</string>
+    <string name="found_pet_detail_finder_email">E-mail</string>
+    <string name="found_pet_detail_finder_name">Jméno</string>
+    <string name="found_pet_detail_finder_phone">Telefon</string>
+    <string name="found_pet_detail_found_at">Nalezeno</string>
+    <string name="found_pet_detail_no_contact">Nálezce zatím neuvedl žádný kontakt.</string>
+    <string name="found_pet_detail_open_in_maps">Otevřít v mapách</string>
+    <string name="found_pet_detail_title">Nalezený mazlíček</string>
+    <string name="found_pet_form_add_photo">Přidat fotku</string>
+    <string name="found_pet_form_address_placeholder">Nebo zadej adresu</string>
+    <string name="found_pet_form_breed_placeholder">Plemeno (např. jezevčík kříženec)</string>
+    <string name="found_pet_form_change_photo">Změnit fotku</string>
+    <string name="found_pet_form_color_placeholder">Barva (např. hnědá s bílou náprsenkou)</string>
+    <string name="found_pet_form_coming_soon">Formulář pro nahlášení nalezeného mazlíčka bude k dispozici v příští aktualizaci.</string>
+    <string name="found_pet_form_contact">Tvůj kontakt (nepovinné)</string>
+    <string name="found_pet_form_description_placeholder">Popis</string>
+    <string name="found_pet_form_details">Podrobnosti</string>
+    <string name="found_pet_form_email_placeholder">E-mail</string>
+    <string name="found_pet_form_found_at">Kdy jsi ho našel?</string>
+    <string name="found_pet_form_location">Kde jsi ho našel?</string>
+    <string name="found_pet_form_location_hint">Je potřeba zadat GPS nebo adresu.</string>
+    <string name="found_pet_form_name_placeholder">Tvoje jméno</string>
+    <string name="found_pet_form_phone_placeholder">Telefon</string>
+    <string name="found_pet_form_photo">Fotka (nepovinné)</string>
+    <string name="found_pet_form_photo_hint">S fotkou majitel mnohem snáz pozná svého mazlíčka.</string>
+    <string name="found_pet_form_remove_photo">Odstranit fotku</string>
+    <string name="found_pet_form_sex">Pohlaví</string>
+    <string name="found_pet_form_sex_female">Samice</string>
+    <string name="found_pet_form_sex_male">Samec</string>
+    <string name="found_pet_form_sex_unknown">Nevím</string>
+    <string name="found_pet_form_share_contact">Sdílet mé kontaktní údaje</string>
+    <string name="found_pet_form_species">Druh</string>
+    <string name="found_pet_form_submit">Odeslat</string>
+    <string name="found_pet_form_title">Nahlásit nalezeného mazlíčka</string>
+    <string name="found_pet_form_use_gps">Použít moji polohu</string>
+    <string name="found_pet_form_validation_evidence">Přidej fotku nebo krátký popis, aby majitel mohl mazlíčka poznat.</string>
+    <string name="found_pet_form_validation_location">Klepni na „Použít moji polohu", nebo zadej adresu.</string>
+    <string name="found_pet_unknown_breed">Neznámé plemeno</string>
+    <string name="lost_and_found_cta_body">Nahlas ho tady, ať se může co nejdřív vrátit domů.</string>
+    <string name="lost_and_found_cta_title">Našel jsi zatoulaného mazlíčka?</string>
+    <string name="lost_and_found_description">Pohřešovaní a nalezení mazlíčci ve tvém okolí a tvá vlastní hlášení pohřešovaných.</string>
+    <string name="lost_and_found_eyebrow">Upozornění</string>
+    <string name="lost_and_found_filter_species_label">Druh</string>
+    <string name="lost_and_found_filter_status_label">Stav</string>
+    <string name="lost_and_found_legend_radius">okruh %1$d km</string>
+    <string name="lost_and_found_search_placeholder">Hledat podle jména, plemene nebo místa…</string>
+    <string name="lost_and_found_species_all">Vše</string>
+    <string name="lost_and_found_species_cat">Kočky</string>
+    <string name="lost_and_found_species_cat_singular">Kočka</string>
+    <string name="lost_and_found_species_dog">Psi</string>
+    <string name="lost_and_found_species_dog_singular">Pes</string>
+    <string name="lost_and_found_species_other_singular">Jiné</string>
+    <string name="lost_and_found_status_all">Vše</string>
+    <string name="lost_and_found_status_community">Nalezený mazlíček</string>
+    <string name="lost_and_found_status_missing">Pohřešovaný</string>
+    <string name="lost_and_found_title">Upozornění</string>
+    <string name="lost_and_found_unknown_pet">Pohřešovaný mazlíček</string>
+    <string name="lost_and_found_view_list">Seznam</string>
+    <string name="lost_and_found_view_map">Mapa</string>
+    <string name="map_google_maps">Google Maps</string>
+    <string name="map_open_in">Otevřít v:</string>
+    <string name="map_waze">Waze</string>
+    <string name="my_pets_pending_tag_cta_title">Aktivuj svou známku</string>
+    <string name="plan_standard_display_name">Balíček pro mazlíčka</string>
+    <string name="plan_starter_display_name">Startovací balíček</string>
+    <string name="pricing_tag_card_feature_1">Lehká ocelová známka</string>
+    <string name="pricing_tag_card_feature_2">Odolná, odolává počasí</string>
+    <string name="pricing_tag_card_feature_3">Načtení smartphonem, není potřeba stahovat aplikaci</string>
+    <string name="pricing_tag_card_feature_4">Bez baterie uvnitř</string>
+    <string name="pricing_tag_card_price">0 Kč</string>
+    <string name="pricing_tag_card_price_subtitle">platíš jen za doručení*</string>
+    <string name="pricing_tag_card_title">Známka</string>
+
+    <!-- 2026-05-25 plurals parity backfill -->
+    <plurals name="my_pets_pending_tag_cta_subtitle">
+        <item quantity="one">%d známka čeká na aktivaci</item>
+        <item quantity="other">%d známek čeká na aktivaci</item>
+    </plurals>
 </resources>

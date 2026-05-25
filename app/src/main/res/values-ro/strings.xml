@@ -1476,4 +1476,90 @@
 
 
 
+
+    <!-- 2026-05-25 cross-locale parity backfill -->
+    <string name="common_cancel">Anulează</string>
+    <string name="common_done">Gata</string>
+    <string name="found_pet_detail_address">Locație</string>
+    <string name="found_pet_detail_breed">Rasă</string>
+    <string name="found_pet_detail_color">Culoare</string>
+    <string name="found_pet_detail_distance">Distanță</string>
+    <string name="found_pet_detail_finder_contact">Contactul găsitorului</string>
+    <string name="found_pet_detail_finder_email">Email</string>
+    <string name="found_pet_detail_finder_name">Nume</string>
+    <string name="found_pet_detail_finder_phone">Telefon</string>
+    <string name="found_pet_detail_found_at">Găsit</string>
+    <string name="found_pet_detail_no_contact">Găsitorul nu a împărtășit încă un contact.</string>
+    <string name="found_pet_detail_open_in_maps">Deschide pe hartă</string>
+    <string name="found_pet_detail_title">Animal găsit</string>
+    <string name="found_pet_form_add_photo">Adaugă o fotografie</string>
+    <string name="found_pet_form_address_placeholder">Sau scrie adresa</string>
+    <string name="found_pet_form_breed_placeholder">Rasă (ex. teckel mix)</string>
+    <string name="found_pet_form_change_photo">Schimbă fotografia</string>
+    <string name="found_pet_form_color_placeholder">Culoare (ex. maro cu pieptul alb)</string>
+    <string name="found_pet_form_coming_soon">Formularul de raportare a animalelor găsite va fi disponibil în următoarea actualizare.</string>
+    <string name="found_pet_form_contact">Contactul tău (opțional)</string>
+    <string name="found_pet_form_description_placeholder">Descriere</string>
+    <string name="found_pet_form_details">Detalii</string>
+    <string name="found_pet_form_email_placeholder">Email</string>
+    <string name="found_pet_form_found_at">Când l-ai găsit?</string>
+    <string name="found_pet_form_location">Unde l-ai găsit?</string>
+    <string name="found_pet_form_location_hint">Este necesar GPS-ul sau o adresă.</string>
+    <string name="found_pet_form_name_placeholder">Numele tău</string>
+    <string name="found_pet_form_phone_placeholder">Telefon</string>
+    <string name="found_pet_form_photo">Fotografie (opțional)</string>
+    <string name="found_pet_form_photo_hint">O fotografie face mult mai ușor pentru proprietar să-și recunoască animalul de companie.</string>
+    <string name="found_pet_form_remove_photo">Elimină fotografia</string>
+    <string name="found_pet_form_sex">Sex</string>
+    <string name="found_pet_form_sex_female">Femelă</string>
+    <string name="found_pet_form_sex_male">Mascul</string>
+    <string name="found_pet_form_sex_unknown">Nu știu</string>
+    <string name="found_pet_form_share_contact">Împărtășesc datele mele de contact</string>
+    <string name="found_pet_form_species">Specie</string>
+    <string name="found_pet_form_submit">Trimite</string>
+    <string name="found_pet_form_title">Raportează un animal găsit</string>
+    <string name="found_pet_form_use_gps">Folosește locația mea</string>
+    <string name="found_pet_form_validation_evidence">Adaugă o fotografie sau o scurtă descriere, ca proprietarul să-și poată recunoaște animăluțul.</string>
+    <string name="found_pet_form_validation_location">Atinge „Folosește locația mea" sau scrie o adresă.</string>
+    <string name="found_pet_unknown_breed">Rasă necunoscută</string>
+    <string name="lost_and_found_cta_body">Postează-l aici ca să poată ajunge mai repede acasă.</string>
+    <string name="lost_and_found_cta_title">Ai găsit un animal rătăcit?</string>
+    <string name="lost_and_found_description">Animale dispărute și găsite din zona ta, precum și propriile tale alerte de animal dispărut.</string>
+    <string name="lost_and_found_eyebrow">Alerte</string>
+    <string name="lost_and_found_filter_species_label">Specie</string>
+    <string name="lost_and_found_filter_status_label">Stare</string>
+    <string name="lost_and_found_legend_radius">Rază de %1$d km</string>
+    <string name="lost_and_found_search_placeholder">Caută după nume, rasă sau locație…</string>
+    <string name="lost_and_found_species_all">Toate</string>
+    <string name="lost_and_found_species_cat">Pisici</string>
+    <string name="lost_and_found_species_cat_singular">Pisică</string>
+    <string name="lost_and_found_species_dog">Câini</string>
+    <string name="lost_and_found_species_dog_singular">Câine</string>
+    <string name="lost_and_found_species_other_singular">Altele</string>
+    <string name="lost_and_found_status_all">Toate</string>
+    <string name="lost_and_found_status_community">Animal găsit</string>
+    <string name="lost_and_found_status_missing">Dispărut</string>
+    <string name="lost_and_found_title">Alerte</string>
+    <string name="lost_and_found_unknown_pet">Animal dispărut</string>
+    <string name="lost_and_found_view_list">Listă</string>
+    <string name="lost_and_found_view_map">Hartă</string>
+    <string name="map_google_maps">Google Maps</string>
+    <string name="map_open_in">Deschide în:</string>
+    <string name="map_waze">Waze</string>
+    <string name="my_pets_pending_tag_cta_title">Activează-ți medalionul</string>
+    <string name="plan_standard_display_name">Pachet animăluț</string>
+    <string name="plan_starter_display_name">Pachet de start</string>
+    <string name="pricing_tag_card_feature_1">Medalion ușor, din oțel</string>
+    <string name="pricing_tag_card_feature_2">Rezistent, suportă intemperiile</string>
+    <string name="pricing_tag_card_feature_3">Poate fi citit cu un smartphone, fără descărcarea unei aplicații</string>
+    <string name="pricing_tag_card_feature_4">Fără baterie în interior</string>
+    <string name="pricing_tag_card_price">0 lei</string>
+    <string name="pricing_tag_card_price_subtitle">plătești doar livrarea*</string>
+    <string name="pricing_tag_card_title">Medalionul</string>
+
+    <!-- 2026-05-25 plurals parity backfill -->
+    <plurals name="my_pets_pending_tag_cta_subtitle">
+        <item quantity="one">%d medalion așteaptă activare</item>
+        <item quantity="other">%d medalioane așteaptă activare</item>
+    </plurals>
 </resources>

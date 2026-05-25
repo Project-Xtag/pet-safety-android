@@ -1470,4 +1470,90 @@
 
 
 
+
+    <!-- 2026-05-25 cross-locale parity backfill -->
+    <string name="common_cancel">Annulla</string>
+    <string name="common_done">Fatto</string>
+    <string name="found_pet_detail_address">Posizione</string>
+    <string name="found_pet_detail_breed">Razza</string>
+    <string name="found_pet_detail_color">Colore</string>
+    <string name="found_pet_detail_distance">Distanza</string>
+    <string name="found_pet_detail_finder_contact">Contatti di chi l\'ha trovato</string>
+    <string name="found_pet_detail_finder_email">Email</string>
+    <string name="found_pet_detail_finder_name">Nome</string>
+    <string name="found_pet_detail_finder_phone">Telefono</string>
+    <string name="found_pet_detail_found_at">Trovato</string>
+    <string name="found_pet_detail_no_contact">Chi l\'ha trovato non ha ancora condiviso i suoi contatti.</string>
+    <string name="found_pet_detail_open_in_maps">Apri nelle mappe</string>
+    <string name="found_pet_detail_title">Animale trovato</string>
+    <string name="found_pet_form_add_photo">Aggiungi foto</string>
+    <string name="found_pet_form_address_placeholder">Oppure scrivi l\'indirizzo</string>
+    <string name="found_pet_form_breed_placeholder">Razza (es. bassotto meticcio)</string>
+    <string name="found_pet_form_change_photo">Cambia foto</string>
+    <string name="found_pet_form_color_placeholder">Colore (es. marrone con petto bianco)</string>
+    <string name="found_pet_form_coming_soon">Il modulo per segnalare un animale trovato arriverà nel prossimo aggiornamento.</string>
+    <string name="found_pet_form_contact">I tuoi contatti (facoltativo)</string>
+    <string name="found_pet_form_description_placeholder">Descrizione</string>
+    <string name="found_pet_form_details">Dettagli</string>
+    <string name="found_pet_form_email_placeholder">Email</string>
+    <string name="found_pet_form_found_at">Quando l\'hai trovato?</string>
+    <string name="found_pet_form_location">Dove l\'hai trovato?</string>
+    <string name="found_pet_form_location_hint">È necessario indicare il GPS o un indirizzo.</string>
+    <string name="found_pet_form_name_placeholder">Il tuo nome</string>
+    <string name="found_pet_form_phone_placeholder">Telefono</string>
+    <string name="found_pet_form_photo">Foto (facoltativa)</string>
+    <string name="found_pet_form_photo_hint">Con una foto è molto più facile per il proprietario riconoscere il suo animale.</string>
+    <string name="found_pet_form_remove_photo">Rimuovi foto</string>
+    <string name="found_pet_form_sex">Sesso</string>
+    <string name="found_pet_form_sex_female">Femmina</string>
+    <string name="found_pet_form_sex_male">Maschio</string>
+    <string name="found_pet_form_sex_unknown">Non lo so</string>
+    <string name="found_pet_form_share_contact">Condividi i miei contatti</string>
+    <string name="found_pet_form_species">Specie</string>
+    <string name="found_pet_form_submit">Invia</string>
+    <string name="found_pet_form_title">Segnala un animale trovato</string>
+    <string name="found_pet_form_use_gps">Usa la mia posizione</string>
+    <string name="found_pet_form_validation_evidence">Aggiungi una foto o una breve descrizione, così il proprietario potrà riconoscere il suo animale.</string>
+    <string name="found_pet_form_validation_location">Tocca „Usa la mia posizione" o scrivi un indirizzo.</string>
+    <string name="found_pet_unknown_breed">Razza sconosciuta</string>
+    <string name="lost_and_found_cta_body">Pubblicalo qui, così potrà tornare a casa il prima possibile.</string>
+    <string name="lost_and_found_cta_title">Hai trovato un animale randagio?</string>
+    <string name="lost_and_found_description">Animali smarriti e trovati nella tua zona, e i tuoi avvisi di animali smarriti.</string>
+    <string name="lost_and_found_eyebrow">Avvisi</string>
+    <string name="lost_and_found_filter_species_label">Specie</string>
+    <string name="lost_and_found_filter_status_label">Stato</string>
+    <string name="lost_and_found_legend_radius">Raggio di %1$d km</string>
+    <string name="lost_and_found_search_placeholder">Cerca per nome, razza o posizione…</string>
+    <string name="lost_and_found_species_all">Tutti</string>
+    <string name="lost_and_found_species_cat">Gatti</string>
+    <string name="lost_and_found_species_cat_singular">Gatto</string>
+    <string name="lost_and_found_species_dog">Cani</string>
+    <string name="lost_and_found_species_dog_singular">Cane</string>
+    <string name="lost_and_found_species_other_singular">Altro</string>
+    <string name="lost_and_found_status_all">Tutti</string>
+    <string name="lost_and_found_status_community">Animale trovato</string>
+    <string name="lost_and_found_status_missing">Smarrito</string>
+    <string name="lost_and_found_title">Avvisi</string>
+    <string name="lost_and_found_unknown_pet">Animale smarrito</string>
+    <string name="lost_and_found_view_list">Elenco</string>
+    <string name="lost_and_found_view_map">Mappa</string>
+    <string name="map_google_maps">Google Maps</string>
+    <string name="map_open_in">Apri con:</string>
+    <string name="map_waze">Waze</string>
+    <string name="my_pets_pending_tag_cta_title">Attiva la tua medaglietta</string>
+    <string name="plan_standard_display_name">Pacchetto Pet</string>
+    <string name="plan_starter_display_name">Pacchetto base</string>
+    <string name="pricing_tag_card_feature_1">Medaglietta leggera in acciaio</string>
+    <string name="pricing_tag_card_feature_2">Resistente e impermeabile</string>
+    <string name="pricing_tag_card_feature_3">Leggibile con uno smartphone, senza scaricare alcuna app</string>
+    <string name="pricing_tag_card_feature_4">Senza batteria all\'interno</string>
+    <string name="pricing_tag_card_price">€0</string>
+    <string name="pricing_tag_card_price_subtitle">paghi solo la spedizione*</string>
+    <string name="pricing_tag_card_title">La Medaglietta</string>
+
+    <!-- 2026-05-25 plurals parity backfill -->
+    <plurals name="my_pets_pending_tag_cta_subtitle">
+        <item quantity="one">%d medaglietta pronta da attivare</item>
+        <item quantity="other">%d medagliette pronte da attivare</item>
+    </plurals>
 </resources>

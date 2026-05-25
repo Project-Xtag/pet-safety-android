@@ -1475,4 +1475,90 @@
 
 
 
+
+    <!-- 2026-05-25 cross-locale parity backfill -->
+    <string name="common_cancel">Cancelar</string>
+    <string name="common_done">Hecho</string>
+    <string name="found_pet_detail_address">Ubicación</string>
+    <string name="found_pet_detail_breed">Raza</string>
+    <string name="found_pet_detail_color">Color</string>
+    <string name="found_pet_detail_distance">Distancia</string>
+    <string name="found_pet_detail_finder_contact">Contacto de quien la encontró</string>
+    <string name="found_pet_detail_finder_email">Correo</string>
+    <string name="found_pet_detail_finder_name">Nombre</string>
+    <string name="found_pet_detail_finder_phone">Teléfono</string>
+    <string name="found_pet_detail_found_at">Encontrada</string>
+    <string name="found_pet_detail_no_contact">Quien la encontró aún no ha compartido su contacto.</string>
+    <string name="found_pet_detail_open_in_maps">Abrir en mapas</string>
+    <string name="found_pet_detail_title">Mascota encontrada</string>
+    <string name="found_pet_form_add_photo">Añadir foto</string>
+    <string name="found_pet_form_address_placeholder">O escribe la dirección</string>
+    <string name="found_pet_form_breed_placeholder">Raza (p. ej. mestizo de teckel)</string>
+    <string name="found_pet_form_change_photo">Cambiar foto</string>
+    <string name="found_pet_form_color_placeholder">Color (p. ej. marrón con pecho blanco)</string>
+    <string name="found_pet_form_coming_soon">El formulario para reportar mascotas encontradas llegará en la próxima actualización.</string>
+    <string name="found_pet_form_contact">Tu contacto (opcional)</string>
+    <string name="found_pet_form_description_placeholder">Descripción</string>
+    <string name="found_pet_form_details">Detalles</string>
+    <string name="found_pet_form_email_placeholder">Correo</string>
+    <string name="found_pet_form_found_at">¿Cuándo la encontraste?</string>
+    <string name="found_pet_form_location">¿Dónde la encontraste?</string>
+    <string name="found_pet_form_location_hint">Se necesita el GPS o una dirección.</string>
+    <string name="found_pet_form_name_placeholder">Tu nombre</string>
+    <string name="found_pet_form_phone_placeholder">Teléfono</string>
+    <string name="found_pet_form_photo">Foto (opcional)</string>
+    <string name="found_pet_form_photo_hint">Con una foto será mucho más fácil que el dueño reconozca a su mascota.</string>
+    <string name="found_pet_form_remove_photo">Quitar foto</string>
+    <string name="found_pet_form_sex">Sexo</string>
+    <string name="found_pet_form_sex_female">Hembra</string>
+    <string name="found_pet_form_sex_male">Macho</string>
+    <string name="found_pet_form_sex_unknown">No lo sé</string>
+    <string name="found_pet_form_share_contact">Compartir mis datos de contacto</string>
+    <string name="found_pet_form_species">Especie</string>
+    <string name="found_pet_form_submit">Enviar</string>
+    <string name="found_pet_form_title">Reportar una mascota encontrada</string>
+    <string name="found_pet_form_use_gps">Usar mi ubicación</string>
+    <string name="found_pet_form_validation_evidence">Añade una foto o una breve descripción para que el dueño pueda reconocer a la mascota.</string>
+    <string name="found_pet_form_validation_location">Pulsa «Usar mi ubicación» o escribe una dirección.</string>
+    <string name="found_pet_unknown_breed">Raza desconocida</string>
+    <string name="lost_and_found_cta_body">Publícala aquí para que pueda volver a casa cuanto antes.</string>
+    <string name="lost_and_found_cta_title">¿Has encontrado una mascota perdida?</string>
+    <string name="lost_and_found_description">Mascotas perdidas y encontradas en tu zona, y tus propias alertas de mascotas desaparecidas.</string>
+    <string name="lost_and_found_eyebrow">Alertas</string>
+    <string name="lost_and_found_filter_species_label">Especie</string>
+    <string name="lost_and_found_filter_status_label">Estado</string>
+    <string name="lost_and_found_legend_radius">Radio de %1$d km</string>
+    <string name="lost_and_found_search_placeholder">Buscar por nombre, raza o ubicación…</string>
+    <string name="lost_and_found_species_all">Todas</string>
+    <string name="lost_and_found_species_cat">Gatos</string>
+    <string name="lost_and_found_species_cat_singular">Gato</string>
+    <string name="lost_and_found_species_dog">Perros</string>
+    <string name="lost_and_found_species_dog_singular">Perro</string>
+    <string name="lost_and_found_species_other_singular">Otro</string>
+    <string name="lost_and_found_status_all">Todas</string>
+    <string name="lost_and_found_status_community">Mascota encontrada</string>
+    <string name="lost_and_found_status_missing">Desaparecida</string>
+    <string name="lost_and_found_title">Alertas</string>
+    <string name="lost_and_found_unknown_pet">Mascota desaparecida</string>
+    <string name="lost_and_found_view_list">Lista</string>
+    <string name="lost_and_found_view_map">Mapa</string>
+    <string name="map_google_maps">Google Maps</string>
+    <string name="map_open_in">Abrir en:</string>
+    <string name="map_waze">Waze</string>
+    <string name="my_pets_pending_tag_cta_title">Activa tu placa</string>
+    <string name="plan_standard_display_name">Pack Mascota</string>
+    <string name="plan_starter_display_name">Pack Inicial</string>
+    <string name="pricing_tag_card_feature_1">Placa ligera de acero</string>
+    <string name="pricing_tag_card_feature_2">Resistente y a prueba de intemperie</string>
+    <string name="pricing_tag_card_feature_3">Se lee con un smartphone, sin necesidad de descargar ninguna app</string>
+    <string name="pricing_tag_card_feature_4">Sin pila en su interior</string>
+    <string name="pricing_tag_card_price">0 €</string>
+    <string name="pricing_tag_card_price_subtitle">solo pagas el envío*</string>
+    <string name="pricing_tag_card_title">La Placa</string>
+
+    <!-- 2026-05-25 plurals parity backfill -->
+    <plurals name="my_pets_pending_tag_cta_subtitle">
+        <item quantity="one">%d placa lista para activar</item>
+        <item quantity="other">%d placas listas para activar</item>
+    </plurals>
 </resources>

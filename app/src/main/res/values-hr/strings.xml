@@ -1485,4 +1485,90 @@
 
 
 
+
+    <!-- 2026-05-25 cross-locale parity backfill -->
+    <string name="common_cancel">Odustani</string>
+    <string name="common_done">Gotovo</string>
+    <string name="found_pet_detail_address">Lokacija</string>
+    <string name="found_pet_detail_breed">Pasmina</string>
+    <string name="found_pet_detail_color">Boja</string>
+    <string name="found_pet_detail_distance">Udaljenost</string>
+    <string name="found_pet_detail_finder_contact">Kontakt pronalazača</string>
+    <string name="found_pet_detail_finder_email">Email</string>
+    <string name="found_pet_detail_finder_name">Ime</string>
+    <string name="found_pet_detail_finder_phone">Telefon</string>
+    <string name="found_pet_detail_found_at">Pronađen</string>
+    <string name="found_pet_detail_no_contact">Pronalazač još nije podijelio kontakt.</string>
+    <string name="found_pet_detail_open_in_maps">Otvori u kartama</string>
+    <string name="found_pet_detail_title">Pronađeni ljubimac</string>
+    <string name="found_pet_form_add_photo">Dodaj fotografiju</string>
+    <string name="found_pet_form_address_placeholder">Ili upiši adresu</string>
+    <string name="found_pet_form_breed_placeholder">Pasmina (npr. mješanac jazavčara)</string>
+    <string name="found_pet_form_change_photo">Promijeni fotografiju</string>
+    <string name="found_pet_form_color_placeholder">Boja (npr. smeđa s bijelom mrljom na prsima)</string>
+    <string name="found_pet_form_coming_soon">Obrazac za prijavu pronađenog ljubimca stiže u sljedećem ažuriranju.</string>
+    <string name="found_pet_form_contact">Tvoj kontakt (neobavezno)</string>
+    <string name="found_pet_form_description_placeholder">Opis</string>
+    <string name="found_pet_form_details">Detalji</string>
+    <string name="found_pet_form_email_placeholder">Email</string>
+    <string name="found_pet_form_found_at">Kada si ga pronašao?</string>
+    <string name="found_pet_form_location">Gdje si ga pronašao?</string>
+    <string name="found_pet_form_location_hint">Potrebna je GPS lokacija ili adresa.</string>
+    <string name="found_pet_form_name_placeholder">Tvoje ime</string>
+    <string name="found_pet_form_phone_placeholder">Telefon</string>
+    <string name="found_pet_form_photo">Fotografija (neobavezno)</string>
+    <string name="found_pet_form_photo_hint">Uz fotografiju vlasniku je puno lakše prepoznati svog ljubimca.</string>
+    <string name="found_pet_form_remove_photo">Ukloni fotografiju</string>
+    <string name="found_pet_form_sex">Spol</string>
+    <string name="found_pet_form_sex_female">Ženka</string>
+    <string name="found_pet_form_sex_male">Mužjak</string>
+    <string name="found_pet_form_sex_unknown">Ne znam</string>
+    <string name="found_pet_form_share_contact">Podijeli moje kontakt podatke</string>
+    <string name="found_pet_form_species">Vrsta</string>
+    <string name="found_pet_form_submit">Pošalji</string>
+    <string name="found_pet_form_title">Prijavi pronađenog ljubimca</string>
+    <string name="found_pet_form_use_gps">Moja trenutna lokacija</string>
+    <string name="found_pet_form_validation_evidence">Dodaj fotografiju ili kratak opis kako bi vlasnik mogao prepoznati ljubimca.</string>
+    <string name="found_pet_form_validation_location">Dodirni „Moja trenutna lokacija" ili upiši adresu.</string>
+    <string name="found_pet_unknown_breed">Nepoznata pasmina</string>
+    <string name="lost_and_found_cta_body">Objavi ga ovdje kako bi što prije pronašao put kući.</string>
+    <string name="lost_and_found_cta_title">Pronašao si ljubimca lutalicu?</string>
+    <string name="lost_and_found_description">Nestali i pronađeni ljubimci u tvojoj okolici te tvoje vlastite obavijesti o nestanku.</string>
+    <string name="lost_and_found_eyebrow">Obavijesti</string>
+    <string name="lost_and_found_filter_species_label">Vrsta</string>
+    <string name="lost_and_found_filter_status_label">Status</string>
+    <string name="lost_and_found_legend_radius">radijus %1$d km</string>
+    <string name="lost_and_found_search_placeholder">Pretraži po imenu, pasmini ili lokaciji…</string>
+    <string name="lost_and_found_species_all">Sve</string>
+    <string name="lost_and_found_species_cat">Mačke</string>
+    <string name="lost_and_found_species_cat_singular">Mačka</string>
+    <string name="lost_and_found_species_dog">Psi</string>
+    <string name="lost_and_found_species_dog_singular">Pas</string>
+    <string name="lost_and_found_species_other_singular">Ostalo</string>
+    <string name="lost_and_found_status_all">Sve</string>
+    <string name="lost_and_found_status_community">Pronađeni ljubimac</string>
+    <string name="lost_and_found_status_missing">Nestao</string>
+    <string name="lost_and_found_title">Obavijesti</string>
+    <string name="lost_and_found_unknown_pet">Nestali ljubimac</string>
+    <string name="lost_and_found_view_list">Popis</string>
+    <string name="lost_and_found_view_map">Karta</string>
+    <string name="map_google_maps">Google Maps</string>
+    <string name="map_open_in">Otvori u:</string>
+    <string name="map_waze">Waze</string>
+    <string name="my_pets_pending_tag_cta_title">Aktiviraj svoju pločicu</string>
+    <string name="plan_standard_display_name">Paket za ljubimca</string>
+    <string name="plan_starter_display_name">Početni paket</string>
+    <string name="pricing_tag_card_feature_1">Lagana, čelična pločica</string>
+    <string name="pricing_tag_card_feature_2">Izdržljiva, otporna na vremenske uvjete</string>
+    <string name="pricing_tag_card_feature_3">Čitljiva pametnim telefonom, bez preuzimanja aplikacije</string>
+    <string name="pricing_tag_card_feature_4">Bez baterije</string>
+    <string name="pricing_tag_card_price">0 €</string>
+    <string name="pricing_tag_card_price_subtitle">plaćaš samo dostavu*</string>
+    <string name="pricing_tag_card_title">Pločica</string>
+
+    <!-- 2026-05-25 plurals parity backfill -->
+    <plurals name="my_pets_pending_tag_cta_subtitle">
+        <item quantity="one">%d pločica čeka aktivaciju</item>
+        <item quantity="other">%d pločica čeka aktivaciju</item>
+    </plurals>
 </resources>

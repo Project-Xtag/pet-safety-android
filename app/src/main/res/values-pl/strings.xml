@@ -1495,4 +1495,90 @@
 
 
 
+
+    <!-- 2026-05-25 cross-locale parity backfill -->
+    <string name="common_cancel">Anuluj</string>
+    <string name="common_done">Gotowe</string>
+    <string name="found_pet_detail_address">Lokalizacja</string>
+    <string name="found_pet_detail_breed">Rasa</string>
+    <string name="found_pet_detail_color">Kolor</string>
+    <string name="found_pet_detail_distance">Odległość</string>
+    <string name="found_pet_detail_finder_contact">Kontakt do znalazcy</string>
+    <string name="found_pet_detail_finder_email">E-mail</string>
+    <string name="found_pet_detail_finder_name">Imię</string>
+    <string name="found_pet_detail_finder_phone">Telefon</string>
+    <string name="found_pet_detail_found_at">Znaleziono</string>
+    <string name="found_pet_detail_no_contact">Znalazca nie udostępnił jeszcze kontaktu.</string>
+    <string name="found_pet_detail_open_in_maps">Otwórz w mapach</string>
+    <string name="found_pet_detail_title">Znaleziony pupil</string>
+    <string name="found_pet_form_add_photo">Dodaj zdjęcie</string>
+    <string name="found_pet_form_address_placeholder">Albo wpisz adres</string>
+    <string name="found_pet_form_breed_placeholder">Rasa (np. mieszaniec jamnika)</string>
+    <string name="found_pet_form_change_photo">Zmień zdjęcie</string>
+    <string name="found_pet_form_color_placeholder">Kolor (np. brązowy z białą piersią)</string>
+    <string name="found_pet_form_coming_soon">Formularz zgłaszania znalezionego pupila pojawi się w kolejnej aktualizacji.</string>
+    <string name="found_pet_form_contact">Twój kontakt (opcjonalnie)</string>
+    <string name="found_pet_form_description_placeholder">Opis</string>
+    <string name="found_pet_form_details">Szczegóły</string>
+    <string name="found_pet_form_email_placeholder">E-mail</string>
+    <string name="found_pet_form_found_at">Kiedy go znalazłeś?</string>
+    <string name="found_pet_form_location">Gdzie go znalazłeś?</string>
+    <string name="found_pet_form_location_hint">Wymagany jest GPS albo adres.</string>
+    <string name="found_pet_form_name_placeholder">Twoje imię</string>
+    <string name="found_pet_form_phone_placeholder">Telefon</string>
+    <string name="found_pet_form_photo">Zdjęcie (opcjonalnie)</string>
+    <string name="found_pet_form_photo_hint">Ze zdjęciem właścicielowi dużo łatwiej rozpoznać swojego pupila.</string>
+    <string name="found_pet_form_remove_photo">Usuń zdjęcie</string>
+    <string name="found_pet_form_sex">Płeć</string>
+    <string name="found_pet_form_sex_female">Samica</string>
+    <string name="found_pet_form_sex_male">Samiec</string>
+    <string name="found_pet_form_sex_unknown">Nie wiem</string>
+    <string name="found_pet_form_share_contact">Udostępniam swoje dane kontaktowe</string>
+    <string name="found_pet_form_species">Gatunek</string>
+    <string name="found_pet_form_submit">Wyślij</string>
+    <string name="found_pet_form_title">Zgłoś znalezionego pupila</string>
+    <string name="found_pet_form_use_gps">Moja aktualna lokalizacja</string>
+    <string name="found_pet_form_validation_evidence">Dodaj zdjęcie albo krótki opis, żeby właściciel mógł rozpoznać pupila.</string>
+    <string name="found_pet_form_validation_location">Stuknij w „Moja aktualna lokalizacja" albo wpisz adres.</string>
+    <string name="found_pet_unknown_breed">Nieznana rasa</string>
+    <string name="lost_and_found_cta_body">Zgłoś go tutaj, żeby szybciej wrócił do domu.</string>
+    <string name="lost_and_found_cta_title">Znalazłeś bezpańskiego pupila?</string>
+    <string name="lost_and_found_description">Zaginione i znalezione pupile w twojej okolicy oraz twoje własne zgłoszenia zaginięć.</string>
+    <string name="lost_and_found_eyebrow">Alerty</string>
+    <string name="lost_and_found_filter_species_label">Gatunek</string>
+    <string name="lost_and_found_filter_status_label">Status</string>
+    <string name="lost_and_found_legend_radius">promień %1$d km</string>
+    <string name="lost_and_found_search_placeholder">Szukaj po imieniu, rasie lub lokalizacji…</string>
+    <string name="lost_and_found_species_all">Wszystkie</string>
+    <string name="lost_and_found_species_cat">Koty</string>
+    <string name="lost_and_found_species_cat_singular">Kot</string>
+    <string name="lost_and_found_species_dog">Psy</string>
+    <string name="lost_and_found_species_dog_singular">Pies</string>
+    <string name="lost_and_found_species_other_singular">Inne</string>
+    <string name="lost_and_found_status_all">Wszystkie</string>
+    <string name="lost_and_found_status_community">Znaleziony pupil</string>
+    <string name="lost_and_found_status_missing">Zaginiony</string>
+    <string name="lost_and_found_title">Alerty</string>
+    <string name="lost_and_found_unknown_pet">Zaginiony pupil</string>
+    <string name="lost_and_found_view_list">Lista</string>
+    <string name="lost_and_found_view_map">Mapa</string>
+    <string name="map_google_maps">Google Maps</string>
+    <string name="map_open_in">Otwórz w:</string>
+    <string name="map_waze">Waze</string>
+    <string name="my_pets_pending_tag_cta_title">Aktywuj swoją blaszkę</string>
+    <string name="plan_standard_display_name">Pakiet Pupil</string>
+    <string name="plan_starter_display_name">Pakiet startowy</string>
+    <string name="pricing_tag_card_feature_1">Lekka, stalowa blaszka</string>
+    <string name="pricing_tag_card_feature_2">Trwała, odporna na warunki pogodowe</string>
+    <string name="pricing_tag_card_feature_3">Odczytywana smartfonem, bez konieczności pobierania aplikacji</string>
+    <string name="pricing_tag_card_feature_4">Bez baterii w środku</string>
+    <string name="pricing_tag_card_price">0 zł</string>
+    <string name="pricing_tag_card_price_subtitle">płacisz tylko za wysyłkę*</string>
+    <string name="pricing_tag_card_title">Blaszka</string>
+
+    <!-- 2026-05-25 plurals parity backfill -->
+    <plurals name="my_pets_pending_tag_cta_subtitle">
+        <item quantity="one">%d blaszka czeka na aktywację</item>
+        <item quantity="other">%d blaszek czeka na aktywację</item>
+    </plurals>
 </resources>

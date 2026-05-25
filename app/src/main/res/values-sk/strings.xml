@@ -1483,4 +1483,90 @@
 
 
 
+
+    <!-- 2026-05-25 cross-locale parity backfill -->
+    <string name="common_cancel">Zrušiť</string>
+    <string name="common_done">Hotovo</string>
+    <string name="found_pet_detail_address">Miesto</string>
+    <string name="found_pet_detail_breed">Plemeno</string>
+    <string name="found_pet_detail_color">Farba</string>
+    <string name="found_pet_detail_distance">Vzdialenosť</string>
+    <string name="found_pet_detail_finder_contact">Kontakt na nálezcu</string>
+    <string name="found_pet_detail_finder_email">Email</string>
+    <string name="found_pet_detail_finder_name">Meno</string>
+    <string name="found_pet_detail_finder_phone">Telefón</string>
+    <string name="found_pet_detail_found_at">Nájdený</string>
+    <string name="found_pet_detail_no_contact">Nálezca zatiaľ neuviedol kontakt.</string>
+    <string name="found_pet_detail_open_in_maps">Otvoriť v mapách</string>
+    <string name="found_pet_detail_title">Nájdený miláčik</string>
+    <string name="found_pet_form_add_photo">Pridať fotku</string>
+    <string name="found_pet_form_address_placeholder">Alebo zadaj adresu</string>
+    <string name="found_pet_form_breed_placeholder">Plemeno (napr. jazvečík kríženec)</string>
+    <string name="found_pet_form_change_photo">Zmeniť fotku</string>
+    <string name="found_pet_form_color_placeholder">Farba (napr. hnedá s bielou náprsenkou)</string>
+    <string name="found_pet_form_coming_soon">Formulár na nahlásenie nájdeného miláčika príde v najbližšej aktualizácii.</string>
+    <string name="found_pet_form_contact">Tvoj kontakt (nepovinné)</string>
+    <string name="found_pet_form_description_placeholder">Popis</string>
+    <string name="found_pet_form_details">Podrobnosti</string>
+    <string name="found_pet_form_email_placeholder">Email</string>
+    <string name="found_pet_form_found_at">Kedy si ho našiel?</string>
+    <string name="found_pet_form_location">Kde si ho našiel?</string>
+    <string name="found_pet_form_location_hint">Vyžaduje sa GPS alebo adresa.</string>
+    <string name="found_pet_form_name_placeholder">Tvoje meno</string>
+    <string name="found_pet_form_phone_placeholder">Telefón</string>
+    <string name="found_pet_form_photo">Fotka (nepovinné)</string>
+    <string name="found_pet_form_photo_hint">S fotkou bude pre majiteľa oveľa ľahšie spoznať svojho miláčika.</string>
+    <string name="found_pet_form_remove_photo">Odstrániť fotku</string>
+    <string name="found_pet_form_sex">Pohlavie</string>
+    <string name="found_pet_form_sex_female">Samica</string>
+    <string name="found_pet_form_sex_male">Samec</string>
+    <string name="found_pet_form_sex_unknown">Neviem</string>
+    <string name="found_pet_form_share_contact">Zdieľať moje kontaktné údaje</string>
+    <string name="found_pet_form_species">Druh</string>
+    <string name="found_pet_form_submit">Odoslať</string>
+    <string name="found_pet_form_title">Nahlásiť nájdeného miláčika</string>
+    <string name="found_pet_form_use_gps">Moja aktuálna poloha</string>
+    <string name="found_pet_form_validation_evidence">Pridaj fotku alebo krátky popis, aby majiteľ spoznal svojho miláčika.</string>
+    <string name="found_pet_form_validation_location">Ťukni na „Moja aktuálna poloha" alebo zadaj adresu.</string>
+    <string name="found_pet_unknown_breed">Neznáme plemeno</string>
+    <string name="lost_and_found_cta_body">Zverejni to tu, aby sa čo najskôr dostal domov.</string>
+    <string name="lost_and_found_cta_title">Našiel si zatúlaného miláčika?</string>
+    <string name="lost_and_found_description">Stratené a nájdené zvieratká v tvojom okolí a tvoje vlastné upozornenia o stratených miláčikoch.</string>
+    <string name="lost_and_found_eyebrow">Upozornenia</string>
+    <string name="lost_and_found_filter_species_label">Druh</string>
+    <string name="lost_and_found_filter_status_label">Stav</string>
+    <string name="lost_and_found_legend_radius">okruh %1$d km</string>
+    <string name="lost_and_found_search_placeholder">Hľadať podľa mena, plemena alebo miesta…</string>
+    <string name="lost_and_found_species_all">Všetky</string>
+    <string name="lost_and_found_species_cat">Mačky</string>
+    <string name="lost_and_found_species_cat_singular">Mačka</string>
+    <string name="lost_and_found_species_dog">Psy</string>
+    <string name="lost_and_found_species_dog_singular">Pes</string>
+    <string name="lost_and_found_species_other_singular">Iné</string>
+    <string name="lost_and_found_status_all">Všetky</string>
+    <string name="lost_and_found_status_community">Nájdený miláčik</string>
+    <string name="lost_and_found_status_missing">Stratený</string>
+    <string name="lost_and_found_title">Upozornenia</string>
+    <string name="lost_and_found_unknown_pet">Stratený miláčik</string>
+    <string name="lost_and_found_view_list">Zoznam</string>
+    <string name="lost_and_found_view_map">Mapa</string>
+    <string name="map_google_maps">Google Maps</string>
+    <string name="map_open_in">Otvoriť v:</string>
+    <string name="map_waze">Waze</string>
+    <string name="my_pets_pending_tag_cta_title">Aktivuj svoju známku</string>
+    <string name="plan_standard_display_name">Balík pre miláčika</string>
+    <string name="plan_starter_display_name">Štartovací balík</string>
+    <string name="pricing_tag_card_feature_1">Ľahká, oceľová známka</string>
+    <string name="pricing_tag_card_feature_2">Odolná, odolná voči počasiu</string>
+    <string name="pricing_tag_card_feature_3">Čitateľná smartfónom, bez sťahovania aplikácie</string>
+    <string name="pricing_tag_card_feature_4">Bez batérie vo vnútri</string>
+    <string name="pricing_tag_card_price">0 €</string>
+    <string name="pricing_tag_card_price_subtitle">platíš len za doručenie*</string>
+    <string name="pricing_tag_card_title">Známka</string>
+
+    <!-- 2026-05-25 plurals parity backfill -->
+    <plurals name="my_pets_pending_tag_cta_subtitle">
+        <item quantity="one">%d známka čaká na aktiváciu</item>
+        <item quantity="other">%d známok čaká na aktiváciu</item>
+    </plurals>
 </resources>
