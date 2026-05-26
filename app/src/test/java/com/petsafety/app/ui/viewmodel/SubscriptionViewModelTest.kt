@@ -50,13 +50,13 @@ class SubscriptionViewModelTest {
 
     private val starterPlan = SubscriptionPlan(
         id = "plan_0", name = "starter", displayName = "Starter",
-        description = "Free forever", priceMonthly = 0.0, priceYearly = 0.0,
+        description = "Free forever", priceMonthly = 0.0,
         currency = "GBP", features = testFeatures.copy(maxPets = 1, smsNotifications = false, vetAlerts = false)
     )
 
     private val standardPlan = SubscriptionPlan(
         id = "plan_1", name = "standard", displayName = "Standard",
-        description = "Best for pet owners", priceMonthly = 4.95, priceYearly = 49.50,
+        description = "Best for pet owners", priceMonthly = 4.95,
         currency = "GBP", features = testFeatures, isPopular = true
     )
 
@@ -67,7 +67,7 @@ class SubscriptionViewModelTest {
 
     private val ultimatePlan = SubscriptionPlan(
         id = "plan_2", name = "ultimate", displayName = "Ultimate",
-        description = "All premium features", priceMonthly = 9.95, priceYearly = 99.50,
+        description = "All premium features", priceMonthly = 9.95,
         currency = "GBP", features = testFeatures.copy(maxPets = null, freeTagReplacement = true, prioritySupport = true)
     )
 
