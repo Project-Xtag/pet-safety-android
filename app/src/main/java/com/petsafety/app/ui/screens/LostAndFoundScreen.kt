@@ -423,15 +423,20 @@ private fun FoundCtaCard(onClick: () -> Unit) {
             Icon(Icons.Filled.Pets, contentDescription = null, tint = Color.White)
         }
         Column(modifier = Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(4.dp)) {
+            // Background is the fixed light-yellow FoundAmberTint in both
+            // themes, so text must be pinned to black — using theme
+            // onSurface/onSurfaceVariant resolves near-white in dark mode
+            // and produced an illegible white-on-yellow card.
             Text(
                 stringResource(R.string.lost_and_found_cta_title),
                 fontSize = 15.sp,
                 fontWeight = FontWeight.Bold,
+                color = Color.Black,
             )
             Text(
                 stringResource(R.string.lost_and_found_cta_body),
                 fontSize = 12.sp,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                color = Color.Black.copy(alpha = 0.65f),
             )
         }
     }
