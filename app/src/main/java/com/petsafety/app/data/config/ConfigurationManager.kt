@@ -154,13 +154,31 @@ class ConfigurationManager @Inject constructor(
         val dsn = remoteConfig.getString("sentry_dsn_android")
         _sentryDSN.value = dsn
 
-        // API Base URL (use default if empty)
-        val apiUrl = remoteConfig.getString("api_base_url")
-        _apiBaseUrl.value = apiUrl.ifEmpty { defaults["api_base_url"] as String }
+        // API + SSE base URLs.
+        //
+        // Production release builds read these from Remote Config so the
+        // prod team can swap hosts without a Play Store update (emergency
+        // failover, blue/green cutover, etc.). DEBUG builds (which covers
+        // both the `debug` and `staging` Gradle build types — staging
+        // initWith debug + isDebuggable = true) must stay pinned to their
+        // BuildConfig values, which point at staging.senra.pet. Otherwise
+        // the Remote Config value `api_base_url = https://api.senra.pet/api`
+        // — set for prod — silently rewires the staging dev/QA build to
+        // PROD via ApiBaseUrlInterceptor, so testers think they're on
+        // staging but are actually placing live orders against PROD.
+        //
+        // Mirrors iOS ConfigurationManager.swift's `#if !STAGING` guard;
+        // pre-fix the missing Android guard was the cause of the
+        // 2026-05-27 "Android staging shows empty account" bug, where a
+        // user logged into staging on iOS could see pets but the same
+        // login on Android landed on a fresh PROD account.
+        if (!BuildConfig.DEBUG) {
+            val apiUrl = remoteConfig.getString("api_base_url")
+            _apiBaseUrl.value = apiUrl.ifEmpty { defaults["api_base_url"] as String }
 
-        // SSE Base URL (use default if empty)
-        val sseUrl = remoteConfig.getString("sse_base_url")
-        _sseBaseUrl.value = sseUrl.ifEmpty { defaults["sse_base_url"] as String }
+            val sseUrl = remoteConfig.getString("sse_base_url")
+            _sseBaseUrl.value = sseUrl.ifEmpty { defaults["sse_base_url"] as String }
+        }
 
         Timber.d("Config values updated: sentryDSN=%s", if (dsn.isEmpty()) "not configured" else "configured")
     }
