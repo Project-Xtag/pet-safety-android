@@ -386,7 +386,7 @@
     <string name="found_pet_form_description_placeholder">Leírás</string>
     <string name="found_pet_form_found_at">Mikor találtad?</string>
     <string name="found_pet_form_location">Hol találtad?</string>
-    <string name="found_pet_form_use_gps">Pillanatnyi helyzetem</string>
+    <string name="found_pet_form_use_gps">Jelenlegi helyzetem</string>
     <string name="found_pet_form_address_placeholder">Vagy írd be a címet</string>
     <string name="found_pet_form_location_hint">GPS vagy cím megadása szükséges.</string>
     <string name="found_pet_form_photo">Fotó (opcionális)</string>
@@ -399,7 +399,7 @@
     <string name="found_pet_form_name_placeholder">Neved</string>
     <string name="found_pet_form_email_placeholder">Email</string>
     <string name="found_pet_form_phone_placeholder">Telefon</string>
-    <string name="found_pet_form_validation_location">Koppints a „Pillanatnyi helyzetem” gombra, vagy írj be egy címet.</string>
+    <string name="found_pet_form_validation_location">Koppints a „Jelenlegi helyzetem” gombra, vagy írj be egy címet.</string>
     <string name="found_pet_form_validation_evidence">Adj hozzá fotót vagy egy rövid leírást, hogy a gazdi felismerhesse a kedvencét.</string>
 
     <!-- Talált kisállat részletek -->
@@ -875,6 +875,12 @@
     <string name="billing_current_plan">Jelenlegi csomag</string>
     <string name="billing_plan_label">Csomag</string>
     <string name="billing_status_label">Állapot</string>
+    <string name="billing_status_active">Aktív</string>
+    <string name="billing_status_trialing">Próbaidőszak</string>
+    <string name="billing_status_past_due">Fizetés lejárt</string>
+    <string name="billing_status_cancelled">Lemondva</string>
+    <string name="billing_status_expired">Lejárt</string>
+    <string name="billing_status_suspended">Felfüggesztve</string>
     <string name="plan_renews">Megújulás dátuma</string>
     <string name="plan_cancels_on">Lemondás dátuma</string>
     <string name="billing_invoices">Számlák</string>

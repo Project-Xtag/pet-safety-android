@@ -221,7 +221,16 @@ fun BillingScreen(
                         ) {
                             Text(text = stringResource(R.string.billing_status_label), style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
                             Text(
-                                text = sub.displayStatus,
+                                text = stringResource(
+                                    when (sub.status) {
+                                        SubscriptionStatus.ACTIVE -> R.string.billing_status_active
+                                        SubscriptionStatus.TRIALING -> R.string.billing_status_trialing
+                                        SubscriptionStatus.PAST_DUE -> R.string.billing_status_past_due
+                                        SubscriptionStatus.CANCELLED -> R.string.billing_status_cancelled
+                                        SubscriptionStatus.EXPIRED -> R.string.billing_status_expired
+                                        SubscriptionStatus.SUSPENDED -> R.string.billing_status_suspended
+                                    }
+                                ),
                                 style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.SemiBold),
                                 color = if (sub.isActive) Color(0xFF4CAF50) else BrandOrange
                             )

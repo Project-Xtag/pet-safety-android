@@ -357,10 +357,9 @@ class SubscriptionViewModelTest {
     }
 
     @Test
-    fun `subscription status SUSPENDED - displayStatus and isActive`() {
+    fun `subscription status SUSPENDED - isActive is false`() {
         val sub = testSubscription.copy(status = SubscriptionStatus.SUSPENDED)
 
-        assertEquals("Suspended", sub.displayStatus)
         assertFalse(sub.isActive)
     }
 

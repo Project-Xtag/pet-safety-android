@@ -923,6 +923,12 @@
     <string name="billing_current_plan">Current Plan</string>
     <string name="billing_plan_label">Plan</string>
     <string name="billing_status_label">Status</string>
+    <string name="billing_status_active">Active</string>
+    <string name="billing_status_trialing">Trial</string>
+    <string name="billing_status_past_due">Past due</string>
+    <string name="billing_status_cancelled">Cancelled</string>
+    <string name="billing_status_expired">Expired</string>
+    <string name="billing_status_suspended">Suspended</string>
     <string name="plan_renews">Renews on</string>
     <string name="plan_cancels_on">Cancels on</string>
     <string name="billing_invoices">Invoices</string>

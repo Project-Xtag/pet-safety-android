@@ -86,15 +86,6 @@ data class UserSubscription(
 
     val isActive: Boolean get() = status == SubscriptionStatus.ACTIVE || status == SubscriptionStatus.TRIALING
     val isPaid: Boolean get() = resolvedPlanName.lowercase() != "starter"
-    val displayStatus: String
-        get() = when (status) {
-            SubscriptionStatus.ACTIVE -> "Active"
-            SubscriptionStatus.TRIALING -> "Trial"
-            SubscriptionStatus.PAST_DUE -> "Past Due"
-            SubscriptionStatus.CANCELLED -> "Cancelled"
-            SubscriptionStatus.EXPIRED -> "Expired"
-            SubscriptionStatus.SUSPENDED -> "Suspended"
-        }
     val isTrialing: Boolean get() = status == SubscriptionStatus.TRIALING
 
     /**
