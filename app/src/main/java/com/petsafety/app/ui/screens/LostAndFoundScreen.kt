@@ -21,22 +21,18 @@ import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.LocationOn
 import androidx.compose.material.icons.filled.Map
 import androidx.compose.material.icons.filled.Pets
 import androidx.compose.material.icons.filled.QrCodeScanner
-import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.ViewList
 import androidx.compose.material.icons.filled.WarningAmber
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -94,7 +90,6 @@ fun LostAndFoundScreen(
     val found by vm.filteredFound.collectAsState()
     val isLoading by vm.isLoading.collectAsState()
     val viewMode by vm.viewMode.collectAsState()
-    val query by vm.query.collectAsState()
     val speciesFilter by vm.speciesFilter.collectAsState()
     val statusFilter by vm.statusFilter.collectAsState()
     val searchCenter by vm.searchCenter.collectAsState()
@@ -115,7 +110,6 @@ fun LostAndFoundScreen(
     ) {
         item { Header() }
         item { ViewModeToggle(viewMode) { vm.viewMode.value = it } }
-        item { SearchBar(query) { vm.query.value = it } }
         item {
             // Resolve the labels eagerly in this composable context; passing
             // a @Composable lambda down to FilterChipsRow's items() block
@@ -298,26 +292,6 @@ private fun ToggleButton(
             color = if (active) Color.White else MaterialTheme.colorScheme.onSurface,
         )
     }
-}
-
-// MARK: - Search bar
-
-@Composable
-private fun SearchBar(value: String, onChange: (String) -> Unit) {
-    OutlinedTextField(
-        value = value,
-        onValueChange = onChange,
-        placeholder = { Text(stringResource(R.string.lost_and_found_search_placeholder)) },
-        leadingIcon = { Icon(Icons.Filled.Search, contentDescription = null) },
-        singleLine = true,
-        shape = RoundedCornerShape(16.dp),
-        keyboardOptions = KeyboardOptions(imeAction = androidx.compose.ui.text.input.ImeAction.Search),
-        modifier = Modifier.fillMaxWidth(),
-        colors = TextFieldDefaults.colors(
-            focusedContainerColor = MaterialTheme.colorScheme.surface,
-            unfocusedContainerColor = MaterialTheme.colorScheme.surface,
-        ),
-    )
 }
 
 // MARK: - Filter chips
