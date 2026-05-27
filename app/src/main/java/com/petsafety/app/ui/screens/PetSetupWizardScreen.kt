@@ -15,6 +15,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -126,7 +127,12 @@ fun PetSetupWizardScreen(
         }
     }
 
-    Column(modifier = Modifier.fillMaxSize().background(MaterialTheme.colorScheme.background)) {
+    // imePadding(): activity uses enableEdgeToEdge(), so the soft
+    // keyboard draws on top of content. Without this, the bottom
+    // Vissza/Befejezés button row sits under the IME and step 10's
+    // multiline "Egyedi ismertetőjelek" TextField traps the user
+    // with no visible way to commit.
+    Column(modifier = Modifier.fillMaxSize().background(MaterialTheme.colorScheme.background).imePadding()) {
         // Top bar — cancel
         Row(modifier = Modifier.fillMaxWidth().padding(horizontal = 8.dp, vertical = 4.dp)) {
             Spacer(Modifier.weight(1f))
