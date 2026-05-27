@@ -77,12 +77,24 @@ class PetSetupViewModel @Inject constructor(
     private val _ui = MutableStateFlow(PetSetupUiState())
     val ui: StateFlow<PetSetupUiState> = _ui.asStateFlow()
 
-    private var started = false
+    /**
+     * Last qrCode we initialized for. Tracks per-instance so we can skip
+     * redundant re-init when the wizard recomposes with the same code,
+     * yet still RESET when the user finishes one pet and scans the next
+     * tag. Pre-fix this was a plain `started: Boolean` that latched on
+     * the first call, and because Hilt scopes PetSetupViewModel to the
+     * activity, the second wizard mount got an early-return — leaving
+     * the previous pet's step 11 state on screen, looping back to "scan
+     * the next tag" after each scan.
+     */
+    private var initializedForQr: String? = null
 
     fun start(qrCode: String, mode: PetSetupWizardMode = PetSetupWizardMode.ORDERED) {
-        if (started) return
-        started = true
-        _ui.update { it.copy(qrCode = qrCode, mode = mode) }
+        if (initializedForQr == qrCode) return
+        initializedForQr = qrCode
+        // Drop all per-pet state from the previous run; keep only the
+        // new qrCode + mode. Fresh wizard for the new tag.
+        _ui.value = PetSetupUiState(qrCode = qrCode, mode = mode, loading = true)
         viewModelScope.launch {
             if (mode == PetSetupWizardMode.PROMO) {
                 // Promo tags have no pre-registered order items — skip the
