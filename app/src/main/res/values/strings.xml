@@ -896,6 +896,7 @@
     <string name="subscription_title">Subscription</string>
     <string name="subscription_choose_plan">Choose Plan</string>
     <string name="subscription_monthly">Monthly</string>
+    <string name="subscription_yearly">Yearly</string>
     <string name="subscription_popular">Popular</string>
     <string name="subscription_current_plan">Current Plan</string>
     <string name="subscription_select">Select Plan</string>
@@ -913,6 +914,7 @@
     <string name="pricing_tag_card_feature_2">Durable, weather-resistant</string>
     <string name="pricing_tag_card_feature_3">Readable with a smartphone, no app download required</string>
     <string name="pricing_tag_card_feature_4">No battery inside</string>
+    <string name="pricing_tag_card_footnote">*The tag can also be picked up in person — follow us on social media for locations and dates, or check back on our website</string>
 
     <!-- ============================================ -->
     <!-- MARK: Billing -->
