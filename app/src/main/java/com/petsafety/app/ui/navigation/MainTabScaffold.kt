@@ -142,6 +142,15 @@ fun MainTabScaffold(
             qrCode = qrCode,
             mode = com.petsafety.app.ui.viewmodel.PetSetupWizardMode.PROMO,
             onDone = { promoClaimData = null },
+            // Step 11's "Következő biléta beolvasása" needs a handler
+            // that actually opens the scanner. Pre-fix the param was
+            // omitted, defaulted to null, and the button fell through
+            // to onDone — closing the wizard with no way for the user
+            // to register the next pet without re-navigating manually.
+            onScanNextTag = {
+                promoClaimData = null
+                selectedTab = TabItem.Scan
+            },
         )
         return
     }
@@ -150,7 +159,11 @@ fun MainTabScaffold(
     if (activationQrCode != null) {
         PetSetupWizardScreen(
             qrCode = activationQrCode!!,
-            onDone = { activationQrCode = null }
+            onDone = { activationQrCode = null },
+            onScanNextTag = {
+                activationQrCode = null
+                selectedTab = TabItem.Scan
+            },
         )
         return
     }
