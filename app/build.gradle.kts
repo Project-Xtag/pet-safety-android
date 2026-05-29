@@ -9,7 +9,31 @@ plugins {
     alias(libs.plugins.ksp)
     alias(libs.plugins.hilt)
     alias(libs.plugins.google.services)
+    alias(libs.plugins.sentry)
     id("kotlin-kapt")
+}
+
+// Sentry: upload R8/ProGuard mappings so release-build crashes deobfuscate.
+// Builds are local — export SENTRY_AUTH_TOKEN before a release build, e.g.
+//   export SENTRY_AUTH_TOKEN=$(sed -n 's/^token=//p' ~/.sentryclirc)
+// autoUpload is gated on the token so debug/local builds without it still
+// succeed (they simply skip the mapping upload).
+val sentryAuthToken: String? = System.getenv("SENTRY_AUTH_TOKEN")
+
+sentry {
+    org.set("pet-safety")
+    projectName.set("android")
+    // This Sentry org lives on the EU region (DSN ingests via de.sentry.io).
+    // The plugin's chunked upload is region-locked, so point it at the EU
+    // endpoint or it 404s with "Project does not exist".
+    url.set("https://de.sentry.io")
+    // The sentry-android SDK is declared explicitly in dependencies; don't
+    // let the plugin auto-install (avoids a version clash with 7.22.6).
+    autoInstallation { enabled.set(false) }
+    // Symbolication only — no performance auto-instrumentation bytecode.
+    tracingInstrumentation { enabled.set(false) }
+    if (sentryAuthToken != null) authToken.set(sentryAuthToken)
+    autoUploadProguardMapping.set(sentryAuthToken != null)
 }
 
 // Load API keys from local.properties (gitignored) or environment variables
