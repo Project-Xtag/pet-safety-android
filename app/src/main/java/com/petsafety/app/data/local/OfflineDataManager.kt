@@ -4,9 +4,11 @@ import com.petsafety.app.data.local.entity.AlertEntity
 import com.petsafety.app.data.local.entity.ActionQueueEntity
 import com.petsafety.app.data.local.entity.PetEntity
 import com.petsafety.app.data.local.entity.SuccessStoryEntity
+import com.petsafety.app.data.local.entity.VaccinationEntity
 import com.petsafety.app.data.model.MissingPetAlert
 import com.petsafety.app.data.model.Pet
 import com.petsafety.app.data.model.SuccessStory
+import com.petsafety.app.data.model.Vaccination
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonElement
 import kotlinx.serialization.json.JsonNull
@@ -188,6 +190,54 @@ class OfflineDataManager(private val database: AppDatabase) {
         }
 
     /**
+     * Replace the cached vaccination set for one pet. We delete-then-insert
+     * (rather than upsert-only) so a record deleted server-side doesn't linger
+     * in the cache after a successful online refresh.
+     */
+    suspend fun saveVaccinations(petId: String, vaccinations: List<Vaccination>) {
+        database.vaccinationDao().deleteForPet(petId)
+        vaccinations.forEach { v ->
+            database.vaccinationDao().upsert(
+                VaccinationEntity(
+                    id = v.id,
+                    petId = v.petId,
+                    vaccineCode = v.vaccineCode,
+                    vaccineNameSnapshot = v.vaccineNameSnapshot,
+                    administeredAt = v.administeredAt,
+                    expiresAt = v.expiresAt,
+                    batchNumber = v.batchNumber,
+                    vetName = v.vetName,
+                    vetClinic = v.vetClinic,
+                    certificateUrl = v.certificateUrl,
+                    certificateMime = v.certificateMime,
+                    notes = v.notes,
+                    createdAt = v.createdAt,
+                    lastSyncedAt = System.currentTimeMillis()
+                )
+            )
+        }
+    }
+
+    suspend fun fetchVaccinations(petId: String): List<Vaccination> =
+        database.vaccinationDao().getForPet(petId).map { e ->
+            Vaccination(
+                id = e.id,
+                petId = e.petId,
+                vaccineCode = e.vaccineCode,
+                vaccineNameSnapshot = e.vaccineNameSnapshot,
+                administeredAt = e.administeredAt,
+                expiresAt = e.expiresAt,
+                batchNumber = e.batchNumber,
+                vetName = e.vetName,
+                vetClinic = e.vetClinic,
+                certificateUrl = e.certificateUrl,
+                certificateMime = e.certificateMime,
+                notes = e.notes,
+                createdAt = e.createdAt
+            )
+        }
+
+    /**
      * Action queue cleanup policy (audit #183):
      *
      *  * `completeAction(id)` — drops the row outright. Successful syncs leave
@@ -283,6 +333,7 @@ class OfflineDataManager(private val database: AppDatabase) {
         database.actionQueueDao().deleteAll()
         database.alertDao().deleteAll()
         database.successStoryDao().deleteAll()
+        database.vaccinationDao().deleteAll()
         database.petDao().deleteAll()
     }
 }

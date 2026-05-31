@@ -27,6 +27,7 @@ import com.petsafety.app.data.repository.QrRepository
 import com.petsafety.app.data.repository.NotificationsRepository
 import com.petsafety.app.data.repository.SubscriptionRepository
 import com.petsafety.app.data.repository.SuccessStoriesRepository
+import com.petsafety.app.data.repository.VaccinationRepository
 import com.petsafety.app.data.sync.NetworkMonitor
 import com.petsafety.app.data.sync.SyncService
 import com.petsafety.app.util.AndroidStringProvider
@@ -176,6 +177,14 @@ object AppModule {
         networkMonitor: NetworkMonitor,
         syncService: SyncService
     ): AlertsRepository = AlertsRepository(apiService, offlineDataManager, networkMonitor, syncService)
+
+    @Provides
+    @Singleton
+    fun provideVaccinationRepository(
+        apiService: ApiService,
+        offlineDataManager: OfflineDataManager,
+        networkMonitor: NetworkMonitor
+    ): VaccinationRepository = VaccinationRepository(apiService, offlineDataManager, networkMonitor)
 
     @Provides
     @Singleton

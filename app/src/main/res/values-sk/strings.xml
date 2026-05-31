@@ -1569,4 +1569,25 @@
         <item quantity="one">%d známka čaká na aktiváciu</item>
         <item quantity="other">%d známok čaká na aktiváciu</item>
     </plurals>
+    <!-- ============================================ -->
+    <!-- MARK: Vaccinations (Stage B, §1.6) — EN fallback (flag-gated to HU/ES; not shown here yet) -->
+    <!-- ============================================ -->
+    <string name="vaccinations_title">Vaccinations</string>
+    <string name="vaccinations_section_empty_hint">No vaccination records yet</string>
+    <string name="vaccinations_add_cta">Add vaccination</string>
+    <string name="vaccinations_show_all">Show all (%d)</string>
+    <string name="vaccination_status_valid">Valid</string>
+    <string name="vaccination_status_expiring">Expiring soon</string>
+    <string name="vaccination_status_expired">Expired</string>
+    <string name="vaccinations_home_title">Vaccination reminders</string>
+    <string name="vaccinations_home_all_valid">All vaccinations up to date</string>
+    <string name="vaccinations_load_failed">Unable to load vaccinations</string>
+    <plurals name="vaccination_expires_in_days">
+        <item quantity="one">Expires in %d day</item>
+        <item quantity="other">Expires in %d days</item>
+    </plurals>
+    <plurals name="vaccination_expired_days_ago">
+        <item quantity="one">Expired %d day ago</item>
+        <item quantity="other">Expired %d days ago</item>
+    </plurals>
 </resources>

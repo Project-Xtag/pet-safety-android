@@ -349,6 +349,18 @@ interface ApiService {
     @GET("referrals/status")
     suspend fun getReferralStatus(): ApiEnvelope<ReferralStatusResponse>
 
+    // Vaccinations (Stage B, §1.6)
+    // Feature-gated server-side: these return 404 when the vaccination feature
+    // is off for the user's country. The 404/200 distinction is interpreted in
+    // exactly one place — VaccinationGate — never re-derived per call.
+    @GET("pets/{petId}/vaccinations")
+    suspend fun getVaccinations(@Path("petId") petId: String): ApiEnvelope<VaccinationsResponse>
+
+    // Home summary — the single availability signal for the gate. A 404 here
+    // means the feature is OFF; a 200 (even with zero counts) means ON.
+    @GET("users/me/vaccinations/summary")
+    suspend fun getVaccinationSummary(): ApiEnvelope<VaccinationSummaryResponse>
+
     // Notifications Inbox
     @GET("notifications")
     suspend fun getNotifications(

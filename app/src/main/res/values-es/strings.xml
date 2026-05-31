@@ -1561,4 +1561,25 @@
         <item quantity="one">%d placa lista para activar</item>
         <item quantity="other">%d placas listas para activar</item>
     </plurals>
+    <!-- ============================================ -->
+    <!-- MARK: Vaccinations (Stage B, §1.6) — ES provisional, pending native review -->
+    <!-- ============================================ -->
+    <string name="vaccinations_title">Vacunas</string>
+    <string name="vaccinations_section_empty_hint">Aún no hay registros de vacunación</string>
+    <string name="vaccinations_add_cta">Añadir vacuna</string>
+    <string name="vaccinations_show_all">Ver todas (%d)</string>
+    <string name="vaccination_status_valid">Vigente</string>
+    <string name="vaccination_status_expiring">Caduca pronto</string>
+    <string name="vaccination_status_expired">Caducada</string>
+    <string name="vaccinations_home_title">Recordatorios de vacunas</string>
+    <string name="vaccinations_home_all_valid">Todas las vacunas al día</string>
+    <string name="vaccinations_load_failed">No se pudieron cargar las vacunas</string>
+    <plurals name="vaccination_expires_in_days">
+        <item quantity="one">Caduca en %d día</item>
+        <item quantity="other">Caduca en %d días</item>
+    </plurals>
+    <plurals name="vaccination_expired_days_ago">
+        <item quantity="one">Caducó hace %d día</item>
+        <item quantity="other">Caducó hace %d días</item>
+    </plurals>
 </resources>

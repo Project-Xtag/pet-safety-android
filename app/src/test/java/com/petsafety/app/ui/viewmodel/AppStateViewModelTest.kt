@@ -8,7 +8,10 @@ import com.petsafety.app.data.model.TagScannedEvent
 import com.petsafety.app.data.notifications.NotificationHelper
 import com.petsafety.app.data.network.ApiService
 import com.petsafety.app.data.network.SseService
+import com.petsafety.app.data.model.VaccinationHomeSummary
 import com.petsafety.app.data.network.model.AppConfig
+import com.petsafety.app.data.vaccination.VaccinationAvailability
+import com.petsafety.app.data.vaccination.VaccinationGate
 import com.petsafety.app.data.sync.NetworkMonitor
 import com.petsafety.app.data.sync.SyncService
 import com.petsafety.app.util.StringProvider
@@ -41,9 +44,12 @@ class AppStateViewModelTest {
     private lateinit var syncService: SyncService
     private lateinit var stringProvider: StringProvider
     private lateinit var apiService: ApiService
+    private lateinit var vaccinationGate: VaccinationGate
     private lateinit var viewModel: AppStateViewModel
 
     private val isConnectedFlow = MutableStateFlow(true)
+    private val gateAvailabilityFlow = MutableStateFlow<VaccinationAvailability>(VaccinationAvailability.Unknown)
+    private val gateShowsHomeCardFlow = MutableStateFlow(false)
 
     // Captured SSE handlers
     private var capturedTagScannedHandler: ((TagScannedEvent) -> Unit)? = null
@@ -60,6 +66,11 @@ class AppStateViewModelTest {
         syncService = mockk(relaxed = true)
         stringProvider = mockk(relaxed = true)
         apiService = mockk(relaxed = true)
+        vaccinationGate = mockk(relaxed = true)
+        // Stub the gate flows so the VM's pass-through delegation binds to real
+        // flows we can drive (proves the surface isn't silently severed).
+        every { vaccinationGate.availability } returns gateAvailabilityFlow
+        every { vaccinationGate.showsHomeCard } returns gateShowsHomeCardFlow
         // Stub config fetch so the constructor's fire-and-forget call doesn't
         // throw. Default to tagsAvailable=false to match the gate's
         // fail-closed semantics in tests that don't override.
@@ -113,7 +124,8 @@ class AppStateViewModelTest {
             syncService = syncService,
             stringProvider = stringProvider,
             subscriptionEventBus = SubscriptionEventBus(),
-            apiService = apiService
+            apiService = apiService,
+            vaccinationGate = vaccinationGate
         )
     }
 
@@ -323,5 +335,34 @@ class AppStateViewModelTest {
     @Test
     fun `syncService - is accessible via viewModel`() {
         assertEquals(syncService, viewModel.syncService)
+    }
+
+    // ==================== vaccination gate delegation tests ====================
+
+    @Test
+    fun `vaccinationAvailability - reflects the gate flow`() {
+        assertEquals(VaccinationAvailability.Unknown, viewModel.vaccinationAvailability.value)
+        val onState = VaccinationAvailability.On(VaccinationHomeSummary(totalPetsWithVaccinations = 2))
+        gateAvailabilityFlow.value = onState
+        assertEquals(onState, viewModel.vaccinationAvailability.value)
+    }
+
+    @Test
+    fun `vaccinationShowsHomeCard - reflects the gate flow`() {
+        assertFalse(viewModel.vaccinationShowsHomeCard.value)
+        gateShowsHomeCardFlow.value = true
+        assertTrue(viewModel.vaccinationShowsHomeCard.value)
+    }
+
+    @Test
+    fun `onAuthUserChanged - delegates to the gate`() {
+        viewModel.onAuthUserChanged("user-1")
+        verify { vaccinationGate.onAuthUserChanged("user-1") }
+    }
+
+    @Test
+    fun `refreshVaccinationGate - delegates to the gate`() {
+        viewModel.refreshVaccinationGate()
+        verify { vaccinationGate.refresh() }
     }
 }

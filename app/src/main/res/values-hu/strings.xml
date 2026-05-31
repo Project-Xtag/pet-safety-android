@@ -1569,4 +1569,25 @@
     <string name="invalid_phone">Adj meg egy érvényes telefonszámot</string>
     <string name="invalid_location_coords">Nem sikerült pontosan beazonosítani a helyszínt. Próbálj meg egy pontosabb címet.</string>
     <string name="address_geocode_failed_warning">Nem sikerült pontosan beazonosítani a címet — a riasztás pontos helyszín nélkül megy ki. Próbáld a „jelenlegi helyzet” gombot pontosabb eredményért.</string>
+    <!-- ============================================ -->
+    <!-- MARK: Vaccinations (Stage B, §1.6) — HU canonical (informal "te") -->
+    <!-- ============================================ -->
+    <string name="vaccinations_title">Oltások</string>
+    <string name="vaccinations_section_empty_hint">Nincs még oltás rögzítve</string>
+    <string name="vaccinations_add_cta">Oltás hozzáadása</string>
+    <string name="vaccinations_show_all">Összes megtekintése (%d)</string>
+    <string name="vaccination_status_valid">Érvényes</string>
+    <string name="vaccination_status_expiring">Hamarosan lejár</string>
+    <string name="vaccination_status_expired">Lejárt</string>
+    <string name="vaccinations_home_title">Oltási emlékeztetők</string>
+    <string name="vaccinations_home_all_valid">Minden oltás érvényes</string>
+    <string name="vaccinations_load_failed">Az oltások betöltése sikertelen</string>
+    <plurals name="vaccination_expires_in_days">
+        <item quantity="one">%d nap múlva lejár</item>
+        <item quantity="other">%d nap múlva lejár</item>
+    </plurals>
+    <plurals name="vaccination_expired_days_ago">
+        <item quantity="one">%d napja lejárt</item>
+        <item quantity="other">%d napja lejárt</item>
+    </plurals>
 </resources>

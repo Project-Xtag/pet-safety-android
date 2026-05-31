@@ -11,6 +11,8 @@ import com.petsafety.app.data.model.TagScannedEvent
 import com.petsafety.app.data.model.PetFoundEvent
 import com.petsafety.app.data.network.ApiService
 import com.petsafety.app.data.network.model.AppConfig
+import com.petsafety.app.data.vaccination.VaccinationAvailability
+import com.petsafety.app.data.vaccination.VaccinationGate
 import com.petsafety.app.data.notifications.NotificationHelper
 import com.petsafety.app.data.network.SseService
 import com.petsafety.app.data.sync.NetworkMonitor
@@ -35,7 +37,8 @@ class AppStateViewModel @Inject constructor(
     val syncService: SyncService,
     private val stringProvider: StringProvider,
     private val subscriptionEventBus: SubscriptionEventBus,
-    private val apiService: ApiService
+    private val apiService: ApiService,
+    private val vaccinationGate: VaccinationGate
 ) : ViewModel() {
     private val _snackbarMessage = MutableStateFlow<String?>(null)
     val snackbarMessage: StateFlow<String?> = _snackbarMessage.asStateFlow()
@@ -70,6 +73,21 @@ class AppStateViewModel @Inject constructor(
             _appConfig.collect { sf.value = it?.tagsAvailable == true }
         }
     }.asStateFlow()
+
+    /**
+     * Vaccination feature availability + home-card gate, surfaced (NOT folded)
+     * from the dedicated [VaccinationGate]. All derivation lives in the gate;
+     * this VM only re-exposes its flows and drives its auth lifecycle, since
+     * this is the app-level VM that home + pet-detail already hold.
+     */
+    val vaccinationAvailability: StateFlow<VaccinationAvailability> = vaccinationGate.availability
+    val vaccinationShowsHomeCard: StateFlow<Boolean> = vaccinationGate.showsHomeCard
+
+    /** Called from the app shell on login / account switch / logout (keyed off the user id). */
+    fun onAuthUserChanged(userId: String?) = vaccinationGate.onAuthUserChanged(userId)
+
+    /** Re-resolve the gate (pull-to-refresh on home; after any vaccination mutation). */
+    fun refreshVaccinationGate() = vaccinationGate.refresh()
 
     init {
         setupSseHandlers()

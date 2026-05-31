@@ -98,6 +98,8 @@ import com.petsafety.app.ui.viewmodel.AppStateViewModel
 import com.petsafety.app.ui.viewmodel.AuthViewModel
 import com.petsafety.app.ui.viewmodel.PetsViewModel
 import com.petsafety.app.ui.viewmodel.SuccessStoriesViewModel
+import com.petsafety.app.ui.components.VaccinationSummarySection
+import com.petsafety.app.data.vaccination.isOn
 
 @Composable
 fun PetDetailScreen(
@@ -379,6 +381,19 @@ fun PetDetailScreen(
                 medications = pet.medications,
                 onEditPet = onEditPet
             )
+
+            // Vaccinations — gated entirely on feature availability (summary 404 → off).
+            // Gated in the parent so an off user sees no section AND no leaked spacer.
+            // CTAs are inert this slice: the add form lands in slice 2, the full list in 1b.
+            val vaccinationAvailability by appStateViewModel.vaccinationAvailability.collectAsState()
+            if (vaccinationAvailability.isOn) {
+                Spacer(modifier = Modifier.height(16.dp))
+                VaccinationSummarySection(
+                    petId = petId,
+                    onAdd = { },
+                    onShowAll = { }
+                )
+            }
 
             // Additional Information — always show, with empty hint if no data
             Spacer(modifier = Modifier.height(16.dp))
