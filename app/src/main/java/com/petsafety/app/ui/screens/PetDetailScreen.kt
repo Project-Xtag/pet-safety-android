@@ -109,6 +109,7 @@ fun PetDetailScreen(
     petId: String,
     onEditPet: () -> Unit,
     onOpenPhotos: () -> Unit,
+    onOpenVaccinations: () -> Unit = {},
     onViewPublicProfile: () -> Unit = {},
     onMarkMissing: () -> Unit = {},
     onBack: () -> Unit,
@@ -384,14 +385,16 @@ fun PetDetailScreen(
 
             // Vaccinations — gated entirely on feature availability (summary 404 → off).
             // Gated in the parent so an off user sees no section AND no leaked spacer.
-            // CTAs are inert this slice: the add form lands in slice 2, the full list in 1b.
+            // Both CTAs open the canonical list (pet_vaccinations/{petId}); the add
+            // FORM is slice 2 (the list's FAB targets it then). We do NOT navigate to
+            // the unregistered form route from here — that would crash NavHost.
             val vaccinationAvailability by appStateViewModel.vaccinationAvailability.collectAsState()
             if (vaccinationAvailability.isOn) {
                 Spacer(modifier = Modifier.height(16.dp))
                 VaccinationSummarySection(
                     petId = petId,
-                    onAdd = { },
-                    onShowAll = { }
+                    onAdd = onOpenVaccinations,
+                    onShowAll = onOpenVaccinations
                 )
             }
 

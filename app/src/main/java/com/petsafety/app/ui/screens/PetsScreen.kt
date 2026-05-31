@@ -157,6 +157,7 @@ fun PetsScreen(appStateViewModel: AppStateViewModel, authViewModel: AuthViewMode
                 petId = petId,
                 onEditPet = { navController.navigate("pet_form/$petId") },
                 onOpenPhotos = { navController.navigate("pet_photos/$petId") },
+                onOpenVaccinations = { navController.navigate("pet_vaccinations/$petId") },
                 onViewPublicProfile = {
                     pet?.qrCode?.let { qrCode ->
                         navController.navigate("public_profile/$qrCode")
@@ -165,6 +166,18 @@ fun PetsScreen(appStateViewModel: AppStateViewModel, authViewModel: AuthViewMode
                 onMarkMissing = { navController.navigate("mark_missing/$petId") },
                 onBack = { navController.popBackStack() },
                 appStateViewModel = appStateViewModel
+            )
+        }
+        // Canonical vaccination list route. Slice 4's deep-link convergence
+        // (home tap + VACCINATION_DUE) builds its back stack onto THIS route.
+        composable(
+            route = "pet_vaccinations/{petId}",
+            arguments = listOf(navArgument("petId") { type = NavType.StringType })
+        ) { backStackEntry ->
+            val petId = backStackEntry.arguments?.getString("petId") ?: return@composable
+            VaccinationsScreen(
+                petId = petId,
+                onBack = { navController.popBackStack() }
             )
         }
         composable(

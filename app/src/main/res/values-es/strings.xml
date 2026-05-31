@@ -1582,4 +1582,7 @@
         <item quantity="one">Caducó hace %d día</item>
         <item quantity="other">Caducó hace %d días</item>
     </plurals>
+    <string name="vaccinations_section_active">Activas</string>
+    <string name="vaccinations_section_expired">Caducadas</string>
+    <string name="vaccinations_disclaimer">Este registro es para uso personal y no es un documento oficial, y no puede utilizarse para acreditar oficialmente ninguna vacuna (incluida la antirrábica). Para una acreditación oficial, usa la cartilla sanitaria de tu mascota o el pasaporte para mascotas.</string>
 </resources>
