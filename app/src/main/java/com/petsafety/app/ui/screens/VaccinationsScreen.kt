@@ -3,17 +3,25 @@ package com.petsafety.app.ui.screens
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.Vaccines
+import androidx.compose.material.icons.filled.Warning
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FloatingActionButton
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -35,18 +43,18 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.petsafety.app.R
 import com.petsafety.app.data.model.Vaccination
 import com.petsafety.app.data.model.VaccinationStatus
+import com.petsafety.app.ui.components.BrandButton
 import com.petsafety.app.ui.components.VaccinationStatusPill
+import com.petsafety.app.ui.util.LocaleFormatting
 import com.petsafety.app.ui.viewmodel.VaccinationsViewModel
 import java.time.LocalDate
 
 /**
- * Full vaccination list for one pet (slice 1b). Reached by the canonical route
- * `pet_vaccinations/{petId}` — slice 4's deep-link convergence builds its back
- * stack onto THIS route, so it stays the single canonical entry.
+ * Full vaccination list for one pet (slice 1b, polished in the iOS-parity pass).
+ * Reached by the canonical route `pet_vaccinations/{petId}`.
  *
- * Slice scope: DISPLAY only. Rows are inert-tap (detail is slice 3) and the
- * add FAB is a no-op (the form route `vaccination_form/{petId}` isn't
- * registered until slice 2 — a live navigate to it would crash NavHost).
+ * Display only this slice: rows are inert-tap (detail is slice 3); the add FAB
+ * opens the form (slice 2b).
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -59,9 +67,6 @@ fun VaccinationsScreen(
     val ui by viewModel.uiState.collectAsState()
     LaunchedEffect(petId) { viewModel.load(petId) }
 
-    // Active = valid + expiring, soonest expiry first (no-expiry sorts last).
-    // Expired = most-overdue first (earliest past date first). Both use a
-    // UTC date parse to line up with the status boundary.
     val active = ui.vaccinations
         .filter { it.status != VaccinationStatus.EXPIRED }
         .sortedBy { it.expiryDateOrMax() }
@@ -81,7 +86,6 @@ fun VaccinationsScreen(
             )
         },
         floatingActionButton = {
-            // The single add entry (§1.6): list FAB → vaccination_form/{petId}.
             FloatingActionButton(onClick = onAdd) {
                 Icon(Icons.Filled.Add, contentDescription = stringResource(R.string.vaccinations_add_cta))
             }
@@ -94,25 +98,36 @@ fun VaccinationsScreen(
                 .fillMaxSize()
                 .padding(padding)
         ) {
-            if (ui.isLoading && ui.vaccinations.isEmpty()) {
-                Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                    CircularProgressIndicator()
-                }
-            } else if (ui.vaccinations.isEmpty()) {
-                EmptyVaccinations()
-            } else {
-                LazyColumn(
+            when {
+                ui.isLoading && ui.vaccinations.isEmpty() ->
+                    Box(Modifier.fillMaxSize(), Alignment.Center) { CircularProgressIndicator() }
+
+                ui.errorMessage != null && ui.vaccinations.isEmpty() ->
+                    CenteredState(
+                        icon = { Icon(Icons.Filled.Warning, null, Modifier.size(40.dp), tint = MaterialTheme.colorScheme.onSurfaceVariant) },
+                        text = ui.errorMessage ?: stringResource(R.string.vaccinations_load_failed)
+                    ) {
+                        BrandButton(text = stringResource(R.string.try_again), onClick = { viewModel.load(petId) })
+                    }
+
+                ui.vaccinations.isEmpty() ->
+                    CenteredState(
+                        icon = { Icon(Icons.Filled.Vaccines, null, Modifier.size(40.dp), tint = MaterialTheme.colorScheme.onSurfaceVariant) },
+                        text = stringResource(R.string.vaccinations_section_empty_hint)
+                    )
+
+                else -> LazyColumn(
                     modifier = Modifier.fillMaxSize(),
                     contentPadding = androidx.compose.foundation.layout.PaddingValues(16.dp),
-                    verticalArrangement = Arrangement.spacedBy(12.dp)
+                    verticalArrangement = Arrangement.spacedBy(20.dp)
                 ) {
                     if (active.isNotEmpty()) {
                         item { SectionHeader(stringResource(R.string.vaccinations_section_active)) }
-                        items(active, key = { it.id }) { VaccinationListRow(it) }
+                        item { GroupedCard(active) }
                     }
                     if (expired.isNotEmpty()) {
                         item { SectionHeader(stringResource(R.string.vaccinations_section_expired)) }
-                        items(expired, key = { it.id }) { VaccinationListRow(it) }
+                        item { GroupedCard(expired) }
                     }
                     item { DisclaimerFooter() }
                 }
@@ -124,61 +139,88 @@ fun VaccinationsScreen(
 private fun Vaccination.expiryDateOrMax(): LocalDate =
     expiresAt?.let { runCatching { LocalDate.parse(it) }.getOrNull() } ?: LocalDate.MAX
 
+private fun formatDate(iso: String): String =
+    runCatching { LocaleFormatting.formatDate(LocalDate.parse(iso)) }.getOrDefault(iso)
+
 @Composable
 private fun SectionHeader(text: String) {
     Text(
         text = text,
         style = MaterialTheme.typography.titleSmall.copy(fontWeight = FontWeight.SemiBold),
-        color = MaterialTheme.colorScheme.onSurfaceVariant
+        color = MaterialTheme.colorScheme.onSurfaceVariant,
+        modifier = Modifier.padding(start = 4.dp, bottom = 4.dp)
     )
 }
 
+/** A rounded grouped card holding the section's rows with dividers — the Material take on iOS's inset-grouped list. */
 @Composable
-private fun VaccinationListRow(vaccination: Vaccination) {
-    // Display-only this slice — no onClick (detail is slice 3).
-    Column(
+private fun GroupedCard(rows: List<Vaccination>) {
+    Card(
         modifier = Modifier.fillMaxWidth(),
-        verticalArrangement = Arrangement.spacedBy(4.dp)
+        shape = androidx.compose.foundation.shape.RoundedCornerShape(16.dp),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainerHigh)
     ) {
-        androidx.compose.foundation.layout.Row(
-            modifier = Modifier.fillMaxWidth(),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceBetween
-        ) {
-            Text(
-                text = vaccination.vaccineNameSnapshot,
-                style = MaterialTheme.typography.bodyLarge.copy(fontWeight = FontWeight.Medium),
-                color = MaterialTheme.colorScheme.onSurface,
-                modifier = Modifier
-                    .weight(1f)
-                    .padding(end = 8.dp)
-            )
-            VaccinationStatusPill(status = vaccination.status)
+        Column {
+            rows.forEachIndexed { index, v ->
+                if (index > 0) HorizontalDivider(color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.4f))
+                VaccinationRow(v)
+            }
         }
-        Text(
-            text = vaccination.administeredAt + (vaccination.expiresAt?.let { " → $it" } ?: ""),
-            style = MaterialTheme.typography.bodySmall,
-            color = MaterialTheme.colorScheme.onSurfaceVariant
-        )
     }
 }
 
 @Composable
-private fun EmptyVaccinations() {
+private fun VaccinationRow(vaccination: Vaccination) {
+    Row(
+        modifier = Modifier.fillMaxWidth().padding(16.dp),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Column(modifier = Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(2.dp)) {
+            Text(
+                text = vaccination.vaccineNameSnapshot,
+                style = MaterialTheme.typography.bodyLarge.copy(fontWeight = FontWeight.Medium),
+                color = MaterialTheme.colorScheme.onSurface
+            )
+            Text(
+                text = stringResource(R.string.vaccinations_administered_value, formatDate(vaccination.administeredAt)),
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant
+            )
+            Text(
+                text = vaccination.expiresAt
+                    ?.let { stringResource(R.string.vaccinations_expires_value, formatDate(it)) }
+                    ?: stringResource(R.string.vaccinations_no_expiry),
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant
+            )
+        }
+        Spacer(Modifier.size(12.dp))
+        VaccinationStatusPill(status = vaccination.status)
+    }
+}
+
+@Composable
+private fun CenteredState(
+    icon: @Composable () -> Unit,
+    text: String,
+    action: (@Composable () -> Unit)? = null
+) {
     Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(24.dp),
+        modifier = Modifier.fillMaxSize().padding(24.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
+        icon()
+        Spacer(Modifier.height(12.dp))
         Text(
-            text = stringResource(R.string.vaccinations_section_empty_hint),
+            text = text,
             style = MaterialTheme.typography.bodyMedium,
             color = MaterialTheme.colorScheme.onSurfaceVariant
         )
-        androidx.compose.foundation.layout.Spacer(Modifier.padding(8.dp))
-        DisclaimerFooter()
+        if (action != null) {
+            Spacer(Modifier.height(16.dp))
+            action()
+        }
     }
 }
 
@@ -188,6 +230,6 @@ private fun DisclaimerFooter() {
         text = stringResource(R.string.vaccinations_disclaimer),
         style = MaterialTheme.typography.bodySmall.copy(fontStyle = FontStyle.Italic),
         color = MaterialTheme.colorScheme.onSurfaceVariant,
-        modifier = Modifier.padding(top = 12.dp)
+        modifier = Modifier.padding(horizontal = 4.dp, vertical = 4.dp)
     )
 }

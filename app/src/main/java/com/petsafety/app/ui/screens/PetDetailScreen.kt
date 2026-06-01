@@ -110,6 +110,7 @@ fun PetDetailScreen(
     onEditPet: () -> Unit,
     onOpenPhotos: () -> Unit,
     onOpenVaccinations: () -> Unit = {},
+    onAddVaccination: () -> Unit = {},
     onViewPublicProfile: () -> Unit = {},
     onMarkMissing: () -> Unit = {},
     onBack: () -> Unit,
@@ -385,15 +386,15 @@ fun PetDetailScreen(
 
             // Vaccinations — gated entirely on feature availability (summary 404 → off).
             // Gated in the parent so an off user sees no section AND no leaked spacer.
-            // Both CTAs open the canonical list (pet_vaccinations/{petId}); the add
-            // FORM is slice 2 (the list's FAB targets it then). We do NOT navigate to
-            // the unregistered form route from here — that would crash NavHost.
+            // Add → the form directly (one-tap add, matching iOS); "show all" →
+            // the full list. Both add affordances (here + the list FAB) target the
+            // same form route, so the entry is consistent, not two divergent paths.
             val vaccinationAvailability by appStateViewModel.vaccinationAvailability.collectAsState()
             if (vaccinationAvailability.isOn) {
                 Spacer(modifier = Modifier.height(16.dp))
                 VaccinationSummarySection(
                     petId = petId,
-                    onAdd = onOpenVaccinations,
+                    onAdd = onAddVaccination,
                     onShowAll = onOpenVaccinations
                 )
             }

@@ -159,6 +159,7 @@ fun PetsScreen(appStateViewModel: AppStateViewModel, authViewModel: AuthViewMode
                 onEditPet = { navController.navigate("pet_form/$petId") },
                 onOpenPhotos = { navController.navigate("pet_photos/$petId") },
                 onOpenVaccinations = { navController.navigate("pet_vaccinations/$petId") },
+                onAddVaccination = { navController.navigate("vaccination_form/$petId") },
                 onViewPublicProfile = {
                     pet?.qrCode?.let { qrCode ->
                         navController.navigate("public_profile/$qrCode")

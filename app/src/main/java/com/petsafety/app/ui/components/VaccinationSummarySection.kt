@@ -6,15 +6,16 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.LocalHospital
+import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.Vaccines
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -35,12 +36,12 @@ import com.petsafety.app.ui.theme.BrandOrange
 import com.petsafety.app.ui.viewmodel.VaccinationsViewModel
 
 /**
- * Pet-detail vaccination card, mirroring HealthInfoSection's shape. Shows the
- * latest few records with a status pill, or an empty hint + add CTA.
+ * Pet-detail vaccination card. Shows the latest few records with status pills,
+ * a "show all" link (whenever records exist — so the list is reachable even
+ * with 1–3 records, matching iOS), and a prominent add button.
  *
- * Renders ONLY when the feature is on — the parent (PetDetailScreen) gates this
- * with `availability.isOn`, so this composable (and its per-pet VM load) never
- * enters composition for an off user, keeping CRUD calls off entirely.
+ * Renders ONLY when the feature is on (parent gates with `availability.isOn`),
+ * so the per-pet VM load never runs for an off user.
  */
 @Composable
 fun VaccinationSummarySection(
@@ -68,7 +69,7 @@ fun VaccinationSummarySection(
         ) {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Icon(
-                    imageVector = Icons.Filled.LocalHospital,
+                    imageVector = Icons.Filled.Vaccines,
                     contentDescription = null,
                     modifier = Modifier.size(20.dp),
                     tint = MaterialTheme.colorScheme.onSurface
@@ -82,33 +83,36 @@ fun VaccinationSummarySection(
             }
 
             val records = ui.vaccinations
-            if (records.isEmpty()) {
-                Text(
-                    text = stringResource(R.string.vaccinations_section_empty_hint),
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
-                )
-                Text(
-                    text = stringResource(R.string.vaccinations_add_cta),
-                    style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.Medium),
-                    color = BrandOrange,
-                    modifier = Modifier
-                        .clickable { onAdd() }
-                        .markAsButton()
-                )
-            } else {
-                records.take(3).forEach { v -> VaccinationRowCompact(v) }
-                if (records.size > 3) {
+            when {
+                ui.isLoading && records.isEmpty() ->
+                    CircularProgressIndicator(modifier = Modifier.size(24.dp), strokeWidth = 2.dp)
+
+                records.isEmpty() ->
+                    Text(
+                        text = stringResource(R.string.vaccinations_section_empty_hint),
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+
+                else -> {
+                    records.take(3).forEach { v -> VaccinationRowCompact(v) }
+                    // Always reachable when records exist (not only > 3), so the
+                    // full list is one tap away even with 1–3 records.
                     Text(
                         text = stringResource(R.string.vaccinations_show_all, records.size),
                         style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.Medium),
                         color = BrandOrange,
-                        modifier = Modifier
-                            .clickable { onShowAll() }
-                            .markAsButton()
+                        modifier = Modifier.clickable { onShowAll() }.markAsButton()
                     )
                 }
             }
+
+            BrandButton(
+                text = stringResource(R.string.vaccinations_add_cta),
+                onClick = onAdd,
+                icon = Icons.Filled.Add,
+                modifier = Modifier.fillMaxWidth()
+            )
         }
     }
 }

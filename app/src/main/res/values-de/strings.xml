@@ -1602,4 +1602,9 @@
     <string name="vaccination_cert_unreadable">Couldn\'t read that image. Try another.</string>
     <string name="vaccination_cert_attached">Photo attached</string>
     <string name="vaccination_empty_region">No vaccines available for your region yet</string>
+    <string name="vaccinations_administered_value">Administered: %s</string>
+    <string name="vaccinations_expires_value">Expires: %s</string>
+    <string name="vaccinations_no_expiry">No expiry</string>
+    <string name="vaccination_field_clinic">Clinic</string>
+    <string name="vaccination_expiry_hint">The expiry date will be set automatically.</string>
 </resources>

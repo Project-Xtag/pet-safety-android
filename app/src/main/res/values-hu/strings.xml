@@ -1609,4 +1609,9 @@
     <string name="vaccination_cert_unreadable">A kép nem olvasható. Próbálj egy másikat.</string>
     <string name="vaccination_cert_attached">Fénykép csatolva</string>
     <string name="vaccination_empty_region">Ehhez a régióhoz még nincs elérhető oltás</string>
+    <string name="vaccinations_administered_value">Beadva: %s</string>
+    <string name="vaccinations_expires_value">Lejár: %s</string>
+    <string name="vaccinations_no_expiry">Nincs lejárat</string>
+    <string name="vaccination_field_clinic">Rendelő</string>
+    <string name="vaccination_expiry_hint">A lejárati dátumot automatikusan beállítjuk.</string>
 </resources>

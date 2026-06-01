@@ -1,5 +1,7 @@
 package com.petsafety.app.ui.screens
 
+import android.graphics.BitmapFactory
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -9,11 +11,16 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.AddAPhoto
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.DatePicker
 import androidx.compose.material3.DatePickerDialog
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -41,6 +48,9 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.asImageBitmap
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.unit.dp
@@ -48,6 +58,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.petsafety.app.R
 import com.petsafety.app.data.model.CreateVaccinationRequest
 import com.petsafety.app.ui.components.CertificatePhotoSheet
+import com.petsafety.app.ui.util.LocaleFormatting
 import com.petsafety.app.ui.viewmodel.AppStateViewModel
 import com.petsafety.app.ui.viewmodel.VaccinationsViewModel
 import com.petsafety.app.util.VaccinationCertificateEncoder
@@ -56,15 +67,14 @@ import java.time.LocalDate
 import java.time.ZoneOffset
 
 /**
- * Add a vaccination (slice 2b). Reached via the canonical
- * `vaccination_form/{petId}` route from the list FAB (the single add entry).
+ * Add a vaccination (slice 2b; iOS-parity polish). Reached via
+ * `vaccination_form/{petId}`. Fields are grouped into cards (mirroring iOS's
+ * Form sections); the cert shows a thumbnail preview; toggle-off shows a hint.
  *
- * Locked behaviors: opaque vaccine code (show display_name, submit code);
- * administered required + ≤ today; expiry toggle-off → expires_at omitted so
- * the server derives (no client preview); optional cert via the raw picker →
- * encoder (encode==null surfaced, not dropped); rabies validation is
- * server-400-only (surfaced verbatim); create-then-cert with a half-fail
- * tolerated; success toast on save.
+ * Locked behaviors: opaque vaccine code; administered required + ≤ today;
+ * expiry toggle-off → expires_at omitted (server derives); optional cert via
+ * the raw picker → encoder (encode==null surfaced); rabies = server-400 only;
+ * create-then-cert half-fail tolerated; success toast on save.
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -89,6 +99,7 @@ fun VaccinationFormScreen(
     var expiresAt by remember { mutableStateOf<LocalDate?>(null) }
     var batch by remember { mutableStateOf("") }
     var vetName by remember { mutableStateOf("") }
+    var vetClinic by remember { mutableStateOf("") }
     var notes by remember { mutableStateOf("") }
     var cert by remember { mutableStateOf<VaccinationCertificateEncoder.Encoded?>(null) }
     var showCertPicker by remember { mutableStateOf(false) }
@@ -107,26 +118,24 @@ fun VaccinationFormScreen(
         val request = CreateVaccinationRequest(
             vaccineCode = code,
             administeredAt = adm.toString(),
-            // Toggle-off → null → omitted on the wire → server derives. (verified)
-            expiresAt = if (hasExpiry) expiresAt?.toString() else null,
+            expiresAt = if (hasExpiry) expiresAt?.toString() else null, // toggle-off → omitted → server derives
             batchNumber = batch.ifBlank { null },
             vetName = vetName.ifBlank { null },
+            vetClinic = vetClinic.ifBlank { null },
             notes = notes.ifBlank { null }
         )
         viewModel.create(petId, request) { ok, message, created ->
             if (!ok) {
                 saving = false
-                actionError = message // server-localized (e.g. rabies age-floor)
+                actionError = message
                 return@create
             }
             val encoded = cert
             if (encoded != null && created != null) {
-                // Create-then-cert: the record is already saved. A cert failure
-                // surfaces separately and does NOT roll back the save.
                 viewModel.uploadCertificate(petId, created.id, encoded) { certOk, certMsg, _ ->
                     saving = false
                     if (certOk) appStateViewModel.showSuccess(savedMsg)
-                    else appStateViewModel.showError(certMsg ?: certFailedMsg)
+                    else appStateViewModel.showError(certMsg ?: certFailedMsg) // half-fail: record saved, cert separate
                     onBack()
                 }
             } else {
@@ -157,8 +166,6 @@ fun VaccinationFormScreen(
         }
     ) { padding ->
         if (catalog.isEmpty()) {
-            // Explicit empty-region state — never a blank/disabled picker. Live
-            // path given the users.country data debt (non-ISO-2 → empty catalog).
             Box(modifier = Modifier.fillMaxSize().padding(padding).padding(24.dp), contentAlignment = Alignment.Center) {
                 Text(
                     text = stringResource(R.string.vaccination_empty_region),
@@ -175,68 +182,61 @@ fun VaccinationFormScreen(
                     .padding(16.dp),
                 verticalArrangement = Arrangement.spacedBy(16.dp)
             ) {
-                VaccinePicker(
-                    catalog = catalog,
-                    selectedCode = selectedCode,
-                    onSelect = { selectedCode = it }
-                )
-
-                DateField(
-                    label = stringResource(R.string.vaccination_field_administered),
-                    date = administeredAt,
-                    maxToday = true,
-                    onPick = { administeredAt = it }
-                )
-
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    Text(
-                        text = stringResource(R.string.vaccination_field_expiry_toggle),
-                        style = MaterialTheme.typography.bodyLarge,
-                        modifier = Modifier.weight(1f)
-                    )
-                    Switch(checked = hasExpiry, onCheckedChange = { hasExpiry = it })
+                FormSection {
+                    VaccinePicker(catalog = catalog, selectedCode = selectedCode, onSelect = { selectedCode = it })
                 }
-                if (hasExpiry) {
+
+                FormSection {
                     DateField(
-                        label = stringResource(R.string.vaccination_field_expiry),
-                        date = expiresAt,
-                        maxToday = false,
-                        onPick = { expiresAt = it }
+                        label = stringResource(R.string.vaccination_field_administered),
+                        date = administeredAt, maxToday = true, onPick = { administeredAt = it }
                     )
-                }
-
-                OutlinedTextField(
-                    value = batch, onValueChange = { batch = it },
-                    label = { Text(stringResource(R.string.vaccination_field_batch)) },
-                    singleLine = true, modifier = Modifier.fillMaxWidth()
-                )
-                OutlinedTextField(
-                    value = vetName, onValueChange = { vetName = it },
-                    label = { Text(stringResource(R.string.vaccination_field_vet)) },
-                    singleLine = true, modifier = Modifier.fillMaxWidth()
-                )
-                OutlinedTextField(
-                    value = notes, onValueChange = { notes = it },
-                    label = { Text(stringResource(R.string.vaccination_field_notes)) },
-                    modifier = Modifier.fillMaxWidth()
-                )
-
-                // Optional certificate photo
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    Text(
-                        text = if (cert == null) stringResource(R.string.add_photo)
-                        else stringResource(R.string.vaccination_cert_attached),
-                        color = MaterialTheme.colorScheme.primary,
-                        modifier = Modifier
-                            .weight(1f)
-                            .clickable { showCertPicker = true }
-                    )
-                    if (cert != null) {
-                        TextButton(onClick = { cert = null }) {
-                            Text(stringResource(R.string.cancel))
-                        }
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Text(
+                            text = stringResource(R.string.vaccination_field_expiry_toggle),
+                            style = MaterialTheme.typography.bodyLarge,
+                            modifier = Modifier.weight(1f)
+                        )
+                        Switch(checked = hasExpiry, onCheckedChange = { hasExpiry = it })
+                    }
+                    if (hasExpiry) {
+                        DateField(
+                            label = stringResource(R.string.vaccination_field_expiry),
+                            date = expiresAt, maxToday = false, onPick = { expiresAt = it }
+                        )
+                    } else {
+                        Text(
+                            text = stringResource(R.string.vaccination_expiry_hint),
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                        )
                     }
                 }
+
+                FormSection {
+                    OutlinedTextField(
+                        value = batch, onValueChange = { batch = it },
+                        label = { Text(stringResource(R.string.vaccination_field_batch)) },
+                        singleLine = true, modifier = Modifier.fillMaxWidth()
+                    )
+                    OutlinedTextField(
+                        value = vetName, onValueChange = { vetName = it },
+                        label = { Text(stringResource(R.string.vaccination_field_vet)) },
+                        singleLine = true, modifier = Modifier.fillMaxWidth()
+                    )
+                    OutlinedTextField(
+                        value = vetClinic, onValueChange = { vetClinic = it },
+                        label = { Text(stringResource(R.string.vaccination_field_clinic)) },
+                        singleLine = true, modifier = Modifier.fillMaxWidth()
+                    )
+                    OutlinedTextField(
+                        value = notes, onValueChange = { notes = it },
+                        label = { Text(stringResource(R.string.vaccination_field_notes)) },
+                        modifier = Modifier.fillMaxWidth()
+                    )
+                }
+
+                FormSection { CertRow(cert = cert, onPick = { showCertPicker = true }, onRemove = { cert = null }) }
 
                 actionError?.let {
                     Text(it, color = MaterialTheme.colorScheme.error, style = MaterialTheme.typography.bodyMedium)
@@ -247,7 +247,6 @@ fun VaccinationFormScreen(
                     style = MaterialTheme.typography.bodySmall.copy(fontStyle = FontStyle.Italic),
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
-                Spacer(Modifier.width(0.dp))
             }
         }
     }
@@ -257,16 +256,65 @@ fun VaccinationFormScreen(
             onDismiss = { showCertPicker = false },
             onRawBytesSelected = { raw ->
                 val encoded = VaccinationCertificateEncoder.encode(raw)
-                if (encoded == null) {
-                    // encode == null: undecodable (e.g. HEIC on API 26/27). Surface, don't drop.
-                    actionError = certUnreadableMsg
-                } else {
-                    cert = encoded
-                    actionError = null
-                }
+                if (encoded == null) actionError = certUnreadableMsg // surfaced, not dropped
+                else { cert = encoded; actionError = null }
                 showCertPicker = false
             }
         )
+    }
+}
+
+@Composable
+private fun FormSection(content: @Composable androidx.compose.foundation.layout.ColumnScope.() -> Unit) {
+    Card(
+        modifier = Modifier.fillMaxWidth(),
+        shape = RoundedCornerShape(12.dp),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainerHigh)
+    ) {
+        Column(
+            modifier = Modifier.fillMaxWidth().padding(16.dp),
+            verticalArrangement = Arrangement.spacedBy(12.dp),
+            content = content
+        )
+    }
+}
+
+@Composable
+private fun CertRow(
+    cert: VaccinationCertificateEncoder.Encoded?,
+    onPick: () -> Unit,
+    onRemove: () -> Unit
+) {
+    if (cert == null) {
+        Row(
+            modifier = Modifier.fillMaxWidth().clickable { onPick() },
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Icon(Icons.Filled.AddAPhoto, contentDescription = null, tint = MaterialTheme.colorScheme.primary)
+            Spacer(Modifier.width(12.dp))
+            Text(stringResource(R.string.add_photo), color = MaterialTheme.colorScheme.primary)
+        }
+    } else {
+        val bitmap = remember(cert) {
+            runCatching { BitmapFactory.decodeByteArray(cert.data, 0, cert.data.size) }.getOrNull()
+        }
+        Row(modifier = Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
+            if (bitmap != null) {
+                Image(
+                    bitmap = bitmap.asImageBitmap(),
+                    contentDescription = null,
+                    contentScale = ContentScale.Crop,
+                    modifier = Modifier.size(60.dp).clip(RoundedCornerShape(8.dp))
+                )
+            }
+            Text(
+                text = stringResource(R.string.vaccination_cert_attached),
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.weight(1f).padding(start = 12.dp)
+            )
+            TextButton(onClick = onRemove) { Text(stringResource(R.string.cancel)) }
+        }
     }
 }
 
@@ -287,21 +335,13 @@ private fun VaccinePicker(
             label = { Text(stringResource(R.string.vaccination_field_vaccine)) },
             placeholder = { Text(stringResource(R.string.vaccination_field_vaccine_hint)) },
             trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded) },
-            modifier = Modifier
-                .fillMaxWidth()
-                .menuAnchor(MenuAnchorType.PrimaryNotEditable)
+            modifier = Modifier.fillMaxWidth().menuAnchor(MenuAnchorType.PrimaryNotEditable)
         )
-        ExposedDropdownMenu(
-            expanded = expanded,
-            onDismissRequest = { expanded = false }
-        ) {
+        ExposedDropdownMenu(expanded = expanded, onDismissRequest = { expanded = false }) {
             catalog.forEach { entry ->
                 DropdownMenuItem(
-                    text = { Text(entry.displayName) }, // show display_name; submit code
-                    onClick = {
-                        onSelect(entry.code)
-                        expanded = false
-                    }
+                    text = { Text(entry.displayName) }, // display_name; submit code
+                    onClick = { onSelect(entry.code); expanded = false }
                 )
             }
         }
@@ -318,19 +358,15 @@ private fun DateField(
 ) {
     var showDialog by remember { mutableStateOf(false) }
     OutlinedTextField(
-        value = date?.toString() ?: "",
+        value = date?.let { runCatching { LocaleFormatting.formatDate(it) }.getOrDefault(it.toString()) } ?: "",
         onValueChange = {},
         readOnly = true,
         enabled = false,
         label = { Text(label) },
-        modifier = Modifier
-            .fillMaxWidth()
-            .clickable { showDialog = true }
+        modifier = Modifier.fillMaxWidth().clickable { showDialog = true }
     )
     if (showDialog) {
-        val state = rememberDatePickerState(
-            selectableDates = if (maxToday) PastOrTodayUtc else AllDates
-        )
+        val state = rememberDatePickerState(selectableDates = if (maxToday) PastOrTodayUtc else AllDates)
         DatePickerDialog(
             onDismissRequest = { showDialog = false },
             confirmButton = {
@@ -350,8 +386,7 @@ private fun DateField(
 
 @OptIn(ExperimentalMaterial3Api::class)
 private val PastOrTodayUtc = object : SelectableDates {
-    override fun isSelectableDate(utcTimeMillis: Long): Boolean =
-        utcTimeMillis <= System.currentTimeMillis()
+    override fun isSelectableDate(utcTimeMillis: Long): Boolean = utcTimeMillis <= System.currentTimeMillis()
 }
 
 @OptIn(ExperimentalMaterial3Api::class)

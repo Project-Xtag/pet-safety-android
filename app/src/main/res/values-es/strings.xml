@@ -1601,4 +1601,9 @@
     <string name="vaccination_cert_unreadable">No se pudo leer la imagen. Prueba con otra.</string>
     <string name="vaccination_cert_attached">Foto adjunta</string>
     <string name="vaccination_empty_region">Aún no hay vacunas disponibles para tu región</string>
+    <string name="vaccinations_administered_value">Administrada: %s</string>
+    <string name="vaccinations_expires_value">Caduca: %s</string>
+    <string name="vaccinations_no_expiry">Sin caducidad</string>
+    <string name="vaccination_field_clinic">Clínica</string>
+    <string name="vaccination_expiry_hint">La fecha de caducidad se establecerá automáticamente.</string>
 </resources>
