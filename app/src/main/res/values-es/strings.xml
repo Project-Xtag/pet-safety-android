@@ -1585,4 +1585,6 @@
     <string name="vaccinations_section_active">Activas</string>
     <string name="vaccinations_section_expired">Caducadas</string>
     <string name="vaccinations_disclaimer">Este registro es para uso personal y no es un documento oficial, y no puede utilizarse para acreditar oficialmente ninguna vacuna (incluida la antirrábica). Para una acreditación oficial, usa la cartilla sanitaria de tu mascota o el pasaporte para mascotas.</string>
+    <string name="vaccinations_save_failed">No se pudo guardar la vacuna</string>
+    <string name="vaccinations_cert_failed">No se pudo subir la imagen del certificado</string>
 </resources>

@@ -1593,4 +1593,6 @@
     <string name="vaccinations_section_active">Aktív</string>
     <string name="vaccinations_section_expired">Lejárt</string>
     <string name="vaccinations_disclaimer">Ez a feljegyzés személyes nyilvántartás céljából készült – nem hivatalos dokumentum, és semmilyen oltás (a veszettség elleni oltást is beleértve) hivatalos igazolására nem használható. Hivatalos igazoláshoz használd a Kisállategészségügyi Könyvet vagy az Állatútlevelet.</string>
+    <string name="vaccinations_save_failed">Az oltás mentése sikertelen</string>
+    <string name="vaccinations_cert_failed">A kép feltöltése sikertelen</string>
 </resources>

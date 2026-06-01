@@ -2,6 +2,7 @@ package com.petsafety.app.data.network
 
 import com.petsafety.app.data.model.ClaimPromoTagRequest
 import com.petsafety.app.data.model.ClaimPromoTagResponse
+import com.petsafety.app.data.model.CreateVaccinationRequest
 import com.petsafety.app.data.model.CreateFoundPetResponse
 import com.petsafety.app.data.model.NearbyFoundPetsResponse
 import com.petsafety.app.data.model.ScanResponse
@@ -360,6 +361,31 @@ interface ApiService {
     // means the feature is OFF; a 200 (even with zero counts) means ON.
     @GET("users/me/vaccinations/summary")
     suspend fun getVaccinationSummary(): ApiEnvelope<VaccinationSummaryResponse>
+
+    // A.4 catalog — public, locale-aware. species lowercase, country UPPER ISO-2.
+    @GET("vaccines/catalog")
+    suspend fun getVaccineCatalog(
+        @Query("species") species: String,
+        @Query("country") country: String
+    ): ApiEnvelope<VaccineCatalogResponse>
+
+    // A.3 create. vaccine_code opaque; expires_at omitted → server-derived.
+    @POST("pets/{petId}/vaccinations")
+    suspend fun createVaccination(
+        @Path("petId") petId: String,
+        @Body request: CreateVaccinationRequest
+    ): ApiEnvelope<VaccinationResponse>
+
+    // A.5 certificate — multipart field `file`, JPEG/PNG/WebP only (client
+    // transcodes HEIC->JPEG via VaccinationCertificateEncoder first; the Part
+    // carries a CONCRETE MIME, never image/*).
+    @Multipart
+    @POST("pets/{petId}/vaccinations/{id}/certificate")
+    suspend fun uploadVaccinationCertificate(
+        @Path("petId") petId: String,
+        @Path("id") id: String,
+        @retrofit2.http.Part file: MultipartBody.Part
+    ): ApiEnvelope<CertificateUploadResponse>
 
     // Notifications Inbox
     @GET("notifications")
