@@ -1595,4 +1595,18 @@
     <string name="vaccinations_disclaimer">Ez a feljegyzés személyes nyilvántartás céljából készült – nem hivatalos dokumentum, és semmilyen oltás (a veszettség elleni oltást is beleértve) hivatalos igazolására nem használható. Hivatalos igazoláshoz használd a Kisállategészségügyi Könyvet vagy az Állatútlevelet.</string>
     <string name="vaccinations_save_failed">Az oltás mentése sikertelen</string>
     <string name="vaccinations_cert_failed">A kép feltöltése sikertelen</string>
+    <string name="vaccination_form_title">Új oltás</string>
+    <string name="vaccination_field_vaccine">Oltás</string>
+    <string name="vaccination_field_vaccine_hint">Válassz oltást</string>
+    <string name="vaccination_field_administered">Beadás dátuma</string>
+    <string name="vaccination_field_expiry_toggle">Lejárati dátum megadása</string>
+    <string name="vaccination_field_expiry">Lejárat dátuma</string>
+    <string name="vaccination_field_batch">Gyártási szám</string>
+    <string name="vaccination_field_vet">Állatorvos</string>
+    <string name="vaccination_field_notes">Megjegyzés</string>
+    <string name="vaccination_save">Mentés</string>
+    <string name="vaccination_saved">Oltás elmentve</string>
+    <string name="vaccination_cert_unreadable">A kép nem olvasható. Próbálj egy másikat.</string>
+    <string name="vaccination_cert_attached">Fénykép csatolva</string>
+    <string name="vaccination_empty_region">Ehhez a régióhoz még nincs elérhető oltás</string>
 </resources>

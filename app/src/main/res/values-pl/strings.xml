@@ -1607,4 +1607,18 @@
     <string name="vaccinations_disclaimer">This is a personal health record — not an official document, and it cannot be used to formally prove any vaccination (including rabies). For official proof, use your pet\'s health booklet or the pet passport.</string>
     <string name="vaccinations_save_failed">Unable to save the vaccination</string>
     <string name="vaccinations_cert_failed">Unable to upload the certificate photo</string>
+    <string name="vaccination_form_title">New vaccination</string>
+    <string name="vaccination_field_vaccine">Vaccine</string>
+    <string name="vaccination_field_vaccine_hint">Select a vaccine</string>
+    <string name="vaccination_field_administered">Date administered</string>
+    <string name="vaccination_field_expiry_toggle">Set an expiry date</string>
+    <string name="vaccination_field_expiry">Expiry date</string>
+    <string name="vaccination_field_batch">Batch number</string>
+    <string name="vaccination_field_vet">Veterinarian</string>
+    <string name="vaccination_field_notes">Notes</string>
+    <string name="vaccination_save">Save</string>
+    <string name="vaccination_saved">Vaccination saved</string>
+    <string name="vaccination_cert_unreadable">Couldn\'t read that image. Try another.</string>
+    <string name="vaccination_cert_attached">Photo attached</string>
+    <string name="vaccination_empty_region">No vaccines available for your region yet</string>
 </resources>

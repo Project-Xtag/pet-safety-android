@@ -53,6 +53,7 @@ import java.time.LocalDate
 fun VaccinationsScreen(
     petId: String,
     onBack: () -> Unit,
+    onAdd: () -> Unit = {},
     viewModel: VaccinationsViewModel = hiltViewModel()
 ) {
     val ui by viewModel.uiState.collectAsState()
@@ -80,9 +81,8 @@ fun VaccinationsScreen(
             )
         },
         floatingActionButton = {
-            // Inert until slice 2 registers `vaccination_form/{petId}`. A live
-            // navigate to an unregistered route would crash NavHost.
-            FloatingActionButton(onClick = { /* TODO(slice 2): navigate to vaccination_form/$petId */ }) {
+            // The single add entry (§1.6): list FAB → vaccination_form/{petId}.
+            FloatingActionButton(onClick = onAdd) {
                 Icon(Icons.Filled.Add, contentDescription = stringResource(R.string.vaccinations_add_cta))
             }
         }

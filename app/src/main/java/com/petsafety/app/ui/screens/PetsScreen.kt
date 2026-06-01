@@ -19,6 +19,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.VerticalDivider
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.key
 import androidx.compose.runtime.mutableStateOf
@@ -177,7 +178,23 @@ fun PetsScreen(appStateViewModel: AppStateViewModel, authViewModel: AuthViewMode
             val petId = backStackEntry.arguments?.getString("petId") ?: return@composable
             VaccinationsScreen(
                 petId = petId,
-                onBack = { navController.popBackStack() }
+                onBack = { navController.popBackStack() },
+                onAdd = { navController.navigate("vaccination_form/$petId") }
+            )
+        }
+        composable(
+            route = "vaccination_form/{petId}",
+            arguments = listOf(navArgument("petId") { type = NavType.StringType })
+        ) { backStackEntry ->
+            val petId = backStackEntry.arguments?.getString("petId") ?: return@composable
+            val pet = viewModel.pets.value.firstOrNull { it.id == petId }
+            val currentUser by authViewModel.currentUser.collectAsState()
+            VaccinationFormScreen(
+                petId = petId,
+                species = pet?.species ?: "",
+                country = currentUser?.country ?: "",
+                onBack = { navController.popBackStack() },
+                appStateViewModel = appStateViewModel
             )
         }
         composable(
