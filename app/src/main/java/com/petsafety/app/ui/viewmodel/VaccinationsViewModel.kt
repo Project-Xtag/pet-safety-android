@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.petsafety.app.R
 import com.petsafety.app.data.model.CreateVaccinationRequest
+import com.petsafety.app.data.model.UpdateVaccinationRequest
 import com.petsafety.app.data.model.Vaccination
 import com.petsafety.app.data.model.VaccineCatalogEntry
 import com.petsafety.app.data.network.model.ErrorResponse
@@ -104,6 +105,67 @@ class VaccinationsViewModel @Inject constructor(
                 onResult(false, msg, null)
             } catch (e: Exception) {
                 onResult(false, stringProvider.getString(R.string.vaccinations_save_failed), null)
+            }
+        }
+    }
+
+    /**
+     * A.3 update (PUT). Fires onDidMutate (gate refresh) — an edit can move the
+     * expiry/status, so the home summary may change. A 400 surfaces the server's
+     * localized message (e.g. rabies floor on a changed administered date).
+     */
+    fun update(
+        petId: String,
+        id: String,
+        request: UpdateVaccinationRequest,
+        onResult: (success: Boolean, message: String?) -> Unit
+    ) {
+        viewModelScope.launch {
+            try {
+                repository.update(petId, id, request)
+                onDidMutate?.invoke()
+                onResult(true, null)
+            } catch (e: HttpException) {
+                val msg = if (e.code() == 400) serverMessage(e) ?: stringProvider.getString(R.string.vaccinations_save_failed)
+                          else stringProvider.getString(R.string.vaccinations_save_failed)
+                onResult(false, msg)
+            } catch (e: Exception) {
+                onResult(false, stringProvider.getString(R.string.vaccinations_save_failed))
+            }
+        }
+    }
+
+    /**
+     * A.3 delete (soft-delete). Fires onDidMutate (gate refresh) — counts change.
+     *
+     * Optimistically drops the row from the shared state BEFORE the network call
+     * so the detail's by-id lookup goes null and it pops immediately (no waiting
+     * on the delete + re-pull round-trip — that lag was visible/confusing). Same
+     * single observe-pop trigger, just fed sooner. Rolled back if the call fails.
+     */
+    fun delete(petId: String, id: String, onResult: (success: Boolean, message: String?) -> Unit) {
+        val snapshot = _uiState.value.vaccinations
+        _uiState.value = _uiState.value.copy(vaccinations = snapshot.filterNot { it.id == id })
+        viewModelScope.launch {
+            try {
+                repository.delete(petId, id)
+                onDidMutate?.invoke()
+                onResult(true, null)
+            } catch (e: Exception) {
+                _uiState.value = _uiState.value.copy(vaccinations = snapshot) // rollback
+                onResult(false, stringProvider.getString(R.string.vaccinations_delete_failed))
+            }
+        }
+    }
+
+    /** A.5 cert delete. Does NOT fire onDidMutate (cert actions don't move the summary). */
+    fun deleteCertificate(petId: String, id: String, onResult: (success: Boolean, message: String?) -> Unit) {
+        viewModelScope.launch {
+            try {
+                repository.deleteCertificate(petId, id)
+                onResult(true, null)
+            } catch (e: Exception) {
+                onResult(false, stringProvider.getString(R.string.vaccinations_cert_failed))
             }
         }
     }

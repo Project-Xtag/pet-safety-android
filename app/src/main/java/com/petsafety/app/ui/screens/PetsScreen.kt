@@ -21,6 +21,9 @@ import androidx.compose.material3.VerticalDivider
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
+import androidx.hilt.navigation.compose.hiltViewModel
+import com.petsafety.app.ui.viewmodel.VaccinationsViewModel
 import androidx.compose.runtime.key
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
@@ -170,17 +173,26 @@ fun PetsScreen(appStateViewModel: AppStateViewModel, authViewModel: AuthViewMode
                 appStateViewModel = appStateViewModel
             )
         }
-        // Canonical vaccination list route. Slice 4's deep-link convergence
-        // (home tap + VACCINATION_DUE) builds its back stack onto THIS route.
+        // Vaccination screens (list / form / detail / edit) share ONE per-pet
+        // VaccinationsViewModel, scoped to the pet_detail/{petId} back-stack entry
+        // — the lowest entry always present across all of them (the section sits on
+        // it; the rest sit above). So edits/deletes reflect everywhere instantly and
+        // the detail's by-id lookup is always live, mirroring iOS's PetDetailView-
+        // owned VM. INVARIANT: pet_detail/{petId} MUST be in the back stack — Compose
+        // getBackStackEntry throws loudly if not, which makes the invariant self-
+        // enforcing (slice 4's convergence builds pets→pet_detail→vaccinations).
         composable(
             route = "pet_vaccinations/{petId}",
             arguments = listOf(navArgument("petId") { type = NavType.StringType })
         ) { backStackEntry ->
             val petId = backStackEntry.arguments?.getString("petId") ?: return@composable
+            val parent = remember(petId) { navController.getBackStackEntry("pet_detail/$petId") }
             VaccinationsScreen(
                 petId = petId,
                 onBack = { navController.popBackStack() },
-                onAdd = { navController.navigate("vaccination_form/$petId") }
+                onAdd = { navController.navigate("vaccination_form/$petId") },
+                onOpenDetail = { id -> navController.navigate("vaccination_detail/$petId/$id") },
+                viewModel = hiltViewModel<VaccinationsViewModel>(parent)
             )
         }
         composable(
@@ -190,12 +202,51 @@ fun PetsScreen(appStateViewModel: AppStateViewModel, authViewModel: AuthViewMode
             val petId = backStackEntry.arguments?.getString("petId") ?: return@composable
             val pet = viewModel.pets.value.firstOrNull { it.id == petId }
             val currentUser by authViewModel.currentUser.collectAsState()
+            val parent = remember(petId) { navController.getBackStackEntry("pet_detail/$petId") }
             VaccinationFormScreen(
                 petId = petId,
                 species = pet?.species ?: "",
                 country = currentUser?.country ?: "",
                 onBack = { navController.popBackStack() },
-                appStateViewModel = appStateViewModel
+                appStateViewModel = appStateViewModel,
+                viewModel = hiltViewModel<VaccinationsViewModel>(parent)
+            )
+        }
+        composable(
+            route = "vaccination_detail/{petId}/{vaccinationId}",
+            arguments = listOf(
+                navArgument("petId") { type = NavType.StringType },
+                navArgument("vaccinationId") { type = NavType.StringType }
+            )
+        ) { backStackEntry ->
+            val petId = backStackEntry.arguments?.getString("petId") ?: return@composable
+            val vaccId = backStackEntry.arguments?.getString("vaccinationId") ?: return@composable
+            val parent = remember(petId) { navController.getBackStackEntry("pet_detail/$petId") }
+            VaccinationDetailScreen(
+                petId = petId,
+                vaccinationId = vaccId,
+                onBack = { navController.popBackStack() },
+                onEdit = { navController.navigate("vaccination_edit/$petId/$vaccId") },
+                appStateViewModel = appStateViewModel,
+                viewModel = hiltViewModel<VaccinationsViewModel>(parent)
+            )
+        }
+        composable(
+            route = "vaccination_edit/{petId}/{vaccinationId}",
+            arguments = listOf(
+                navArgument("petId") { type = NavType.StringType },
+                navArgument("vaccinationId") { type = NavType.StringType }
+            )
+        ) { backStackEntry ->
+            val petId = backStackEntry.arguments?.getString("petId") ?: return@composable
+            val vaccId = backStackEntry.arguments?.getString("vaccinationId") ?: return@composable
+            val parent = remember(petId) { navController.getBackStackEntry("pet_detail/$petId") }
+            VaccinationEditScreen(
+                petId = petId,
+                vaccinationId = vaccId,
+                onBack = { navController.popBackStack() },
+                appStateViewModel = appStateViewModel,
+                viewModel = hiltViewModel<VaccinationsViewModel>(parent)
             )
         }
         composable(

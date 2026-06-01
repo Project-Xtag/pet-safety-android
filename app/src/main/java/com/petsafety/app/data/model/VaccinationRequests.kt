@@ -23,3 +23,22 @@ data class CreateVaccinationRequest(
     @SerialName("vet_clinic") val vetClinic: String? = null,
     val notes: String? = null
 )
+
+/**
+ * Edit body (A.3 PUT). **Excludes `vaccine_code`** — it's immutable (change =
+ * delete + re-add). Text fields are sent as their current value INCLUDING empty
+ * strings, so clearing a field persists (mirrors iOS). `expires_at` is sent when
+ * the record had one or the user toggled one on, else omitted (left unchanged).
+ *
+ * The converter has explicitNulls=false, so a null `expires_at` is dropped (the
+ * server leaves it unchanged); the non-null text fields are always serialized.
+ */
+@Serializable
+data class UpdateVaccinationRequest(
+    @SerialName("administered_at") val administeredAt: String,
+    @SerialName("expires_at") val expiresAt: String? = null,
+    @SerialName("batch_number") val batchNumber: String,
+    @SerialName("vet_name") val vetName: String,
+    @SerialName("vet_clinic") val vetClinic: String,
+    val notes: String
+)

@@ -3,6 +3,7 @@ package com.petsafety.app.data.network
 import com.petsafety.app.data.model.ClaimPromoTagRequest
 import com.petsafety.app.data.model.ClaimPromoTagResponse
 import com.petsafety.app.data.model.CreateVaccinationRequest
+import com.petsafety.app.data.model.UpdateVaccinationRequest
 import com.petsafety.app.data.model.CreateFoundPetResponse
 import com.petsafety.app.data.model.NearbyFoundPetsResponse
 import com.petsafety.app.data.model.ScanResponse
@@ -376,6 +377,21 @@ interface ApiService {
         @Body request: CreateVaccinationRequest
     ): ApiEnvelope<VaccinationResponse>
 
+    // A.3 update (PUT). Body EXCLUDES vaccine_code (immutable; change = delete + re-add).
+    @PUT("pets/{petId}/vaccinations/{id}")
+    suspend fun updateVaccination(
+        @Path("petId") petId: String,
+        @Path("id") id: String,
+        @Body request: UpdateVaccinationRequest
+    ): ApiEnvelope<VaccinationResponse>
+
+    // A.3 delete (soft-delete).
+    @DELETE("pets/{petId}/vaccinations/{id}")
+    suspend fun deleteVaccination(
+        @Path("petId") petId: String,
+        @Path("id") id: String
+    ): ApiEnvelope<EmptyResponse>
+
     // A.5 certificate — multipart field `file`, JPEG/PNG/WebP only (client
     // transcodes HEIC->JPEG via VaccinationCertificateEncoder first; the Part
     // carries a CONCRETE MIME, never image/*).
@@ -386,6 +402,13 @@ interface ApiService {
         @Path("id") id: String,
         @retrofit2.http.Part file: MultipartBody.Part
     ): ApiEnvelope<CertificateUploadResponse>
+
+    // A.5 certificate delete.
+    @DELETE("pets/{petId}/vaccinations/{id}/certificate")
+    suspend fun deleteVaccinationCertificate(
+        @Path("petId") petId: String,
+        @Path("id") id: String
+    ): ApiEnvelope<EmptyResponse>
 
     // Notifications Inbox
     @GET("notifications")

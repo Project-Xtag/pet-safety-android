@@ -2,6 +2,7 @@ package com.petsafety.app.data.repository
 
 import com.petsafety.app.data.local.OfflineDataManager
 import com.petsafety.app.data.model.CreateVaccinationRequest
+import com.petsafety.app.data.model.UpdateVaccinationRequest
 import com.petsafety.app.data.model.Vaccination
 import com.petsafety.app.data.model.VaccineCatalogEntry
 import com.petsafety.app.data.network.ApiService
@@ -51,6 +52,26 @@ class VaccinationRepository(
         // Re-pull so the cache (and the pet-detail section) include the new row.
         runCatching { fetchVaccinations(petId) }
         return created
+    }
+
+    /** A.3 update (PUT; excludes vaccine_code). Re-pull so the shared VM reflects the edit. */
+    suspend fun update(petId: String, id: String, request: UpdateVaccinationRequest): Vaccination {
+        val updated = apiService.updateVaccination(petId, id, request).data?.vaccination
+            ?: error("Missing vaccination in update response")
+        runCatching { fetchVaccinations(petId) }
+        return updated
+    }
+
+    /** A.3 delete (soft-delete). Re-pull so the row disappears from the shared VM. */
+    suspend fun delete(petId: String, id: String) {
+        apiService.deleteVaccination(petId, id)
+        runCatching { fetchVaccinations(petId) }
+    }
+
+    /** A.5 certificate delete. Re-pull so certificate_url clears on the local row. */
+    suspend fun deleteCertificate(petId: String, id: String) {
+        apiService.deleteVaccinationCertificate(petId, id)
+        runCatching { fetchVaccinations(petId) }
     }
 
     /**

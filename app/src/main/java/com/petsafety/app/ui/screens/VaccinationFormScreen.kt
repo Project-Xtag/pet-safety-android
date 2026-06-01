@@ -265,7 +265,7 @@ fun VaccinationFormScreen(
 }
 
 @Composable
-private fun FormSection(content: @Composable androidx.compose.foundation.layout.ColumnScope.() -> Unit) {
+internal fun FormSection(content: @Composable androidx.compose.foundation.layout.ColumnScope.() -> Unit) {
     Card(
         modifier = Modifier.fillMaxWidth(),
         shape = RoundedCornerShape(12.dp),
@@ -350,7 +350,7 @@ private fun VaccinePicker(
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun DateField(
+internal fun DateField(
     label: String,
     date: LocalDate?,
     maxToday: Boolean,
@@ -385,11 +385,11 @@ private fun DateField(
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
-private val PastOrTodayUtc = object : SelectableDates {
+internal val PastOrTodayUtc = object : SelectableDates {
     override fun isSelectableDate(utcTimeMillis: Long): Boolean = utcTimeMillis <= System.currentTimeMillis()
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
-private val AllDates = object : SelectableDates {
+internal val AllDates = object : SelectableDates {
     override fun isSelectableDate(utcTimeMillis: Long): Boolean = true
 }

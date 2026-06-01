@@ -1,5 +1,6 @@
 package com.petsafety.app.ui.screens
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -62,6 +63,7 @@ fun VaccinationsScreen(
     petId: String,
     onBack: () -> Unit,
     onAdd: () -> Unit = {},
+    onOpenDetail: (String) -> Unit = {},
     viewModel: VaccinationsViewModel = hiltViewModel()
 ) {
     val ui by viewModel.uiState.collectAsState()
@@ -123,11 +125,11 @@ fun VaccinationsScreen(
                 ) {
                     if (active.isNotEmpty()) {
                         item { SectionHeader(stringResource(R.string.vaccinations_section_active)) }
-                        item { GroupedCard(active) }
+                        item { GroupedCard(active, onOpenDetail) }
                     }
                     if (expired.isNotEmpty()) {
                         item { SectionHeader(stringResource(R.string.vaccinations_section_expired)) }
-                        item { GroupedCard(expired) }
+                        item { GroupedCard(expired, onOpenDetail) }
                     }
                     item { DisclaimerFooter() }
                 }
@@ -154,7 +156,7 @@ private fun SectionHeader(text: String) {
 
 /** A rounded grouped card holding the section's rows with dividers — the Material take on iOS's inset-grouped list. */
 @Composable
-private fun GroupedCard(rows: List<Vaccination>) {
+private fun GroupedCard(rows: List<Vaccination>, onRowClick: (String) -> Unit) {
     Card(
         modifier = Modifier.fillMaxWidth(),
         shape = androidx.compose.foundation.shape.RoundedCornerShape(16.dp),
@@ -163,16 +165,19 @@ private fun GroupedCard(rows: List<Vaccination>) {
         Column {
             rows.forEachIndexed { index, v ->
                 if (index > 0) HorizontalDivider(color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.4f))
-                VaccinationRow(v)
+                VaccinationRow(v, onClick = { onRowClick(v.id) })
             }
         }
     }
 }
 
 @Composable
-private fun VaccinationRow(vaccination: Vaccination) {
+private fun VaccinationRow(vaccination: Vaccination, onClick: () -> Unit) {
     Row(
-        modifier = Modifier.fillMaxWidth().padding(16.dp),
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable { onClick() }
+            .padding(16.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
         Column(modifier = Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(2.dp)) {
