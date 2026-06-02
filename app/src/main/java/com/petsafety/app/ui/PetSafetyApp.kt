@@ -187,6 +187,17 @@ fun PetSafetyApp(
                     }
                     onNotificationHandled()
                 }
+                NotificationHelper.TYPE_VACCINATION_DUE -> {
+                    // Hand the target pet to the deep-link coordinator. MainTabScaffold
+                    // switches to the Pets tab (one-shot) and PetsScreen's single
+                    // consume point builds pets → pet_detail → vaccinations once its
+                    // pets have loaded — cold-launch-safe because the StateFlow holds
+                    // the target until that NavHost mounts.
+                    notification.petId?.let { petId ->
+                        appStateViewModel.requestVaccinationsDeepLink(petId)
+                    }
+                    onNotificationHandled()
+                }
             }
         }
     }

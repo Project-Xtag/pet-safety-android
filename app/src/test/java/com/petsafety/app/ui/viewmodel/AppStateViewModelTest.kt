@@ -11,6 +11,7 @@ import com.petsafety.app.data.network.SseService
 import com.petsafety.app.data.model.VaccinationHomeSummary
 import com.petsafety.app.data.network.model.AppConfig
 import com.petsafety.app.data.vaccination.VaccinationAvailability
+import com.petsafety.app.data.vaccination.VaccinationDeepLinkCoordinator
 import com.petsafety.app.data.vaccination.VaccinationGate
 import com.petsafety.app.data.sync.NetworkMonitor
 import com.petsafety.app.data.sync.SyncService
@@ -45,6 +46,9 @@ class AppStateViewModelTest {
     private lateinit var stringProvider: StringProvider
     private lateinit var apiService: ApiService
     private lateinit var vaccinationGate: VaccinationGate
+    // Real (not mocked): trivial no-arg class with a real StateFlow, so its
+    // request/consume delegation behaves for real.
+    private lateinit var vaccinationDeepLinkCoordinator: VaccinationDeepLinkCoordinator
     private lateinit var viewModel: AppStateViewModel
 
     private val isConnectedFlow = MutableStateFlow(true)
@@ -67,6 +71,7 @@ class AppStateViewModelTest {
         stringProvider = mockk(relaxed = true)
         apiService = mockk(relaxed = true)
         vaccinationGate = mockk(relaxed = true)
+        vaccinationDeepLinkCoordinator = VaccinationDeepLinkCoordinator()
         // Stub the gate flows so the VM's pass-through delegation binds to real
         // flows we can drive (proves the surface isn't silently severed).
         every { vaccinationGate.availability } returns gateAvailabilityFlow
@@ -125,7 +130,8 @@ class AppStateViewModelTest {
             stringProvider = stringProvider,
             subscriptionEventBus = SubscriptionEventBus(),
             apiService = apiService,
-            vaccinationGate = vaccinationGate
+            vaccinationGate = vaccinationGate,
+            vaccinationDeepLinkCoordinator = vaccinationDeepLinkCoordinator
         )
     }
 
@@ -364,5 +370,24 @@ class AppStateViewModelTest {
     fun `refreshVaccinationGate - delegates to the gate`() {
         viewModel.refreshVaccinationGate()
         verify { vaccinationGate.refresh() }
+    }
+
+    @Test
+    fun `vaccination deep-link - request holds the target, consume clears it`() {
+        assertNull(viewModel.vaccinationDeepLinkPetId.value)
+
+        viewModel.requestVaccinationsDeepLink("pet-42")
+        // StateFlow HOLDS the target (this is the cold-launch property: a late
+        // subscriber — PetsScreen mounting after the push — still reads it).
+        assertEquals("pet-42", viewModel.vaccinationDeepLinkPetId.value)
+
+        viewModel.consumeVaccinationsDeepLink()
+        assertNull(viewModel.vaccinationDeepLinkPetId.value)
+    }
+
+    @Test
+    fun `vaccination deep-link - blank request is ignored (a malformed push cannot trap the UI)`() {
+        viewModel.requestVaccinationsDeepLink("   ")
+        assertNull(viewModel.vaccinationDeepLinkPetId.value)
     }
 }

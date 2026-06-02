@@ -27,6 +27,7 @@ import com.petsafety.app.ui.theme.CreamSurface
 import com.petsafety.app.ui.theme.InkText
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -130,6 +131,23 @@ fun MainTabScaffold(
     LaunchedEffect(pendingQrCode) {
         if (!pendingQrCode.isNullOrBlank()) {
             selectedTab = TabItem.Scan
+        }
+    }
+
+    // Vaccination deep-link (home urgent-row tap / VACCINATION_DUE push / future
+    // inbox tap): the converged target lives on the Pets tab's NavHost, so bring
+    // the Pets tab forward. STRICTLY ONE-SHOT — keyed on the pending id so it
+    // fires only on the null→non-null transition, never re-asserting on every
+    // recomposition. That distinction is load-bearing on Android: a continuous
+    // `if (pending != null) selectedTab = Pets` would TRAP the user on the Pets
+    // tab whenever a pending lingers (e.g. a cold-launch fetchPets failure leaves
+    // it unconsumed) — every attempt to leave would snap back. One-shot makes a
+    // lingering pending benign: the user can navigate freely, and PetsScreen's
+    // consume point self-resolves it on the next loaded determination.
+    val deepLinkPetId by appStateViewModel.vaccinationDeepLinkPetId.collectAsState()
+    LaunchedEffect(deepLinkPetId) {
+        if (deepLinkPetId != null) {
+            selectedTab = TabItem.Pets
         }
     }
 

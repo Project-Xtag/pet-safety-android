@@ -1617,4 +1617,6 @@
     <string name="vaccination_remove_photo">Eliminar foto</string>
     <string name="vaccination_cert_removed">Foto eliminada</string>
     <string name="vaccination_cert_updated">Foto actualizada</string>
+    <string name="notif_vaccination_due_title">Recordatorio de vacunación</string>
+    <string name="notif_vaccination_due_body">Una vacuna caduca pronto. Toca para ver el registro.</string>
 </resources>

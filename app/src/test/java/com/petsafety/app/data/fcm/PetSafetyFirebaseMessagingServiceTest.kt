@@ -475,6 +475,40 @@ class PetSafetyFirebaseMessagingServiceTest {
     }
 
     @Test
+    fun `validatePayload — VACCINATION_DUE requires pet_id, vaccination_id, days_until`() {
+        // All present → passes.
+        assertNull(
+            PetSafetyFirebaseMessagingService.validatePayload(
+                "VACCINATION_DUE",
+                mapOf("pet_id" to "pet-1", "vaccination_id" to "vacc-1", "days_until" to "30")
+            )
+        )
+        // pet_id is the deep-link key and the first required field — flagged first when absent.
+        assertEquals(
+            "pet_id",
+            PetSafetyFirebaseMessagingService.validatePayload(
+                "VACCINATION_DUE",
+                mapOf("vaccination_id" to "vacc-1", "days_until" to "30")
+            )
+        )
+        // A present pet_id but missing vaccination_id still drops the malformed push.
+        assertEquals(
+            "vaccination_id",
+            PetSafetyFirebaseMessagingService.validatePayload(
+                "VACCINATION_DUE",
+                mapOf("pet_id" to "pet-1", "days_until" to "30")
+            )
+        )
+        assertEquals(
+            "days_until",
+            PetSafetyFirebaseMessagingService.validatePayload(
+                "VACCINATION_DUE",
+                mapOf("pet_id" to "pet-1", "vaccination_id" to "vacc-1")
+            )
+        )
+    }
+
+    @Test
     fun `validatePayload — flags missing pet_id on scan types`() {
         assertEquals(
             "pet_id",

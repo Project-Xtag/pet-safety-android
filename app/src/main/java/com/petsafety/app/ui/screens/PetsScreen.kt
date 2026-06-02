@@ -19,6 +19,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.VerticalDivider
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
@@ -52,6 +53,42 @@ fun PetsScreen(appStateViewModel: AppStateViewModel, authViewModel: AuthViewMode
     val successStoriesViewModel: SuccessStoriesViewModel = hiltViewModel()
     val isTablet = AdaptiveLayout.isTablet()
     var tabletSelectedPetId by rememberSaveable { mutableStateOf<String?>(null) }
+
+    // ── Vaccination deep-link convergence (slice 4) ──────────────────────────
+    // The SINGLE consume point for the home urgent-row tap, the VACCINATION_DUE
+    // push, and (future) defect A's inbox tap — all of which funnel through the
+    // coordinator (surfaced as vaccinationDeepLinkPetId). This lives at the
+    // PetsScreen level (where navController is in scope) so it's stable across the
+    // internal pets_list → pet_detail → vaccinations navigation, mirroring iOS's
+    // PetsListView-level consume point.
+    //
+    // Gated on hasLoadedOnce (a COMPLETED fetch cycle — success, empty, OR
+    // failure), NOT pets.isEmpty(): a cold-launch target resolves on any terminal
+    // determination and is held only while genuinely loading. That, plus the
+    // one-shot tab-switch in MainTabScaffold, is what stops a failed cold-launch
+    // fetch from leaving a pending target lingering.
+    val deepLinkPetId by appStateViewModel.vaccinationDeepLinkPetId.collectAsState()
+    val petsLoaded by viewModel.hasLoadedOnce.collectAsState()
+    LaunchedEffect(deepLinkPetId, petsLoaded) {
+        val petId = deepLinkPetId ?: return@LaunchedEffect
+        if (!petsLoaded) return@LaunchedEffect // genuinely still loading — wait (cold launch)
+        // CONSUME-ONCE CORRECTNESS: this block MUST stay suspension-free. Clearing
+        // the StateFlow re-fires this effect with a null key, but only AFTER this
+        // synchronous block completes — so consume-then-navigate can't be torn into
+        // consume-without-navigate. Do NOT slip a suspend call between consume() and
+        // the navigate()s.
+        appStateViewModel.consumeVaccinationsDeepLink()
+        if (viewModel.pets.value.any { it.id == petId }) {
+            // Build the real back stack: pets_list → pet_detail → pet_vaccinations.
+            // The two sequential navigates put pet_detail in the stack, which BOTH
+            // makes Back natural (vaccinations → pet_detail → list) AND satisfies
+            // slice 3's getBackStackEntry("pet_detail/{petId}") shared-VM scoping
+            // invariant. The naive single navigate("pet_vaccinations/...") crashes there.
+            navController.navigate("pet_detail/$petId")
+            navController.navigate("pet_vaccinations/$petId")
+        }
+        // else: pet gone between request and now → graceful no-op (stay on pets_list)
+    }
 
     NavHost(
         navController = navController,

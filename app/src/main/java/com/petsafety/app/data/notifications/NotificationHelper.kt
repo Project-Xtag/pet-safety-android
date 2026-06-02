@@ -53,6 +53,7 @@ class NotificationHelper @Inject constructor(private val context: Context) {
         const val TYPE_ALERT_CONFIRMATION = "ALERT_CREATED"
         const val TYPE_PROMO_EXPIRING = "PROMO_EXPIRING"
         const val TYPE_MULTIPLE_SIGHTINGS = "MULTIPLE_SIGHTINGS"
+        const val TYPE_VACCINATION_DUE = "VACCINATION_DUE"
 
         const val EXTRA_PLAN_NAME = "extra_plan_name"
         const val EXTRA_DAYS_LEFT = "extra_days_left"
@@ -418,6 +419,44 @@ class NotificationHelper @Inject constructor(private val context: Context) {
             .setContentText(body)
             .setStyle(NotificationCompat.BigTextStyle().bigText(body))
             .setPriority(NotificationCompat.PRIORITY_HIGH)
+            .setAutoCancel(true)
+            .setContentIntent(pendingIntent)
+            .build()
+
+        NotificationManagerCompat.from(context).notify(generateNotificationId(), notification)
+    }
+
+    /**
+     * Show a vaccination-due reminder (the A.6 `VACCINATION_DUE` push). Renders on
+     * the lifecycle channel and deep-links off `pet_id` into the converged
+     * pets → pet_detail → vaccinations back stack (built by `PetsScreen` once the
+     * tap routes through [MainActivity] → `PetSafetyApp`). title/body are the
+     * server-localized strings from the payload, with resource fallbacks (the
+     * server always sends them — same pattern as TAG_ACTIVATED).
+     */
+    fun showVaccinationDueNotification(
+        title: String,
+        body: String,
+        petId: String?
+    ) {
+        if (!hasNotificationPermission()) return
+
+        val intent = createMainActivityIntent().apply {
+            putExtra(EXTRA_NOTIFICATION_TYPE, TYPE_VACCINATION_DUE)
+            putExtra(EXTRA_PET_ID, petId)
+        }
+
+        val pendingIntent = PendingIntent.getActivity(
+            context, generateNotificationId(), intent,
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+        )
+
+        val notification = NotificationCompat.Builder(context, CHANNEL_LIFECYCLE)
+            .setSmallIcon(R.drawable.ic_notification)
+            .setContentTitle(title)
+            .setContentText(body)
+            .setStyle(NotificationCompat.BigTextStyle().bigText(body))
+            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
             .setAutoCancel(true)
             .setContentIntent(pendingIntent)
             .build()

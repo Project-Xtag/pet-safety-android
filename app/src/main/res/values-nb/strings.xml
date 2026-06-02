@@ -1611,4 +1611,6 @@
     <string name="vaccination_remove_photo">Remove photo</string>
     <string name="vaccination_cert_removed">Photo removed</string>
     <string name="vaccination_cert_updated">Photo updated</string>
+    <string name="notif_vaccination_due_title">Vaccination reminder</string>
+    <string name="notif_vaccination_due_body">A vaccination is expiring soon. Tap to review the record.</string>
 </resources>

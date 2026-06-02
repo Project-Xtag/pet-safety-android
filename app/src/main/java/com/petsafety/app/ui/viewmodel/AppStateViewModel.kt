@@ -12,6 +12,7 @@ import com.petsafety.app.data.model.PetFoundEvent
 import com.petsafety.app.data.network.ApiService
 import com.petsafety.app.data.network.model.AppConfig
 import com.petsafety.app.data.vaccination.VaccinationAvailability
+import com.petsafety.app.data.vaccination.VaccinationDeepLinkCoordinator
 import com.petsafety.app.data.vaccination.VaccinationGate
 import com.petsafety.app.data.notifications.NotificationHelper
 import com.petsafety.app.data.network.SseService
@@ -38,7 +39,8 @@ class AppStateViewModel @Inject constructor(
     private val stringProvider: StringProvider,
     private val subscriptionEventBus: SubscriptionEventBus,
     private val apiService: ApiService,
-    private val vaccinationGate: VaccinationGate
+    private val vaccinationGate: VaccinationGate,
+    private val vaccinationDeepLinkCoordinator: VaccinationDeepLinkCoordinator
 ) : ViewModel() {
     private val _snackbarMessage = MutableStateFlow<String?>(null)
     val snackbarMessage: StateFlow<String?> = _snackbarMessage.asStateFlow()
@@ -88,6 +90,22 @@ class AppStateViewModel @Inject constructor(
 
     /** Re-resolve the gate (pull-to-refresh on home; after any vaccination mutation). */
     fun refreshVaccinationGate() = vaccinationGate.refresh()
+
+    /**
+     * Vaccination deep-link target (a pet whose vaccination list should open),
+     * surfaced (NOT folded) from the dedicated [VaccinationDeepLinkCoordinator].
+     * The single consume point in `PetsScreen` collects this; the home urgent-row
+     * tap, the `VACCINATION_DUE` push, and (future) defect A's inbox tap all feed
+     * it through [requestVaccinationsDeepLink]. StateFlow (not a SharedFlow) so a
+     * cold-launch target survives until `PetsScreen` mounts — see the coordinator.
+     */
+    val vaccinationDeepLinkPetId: StateFlow<String?> = vaccinationDeepLinkCoordinator.pendingPetId
+
+    /** Request the vaccination deep link for [petId] (home tap / VACCINATION_DUE push / inbox tap). */
+    fun requestVaccinationsDeepLink(petId: String) = vaccinationDeepLinkCoordinator.request(petId)
+
+    /** Consume the pending deep-link target exactly once (called by the single consume point). */
+    fun consumeVaccinationsDeepLink() = vaccinationDeepLinkCoordinator.consume()
 
     init {
         setupSseHandlers()

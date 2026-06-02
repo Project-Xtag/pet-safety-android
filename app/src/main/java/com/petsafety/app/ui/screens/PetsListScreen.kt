@@ -279,7 +279,14 @@ fun PetsListScreen(
                         if (vaccinationShowsHomeCard) {
                             VaccinationHomeSummarySection(
                                 availability = vaccinationAvailability,
-                                onUrgentTap = { }
+                                // Same convergence path as the VACCINATION_DUE push:
+                                // hand the pet to the deep-link coordinator and let
+                                // PetsScreen's single consume point build the back
+                                // stack. (We're already on the Pets tab, so the
+                                // one-shot tab-switch is a no-op here.)
+                                onUrgentTap = { urgent ->
+                                    appStateViewModel.requestVaccinationsDeepLink(urgent.petId)
+                                }
                             )
                             Spacer(modifier = Modifier.height(24.dp))
                         }

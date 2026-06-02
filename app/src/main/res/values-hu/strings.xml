@@ -1625,4 +1625,6 @@
     <string name="vaccination_remove_photo">Fénykép eltávolítása</string>
     <string name="vaccination_cert_removed">Fénykép eltávolítva</string>
     <string name="vaccination_cert_updated">Fénykép frissítve</string>
+    <string name="notif_vaccination_due_title">Oltási emlékeztető</string>
+    <string name="notif_vaccination_due_body">Hamarosan lejár egy oltás. Koppints a megtekintéshez.</string>
 </resources>
