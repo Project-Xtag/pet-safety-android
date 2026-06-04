@@ -89,6 +89,7 @@ import androidx.compose.ui.unit.sp
 import androidx.core.content.ContextCompat
 import androidx.compose.ui.res.painterResource
 import coil.compose.AsyncImage
+import com.petsafety.app.ui.screens.home.VaccinationHomeSummarySection
 import com.google.android.gms.location.LocationServices
 import com.petsafety.app.R
 import com.petsafety.app.data.model.LocationCoordinate
@@ -226,7 +227,12 @@ fun PetsListScreen(
             } else {
                 PullToRefreshBox(
                     isRefreshing = isRefreshing,
-                    onRefresh = { viewModel.refresh() },
+                    onRefresh = {
+                        viewModel.refresh()
+                        // Pull also re-resolves the vaccination gate so a flag
+                        // flip reflects without a relaunch (coalesced in the gate).
+                        appStateViewModel.refreshVaccinationGate()
+                    },
                     modifier = Modifier.fillMaxSize()
                 ) {
                     Column(
@@ -262,6 +268,28 @@ fun PetsListScreen(
                         )
 
                         Spacer(modifier = Modifier.height(24.dp))
+
+                        // Vaccination summary — between My Pets and Quick Actions.
+                        // Gated by showsHomeCard (= feature on AND user has records);
+                        // an off / on-but-empty user sees nothing here. The card carries
+                        // its own summary via the gate's On state. Tap is inert this
+                        // slice — deep-link nav lands in slice 1b/4.
+                        val vaccinationShowsHomeCard by appStateViewModel.vaccinationShowsHomeCard.collectAsState()
+                        val vaccinationAvailability by appStateViewModel.vaccinationAvailability.collectAsState()
+                        if (vaccinationShowsHomeCard) {
+                            VaccinationHomeSummarySection(
+                                availability = vaccinationAvailability,
+                                // Same convergence path as the VACCINATION_DUE push:
+                                // hand the pet to the deep-link coordinator and let
+                                // PetsScreen's single consume point build the back
+                                // stack. (We're already on the Pets tab, so the
+                                // one-shot tab-switch is a no-op here.)
+                                onUrgentTap = { urgent ->
+                                    appStateViewModel.requestVaccinationsDeepLink(urgent.petId)
+                                }
+                            )
+                            Spacer(modifier = Modifier.height(24.dp))
+                        }
 
                         // Quick Actions Section
                         QuickActionsSection(

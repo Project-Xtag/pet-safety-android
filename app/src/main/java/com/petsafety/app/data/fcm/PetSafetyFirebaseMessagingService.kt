@@ -92,6 +92,7 @@ class PetSafetyFirebaseMessagingService : FirebaseMessagingService() {
             NotificationHelper.TYPE_ALERT_CONFIRMATION -> handleAlertConfirmation(data)
             NotificationHelper.TYPE_PROMO_EXPIRING -> handlePromoExpiring(data)
             NotificationHelper.TYPE_MULTIPLE_SIGHTINGS -> handleMultipleSightings(data)
+            "VACCINATION_DUE" -> handleVaccinationDue(data)
             else -> {
                 // Handle generic notification (fallback to title/body)
                 remoteMessage.notification?.let { notification ->
@@ -261,6 +262,23 @@ class PetSafetyFirebaseMessagingService : FirebaseMessagingService() {
         )
     }
 
+    /**
+     * VACCINATION_DUE: a vaccination record is approaching (or past) its expiry.
+     * Payload `{type, pet_id, vaccination_id, days_until, title, body}` (A.6).
+     * Renders on the lifecycle channel; the tap deep-links off `pet_id` into the
+     * converged pets → pet_detail → vaccinations back stack. `vaccination_id` and
+     * `days_until` are validated as required (so a malformed push is caught +
+     * dropped) but aren't needed for the list-level deep link — the target is the
+     * pet's list, not a specific record (matches iOS).
+     */
+    private fun handleVaccinationDue(data: Map<String, String>) {
+        notificationHelper.showVaccinationDueNotification(
+            title = data["title"] ?: getString(R.string.notif_vaccination_due_title),
+            body = data["body"] ?: getString(R.string.notif_vaccination_due_body),
+            petId = data["pet_id"]
+        )
+    }
+
     private fun handleMultipleSightings(data: Map<String, String>) {
         val alertId = data["alert_id"]
 
@@ -304,6 +322,7 @@ class PetSafetyFirebaseMessagingService : FirebaseMessagingService() {
             "SIGHTING_REPORTED" to listOf("alert_id"),
             NotificationHelper.TYPE_ALERT_CONFIRMATION to listOf("alert_id"),
             NotificationHelper.TYPE_MULTIPLE_SIGHTINGS to listOf("alert_id"),
+            "VACCINATION_DUE" to listOf("pet_id", "vaccination_id", "days_until"),
         )
 
         /**

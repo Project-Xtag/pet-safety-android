@@ -103,6 +103,43 @@ class MainActivity : FragmentActivity() {
             return
         }
 
+        // FCM "notification message" tapped from BACKGROUND / KILLED. A push that
+        // carries a `notification` block (every type does — FCMService always adds
+        // one) is rendered by the OS system tray when the app isn't foreground:
+        // onMessageReceived never runs, so PetSafetyFirebaseMessagingService /
+        // NotificationHelper never set our EXTRA_* keys. Instead the OS launches
+        // MainActivity with the FCM DATA payload as raw intent extras, keyed by the
+        // server's data keys — `type`, `pet_id` — NOT EXTRA_NOTIFICATION_TYPE.
+        //
+        // Without this branch a VACCINATION_DUE push tapped from a killed/background
+        // app reaches MainActivity but deep-links nowhere (only the FOREGROUND tap
+        // worked, via onMessageReceived). Map it from the raw keys so every tap
+        // state — foreground, background, killed (cold launch) — converges on the
+        // same path: PetSafetyApp's VACCINATION_DUE branch → the deep-link
+        // coordinator → PetsScreen builds pets → pet_detail → pet_vaccinations.
+        //
+        // Runs from BOTH onCreate (killed → cold launch) and onNewIntent
+        // (background → alive), since both call handleIntent. Scoped to
+        // VACCINATION_DUE: the other types share this same background-tap gap, but
+        // that's pre-existing and out of scope here (minimal blast radius).
+        if (intent.getStringExtra("type") == NotificationHelper.TYPE_VACCINATION_DUE) {
+            Timber.d("Handling VACCINATION_DUE system-tray tap (raw FCM data extras)")
+            notificationDataState.value = NotificationData(
+                type = NotificationHelper.TYPE_VACCINATION_DUE,
+                // The FCM data key "pet_id" is the same string as EXTRA_PET_ID, so
+                // the petId read is identical to the foreground (NotificationHelper)
+                // path above.
+                petId = intent.getStringExtra(NotificationHelper.EXTRA_PET_ID),
+                alertId = null,
+                scanId = null,
+                sightingId = null,
+                latitude = null,
+                longitude = null,
+                isApproximate = false
+            )
+            return
+        }
+
         // Check for checkout deep link
         val checkoutResult = extractCheckoutResult(intent)
         if (checkoutResult != null) {

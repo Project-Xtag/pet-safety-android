@@ -2,6 +2,8 @@ package com.petsafety.app.data.network
 
 import com.petsafety.app.data.model.ClaimPromoTagRequest
 import com.petsafety.app.data.model.ClaimPromoTagResponse
+import com.petsafety.app.data.model.CreateVaccinationRequest
+import com.petsafety.app.data.model.UpdateVaccinationRequest
 import com.petsafety.app.data.model.CreateFoundPetResponse
 import com.petsafety.app.data.model.NearbyFoundPetsResponse
 import com.petsafety.app.data.model.ScanResponse
@@ -348,6 +350,65 @@ interface ApiService {
 
     @GET("referrals/status")
     suspend fun getReferralStatus(): ApiEnvelope<ReferralStatusResponse>
+
+    // Vaccinations (Stage B, §1.6)
+    // Feature-gated server-side: these return 404 when the vaccination feature
+    // is off for the user's country. The 404/200 distinction is interpreted in
+    // exactly one place — VaccinationGate — never re-derived per call.
+    @GET("pets/{petId}/vaccinations")
+    suspend fun getVaccinations(@Path("petId") petId: String): ApiEnvelope<VaccinationsResponse>
+
+    // Home summary — the single availability signal for the gate. A 404 here
+    // means the feature is OFF; a 200 (even with zero counts) means ON.
+    @GET("users/me/vaccinations/summary")
+    suspend fun getVaccinationSummary(): ApiEnvelope<VaccinationSummaryResponse>
+
+    // A.4 catalog — public, locale-aware. species lowercase, country UPPER ISO-2.
+    @GET("vaccines/catalog")
+    suspend fun getVaccineCatalog(
+        @Query("species") species: String,
+        @Query("country") country: String
+    ): ApiEnvelope<VaccineCatalogResponse>
+
+    // A.3 create. vaccine_code opaque; expires_at omitted → server-derived.
+    @POST("pets/{petId}/vaccinations")
+    suspend fun createVaccination(
+        @Path("petId") petId: String,
+        @Body request: CreateVaccinationRequest
+    ): ApiEnvelope<VaccinationResponse>
+
+    // A.3 update (PUT). Body EXCLUDES vaccine_code (immutable; change = delete + re-add).
+    @PUT("pets/{petId}/vaccinations/{id}")
+    suspend fun updateVaccination(
+        @Path("petId") petId: String,
+        @Path("id") id: String,
+        @Body request: UpdateVaccinationRequest
+    ): ApiEnvelope<VaccinationResponse>
+
+    // A.3 delete (soft-delete).
+    @DELETE("pets/{petId}/vaccinations/{id}")
+    suspend fun deleteVaccination(
+        @Path("petId") petId: String,
+        @Path("id") id: String
+    ): ApiEnvelope<EmptyResponse>
+
+    // A.5 certificate — multipart field `file`, JPEG/PNG/WebP only (client
+    // transcodes HEIC->JPEG via VaccinationCertificateEncoder first; the Part
+    // carries a CONCRETE MIME, never image/*).
+    @Multipart
+    @POST("pets/{petId}/vaccinations/{id}/certificate")
+    suspend fun uploadVaccinationCertificate(
+        @Path("petId") petId: String,
+        @Path("id") id: String,
+        @retrofit2.http.Part file: MultipartBody.Part
+    ): ApiEnvelope<CertificateUploadResponse>
+
+    // A.5 certificate delete.
+    @DELETE("pets/{petId}/vaccinations/{id}/certificate")
+    suspend fun deleteVaccinationCertificate(
+        @Path("petId") petId: String,
+        @Path("id") id: String
+    ): ApiEnvelope<EmptyResponse>
 
     // Notifications Inbox
     @GET("notifications")

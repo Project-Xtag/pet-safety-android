@@ -1561,4 +1561,62 @@
         <item quantity="one">%d placa lista para activar</item>
         <item quantity="other">%d placas listas para activar</item>
     </plurals>
+    <!-- ============================================ -->
+    <!-- MARK: Vaccinations (Stage B, §1.6) — ES provisional, pending native review -->
+    <!-- ============================================ -->
+    <string name="vaccinations_title">Vacunas</string>
+    <string name="vaccinations_section_empty_hint">Aún no hay registros de vacunación</string>
+    <string name="vaccinations_add_cta">Añadir vacuna</string>
+    <string name="vaccinations_show_all">Ver todas (%d)</string>
+    <string name="vaccination_status_valid">Vigente</string>
+    <string name="vaccination_status_expiring">Caduca pronto</string>
+    <string name="vaccination_status_expired">Caducada</string>
+    <string name="vaccinations_home_title">Recordatorios de vacunas</string>
+    <string name="vaccinations_home_all_valid">Todas las vacunas al día</string>
+    <string name="vaccinations_load_failed">No se pudieron cargar las vacunas</string>
+    <plurals name="vaccination_expires_in_days">
+        <item quantity="one">Caduca en %d día</item>
+        <item quantity="other">Caduca en %d días</item>
+    </plurals>
+    <plurals name="vaccination_expired_days_ago">
+        <item quantity="one">Caducó hace %d día</item>
+        <item quantity="other">Caducó hace %d días</item>
+    </plurals>
+    <string name="vaccinations_section_active">Activas</string>
+    <string name="vaccinations_section_expired">Caducadas</string>
+    <string name="vaccinations_disclaimer">Este registro es para uso personal y no es un documento oficial, y no puede utilizarse para acreditar oficialmente ninguna vacuna (incluida la antirrábica). Para una acreditación oficial, usa la cartilla sanitaria de tu mascota o el pasaporte para mascotas.</string>
+    <string name="vaccinations_save_failed">No se pudo guardar la vacuna</string>
+    <string name="vaccinations_cert_failed">No se pudo subir la imagen del certificado</string>
+    <string name="vaccination_form_title">Nueva vacuna</string>
+    <string name="vaccination_field_vaccine">Vacuna</string>
+    <string name="vaccination_field_vaccine_hint">Elige una vacuna</string>
+    <string name="vaccination_field_administered">Fecha de administración</string>
+    <string name="vaccination_field_expiry_toggle">Establecer fecha de caducidad</string>
+    <string name="vaccination_field_expiry">Fecha de caducidad</string>
+    <string name="vaccination_field_batch">Número de lote</string>
+    <string name="vaccination_field_vet">Veterinario</string>
+    <string name="vaccination_field_notes">Notas</string>
+    <string name="vaccination_save">Guardar</string>
+    <string name="vaccination_saved">Vacuna guardada</string>
+    <string name="vaccination_cert_unreadable">No se pudo leer la imagen. Prueba con otra.</string>
+    <string name="vaccination_cert_attached">Foto adjunta</string>
+    <string name="vaccination_empty_region">Aún no hay vacunas disponibles para tu región</string>
+    <string name="vaccinations_administered_value">Administrada: %s</string>
+    <string name="vaccinations_expires_value">Caduca: %s</string>
+    <string name="vaccinations_no_expiry">Sin caducidad</string>
+    <string name="vaccination_field_clinic">Clínica</string>
+    <string name="vaccination_expiry_hint">La fecha de caducidad se establecerá automáticamente.</string>
+    <string name="vaccinations_delete_failed">No se pudo eliminar la vacuna</string>
+    <string name="vaccination_edit_title">Editar vacuna</string>
+    <string name="vaccination_change_vaccine_note">Para cambiar la vacuna, elimina este registro y vuelve a añadirlo.</string>
+    <string name="vaccination_delete">Eliminar</string>
+    <string name="vaccination_delete_confirm_title">¿Eliminar la vacuna?</string>
+    <string name="vaccination_delete_confirm_msg">Este registro se eliminará.</string>
+    <string name="vaccination_deleted">Vacuna eliminada</string>
+    <string name="vaccination_replace_photo">Reemplazar foto</string>
+    <string name="vaccination_remove_photo">Eliminar foto</string>
+    <string name="vaccination_cert_removed">Foto eliminada</string>
+    <string name="vaccination_cert_updated">Foto actualizada</string>
+    <string name="notif_vaccination_due_title">Recordatorio de vacunación</string>
+    <string name="notif_vaccination_due_body">Una vacuna caduca pronto. Toca para ver el registro.</string>
 </resources>

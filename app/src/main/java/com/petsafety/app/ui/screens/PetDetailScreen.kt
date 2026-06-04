@@ -98,6 +98,8 @@ import com.petsafety.app.ui.viewmodel.AppStateViewModel
 import com.petsafety.app.ui.viewmodel.AuthViewModel
 import com.petsafety.app.ui.viewmodel.PetsViewModel
 import com.petsafety.app.ui.viewmodel.SuccessStoriesViewModel
+import com.petsafety.app.ui.components.VaccinationSummarySection
+import com.petsafety.app.data.vaccination.isOn
 
 @Composable
 fun PetDetailScreen(
@@ -107,6 +109,8 @@ fun PetDetailScreen(
     petId: String,
     onEditPet: () -> Unit,
     onOpenPhotos: () -> Unit,
+    onOpenVaccinations: () -> Unit = {},
+    onAddVaccination: () -> Unit = {},
     onViewPublicProfile: () -> Unit = {},
     onMarkMissing: () -> Unit = {},
     onBack: () -> Unit,
@@ -379,6 +383,21 @@ fun PetDetailScreen(
                 medications = pet.medications,
                 onEditPet = onEditPet
             )
+
+            // Vaccinations — gated entirely on feature availability (summary 404 → off).
+            // Gated in the parent so an off user sees no section AND no leaked spacer.
+            // Add → the form directly (one-tap add, matching iOS); "show all" →
+            // the full list. Both add affordances (here + the list FAB) target the
+            // same form route, so the entry is consistent, not two divergent paths.
+            val vaccinationAvailability by appStateViewModel.vaccinationAvailability.collectAsState()
+            if (vaccinationAvailability.isOn) {
+                Spacer(modifier = Modifier.height(16.dp))
+                VaccinationSummarySection(
+                    petId = petId,
+                    onAdd = onAddVaccination,
+                    onShowAll = onOpenVaccinations
+                )
+            }
 
             // Additional Information — always show, with empty hint if no data
             Spacer(modifier = Modifier.height(16.dp))

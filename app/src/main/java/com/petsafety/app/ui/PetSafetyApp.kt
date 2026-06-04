@@ -20,6 +20,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
+import androidx.lifecycle.ProcessLifecycleOwner
 import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
@@ -51,8 +52,17 @@ fun PetSafetyApp(
     val appStateViewModel: AppStateViewModel = hiltViewModel()
     val authViewModel: AuthViewModel = hiltViewModel()
     val isAuthenticated by authViewModel.isAuthenticated.collectAsState()
+    val currentUser by authViewModel.currentUser.collectAsState()
     val isLoading by appStateViewModel.isLoading.collectAsState()
     val showBiometricPrompt by authViewModel.showBiometricPrompt.collectAsState()
+
+    // Drive the vaccination feature gate off the authenticated user id (not a
+    // bare isAuthenticated flag) so an account swap idA→idB re-resolves and
+    // never carries idA's answer. Cold launch into an already-authed session
+    // fires this with the id once the user object lands.
+    LaunchedEffect(currentUser?.id) {
+        appStateViewModel.onAuthUserChanged(currentUser?.id)
+    }
 
     // Preserve QR code across auth state changes (e.g. user scans tag while logged out)
     var savedQrCode by rememberSaveable { mutableStateOf<String?>(null) }
@@ -74,6 +84,25 @@ fun PetSafetyApp(
         }
         lifecycleOwner.lifecycle.addObserver(observer)
         onDispose { lifecycleOwner.lifecycle.removeObserver(observer) }
+    }
+
+    // App FOREGROUND (process ON_START) → re-resolve the vaccination gate so a
+    // server-side flag flip (e.g. a rollout percentage change) reaches a
+    // logged-in user without a cold start. This is an UNCONDITIONAL refresh()
+    // (NOT the id-keyed auth path, which no-ops on same-id) — a foreground for
+    // a stable user is exactly when the flag may have flipped; the gate
+    // coalesces it with any concurrent resolve. Uses ProcessLifecycleOwner
+    // (not the Composable/activity lifecycle) so config-change recreation
+    // doesn't spuriously re-fire.
+    DisposableEffect(isAuthenticated) {
+        val processLifecycle = ProcessLifecycleOwner.get().lifecycle
+        val observer = LifecycleEventObserver { _, event ->
+            if (event == Lifecycle.Event.ON_START && isAuthenticated) {
+                appStateViewModel.refreshVaccinationGate()
+            }
+        }
+        processLifecycle.addObserver(observer)
+        onDispose { processLifecycle.removeObserver(observer) }
     }
 
     // State for showing map picker dialog from notification
@@ -155,6 +184,17 @@ fun PetSafetyApp(
                     // Navigate to the alert with sightings
                     notification.alertId?.let { alertId ->
                         appStateViewModel.navigateToAlert(alertId)
+                    }
+                    onNotificationHandled()
+                }
+                NotificationHelper.TYPE_VACCINATION_DUE -> {
+                    // Hand the target pet to the deep-link coordinator. MainTabScaffold
+                    // switches to the Pets tab (one-shot) and PetsScreen's single
+                    // consume point builds pets → pet_detail → vaccinations once its
+                    // pets have loaded — cold-launch-safe because the StateFlow holds
+                    // the target until that NavHost mounts.
+                    notification.petId?.let { petId ->
+                        appStateViewModel.requestVaccinationsDeepLink(petId)
                     }
                     onNotificationHandled()
                 }

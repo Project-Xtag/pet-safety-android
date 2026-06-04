@@ -1569,4 +1569,62 @@
     <string name="invalid_phone">Adj meg egy érvényes telefonszámot</string>
     <string name="invalid_location_coords">Nem sikerült pontosan beazonosítani a helyszínt. Próbálj meg egy pontosabb címet.</string>
     <string name="address_geocode_failed_warning">Nem sikerült pontosan beazonosítani a címet — a riasztás pontos helyszín nélkül megy ki. Próbáld a „jelenlegi helyzet” gombot pontosabb eredményért.</string>
+    <!-- ============================================ -->
+    <!-- MARK: Vaccinations (Stage B, §1.6) — HU canonical (informal "te") -->
+    <!-- ============================================ -->
+    <string name="vaccinations_title">Oltások</string>
+    <string name="vaccinations_section_empty_hint">Nincs még oltás rögzítve</string>
+    <string name="vaccinations_add_cta">Oltás hozzáadása</string>
+    <string name="vaccinations_show_all">Összes megtekintése (%d)</string>
+    <string name="vaccination_status_valid">Érvényes</string>
+    <string name="vaccination_status_expiring">Hamarosan lejár</string>
+    <string name="vaccination_status_expired">Lejárt</string>
+    <string name="vaccinations_home_title">Oltási emlékeztetők</string>
+    <string name="vaccinations_home_all_valid">Minden oltás érvényes</string>
+    <string name="vaccinations_load_failed">Az oltások betöltése sikertelen</string>
+    <plurals name="vaccination_expires_in_days">
+        <item quantity="one">%d nap múlva lejár</item>
+        <item quantity="other">%d nap múlva lejár</item>
+    </plurals>
+    <plurals name="vaccination_expired_days_ago">
+        <item quantity="one">%d napja lejárt</item>
+        <item quantity="other">%d napja lejárt</item>
+    </plurals>
+    <string name="vaccinations_section_active">Aktív</string>
+    <string name="vaccinations_section_expired">Lejárt</string>
+    <string name="vaccinations_disclaimer">Ez a feljegyzés személyes nyilvántartás céljából készült – nem hivatalos dokumentum, és semmilyen oltás (a veszettség elleni oltást is beleértve) hivatalos igazolására nem használható. Hivatalos igazoláshoz használd a Kisállategészségügyi Könyvet vagy az Állatútlevelet.</string>
+    <string name="vaccinations_save_failed">Az oltás mentése sikertelen</string>
+    <string name="vaccinations_cert_failed">A kép feltöltése sikertelen</string>
+    <string name="vaccination_form_title">Új oltás</string>
+    <string name="vaccination_field_vaccine">Oltás</string>
+    <string name="vaccination_field_vaccine_hint">Válassz oltást</string>
+    <string name="vaccination_field_administered">Beadás dátuma</string>
+    <string name="vaccination_field_expiry_toggle">Lejárati dátum megadása</string>
+    <string name="vaccination_field_expiry">Lejárat dátuma</string>
+    <string name="vaccination_field_batch">Gyártási szám</string>
+    <string name="vaccination_field_vet">Állatorvos</string>
+    <string name="vaccination_field_notes">Megjegyzés</string>
+    <string name="vaccination_save">Mentés</string>
+    <string name="vaccination_saved">Oltás elmentve</string>
+    <string name="vaccination_cert_unreadable">A kép nem olvasható. Próbálj egy másikat.</string>
+    <string name="vaccination_cert_attached">Fénykép csatolva</string>
+    <string name="vaccination_empty_region">Ehhez a régióhoz még nincs elérhető oltás</string>
+    <string name="vaccinations_administered_value">Beadva: %s</string>
+    <string name="vaccinations_expires_value">Lejár: %s</string>
+    <string name="vaccinations_no_expiry">Nincs lejárat</string>
+    <string name="vaccination_field_clinic">Rendelő</string>
+    <string name="vaccination_expiry_hint">A lejárati dátumot automatikusan beállítjuk.</string>
+    <string name="vaccinations_delete_failed">Az oltás törlése sikertelen</string>
+    <string name="vaccination_edit_title">Oltás szerkesztése</string>
+    <string name="vaccination_change_vaccine_note">Az oltás típusának módosításához töröld a feljegyzést, és add hozzá újra.</string>
+    <string name="vaccination_delete">Törlés</string>
+    <string name="vaccination_delete_confirm_title">Törlöd az oltást?</string>
+    <string name="vaccination_delete_confirm_msg">Ez a feljegyzés véglegesen eltávolításra kerül.</string>
+    <string name="vaccination_deleted">Oltás törölve</string>
+    <string name="vaccination_replace_photo">Fénykép cseréje</string>
+    <string name="vaccination_remove_photo">Fénykép eltávolítása</string>
+    <string name="vaccination_cert_removed">Fénykép eltávolítva</string>
+    <string name="vaccination_cert_updated">Fénykép frissítve</string>
+    <string name="notif_vaccination_due_title">Oltási emlékeztető</string>
+    <string name="notif_vaccination_due_body">Hamarosan lejár egy oltás. Koppints a megtekintéshez.</string>
 </resources>

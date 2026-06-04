@@ -46,6 +46,20 @@ class PetsViewModel @Inject constructor(
     private val _isLoading = MutableStateFlow(false)
     val isLoading: StateFlow<Boolean> = _isLoading.asStateFlow()
 
+    /**
+     * True once a pets fetch CYCLE has completed — success OR failure. Distinct
+     * from `isLoading` (which is false both before the first load and after it)
+     * and from `pets.isEmpty()` (which can't tell "still loading" from "loaded,
+     * none match"). The vaccination deep-link consume point gates on this so a
+     * cold-launch target is resolved on ANY terminal determination (present,
+     * absent, or a failed/empty load) and held ONLY while genuinely loading —
+     * which is what stops a failed cold-launch fetch from leaving a pending
+     * target lingering forever (and, with the one-shot tab-switch, trapping the
+     * user on the Pets tab).
+     */
+    private val _hasLoadedOnce = MutableStateFlow(false)
+    val hasLoadedOnce: StateFlow<Boolean> = _hasLoadedOnce.asStateFlow()
+
     /** The alertId from the most recent markPetFound call, used to fetch the server share card */
     private val _lastResolvedAlertId = MutableStateFlow<String?>(null)
     val lastResolvedAlertId: StateFlow<String?> = _lastResolvedAlertId.asStateFlow()
@@ -72,6 +86,7 @@ class PetsViewModel @Inject constructor(
                 _errorMessage.value = ex.localizedMessage ?: application.getString(R.string.error_load_pets)
             } finally {
                 _isLoading.value = false
+                _hasLoadedOnce.value = true
             }
         }
     }
@@ -87,6 +102,7 @@ class PetsViewModel @Inject constructor(
                 _errorMessage.value = ex.localizedMessage ?: application.getString(R.string.error_refresh_pets)
             } finally {
                 _isRefreshing.value = false
+                _hasLoadedOnce.value = true
             }
         }
     }
