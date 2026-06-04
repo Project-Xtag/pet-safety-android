@@ -132,6 +132,12 @@ private fun VaccinationRowCompact(vaccination: Vaccination) {
                 .weight(1f)
                 .padding(end = 8.dp)
         )
-        VaccinationStatusPill(status = vaccination.status)
+        Column(
+            horizontalAlignment = Alignment.End,
+            verticalArrangement = Arrangement.spacedBy(4.dp)
+        ) {
+            if (vaccination.isMandatory) VaccinationMandatoryPill()
+            VaccinationStatusPill(status = vaccination.status)
+        }
     }
 }

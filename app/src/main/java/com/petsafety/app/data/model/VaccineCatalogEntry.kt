@@ -18,5 +18,10 @@ data class VaccineCatalogEntry(
     @SerialName("default_validity_months") val defaultValidityMonths: Int? = null,
     @SerialName("min_age_weeks") val minAgeWeeks: Int? = null,
     @SerialName("rabies_specific") val rabiesSpecific: Boolean = false,
+    // Legally mandatory (kötelező) — distinct from is_core; drives the "Kötelező" pill.
+    @SerialName("is_mandatory") val isMandatory: Boolean = false,
+    // The "Egyéb" sentinel — the form reveals a free-text name field and submits
+    // the typed name as vaccine_name on create.
+    @SerialName("is_freetext") val isFreetext: Boolean = false,
     @SerialName("sort_order") val sortOrder: Int = 100
 )

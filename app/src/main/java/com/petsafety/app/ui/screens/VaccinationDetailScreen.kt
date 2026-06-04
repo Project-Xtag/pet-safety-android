@@ -46,6 +46,7 @@ import coil.compose.AsyncImage
 import com.petsafety.app.R
 import com.petsafety.app.data.model.Vaccination
 import com.petsafety.app.ui.components.CertificatePhotoSheet
+import com.petsafety.app.ui.components.VaccinationMandatoryPill
 import com.petsafety.app.ui.components.VaccinationStatusPill
 import com.petsafety.app.ui.util.LocaleFormatting
 import com.petsafety.app.ui.viewmodel.AppStateViewModel
@@ -142,7 +143,13 @@ fun VaccinationDetailScreen(
                         color = MaterialTheme.colorScheme.onSurface,
                         modifier = Modifier.weight(1f).padding(end = 8.dp)
                     )
-                    VaccinationStatusPill(status = v.status)
+                    Column(
+                        horizontalAlignment = Alignment.End,
+                        verticalArrangement = Arrangement.spacedBy(4.dp)
+                    ) {
+                        if (v.isMandatory) VaccinationMandatoryPill()
+                        VaccinationStatusPill(status = v.status)
+                    }
                 }
                 Text(
                     text = stringResource(R.string.vaccination_change_vaccine_note),

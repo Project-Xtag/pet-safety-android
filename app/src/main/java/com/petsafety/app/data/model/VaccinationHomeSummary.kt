@@ -33,7 +33,9 @@ data class UrgentVaccination(
     @SerialName("vaccine_name") val vaccineName: String,
     @SerialName("expires_at") val expiresAt: String? = null,
     @SerialName("days_until_expiry") val daysUntilExpiry: Int = 0,
-    val status: String = "expiring"
+    val status: String = "expiring",
+    // CURRENT catalog mandatory flag — drives the "Kötelező" pill on home urgent rows.
+    @SerialName("is_mandatory") val isMandatory: Boolean = false
 ) {
     /** Maps the server's status string onto the shared pill vocabulary. */
     val statusEnum: VaccinationStatus

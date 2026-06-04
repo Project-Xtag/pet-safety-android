@@ -1619,4 +1619,7 @@
     <string name="vaccination_cert_updated">Foto actualizada</string>
     <string name="notif_vaccination_due_title">Recordatorio de vacunación</string>
     <string name="notif_vaccination_due_body">Una vacuna caduca pronto. Toca para ver el registro.</string>
+    <string name="vaccination_mandatory">Obligatoria</string>
+    <string name="vaccination_freetext_label">Nombre de la vacuna</string>
+    <string name="vaccination_rabies_hint">La primera vacuna antirrábica o la reiniciada es válida 6 meses; consulta la cartilla de vacunación.</string>
 </resources>

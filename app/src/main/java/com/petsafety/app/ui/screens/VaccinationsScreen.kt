@@ -45,6 +45,7 @@ import com.petsafety.app.R
 import com.petsafety.app.data.model.Vaccination
 import com.petsafety.app.data.model.VaccinationStatus
 import com.petsafety.app.ui.components.BrandButton
+import com.petsafety.app.ui.components.VaccinationMandatoryPill
 import com.petsafety.app.ui.components.VaccinationStatusPill
 import com.petsafety.app.ui.util.LocaleFormatting
 import com.petsafety.app.ui.viewmodel.VaccinationsViewModel
@@ -200,7 +201,13 @@ private fun VaccinationRow(vaccination: Vaccination, onClick: () -> Unit) {
             )
         }
         Spacer(Modifier.size(12.dp))
-        VaccinationStatusPill(status = vaccination.status)
+        Column(
+            horizontalAlignment = Alignment.End,
+            verticalArrangement = Arrangement.spacedBy(4.dp)
+        ) {
+            if (vaccination.isMandatory) VaccinationMandatoryPill()
+            VaccinationStatusPill(status = vaccination.status)
+        }
     }
 }
 

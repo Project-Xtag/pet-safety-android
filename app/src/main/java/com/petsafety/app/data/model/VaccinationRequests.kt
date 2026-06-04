@@ -16,6 +16,9 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class CreateVaccinationRequest(
     @SerialName("vaccine_code") val vaccineCode: String,
+    // Free-text name — set ONLY for an "Egyéb" (is_freetext) pick; the server
+    // freezes it as the snapshot. null (dropped via explicitNulls=false) otherwise.
+    @SerialName("vaccine_name") val vaccineName: String? = null,
     @SerialName("administered_at") val administeredAt: String,
     @SerialName("expires_at") val expiresAt: String? = null,
     @SerialName("batch_number") val batchNumber: String? = null,
