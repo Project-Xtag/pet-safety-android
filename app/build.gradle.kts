@@ -69,8 +69,8 @@ android {
         applicationId = "com.petsafety.app"
         minSdk = 26
         targetSdk = 35
-        versionCode = 18
-        versionName = "1.0.0-beta10"
+        versionCode = 20
+        versionName = "2.1"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
