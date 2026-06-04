@@ -16,6 +16,10 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.heightIn
+import androidx.compose.material3.HorizontalDivider
+import androidx.compose.ui.graphics.Color
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.AddAPhoto
@@ -105,6 +109,15 @@ fun VaccinationFormScreen(
     var showCertPicker by remember { mutableStateOf(false) }
     var actionError by remember { mutableStateOf<String?>(null) }
     var saving by remember { mutableStateOf(false) }
+    // "Egyéb" free-text vaccine name — sent only for an is_freetext pick.
+    var freeText by remember { mutableStateOf("") }
+
+    // The picked catalog entry (nil until selected) — read its flags WITHOUT
+    // parsing the opaque code: is_freetext reveals the name field, rabies_specific
+    // drives the first-shot/booster hint.
+    val selectedEntry = catalog.firstOrNull { it.code == selectedCode }
+    val isFreetext = selectedEntry?.isFreetext == true
+    val isRabies = selectedEntry?.rabiesSpecific == true
 
     val savedMsg = stringResource(R.string.vaccination_saved)
     val certFailedMsg = stringResource(R.string.vaccinations_cert_failed)
@@ -117,6 +130,7 @@ fun VaccinationFormScreen(
         actionError = null
         val request = CreateVaccinationRequest(
             vaccineCode = code,
+            vaccineName = if (isFreetext) freeText.trim() else null,
             administeredAt = adm.toString(),
             expiresAt = if (hasExpiry) expiresAt?.toString() else null, // toggle-off → omitted → server derives
             batchNumber = batch.ifBlank { null },
@@ -146,7 +160,8 @@ fun VaccinationFormScreen(
         }
     }
 
-    val canSave = selectedCode != null && administeredAt != null && !saving
+    val canSave = selectedCode != null && administeredAt != null && !saving &&
+        !(isFreetext && freeText.isBlank())   // Egyéb picked but no name → block (disabled-Save idiom)
 
     Scaffold(
         topBar = {
@@ -184,6 +199,28 @@ fun VaccinationFormScreen(
             ) {
                 FormSection {
                     VaccinePicker(catalog = catalog, selectedCode = selectedCode, onSelect = { selectedCode = it })
+                    // "Egyéb" free-text name — revealed for an is_freetext pick; sent
+                    // as vaccine_name on create (the server freezes it as the snapshot).
+                    if (isFreetext) {
+                        OutlinedTextField(
+                            value = freeText, onValueChange = { freeText = it },
+                            label = { Text(stringResource(R.string.vaccination_freetext_label)) },
+                            singleLine = true, modifier = Modifier.fillMaxWidth()
+                        )
+                    }
+                    // Rabies first-shot/booster hint — blue info callout (matches web/iOS),
+                    // shown for ANY rabies_specific vaccine (dog OR cat); never species-gated.
+                    if (isRabies) {
+                        Text(
+                            text = stringResource(R.string.vaccination_rabies_hint),
+                            style = MaterialTheme.typography.bodySmall,
+                            color = Color(0xFF1D4ED8),
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .background(Color(0xFF1D4ED8).copy(alpha = 0.08f), RoundedCornerShape(8.dp))
+                                .padding(10.dp)
+                        )
+                    }
                 }
 
                 FormSection {
@@ -338,11 +375,27 @@ private fun VaccinePicker(
             modifier = Modifier.fillMaxWidth().menuAnchor(MenuAnchorType.PrimaryNotEditable)
         )
         ExposedDropdownMenu(expanded = expanded, onDismissRequest = { expanded = false }) {
-            catalog.forEach { entry ->
-                DropdownMenuItem(
-                    text = { Text(entry.displayName) }, // display_name; submit code
-                    onClick = { onSelect(entry.code); expanded = false }
-                )
+            val regular = catalog.filter { !it.isFreetext }
+            val freetext = catalog.filter { it.isFreetext }
+            // Real vaccines scroll, capped to ~5 rows; the "Egyéb" sentinel is PINNED
+            // below the scroll so it's always reachable — sort 999 would otherwise sit
+            // below the fold (the web/iOS scroll-fold lesson: pin Egyéb, not just scroll).
+            Column(modifier = Modifier.heightIn(max = 240.dp).verticalScroll(rememberScrollState())) {
+                regular.forEach { entry ->
+                    DropdownMenuItem(
+                        text = { Text(entry.displayName) }, // display_name; submit code
+                        onClick = { onSelect(entry.code); expanded = false }
+                    )
+                }
+            }
+            if (freetext.isNotEmpty()) {
+                HorizontalDivider()
+                freetext.forEach { entry ->
+                    DropdownMenuItem(
+                        text = { Text(entry.displayName) }, // "Egyéb\n(add meg a nevét)" → two lines
+                        onClick = { onSelect(entry.code); expanded = false }
+                    )
+                }
             }
         }
     }

@@ -33,6 +33,7 @@ import com.petsafety.app.R
 import com.petsafety.app.data.model.UrgentVaccination
 import com.petsafety.app.data.model.VaccinationStatus
 import com.petsafety.app.data.vaccination.VaccinationAvailability
+import com.petsafety.app.ui.components.VaccinationMandatoryPill
 import com.petsafety.app.ui.components.VaccinationStatusPill
 import com.petsafety.app.ui.theme.SuccessGreen
 import kotlin.math.abs
@@ -143,7 +144,13 @@ private fun UrgentVaccinationRow(
             )
         }
         Spacer(modifier = Modifier.width(8.dp))
-        VaccinationStatusPill(status = urgent.statusEnum)
+        Column(
+            horizontalAlignment = Alignment.End,
+            verticalArrangement = Arrangement.spacedBy(4.dp)
+        ) {
+            if (urgent.isMandatory) VaccinationMandatoryPill()
+            VaccinationStatusPill(status = urgent.statusEnum)
+        }
     }
 }
 

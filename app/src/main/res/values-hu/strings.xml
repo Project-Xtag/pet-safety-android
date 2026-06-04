@@ -1627,4 +1627,7 @@
     <string name="vaccination_cert_updated">Fénykép frissítve</string>
     <string name="notif_vaccination_due_title">Oltási emlékeztető</string>
     <string name="notif_vaccination_due_body">Hamarosan lejár egy oltás. Koppints a megtekintéshez.</string>
+    <string name="vaccination_mandatory">Kötelező</string>
+    <string name="vaccination_freetext_label">Oltás neve</string>
+    <string name="vaccination_rabies_hint">Az első vagy újrakezdett veszettség oltás 6 hónapig érvényes – ellenőrizd az oltási könyvet.</string>
 </resources>

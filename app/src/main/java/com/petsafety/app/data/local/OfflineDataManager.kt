@@ -212,6 +212,7 @@ class OfflineDataManager(private val database: AppDatabase) {
                     certificateMime = v.certificateMime,
                     notes = v.notes,
                     createdAt = v.createdAt,
+                    isMandatory = v.isMandatory,
                     lastSyncedAt = System.currentTimeMillis()
                 )
             )
@@ -233,7 +234,8 @@ class OfflineDataManager(private val database: AppDatabase) {
                 certificateUrl = e.certificateUrl,
                 certificateMime = e.certificateMime,
                 notes = e.notes,
-                createdAt = e.createdAt
+                createdAt = e.createdAt,
+                isMandatory = e.isMandatory
             )
         }
 

@@ -24,5 +24,8 @@ data class VaccinationEntity(
     val certificateMime: String?,
     val notes: String?,
     val createdAt: String?,
+    // CURRENT-value mandatory flag, cached so the "Kötelező" pill shows offline.
+    // Reflects the catalog at last sync (refreshes on next online read).
+    val isMandatory: Boolean,
     val lastSyncedAt: Long
 )

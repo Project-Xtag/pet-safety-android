@@ -28,7 +28,10 @@ data class Vaccination(
     @SerialName("certificate_url") val certificateUrl: String? = null,
     @SerialName("certificate_mime") val certificateMime: String? = null,
     val notes: String? = null,
-    @SerialName("created_at") val createdAt: String? = null
+    @SerialName("created_at") val createdAt: String? = null,
+    // CURRENT catalog mandatory flag (COALESCE, false if code absent) — drives the
+    // "Kötelező" pill. Round-trips Room (see VaccinationEntity + OfflineDataManager).
+    @SerialName("is_mandatory") val isMandatory: Boolean = false
 ) {
     /**
      * Client-derived status for the per-pet CRUD list, where the server does

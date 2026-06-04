@@ -21,11 +21,15 @@ import com.petsafety.app.data.local.entity.VaccinationEntity
         SuccessStoryEntity::class,
         VaccinationEntity::class
     ],
-    // 3 → 4: adds the `vaccinations` cache table. The DB is configured with
-    // fallbackToDestructiveMigration (see AppModule), so this bump wipes the
-    // whole encrypted cache on first launch post-update and every entity
-    // (pets included) re-syncs from the API — expected for a pure cache.
-    version = 4,
+    // 3 → 4: adds the `vaccinations` cache table.
+    // 4 → 5: adds VaccinationEntity.isMandatory (the "Kötelező" flag cached on the
+    // record). The DB is configured with fallbackToDestructiveMigration (see
+    // AppModule), so this bump wipes the whole encrypted cache on first launch
+    // post-update and every entity (pets included) re-syncs from the API.
+    // ⚠ This is the bump that ALSO drops any queued offline actions (ActionQueue)
+    // on first post-update launch — NOT new exposure (every destructive bump does
+    // this), but noting the trigger. Acceptable for a pure cache.
+    version = 5,
     exportSchema = true
 )
 abstract class AppDatabase : RoomDatabase() {

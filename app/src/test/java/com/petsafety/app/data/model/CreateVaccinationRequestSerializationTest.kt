@@ -52,4 +52,17 @@ class CreateVaccinationRequestSerializationTest {
         )
         assertTrue(body.contains("\"expires_at\":\"2029-06-01\""))
     }
+
+    @Test
+    fun `vaccine_name only serialized for an Egyeb pick`() {
+        val freetext = json.encodeToString(
+            CreateVaccinationRequest(vaccineCode = "other_dog_hu", vaccineName = "Custom oltás", administeredAt = "2026-06-01")
+        )
+        assertTrue(freetext.contains("\"vaccine_name\":\"Custom oltás\""))
+
+        val normal = json.encodeToString(
+            CreateVaccinationRequest(vaccineCode = "rabies", administeredAt = "2026-06-01")
+        )
+        assertFalse("vaccine_name omitted when not an Egyéb pick: $normal", normal.contains("vaccine_name"))
+    }
 }
