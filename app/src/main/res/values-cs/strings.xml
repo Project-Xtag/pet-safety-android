@@ -88,9 +88,9 @@
     <string name="register">Registrovat</string>
     <string name="already_have_account">Už máš účet?</string>
     <string name="log_in">Přihlásit se</string>
-    <string name="terms_login_prefix">Přihlášením souhlasíte s našimi </string>
-    <string name="terms_register_prefix">Registrací souhlasíte s našimi </string>
-    <string name="terms_and"> a </string>
+    <string name="terms_login_prefix">Přihlášením souhlasíte s našimi</string>
+    <string name="terms_register_prefix">Registrací souhlasíte s našimi</string>
+    <string name="terms_and"> a</string>
     <string name="terms_of_service">Podmínkami služby</string>
     <string name="privacy_policy">Zásadami ochrany soukromí</string>
     <string name="first_name">Jméno</string>
