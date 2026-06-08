@@ -1364,7 +1364,7 @@
     <string name="help_faq_q12">Para que países enviam?</string>
     <string name="help_faq_a12">Atualmente enviamos para Hungria, Eslováquia, República Checa, Áustria, Roménia, Croácia, Espanha, Itália, França, Alemanha, Noruega e Portugal. Envio nacional na Hungria: {{huPostapoint}} (PostaPont) ou {{huHome}} (entrega ao domicílio). Envio internacional: {{intlPrice}} por encomenda.</string>
     <string name="help_faq_q13">Posso ter vários animais de estimação numa conta?</string>
-    <string name="help_faq_a13">Sim. Com o plano Starter (gratuito), pode registar até 10 animais de estimação, mas as funcionalidades são limitadas. O plano Standard é para um gato ou cão, com todas as funcionalidades. O plano Maximum inclui tudo e pode registar até 10 animais de estimação. Pode mudar de plano a qualquer momento.</string>
+    <string name="help_faq_a13">Sim. Com o plano Starter (gratuito), pode registar animais de estimação ilimitados, mas as funcionalidades são limitadas. O plano Standard é para um gato ou cão, com todas as funcionalidades. O plano Maximum inclui tudo e pode registar animais de estimação ilimitados. Pode mudar de plano a qualquer momento.</string>
     <string name="help_faq_q14">Como reporto um animal de estimação encontrado?</string>
     <string name="help_faq_a14">Se o animal de estimação tem uma plaquinha inteligente SENRA, simplesmente lê o código QR com a câmara do telemóvel — não é precisa aplicação. Podes ver o perfil do animal de estimação e partilhar a tua localização com o dono.</string>
     <string name="help_faq_q15">Os meus dados pessoais estão seguros?</string>

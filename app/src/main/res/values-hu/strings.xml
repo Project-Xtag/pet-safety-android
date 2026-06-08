@@ -1471,7 +1471,7 @@
     <string name="help_faq_q12">Mely országokba szállítotok?</string>
     <string name="help_faq_a12">Jelenleg Magyarországra, Szlovákiába, Csehországba, Ausztriába, Romániába, Horvátországba, Spanyolországba, Olaszországba, Franciaországba, Németországba, Norvégiába és Portugáliába szállítunk. Magyarországon belüli szállítás díja: {{huPostapoint}} (PostaPont) vagy {{huHome}} (házhozszállítás). A nemzetközi szállítás díja: {{intlPrice}} rendelésenként.</string>
     <string name="help_faq_q13">Lehet több kedvencem egy fiókon?</string>
-    <string name="help_faq_a13">Igen. Az Induló (ingyenes) csomagnál maximum 10 állatot regisztrálhatsz, de az elérhető szolgáltatások korlátozottak. A Kedvenc csomag minden szolgáltatást felold akár 10 kedvenc számára. Előfizetési csomagot bármikor tudsz váltani a \'Kezdőlap/Fiókom\' menüpont alatt.</string>
+    <string name="help_faq_a13">Igen. Az Induló (ingyenes) csomagnál korlátlan számú állatot regisztrálhatsz, de az elérhető szolgáltatások korlátozottak. A Kedvenc csomag minden szolgáltatást felold korlátlan számú kedvenc számára. Előfizetési csomagot bármikor tudsz váltani a \'Kezdőlap/Fiókom\' menüpont alatt.</string>
     <string name="help_faq_q14">Hogyan jelenthetek egy megtalált kedvencet?</string>
     <string name="help_faq_a14">Ha a kedvencnek van SENRA bilétája, egyszerűen olvasd be a QR-kódot a okostelefonod kamerájával — nincs szükség alkalmazásra. Megtekintheted a kedvenc profilját, és megoszthatod a helyed a gazdival.</string>
     <string name="help_faq_q15">Biztonságban vannak a személyes adataim?</string>

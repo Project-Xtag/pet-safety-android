@@ -1356,7 +1356,7 @@
     <string name="help_faq_q12">Dans quels pays livrez-tu ?</string>
     <string name="help_faq_a12">Nous livrons actuellement en Hongrie, Slovaquie, République tchèque, Autriche, Roumanie, Croatie, Espagne, Italie, France, Allemagne, Norvège et Portugal. Livraison nationale en Hongrie : {{huPostapoint}} (PostaPont) ou {{huHome}} (livraison à domicile). Livraison internationale : {{intlPrice}} par commande.</string>
     <string name="help_faq_q13">Puis-je avoir plusieurs animaux sur un compte ?</string>
-    <string name="help_faq_a13">Oui. Avec le plan Starter (gratuit), tu peux enregistrer jusqu\'à 10 animaux avec des fonctionnalités limitées. Le plan Standard est pour un chat ou chien avec toutes les fonctionnalités. Le plan Maximum inclut tout avec jusqu\'à 10 animaux.</string>
+    <string name="help_faq_a13">Oui. Avec le plan Starter (gratuit), tu peux enregistrer un nombre illimité d\'animaux avec des fonctionnalités limitées. Le plan Standard est pour un chat ou chien avec toutes les fonctionnalités. Le plan Maximum inclut tout avec un nombre illimité d\'animaux.</string>
     <string name="help_faq_q14">Comment signaler un animal trouvé ?</string>
     <string name="help_faq_a14">Si l\'animal a une médaille connectée SENRA, scanne simplement le code QR avec la caméra de ton téléphone — pas besoin d\'application. Tu peux voir le profil de l\'animal et partager ta position avec le propriétaire.</string>
     <string name="help_faq_q15">Mes données personnelles sont-elles en sécurité ?</string>

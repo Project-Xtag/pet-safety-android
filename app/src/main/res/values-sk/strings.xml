@@ -1372,7 +1372,7 @@
     <string name="help_faq_q12">Do ktorých krajín doručujete?</string>
     <string name="help_faq_a12">Momentálne doručujeme do Maďarska, Slovenska, Česka, Rakúska, Rumunska, Chorvátska, Španielska, Talianska, Francúzska, Nemecka, Nórska a Portugalska. Domáce doručenie v rámci Maďarska: {{huPostapoint}} (PostaPont) alebo {{huHome}} (doručenie domov). Medzinárodné doručenie: {{intlPrice}} za objednávku.</string>
     <string name="help_faq_q13">Môžem mať viacero domácich miláčikov na jednom účte?</string>
-    <string name="help_faq_a13">Áno. S balíkom Starter (bezplatný) môžeš zaregistrovať až 10 domácich miláčikov, ale dostupné funkcie sú obmedzené. Balík Standard je navrhnutý pre jednu mačku alebo psa, ale obsahuje všetky funkcie. Balík Maximum zahŕňa všetky funkcie a môžeš zaregistrovať až 10 domácich miláčikov. Balík môžeš kedykoľvek zmeniť v sekcii \'Domov/Môj účet\'.</string>
+    <string name="help_faq_a13">Áno. S balíkom Starter (bezplatný) môžeš zaregistrovať neobmedzený počet domácich miláčikov, ale dostupné funkcie sú obmedzené. Balík Standard je navrhnutý pre jednu mačku alebo psa, ale obsahuje všetky funkcie. Balík Maximum zahŕňa všetky funkcie a môžeš zaregistrovať neobmedzený počet domácich miláčikov. Balík môžeš kedykoľvek zmeniť v sekcii \'Domov/Môj účet\'.</string>
     <string name="help_faq_q14">Ako nahlásim nájdeného domáceho miláčika?</string>
     <string name="help_faq_a14">Ak má domáci miláčik SENRA známku, jednoducho naskenuj QR kód kamerou telefónu — nie je potrebná žiadna aplikácia. Môžeš si pozrieť profil domáceho miláčika a zdieľať svoju polohu s páníčkom.</string>
     <string name="help_faq_q15">Sú moje osobné údaje v bezpečí?</string>

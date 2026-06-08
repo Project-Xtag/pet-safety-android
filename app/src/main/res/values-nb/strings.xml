@@ -1357,7 +1357,7 @@
     <string name="help_faq_q12">Hvilke land sender dere til?</string>
     <string name="help_faq_a12">Vi sender for tiden til Ungarn, Slovakia, Tsjekkia, Østerrike, Romania, Kroatia, Spania, Italia, Frankrike, Tyskland, Norge og Portugal. Innenlands frakt i Ungarn: {{huPostapoint}} (PostaPont) eller {{huHome}} (hjemmelevering). Internasjonal frakt: {{intlPrice}} per bestilling.</string>
     <string name="help_faq_q13">Kan jeg ha flere kjæledyr på én konto?</string>
-    <string name="help_faq_a13">Ja. Med Starter-planen (gratis) kan du registrere opptil 10 kjæledyr med begrensede funksjoner. Standard-planen er for én katt eller hund med alle funksjoner. Maximum-planen inkluderer alt med opptil 10 kjæledyr.</string>
+    <string name="help_faq_a13">Ja. Med Starter-planen (gratis) kan du registrere ubegrenset antall kjæledyr med begrensede funksjoner. Standard-planen er for én katt eller hund med alle funksjoner. Maximum-planen inkluderer alt med ubegrenset antall kjæledyr.</string>
     <string name="help_faq_q14">Hvordan melder jeg et funnet kjæledyr?</string>
     <string name="help_faq_a14">Hvis kjæledyret har en SENRA-QR-brikke, skann bare QR-koden med telefonkameraet — ingen app nødvendig. Du kan se profilen og dele posisjonen din med eieren.</string>
     <string name="help_faq_q15">Er mine personlige data trygge?</string>
