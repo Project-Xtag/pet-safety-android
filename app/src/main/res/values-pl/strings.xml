@@ -1384,7 +1384,7 @@
     <string name="help_faq_q12">Do jakich krajów wysyłacie?</string>
     <string name="help_faq_a12">Obecnie wysyłamy do Węgier, Słowacji, Czech, Austrii, Rumunii, Chorwacji, Hiszpanii, Włoch, Francji, Niemiec, Norwegii i Portugalii. Wysyłka krajowa na Węgrzech: {{huPostapoint}} (PostaPont) lub {{huHome}} (dostawa do domu). Wysyłka międzynarodowa: {{intlPrice}} za zamówienie.</string>
     <string name="help_faq_q13">Czy mogę mieć wiele pupili na jednym koncie?</string>
-    <string name="help_faq_a13">Tak. Z planem Starter (bezpłatnym) możesz zarejestrować do 10 pupili z ograniczonymi funkcjami. Plan Standard jest dla jednego kota lub psa ze wszystkimi funkcjami. Plan Maximum obejmuje wszystko z rejestracją do 10 pupili.</string>
+    <string name="help_faq_a13">Tak. Z planem Starter (bezpłatnym) możesz zarejestrować nieograniczoną liczbę pupili z ograniczonymi funkcjami. Plan Standard jest dla jednego kota lub psa ze wszystkimi funkcjami. Plan Maximum obejmuje wszystko z rejestracją nieograniczoną liczbę pupili.</string>
     <string name="help_faq_q14">Jak zgłosić znalezione pupila?</string>
     <string name="help_faq_a14">Jeśli pupila ma adresówkę SENRA, po prostu zeskanuj kod QR aparatem — nie potrzebujesz aplikacji. Możesz zobaczyć profil pupila i udostępnić swoją lokalizację opiekunowi.</string>
     <string name="help_faq_q15">Czy moje dane osobowe są bezpieczne?</string>

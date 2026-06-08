@@ -1364,7 +1364,7 @@
     <string name="help_faq_q12">¿A qué países enviáis?</string>
     <string name="help_faq_a12">Actualmente enviamos a Hungría, Eslovaquia, República Checa, Austria, Rumanía, Croacia, España, Italia, Francia, Alemania, Noruega y Portugal. Envío nacional dentro de Hungría: {{huPostapoint}} (PostaPont) o {{huHome}} (entrega a domicilio). Envío internacional: {{intlPrice}} por pedido.</string>
     <string name="help_faq_q13">¿Puedo tener varias mascotas en una cuenta?</string>
-    <string name="help_faq_a13">Sí. Con el plan Starter (gratuito), puedes registrar hasta 10 mascotas, pero las funciones disponibles son limitadas. El plan Standard está diseñado para un gato o perro, pero incluye todas las funciones. El plan Maximum incluye todas las funciones y puedes registrar hasta 10 mascotas. Puedes cambiar de plan en cualquier momento en \'Inicio/Mi Cuenta\'.</string>
+    <string name="help_faq_a13">Sí. Con el plan Starter (gratuito), puedes registrar mascotas ilimitadas, pero las funciones disponibles son limitadas. El plan Standard está diseñado para un gato o perro, pero incluye todas las funciones. El plan Maximum incluye todas las funciones y puedes registrar mascotas ilimitadas. Puedes cambiar de plan en cualquier momento en \'Inicio/Mi Cuenta\'.</string>
     <string name="help_faq_q14">¿Cómo reporto una mascota encontrada?</string>
     <string name="help_faq_a14">Si la mascota tiene una chapa inteligente SENRA, simplemente escanea el código QR con la cámara de tu teléfono — no necesitas ninguna aplicación. Puedes ver el perfil de la mascota y compartir tu ubicación con el dueño.</string>
     <string name="help_faq_q15">¿Están seguros mis datos personales?</string>

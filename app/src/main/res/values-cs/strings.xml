@@ -1373,7 +1373,7 @@
     <string name="help_faq_q12">Do kterých zemí doručujete?</string>
     <string name="help_faq_a12">Momentálně doručujeme do Maďarska, Slovenska, Česka, Rakouska, Rumunska, Chorvatska, Španělska, Itálie, Francie, Německa, Norska a Portugalska. Domácí doručení v rámci Maďarska: {{huPostapoint}} (PostaPont) nebo {{huHome}} (doručení domů). Mezinárodní doručení: {{intlPrice}} za objednávku.</string>
     <string name="help_faq_q13">Mohu mít více mazlíčků na jednom účtu?</string>
-    <string name="help_faq_a13">Ano. S balíčkem Starter (zdarma) můžeš zaregistrovat až 10 mazlíčků, ale dostupné funkce jsou omezené. Balíček Standard je navržen pro jednu kočku nebo psa, ale obsahuje všechny funkce. Balíček Maximum zahrnuje všechny funkce a můžeš zaregistrovat až 10 mazlíčků. Balíček můžeš kdykoliv změnit v sekci \'Domů/Můj účet\'.</string>
+    <string name="help_faq_a13">Ano. S balíčkem Starter (zdarma) můžeš zaregistrovat neomezený počet mazlíčků, ale dostupné funkce jsou omezené. Balíček Standard je navržen pro jednu kočku nebo psa, ale obsahuje všechny funkce. Balíček Maximum zahrnuje všechny funkce a můžeš zaregistrovat neomezený počet mazlíčků. Balíček můžeš kdykoliv změnit v sekci \'Domů/Můj účet\'.</string>
     <string name="help_faq_q14">Jak nahlásím nalezeného mazlíčka?</string>
     <string name="help_faq_a14">Pokud má mazlíček SENRA psí známku, jednoduše naskenuj QR kód kamerou telefonu — není potřeba žádná aplikace. Můžeš si prohlédnout profil mazlíčka a sdílet svou polohu s páníčkem.</string>
     <string name="help_faq_q15">Jsou moje osobní údaje v bezpečí?</string>

@@ -1049,7 +1049,7 @@
     <string name="street2">Stan / Apartman / Kat (Neobavezno)</string>
 
     <string name="pet_limit_reached">Dosegnut limit kućnih ljubimaca</string>
-    <string name="pet_limit_reached_message">Tvoj %1$s paket dopušta %2$d kućnog ljubimca. Nadogradi na %3$s za %4$s za registraciju do 10 kućnih ljubimaca.</string>
+    <string name="pet_limit_reached_message">Tvoj %1$s paket dopušta %2$d kućnog ljubimca. Nadogradi na %3$s za %4$s za registraciju neograničen broj kućnih ljubimaca.</string>
     <string name="share_owner_notified">Vlasnik je obaviješten!</string>
     <string name="sse_connection_lost">Ažuriranja u stvarnom vremenu nisu dostupna. Povuci za osvježavanje.</string>
     <string name="story_placeholder">Ispričaj svoju priču o ponovnom susretu\u2026</string>
@@ -1359,7 +1359,7 @@
     <string name="help_faq_q12">U koje zemlje šaljete?</string>
     <string name="help_faq_a12">Trenutno šaljemo u Mađarsku, Slovačku, Češku, Austriju, Rumunjsku, Hrvatsku, Španjolsku, Italiju, Francusku, Njemačku, Norvešku i Portugal. Dostava unutar Mađarske: {{huPostapoint}} (PostaPont) ili {{huHome}} (kućna dostava). Međunarodna dostava: {{intlPrice}} po narudžbi.</string>
     <string name="help_faq_q13">Mogu li imati više kućnih ljubimaca na jednom računu?</string>
-    <string name="help_faq_a13">Da. S planom Starter (besplatno) možeš registrirati do 10 kućnih ljubimaca s ograničenim funkcijama. Plan Standard je za jednu mačku ili psa sa svim funkcijama. Plan Maximum uključuje sve s registracijom do 10 kućnih ljubimaca.</string>
+    <string name="help_faq_a13">Da. S planom Starter (besplatno) možeš registrirati neograničen broj kućnih ljubimaca s ograničenim funkcijama. Plan Standard je za jednu mačku ili psa sa svim funkcijama. Plan Maximum uključuje sve s registracijom neograničen broj kućnih ljubimaca.</string>
     <string name="help_faq_q14">Kako prijavim pronađenog kućnog ljubimca?</string>
     <string name="help_faq_a14">Ako kućni ljubimac ima SENRA privjesak, jednostavno skeniraj QR kod kamerom — nije potrebna aplikacija. Možeš vidjeti profil kućnog ljubimca i podijeliti svoju lokaciju s vlasnikom.</string>
     <string name="help_faq_q15">Jesu li moji osobni podaci sigurni?</string>

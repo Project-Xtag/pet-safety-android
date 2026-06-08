@@ -1490,7 +1490,7 @@
     <string name="help_faq_q12">Which countries do you ship to?</string>
     <string name="help_faq_a12">We currently ship to Hungary, Slovakia, Czech Republic, Austria, Romania, Croatia, Spain, Italy, France, Germany, Norway, and Portugal. Domestic shipping within Hungary: {{huPostapoint}} (PostaPont) or {{huHome}} (home delivery). International shipping: {{intlPrice}} per order.</string>
     <string name="help_faq_q13">Can I have multiple pets on one account?</string>
-    <string name="help_faq_a13">Yes. With the Starter pack (free), you can register up to 10 pets but available features are limited. The Pet pack unlocks all features for up to 10 pets. You can switch subscription plans anytime under \'Home/My Account\'.</string>
+    <string name="help_faq_a13">Yes. With the Starter pack (free), you can register unlimited pets but available features are limited. The Pet pack unlocks all features for unlimited pets. You can switch subscription plans anytime under \'Home/My Account\'.</string>
     <string name="help_faq_q14">How do I report a found pet?</string>
     <string name="help_faq_a14">If the pet has a SENRA tag, simply scan the QR code with your phone\'s camera — no app needed. You can view the pet\'s profile and share your location with the owner.</string>
     <string name="help_faq_q15">Is my personal data safe?</string>

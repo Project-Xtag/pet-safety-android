@@ -1365,7 +1365,7 @@
     <string name="help_faq_q12">În ce țări livrați?</string>
     <string name="help_faq_a12">Momentan livrăm în Ungaria, Slovacia, Cehia, Austria, România, Croația, Spania, Italia, Franța, Germania, Norvegia și Portugalia. Livrare internă în Ungaria: {{huPostapoint}} (PostaPont) sau {{huHome}} (livrare la domiciliu). Livrare internațională: {{intlPrice}} per comandă.</string>
     <string name="help_faq_q13">Pot avea mai multe animale de companie pe un cont?</string>
-    <string name="help_faq_a13">Da. Cu planul Starter (gratuit), poți înregistra până la 10 animale de companie, dar funcționalitățile sunt limitate. Planul Standard este pentru o pisică sau un câine, cu toate funcționalitățile. Planul Maximum include totul și poți înregistra până la 10 animale de companie.</string>
+    <string name="help_faq_a13">Da. Cu planul Starter (gratuit), poți înregistra un număr nelimitat de animale de companie, dar funcționalitățile sunt limitate. Planul Standard este pentru o pisică sau un câine, cu toate funcționalitățile. Planul Maximum include totul și poți înregistra un număr nelimitat de animale de companie.</string>
     <string name="help_faq_q14">Cum raportez un animal de companie găsit?</string>
     <string name="help_faq_a14">Dacă animalul de companie are o plăcuță inteligentă SENRA, pur și simplu scanează codul QR cu camera telefonului — nu ai nevoie de aplicație. Poți vedea profilul animalului de companie și partaja locația ta cu stăpânul.</string>
     <string name="help_faq_q15">Sunt datele mele personale în siguranță?</string>
