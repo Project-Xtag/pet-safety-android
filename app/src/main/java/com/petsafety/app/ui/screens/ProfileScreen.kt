@@ -282,8 +282,20 @@ private fun ProfileMain(
                             val inputStream = uploadContext.contentResolver.openInputStream(uri) ?: return@rememberLauncherForActivityResult
                             val bytes = inputStream.readBytes()
                             inputStream.close()
-                            val requestBody = bytes.toRequestBody("image/*".toMediaTypeOrNull())
-                            val part = okhttp3.MultipartBody.Part.createFormData("image", "profile.jpg", requestBody)
+                            // Send the picker's real content type, not a wildcard — the backend
+                            // rejects image/* (Sentry PET-SAFETY-BACKEND-4). The picker returns raw
+                            // bytes that may be HEIC/PNG/etc.; profile-image accepts
+                            // JPEG/PNG/WebP/GIF/HEIC, so the true type uploads without transcoding.
+                            val mime = uploadContext.contentResolver.getType(uri) ?: "image/jpeg"
+                            val ext = when (mime) {
+                                "image/png" -> "png"
+                                "image/webp" -> "webp"
+                                "image/gif" -> "gif"
+                                "image/heic", "image/heif" -> "heic"
+                                else -> "jpg"
+                            }
+                            val requestBody = bytes.toRequestBody(mime.toMediaTypeOrNull())
+                            val part = okhttp3.MultipartBody.Part.createFormData("image", "profile.$ext", requestBody)
                             authViewModel.uploadProfileImage(part) { success, _ ->
                                 if (success) {
                                     // Clear local URI once the server URL is on the user object —
