@@ -63,7 +63,7 @@
     <!-- ============================================ -->
     <!-- MARK: Auth -->
     <!-- ============================================ -->
-    <string name="welcome_back">Üdv újra!</string>
+    <string name="welcome_back">Hello!</string>
     <string name="welcome_new_user">Üdvözöl a SENRA!</string>
     <string name="enter_email_subtitle">Add meg az email címed, hogy bejelentkezési kódot kapj!</string>
     <string name="email_address">Email cím</string>
@@ -116,7 +116,7 @@
     <!-- ============================================ -->
     <!-- MARK: Home / Pets List -->
     <!-- ============================================ -->
-    <string name="welcome_back_greeting">Üdv újra,</string>
+    <string name="welcome_back_greeting">Hello,</string>
     <string name="view_all">Összes megtekintése</string>
     <string name="search_pets_hint">Keresés név, fajta, faj szerint\u2026</string>
     <string name="quick_actions">Gyors műveletek</string>
@@ -1503,7 +1503,7 @@
     <string name="help_faq_q28">Hogyan regisztrálhatom a SENRA hálózatában a kedvencem állatorvosi rendelőjét vagy a menhelyet, ahonnan a kisállatomat örökbe fogadtam?</string>
     <string name="help_faq_a28">Állatklinikák és menhelyek a senra.pet/register-vet-shelter oldalon regisztrálhatnak. Töltsd ki a rendelő vagy szervezet adatait, és mi küldünk nekik egy ellenőrző e-mailt. A megerősítés után automatikusan értesítéseket küldünk nekik is, amikor kedvencek tűnnek el a környékeden — ezzel is segítve az elveszett kedvencek mielőbbi hazajuttatását. A regisztrációnak nincs költsége és nem szükséges hozzá bejelentkezés.</string>
 
-    <string name="welcome_back_no_name">Üdv újra!</string>
+    <string name="welcome_back_no_name">Hello!</string>
 
     <!-- Shelter promo claim screen -->
     <string name="shelter_promo_claim_tag_title">Biléta aktiválása</string>
