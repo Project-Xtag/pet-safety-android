@@ -88,9 +88,9 @@
     <string name="register">Registrieren</string>
     <string name="already_have_account">du haben bereits ein Benutzerkonto?</string>
     <string name="log_in">Einloggen</string>
-    <string name="terms_login_prefix">Mit dem Einloggen stimmen du unseren </string>
-    <string name="terms_register_prefix">Mit der Registrierung stimmen du unseren </string>
-    <string name="terms_and"> und </string>
+    <string name="terms_login_prefix">Mit dem Einloggen stimmen du unseren</string>
+    <string name="terms_register_prefix">Mit der Registrierung stimmen du unseren</string>
+    <string name="terms_and"> und</string>
     <string name="terms_of_service">Nutzungsbedingungen</string>
     <string name="privacy_policy">Datenschutzrichtlinie</string>
     <string name="first_name">Vorname</string>
@@ -825,7 +825,7 @@
     <!-- MARK: Push Notification Prompt -->
     <!-- ============================================ -->
     <string name="push_prompt_title">Bleiben du verbunden</string>
-    <string name="push_prompt_subtitle">Aktiviere Benachrichtigungen, um nichts zu verpassen:</string>
+    <string name="push_prompt_subtitle">Aktiviere Benachrichtigungen, um keine wichtigen Updates zu deinem Haustier zu verpassen:</string>
     <string name="push_prompt_benefit_scan">Sofortige Warnungen, wenn der Haustiermarke deines Haustiers gescannt wird</string>
     <string name="push_prompt_benefit_sighting">Sichtungsmeldungen aus der Community</string>
     <string name="push_prompt_benefit_found">Sofort wissen, wenn dein Haustier gefunden wird</string>
@@ -847,7 +847,7 @@
     <string name="public_profile_preview">Vorschau des öffentlichen Profils</string>
     <string name="failed_load_profile">Profil konnte nicht geladen werden</string>
     <string name="public_profile_subtitle">So sehen andere das Profil von %1$s</string>
-    <string name="owner_notified_sms_email">Der Besitzer von %1$s erhält eine SMS und eine E-Mail mit deinem Standort</string>
+    <string name="owner_notified_sms_email">%1$s\'s Besitzer erhält eine SMS und E-Mail mit deinem Standort</string>
     <string name="contact_owner_plea">Bitte informiere meinen Besitzer, dass du mich gefunden hast\u2026</string>
     <string name="contact_owner_plea_full">Bitte teile meinem Besitzer mit, dass du mich gefunden hast. Du kannst ihn über die unten angegebenen Kontaktdaten erreichen.</string>
     <string name="contact_info_not_set">Kontaktinfos noch nicht eingerichtet</string>
@@ -1015,7 +1015,7 @@
     <string name="help_guide_qr_tags_title">QR-Code Tier-Namensschilder</string>
     <string name="help_guide_qr_tags_desc">Jede SENRA Haustiermarke enthält einen einzigartigen QR-Code, der mit dem digitalen Profil deines Haustieres verknüpft ist. Jeder, der dein Haustier findet, kann den Code mit seiner Handykamera scannen — keine App erforderlich. Das Scannen der Haustiermarke sendet dir eine Benachrichtigung mit dem Standort des Finders (falls geteilt). Du kannst die Haustiermarken über die App aktivieren und jederzeit eine Ersatzmarke anfordern, falls die alte verloren geht oder beschädigt wird.</string>
     <string name="help_guide_materials_title">Materialien &amp; Haltbarkeit</string>
-    <string name="help_guide_materials_desc">SENRA Haustiermarken werden aus robustem, leichtem Metall mit einer Epoxidbeschichtung für zusätzlichen Schutz gefertigt. Sie sind wasserdicht und UV-beständig, geeignet für alle Wetterbedingungen und nutzen sich im täglichen Gebrauch nicht ab. Die Haustiermarken sind so gestaltet, dass sie bequem an die meisten Halsbänder und Geschirre passen.</string>
+    <string name="help_guide_materials_desc">SENRA Haustiermarken werden aus robustem, leichtem Metall mit einer Epoxidbeschichtung für zusätzlichen Schutz gefertigt. Sie sind wasserdicht und UV-beständig, für alle Wetterbedingungen geeignet und nutzen sich im täglichen Gebrauch nicht ab. Die Haustiermarken sind so gestaltet, dass sie bequem an die meisten Halsbänder und Geschirre passen.</string>
     <string name="help_guide_emergency_title">Notfallkontakt-Funktionen</string>
     <string name="help_guide_emergency_desc">Wenn jemand die Haustiermarke deines Haustieres scannt, erhältst du sofort eine Push-Benachrichtigung und E-Mail mit dem Standort des Finders. Kedvenc-Mitglieder erhalten auch SMS-Benachrichtigungen für eine schnellere Reaktion. Wenn du dein Haustier als vermisst markierst, wird eine Gemeinschaftswarnung an alle SENRA-Nutzer im Umkreis von 10 km gesendet, und registrierte Tierärzte und Tierheime in deiner Nähe werden ebenfalls benachrichtigt. Jeder in der Community kann Sichtungen mit Standort und Fotos melden, um dir bei der Suche nach deinem Haustier zu helfen.</string>
     <string name="help_guide_profile_title">Profilverwaltung</string>

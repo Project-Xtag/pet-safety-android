@@ -88,9 +88,9 @@
     <string name="register">Zarejestruj się</string>
     <string name="already_have_account">Masz już konto?</string>
     <string name="log_in">Zaloguj się</string>
-    <string name="terms_login_prefix">Logując się, akceptujesz nasze </string>
-    <string name="terms_register_prefix">Rejestrując się, akceptujesz nasze </string>
-    <string name="terms_and"> i </string>
+    <string name="terms_login_prefix">Logując się, akceptujesz nasze</string>
+    <string name="terms_register_prefix">Rejestrując się, akceptujesz nasze</string>
+    <string name="terms_and"> i</string>
     <string name="terms_of_service">Warunki korzystania z usługi</string>
     <string name="privacy_policy">Politykę prywatności</string>
     <string name="first_name">Imię</string>
@@ -766,7 +766,7 @@
     <string name="order_id_short">Zamówienie #%1$s</string>
     <string name="order_information">Informacje o zamówieniu</string>
     <string name="order_id_label">Numer zamówienia</string>
-    <string name="status">Status</string>
+    <string name="status">Stan</string>
     <string name="total_amount">Kwota łączna</string>
     <string name="order_date">Data zamówienia</string>
     <string name="items">Pozycje</string>
@@ -827,7 +827,7 @@
     <string name="billing_manage_description">Zmień plan, zaktualizuj metodę płatności lub anuluj</string>
     <string name="billing_current_plan">Aktualny plan</string>
     <string name="billing_plan_label">Plan</string>
-    <string name="billing_status_label">Status</string>
+    <string name="billing_status_label">Stan</string>
     <string name="plan_renews">Odnawianie dnia</string>
     <string name="plan_cancels_on">Anulowanie dnia</string>
     <string name="billing_invoices">Faktury</string>
@@ -973,7 +973,7 @@
     <string name="approximate_location_note">To jest przybliżona lokalizacja. Przeszukaj okoliczny teren.</string>
     <string name="coordinates_label">Współrzędne: %1$s</string>
     <string name="open_in">Otwórz w:</string>
-    <string name="google_maps">Google Maps</string>
+    <string name="google_maps">Mapy Google</string>
     <string name="waze">Waze</string>
     <string name="other_maps_app">Inna aplikacja z mapami</string>
     <string name="open_with">Otwórz za pomocą\u2026</string>
