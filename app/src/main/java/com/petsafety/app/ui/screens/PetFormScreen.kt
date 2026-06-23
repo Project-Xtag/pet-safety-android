@@ -527,8 +527,15 @@ fun PetFormScreen(
                     // values and the "pet too old" sanity heuristic trips.
                     val maxMillis = System.currentTimeMillis()
                     val minMillis = maxMillis - (100L * 365L * 24L * 60L * 60L * 1000L)
+                    // Clamp the initial value into [minMillis, maxMillis]. A
+                    // malformed stored DOB (e.g. a year far outside 1900..2100)
+                    // otherwise crashes rememberDatePickerState fatally — its
+                    // yearRange check rejects the initial date, and the
+                    // selectableDates lambda only gates which dates are tappable,
+                    // not the initial value. See Sentry ANDROID-4.
+                    val safeInitialMillis = (dobMillis ?: maxMillis).coerceIn(minMillis, maxMillis)
                     val datePickerState = rememberDatePickerState(
-                        initialSelectedDateMillis = dobMillis ?: maxMillis,
+                        initialSelectedDateMillis = safeInitialMillis,
                         selectableDates = object : SelectableDates {
                             override fun isSelectableDate(utcTimeMillis: Long): Boolean =
                                 utcTimeMillis in minMillis..maxMillis
