@@ -182,16 +182,23 @@ private fun PublicPetContent(
     // target / permission flow / share dialog fires.
     val isOwnPet = currentUser != null && pet.ownerId == currentUser.id
 
-    // Compute all public contact info (primary + secondary, filtered by backend privacy)
+    // Compute all public contact info (primary + secondary, filtered by privacy).
+    // For the owner's own pet the authenticated pet object carries no owner_*
+    // fields, so secondary contacts need the same currentUser fallback the
+    // primary ones have — gated on their own visibility flag — otherwise a
+    // visible secondary email/phone never shows in this preview even though it
+    // appears on the real public profile.
     val ownerPhones = buildList {
         pet.ownerPhone?.let { add(it) }
             ?: if (isOwnPet && currentUser?.showPhonePublicly == true) currentUser.phone?.let { add(it) } else Unit
         pet.ownerSecondaryPhone?.let { add(it) }
+            ?: if (isOwnPet && currentUser?.showSecondaryPhonePublicly == true) currentUser.secondaryPhone?.takeIf { it.isNotBlank() }?.let { add(it) } else Unit
     }
     val ownerEmails = buildList {
         pet.ownerEmail?.let { add(it) }
             ?: if (isOwnPet && currentUser?.showEmailPublicly == true) currentUser.email?.let { add(it) } else Unit
         pet.ownerSecondaryEmail?.let { add(it) }
+            ?: if (isOwnPet && currentUser?.showSecondaryEmailPublicly == true) currentUser.secondaryEmail?.takeIf { it.isNotBlank() }?.let { add(it) } else Unit
     }
     // Build formatted owner address from backend fields (already privacy-filtered)
     val ownerAddress = run {
