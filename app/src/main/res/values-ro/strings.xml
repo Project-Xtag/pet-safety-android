@@ -80,9 +80,9 @@
     <string name="register">Înregistrare</string>
     <string name="already_have_account">Ai deja cont?</string>
     <string name="log_in">Autentificare</string>
-    <string name="terms_login_prefix">Prin autentificare, ești de acord cu </string>
-    <string name="terms_register_prefix">Prin înregistrare, ești de acord cu </string>
-    <string name="terms_and"> și </string>
+    <string name="terms_login_prefix">Prin autentificare, ești de acord cu</string>
+    <string name="terms_register_prefix">Prin înregistrare, ești de acord cu</string>
+    <string name="terms_and"> și</string>
     <string name="terms_of_service">Termenii de utilizare</string>
     <string name="privacy_policy">Politica de confidențialitate</string>
     <string name="first_name">Prenume</string>
@@ -819,7 +819,7 @@
     <!-- MARK: Push Notification Prompt -->
     <!-- ============================================ -->
     <string name="push_prompt_title">Rămâi conectat</string>
-    <string name="push_prompt_subtitle">Activează notificările pentru a nu rata actualizări importante:</string>
+    <string name="push_prompt_subtitle">Activează notificările pentru actualizări importante:</string>
     <string name="push_prompt_benefit_scan">Alerte instant când medalonul animalului de companie tău este scanată</string>
     <string name="push_prompt_benefit_sighting">Raportări de observații din comunitate</string>
     <string name="push_prompt_benefit_found">Află imediat când animalul de companie tău este găsit</string>
@@ -1190,14 +1190,14 @@
     <string name="breed_cat_british_shorthair">British shorthair</string>
     <string name="breed_cat_exotic_shorthair">Exotic shorthair</string>
     <string name="breed_cat_abyssinian">Abisinian</string>
-    <string name="breed_cat_scottish_fold">Scottish Fold</string>
+    <string name="breed_cat_scottish_fold">Scottisch Fold cu urechi plecate</string>
     <string name="breed_cat_sphynx">Sfinx</string>
     <string name="breed_cat_siamese">Siameză</string>
     <string name="breed_cat_devon_rex">Devon rex</string>
     <string name="breed_cat_oriental_shorthair">Oriental cu păr scurt</string>
     <string name="breed_cat_burmese">Burmeză</string>
-    <string name="breed_cat_american_shorthair">American Shorthair</string>
-    <string name="breed_cat_bengal">Bengal</string>
+    <string name="breed_cat_american_shorthair">American Shorthair cu păr scurt</string>
+    <string name="breed_cat_bengal">Bengali</string>
     <string name="breed_cat_russian_blue">Albastru Rus</string>
     <string name="breed_cat_norwegian_forest_cat">Pisica Norvegiană de Pădure</string>
     <string name="breed_cat_birman">Birman</string>
@@ -1211,7 +1211,7 @@
     <string name="breed_cat_manx">Manx</string>
     <string name="breed_cat_selkirk_rex">Selkirk rex</string>
     <string name="breed_cat_ragamuffin">RagaMuffin</string>
-    <string name="breed_cat_american_curl">American Curl</string>
+    <string name="breed_cat_american_curl">American Curl cu urechi ondulate</string>
     <string name="breed_cat_chartreux">Chartreux</string>
     <string name="breed_cat_bombay">Bombay</string>
     <string name="breed_cat_egyptian_mau">Mau Egiptean</string>
